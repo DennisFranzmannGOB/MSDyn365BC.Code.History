@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Utilities;
-
 permissionset 4656 "Dynamics Online Setup"
 {
     Access = Public;

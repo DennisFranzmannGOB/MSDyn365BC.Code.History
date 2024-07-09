@@ -1,15 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace System.Automation;
-
-using Microsoft.Inventory.Item;
-using System.Environment;
-using System.Environment.Configuration;
-using System.Reflection;
-using System.Utilities;
-
 page 1812 "Item Approval WF Setup Wizard"
 {
     Caption = 'Item Approval Workflow Setup';
@@ -276,10 +264,10 @@ page 1812 "Item Approval WF Setup Wizard"
 
     trigger OnInit()
     begin
-        if not Rec.Get() then begin
-            Rec.Init();
+        if not Get() then begin
+            Init();
             SetDefaultValues();
-            Rec.Insert();
+            Insert();
         end;
         LoadTopBanners();
     end;
@@ -340,7 +328,8 @@ page 1812 "Item Approval WF Setup Wizard"
             Step::"Item Approver Setup":
                 ShowApprovalUserSetupDetailsStep();
             Step::"Automatic Approval Setup":
-                if Rec."App. Trigger" = Rec."App. Trigger"::"The user changes a specific field" then
+                if "App. Trigger" = "App. Trigger"::"The user changes a specific field"
+                then
                     ShowItemApprovalDetailsStep()
                 else
                     NextStep(Backwards);
@@ -367,7 +356,7 @@ page 1812 "Item Approval WF Setup Wizard"
     begin
         ResetWizardControls();
         ItemAutoAppDetailsVisible := true;
-        SetItemField(Rec.Field);
+        SetItemField(Field);
     end;
 
     local procedure ShowDoneStep()
@@ -377,11 +366,12 @@ page 1812 "Item Approval WF Setup Wizard"
         NextEnabled := false;
         FinishEnabled := true;
 
-        if Rec."App. Trigger" = Rec."App. Trigger"::"The user sends an approval requests manually" then
-            SummaryText := StrSubstNo(ManualTriggerTxt, Rec."Approver ID");
-        if Rec."App. Trigger" = Rec."App. Trigger"::"The user changes a specific field" then begin
-            Rec.CalcFields("Field Caption");
-            SummaryText := StrSubstNo(AutoTriggerTxt, Rec."Approver ID", Rec."Field Caption", Rec."Field Operator");
+        if "App. Trigger" = "App. Trigger"::"The user sends an approval requests manually" then
+            SummaryText := StrSubstNo(ManualTriggerTxt, "Approver ID");
+        if "App. Trigger" = "App. Trigger"::"The user changes a specific field"
+        then begin
+            CalcFields("Field Caption");
+            SummaryText := StrSubstNo(AutoTriggerTxt, "Approver ID", "Field Caption", "Field Operator");
         end;
 
         SummaryText := ConvertStr(SummaryText, '\', '/');
@@ -411,26 +401,26 @@ page 1812 "Item Approval WF Setup Wizard"
         WorkflowResponseHandling: Codeunit "Workflow Response Handling";
         WorkflowCode: Code[20];
     begin
-        Rec.TableNo := DATABASE::Item;
+        TableNo := DATABASE::Item;
         WorkflowCode := WorkflowSetup.GetWorkflowTemplateCode(WorkflowSetup.ItemUnitPriceChangeApprovalWorkflowCode());
         if Workflow.Get(WorkflowCode) then begin
             WorkflowRule.SetRange("Workflow Code", WorkflowCode);
             if WorkflowRule.FindFirst() then begin
-                Rec.Field := WorkflowRule."Field No.";
-                Rec."Field Operator" := WorkflowRule.Operator;
+                Field := WorkflowRule."Field No.";
+                "Field Operator" := WorkflowRule.Operator;
             end;
             WorkflowStep.SetRange("Workflow Code", WorkflowCode);
             WorkflowStep.SetRange("Function Name", WorkflowResponseHandling.ShowMessageCode());
             if WorkflowStep.FindFirst() then begin
                 WorkflowStepArgument.Get(WorkflowStep.Argument);
-                Rec."Custom Message" := WorkflowStepArgument.Message;
+                "Custom Message" := WorkflowStepArgument.Message;
             end;
         end;
     end;
 
     local procedure ValidateApprover()
     begin
-        if Rec."Approver ID" = '' then
+        if "Approver ID" = '' then
             Error(MandatoryApproverErr);
     end;
 
@@ -445,9 +435,9 @@ page 1812 "Item Approval WF Setup Wizard"
 
     local procedure SetItemField(FieldNo: Integer)
     begin
-        Rec.Field := FieldNo;
-        Rec.CalcFields("Field Caption");
-        ItemFieldCaption := Rec."Field Caption";
+        Field := FieldNo;
+        CalcFields("Field Caption");
+        ItemFieldCaption := "Field Caption";
     end;
 
     local procedure FindAndFilterToField(var FieldRec: Record "Field"; CaptionToFind: Text): Boolean
@@ -471,8 +461,8 @@ page 1812 "Item Approval WF Setup Wizard"
         FieldRec.SetRange(Class, FieldRec.Class::Normal);
         FieldRec.SetFilter(ObsoleteState, '<>%1', FieldRec.ObsoleteState::Removed);
 
-        if CaptionToFind = Rec."Field Caption" then
-            FieldRec.SetRange("No.", Rec.Field)
+        if CaptionToFind = "Field Caption" then
+            FieldRec.SetRange("No.", Field)
         else
             if CaptionToFind = 'Blocked' then
                 FieldRec.SetFilter("Field Caption", '%1', '@' + CaptionToFind)

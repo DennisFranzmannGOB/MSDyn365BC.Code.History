@@ -1,7 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
-using Microsoft.Finance.RoleCenters;
-
 pageextension 1151 "COHUB Bookkeeper Role Center" extends "Bookkeeper Role Center"
 {
     layout

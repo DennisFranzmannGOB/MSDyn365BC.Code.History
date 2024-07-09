@@ -2561,7 +2561,6 @@ codeunit 137068 "SCM Inventory Orders-II"
         Location.Validate("Require Pick", RequirePick);
         Location.Validate("Require Shipment", RequireShipment);
         Location."Bin Mandatory" := BinMandatory;
-        Location."Always Create Put-away Line" := true;
         Location.Modify(true);
     end;
 

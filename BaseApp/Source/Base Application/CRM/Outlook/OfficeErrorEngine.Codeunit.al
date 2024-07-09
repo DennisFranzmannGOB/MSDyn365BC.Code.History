@@ -1,5 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
 codeunit 1632 "Office Error Engine"
 {
     SingleInstance = true;

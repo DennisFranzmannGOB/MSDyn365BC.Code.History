@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 /// <summary>
 /// The interface for a email view policy.
 /// Email view policies decide the emails that a given User can view.

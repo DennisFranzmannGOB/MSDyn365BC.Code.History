@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
 /// <summary>
 /// ListPart page that contains all the user plan members.
 /// </summary>
@@ -19,7 +17,7 @@ page 9823 "User Plan Members FactBox"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
@@ -37,4 +35,7 @@ page 9823 "User Plan Members FactBox"
         }
     }
 
+    actions
+    {
+    }
 }

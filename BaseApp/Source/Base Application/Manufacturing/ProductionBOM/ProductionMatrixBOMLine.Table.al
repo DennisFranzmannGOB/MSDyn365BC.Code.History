@@ -1,7 +1,3 @@
-namespace Microsoft.Manufacturing.ProductionBOM;
-
-using Microsoft.Inventory.Item;
-
 table 99000788 "Production Matrix BOM Line"
 {
     Caption = 'Production Matrix BOM Line';
@@ -16,12 +12,12 @@ table 99000788 "Production Matrix BOM Line"
         field(2; "Variant Code"; Code[10])
         {
             Caption = 'Variant Code';
-            TableRelation = "Item Variant".Code where("Item No." = field("Item No."));
+            TableRelation = "Item Variant".Code WHERE("Item No." = FIELD("Item No."));
         }
         field(10; "Unit of Measure Code"; Code[10])
         {
             Caption = 'Unit of Measure Code';
-            TableRelation = "Item Unit of Measure".Code where("Item No." = field("Item No."));
+            TableRelation = "Item Unit of Measure".Code WHERE("Item No." = FIELD("Item No."));
         }
         field(11; Description; Text[100])
         {

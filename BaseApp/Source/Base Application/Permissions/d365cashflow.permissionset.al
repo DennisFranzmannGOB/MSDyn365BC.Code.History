@@ -1,11 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.CashFlow.Account;
-using Microsoft.CashFlow.Comment;
-using Microsoft.CashFlow.Forecast;
-using Microsoft.CashFlow.Setup;
-using Microsoft.CashFlow.Worksheet;
-
 permissionset 5656 "D365 CASH FLOW"
 {
     Assignable = true;

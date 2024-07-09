@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Environment.Configuration;
 
 /// <summary>
 /// Exposes functionality to check whether the system is initializing as well as an event to subscribed to in order to execute logic right after the system has initialized.
@@ -40,7 +38,11 @@ codeunit 150 "System Initialization"
     /// Integration event for after the system initialization.
     /// Used only for login.
     /// </summary>
+#if CLEAN20
     [Scope('OnPrem')]
+#else
+    [Obsolete('Replaced by OnAfterLogin.', '20.0')]
+#endif
     [IntegrationEvent(false, false)]
     internal procedure OnAfterInitialization()
     begin

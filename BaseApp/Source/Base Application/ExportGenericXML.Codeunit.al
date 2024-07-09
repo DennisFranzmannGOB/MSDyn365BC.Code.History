@@ -1,5 +1,3 @@
-namespace System.IO;
-
 codeunit 1283 "Export Generic XML"
 {
     Permissions = TableData "Data Exch. Field" = rimd;
@@ -11,16 +9,10 @@ codeunit 1283 "Export Generic XML"
         DataExchLineDef: Record "Data Exch. Line Def";
         DataExchMapping: Record "Data Exch. Mapping";
         DataExchTableFilter: Record "Data Exch. Table Filter";
-        DefaultTableID: Integer;
         xmlDoc: XmlDocument;
         OutStr: OutStream;
         IsHandled: Boolean;
     begin
-        DataExchMapping.SetRange("Data Exch. Def Code", Rec."Data Exch. Def Code");
-        DataExchMapping.SetRange("Data Exch. Line Def Code", Rec."Data Exch. Line Def Code");
-        if DataExchMapping.FindFirst() then
-            DefaultTableID := DataExchMapping."Table ID";
-
         DataExchLineDef.SetRange("Data Exch. Def Code", Rec."Data Exch. Def Code");
         DataExchLineDef.SetFilter(Code, '<>%1', Rec."Data Exch. Line Def Code");
         if DataExchLineDef.FindSet() then
@@ -39,8 +31,7 @@ codeunit 1283 "Export Generic XML"
                         DataExchTableFilter.CalcFields("Table Filters");
                         DataExch."Table Filters" := DataExchTableFilter."Table Filters";
                     end else
-                        if (DefaultTableID <> 0) and (DataExchMapping."Table ID" = DefaultTableID) then
-                            DataExch."Table Filters" := Rec."Table Filters";
+                        DataExch."Table Filters" := Rec."Table Filters";
                     DataExch.Insert(true);
 
                     OnBeforeProcessDataExc(DataExch, IsHandled);
@@ -78,7 +69,6 @@ codeunit 1283 "Export Generic XML"
         xmlNode: XmlNode;
         i, LineCount : Integer;
         isSubRoot, IsHandled : Boolean;
-        xmlNodeFound: Boolean;
     begin
         IsHandled := false;
         OnBeforeExportDetails(DataExch, xmlDoc, IsHandled);
@@ -88,13 +78,8 @@ codeunit 1283 "Export Generic XML"
         DataExchDef.Get(DataExch."Data Exch. Def Code");
         DataExchLineDef.Get(DataExch."Data Exch. Def Code", DataExch."Data Exch. Line Def Code");
         if DataExchLineDef."Data Line Tag" <> '' then begin
-            if StrPos(DataExchLineDef."Data Line Tag", ':') = 0 then
-                xmlNodeFound := xmlDoc.SelectSingleNode(DataExchLineDef."Data Line Tag".Replace('/', '/' + DefNameSpacePrefixLbl + ':').Replace('[', '[' + DefNameSpacePrefixLbl + ':'), xmlNamespaceManager, xmlNode)
-            else
-                xmlNodeFound := xmlDoc.SelectSingleNode(DataExchLineDef."Data Line Tag", xmlNamespaceManager, xmlNode);
+            xmlDoc.SelectSingleNode(DataExchLineDef."Data Line Tag".Replace('/', '/' + DefNameSpacePrefixLbl + ':').Replace('[', '[' + DefNameSpacePrefixLbl + ':'), xmlNamespaceManager, xmlNode);
             // currently xPath with only one [node = value] criteria is supported
-            if not xmlNodeFound then
-                exit;
             xmlElemRoot := xmlNode.AsXmlElement();
         end else begin
             xmlDoc := xmlDocument.Create();
@@ -114,15 +99,12 @@ codeunit 1283 "Export Generic XML"
             if DataExchColumnDef.FindSet() then begin
                 xmlDocPerLine := xmlDocument.Create();
                 xmlElem := xmlElement.Create('root');
-                xmlElemSubRoot := XmlElement.Create(uniqueNodeLbl);
                 xmlDocPerLine.Add(xmlElem);
                 isSubRoot := true;
                 repeat
                     ProcessDataExchColumnDef(DataExchColumnDef, GetDataExchFieldValue(DataExch."Entry No.", i, DataExchColumnDef."Column No."), xmlElem, xmlElemSubRoot, isSubRoot);
                 until DataExchColumnDef.Next() = 0;
-
-                if xmlElemSubRoot.Name <> uniqueNodeLbl then
-                    xmlElemRoot.Add(xmlElemSubRoot);
+                xmlElemRoot.Add(xmlElemSubRoot);
                 Clear(xmlDocPerLine);
             end;
         end;
@@ -139,7 +121,6 @@ codeunit 1283 "Export Generic XML"
         xmlDec: XmlDeclaration;
         xmlPath, nName, nVal : Text;
         isSubRoot, IsHandled : Boolean;
-        xmlNodeFound: Boolean;
     begin
         IsHandled := false;
         OnBeforeExportHeader(DataExch, xmlDoc, IsHandled);
@@ -151,27 +132,17 @@ codeunit 1283 "Export Generic XML"
         DataExchColumnDef.SetRange("Data Exch. Line Def Code", DataExch."Data Exch. Line Def Code");
         if DataExchColumnDef.FindSet() then
             if DataExchLineDef.Get(DataExch."Data Exch. Def Code", DataExch."Data Exch. Line Def Code") and (DataExchLineDef."Data Line Tag" <> '') then begin
-                if StrPos(DataExchLineDef."Data Line Tag", ':') = 0 then
-                    xmlNodeFound := xmlDoc.SelectSingleNode(DataExchLineDef."Data Line Tag".Replace('/', '/' + DefNameSpacePrefixLbl + ':'), xmlNamespaceManager, xmlNode)
-                else
-                    xmlNodeFound := xmlDoc.SelectSingleNode(DataExchLineDef."Data Line Tag", xmlNamespaceManager, xmlNode);
-
-                if not xmlNodeFound then
-                    exit;
-
+                xmlDoc.SelectSingleNode(DataExchLineDef."Data Line Tag".Replace('/', '/' + DefNameSpacePrefixLbl + ':'), xmlNamespaceManager, xmlNode);
                 xmlElemRoot := xmlNode.AsXmlElement();
 
                 xmlSubDoc := xmlDocument.Create();
                 xmlElem := xmlElement.Create('root');
-                xmlElemSubRoot := XmlElement.Create(uniqueNodeLbl);
                 xmlSubDoc.Add(xmlElem);
                 isSubRoot := true;
                 repeat
                     ProcessDataExchColumnDef(DataExchColumnDef, GetDataExchFieldValue(DataExch."Entry No.", 1, DataExchColumnDef."Column No."), xmlElem, xmlElemSubRoot, isSubRoot);
                 until DataExchColumnDef.Next() = 0;
-
-                if xmlElemSubRoot.Name <> uniqueNodeLbl then
-                    xmlElemRoot.Add(xmlElemSubRoot);
+                xmlElemRoot.Add(xmlElemSubRoot);
             end else begin
                 xmlDoc := xmlDocument.Create();
 
@@ -189,7 +160,6 @@ codeunit 1283 "Export Generic XML"
                 nVal := GetDataExchFieldValue(DataExch."Entry No.", 1, DataExchColumnDef."Column No.");
 
                 DefaultNameSpace := DataExchLineDef.Namespace;
-                xmlNamespaceManager.NameTable(xmlDoc.NameTable());
                 xmlNamespaceManager.AddNamespace(DefNameSpacePrefixLbl, DefaultNameSpace);
 
                 IsHandled := false;
@@ -222,44 +192,35 @@ codeunit 1283 "Export Generic XML"
     var
         xmlElemNew: XmlElement;
         xmlNode: XmlNode;
-        xmlNodeList, xmlNodeList2 : XmlNodeList;
+        xmlNodeList: XmlNodeList;
         xmlAttributesText: List of [Text];
         xmlAttributeText: Text;
         xPathPart, attrName, attrValue, eName : Text;
         xmlNodesText: List of [Text];
         i: Integer;
         IsHandled: Boolean;
-        NameSpacePrefix, NameSpace : Text;
     begin
-        NameSpace := DefaultNameSpace;
-        NameSpacePrefix := DefNameSpacePrefixLbl;
-
         Clear(xmlNodesText);
         xPathPart := DataExchColumnDef.Path;
         xmlNodesText := xPathPart.Split('/');
         for i := 1 to xmlNodesText.Count() do begin
             xPathPart := xmlNodesText.Get(i);
             if xPathPart <> '' then begin
-                if StrPos(xPathPart, ':') <> 0 then begin
-                    NameSpacePrefix := CopyStr(xPathPart, 1, StrPos(xPathPart, ':') - 1);
-                    xmlNamespaceManager.LookupNamespace(NameSpacePrefix, NameSpace);
-                    xPathPart := CopyStr(xPathPart, StrPos(xPathPart, ':') + 1);
-                end;
-                xmlElem.SelectNodes(StrSubstNo(xPathLbl, NameSpacePrefix, xPathPart), xmlNamespaceManager, xmlNodeList);
-                if (xmlNodeList.Count = 0) or (i = xmlNodesText.Count) then
+                xmlElem.SelectNodes(StrSubstNo(xPathLbl, DefNameSpacePrefixLbl, xPathPart), xmlNamespaceManager, xmlNodeList);
+                if xmlNodeList.Count = 0 then
                     case true of
                         StrPos(xPathPart, '@') = 0:
                             begin
                                 eName := xPathPart;
                                 IsHandled := false;
-                                OnBeforeCreateXMLNodeWithoutAttributes(eName, eValue, DataExchColumnDef, NameSpace, IsHandled);
+                                OnBeforeCreateXMLNodeWithoutAttributes(eName, eValue, DataExchColumnDef, DefaultNameSpace, IsHandled);
                                 if not IsHandled then begin
                                     if DataExchColumnDef."Export If Not Blank" and (eValue = '') then
                                         exit;
                                     if i = xmlNodesText.Count() then
-                                        xmlElemNew := xmlElement.Create(eName, NameSpace, eValue)
+                                        xmlElemNew := xmlElement.Create(eName, DefaultNameSpace, eValue)
                                     else
-                                        xmlElemNew := xmlElement.Create(eName, NameSpace, '');
+                                        xmlElemNew := xmlElement.Create(eName, DefaultNameSpace, '');
                                     xmlElem.Add(xmlElemNew);
                                     xmlElem := xmlElemNew;
                                     if isSubRoot then begin
@@ -271,32 +232,27 @@ codeunit 1283 "Export Generic XML"
                         (StrPos(xPathPart, '@') <> 0) and (StrPos(xPathPart, '=') = 0):
                             begin
                                 eName := xPathPart.Split('[').Get(1);
-                                if xmlElem.SelectNodes(StrSubstNo(xPathLbl, NameSpacePrefix, eName), xmlNamespaceManager, xmlNodeList2) then
-                                    if xmlNodeList2.Get(xmlNodeList2.Count(), xmlNode) then begin
-                                        xmlElem := xmlNode.AsXmlElement();
-                                        attrName := xPathPart.Split('[@').Get(2).TrimEnd(']');
+                                xmlElem.SelectSingleNode(StrSubstNo(xPathLbl, DefNameSpacePrefixLbl, eName), xmlNamespaceManager, xmlNode);
+                                xmlElem := xmlNode.AsXmlElement();
+                                attrName := xPathPart.Split('[@').Get(2).TrimEnd(']');
 
-                                        IsHandled := false;
-                                        OnBeforeCreateXMLAttribute(attrName, eValue, DataExchColumnDef, NameSpace, IsHandled);
-                                        if not IsHandled then begin
-                                            if DataExchColumnDef."Export If Not Blank" and (eValue = '') then
-                                                exit;
-                                            xmlElem.SetAttribute(attrName, eValue);
-                                        end;
-                                    end;
+                                IsHandled := false;
+                                OnBeforeCreateXMLAttribute(attrName, eValue, DataExchColumnDef, DefaultNameSpace, IsHandled);
+                                if not IsHandled then
+                                    xmlElem.SetAttribute(attrName, eValue);
                             end;
                         (StrPos(xPathPart, '@') <> 0) and (StrPos(xPathPart, '=') <> 0):
                             begin
                                 eName := xPathPart.Split('[').Get(1);
                                 IsHandled := false;
-                                OnBeforeCreateXMLNodeWithAttributes(eName, eValue, DataExchColumnDef, NameSpace, IsHandled);
+                                OnBeforeCreateXMLNodeWithAttributes(eName, eValue, DataExchColumnDef, DefaultNameSpace, IsHandled);
                                 if not IsHandled then begin
                                     if DataExchColumnDef."Export If Not Blank" and (eValue = '') then
                                         exit;
                                     if i = xmlNodesText.Count() then
-                                        xmlElemNew := xmlElement.Create(eName, NameSpace, eValue)
+                                        xmlElemNew := xmlElement.Create(eName, DefaultNameSpace, eValue)
                                     else
-                                        xmlElemNew := xmlElement.Create(eName, NameSpace, '');
+                                        xmlElemNew := xmlElement.Create(eName, DefaultNameSpace, '');
                                     xmlElem.Add(xmlElemNew);
                                     xmlElem := xmlElemNew;
 
@@ -331,7 +287,6 @@ codeunit 1283 "Export Generic XML"
         XPathNotSupportedErr: Label 'xPath is not supported.';
         DefNameSpacePrefixLbl: Label 'def', Locked = true;
         xPathLbl: Label '//%1:%2', Locked = true;
-        uniqueNodeLbl: Label 'eb25fce3-1cc0-4ed5-b87a-ff9c31a895f5', Locked = true;
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeCreateXMLNodeWithoutAttributes(var xmlNodeName: Text; var xmlNodeValue: Text; var DataExchColumnDef: Record "Data Exch. Column Def"; var DefaultNameSpace: Text; var IsHandled: Boolean)

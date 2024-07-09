@@ -1,30 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.CRM.BusinessRelation;
-using Microsoft.CRM.Contact;
-using Microsoft.CRM.Team;
-using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Foundation.PaymentTerms;
-using Microsoft.Foundation.Shipping;
-using Microsoft.Foundation.UOM;
-using Microsoft.Integration.D365Sales;
-using Microsoft.Integration.SyncEngine;
-using Microsoft.Inventory.Item;
-using Microsoft.Pricing.PriceList;
-using Microsoft.Projects.Resources.Resource;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-using Microsoft.Sales.Document;
-using System;
-using System.Environment;
-using System.Environment.Configuration;
-using System.IO;
-using System.Telemetry;
-
 codeunit 7205 "CDS Int. Table. Subscriber"
 {
     SingleInstance = true;
@@ -51,6 +24,10 @@ codeunit 7205 "CDS Int. Table. Subscriber"
         UpdateContactParentCompanyFailedTxt: Label 'Updating contact parent company failed. Parent Customer ID: %1', Locked = true, Comment = '%1 - parent customer id';
         UpdateContactParentCompanySuccessfulTxt: Label 'Contact parent company has successfully been updated.', Locked = true;
         UpdateContactParentCompanyAlreadySetTxt: Label 'Contact parent company has already been set correctly.', Locked = true;
+        DataverseAuthUpgradeEnabledSecretNameLbl: Label 'dataverseauthupgenabled', Locked = true;
+        DataverseAuthUpgradeJobQueueCategoryLbl: Label 'CDSAUTHUPG', Locked = true;
+        SuccessfullyScheduledDataverseAuthupgradeTxt: Label 'Successfully scheduled Dataverse authentication type upgrade.', Locked = true;
+        DataverseAuthupgradeJQEDescriptionTxt: Label 'Upgrading authentication type for connecting to Dataverse.', Comment = 'Dataverse is a name of a Microsoft service and must not be translated.';
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"CRM Integration Management", 'OnInitCDSConnection', '', true, true)]
     local procedure HandleOnInitCDSConnection(var ConnectionName: Text; var handled: Boolean)
@@ -130,9 +107,6 @@ codeunit 7205 "CDS Int. Table. Subscriber"
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Integration Rec. Synch. Invoke", 'OnAfterInsertRecord', '', false, false)]
     local procedure HandleOnAfterInsertRecord(var SourceRecordRef: RecordRef; var DestinationRecordRef: RecordRef)
-    var
-        IntegrationTableMapping: Record "Integration Table Mapping";
-        Customer: Record Customer;
     begin
         case GetSourceDestCode(SourceRecordRef, DestinationRecordRef) of
             'CRM Account-Customer',
@@ -150,19 +124,6 @@ codeunit 7205 "CDS Int. Table. Subscriber"
                 FixPrimaryContactIdInCDS(SourceRecordRef, DestinationRecordRef);
             'CRM Systemuser-Salesperson/Purchaser':
                 AddCoupledUserToDefaultOwningTeam(SourceRecordRef);
-            'Customer-CRM Account':
-                begin
-                    SourceRecordRef.SetTable(Customer);
-                    IntegrationTableMapping.SetRange(Type, IntegrationTableMapping.Type::Dataverse);
-                    IntegrationTableMapping.SetRange("Delete After Synchronization", false);
-                    IntegrationTableMapping.SetRange("Table ID", Database::Contact);
-                    IntegrationTableMapping.SetRange("Integration Table ID", Database::"CRM Contact");
-                    if IntegrationTableMapping.FindFirst() then
-                        if IntegrationTableMapping."Synch. Int. Tbl. Mod. On Fltr." > Customer.SystemCreatedAt then begin
-                            IntegrationTableMapping."Synch. Int. Tbl. Mod. On Fltr." := Customer.SystemCreatedAt;
-                            IntegrationTableMapping.Modify();
-                        end;
-                end;
         end;
     end;
 
@@ -744,6 +705,70 @@ codeunit 7205 "CDS Int. Table. Subscriber"
         RemoveChildCouplings(LocalRecordRef, IntegrationRecordRef);
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Integration Table Synch.", 'OnAfterInitSynchJob', '', true, true)]
+    local procedure ScheduleAuthUpgradeOnAfterInitSynchJob(ConnectionType: TableConnectionType; IntegrationTableID: Integer)
+    var
+        CDSConnectionSetup: Record "CDS Connection Setup";
+        CRMConnectionSetup: Record "CRM Connection Setup";
+        JobQueueEntry: Record "Job Queue Entry";
+        CRMIntegrationManagement: Codeunit "CRM Integration Management";
+        EnvironmentInformation: Codeunit "Environment Information";
+        UpgradeTag: Codeunit "Upgrade Tag";
+        UpgradeTagDefinitions: Codeunit "Upgrade Tag Definitions";
+        AzureKeyVault: Codeunit "Azure Key Vault";
+        DataverseAuthUpgradeEnabledTxt: Text;
+    begin
+        if ConnectionType <> TableConnectionType::CRM then
+            exit;
+
+        if not EnvironmentInformation.IsSaaSInfrastructure() then
+            exit;
+
+        if not CRMConnectionSetup.WritePermission() then
+            exit;
+
+        if not CDSConnectionSetup.WritePermission() then
+            exit;
+
+        if CDSConnectionSetup.Get() then
+            if CDSConnectionSetup."Is Enabled" then
+                if CDSConnectionSetup."Connection String".IndexOf('{CERTIFICATE}') > 0 then
+                    exit;
+
+        if CRMConnectionSetup.IsEnabled() then
+            if CRMConnectionSetup.GetConnectionString().IndexOf('{CERTIFICATE}') > 0 then
+                exit;
+
+        if not CRMIntegrationManagement.UserCanRescheduleJob() then
+            exit;
+
+        // this will enable us to roll this out region per region and it will always exit for Embed ISV clusters
+        if not AzureKeyVault.GetAzureKeyVaultSecret(DataverseAuthUpgradeEnabledSecretNameLbl, DataverseAuthUpgradeEnabledTxt) then
+            exit;
+        if Lowercase(DataverseAuthUpgradeEnabledTxt) <> 'yes' then
+            exit;
+
+        if UpgradeTag.HasUpgradeTag(UpgradeTagDefinitions.GetDataverseAuthenticationUpgradeTag()) then
+            exit;
+
+        JobQueueEntry.SetRange("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
+        JobQueueEntry.SetRange("Object ID to Run", Codeunit::"CDS Setup Certificate Auth");
+        if not JobQueueEntry.FindFirst() then
+            JobQueueEntry.Init();
+        JobQueueEntry."Earliest Start Date/Time" := CurrentDateTime() + 10000;
+        JobQueueEntry."Object Type to Run" := JobQueueEntry."Object Type to Run"::Codeunit;
+        JobQueueEntry."Object ID to Run" := Codeunit::"CDS Setup Certificate Auth";
+        JobQueueEntry."Maximum No. of Attempts to Run" := 3;
+        JobQueueEntry."Rerun Delay (sec.)" := 120;
+        JobQueueEntry."Run in User Session" := false;
+        JobQueueEntry."Job Queue Category Code" := CopyStr(DataverseAuthUpgradeJobQueueCategoryLbl, 1, MaxStrLen(JobQueueEntry."Job Queue Category Code"));
+        JobQueueEntry.Description := DataverseAuthupgradeJQEDescriptionTxt;
+        Codeunit.Run(Codeunit::"Job Queue - Enqueue", JobQueueEntry);
+        Session.LogMessage('0000GJ7', SuccessfullyScheduledDataverseAuthupgradeTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
+
+        UpgradeTag.SetUpgradeTag(UpgradeTagDefinitions.GetDataverseAuthenticationUpgradeTag());
+    end;
+
     local procedure RemoveChildCouplings(var LocalRecordRef: RecordRef; var IntegrationRecordRef: RecordRef)
     var
         CRMIntegrationManagement: Codeunit "CRM Integration Management";
@@ -973,31 +998,6 @@ codeunit 7205 "CDS Int. Table. Subscriber"
                                 if not Confirm(StrSubstNo(CouplingsNeedToBeResetQst, IntegrationTableMappingList.Caption())) then
                                     Error('');
                         end;
-    end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Integration Rec. Synch. Invoke", 'OnAfterUnchangedRecordHandled', '', false, false)]
-    local procedure OnAfterUnchangedRecordHandled(IntegrationTableMapping: Record "Integration Table Mapping"; SourceRecordRef: RecordRef; DestinationRecordRef: RecordRef)
-    var
-        CDSConnectionSetup: Record "CDS Connection Setup";
-        CRMContact: Record "CRM Contact";
-        EmptyGuid: Guid;
-    begin
-        if not CDSConnectionSetup.Get() then
-            exit;
-
-        if not CDSConnectionSetup."Is Enabled" then
-            exit;
-
-        case GetSourceDestCode(SourceRecordRef, DestinationRecordRef) of
-            'Contact-CRM Contact':
-                begin
-                    DestinationRecordRef.SetTable(CRMContact);
-                    if CRMContact.ParentCustomerId = EmptyGuid then begin
-                        UpdateCRMContactParentCustomerId(SourceRecordRef, DestinationRecordRef);
-                        DestinationRecordRef.Modify();
-                    end
-                end;
-        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"CRM Integration Table Synch.", 'OnQueryPostFilterIgnoreRecord', '', false, false)]
@@ -1408,60 +1408,27 @@ codeunit 7205 "CDS Int. Table. Subscriber"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Integration Table Synch.", 'OnAfterInitSynchJob', '', true, true)]
     local procedure LogTelemetryOnAfterInitSynchJob(ConnectionType: TableConnectionType; IntegrationTableID: Integer)
     var
-        IntegrationTableMapping: Record "Integration Table Mapping";
         FeatureTelemetry: Codeunit "Feature Telemetry";
-        IntegrationRecordRef: RecordRef;
-        TelemetryCategories: Dictionary of [Text, Text];
-        IntegrationTableName: Text;
     begin
         if ConnectionType <> TableConnectionType::CRM then
             exit;
         FeatureTelemetry.LogUptake('0000H7M', 'Dataverse', Enum::"Feature Uptake Status"::Used);
         FeatureTelemetry.LogUsage('0000H7N', 'Dataverse', 'Entity sync');
-        IntegrationTableMapping.SetRange(Type, IntegrationTableMapping.Type::Dataverse);
-        IntegrationTableMapping.SetRange("Delete After Synchronization", false);
-        IntegrationTableMapping.SetRange("Multi Company Synch. Enabled", true);
-        IntegrationTableMapping.SetRange("Table ID", IntegrationTableID);
-        if not IntegrationTableMapping.IsEmpty() then begin
-            FeatureTelemetry.LogUptake('0000LCO', 'Dataverse Multi-Company Synch', Enum::"Feature Uptake Status"::Used);
-            FeatureTelemetry.LogUsage('0000LCQ', 'Dataverse Multi-Company Synch', 'Entity sync');
-            Session.LogMessage('0000LCS', 'Multi-Company Synch Enabled', Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
-        end;
-        IntegrationTableMapping.SetRange("Table ID");
-        IntegrationTableMapping.SetRange("Integration Table ID", IntegrationTableID);
-        if not IntegrationTableMapping.IsEmpty() then begin
-            FeatureTelemetry.LogUptake('0000LCP', 'Dataverse Multi-Company Synch', Enum::"Feature Uptake Status"::Used);
-            FeatureTelemetry.LogUsage('0000LCR', 'Dataverse Multi-Company Synch', 'Entity sync');
-            Session.LogMessage('0000LCT', 'Multi-Company Synch Enabled', Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
-        end;
-
-        TelemetryCategories.Add('Category', CategoryTok);
-        TelemetryCategories.Add('IntegrationTableID', Format(IntegrationTableID));
-        if TryCalculateTableName(IntegrationRecordRef, IntegrationTableID, IntegrationTableName) then
-            TelemetryCategories.Add('IntegrationTableName', IntegrationTableName);
-
         if IntegrationTableID in [
                 Database::"CRM Account",
                 Database::"CRM Contact",
                 Database::"CRM Transactioncurrency",
                 Database::"CRM Systemuser"] then begin
-            Session.LogMessage('0000FMC', 'Synching a base entity.', Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, TelemetryCategories);
+            Session.LogMessage('0000FMC', 'Synching a base entity.', Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
             FeatureTelemetry.LogUsage('0000H7O', 'Dataverse', 'Base entity synch');
             FeatureTelemetry.LogUsage('0000IIL', 'Dataverse Base Entities', 'Base entity synch');
             FeatureTelemetry.LogUptake('0000KMT', 'Dataverse Base Entities', Enum::"Feature Uptake Status"::Used);
             exit;
         end;
         if IntegrationTableID > MinCustomTableId() then begin
-            Session.LogMessage('0000FMD', 'Synching a custom entity.', Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, TelemetryCategories);
+            Session.LogMessage('0000FMD', 'Synching a custom entity.', Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
             FeatureTelemetry.LogUsage('0000H7P', 'Dataverse', 'Custom entity synch');
         end;
-    end;
-
-    [TryFunction]
-    local procedure TryCalculateTableName(var IntegrationRecordRef: RecordRef; TableId: Integer; var TableName: Text)
-    begin
-        IntegrationRecordRef.Open(TableId);
-        TableName := IntegrationRecordRef.Name();
     end;
 
     local procedure MinCustomTableId(): Integer

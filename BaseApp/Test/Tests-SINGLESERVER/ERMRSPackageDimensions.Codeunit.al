@@ -27,7 +27,6 @@ codeunit 136604 "ERM RS Package Dimensions"
 
     [Test]
     [Scope('OnPrem')]
-    [HandlerFunctions('ConfirmHandlerYes')]
     procedure ApplyJnlLineWithNewDimension()
     var
         ConfigPackage: Record "Config. Package";
@@ -77,7 +76,6 @@ codeunit 136604 "ERM RS Package Dimensions"
 
     [Test]
     [Scope('OnPrem')]
-    [HandlerFunctions('ConfirmHandlerYes')]
     procedure ApplyJnlLineWithExistingDimension()
     var
         ConfigPackage: Record "Config. Package";
@@ -124,7 +122,6 @@ codeunit 136604 "ERM RS Package Dimensions"
 
     [Test]
     [Scope('OnPrem')]
-    [HandlerFunctions('ConfirmHandlerYes')]
     procedure ApplyDimSetId_ApplyWithDifferentValueCode_DataApplied()
     var
         DimensionSetEntry: Record "Dimension Set Entry";
@@ -188,7 +185,6 @@ codeunit 136604 "ERM RS Package Dimensions"
 
     [Test]
     [Scope('OnPrem')]
-    [HandlerFunctions('ConfirmHandlerYes')]
     procedure ApplyBlankDimSetIDToJnlLineWithDefDimension()
     var
         ConfigPackage: Record "Config. Package";
@@ -425,14 +421,5 @@ codeunit 136604 "ERM RS Package Dimensions"
         ConfigXMLExchange.SetCalledFromCode(true);
         ConfigXMLExchange.SetHideDialog(true);
     end;
-
-    [ConfirmHandler]
-    [Scope('OnPrem')]
-    procedure ConfirmHandlerYes(Question: Text; var Reply: Boolean)
-    begin
-        Reply := true;
-    end;
-
-
 }
 

@@ -1,7 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Projects.Project.Job;
-
 page 20050 "APIV1 - Jobs"
 {
     APIVersion = 'v1.0';
@@ -20,16 +16,16 @@ page 20050 "APIV1 - Jobs"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'number', Locked = true;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'displayName', Locked = true;
                 }

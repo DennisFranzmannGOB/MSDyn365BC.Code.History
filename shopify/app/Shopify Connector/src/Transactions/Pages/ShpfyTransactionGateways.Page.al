@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Page Shpfy Transaction Gateways (ID 30133).
 /// </summary>

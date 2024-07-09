@@ -1,9 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.Threading;
-using Microsoft.Inventory.Item;
-using Microsoft.Sales.Customer;
-
 codeunit 30202 "Shpfy Initial Import"
 {
     Access = Internal;

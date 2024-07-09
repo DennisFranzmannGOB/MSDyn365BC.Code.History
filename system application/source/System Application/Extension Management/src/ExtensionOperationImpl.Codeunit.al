@@ -1,14 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Apps;
-
-using System;
-using System.Utilities;
-using System.Environment;
-using System.Environment.Configuration;
 
 codeunit 2503 "Extension Operation Impl"
 {
@@ -33,6 +26,7 @@ codeunit 2503 "Extension Operation Impl"
         DownloadExtensionSourceIsNotAllowedErr: Label 'The effective policies for this package do not allow you to download the source code. Contact the extension provider for more information.';
         DialogTitleTxt: Label 'Export';
         OutExtTxt: Label 'Text Files (*.txt)|*.txt|*.*';
+        NotSufficientPermissionErr: Label 'You do not have sufficient permissions to manage extensions. Please contact your administrator.';
         InstallationFailedOpenDetailsQst: Label 'Sorry, we couldn''t install the app. Do you want to see the details?';
         InstallationFailedOpenDetailsTxt: Label 'App installation failed. User has chosen to see the details.';
         InstallationFailedDoNotOpenDetailsTxt: Label 'App installation failed. User has chosen not to check out the details.';
@@ -46,7 +40,7 @@ codeunit 2503 "Extension Operation Impl"
         end;
     end;
 
-    procedure DeployExtension(AppId: Guid; lcid: Integer; IsUIEnabled: Boolean; PreviewKey: Text)
+    procedure DeployExtension(AppId: Guid; lcid: Integer; IsUIEnabled: Boolean)
     var
         NAVAppTenantOperation: Record "NAV App Tenant Operation";
         ExtensionOperationImpl: Codeunit "Extension Operation Impl";
@@ -57,7 +51,7 @@ codeunit 2503 "Extension Operation Impl"
         CheckPermissions();
         InitializeOperationInvoker();
 
-        OperationId := DotNetALNavAppOperationInvoker.DeployTarget(AppId, Format(lcid), PreviewKey);
+        OperationId := DotNetALNavAppOperationInvoker.DeployTarget(AppId, Format(lcid));
 
         if IsUIEnabled then begin
             ExtnInstallationProgress.SetOperationIdToMonitor(OperationId);
@@ -163,7 +157,7 @@ codeunit 2503 "Extension Operation Impl"
     begin
         CheckPermissions();
 
-        PublishedApplication.SetRange("Package ID", PackageId);
+        PublishedApplication.SetRange("Package ID", PackageID);
         PublishedApplication.SetRange("Tenant Visible", true);
         PublishedApplication.SetFilter("Published As", '<>%1', PublishedApplication."Published As"::Global);
 
@@ -229,7 +223,7 @@ codeunit 2503 "Extension Operation Impl"
 
         Evaluate(PackageIDGuid, PackageId);
 
-        PublishedApplication.SetRange("Package ID", PackageIDGuid);
+        PublishedApplication.SetRange("Package ID", PackageIdGuid);
         PublishedApplication.SetRange("Tenant Visible", true);
 
         if not PublishedApplication.FindFirst() then
@@ -254,10 +248,20 @@ codeunit 2503 "Extension Operation Impl"
 
     local procedure CheckPermissions()
     var
-        ExtensionInstallationImpl: Codeunit "Extension Installation Impl";
+        ApplicationObjectMetadata: Record "Application Object Metadata";
     begin
-        ExtensionInstallationImpl.CheckPermissions();
+        if not ApplicationObjectMetadata.ReadPermission() then
+            Error(NotSufficientPermissionErr);
     end;
+
+#if not CLEAN17
+    [Obsolete('This is the implementation of a method for which the required parameter is not accessible for Cloud development', '17.0')]
+    procedure GetAllExtensionDeploymentStatusEntries(var NavAppTenantOperation: Record "NAV App Tenant Operation")
+    begin
+        if not NavAppTenantOperation.FindSet() then
+            exit;
+    end;
+#endif
 
     procedure GetAllExtensionDeploymentStatusEntries(var TempExtensionDeploymentStatus: Record "Extension Deployment Status" temporary)
     var
@@ -399,8 +403,8 @@ codeunit 2503 "Extension Operation Impl"
     var
         PublishedApplication: Record "Published Application";
         Media: Record Media;
-        LogoInStream: InStream;
-        LogoOutStream: OutStream;
+        LogoInStream: Instream;
+        LogoOutStream: Outstream;
     begin
         PublishedApplication.SetRange(ID, AppId);
         PublishedApplication.SetRange("Tenant Visible", true);
@@ -414,7 +418,7 @@ codeunit 2503 "Extension Operation Impl"
             Media.CalcFields(Content);
             Media.Content.CreateInStream(LogoInStream);
 
-            Logo.CreateOutStream(LogoOutStream);
+            Logo.CreateOutstream(LogoOutStream);
             CopyStream(LogoOutStream, LogoInStream);
         end;
     end;

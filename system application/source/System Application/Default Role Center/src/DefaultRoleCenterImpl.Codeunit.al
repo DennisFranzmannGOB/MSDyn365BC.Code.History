@@ -1,20 +1,15 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Environment.Configuration;
-
-using System.Reflection;
-using System.Environment;
 
 codeunit 9171 "Default Role Center Impl."
 {
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
-    Permissions = tabledata AllObjWithCaption = r,
-                  tabledata "All Profile" = rm;
+    Permissions = tabledata "All Profile" = rm,
+                  tabledata AllObjWithCaption = r;
 
     // <summary>
     // Gets the default Role Center ID for the current user.
@@ -40,13 +35,13 @@ codeunit 9171 "Default Role Center Impl."
                 AllProfile.Enabled := true;
                 AllProfile.Modify();
             end;
-            RoleCenterId := Page::"Blank Role Center";
+            RoleCenterId := PAGE::"Blank Role Center";
         end;
 
         exit(RoleCenterId);
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"System Action Triggers", GetDefaultRoleCenterId, '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"System Action Triggers", GetDefaultRoleCenterID, '', false, false)]
     local procedure OnGetDefaultRoleCenterId(var ID: Integer)
     begin
         Session.LogMessage('0000DUF', StartingGetDefaultRoleCenterMsg, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryTxt);

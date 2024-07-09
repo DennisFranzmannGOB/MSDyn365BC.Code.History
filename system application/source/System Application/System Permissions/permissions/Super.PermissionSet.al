@@ -3,15 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-permissionset 31 SUPER
+permissionset 31 "SUPER"
 {
     Access = Public;
     Assignable = true;
     Caption = 'This role has all permissions.';
 
     IncludedPermissionSets = "Application Objects - Exec",
-                             "SUPER (DATA)",
+                             "Super (Data)",
                              "System Objects - Exec";
 }

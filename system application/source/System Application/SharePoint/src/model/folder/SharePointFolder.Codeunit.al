@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Sharepoint;
-
 codeunit 9105 "SharePoint Folder"
 {
     Access = Internal;

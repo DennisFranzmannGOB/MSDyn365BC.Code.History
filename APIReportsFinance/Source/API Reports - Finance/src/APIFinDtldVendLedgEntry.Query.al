@@ -1,7 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using Microsoft.Purchases.Payables;
-
 query 30304 "API Fin - Dtld Vend Ledg Entry"
 {
     QueryType = API;

@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Enum Shpfy Mapping Direction (ID 30101).
 /// </summary>

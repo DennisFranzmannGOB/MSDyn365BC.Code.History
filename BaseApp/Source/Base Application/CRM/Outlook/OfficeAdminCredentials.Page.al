@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using System.Security.Encryption;
-
 page 1612 "Office Admin. Credentials"
 {
     Caption = 'Office Admin. Credentials';
@@ -33,7 +29,7 @@ page 1612 "Office Admin. Credentials"
             {
                 Caption = '';
                 Visible = O365CredentialVisible;
-                field(O365Email; Rec.Email)
+                field(O365Email; Email)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Office 365 admin email address';
@@ -59,7 +55,7 @@ page 1612 "Office Admin. Credentials"
             {
                 Caption = '';
                 Visible = OnPremCredentialVisible;
-                field(OnPremUsername; Rec.Email)
+                field(OnPremUsername; Email)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Exchange admin username';
@@ -80,7 +76,7 @@ page 1612 "Office Admin. Credentials"
                                 PAGE.RunModal(PAGE::"Data Encryption Management");
                     end;
                 }
-                field(Endpoint; Rec.Endpoint)
+                field(Endpoint; Endpoint)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Exchange PowerShell Endpoint';
@@ -129,11 +125,11 @@ page 1612 "Office Admin. Credentials"
 
                 trigger OnAction()
                 begin
-                    if (Rec.Email = '') or (PasswordText = '') or (EmailHostedInO365 and (Rec.Endpoint = '')) then
+                    if (Email = '') or (PasswordText = '') or (EmailHostedInO365 and (Endpoint = '')) then
                         Error(MissingCredentialErr);
 
-                    if not Rec.Insert(true) then
-                        Rec.Modify(true);
+                    if not Insert(true) then
+                        Modify(true);
 
                     CurrPage.Close();
                 end;
@@ -150,9 +146,9 @@ page 1612 "Office Admin. Credentials"
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     begin
         if (CloseAction = ACTION::OK) or (CloseAction = ACTION::LookupOK) then begin
-            if not Rec.Get() then
-                Rec.Insert();
-            Rec.SavePassword(PasswordText);
+            if not Get() then
+                Insert();
+            SavePassword(PasswordText);
         end;
     end;
 

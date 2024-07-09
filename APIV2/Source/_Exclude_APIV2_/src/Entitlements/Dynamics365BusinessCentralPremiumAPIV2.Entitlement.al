@@ -1,5 +1,3 @@
-namespace Microsoft.API.V2;
-
 entitlement "Dynamics 365 Business Central Premium APIV2"
 {
     Type = PerUserServicePlan;

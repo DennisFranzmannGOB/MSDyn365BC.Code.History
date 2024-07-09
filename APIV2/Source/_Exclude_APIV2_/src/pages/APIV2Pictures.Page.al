@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Integration.Entity;
-
 page 30053 "APIV2 - Pictures"
 {
     APIVersion = 'v2.0';
@@ -24,32 +20,32 @@ page 30053 "APIV2 - Pictures"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(parentType; Rec."Parent Type")
+                field(parentType; "Parent Type")
                 {
                     Caption = 'Parent Type';
                     Editable = false;
                 }
-                field(width; Rec.Width)
+                field(width; Width)
                 {
                     Caption = 'Width';
                     Editable = false;
                 }
-                field(height; Rec.Height)
+                field(height; Height)
                 {
                     Caption = 'Height';
                     Editable = false;
                 }
-                field(contentType; Rec."Mime Type")
+                field(contentType; "Mime Type")
                 {
                     Caption = 'Content Type';
                     Editable = false;
                 }
-                field(pictureContent; Rec.Content)
+                field(pictureContent; Content)
                 {
                     Caption = 'Picture Content';
                 }
@@ -63,7 +59,7 @@ page 30053 "APIV2 - Pictures"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        Rec.DeletePictureWithParentType();
+        DeletePictureWithParentType();
     end;
 
     trigger OnFindRecord(Which: Text): Boolean
@@ -73,19 +69,19 @@ page 30053 "APIV2 - Pictures"
         ParentTypeFilter: Text;
     begin
         if not DataLoaded then begin
-            ParentIdFilter := Rec.GetFilter(Id);
-            ParentTypeFilter := Rec.GetFilter("Parent Type");
+            ParentIdFilter := GetFilter(Id);
+            ParentTypeFilter := GetFilter("Parent Type");
             if (ParentTypeFilter = '') or (ParentIdFilter = '') then begin
-                Rec.FilterGroup(4);
-                ParentIdFilter := Rec.GetFilter(Id);
-                ParentTypeFilter := Rec.GetFilter("Parent Type");
-                Rec.FilterGroup(0);
+                FilterGroup(4);
+                ParentIdFilter := GetFilter(Id);
+                ParentTypeFilter := GetFilter("Parent Type");
+                FilterGroup(0);
                 if (ParentTypeFilter = '') or (ParentIdFilter = '') then
                     Error(ParentNotSpecifiedErr)
             end;
             Evaluate(PictureEntityParentType, ParentTypeFilter);
-            Rec.LoadDataWithParentType(ParentIdFilter, PictureEntityParentType);
-            Rec.Insert(true);
+            LoadDataWithParentType(ParentIdFilter, PictureEntityParentType);
+            Insert(true);
         end;
 
         DataLoaded := true;
@@ -94,15 +90,16 @@ page 30053 "APIV2 - Pictures"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Rec.SavePictureWithParentType();
+        SavePictureWithParentType();
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        Rec.SavePictureWithParentType();
+        SavePictureWithParentType();
     end;
 
     var
         ParentNotSpecifiedErr: Label 'You must get to the parent first to get to the picture.';
         DataLoaded: Boolean;
 }
+

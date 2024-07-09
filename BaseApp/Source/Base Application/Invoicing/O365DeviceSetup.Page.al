@@ -24,7 +24,7 @@ page 1308 "O365 Device Setup"
                         Editable = false;
                         ExtendedDatatype = URL;
                     }
-                    field(QR; Rec."QR Code")
+                    field(QR; "QR Code")
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'or QR Code';

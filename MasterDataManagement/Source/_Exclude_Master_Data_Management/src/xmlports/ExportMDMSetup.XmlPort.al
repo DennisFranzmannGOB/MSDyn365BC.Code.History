@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.MDM;
-
-using Microsoft.Integration.SyncEngine;
-
 xmlport 7230 ExportMDMSetup
 {
     Caption = 'Export Master Data Management Setup';

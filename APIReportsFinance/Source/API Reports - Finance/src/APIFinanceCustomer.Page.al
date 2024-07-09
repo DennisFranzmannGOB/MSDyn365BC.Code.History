@@ -1,7 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using Microsoft.Sales.Customer;
-
 page 30307 "API Finance - Customer"
 {
     PageType = API;

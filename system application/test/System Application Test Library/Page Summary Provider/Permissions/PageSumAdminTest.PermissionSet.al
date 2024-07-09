@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Integration;
-
-using System.Integration;
-
 permissionset 132549 "Page Sum Admin Test"
 {
     Assignable = true;

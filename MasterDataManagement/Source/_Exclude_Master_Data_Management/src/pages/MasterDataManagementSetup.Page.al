@@ -1,11 +1,3 @@
-namespace Microsoft.Integration.MDM;
-
-using Microsoft.Integration.SyncEngine;
-using System.Threading;
-using System.Environment.Configuration;
-using System.Telemetry;
-using System.Utilities;
-
 page 7230 "Master Data Management Setup"
 {
     ApplicationArea = Suite;
@@ -29,7 +21,7 @@ page 7230 "Master Data Management Setup"
                 {
                     ApplicationArea = Suite;
                     Editable = IsEditable;
-                    ToolTip = 'Specifies the name of the source company that you synchronize data from.';
+                    ToolTip = 'Specifies the name of the cource company that you synchronize data from.';
                 }
                 field("Is Enabled"; Rec."Is Enabled")
                 {
@@ -56,7 +48,7 @@ page 7230 "Master Data Management Setup"
                 ApplicationArea = Suite;
                 Caption = 'Use Default Synchronization Setup';
                 Image = ResetStatus;
-                ToolTip = 'Resets the synchronization tables, fields, and job queue entries to the default values for the connection with the source company. All current synchronization tables are deleted and recreated.';
+                ToolTip = 'Resets the integration table mappings and synchronization jobs to the default values for a connection with the source company. All current mappings are deleted and recreated.', Comment = 'Business Central is the name of a Microsoft Service and should not be translated.';
 
                 trigger OnAction()
                 var

@@ -20,7 +20,7 @@ page 2136 "O365 Help Feedback Settings"
             repeater(Control2)
             {
                 ShowCaption = false;
-                field(Title; Rec.Title)
+                field(Title; Title)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                 }
@@ -48,7 +48,7 @@ page 2136 "O365 Help Feedback Settings"
 
                 trigger OnAction()
                 begin
-                    Rec.OpenLink();
+                    OpenLink();
                 end;
             }
         }
@@ -73,13 +73,13 @@ page 2136 "O365 Help Feedback Settings"
 
     local procedure InsertMenuItems()
     begin
-        Rec.InsertHyperlinkMenuItem('https://aka.ms/invoicinggetstarted', HelpTitleLbl, HelpDescriptionLbl);
-        Rec.InsertHyperlinkMenuItem('https://aka.ms/smbinvoicefeedback', FeedbackTitleLbl, FeedbackDescriptionLbl);
-        Rec.InsertHyperlinkMenuItem(
+        InsertHyperlinkMenuItem('https://aka.ms/invoicinggetstarted', HelpTitleLbl, HelpDescriptionLbl);
+        InsertHyperlinkMenuItem('https://aka.ms/smbinvoicefeedback', FeedbackTitleLbl, FeedbackDescriptionLbl);
+        InsertHyperlinkMenuItem(
           'https://go.microsoft.com/fwlink/?linkid=831306', ThirdPartyNoticeTitleLbl, ThirdPartyNoticeDescriptionLbl);
-        Rec.InsertHyperlinkMenuItem(
+        InsertHyperlinkMenuItem(
           'https://go.microsoft.com/fwlink/?linkid=831304', SoftwareLicenseTitleLbl, SoftwareLicenseDescriptionLbl);
-        Rec.InsertHyperlinkMenuItem(
+        InsertHyperlinkMenuItem(
           'https://go.microsoft.com/fwlink/?linkid=831305', PrivacyTitleLbl, PrivacyDescriptionLbl);
     end;
 }

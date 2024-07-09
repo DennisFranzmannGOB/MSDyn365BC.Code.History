@@ -1,11 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.D365Sales;
-
-using Microsoft.Integration.Dataverse;
-
 table 5353 "CRM Salesorder"
 {
     // Dynamics CRM Version: 7.1.0.2040
@@ -505,7 +497,7 @@ table 5353 "CRM Salesorder"
         }
         field(60; ContactIdName; Text[160])
         {
-            CalcFormula = Lookup("CRM Contact".FullName where(ContactId = field(ContactId)));
+            CalcFormula = Lookup("CRM Contact".FullName WHERE(ContactId = FIELD(ContactId)));
             Caption = 'ContactIdName';
             ExternalAccess = Read;
             ExternalName = 'contactidname';
@@ -514,7 +506,7 @@ table 5353 "CRM Salesorder"
         }
         field(61; AccountIdName; Text[160])
         {
-            CalcFormula = Lookup("CRM Account".Name where(AccountId = field(AccountId)));
+            CalcFormula = Lookup("CRM Account".Name WHERE(AccountId = FIELD(AccountId)));
             Caption = 'AccountIdName';
             ExternalAccess = Read;
             ExternalName = 'accountidname';
@@ -524,7 +516,7 @@ table 5353 "CRM Salesorder"
 #pragma warning disable AS0086
         field(62; OpportunityIdName; Text[2048])
         {
-            CalcFormula = Lookup("CRM Opportunity".Name where(OpportunityId = field(OpportunityId)));
+            CalcFormula = Lookup("CRM Opportunity".Name WHERE(OpportunityId = FIELD(OpportunityId)));
             Caption = 'OpportunityIdName';
             ExternalAccess = Read;
             ExternalName = 'opportunityidname';
@@ -533,7 +525,7 @@ table 5353 "CRM Salesorder"
         }
         field(63; QuoteIdName; Text[2048])
         {
-            CalcFormula = Lookup("CRM Quote".Name where(QuoteId = field(QuoteId)));
+            CalcFormula = Lookup("CRM Quote".Name WHERE(QuoteId = FIELD(QuoteId)));
             Caption = 'QuoteIdName';
             ExternalAccess = Read;
             ExternalName = 'quoteidname';
@@ -543,7 +535,7 @@ table 5353 "CRM Salesorder"
 #pragma warning restore AS0086
         field(64; PriceLevelIdName; Text[100])
         {
-            CalcFormula = Lookup("CRM Pricelevel".Name where(PriceLevelId = field(PriceLevelId)));
+            CalcFormula = Lookup("CRM Pricelevel".Name WHERE(PriceLevelId = FIELD(PriceLevelId)));
             Caption = 'PriceLevelIdName';
             ExternalAccess = Read;
             ExternalName = 'pricelevelidname';
@@ -552,7 +544,7 @@ table 5353 "CRM Salesorder"
         }
         field(65; CreatedByName; Text[200])
         {
-            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName WHERE(SystemUserId = FIELD(CreatedBy)));
             Caption = 'CreatedByName';
             ExternalAccess = Read;
             ExternalName = 'createdbyname';
@@ -561,7 +553,7 @@ table 5353 "CRM Salesorder"
         }
         field(66; ModifiedByName; Text[200])
         {
-            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName WHERE(SystemUserId = FIELD(ModifiedBy)));
             Caption = 'ModifiedByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedbyname';
@@ -574,9 +566,9 @@ table 5353 "CRM Salesorder"
             Description = 'Select the customer account or contact to provide a quick link to additional customer details, such as account information, activities, and opportunities.';
             ExternalName = 'customerid';
             ExternalType = 'Customer';
-            TableRelation = if (CustomerIdType = const(account)) "CRM Account".AccountId
-            else
-            if (CustomerIdType = const(contact)) "CRM Contact".ContactId;
+            TableRelation = IF (CustomerIdType = CONST(account)) "CRM Account".AccountId
+            ELSE
+            IF (CustomerIdType = CONST(contact)) "CRM Contact".ContactId;
         }
         field(68; CustomerIdType; Option)
         {
@@ -592,9 +584,9 @@ table 5353 "CRM Salesorder"
             Description = 'Enter the user or team who is assigned to manage the record. This field is updated every time the record is assigned to a different user.';
             ExternalName = 'ownerid';
             ExternalType = 'Owner';
-            TableRelation = if (OwnerIdType = const(systemuser)) "CRM Systemuser".SystemUserId
-            else
-            if (OwnerIdType = const(team)) "CRM Team".TeamId;
+            TableRelation = IF (OwnerIdType = CONST(systemuser)) "CRM Systemuser".SystemUserId
+            ELSE
+            IF (OwnerIdType = CONST(team)) "CRM Team".TeamId;
         }
         field(70; OwnerIdType; Option)
         {
@@ -730,7 +722,7 @@ table 5353 "CRM Salesorder"
         }
         field(87; TransactionCurrencyIdName; Text[100])
         {
-            CalcFormula = Lookup("CRM Transactioncurrency".CurrencyName where(TransactionCurrencyId = field(TransactionCurrencyId)));
+            CalcFormula = Lookup("CRM Transactioncurrency".CurrencyName WHERE(TransactionCurrencyId = FIELD(TransactionCurrencyId)));
             Caption = 'TransactionCurrencyIdName';
             ExternalAccess = Read;
             ExternalName = 'transactioncurrencyidname';
@@ -780,7 +772,7 @@ table 5353 "CRM Salesorder"
         }
         field(93; CreatedOnBehalfByName; Text[200])
         {
-            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName WHERE(SystemUserId = FIELD(CreatedOnBehalfBy)));
             Caption = 'CreatedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'createdonbehalfbyname';
@@ -798,7 +790,7 @@ table 5353 "CRM Salesorder"
         }
         field(95; ModifiedOnBehalfByName; Text[200])
         {
-            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName WHERE(SystemUserId = FIELD(ModifiedOnBehalfBy)));
             Caption = 'ModifiedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedonbehalfbyname';

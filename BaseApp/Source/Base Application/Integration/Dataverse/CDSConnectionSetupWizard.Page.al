@@ -1,17 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.Integration.D365Sales;
-using System;
-using System.Environment;
-using System.Environment.Configuration;
-using System.Security.Authentication;
-using System.Telemetry;
-using System.Utilities;
-
 page 7201 "CDS Connection Setup Wizard"
 {
     Caption = 'Dataverse Connection Setup', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
@@ -140,7 +126,7 @@ page 7201 "CDS Connection Setup Wizard"
             }
             group(StepApplication)
             {
-                InstructionalText = 'Specify the ID, secret and redirect URL of the Microsoft Entra application that will be used to connect to Dataverse.', Comment = 'Dataverse and Microsoft Entra are names of Microsoft services and should not be translated.';
+                InstructionalText = 'Specify the ID, secret and redirect URL of the Azure Active Directory application that will be used to connect to Dataverse.', Comment = 'Dataverse and Azure Active Directory are names of a Microsoft service and a Microsoft Azure resource and should not be translated.';
                 ShowCaption = false;
                 Visible = ApplicationStepVisible;
 
@@ -148,24 +134,24 @@ page 7201 "CDS Connection Setup Wizard"
                 {
                     ApplicationArea = Suite;
                     Caption = 'Client ID';
-                    ToolTip = 'Specifies the ID of the Microsoft Entra application that will be used to connect to the Dataverse environment.', Comment = 'Dataverse and Microsoft Entra are names of Microsoft services and should not be translated.';
+                    ToolTip = 'Specifies the ID of the Azure Active Directory application that will be used to connect to the Dataverse environment.', Comment = 'Dataverse and Azure Active Directory are names of a Microsoft service and a Microsoft Azure resource and should not be translated.';
                 }
                 field("Client Secret"; ClientSecret)
                 {
                     ApplicationArea = Suite;
                     ExtendedDatatype = Masked;
                     Caption = 'Client Secret';
-                    ToolTip = 'Specifies the secret of the Microsoft Entra application that will be used to connect to the Dataverse environment.', Comment = 'Dataverse and Microsoft Entra are names of Microsoft services and should not be translated.';
+                    ToolTip = 'Specifies the secret of the Azure Active Directory application that will be used to connect to the Dataverse environment.', Comment = 'Dataverse and Azure Active Directory are names of a Microsoft service and a Microsoft Azure resource and should not be translated.';
 
                     trigger OnValidate()
                     begin
-                        Rec.SetClientSecret(ClientSecret);
+                        SetClientSecret(ClientSecret);
                     end;
                 }
                 field("Redirect URL"; Rec."Redirect URL")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the Redirect URL of the Microsoft Entra application that will be used to connect to the Dataverse environment.', Comment = 'Dataverse and Microsoft Entra are names of Microsoft services and should not be translated.';
+                    ToolTip = 'Specifies the Redirect URL of the Azure Active Directory application that will be used to connect to the Dataverse environment.', Comment = 'Dataverse and Azure Active Directory are names of a Microsoft service and a Microsoft Azure resource and should not be translated.';
                 }
             }
             group(Step1)
@@ -178,7 +164,7 @@ page 7201 "CDS Connection Setup Wizard"
                     InstructionalText = 'Specify the URL of the Dataverse environment. Your environments appear in the list, or you can enter the URL.', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
                 }
 
-                field(ServerAddress; Rec."Server Address")
+                field(ServerAddress; "Server Address")
                 {
                     ApplicationArea = Suite;
                     AssistEdit = true;
@@ -188,8 +174,8 @@ page 7201 "CDS Connection Setup Wizard"
 
                     trigger OnValidate()
                     begin
-                        CDSIntegrationImpl.CheckModifyConnectionURL(Rec."Server Address");
-                        if Rec."Server Address" <> xRec."Server Address" then begin
+                        CDSIntegrationImpl.CheckModifyConnectionURL("Server Address");
+                        if "Server Address" <> xRec."Server Address" then begin
                             HasAdminSignedIn := false;
                             NextActionEnabled := false;
                         end;
@@ -202,7 +188,7 @@ page 7201 "CDS Connection Setup Wizard"
                     begin
                         CDSEnvironment.SelectTenantEnvironment(Rec, CDSEnvironment.GetGlobalDiscoverabilityToken(), false);
 
-                        if Rec."Server Address" <> xRec."Server Address" then begin
+                        if "Server Address" <> xRec."Server Address" then begin
                             HasAdminSignedIn := false;
                             NextActionEnabled := false;
                         end;
@@ -230,7 +216,7 @@ page 7201 "CDS Connection Setup Wizard"
 
                         trigger OnDrillDown()
                         begin
-                            if Rec."Server Address" = '' then
+                            if "Server Address" = '' then
                                 Error(NoEnvironmentSelectedErr);
 
                             HasAdminSignedIn := true;
@@ -239,7 +225,7 @@ page 7201 "CDS Connection Setup Wizard"
                             Sleep(5000);
 
                             AreAdminCredentialsCorrect := true;
-                            Rec.SetPassword(UserPassword);
+                            SetPassword(UserPassword);
                             NextActionEnabled := true;
 
                             CurrPage.Update(false);
@@ -300,7 +286,7 @@ page 7201 "CDS Connection Setup Wizard"
                         ShowCaption = false;
                     }
 
-                    field(Email; Rec."User Name")
+                    field(Email; "User Name")
                     {
                         ApplicationArea = Suite;
                         Caption = 'User Name';
@@ -321,7 +307,7 @@ page 7201 "CDS Connection Setup Wizard"
 
                         trigger OnValidate()
                         begin
-                            Rec.SetPassword(UserPassword);
+                            SetPassword(UserPassword);
                         end;
                     }
                 }
@@ -423,7 +409,7 @@ page 7201 "CDS Connection Setup Wizard"
                     var
                         CDSCoupleSalespersons: Page "CDS Couple Salespersons";
                     begin
-                        Rec.SetPassword(UserPassword);
+                        SetPassword(UserPassword);
                         CDSIntegrationImpl.CheckConnectionRequiredFields(Rec, false);
 
                         CDSCoupleSalespersons.Editable := true;
@@ -450,7 +436,7 @@ page 7201 "CDS Connection Setup Wizard"
                 }
                 group(Control52)
                 {
-                    InstructionalText = 'If you have data in both apps and want bi-directional synchronization you must couple each record using match-based coupling or manually.';
+                    InstructionalText = 'If you have data in both apps and want bi-directional synchronization you must couple each record manually, either yourself, or with help from a Microsoft partner.';
                     ShowCaption = false;
                 }
                 group(Control53)
@@ -472,7 +458,7 @@ page 7201 "CDS Connection Setup Wizard"
                         CDSFullSynchReview: Page "CDS Full Synch. Review";
                     begin
                         Window.Open(GettingThingsReadyTxt);
-                        Rec.SetPassword(UserPassword);
+                        SetPassword(UserPassword);
 
                         CDSFullSynchReview.SetRecord(CRMFullSynchReviewLine);
                         CDSFullSynchReview.SetTableView(CRMFullSynchReviewLine);
@@ -512,7 +498,7 @@ page 7201 "CDS Connection Setup Wizard"
                 }
                 group(Control62)
                 {
-                    InstructionalText = 'Use the link below to go to AppSource and get the the Business Central Virtual Table app, so you can install it in your Dataverse environment. To refresh status after you install, click back and next.';
+                    InstructionalText = 'Use the link below to go to AppSource and get the the Business Central Virtual Table app, so you can install it in your Dataverse environment.';
                     ShowCaption = false;
 
                     field(InstallVirtualTableApp; VirtualTableAppInstallTxt)
@@ -543,23 +529,6 @@ page 7201 "CDS Connection Setup Wizard"
                         Editable = false;
                         ShowCaption = false;
                         Style = Favorable;
-                    }
-                    field(EnableVirtualTablesLbl; 'Review and enable virtual tables')
-                    {
-                        ApplicationArea = Suite;
-                        Caption = ' ';
-                        Editable = false;
-                        ShowCaption = false;
-                        Style = StrongAccent;
-                        StyleExpr = true;
-
-                        trigger OnDrillDown()
-                        var
-                            CDSAvailableVirtualTables: Page "CDS Available Virtual Tables";
-                        begin
-                            SetupBusinessEvents();
-                            CDSAvailableVirtualTables.Run();
-                        end;
                     }
                 }
                 group(Control64)
@@ -638,9 +607,9 @@ page 7201 "CDS Connection Setup Wizard"
                     case Step of
                         Step::Consent:
                             begin
-                                AuthenticationType := Rec."Authentication Type";
+                                AuthenticationType := "Authentication Type";
                                 GetCDSEnvironment();
-                                Rec."Authentication Type" := AuthenticationType;
+                                "Authentication Type" := AuthenticationType;
                             end;
 
                         Step::Application:
@@ -649,15 +618,15 @@ page 7201 "CDS Connection Setup Wizard"
                                     CDSConnectionSetup.Init();
                                     CDSConnectionSetup.Insert();
                                 end;
-                                CDSConnectionSetup.Validate("Client Id", Rec."Client Id");
+                                CDSConnectionSetup.Validate("Client Id", "Client Id");
                                 CDSConnectionSetup.SetClientSecret(ClientSecret);
-                                CDSConnectionSetup.Validate("Redirect URL", Rec."Redirect URL");
-                                Rec.Modify();
+                                CDSConnectionSetup.Validate("Redirect URL", "Redirect URL");
+                                Modify();
                             end;
 
                         Step::Admin:
                             begin
-                                if (Rec."Server Address" = '') then
+                                if ("Server Address" = '') then
                                     Error(URLShouldNotBeEmptyErr);
 
                                 if Synchronization then
@@ -666,9 +635,9 @@ page 7201 "CDS Connection Setup Wizard"
 
                         Step::IntegrationUser:
                             begin
-                                if (Rec."User Name" = '') or (UserPassword = '') then
+                                if ("User Name" = '') or (UserPassword = '') then
                                     Error(UsernameAndPasswordShouldNotBeEmptyErr);
-                                Rec.SetPassword(UserPassword);
+                                SetPassword(UserPassword);
                                 if not CDSIntegrationImpl.TryCheckCredentials(Rec) then
                                     Error(WrongCredentialsErr);
                                 CDSIntegrationImpl.CheckIntegrationUserPrerequisites(Rec, AdminUserName, AdminPassword, AdminAccessToken, AdminADDomain);
@@ -704,22 +673,6 @@ page 7201 "CDS Connection Setup Wizard"
                         VirtualTableAppInstalled := IsVirtualTablesAppInstalled();
                         FinishActionEnabled := VirtualTableAppInstalled;
                     end;
-                end;
-            }
-            action(ActionRefresh)
-            {
-                ApplicationArea = Basic, Suite;
-                Caption = 'Refresh';
-                Visible = Step = Step::BusinessEvents;
-                Enabled = not VirtualTableAppInstalled;
-                Image = Approve;
-                InFooterBar = true;
-
-                trigger OnAction()
-                begin
-                    VirtualTableAppInstalled := IsVirtualTablesAppInstalled();
-                    ShowBusinessEventsStep();
-                    CurrPage.Update();
                 end;
             }
             action(ActionFinish)
@@ -770,8 +723,19 @@ page 7201 "CDS Connection Setup Wizard"
                         end;
                     end;
 
-                    if BusinessEvents then
-                        SetupBusinessEvents();
+                    if BusinessEvents then begin
+                        VirtualTableAppInstalled := IsVirtualTablesAppInstalled();
+                        if not VirtualTableAppInstalled then begin
+                            FinishActionEnabled := false;
+                            Error(VirtualTableAppNotInstalledErr);
+                        end;
+
+                        Session.LogMessage('0000GBD', SetupVirtualTablesTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
+                        Window.Open(GettingThingsReadyTxt);
+                        CDSIntegrationImpl.SetupVirtualTables(Rec, CrmHelper, AdminAccessToken, Rec."Virtual Tables Config Id");
+                        FinalizeBusinessEventsSetup();
+                        Window.Close();
+                    end;
 
                     GuidedExperience.CompleteAssistedSetup(ObjectType::Page, PAGE::"CDS Connection Setup Wizard");
                     FeatureTelemetry.LogUptake('0000H7H', 'Dataverse', Enum::"Feature Uptake Status"::"Set up");
@@ -806,20 +770,20 @@ page 7201 "CDS Connection Setup Wizard"
         FeatureTelemetry.LogUptake('0000H7I', 'Dataverse', Enum::"Feature Uptake Status"::Discovered);
         FeatureTelemetry.LogUptake('0000IIP', 'Dataverse Base Entities', Enum::"Feature Uptake Status"::Discovered);
         CDSConnectionSetup.EnsureCRMConnectionSetupIsDisabled();
-        Rec.Init();
+        Init();
         if CDSConnectionSetup.Get() then begin
             TempCDSConnectionSetup."Ownership Model" := CDSConnectionSetup."Ownership Model";
-            Rec."Proxy Version" := CDSConnectionSetup."Proxy Version";
-            Rec."Authentication Type" := CDSConnectionSetup."Authentication Type";
-            Rec."Server Address" := CDSConnectionSetup."Server Address";
-            Rec."User Name" := CDSConnectionSetup."User Name";
+            "Proxy Version" := CDSConnectionSetup."Proxy Version";
+            "Authentication Type" := CDSConnectionSetup."Authentication Type";
+            "Server Address" := CDSConnectionSetup."Server Address";
+            "User Name" := CDSConnectionSetup."User Name";
             UserPassword := CDSConnectionSetup.GetPassword();
-            Rec.SetPassword(UserPassword);
+            SetPassword(UserPassword);
             if not SoftwareAsAService then begin
-                Rec."Client Id" := CDSConnectionSetup."Client Id";
+                "Client Id" := CDSConnectionSetup."Client Id";
                 ClientSecret := CDSConnectionSetup.GetClientSecret();
-                Rec.SetClientSecret(ClientSecret);
-                Rec."Redirect URL" := CDSConnectionSetup."Redirect URL";
+                SetClientSecret(ClientSecret);
+                "Redirect URL" := CDSConnectionSetup."Redirect URL";
             end;
         end else begin
             TempCDSConnectionSetup."Ownership Model" := TempCDSConnectionSetup."Ownership Model"::Team;
@@ -827,12 +791,12 @@ page 7201 "CDS Connection Setup Wizard"
             InitializeDefaultProxyVersion();
         end;
         if not SoftwareAsAService then
-            if Rec."Redirect URL" = '' then begin
+            if "Redirect URL" = '' then begin
                 OAuth2.GetDefaultRedirectUrl(RedirectUrl);
-                Rec."Redirect URL" := CopyStr(RedirectUrl, 1, MaxStrLen(Rec."Redirect URL"));
+                "Redirect URL" := CopyStr(RedirectUrl, 1, MaxStrLen("Redirect URL"));
             end;
         IsPersonOwnershipModelSelected := TempCDSConnectionSetup."Ownership Model" = TempCDSConnectionSetup."Ownership Model"::Person;
-        Rec.Insert();
+        Insert();
         Step := Step::Info;
         EnableControls();
     end;
@@ -954,7 +918,7 @@ page 7201 "CDS Connection Setup Wizard"
         if SoftwareAsAService then
             RedirectUrl := CDSIntegrationImpl.GetRedirectURL()
         else
-            RedirectUrl := Rec."Redirect URL";
+            RedirectUrl := "Redirect URL";
         Scopes.Add(ScopesLbl);
         OAuth2.AcquireOnBehalfOfToken(RedirectUrl, Scopes, Token);
         CDSEnvironment.SelectTenantEnvironment(Rec, Token, false);
@@ -1008,7 +972,7 @@ page 7201 "CDS Connection Setup Wizard"
                 begin
                     if not Synchronization then
                         exit(false);
-                    if Rec."Authentication Type" = Rec."Authentication Type"::Office365 then
+                    if "Authentication Type" = "Authentication Type"::Office365 then
                         // skip the user credentials step in Office365 authentication
                         // we don't use username/password authentication
                         // we inject an application user and use ClientId/ClientSecret authentication
@@ -1136,7 +1100,7 @@ page 7201 "CDS Connection Setup Wizard"
         CoupleSalespersonsStepVisible := false;
         FullSynchReviewStepVisible := false;
 
-        Rec."Authentication Type" := Rec."Authentication Type"::Office365;
+        "Authentication Type" := "Authentication Type"::Office365;
     end;
 
     local procedure ShowIntegrationUserStep()
@@ -1235,19 +1199,19 @@ page 7201 "CDS Connection Setup Wizard"
 
     local procedure InitializeDefaultAuthenticationType()
     begin
-        Rec.Validate("Authentication Type", Rec."Authentication Type"::Office365);
+        Validate("Authentication Type", "Authentication Type"::Office365);
     end;
 
     local procedure InitializeDefaultProxyVersion()
     begin
-        Rec.Validate("Proxy Version", CDSIntegrationImpl.GetLastProxyVersionItem());
+        Validate("Proxy Version", CDSIntegrationImpl.GetLastProxyVersionItem());
     end;
 
     local procedure FinalizeBusinessEventsSetup()
     begin
         Rec."Business Events Enabled" := true;
         if not SoftwareAsAService then
-            Rec.SetClientSecret(ClientSecret);
+            SetClientSecret(ClientSecret);
         CDSIntegrationImpl.UpdateBusinessEventsSetupFromWizard(Rec);
     end;
 
@@ -1256,7 +1220,7 @@ page 7201 "CDS Connection Setup Wizard"
         Rec."Ownership Model" := TempCDSConnectionSetup."Ownership Model";
         Rec."Is Enabled" := true;
         if not SoftwareAsAService then
-            Rec.SetClientSecret(ClientSecret);
+            SetClientSecret(ClientSecret);
         CDSIntegrationImpl.UpdateConnectionSetupFromWizard(Rec, UserPassword);
     end;
 
@@ -1265,8 +1229,8 @@ page 7201 "CDS Connection Setup Wizard"
     var
         CDSConectionSetup: Record "CDS Connection Setup";
     begin
-        if Rec."Authentication Type" <> Rec."Authentication Type"::Office365 then begin
-            Rec.SetPassword(UserPassword);
+        if "Authentication Type" <> "Authentication Type"::Office365 then begin
+            SetPassword(UserPassword);
             CDSIntegrationImpl.CheckCredentials(Rec);
         end;
         CDSIntegrationImpl.ConfigureIntegrationSolution(Rec, CrmHelper, AdminUserName, AdminPassword, AdminAccessToken, AdminADDomain, true);
@@ -1306,20 +1270,5 @@ page 7201 "CDS Connection Setup Wizard"
     begin
         CDSIntegrationImpl.GetTempConnectionSetup(TempAdminCDSConnectionSetup, Rec, AdminAccessToken);
         exit(CDSIntegrationImpl.IsVirtualTablesAppInstalled(TempAdminCDSConnectionSetup));
-    end;
-
-    local procedure SetupBusinessEvents()
-    begin
-        VirtualTableAppInstalled := IsVirtualTablesAppInstalled();
-        if not VirtualTableAppInstalled then begin
-            FinishActionEnabled := false;
-            Error(VirtualTableAppNotInstalledErr);
-        end;
-
-        Session.LogMessage('0000GBD', SetupVirtualTablesTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
-        Window.Open(GettingThingsReadyTxt);
-        CDSIntegrationImpl.SetupVirtualTables(Rec, CrmHelper, AdminAccessToken, Rec."Virtual Tables Config Id");
-        FinalizeBusinessEventsSetup();
-        Window.Close();
     end;
 }

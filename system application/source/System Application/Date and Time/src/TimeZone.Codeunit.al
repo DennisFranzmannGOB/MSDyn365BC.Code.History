@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DateTime;
-
 /// <summary>
 /// Codeunit that provides data on offsets and daylight saving time for a time zone.
 /// </summary>

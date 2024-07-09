@@ -1,19 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Graph;
-
-#if not CLEAN21
-using System;
-using System.Azure.Identity;
-using System.Azure.KeyVault;
-using System.Email;
-using System.Integration;
-using System.Text;
-using System.Utilities;
-#endif
-
 table 407 "Graph Mail Setup"
 {
     Caption = 'Graph Mail Setup';
@@ -56,7 +40,7 @@ table 407 "Graph Mail Setup"
         }
         field(7; "Sender AAD ID"; Text[80])
         {
-            Caption = 'Sender Microsoft Entra ID';
+            Caption = 'Sender AAD ID';
         }
     }
 

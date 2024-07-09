@@ -1,11 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Globalization;
-
-using System.Reflection;
 
 codeunit 3712 "Translation Implementation"
 {
@@ -15,11 +11,10 @@ codeunit 3712 "Translation Implementation"
     Permissions = tabledata Translation = rimd;
 
     var
-        CannotTranslateTempRecErr: Label 'Translations cannot be added or retrieved for temporary records.';
-        DifferentTableErr: Label 'The records cannot belong to different tables.';
         NoRecordIdErr: Label 'The variant passed is not a record.';
+        CannotTranslateTempRecErr: Label 'Translations cannot be added or retrieved for temporary records.';
         NotAValidRecordForTranslationErr: Label 'Translations cannot be added for the record on table %1.', Comment = '%1 - Table number';
-        MaxLenghtErr: Label 'The provided translation "%1" must not exceed %2 characters (Current Length: %3).', Comment = '%1 = Translation, %2 = Max Length for translation, %3 = Current Length of Translation';
+        DifferentTableErr: Label 'The records cannot belong to different tables.';
 
     procedure Any(): Boolean
     var
@@ -58,9 +53,9 @@ codeunit 3712 "Translation Implementation"
     procedure Set(RecVariant: Variant; FieldId: Integer; LanguageId: Integer; Value: Text[2048])
     var
         Translation: Record Translation;
-        Exists: Boolean;
         SystemId: Guid;
         TableNo: Integer;
+        Exists: Boolean;
     begin
         GetSystemIdFromVariant(RecVariant, SystemId, TableNo);
         Exists := Translation.Get(LanguageId, SystemId, FieldId);
@@ -113,7 +108,7 @@ codeunit 3712 "Translation Implementation"
         GetRecordRefFromVariant(ToRecVariant, ToRecordRef);
         if FromRecordRef.Number() <> ToRecordRef.Number() then
             Error(DifferentTableErr);
-        Translation.SetRange("System ID", GetSystemIdFromRecordRef(FromRecordRef));
+        Translation.SetRange("System Id", GetSystemIdFromRecordRef(FromRecordRef));
         Translation.SetRange("Table ID", FromRecordRef.Number());
         if FieldId <> 0 then
             Translation.SetRange("Field ID", FieldId);
@@ -129,7 +124,7 @@ codeunit 3712 "Translation Implementation"
         FromRecordRef: RecordRef;
     begin
         GetRecordRefFromVariant(FromRecVariant, FromRecordRef);
-        Translation.SetRange("System ID", GetSystemIdFromRecordRef(FromRecordRef));
+        Translation.SetRange("System Id", GetSystemIdFromRecordRef(FromRecordRef));
         Translation.SetRange("Field ID", FromFieldId);
         if Translation.FindSet() then
             repeat
@@ -148,7 +143,7 @@ codeunit 3712 "Translation Implementation"
         TranslationWithFilters.DeleteAll(true);
     end;
 
-    procedure Show(RecVariant: Variant; FieldId: Integer; CheckFieldLength: Boolean)
+    procedure Show(RecVariant: Variant; FieldId: Integer)
     var
         Translation: Record Translation;
         TranslationPage: Page Translation;
@@ -161,7 +156,6 @@ codeunit 3712 "Translation Implementation"
         TranslationPage.SetTableId(TableNo);
         TranslationPage.SetCaption(GetRecordIdCaptionFromVariant(RecVariant));
         TranslationPage.SetTableView(Translation);
-        TranslationPage.SetCheckFieldLength(CheckFieldLength);
         TranslationPage.Run();
     end;
 
@@ -171,22 +165,13 @@ codeunit 3712 "Translation Implementation"
     begin
         Translation.SetRange("Table ID", TableId);
         Translation.SetRange("Field ID", FieldId);
-        Page.Run(Page::Translation, Translation);
-    end;
-
-    procedure CheckLengthOfTranslationValue(var Translation: Record Translation)
-    var
-        Field: Record Field;
-    begin
-        Field.Get(Translation."Table ID", Translation."Field ID");
-        if StrLen(Translation.Value) > Field.Len then
-            Error(MaxLenghtErr, Translation.Value, StrLen(Translation.Value), Field.Len);
+        PAGE.Run(PAGE::Translation, Translation);
     end;
 
     local procedure GetRecordIdCaptionFromVariant(RecVariant: Variant): Text
     var
-        RecordId: RecordId;
         RecordRef: RecordRef;
+        RecordId: RecordId;
     begin
         GetRecordRefFromVariant(RecVariant, RecordRef);
         RecordId := RecordRef.RecordId();

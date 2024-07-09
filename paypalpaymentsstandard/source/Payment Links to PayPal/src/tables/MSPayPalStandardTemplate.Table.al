@@ -1,15 +1,9 @@
-namespace Microsoft.Bank.PayPal;
-
-using Microsoft.Utilities;
-using System.Utilities;
-
 table 1071 "MS - PayPal Standard Template"
 {
     Caption = 'PayPal Payments Standard Account Template';
     DrillDownPageID = 1071;
     LookupPageID = 1071;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -79,11 +73,11 @@ table 1071 "MS - PayPal Standard Template"
     begin
         TargetURL := '';
         CALCFIELDS("Target URL");
-        if "Target URL".HASVALUE() then begin
+        IF "Target URL".HASVALUE() THEN BEGIN
             "Target URL".CREATEINSTREAM(InStream);
             InStream.READ(TargetURL);
-        end;
-        exit(TargetURL);
+        END;
+        EXIT(TargetURL);
     end;
 
     procedure SetTargetURL(TargetURL: Text);
@@ -115,11 +109,11 @@ table 1071 "MS - PayPal Standard Template"
     begin
         LogoURL := '';
         CALCFIELDS("Logo URL");
-        if "Logo URL".HASVALUE() then begin
+        IF "Logo URL".HASVALUE() THEN BEGIN
             "Logo URL".CREATEINSTREAM(InStream);
             InStream.READ(LogoURL);
-        end;
-        exit(LogoURL);
+        END;
+        EXIT(LogoURL);
     end;
 
     procedure SetLogoURL(LogoURL: Text);
@@ -146,9 +140,9 @@ table 1071 "MS - PayPal Standard Template"
 
     procedure RefreshLogoIfNeeded();
     begin
-        if ("Logo Last Update DateTime" <= (CURRENTDATETIME() - "Logo Update Frequency")) and ("Logo Update Frequency" <> 0) then
-            if UpdateLogoFromURL(GetLogoURL()) then
-                exit;
+        IF ("Logo Last Update DateTime" <= (CURRENTDATETIME() - "Logo Update Frequency")) AND ("Logo Update Frequency" <> 0) THEN
+            IF UpdateLogoFromURL(GetLogoURL()) THEN
+                EXIT;
 
         CALCFIELDS(Logo);
     end;
@@ -157,16 +151,16 @@ table 1071 "MS - PayPal Standard Template"
     var
         ActivityLog: Record "Activity Log";
     begin
-        if LogoURL = '' then
-            exit(false);
+        IF LogoURL = '' THEN
+            EXIT(FALSE);
 
-        if not DownloadLogo(LogoURL) then begin
+        IF NOT DownloadLogo(LogoURL) THEN BEGIN
             ActivityLog.LogActivity(Rec, ActivityLog.Status::Failed, PayPalContextTxt, UpdatingPayPalLogoFailedTxt, GETLASTERRORTEXT());
-            exit(false);
-        end;
+            EXIT(FALSE);
+        END;
         "Logo Last Update DateTime" := CURRENTDATETIME();
-        MODIFY(true);
-        exit(true);
+        MODIFY(TRUE);
+        EXIT(TRUE);
     end;
 
     local procedure DownloadLogo(LogoURL: Text): Boolean;

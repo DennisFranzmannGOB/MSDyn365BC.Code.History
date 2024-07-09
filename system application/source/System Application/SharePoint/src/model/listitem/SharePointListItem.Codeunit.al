@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Sharepoint;
-
 codeunit 9103 "SharePoint List Item"
 {
     Access = Internal;
@@ -50,7 +48,6 @@ codeunit 9103 "SharePoint List Item"
     local procedure ParseSingle(Payload: JsonObject) SharePointListItem: Record "SharePoint List Item" temporary
     var
         SharePointUriBuilder: Codeunit "SharePoint Uri Builder";
-        SharePointClient: Codeunit "SharePoint Client";
         JToken: JsonToken;
     begin
         SharePointListItem.Init();
@@ -85,8 +82,6 @@ codeunit 9103 "SharePoint List Item"
 
             if Payload.Get('uri', JToken) then
                 SharePointListItem.OdataEditLink := CopyStr(JToken.AsValue().AsText(), JToken.AsValue().AsText().IndexOf('Web/Lists'), MaxStrLen(SharePointListItem.OdataEditLink));
-
-            SharePointClient.ProcessSharePointListItemMetadata(JToken, SharePointListItem);
         end;
 
         if SharePointListItem.OdataEditLink <> '' then begin

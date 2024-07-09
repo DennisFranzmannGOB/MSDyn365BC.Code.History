@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information. 
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Visualization;
-
 pageextension 1441 "Headlines RC Order Proc. Ext." extends "Headline RC Order Processor"
 {
 
@@ -68,9 +66,13 @@ pageextension 1441 "Headlines RC Order Proc. Ext." extends "Headline RC Order Pr
     end;
 
     var
+        [InDataSet]
         LargestOrderVisible: Boolean;
+        [InDataSet]
         LargestOrderText: Text[250];
 
+        [InDataSet]
         LargestSaleVisible: Boolean;
+        [InDataSet]
         LargestSaleText: Text[250];
 }

@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Device;
-
 /// <summary>
 /// Standard paper sources.
 /// </summary>
@@ -15,7 +13,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// Automatically fed paper.
     /// </summary>
-    value(7; AutomaticFeed)
+    value(7; "AutomaticFeed")
     {
         Caption = 'Automatically fed paper.';
     }
@@ -23,7 +21,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// A paper cassette.
     /// </summary>
-    value(14; Cassette)
+    value(14; "Cassette")
     {
         Caption = 'A paper cassette.';
     }
@@ -31,7 +29,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// A printer-specific paper source.
     /// </summary>
-    value(257; Custom)
+    value(257; "Custom")
     {
         Caption = 'A printer-specific paper source.';
     }
@@ -39,7 +37,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// An envelope.
     /// </summary>
-    value(5; Envelope)
+    value(5; "Envelope")
     {
         Caption = 'An envelope.';
     }
@@ -47,7 +45,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// The default input bin of printer.
     /// </summary>
-    value(15; FormSource)
+    value(15; "FormSource")
     {
         Caption = 'The default input bin of printer.';
     }
@@ -55,7 +53,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// The large-capacity bin of printer.
     /// </summary>
-    value(11; LargeCapacity)
+    value(11; "LargeCapacity")
     {
         Caption = 'The large-capacity bin of printer.';
     }
@@ -63,7 +61,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// Large-format paper.
     /// </summary>
-    value(10; LargeFormat)
+    value(10; "LargeFormat")
     {
         Caption = 'Large-format paper.';
     }
@@ -71,7 +69,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// The lower bin of a printer.
     /// </summary>
-    value(2; Lower)
+    value(2; "Lower")
     {
         Caption = 'The lower bin of a printer.';
     }
@@ -79,7 +77,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// Manually fed paper.
     /// </summary>
-    value(4; Manual)
+    value(4; "Manual")
     {
         Caption = 'Manually fed paper.';
     }
@@ -87,7 +85,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// Manually fed envelope.
     /// </summary>
-    value(6; ManualFeed)
+    value(6; "ManualFeed")
     {
         Caption = 'Manually fed envelope.';
     }
@@ -95,7 +93,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// The middle bin of a printer.
     /// </summary>
-    value(3; Middle)
+    value(3; "Middle")
     {
         Caption = 'The middle bin of a printer.';
     }
@@ -103,7 +101,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// Small-format paper.
     /// </summary>
-    value(9; SmallFormat)
+    value(9; "SmallFormat")
     {
         Caption = 'Small-format paper.';
     }
@@ -111,7 +109,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// A tractor feed.
     /// </summary>
-    value(8; TractorFeed)
+    value(8; "TractorFeed")
     {
         Caption = 'A tractor feed.';
     }
@@ -119,7 +117,7 @@ enum 2617 "Printer Paper Source Kind"
     /// <summary>
     /// The upper bin of a printer.
     /// </summary>
-    value(1; Upper)
+    value(1; "Upper")
     {
         Caption = 'The upper bin of a printer.';
     }

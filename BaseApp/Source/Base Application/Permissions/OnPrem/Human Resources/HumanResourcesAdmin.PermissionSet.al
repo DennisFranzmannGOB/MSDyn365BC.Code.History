@@ -1,10 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.HumanResources.Setup;
-using Microsoft.HumanResources.Employee;
-using Microsoft.HumanResources.Absence;
-using Microsoft.Foundation.UOM;
-
 permissionset 4592 "Human Resources - Admin"
 {
     Access = Public;

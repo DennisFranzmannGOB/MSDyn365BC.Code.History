@@ -1167,22 +1167,20 @@ codeunit 139500 "MS - PayPal Standard Tests"
 
     local procedure SetupReportSelections();
     var
-        ReportLayoutList: Record "Report Layout List";
+        CustomReportLayout: Record "Custom Report Layout";
         ReportSelections: Record "Report Selections";
     begin
         ReportSelections.DELETEALL();
         CreateDefaultReportSelection();
 
-        ReportLayoutList.SetRange("Report ID", GetReportID());
-        ReportLayoutList.SetRange("Layout Format", ReportLayoutList."Layout Format"::Word);
-        ReportLayoutList.FindLast();
+        GetCustomBodyLayout(CustomReportLayout);
 
         ReportSelections.Reset();
         ReportSelections.SetRange(Usage, ReportSelections.Usage::"S.Invoice");
         ReportSelections.FINDFIRST();
         ReportSelections.VALIDATE("Use for Email Attachment", TRUE);
         ReportSelections.VALIDATE("Use for Email Body", TRUE);
-        ReportSelections.VALIDATE("Email Body Layout Name", ReportLayoutList.Name);
+        ReportSelections.VALIDATE("Email Body Layout Code", CustomReportLayout.Code);
         ReportSelections.MODIFY(TRUE);
     end;
 
@@ -1200,6 +1198,14 @@ codeunit 139500 "MS - PayPal Standard Tests"
     local procedure GetReportID(): Integer;
     begin
         EXIT(REPORT::"Standard Sales - Invoice");
+    end;
+
+    local procedure GetCustomBodyLayout(var CustomReportLayout: Record "Custom Report Layout");
+    begin
+        CustomReportLayout.SETRANGE("Report ID", GetReportID());
+        CustomReportLayout.SETRANGE(Type, CustomReportLayout.Type::Word);
+        CustomReportLayout.SETFILTER(Description, '''@*Email Body*''');
+        CustomReportLayout.FINDLAST();
     end;
 
     local procedure CreateSalesInvoice(var SalesHeader: Record "Sales Header"; PaymentMethod: Record "Payment Method");

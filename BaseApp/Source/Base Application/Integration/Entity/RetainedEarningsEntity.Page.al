@@ -1,11 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Entity;
-
-using Microsoft.Integration.Graph;
-
 page 5497 "Retained Earnings Entity"
 {
     Caption = 'retainedEarningsStatement', Locked = true;
@@ -23,19 +15,19 @@ page 5497 "Retained Earnings Entity"
         {
             repeater(Group)
             {
-                field(lineNumber; Rec."Line No.")
+                field(lineNumber; "Line No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Line No..';
                     Caption = 'LineNumber', Locked = true;
                 }
-                field(display; Rec.Description)
+                field(display; Description)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Description.';
                     Caption = 'Description', Locked = true;
                 }
-                field(netChange; Rec."Net Change")
+                field(netChange; "Net Change")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Net Change.';
@@ -43,19 +35,19 @@ page 5497 "Retained Earnings Entity"
                     BlankZero = true;
                     Caption = 'NetChange', Locked = true;
                 }
-                field(lineType; Rec."Line Type")
+                field(lineType; "Line Type")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Line Type.';
                     Caption = 'LineType', Locked = true;
                 }
-                field(indentation; Rec.Indentation)
+                field(indentation; Indentation)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Indentation.';
                     Caption = 'Indentation', Locked = true;
                 }
-                field(dateFilter; Rec."Date Filter")
+                field(dateFilter; "Date Filter")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Date Filter.';

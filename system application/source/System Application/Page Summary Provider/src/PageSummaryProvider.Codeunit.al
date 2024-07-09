@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration;
-
 /// <summary>
 /// Exposes functionality that gets page summary for a selected page.
 /// This codeunit is exposed as a webservice and hence all functions are available through OData calls.
@@ -33,7 +31,7 @@ codeunit 2718 "Page Summary Provider"
     ///      {"caption":"Balance Due (LCY)","fieldValue":"1.499,03","type":"Decimal"}]
     ///   }
     /// }
-    ///
+    /// 
     /// In case of an error:
     /// {
     ///   "version":"1.1",
@@ -50,7 +48,7 @@ codeunit 2718 "Page Summary Provider"
     var
         SummaryProviderImpl: Codeunit "Page Summary Provider Impl.";
     begin
-        exit(SummaryProviderImpl.GetPageSummary(PageId, Bookmark));
+        exit(SummaryProviderImpl.GetPageSummary(PageID, Bookmark));
     end;
 
     /// <summary>
@@ -78,7 +76,7 @@ codeunit 2718 "Page Summary Provider"
     ///      {"caption":"Balance Due (LCY)","fieldValue":"1.499,03","type":"Decimal"}]
     ///   }
     /// }
-    ///
+    /// 
     /// In case of an error:
     /// {
     ///   "version":"1.1",
@@ -95,7 +93,7 @@ codeunit 2718 "Page Summary Provider"
     var
         SummaryProviderImpl: Codeunit "Page Summary Provider Impl.";
     begin
-        exit(SummaryProviderImpl.GetPageSummary(PageId, SystemId));
+        exit(SummaryProviderImpl.GetPageSummary(PageID, SystemId));
     end;
 
     /// <summary>
@@ -110,7 +108,7 @@ codeunit 2718 "Page Summary Provider"
     ///   "pageType":"Card",
     ///   "summaryType":"Caption",
     /// }
-    ///
+    /// 
     /// In case of error:
     /// {
     ///   "version":"1.1",
@@ -127,7 +125,7 @@ codeunit 2718 "Page Summary Provider"
     var
         SummaryProviderImpl: Codeunit "Page Summary Provider Impl.";
     begin
-        exit(SummaryProviderImpl.GetPageSummary(PageId, ''));
+        exit(SummaryProviderImpl.GetPageSummary(PageID, ''));
     end;
 
     /// <summary>
@@ -145,7 +143,7 @@ codeunit 2718 "Page Summary Provider"
     ///   "version":"1.1",
     ///   "url":"https://businesscentral.dynamics.com/?company=CRONUS%20International%20Ltd.&amp;page=22&amp;bookmark=27%3bEgAAAAJ7CDAAMQA5ADAANQA4ADkAMw%3d%3",
     /// }
-    ///
+    /// 
     /// In case of an error:
     /// {
     ///   "version":"1.1",
@@ -159,7 +157,7 @@ codeunit 2718 "Page Summary Provider"
     var
         SummaryProviderImpl: Codeunit "Page Summary Provider Impl.";
     begin
-        exit(SummaryProviderImpl.GetPageUrlBySystemID(PageId, SystemId));
+        exit(SummaryProviderImpl.GetPageUrlBySystemID(PageID, SystemId));
     end;
 
     /// <summary>

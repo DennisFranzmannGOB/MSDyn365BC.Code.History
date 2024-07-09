@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System.Integration.Excel;
-
 permissionset 4426 "Excel Export Action"
 {
     Assignable = true;

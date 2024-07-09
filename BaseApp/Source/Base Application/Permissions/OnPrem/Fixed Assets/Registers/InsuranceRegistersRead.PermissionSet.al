@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.FixedAssets.Insurance;
-
 permissionset 3423 "Insurance Registers - Read"
 {
     Access = Public;

@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 /// <summary>
 /// List page that contains all of the retention periods that have been defined.
 /// </summary>
@@ -45,7 +43,7 @@ page 3900 "Retention Periods"
                 field("Ret. Period Calculation"; Rec."Ret. Period Calculation")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the date formula used to calculate the expiration date for the retention period.';
+                    Tooltip = 'Specifies the date formula used to calculate the expiration date for the retention period.';
                     Editable = Rec."Retention Period" = Rec."Retention Period"::Custom;
                     ShowMandatory = Rec."Retention Period" = Rec."Retention Period"::Custom;
 
@@ -59,7 +57,7 @@ page 3900 "Retention Periods"
                 {
                     ApplicationArea = All;
                     Caption = 'Expiration Date';
-                    ToolTip = 'Specifies the expiration date. Records created on or before this date will be deleted.';
+                    Tooltip = 'Specifies the expiration date. Records created on or before this date will be deleted.';
                     Editable = false;
                 }
             }

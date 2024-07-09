@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Shpfy - Admin Permissions (ID 30103).
 /// </summary>

@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 table 8701 "Company Size Cache"
 {
     DataPerCompany = false;

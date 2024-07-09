@@ -5,8 +5,8 @@ page 2328 "BC O365 Email Settings Part"
     DelayedInsert = true;
     PageType = ListPart;
     SourceTable = "O365 Email Setup";
-    SourceTableView = sorting(Email)
-                      order(Ascending);
+    SourceTableView = SORTING(Email)
+                      ORDER(Ascending);
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
     ObsoleteState = Pending;
     ObsoleteTag = '21.0';
@@ -17,17 +17,17 @@ page 2328 "BC O365 Email Settings Part"
         {
             repeater(Group)
             {
-                field(Email; Rec.Email)
+                field(Email; Email)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
 
                     trigger OnValidate()
                     begin
-                        if (Rec.Email = '') and (xRec.Email <> '') then
+                        if (Email = '') and (xRec.Email <> '') then
                             CurrPage.Update(false);
                     end;
                 }
-                field(RecipientType; Rec.RecipientType)
+                field(RecipientType; RecipientType)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Caption = 'CC/BCC';
@@ -55,7 +55,7 @@ page 2328 "BC O365 Email Settings Part"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec.RecipientType := Rec.RecipientType::CC;
+        RecipientType := RecipientType::CC;
     end;
 
     var

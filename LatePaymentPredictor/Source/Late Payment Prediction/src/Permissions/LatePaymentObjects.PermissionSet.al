@@ -1,6 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Finance.Latepayment;
 permissionset 8311 "LatePayment - Objects"
 {
     Assignable = false;

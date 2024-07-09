@@ -1489,7 +1489,6 @@ codeunit 139164 "Library - CRM Integration"
 
         CRMPricelevel.Init();
         CRMPricelevel.Name := CRMSynchHelper.GetDefaultPriceListName;
-        CRMPriceLevel.TransactionCurrencyId := GetGLSetupCRMTransactionCurrencyID();
         CRMPricelevel.Insert();
 
         CRMConnectionSetup.Validate("Default CRM Price List ID", CRMPricelevel.PriceLevelId);
@@ -1863,14 +1862,8 @@ codeunit 139164 "Library - CRM Integration"
     [Scope('OnPrem')]
     procedure DisableTaskOnBeforeJobQueueScheduleTask()
     begin
-        UnbindLibraryJobQueue();
-        BindSubscription(LibraryJobQueue);
-    end;
-
-    [Scope('OnPrem')]
-    procedure UnbindLibraryJobQueue()
-    begin
         Clear(LibraryJobQueue);
+        BindSubscription(LibraryJobQueue);
     end;
 
     [Scope('OnPrem')]

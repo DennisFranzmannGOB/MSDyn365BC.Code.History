@@ -1,15 +1,9 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Security.AccessControl;
-
-using System.Security.AccessControl;
-using System.TestLibraries.Utilities;
-using System.TestLibraries.Security.AccessControl;
-
-codeunit 135033 "Password Dialog Test"
+Codeunit 135033 "Password Dialog Test"
 {
     SingleInstance = true;
     EventSubscriberInstance = Manual;
@@ -158,7 +152,7 @@ codeunit 135033 "Password Dialog Test"
         PasswordToUse := ValidPasswordTxt;
         asserterror PasswordDialogManagement.OpenPasswordDialog();
         Assert.ExpectedError('Validation error for Field');
-    end;
+    END;
 
     [Test]
     [HandlerFunctions('PasswordDialogModalPageHandler')]

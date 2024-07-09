@@ -1,5 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
 table 5306 "Outlook Synch. Lookup Name"
 {
     Caption = 'Outlook Synch. Lookup Name';

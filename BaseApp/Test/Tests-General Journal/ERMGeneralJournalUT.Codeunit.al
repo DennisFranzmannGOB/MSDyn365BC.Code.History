@@ -4199,10 +4199,10 @@ codeunit 134920 "ERM General Journal UT"
     var
         GenJournalLine: Record "Gen. Journal Line";
         Customer: Record Customer;
-        PostingDate: Date;
+        DocumentDate: Date;
     begin
         // [FEATURE] [Invoice] [Payment Terms] [Due Date]
-        // [SCENARIO 285181] "Due Date" on Gen. Journal Line of "Document Type" = Invoice, Payment Terms Code = '' is based on "Posting Date"
+        // [SCENARIO 285181] "Due Date" on Gen. Journal Line of "Document Type" = Invoice, Payment Terms Code = '' is based on "Document Date"
         Initialize();
 
         // [GIVEN] Created Customer
@@ -4213,12 +4213,12 @@ codeunit 134920 "ERM General Journal UT"
         GenJournalLine.Validate("Document Type", GenJournalLine."Document Type"::Invoice);
         GenJournalLine.Validate("Payment Terms Code", '');
 
-        // [WHEN] Set "Posting Date" to 01.08.18
-        PostingDate := LibraryRandom.RandDate(100);
-        GenJournalLine.Validate("Posting Date", PostingDate);
+        // [WHEN] Set "Document Date" to 01.08.18
+        DocumentDate := LibraryRandom.RandDate(100);
+        GenJournalLine.Validate("Document Date", DocumentDate);
 
         // [THEN] "Due Date" = 01.08.18 on Gen. Journal Line
-        GenJournalLine.TestField("Due Date", PostingDate);
+        GenJournalLine.TestField("Due Date", DocumentDate);
     end;
 
     [Test]
@@ -4227,10 +4227,10 @@ codeunit 134920 "ERM General Journal UT"
     var
         GenJournalLine: Record "Gen. Journal Line";
         Customer: Record Customer;
-        PostingDate: Date;
+        DocumentDate: Date;
     begin
         // [FEATURE] [Credit Memo] [Payment Terms] [Due Date]
-        // [SCENARIO 285181] "Due Date" on Gen. Journal Line of "Document Type" = "Credit Memo", Payment Terms Code = '' is based on "Posting Date"
+        // [SCENARIO 285181] "Due Date" on Gen. Journal Line of "Document Type" = "Credit Memo", Payment Terms Code = '' is based on "Document Date"
         Initialize();
 
         // [GIVEN] Created Customer
@@ -4241,12 +4241,12 @@ codeunit 134920 "ERM General Journal UT"
         GenJournalLine.Validate("Document Type", GenJournalLine."Document Type"::"Credit Memo");
         GenJournalLine.Validate("Payment Terms Code", '');
 
-        // [WHEN] Set "Posting Date" to 01.08.18
-        PostingDate := LibraryRandom.RandDate(100);
-        GenJournalLine.Validate("Posting Date", PostingDate);
+        // [WHEN] Set "Document Date" to 01.08.18
+        DocumentDate := LibraryRandom.RandDate(100);
+        GenJournalLine.Validate("Document Date", DocumentDate);
 
         // [THEN] "Due Date" = 01.08.18 on Gen. Journal Line
-        GenJournalLine.TestField("Due Date", PostingDate);
+        GenJournalLine.TestField("Due Date", DocumentDate);
     end;
 
     [Test]
@@ -4785,7 +4785,7 @@ codeunit 134920 "ERM General Journal UT"
         LibraryERM.CreateGenJournalTemplate(GenJournalTemplate);
 
         // [GIVEN] Web Service for Gen. Journal Batches page = "WS"
-        LibraryGraphMgt.EnsureWebServiceExist('GeneralJournalBatches', 251);
+        LibraryGraphMgt.EnsureWebServiceExist('GeneralJournalBatches', PAGE::"General Journal Batches");
 
         // [WHEN] Post Json request to Web Service "WS" (new Gen. Journal Batch - Name = "GJB", Journal_Template_Name = "GJT")
         NewGenJnlBatchName := LibraryUtility.GenerateRandomCode(GenJournalBatch.FieldNo("Name"), DATABASE::"Gen. Journal Batch");

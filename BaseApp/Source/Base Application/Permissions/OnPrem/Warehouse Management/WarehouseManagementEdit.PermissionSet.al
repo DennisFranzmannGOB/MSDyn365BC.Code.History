@@ -1,12 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Warehouse.Structure;
-using Microsoft.Inventory.Counting.Journal;
-using Microsoft.Warehouse.Activity.History;
-using Microsoft.Warehouse.Setup;
-using Microsoft.Warehouse.Journal;
-using Microsoft.Warehouse.Ledger;
-
 permissionset 4472 "Warehouse Management - Edit"
 {
     Access = Public;

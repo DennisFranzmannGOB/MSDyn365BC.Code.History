@@ -1,10 +1,3 @@
-namespace Microsoft.API.V1;
-
-using System.IO;
-using System.Reflection;
-using Microsoft.Integration.Graph;
-using System.Utilities;
-
 page 20040 "APIV1 - G/L Entry Attachments"
 {
     APIVersion = 'v1.0';
@@ -24,52 +17,52 @@ page 20040 "APIV1 - G/L Entry Attachments"
         {
             repeater(Group)
             {
-                field(generalLedgerEntryNumber; Rec."G/L Entry No.")
+                field(generalLedgerEntryNumber; "G/L Entry No.")
                 {
                     Caption = 'generalLedgerEntryNumber', Locked = true;
                     ShowMandatory = true;
                 }
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'id', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo(Id), TempFieldBuffer);
+                        GraphMgtAttachmentBuffer.RegisterFieldSet(FIELDNO(Id), TempFieldBuffer);
                     end;
                 }
-                field(fileName; Rec."File Name")
+                field(fileName; "File Name")
                 {
                     Caption = 'fileName', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo("File Name"), TempFieldBuffer);
+                        GraphMgtAttachmentBuffer.RegisterFieldSet(FIELDNO("File Name"), TempFieldBuffer);
                     end;
                 }
-                field(byteSize; Rec."Byte Size")
+                field(byteSize; "Byte Size")
                 {
                     Caption = 'byteSize', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo("Byte Size"), TempFieldBuffer);
+                        GraphMgtAttachmentBuffer.RegisterFieldSet(FIELDNO("Byte Size"), TempFieldBuffer);
                     end;
                 }
 #pragma warning disable AL0273
-                field(content; Rec.Content)
+                field(content; Content)
 #pragma warning restore
                 {
                     Caption = 'content', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if AttachmentsLoaded then
-                            Rec.Modify();
-                        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo(Content), TempFieldBuffer);
+                        IF AttachmentsLoaded THEN
+                            MODIFY();
+                        GraphMgtAttachmentBuffer.RegisterFieldSet(FIELDNO(Content), TempFieldBuffer);
                     end;
                 }
-                field(createdDateTime; Rec."Created Date-Time")
+                field(createdDateTime; "Created Date-Time")
                 {
                     Caption = 'createdDateTime', Locked = true;
                 }
@@ -84,7 +77,7 @@ page 20040 "APIV1 - G/L Entry Attachments"
     trigger OnDeleteRecord(): Boolean
     begin
         GraphMgtAttachmentBuffer.PropagateDeleteAttachment(Rec);
-        exit(false);
+        EXIT(FALSE);
     end;
 
     trigger OnFindRecord(Which: Text): Boolean
@@ -93,21 +86,21 @@ page 20040 "APIV1 - G/L Entry Attachments"
         AttachmentIdFilter: Text;
         FilterView: Text;
     begin
-        if not AttachmentsLoaded then begin
-            FilterView := Rec.GetView();
-            GLEntryNoFilter := Rec.GetFilter("G/L Entry No.");
-            AttachmentIdFilter := Rec.GetFilter(Id);
-            if GLEntryNoFilter = '' then
-                error(MissingGLEntryNoErr);
+        IF NOT AttachmentsLoaded THEN BEGIN
+            FilterView := GETVIEW();
+            GLEntryNoFilter := GETFILTER("G/L Entry No.");
+            AttachmentIdFilter := GETFILTER(Id);
+            IF GLEntryNoFilter = '' THEN
+                ERROR(MissingGLEntryNoErr);
 
             GraphMgtAttachmentBuffer.LoadAttachments(Rec, GLEntryNoFilter, AttachmentIdFilter);
-            Rec.SETVIEW(FilterView);
-            AttachmentsFound := Rec.FINDFIRST();
-            if not AttachmentsFound then
-                exit(false);
-            AttachmentsLoaded := true;
-        end;
-        exit(AttachmentsFound);
+            SETVIEW(FilterView);
+            AttachmentsFound := FINDFIRST();
+            IF NOT AttachmentsFound THEN
+                EXIT(FALSE);
+            AttachmentsLoaded := TRUE;
+        END;
+        EXIT(AttachmentsFound);
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
@@ -120,42 +113,42 @@ page 20040 "APIV1 - G/L Entry Attachments"
         GLEntryNoFilter: Text;
         FilterView: Text;
     begin
-        if Rec."G/L Entry No." = 0 then begin
-            FilterView := Rec.GetView();
-            GLEntryNoFilter := Rec.GetFilter("G/L Entry No.");
-            if GLEntryNoFilter <> '' then begin
-                Value := Rec."G/L Entry No.";
+        IF "G/L Entry No." = 0 THEN BEGIN
+            FilterView := GETVIEW();
+            GLEntryNoFilter := GETFILTER("G/L Entry No.");
+            IF GLEntryNoFilter <> '' THEN BEGIN
+                Value := "G/L Entry No.";
                 TypeHelper.Evaluate(Value, GLEntryNoFilter, '', 'en-US');
-                Rec."G/L Entry No." := Value;
-            end;
-            Rec.SETVIEW(FilterView);
-        end;
-        if Rec."G/L Entry No." = 0 then
-            error(MissingGLEntryNoErr);
+                "G/L Entry No." := Value;
+            END;
+            SETVIEW(FilterView);
+        END;
+        IF "G/L Entry No." = 0 THEN
+            ERROR(MissingGLEntryNoErr);
 
-        if not FileManagement.IsValidFileName(Rec."File Name") then
-            Rec.Validate("File Name", 'filename.txt');
+        IF NOT FileManagement.IsValidFileName("File Name") THEN
+            VALIDATE("File Name", 'filename.txt');
 
-        Rec.Validate("Created Date-Time", ROUNDDATETIME(CURRENTDATETIME(), 1000));
-        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo("Created Date-Time"), TempFieldBuffer);
+        VALIDATE("Created Date-Time", ROUNDDATETIME(CURRENTDATETIME(), 1000));
+        GraphMgtAttachmentBuffer.RegisterFieldSet(FIELDNO("Created Date-Time"), TempFieldBuffer);
 
         ByteSizeFromContent();
 
         GraphMgtAttachmentBuffer.PropagateInsertAttachment(Rec, TempFieldBuffer);
 
-        exit(false);
+        EXIT(FALSE);
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        if xRec.Id <> Rec.Id then
-            error(CannotModifyKeyFieldErr, 'id');
-        if xRec."G/L Entry No." <> Rec."G/L Entry No." then
-            error(CannotModifyKeyFieldErr, 'generalLedgerEntryNumber');
+        IF xRec.Id <> Id THEN
+            ERROR(CannotModifyKeyFieldErr, 'id');
+        IF xRec."G/L Entry No." <> "G/L Entry No." THEN
+            ERROR(CannotModifyKeyFieldErr, 'generalLedgerEntryNumber');
 
         GraphMgtAttachmentBuffer.PropagateModifyAttachment(Rec, TempFieldBuffer);
         ByteSizeFromContent();
-        exit(false);
+        EXIT(FALSE);
     end;
 
     var
@@ -170,11 +163,10 @@ page 20040 "APIV1 - G/L Entry Attachments"
     var
         TempBlob: Codeunit "Temp Blob";
     begin
-        TempBlob.FromRecord(Rec, Rec.FieldNo(Content));
-        Rec."Byte Size" := GraphMgtAttachmentBuffer.GetContentLength(TempBlob);
+        TempBlob.FromRecord(Rec, FieldNo(Content));
+        "Byte Size" := GraphMgtAttachmentBuffer.GetContentLength(TempBlob);
     end;
 }
-
 
 
 

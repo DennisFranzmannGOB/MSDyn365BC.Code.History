@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 codeunit 30209 "Shpfy GQL NextOrderLines" implements "Shpfy IGraphQL"
 {
     Access = Internal;

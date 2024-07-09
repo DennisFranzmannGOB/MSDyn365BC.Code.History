@@ -21,6 +21,9 @@ codeunit 136316 "Job Jnl. Error Handling"
         LibraryERM: Codeunit "Library - ERM";
         LibrarySales: Codeunit "Library - Sales";
         Assert: Codeunit Assert;
+#if not CLEAN20
+        FeatureManagement: Codeunit "Feature Management Facade";
+#endif
         TestFieldMustHaveValueErr: Label '%1 must have a value', Comment = '%1 - field caption';
         SkipCheckText: Label 'SkipCheckCustomerAssosEntriesExist';
         IsInitialized: Boolean;
@@ -129,7 +132,6 @@ codeunit 136316 "Job Jnl. Error Handling"
     var
         JobJournalLine: Record "Job Journal Line";
         JobJournal: TestPage "Job Journal";
-        LinesWithIssuesCounter: Integer;
     begin
         // [SCENARIO 411162] Action "Show All Lines" makes action "Show Lines with Errors" enabled
         Initialize();
@@ -141,23 +143,16 @@ codeunit 136316 "Job Jnl. Error Handling"
         Commit();
         JobJournal.Trap();
         Page.Run(Page::"Job Journal", JobJournalLine);
-        // [WHEN] Action "Show Lines with Errors" is selected
+        // [GIVEN] Action "Show Lines with Errors" is selected
         JobJournal.ShowLinesWithErrors.Invoke();
-
-        // [THEN] Check that there is one line shown in the journal
-        if JobJournal.First() then
-            repeat
-                LinesWithIssuesCounter += 1;
-            until not JobJournal.Next();
-        Assert.AreEqual(1, LinesWithIssuesCounter - 1, 'There must be exactly one line shown in the journal');
 
         // [WHEN] Action "Show All Lines" is being selected
         JobJournal.ShowAllLines.Invoke();
 
         // [THEN] Action "Show Lines with Errors" enabled
-        Assert.IsTrue(JobJournal.ShowLinesWithErrors.Enabled(), 'Action ShowLinesWithErrors must be enabled');
+        assert.IsTrue(JobJournal.ShowLinesWithErrors.Enabled(), 'Action ShowLinesWithErrors must be enabled');
         // [THEN] Action "Show All Lines" disabled
-        Assert.IsFalse(JobJournal.ShowAllLines.Enabled(), 'Action ShowAllLines must be disabled');
+        assert.IsFalse(JobJournal.ShowAllLines.Enabled(), 'Action ShowAllLines must be disabled');
     end;
 
     [Test]

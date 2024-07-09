@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.EServices.EDocument;
-using Microsoft.Integration.Graph;
-
 page 30056 "APIV2 - PDF Document"
 {
     APIVersion = 'v2.0';
@@ -26,22 +21,22 @@ page 30056 "APIV2 - PDF Document"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(parentId; Rec."Document Id")
+                field(parentId; "Document Id")
                 {
                     Caption = 'Parent Id';
                     Editable = false;
                 }
-                field(parentType; Rec."Document Type")
+                field(parentType; "Document Type")
                 {
                     Caption = 'Parent Type';
                     Editable = false;
                 }
-                field(pdfDocumentContent; Rec.Content)
+                field(pdfDocumentContent; Content)
                 {
                     Caption = 'PDF Document Content';
                     Editable = false;
@@ -65,10 +60,10 @@ page 30056 "APIV2 - PDF Document"
         IdFilter: Text;
     begin
         if not PdfGenerated then begin
-            FilterView := Rec.GetView();
-            DocumentIdFilter := Rec.GetFilter("Document Id");
-            DocumentTypeFilter := Rec.GetFilter("Document Type");
-            IdFilter := Rec.GetFilter(Id);
+            FilterView := GetView();
+            DocumentIdFilter := GetFilter("Document Id");
+            DocumentTypeFilter := GetFilter("Document Type");
+            IdFilter := GetFilter(Id);
             if (DocumentIdFilter <> '') and (IdFilter <> '') and (LowerCase(DocumentIdFilter) <> LowerCase(IdFilter)) then
                 Error(ConflictingIdsErr, DocumentIdFilter, IdFilter);
             if (DocumentTypeFilter = '') then
@@ -83,7 +78,7 @@ page 30056 "APIV2 - PDF Document"
 
             DocumentId := Format(DocumentIdFilter);
             Evaluate(DocumentType, DocumentTypeFilter);
-            Rec.SetView(FilterView);
+            SetView(FilterView);
             if IsNullGuid(DocumentId) then
                 exit(false);
             PdfGenerated := PDFDocumentManagement.GeneratePdfBlobWithDocumentType(DocumentId, DocumentType, Rec);

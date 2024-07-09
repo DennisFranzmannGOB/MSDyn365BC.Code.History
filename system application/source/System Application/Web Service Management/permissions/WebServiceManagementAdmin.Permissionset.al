@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration;
-
 permissionset 6712 "Web Service Management - Admin"
 {
     Access = Public;

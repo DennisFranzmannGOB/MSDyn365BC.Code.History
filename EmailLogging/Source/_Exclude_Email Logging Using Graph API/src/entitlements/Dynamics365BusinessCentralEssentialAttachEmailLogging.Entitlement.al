@@ -1,5 +1,3 @@
-namespace Microsoft.CRM.EmailLoggin;
-
 entitlement "Dynamics 365 Business Central Essential - Attach Email Logging"
 {
     Type = PerUserServicePlan;

@@ -33,7 +33,6 @@ codeunit 134397 "ERM Sales Cr. Memo Aggr. UT"
         CalculateInvoiceDiscountQst: Label 'Do you want to calculate the invoice discount?';
         DocumentIDNotSpecifiedErr: Label 'You must specify a document id to get the lines.';
         MultipleDocumentsFoundForIdErr: Label 'Multiple documents have been found for the specified criteria.';
-        NotAllowedToDeletePostedDocumentsErr: Label 'You are not allowed to delete posted documents.';
 
     local procedure Initialize()
     var
@@ -970,10 +969,11 @@ codeunit 134397 "ERM Sales Cr. Memo Aggr. UT"
         SalesCrMemoEntityBuffer.Get(SalesCrMemoHeader."No.", true);
 
         // Execute
-        asserterror GraphMgtSalCrMemoBuf.PropagateOnDelete(SalesCrMemoEntityBuffer);
+        GraphMgtSalCrMemoBuf.PropagateOnDelete(SalesCrMemoEntityBuffer);
 
         // Verify
-        Assert.ExpectedError(NotAllowedToDeletePostedDocumentsErr);
+        Assert.IsFalse(SalesCrMemoHeader.Find, 'Sales header should be deleted');
+        Assert.IsFalse(SalesCrMemoEntityBuffer.Find, 'Sales line should be deleted');
     end;
 
     [Test]

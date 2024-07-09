@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Enum Shpfy Allocation Method (ID 30115).
 /// </summary>

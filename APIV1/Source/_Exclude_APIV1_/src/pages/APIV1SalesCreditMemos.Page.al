@@ -1,17 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Integration.Entity;
-using Microsoft.Sales.History;
-using Microsoft.Sales.Customer;
-using Microsoft.Finance.Currency;
-using Microsoft.Foundation.PaymentTerms;
-using Microsoft.Foundation.Shipping;
-using Microsoft.Integration.Graph;
-using Microsoft.Sales.Document;
-using Microsoft.Sales.Posting;
-using Microsoft.Utilities;
-using System.Reflection;
-
 page 20038 "APIV1 - Sales Credit Memos"
 {
     APIVersion = 'v1.0';
@@ -31,151 +17,151 @@ page 20038 "APIV1 - Sales Credit Memos"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Id));
+                        RegisterFieldSet(FIELDNO(Id));
                     end;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'number', Locked = true;
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("No."));
+                        RegisterFieldSet(FIELDNO("No."));
                     end;
                 }
-                field(externalDocumentNumber; Rec."External Document No.")
+                field(externalDocumentNumber; "External Document No.")
                 {
                     Caption = 'externalDocumentNumber', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("External Document No."))
+                        RegisterFieldSet(FIELDNO("External Document No."))
                     end;
                 }
-                field(creditMemoDate; Rec."Document Date")
+                field(creditMemoDate; "Document Date")
                 {
                     Caption = 'creditMemoDate', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        DocumentDateVar := Rec."Document Date";
-                        DocumentDateSet := true;
+                        DocumentDateVar := "Document Date";
+                        DocumentDateSet := TRUE;
 
-                        RegisterFieldSet(Rec.FieldNo("Document Date"));
+                        RegisterFieldSet(FIELDNO("Document Date"));
                     end;
                 }
-                field(postingDate; Rec."Posting Date")
+                field(postingDate; "Posting Date")
                 {
                     Caption = 'postingDate', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        PostingDateVar := Rec."Posting Date";
-                        PostingDateSet := true;
+                        PostingDateVar := "Posting Date";
+                        PostingDateSet := TRUE;
 
-                        RegisterFieldSet(Rec.FieldNo("Posting Date"));
+                        RegisterFieldSet(FIELDNO("Posting Date"));
                     end;
                 }
-                field(dueDate; Rec."Due Date")
+                field(dueDate; "Due Date")
                 {
                     Caption = 'dueDate', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        DueDateVar := Rec."Due Date";
-                        DueDateSet := true;
+                        DueDateVar := "Due Date";
+                        DueDateSet := TRUE;
 
-                        RegisterFieldSet(Rec.FieldNo("Due Date"));
+                        RegisterFieldSet(FIELDNO("Due Date"));
                     end;
                 }
-                field(customerId; Rec."Customer Id")
+                field(customerId; "Customer Id")
                 {
                     Caption = 'customerId', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if not SellToCustomer.GetBySystemId(Rec."Customer Id") then
-                            error(CouldNotFindSellToCustomerErr);
+                        IF NOT SellToCustomer.GetBySystemId("Customer Id") THEN
+                            ERROR(CouldNotFindSellToCustomerErr);
 
-                        Rec."Sell-to Customer No." := SellToCustomer."No.";
-                        RegisterFieldSet(Rec.FieldNo("Customer Id"));
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Customer No."));
+                        "Sell-to Customer No." := SellToCustomer."No.";
+                        RegisterFieldSet(FIELDNO("Customer Id"));
+                        RegisterFieldSet(FIELDNO("Sell-to Customer No."));
                     end;
                 }
-                field(contactId; Rec."Contact Graph Id")
+                field(contactId; "Contact Graph Id")
                 {
                     Caption = 'contactId', Locked = true;
                 }
-                field(customerNumber; Rec."Sell-to Customer No.")
+                field(customerNumber; "Sell-to Customer No.")
                 {
                     Caption = 'customerNumber', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if SellToCustomer."No." <> '' then begin
-                            if SellToCustomer."No." <> Rec."Sell-to Customer No." then
-                                error(SellToCustomerValuesDontMatchErr);
-                            exit;
-                        end;
+                        IF SellToCustomer."No." <> '' THEN BEGIN
+                            IF SellToCustomer."No." <> "Sell-to Customer No." THEN
+                                ERROR(SellToCustomerValuesDontMatchErr);
+                            EXIT;
+                        END;
 
-                        if not SellToCustomer.GET(Rec."Sell-to Customer No.") then
-                            error(CouldNotFindSellToCustomerErr);
+                        IF NOT SellToCustomer.GET("Sell-to Customer No.") THEN
+                            ERROR(CouldNotFindSellToCustomerErr);
 
-                        Rec."Customer Id" := SellToCustomer.SystemId;
-                        RegisterFieldSet(Rec.FieldNo("Customer Id"));
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Customer No."));
+                        "Customer Id" := SellToCustomer.SystemId;
+                        RegisterFieldSet(FIELDNO("Customer Id"));
+                        RegisterFieldSet(FIELDNO("Sell-to Customer No."));
                     end;
                 }
-                field(customerName; Rec."Sell-to Customer Name")
+                field(customerName; "Sell-to Customer Name")
                 {
                     Caption = 'customerName', Locked = true;
                     Editable = false;
                 }
-                field(billToName; Rec."Bill-to Name")
+                field(billToName; "Bill-to Name")
                 {
                     Caption = 'billToName', Locked = true;
                     Editable = false;
                 }
-                field(billToCustomerId; Rec."Bill-to Customer Id")
+                field(billToCustomerId; "Bill-to Customer Id")
                 {
                     Caption = 'billToCustomerId', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if not BillToCustomer.GetBySystemId(Rec."Bill-to Customer Id") then
-                            error(CouldNotFindBillToCustomerErr);
+                        IF NOT BillToCustomer.GetBySystemId("Bill-to Customer Id") THEN
+                            ERROR(CouldNotFindBillToCustomerErr);
 
-                        Rec."Bill-to Customer No." := BillToCustomer."No.";
-                        RegisterFieldSet(Rec.FieldNo("Bill-to Customer Id"));
-                        RegisterFieldSet(Rec.FieldNo("Bill-to Customer No."));
+                        "Bill-to Customer No." := BillToCustomer."No.";
+                        RegisterFieldSet(FIELDNO("Bill-to Customer Id"));
+                        RegisterFieldSet(FIELDNO("Bill-to Customer No."));
                     end;
                 }
-                field(billToCustomerNumber; Rec."Bill-to Customer No.")
+                field(billToCustomerNumber; "Bill-to Customer No.")
                 {
                     Caption = 'billToCustomerNumber', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if BillToCustomer."No." <> '' then begin
-                            if BillToCustomer."No." <> Rec."Bill-to Customer No." then
-                                error(BillToCustomerValuesDontMatchErr);
-                            exit;
-                        end;
+                        IF BillToCustomer."No." <> '' THEN BEGIN
+                            IF BillToCustomer."No." <> "Bill-to Customer No." THEN
+                                ERROR(BillToCustomerValuesDontMatchErr);
+                            EXIT;
+                        END;
 
-                        if not BillToCustomer.GET(Rec."Bill-to Customer No.") then
-                            error(CouldNotFindBillToCustomerErr);
+                        IF NOT BillToCustomer.GET("Bill-to Customer No.") THEN
+                            ERROR(CouldNotFindBillToCustomerErr);
 
-                        Rec."Bill-to Customer Id" := BillToCustomer.SystemId;
-                        RegisterFieldSet(Rec.FieldNo("Bill-to Customer Id"));
-                        RegisterFieldSet(Rec.FieldNo("Bill-to Customer No."));
+                        "Bill-to Customer Id" := BillToCustomer.SystemId;
+                        RegisterFieldSet(FIELDNO("Bill-to Customer Id"));
+                        RegisterFieldSet(FIELDNO("Bill-to Customer No."));
                     end;
                 }
                 field(sellingPostalAddress; SellingPostalAddressJSONText)
@@ -188,7 +174,7 @@ page 20038 "APIV1 - Sales Credit Memos"
 
                     trigger OnValidate()
                     begin
-                        SellingPostalAddressSet := true;
+                        SellingPostalAddressSet := TRUE;
                     end;
                 }
                 field(billingPostalAddress; BillingPostalAddressJSONText)
@@ -201,26 +187,26 @@ page 20038 "APIV1 - Sales Credit Memos"
 
                     trigger OnValidate()
                     begin
-                        BillingPostalAddressSet := true;
+                        BillingPostalAddressSet := TRUE;
                     end;
                 }
-                field(currencyId; Rec."Currency Id")
+                field(currencyId; "Currency Id")
                 {
                     Caption = 'currencyId', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if Rec."Currency Id" = BlankGUID then
-                            Rec."Currency Code" := ''
-                        else begin
-                            if not Currency.GetBySystemId(Rec."Currency Id") then
-                                error(CurrencyIdDoesNotMatchACurrencyErr);
+                        IF "Currency Id" = BlankGUID THEN
+                            "Currency Code" := ''
+                        ELSE BEGIN
+                            IF NOT Currency.GetBySystemId("Currency Id") THEN
+                                ERROR(CurrencyIdDoesNotMatchACurrencyErr);
 
-                            Rec."Currency Code" := Currency.Code;
-                        end;
+                            "Currency Code" := Currency.Code;
+                        END;
 
-                        RegisterFieldSet(Rec.FieldNo("Currency Id"));
-                        RegisterFieldSet(Rec.FieldNo("Currency Code"));
+                        RegisterFieldSet(FIELDNO("Currency Id"));
+                        RegisterFieldSet(FIELDNO("Currency Code"));
                     end;
                 }
                 field(currencyCode; CurrencyCodeTxt)
@@ -229,84 +215,84 @@ page 20038 "APIV1 - Sales Credit Memos"
 
                     trigger OnValidate()
                     begin
-                        Rec."Currency Code" :=
+                        "Currency Code" :=
                           GraphMgtGeneralTools.TranslateCurrencyCodeToNAVCurrencyCode(
                             LCYCurrencyCode, COPYSTR(CurrencyCodeTxt, 1, MAXSTRLEN(LCYCurrencyCode)));
 
-                        if Currency.Code <> '' then begin
-                            if Currency.Code <> Rec."Currency Code" then
-                                error(CurrencyValuesDontMatchErr);
-                            exit;
-                        end;
+                        IF Currency.Code <> '' THEN BEGIN
+                            IF Currency.Code <> "Currency Code" THEN
+                                ERROR(CurrencyValuesDontMatchErr);
+                            EXIT;
+                        END;
 
-                        if Rec."Currency Code" = '' then
-                            Rec."Currency Id" := BlankGUID
-                        else begin
-                            if not Currency.GET(Rec."Currency Code") then
-                                error(CurrencyCodeDoesNotMatchACurrencyErr);
+                        IF "Currency Code" = '' THEN
+                            "Currency Id" := BlankGUID
+                        ELSE BEGIN
+                            IF NOT Currency.GET("Currency Code") THEN
+                                ERROR(CurrencyCodeDoesNotMatchACurrencyErr);
 
-                            Rec."Currency Id" := Currency.SystemId;
-                        end;
+                            "Currency Id" := Currency.SystemId;
+                        END;
 
-                        RegisterFieldSet(Rec.FieldNo("Currency Id"));
-                        RegisterFieldSet(Rec.FieldNo("Currency Code"));
+                        RegisterFieldSet(FIELDNO("Currency Id"));
+                        RegisterFieldSet(FIELDNO("Currency Code"));
                     end;
                 }
-                field(paymentTermsId; Rec."Payment Terms Id")
+                field(paymentTermsId; "Payment Terms Id")
                 {
                     Caption = 'paymentTermsId', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if Rec."Payment Terms Id" = BlankGUID then
-                            Rec."Payment Terms Code" := ''
-                        else begin
-                            if not PaymentTerms.GetBySystemId(Rec."Payment Terms Id") then
-                                error(PaymentTermsIdDoesNotMatchAPaymentTermsErr);
+                        IF "Payment Terms Id" = BlankGUID THEN
+                            "Payment Terms Code" := ''
+                        ELSE BEGIN
+                            IF NOT PaymentTerms.GetBySystemId("Payment Terms Id") THEN
+                                ERROR(PaymentTermsIdDoesNotMatchAPaymentTermsErr);
 
-                            Rec."Payment Terms Code" := PaymentTerms.Code;
-                        end;
+                            "Payment Terms Code" := PaymentTerms.Code;
+                        END;
 
-                        RegisterFieldSet(Rec.FieldNo("Payment Terms Id"));
-                        RegisterFieldSet(Rec.FieldNo("Payment Terms Code"));
+                        RegisterFieldSet(FIELDNO("Payment Terms Id"));
+                        RegisterFieldSet(FIELDNO("Payment Terms Code"));
                     end;
                 }
-                field(shipmentMethodId; Rec."Shipment Method Id")
+                field(shipmentMethodId; "Shipment Method Id")
                 {
                     Caption = 'shipmentMethodId', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if Rec."Shipment Method Id" = BlankGUID then
-                            Rec."Shipment Method Code" := ''
-                        else begin
-                            if not ShipmentMethod.GetBySystemId(Rec."Shipment Method Id") then
-                                error(ShipmentMethodIdDoesNotMatchAShipmentMethodErr);
+                        IF "Shipment Method Id" = BlankGUID THEN
+                            "Shipment Method Code" := ''
+                        ELSE BEGIN
+                            IF NOT ShipmentMethod.GetBySystemId("Shipment Method Id") THEN
+                                ERROR(ShipmentMethodIdDoesNotMatchAShipmentMethodErr);
 
-                            Rec."Shipment Method Code" := ShipmentMethod.Code;
-                        end;
+                            "Shipment Method Code" := ShipmentMethod.Code;
+                        END;
 
-                        RegisterFieldSet(Rec.FieldNo("Shipment Method Id"));
-                        RegisterFieldSet(Rec.FieldNo("Shipment Method Code"));
+                        RegisterFieldSet(FIELDNO("Shipment Method Id"));
+                        RegisterFieldSet(FIELDNO("Shipment Method Code"));
                     end;
                 }
-                field(salesperson; Rec."Salesperson Code")
+                field(salesperson; "Salesperson Code")
                 {
                     Caption = 'salesperson', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Salesperson Code"));
+                        RegisterFieldSet(FIELDNO("Salesperson Code"));
                     end;
                 }
-                field(pricesIncludeTax; Rec."Prices Including VAT")
+                field(pricesIncludeTax; "Prices Including VAT")
                 {
                     Caption = 'pricesIncludeTax', Locked = true;
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Prices Including VAT"));
+                        RegisterFieldSet(FIELDNO("Prices Including VAT"));
                     end;
                 }
                 part(salesCreditMemoLines; "APIV1 - Sales Credit Mem Lines")
@@ -314,37 +300,37 @@ page 20038 "APIV1 - Sales Credit Memos"
                     Caption = 'Lines', Locked = true;
                     EntityName = 'salesCreditMemoLine';
                     EntitySetName = 'salesCreditMemoLines';
-                    SubPageLink = "Document Id" = field(Id);
+                    SubPageLink = "Document Id" = FIELD(Id);
                 }
                 part(pdfDocument; "APIV1 - PDF Document")
                 {
                     Caption = 'PDF Document', Locked = true;
                     EntityName = 'pdfDocument';
                     EntitySetName = 'pdfDocument';
-                    SubPageLink = "Document Id" = field(Id);
+                    SubPageLink = "Document Id" = FIELD(Id);
                 }
-                field(discountAmount; Rec."Invoice Discount Amount")
+                field(discountAmount; "Invoice Discount Amount")
                 {
                     Caption = 'discountAmount', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Invoice Discount Amount"));
-                        DiscountAmountSet := true;
-                        InvoiceDiscountAmount := Rec."Invoice Discount Amount";
+                        RegisterFieldSet(FIELDNO("Invoice Discount Amount"));
+                        DiscountAmountSet := TRUE;
+                        InvoiceDiscountAmount := "Invoice Discount Amount";
                     end;
                 }
-                field(discountAppliedBeforeTax; Rec."Discount Applied Before Tax")
+                field(discountAppliedBeforeTax; "Discount Applied Before Tax")
                 {
                     Caption = 'discountAppliedBeforeTax', Locked = true;
                     Editable = false;
                 }
-                field(totalAmountExcludingTax; Rec.Amount)
+                field(totalAmountExcludingTax; Amount)
                 {
                     Caption = 'totalAmountExcludingTax', Locked = true;
                     Editable = false;
                 }
-                field(totalTaxAmount; Rec."Total Tax Amount")
+                field(totalTaxAmount; "Total Tax Amount")
                 {
                     Caption = 'totalTaxAmount', Locked = true;
                     Editable = false;
@@ -352,26 +338,26 @@ page 20038 "APIV1 - Sales Credit Memos"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Total Tax Amount"));
+                        RegisterFieldSet(FIELDNO("Total Tax Amount"));
                     end;
                 }
-                field(totalAmountIncludingTax; Rec."Amount Including VAT")
+                field(totalAmountIncludingTax; "Amount Including VAT")
                 {
                     Caption = 'totalAmountIncludingTax', Locked = true;
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Amount Including VAT"));
+                        RegisterFieldSet(FIELDNO("Amount Including VAT"));
                     end;
                 }
-                field(status; Rec.Status)
+                field(status; Status)
                 {
                     Caption = 'status', Locked = true;
                     Editable = false;
                     ToolTip = 'Specifies the status of the Sales Credit Memo (cancelled, paid, on hold, created).';
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                     Editable = false;
@@ -386,59 +372,59 @@ page 20038 "APIV1 - Sales Credit Memos"
                         SalesInvoiceAggregator: Codeunit "Sales Invoice Aggregator";
                         EmptyGuid: Guid;
                     begin
-                        if SalesInvoiceId = EmptyGuid then begin
-                            Rec."Applies-to Doc. Type" := Rec."Applies-to Doc. Type"::" ";
-                            CLEAR(Rec."Applies-to Doc. No.");
+                        IF SalesInvoiceId = EmptyGuid THEN BEGIN
+                            "Applies-to Doc. Type" := "Applies-to Doc. Type"::" ";
+                            CLEAR("Applies-to Doc. No.");
                             CLEAR(InvoiceNo);
-                            RegisterFieldSet(Rec.FieldNo("Applies-to Doc. Type"));
-                            RegisterFieldSet(Rec.FieldNo("Applies-to Doc. No."));
-                            exit;
-                        end;
+                            RegisterFieldSet(FIELDNO("Applies-to Doc. Type"));
+                            RegisterFieldSet(FIELDNO("Applies-to Doc. No."));
+                            EXIT;
+                        END;
 
-                        if not SalesInvoiceAggregator.GetSalesInvoiceHeaderFromId(SalesInvoiceId, SalesInvoiceHeader) then
-                            error(InvoiceIdDoesNotMatchAnInvoiceErr);
+                        IF NOT SalesInvoiceAggregator.GetSalesInvoiceHeaderFromId(SalesInvoiceId, SalesInvoiceHeader) THEN
+                            ERROR(InvoiceIdDoesNotMatchAnInvoiceErr);
 
-                        Rec."Applies-to Doc. Type" := Rec."Applies-to Doc. Type"::Invoice;
-                        Rec."Applies-to Doc. No." := SalesInvoiceHeader."No.";
-                        InvoiceNo := Rec."Applies-to Doc. No.";
-                        RegisterFieldSet(Rec.FieldNo("Applies-to Doc. Type"));
-                        RegisterFieldSet(Rec.FieldNo("Applies-to Doc. No."));
+                        "Applies-to Doc. Type" := "Applies-to Doc. Type"::Invoice;
+                        "Applies-to Doc. No." := SalesInvoiceHeader."No.";
+                        InvoiceNo := "Applies-to Doc. No.";
+                        RegisterFieldSet(FIELDNO("Applies-to Doc. Type"));
+                        RegisterFieldSet(FIELDNO("Applies-to Doc. No."));
                     end;
                 }
-                field(invoiceNumber; Rec."Applies-to Doc. No.")
+                field(invoiceNumber; "Applies-to Doc. No.")
                 {
                     Caption = 'invoiceNumber', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if InvoiceNo <> '' then begin
-                            if Rec."Applies-to Doc. No." <> InvoiceNo then
-                                error(InvoiceValuesDontMatchErr);
-                            exit;
-                        end;
+                        IF InvoiceNo <> '' THEN BEGIN
+                            IF "Applies-to Doc. No." <> InvoiceNo THEN
+                                ERROR(InvoiceValuesDontMatchErr);
+                            EXIT;
+                        END;
 
-                        Rec."Applies-to Doc. Type" := Rec."Applies-to Doc. Type"::Invoice;
+                        "Applies-to Doc. Type" := "Applies-to Doc. Type"::Invoice;
 
-                        RegisterFieldSet(Rec.FieldNo("Applies-to Doc. Type"));
-                        RegisterFieldSet(Rec.FieldNo("Applies-to Doc. No."));
+                        RegisterFieldSet(FIELDNO("Applies-to Doc. Type"));
+                        RegisterFieldSet(FIELDNO("Applies-to Doc. No."));
                     end;
                 }
-                field(phoneNumber; Rec."Sell-to Phone No.")
+                field(phoneNumber; "Sell-to Phone No.")
                 {
                     Caption = 'phoneNumber', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Phone No."));
+                        RegisterFieldSet(FIELDNO("Sell-to Phone No."));
                     end;
                 }
-                field(email; Rec."Sell-to E-Mail")
+                field(email; "Sell-to E-Mail")
                 {
                     Caption = 'email', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to E-Mail"));
+                        RegisterFieldSet(FIELDNO("Sell-to E-Mail"));
                     end;
                 }
             }
@@ -452,7 +438,7 @@ page 20038 "APIV1 - Sales Credit Memos"
     trigger OnAfterGetRecord()
     begin
         SetCalculatedFields();
-        if not Rec.Posted then
+        if not Posted then
             if HasWritePermissionForDraft then
                 GraphMgtSalCrMemoBuf.RedistributeCreditMemoDiscounts(Rec);
     end;
@@ -461,7 +447,7 @@ page 20038 "APIV1 - Sales Credit Memos"
     begin
         GraphMgtSalCrMemoBuf.PropagateOnDelete(Rec);
 
-        exit(false);
+        EXIT(FALSE);
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
@@ -477,13 +463,13 @@ page 20038 "APIV1 - Sales Credit Memos"
 
         SetCalculatedFields();
 
-        exit(false);
+        EXIT(FALSE);
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        if xRec.Id <> Rec.Id then
-            error(CannotChangeIDErr);
+        IF xRec.Id <> Id THEN
+            ERROR(CannotChangeIDErr);
 
         ProcessSellingPostalAddressOnModify();
         ProcessBillingPostalAddressOnModify();
@@ -493,7 +479,7 @@ page 20038 "APIV1 - Sales Credit Memos"
 
         SetCalculatedFields();
 
-        exit(false);
+        EXIT(FALSE);
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -563,7 +549,7 @@ page 20038 "APIV1 - Sales Credit Memos"
         SetInvoiceId();
         SellingPostalAddressJSONText := GraphMgtSalesCreditMemo.SellToCustomerAddressToJSON(Rec);
         BillingPostalAddressJSONText := GraphMgtSalesCreditMemo.BillToCustomerAddressToJSON(Rec);
-        CurrencyCodeTxt := GraphMgtGeneralTools.TranslateNAVCurrencyCodeToCurrencyCode(LCYCurrencyCode, Rec."Currency Code");
+        CurrencyCodeTxt := GraphMgtGeneralTools.TranslateNAVCurrencyCodeToCurrencyCode(LCYCurrencyCode, "Currency Code");
     end;
 
     local procedure ClearCalculatedFields()
@@ -582,104 +568,104 @@ page 20038 "APIV1 - Sales Credit Memos"
         LastOrderNo: Integer;
     begin
         LastOrderNo := 1;
-        if TempFieldBuffer.FINDLAST() then
+        IF TempFieldBuffer.FINDLAST() THEN
             LastOrderNo := TempFieldBuffer.Order + 1;
 
         CLEAR(TempFieldBuffer);
         TempFieldBuffer.Order := LastOrderNo;
         TempFieldBuffer."Table ID" := DATABASE::"Sales Cr. Memo Entity Buffer";
         TempFieldBuffer."Field ID" := FieldNo;
-        TempFieldBuffer.insert();
+        TempFieldBuffer.INSERT();
     end;
 
     local procedure ProcessSellingPostalAddressOnInsert()
     begin
-        if not SellingPostalAddressSet then
-            exit;
+        IF NOT SellingPostalAddressSet THEN
+            EXIT;
 
         GraphMgtSalesCreditMemo.ParseSellToCustomerAddressFromJSON(SellingPostalAddressJSONText, Rec);
 
-        RegisterFieldSet(Rec.FieldNo("Sell-to Address"));
-        RegisterFieldSet(Rec.FieldNo("Sell-to Address 2"));
-        RegisterFieldSet(Rec.FieldNo("Sell-to City"));
-        RegisterFieldSet(Rec.FieldNo("Sell-to Country/Region Code"));
-        RegisterFieldSet(Rec.FieldNo("Sell-to Post Code"));
-        RegisterFieldSet(Rec.FieldNo("Sell-to County"));
+        RegisterFieldSet(FIELDNO("Sell-to Address"));
+        RegisterFieldSet(FIELDNO("Sell-to Address 2"));
+        RegisterFieldSet(FIELDNO("Sell-to City"));
+        RegisterFieldSet(FIELDNO("Sell-to Country/Region Code"));
+        RegisterFieldSet(FIELDNO("Sell-to Post Code"));
+        RegisterFieldSet(FIELDNO("Sell-to County"));
     end;
 
     local procedure ProcessSellingPostalAddressOnModify()
     begin
-        if not SellingPostalAddressSet then
-            exit;
+        IF NOT SellingPostalAddressSet THEN
+            EXIT;
 
         GraphMgtSalesCreditMemo.ParseSellToCustomerAddressFromJSON(SellingPostalAddressJSONText, Rec);
 
-        if xRec."Sell-to Address" <> Rec."Sell-to Address" then
-            RegisterFieldSet(Rec.FieldNo("Sell-to Address"));
+        IF xRec."Sell-to Address" <> "Sell-to Address" THEN
+            RegisterFieldSet(FIELDNO("Sell-to Address"));
 
-        if xRec."Sell-to Address 2" <> Rec."Sell-to Address 2" then
-            RegisterFieldSet(Rec.FieldNo("Sell-to Address 2"));
+        IF xRec."Sell-to Address 2" <> "Sell-to Address 2" THEN
+            RegisterFieldSet(FIELDNO("Sell-to Address 2"));
 
-        if xRec."Sell-to City" <> Rec."Sell-to City" then
-            RegisterFieldSet(Rec.FieldNo("Sell-to City"));
+        IF xRec."Sell-to City" <> "Sell-to City" THEN
+            RegisterFieldSet(FIELDNO("Sell-to City"));
 
-        if xRec."Sell-to Country/Region Code" <> Rec."Sell-to Country/Region Code" then
-            RegisterFieldSet(Rec.FieldNo("Sell-to Country/Region Code"));
+        IF xRec."Sell-to Country/Region Code" <> "Sell-to Country/Region Code" THEN
+            RegisterFieldSet(FIELDNO("Sell-to Country/Region Code"));
 
-        if xRec."Sell-to Post Code" <> Rec."Sell-to Post Code" then
-            RegisterFieldSet(Rec.FieldNo("Sell-to Post Code"));
+        IF xRec."Sell-to Post Code" <> "Sell-to Post Code" THEN
+            RegisterFieldSet(FIELDNO("Sell-to Post Code"));
 
-        if xRec."Sell-to County" <> Rec."Sell-to County" then
-            RegisterFieldSet(Rec.FieldNo("Sell-to County"));
+        IF xRec."Sell-to County" <> "Sell-to County" THEN
+            RegisterFieldSet(FIELDNO("Sell-to County"));
     end;
 
     local procedure ProcessBillingPostalAddressOnInsert()
     begin
-        if not BillingPostalAddressSet then
-            exit;
+        IF NOT BillingPostalAddressSet THEN
+            EXIT;
 
         GraphMgtSalesCreditMemo.ParseBillToCustomerAddressFromJSON(BillingPostalAddressJSONText, Rec);
 
-        RegisterFieldSet(Rec.FieldNo("Bill-to Address"));
-        RegisterFieldSet(Rec.FieldNo("Bill-to Address 2"));
-        RegisterFieldSet(Rec.FieldNo("Bill-to City"));
-        RegisterFieldSet(Rec.FieldNo("Bill-to Country/Region Code"));
-        RegisterFieldSet(Rec.FieldNo("Bill-to Post Code"));
-        RegisterFieldSet(Rec.FieldNo("Bill-to County"));
+        RegisterFieldSet(FIELDNO("Bill-to Address"));
+        RegisterFieldSet(FIELDNO("Bill-to Address 2"));
+        RegisterFieldSet(FIELDNO("Bill-to City"));
+        RegisterFieldSet(FIELDNO("Bill-to Country/Region Code"));
+        RegisterFieldSet(FIELDNO("Bill-to Post Code"));
+        RegisterFieldSet(FIELDNO("Bill-to County"));
     end;
 
     local procedure ProcessBillingPostalAddressOnModify()
     begin
-        if not BillingPostalAddressSet then
-            exit;
+        IF NOT BillingPostalAddressSet THEN
+            EXIT;
 
         GraphMgtSalesCreditMemo.ParseBillToCustomerAddressFromJSON(BillingPostalAddressJSONText, Rec);
 
-        if xRec."Bill-to Address" <> Rec."Bill-to Address" then
-            RegisterFieldSet(Rec.FieldNo("Bill-to Address"));
+        IF xRec."Bill-to Address" <> "Bill-to Address" THEN
+            RegisterFieldSet(FIELDNO("Bill-to Address"));
 
-        if xRec."Bill-to Address 2" <> Rec."Bill-to Address 2" then
-            RegisterFieldSet(Rec.FieldNo("Bill-to Address 2"));
+        IF xRec."Bill-to Address 2" <> "Bill-to Address 2" THEN
+            RegisterFieldSet(FIELDNO("Bill-to Address 2"));
 
-        if xRec."Bill-to City" <> Rec."Bill-to City" then
-            RegisterFieldSet(Rec.FieldNo("Bill-to City"));
+        IF xRec."Bill-to City" <> "Bill-to City" THEN
+            RegisterFieldSet(FIELDNO("Bill-to City"));
 
-        if xRec."Bill-to Country/Region Code" <> Rec."Bill-to Country/Region Code" then
-            RegisterFieldSet(Rec.FieldNo("Bill-to Country/Region Code"));
+        IF xRec."Bill-to Country/Region Code" <> "Bill-to Country/Region Code" THEN
+            RegisterFieldSet(FIELDNO("Bill-to Country/Region Code"));
 
-        if xRec."Bill-to Post Code" <> Rec."Bill-to Post Code" then
-            RegisterFieldSet(Rec.FieldNo("Bill-to Post Code"));
+        IF xRec."Bill-to Post Code" <> "Bill-to Post Code" THEN
+            RegisterFieldSet(FIELDNO("Bill-to Post Code"));
 
-        if xRec."Bill-to County" <> Rec."Bill-to County" then
-            RegisterFieldSet(Rec.FieldNo("Bill-to County"));
+        IF xRec."Bill-to County" <> "Bill-to County" THEN
+            RegisterFieldSet(FIELDNO("Bill-to County"));
     end;
 
     local procedure CheckSellToCustomerSpecified()
     begin
-        if (Rec."Sell-to Customer No." = '') and
-           (Rec."Customer Id" = BlankGUID)
-        then
-            error(SellToCustomerNotProvidedErr);
+        IF ("Sell-to Customer No." = '') AND
+           ("Customer Id" = BlankGUID)
+        THEN
+            ERROR(SellToCustomerNotProvidedErr);
     end;
 
     local procedure SetInvoiceId()
@@ -689,10 +675,10 @@ page 20038 "APIV1 - Sales Credit Memos"
     begin
         CLEAR(SalesInvoiceId);
 
-        if Rec."Applies-to Doc. No." = '' then
-            exit;
+        IF "Applies-to Doc. No." = '' THEN
+            EXIT;
 
-        if SalesInvoiceHeader.GET(Rec."Applies-to Doc. No.") then
+        IF SalesInvoiceHeader.GET("Applies-to Doc. No.") THEN
             SalesInvoiceId := SalesInvoiceAggregator.GetSalesInvoiceHeaderId(SalesInvoiceHeader);
     end;
 
@@ -703,23 +689,23 @@ page 20038 "APIV1 - Sales Credit Memos"
         FilterText: Text;
     begin
         SalesHeader.SETRANGE("Document Type", SalesHeader."Document Type"::"Credit Memo");
-        if not SalesHeader.READPERMISSION() then
-            FilterText := STRSUBSTNO(PermissionFilterFormatTxt, Rec.Status::Draft, Rec.Status::"In Review");
+        IF NOT SalesHeader.READPERMISSION() THEN
+            FilterText := STRSUBSTNO(PermissionFilterFormatTxt, Status::Draft, Status::"In Review");
 
-        if not SalesCrMemoHeader.READPERMISSION() then begin
-            if FilterText <> '' then
+        IF NOT SalesCrMemoHeader.READPERMISSION() THEN BEGIN
+            IF FilterText <> '' THEN
                 FilterText += '&';
             FilterText +=
               STRSUBSTNO(
-                PermissionCrMemoFilterformatTxt, Rec.Status::Canceled, Rec.Status::Corrective,
-                Rec.Status::Open, Rec.Status::Paid);
-        end;
+                PermissionCrMemoFilterformatTxt, Status::Canceled, Status::Corrective,
+                Status::Open, Status::Paid);
+        END;
 
-        if FilterText <> '' then begin
-            Rec.filterGROUP(2);
-            Rec.SETfilter(Status, FilterText);
-            Rec.filterGROUP(0);
-        end;
+        IF FilterText <> '' THEN BEGIN
+            FILTERGROUP(2);
+            SETFILTER(Status, FilterText);
+            FILTERGROUP(0);
+        END;
 
         HasWritePermissionForDraft := SalesHeader.WRITEPERMISSION();
     end;
@@ -729,58 +715,58 @@ page 20038 "APIV1 - Sales Credit Memos"
         SalesHeader: Record "Sales Header";
         SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
     begin
-        if not DiscountAmountSet then begin
+        IF NOT DiscountAmountSet THEN BEGIN
             GraphMgtSalCrMemoBuf.RedistributeCreditMemoDiscounts(Rec);
-            exit;
-        end;
+            EXIT;
+        END;
 
-        SalesHeader.GET(SalesHeader."Document Type"::"Credit Memo", Rec."No.");
+        SalesHeader.GET(SalesHeader."Document Type"::"Credit Memo", "No.");
         SalesCalcDiscountByType.ApplyInvDiscBasedOnAmt(InvoiceDiscountAmount, SalesHeader);
     end;
 
     local procedure SetDates()
     begin
-        if not (DueDateSet or DocumentDateSet or PostingDateSet) then
-            exit;
+        IF NOT (DueDateSet OR DocumentDateSet OR PostingDateSet) THEN
+            EXIT;
 
         TempFieldBuffer.RESET();
         TempFieldBuffer.DELETEALL();
 
-        if DocumentDateSet then begin
-            Rec."Document Date" := DocumentDateVar;
-            RegisterFieldSet(Rec.FieldNo("Document Date"));
+        IF DocumentDateSet THEN BEGIN
+            "Document Date" := DocumentDateVar;
+            RegisterFieldSet(FIELDNO("Document Date"));
 
-        end;
+        END;
 
-        if PostingDateSet then begin
-            Rec."Posting Date" := PostingDateVar;
-            RegisterFieldSet(Rec.FieldNo("Posting Date"));
-        end;
+        IF PostingDateSet THEN BEGIN
+            "Posting Date" := PostingDateVar;
+            RegisterFieldSet(FIELDNO("Posting Date"));
+        END;
 
-        if DueDateSet then begin
-            Rec."Due Date" := DueDateVar;
-            RegisterFieldSet(Rec.FieldNo("Due Date"));
-        end;
+        IF DueDateSet THEN BEGIN
+            "Due Date" := DueDateVar;
+            RegisterFieldSet(FIELDNO("Due Date"));
+        END;
 
         GraphMgtSalCrMemoBuf.PropagateOnModify(Rec, TempFieldBuffer);
-        Rec.FIND();
+        FIND();
     end;
 
     local procedure GetPostedCreditMemo(var SalesCrMemoHeader: Record "Sales Cr.Memo Header")
     begin
-        if not Rec.Posted then
+        if not Posted then
             Error(PostedCreditMemoActionErr);
 
-        if not GraphMgtSalCrMemoBuf.GetSalesCrMemoHeaderFromId(Rec.Id, SalesCrMemoHeader) then
+        if not GraphMgtSalCrMemoBuf.GetSalesCrMemoHeaderFromId(Id, SalesCrMemoHeader) then
             Error(CannotFindCreditMemoErr);
     end;
 
     local procedure GetDraftCreditMemo(var SalesHeader: Record "Sales Header")
     begin
-        if Rec.Posted then
+        if Posted then
             Error(DraftCreditMemoActionErr);
 
-        if not SalesHeader.GetBySystemId(Rec.Id) then
+        if not SalesHeader.GetBySystemId(Id) then
             Error(CannotFindCreditMemoErr);
     end;
 
@@ -795,7 +781,7 @@ page 20038 "APIV1 - Sales Credit Memos"
 
     local procedure IsCreditMemoCancelled(): Boolean
     begin
-        exit(Rec.Status = Rec.Status::Canceled);
+        exit(Status = Status::Canceled);
     end;
 
     local procedure PostCreditMemo(var SalesHeader: Record "Sales Header"; var SalesCrMemoHeader: Record "Sales Cr.Memo Header")
@@ -803,8 +789,8 @@ page 20038 "APIV1 - Sales Credit Memos"
         LinesInstructionMgt: Codeunit "Lines Instruction Mgt.";
         PreAssignedNo: Code[20];
     begin
-        if not SalesHeader.SalesLinesExist() then
-            error(NoLineErr);
+        IF NOT SalesHeader.SalesLinesExist() THEN
+            ERROR(NoLineErr);
         LinesInstructionMgt.SalesCheckAllLinesHaveQuantityAssigned(SalesHeader);
         PreAssignedNo := SalesHeader."No.";
         SalesHeader.SendToPosting(CODEUNIT::"Sales-Post");
@@ -835,7 +821,7 @@ page 20038 "APIV1 - Sales Credit Memos"
     begin
         ActionContext.SetObjectType(ObjectType::Page);
         ActionContext.SetObjectId(Page::"APIV1 - Sales Credit Memos");
-        ActionContext.AddEntityKey(Rec.FieldNo(Id), InvoiceIdentifier);
+        ActionContext.AddEntityKey(FieldNo(Id), InvoiceIdentifier);
         ActionContext.SetResultCode(WebServiceActionResultCode::Deleted);
     end;
 

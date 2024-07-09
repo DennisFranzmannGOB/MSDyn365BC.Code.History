@@ -1,16 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.FixedAssets.Depreciation;
-using Microsoft.FixedAssets.FixedAsset;
-using Microsoft.FixedAssets.Journal;
-using Microsoft.FixedAssets.Posting;
-using Microsoft.FixedAssets.Setup;
-using Microsoft.Finance.GeneralLedger.Account;
-using Microsoft.Finance.GeneralLedger.Journal;
-using Microsoft.FixedAssets.Insurance;
-using Microsoft.Foundation.AuditCodes;
-using Microsoft.Foundation.Reporting;
-
 permissionset 7568 "Fixed Assets - Admin"
 {
     Access = Public;
@@ -38,6 +25,9 @@ permissionset 7568 "Fixed Assets - Admin"
                   tabledata "Insurance Journal Batch" = RIMD,
                   tabledata "Insurance Journal Line" = MD,
                   tabledata "Insurance Journal Template" = RIMD,
+#if not CLEAN20
+                  tabledata "Native - Payment" = MD,
+#endif
                   tabledata "Reason Code" = R,
                   tabledata "Report Selections" = RIMD,
                   tabledata "Source Code Setup" = R;

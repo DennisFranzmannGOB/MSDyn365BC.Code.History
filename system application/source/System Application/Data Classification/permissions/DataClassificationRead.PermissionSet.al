@@ -3,14 +3,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
-using System.Environment;
-using System.Reflection;
-using System.Environment.Configuration;
-using System.Security.AccessControl;
-
-permissionset 1750 "Data Classification - Read"
+PermissionSet 1750 "Data Classification - Read"
 {
     Access = Internal;
     Assignable = false;
@@ -19,10 +12,10 @@ permissionset 1750 "Data Classification - Read"
 
     Permissions = tabledata Company = r,
                   tabledata "Data Privacy Entities" = R,
+                  tabledata "Fields Sync Status" = r,
                   tabledata "Data Sensitivity" = R,
                   tabledata Field = r,
-                  tabledata "Fields Sync Status" = r,
-                  tabledata "Page Data Personalization" = R,
+                  tabledata "Page Data Personalization" = R, // Page.Run requires this
                   tabledata "Table Relations Metadata" = r,
                   tabledata User = r;
 }

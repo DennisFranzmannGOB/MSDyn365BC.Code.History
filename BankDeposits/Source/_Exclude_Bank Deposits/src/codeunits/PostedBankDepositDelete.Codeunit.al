@@ -1,5 +1,3 @@
-namespace Microsoft.Bank.Deposit;
-
 codeunit 1694 "Posted Bank Deposit-Delete"
 {
     Permissions = TableData "Posted Bank Deposit Header" = rd,
@@ -8,11 +6,11 @@ codeunit 1694 "Posted Bank Deposit-Delete"
 
     trigger OnRun()
     begin
-        PostedBankDepositLine.SetRange("Bank Deposit No.", Rec."No.");
+        PostedBankDepositLine.SetRange("Bank Deposit No.", "No.");
         PostedBankDepositLine.DeleteAll();
 
         OnRunOnBeforeDelete(Rec);
-        Rec.Delete();
+        Delete();
     end;
 
     var
@@ -23,6 +21,4 @@ codeunit 1694 "Posted Bank Deposit-Delete"
     begin
     end;
 }
-
-
 

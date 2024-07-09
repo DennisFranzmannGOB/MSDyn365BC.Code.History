@@ -1,5 +1,3 @@
-namespace Microsoft.API.V1;
-
 entitlement "Dynamics 365 BC Premium Partner Sandbox APIV1"
 {
     Type = PerUserServicePlan;

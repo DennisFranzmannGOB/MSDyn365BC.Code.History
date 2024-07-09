@@ -405,8 +405,7 @@ codeunit 139723 "APIV1 - Sales Quotes E2E"
         ResponseText: Text;
         TargetURL: Text;
         DiscountPct: Decimal;
-        DiscountAmt: Decimal;
-        InvDiscAmount: Decimal;
+        DiscountAmt, InvDiscAmount : Decimal;
     begin
         // [SCENARIO] When a quote is created, the GET Method should update the quote and redistribute the discount amount
 

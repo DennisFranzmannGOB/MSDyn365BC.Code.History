@@ -1,6 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Document;
 
 /// <summary>
 /// Codeunit Shpfy Order Events (ID 30162).
@@ -205,11 +202,6 @@ codeunit 30162 "Shpfy Order Events"
 
     [InternalEvent(false)]
     internal procedure OnBeforeConvertToFulfillmentStatus(Value: Text; var ShpfyOrderFulfillStatus: Enum "Shpfy Order Fulfill. Status"; var IsHandled: Boolean)
-    begin
-    end;
-
-    [InternalEvent(false)]
-    internal procedure OnBeforeConvertToOrderReturnStatus(Value: Text; var ShpfyOrderReturnStatus: Enum "Shpfy Order Return Status"; var IsHandled: Boolean)
     begin
     end;
 }

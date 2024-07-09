@@ -117,7 +117,7 @@ codeunit 2104 "O365 Send + Resend Invoice"
                             PostingProgressWindow.Update(1, PostingAndSendingDialogMsg);
                         end;
 
-                        SendToPosting(Codeunit::"Sales-Post + Email");
+                        SendToPosting(CODEUNIT::"Sales-Post + Email");
                         Session.LogMessage('0000245', DraftInvoiceSentTelemetryTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', DraftInvoiceCategoryLbl);
                         if ShowMessage then
                             Message(InvoiceSendingMsg);

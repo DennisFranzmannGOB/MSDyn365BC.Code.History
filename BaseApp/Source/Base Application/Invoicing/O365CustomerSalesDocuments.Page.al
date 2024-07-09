@@ -7,7 +7,7 @@ page 2109 "O365 Customer Sales Documents"
     RefreshOnActivate = true;
     SourceTable = "O365 Sales Document";
     SourceTableTemporary = true;
-    SourceTableView = sorting("Sell-to Customer Name");
+    SourceTableView = SORTING("Sell-to Customer Name");
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
     ObsoleteState = Pending;
     ObsoleteTag = '21.0';
@@ -59,7 +59,7 @@ page 2109 "O365 Customer Sales Documents"
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies the currency with its symbol, such as $ for Dollar. ';
                 }
-                field(Posted; Rec.Posted)
+                field(Posted; Posted)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies if the document is posted.';
@@ -103,7 +103,7 @@ page 2109 "O365 Customer Sales Documents"
 
                 trigger OnAction()
                 begin
-                    Rec.OpenDocument();
+                    OpenDocument();
                 end;
             }
             action(Post)
@@ -155,7 +155,7 @@ page 2109 "O365 Customer Sales Documents"
                 var
                     O365DocumentSendMgt: Codeunit "O365 Document Send Mgt";
                 begin
-                    O365DocumentSendMgt.ClearNotificationsForDocument(Rec."No.", Rec.Posted, Rec."Document Type");
+                    O365DocumentSendMgt.ClearNotificationsForDocument("No.", Posted, "Document Type");
                     CurrPage.Update(true);
                 end;
             }
@@ -214,18 +214,18 @@ page 2109 "O365 Customer Sales Documents"
 
     trigger OnFindRecord(Which: Text): Boolean
     begin
-        exit(Rec.OnFind(Which));
+        exit(OnFind(Which));
     end;
 
     trigger OnNextRecord(Steps: Integer): Integer
     begin
-        exit(Rec.OnNext(Steps));
+        exit(OnNext(Steps));
     end;
 
     trigger OnOpenPage()
     begin
         // Check if document type is filtered to quotes - used for visibility of the New action
-        QuotesOnly := StrPos(Rec.GetFilter("Document Type"), Format(Rec."Document Type"::Quote)) > 0;
+        QuotesOnly := StrPos(GetFilter("Document Type"), Format("Document Type"::Quote)) > 0;
     end;
 
     var

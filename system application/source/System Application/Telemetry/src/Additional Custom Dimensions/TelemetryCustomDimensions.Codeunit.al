@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Telemetry;
-
 /// <summary>
 /// Provides functionality for adding common custom dimensions to telemetry.
 /// </summary>

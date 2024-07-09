@@ -1,11 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.Integration.SyncEngine;
-
 codeunit 5331 "CRM Coupling Management"
 {
 
@@ -94,6 +86,7 @@ codeunit 5331 "CRM Coupling Management"
         exit(false);
     end;
 
+    [Scope('OnPrem')]
     procedure RemoveCoupling(var RecRef: RecordRef)
     var
         CRMIntegrationManagement: Codeunit "CRM Integration Management";
@@ -133,7 +126,7 @@ codeunit 5331 "CRM Coupling Management"
         if not CRMIntegrationRecord.FindByRecordID(RecordID) then
             Error(IntegrationRecordNotFoundErr, Format(RecordID, 0, 1));
 
-        CRMIntegrationManagement.RemoveCoupling(RecordId);
+        CRMIntegrationManagement.RemoveCoupling(RecordID);
 
         TempCRMIntegrationRecord := CRMIntegrationRecord;
         TempCRMIntegrationRecord.Skipped := false;

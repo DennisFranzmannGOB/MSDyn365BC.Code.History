@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information. 
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Visualization;
-
 pageextension 1445 "Headlines RC Admin. Ext." extends "Headline RC Administrator"
 {
 
@@ -38,6 +36,8 @@ pageextension 1445 "Headlines RC Admin. Ext." extends "Headline RC Administrator
     end;
 
     var
+        [InDataSet]
         Headline1Visible: Boolean;
+        [InDataSet]
         Headline1Text: Text[250];
 }

@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
-using System.Reflection;
-
 /// <summary>
 /// Used to provide indirect permission to retention policies
 /// </summary>
@@ -55,7 +51,7 @@ codeunit 3920 "Reten. Pol. Record Ref. Impl." implements "Record Reference"
     local procedure VerifyCallerModuleId(CallerModuleId: Guid)
     begin
         if not (CallerModuleId = InitializedCallerModuleId) then
-            Error(IncorrectCallerAppIdErr, InitializedCallerModuleId, CallerModuleId);
+            error(IncorrectCallerAppIdErr, InitializedCallerModuleId, CallerModuleId);
     end;
 
     procedure ReadPermission(RecordRef: RecordRef): Boolean
@@ -203,9 +199,9 @@ codeunit 3920 "Reten. Pol. Record Ref. Impl." implements "Record Reference"
         VerifyCallerModuleId(CallerModuleInfo.Id);
 #pragma warning disable AA0181
         if not UseReturnValue then
-            RecordRef.FindSet(ForUpdate)
+            RecordRef.FindSet(ForUpdate, UpdateKey)
         else
-            exit(RecordRef.FindSet(ForUpdate))
+            exit(RecordRef.FindSet(ForUpdate, UpdateKey))
 #pragma warning restore AA0181
     end;
 

@@ -3,11 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Feedback;
-
-using System.Security.Authentication;
-using System.Azure.KeyVault;
-
 codeunit 9263 "Cust. Exp. Survey Req. Impl."
 {
     Access = Internal;
@@ -41,7 +36,7 @@ codeunit 9263 "Cust. Exp. Survey Req. Impl."
     begin
         OnGetRequest(RequestUri, ResponseJsonObject, ErrorMessage, IsGraph, IsHandled);
         if IsHandled then
-            exit;
+            exit(true);
 
         if not Get(RequestUri, ResponseJsonObject, ErrorMessage, IsGraph) then
             Error('');
@@ -54,7 +49,7 @@ codeunit 9263 "Cust. Exp. Survey Req. Impl."
     begin
         OnPostRequest(RequestUri, ResponseJsonObject, ErrorMessage, IsHandled);
         if IsHandled then
-            exit;
+            exit(true);
 
         if not Post(RequestUri, ResponseJsonObject, ErrorMessage) then
             Error('');
@@ -240,7 +235,7 @@ codeunit 9263 "Cust. Exp. Survey Req. Impl."
         OAuth2: Codeunit OAuth2;
         RedirectURL: Text;
     begin
-        OAuth2.GetDefaultRedirectURL(RedirectURL);
+        OAuth2.GetDefaultRedirectUrl(RedirectUrl);
         exit(RedirectURL)
     end;
 

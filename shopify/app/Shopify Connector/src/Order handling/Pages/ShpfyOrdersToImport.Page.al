@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Page Shpfy Orders to Import (ID 30121).
 /// </summary>
@@ -187,10 +185,10 @@ page 30121 "Shpfy Orders to Import"
                 trigger OnAction()
                 var
                     SelectedRec: Record "Shpfy Orders to Import";
-                    BackgroundSyncs: Codeunit "Shpfy Background Syncs";
+                    Background: Codeunit "Shpfy Background Syncs";
                 begin
                     CurrPage.SetSelectionFilter(SelectedRec);
-                    BackgroundSyncs.OrderSync(SelectedRec);
+                    Background.OrderSync(SelectedRec);
                 end;
             }
         }

@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Tooling;
-
-using System.Reflection;
-
 codeunit 144759 "BCPT Codeunit With 1 Sql"
 {
     trigger OnRun()

@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy GQL NextFulfillmentLines (ID 30137) implements Interface Shpfy IGarphQL.
 /// </summary>

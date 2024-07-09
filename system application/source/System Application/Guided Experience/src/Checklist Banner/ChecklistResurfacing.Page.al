@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
 page 1997 "Checklist Resurfacing"
 {
     PageType = ConfirmationDialog;
@@ -32,7 +30,7 @@ page 1997 "Checklist Resurfacing"
     begin
         if CloseAction = CloseAction::Yes then begin
             UserNameCode := CopyStr(UserId(), 1, 50);
-            if not ChecklistImplementation.DoesUserHaveChecklistItemsAssigned(UserNameCode) then
+            If not ChecklistImplementation.DoesUserHaveChecklistItemsAssigned(UserNameCode) then
                 Message(EmptyChecklistMsg)
             else
                 ChecklistImplementation.SetChecklistVisibility(UserId(), true, true);

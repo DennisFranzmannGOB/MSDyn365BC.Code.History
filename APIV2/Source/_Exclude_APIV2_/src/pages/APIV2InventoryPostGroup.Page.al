@@ -1,6 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Inventory.Item;
 page 30096 "APIV2 - Inventory Post. Group"
 {
     APIVersion = 'v2.0';
@@ -23,22 +20,18 @@ page 30096 "APIV2 - Inventory Post. Group"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                 }
-                field(code; Rec."code")
+                field(code; "code")
                 {
                     Caption = 'Code';
                 }
 
-                field(description; Rec."Description")
+                field(description; "Description")
                 {
                     Caption = 'Description';
-                }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
-                {
-                    Caption = 'Last Modified Date';
                 }
             }
         }

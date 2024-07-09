@@ -3,11 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Media;
-using System.Apps;
-
 table 1990 "Guided Experience Item"
 {
     Caption = 'Guided Experience Item';
@@ -91,7 +86,7 @@ table 1990 "Guided Experience Item"
         {
             Caption = 'Extension Name';
             FieldClass = FlowField;
-            CalcFormula = lookup("Published Application".Name where(ID = field("Extension ID"), "Tenant Visible" = const(true)));
+            CalcFormula = Lookup("Published Application".Name where(ID = FIELD("Extension ID"), "Tenant Visible" = CONST(true)));
         }
         field(12; Completed; Boolean)
         {
@@ -147,7 +142,7 @@ table 1990 "Guided Experience Item"
         {
             Caption = 'Extension Publisher';
             FieldClass = FlowField;
-            CalcFormula = lookup("Published Application".Publisher where(ID = field("Extension ID"), "Tenant Visible" = const(true)));
+            CalcFormula = Lookup("Published Application".Publisher where(ID = FIELD("Extension ID"), "Tenant Visible" = CONST(true)));
         }
     }
 

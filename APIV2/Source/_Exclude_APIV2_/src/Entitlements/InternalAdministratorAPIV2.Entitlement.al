@@ -1,5 +1,3 @@
-namespace Microsoft.API.V2;
-
 entitlement "Internal Administrator APIV2"
 {
     Type = Role;

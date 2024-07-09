@@ -1,30 +1,22 @@
-#if not CLEAN24
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Text;
-
-using System.Privacy;
-using System.Environment;
-using System.Environment.Configuration;
 
 /// <summary>
 /// Page for viewing information about Copilot.
 /// </summary>
 page 2014 "Copilot Information"
 {
-
-    ObsoleteState = Pending;
-    ObsoleteReason = 'Information about Copilot capabilities has been moved to page 7775 "Copilot AI Capabilities"';
-    ObsoleteTag = '24.0';
+    ApplicationArea = All;
     Caption = 'Copilot';
+    AdditionalSearchTerms = 'OpenAI,AI,Copilot,Co-pilot';
     PageType = NavigatePage;
     SourceTable = "Privacy Notice";
     SourceTableTemporary = true;
     RefreshOnActivate = true;
     Extensible = false;
+    UsageCategory = Administration;
 
     layout
     {
@@ -321,4 +313,3 @@ page 2014 "Copilot Information"
         end;
     end;
 }
-#endif

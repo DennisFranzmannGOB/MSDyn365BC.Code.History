@@ -573,7 +573,9 @@ codeunit 131900 "Library - Marketing"
         Attachment.Insert(true);
 
         ContentBodyText := LibraryUtility.GenerateRandomAlphabeticText(LibraryRandom.RandIntInRange(2000, 3000), 0);
-        Attachment.WriteHTMLCustomLayoutAttachment(ContentBodyText, FindEmailMergeCustomLayoutName());
+        Attachment.WriteHTMLCustomLayoutAttachment(
+          ContentBodyText,
+          FindEmailMergeCustomLayoutNo);
     end;
 
     procedure CreateIntrastatContact(CountryRegionCode: Code[10]): Code[20]
@@ -596,7 +598,7 @@ codeunit 131900 "Library - Marketing"
     begin
         Contact.FindSet();
     end;
-    
+
     procedure FindEmailMergeCustomLayoutNo(): Code[20]
     var
         CustomReportLayout: Record "Custom Report Layout";
@@ -607,20 +609,6 @@ codeunit 131900 "Library - Marketing"
             FindFirst();
             exit(Code);
         end;
-    end;
-
-    procedure FindEmailMergeCustomLayoutName(): Text[250]
-    var
-        ReportLayoutList: Record "Report Layout List";
-    begin
-        ReportLayoutList.SetRange("Report ID", REPORT::"Email Merge");
-        ReportLayoutList.SetRange(Name, 'DefaultEmailMergeDoc.docx');
-        if ReportLayoutList.FindFirst() then
-            exit(ReportLayoutList.Name);
-        ReportLayoutList.SetRange(Name);
-        if ReportLayoutList.FindFirst() then
-            exit(ReportLayoutList.Name);
-        exit('');
     end;
 
     procedure RunAddContactsReport(LibraryVariableStorage: Codeunit "Library - Variable Storage"; UseRequestPage: Boolean)

@@ -1,11 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Inventory.Item;
-using Microsoft.Sales.Document;
-using Microsoft.Foundation.Address;
-using Microsoft.Sales.History;
-using Microsoft.Sales.Posting;
-
 /// <summary>
 /// Codeunit Shpfy Process Order (ID 30166).
 /// </summary>
@@ -212,7 +204,7 @@ codeunit 30166 "Shpfy Process Order"
                         end else begin
                             SalesLine.Validate(Type, SalesLine.Type::Item);
                             SalesLine.Validate("No.", ShopifyOrderLine."Item No.");
-                            if Item.Get(SalesLine."No.") then begin
+                            if Item.Get(SalesLine."No.") and (Item.Type = Item.Type::Inventory) then begin
                                 if (ShopifyOrderLine."Location Id" <> 0) then
                                     if ShopLocation.Get(ShopifyOrderHeader."Shop Code", ShopifyOrderLine."Location Id") then
                                         SalesLine.Validate("Location Code", ShopLocation."Default Location Code");

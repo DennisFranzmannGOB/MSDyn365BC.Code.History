@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Enum Shpfy Payment Transcation Type (ID 30127).
 /// </summary>

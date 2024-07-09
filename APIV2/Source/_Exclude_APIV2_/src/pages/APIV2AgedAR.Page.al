@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Integration.Entity;
-using Microsoft.Integration.Graph;
-
 page 30031 "APIV2 - Aged AR"
 {
     APIVersion = 'v2.0';
@@ -27,47 +22,47 @@ page 30031 "APIV2 - Aged AR"
         {
             repeater(Group)
             {
-                field(customerId; Rec.AccountId)
+                field(customerId; AccountId)
                 {
                     Caption = 'Customer Id';
                 }
-                field(customerNumber; Rec."No.")
+                field(customerNumber; "No.")
                 {
                     Caption = 'Customer No.';
                 }
-                field(name; Rec.Name)
+                field(name; Name)
                 {
                     Caption = 'Name';
                 }
-                field(currencyCode; Rec."Currency Code")
+                field(currencyCode; "Currency Code")
                 {
                     Caption = 'Currency Code';
                 }
-                field(balanceDue; Rec.Balance)
+                field(balanceDue; Balance)
                 {
                     Caption = 'Balance';
                 }
-                field(currentAmount; Rec.Before)
+                field(currentAmount; Before)
                 {
                     Caption = 'Before';
                 }
-                field(period1Amount; Rec."Period 1")
+                field(period1Amount; "Period 1")
                 {
                     Caption = 'Period 1';
                 }
-                field(period2Amount; Rec."Period 2")
+                field(period2Amount; "Period 2")
                 {
                     Caption = 'Period 2';
                 }
-                field(period3Amount; Rec."Period 3")
+                field(period3Amount; "Period 3")
                 {
                     Caption = 'Period 3';
                 }
-                field(agedAsOfDate; Rec."Period Start Date")
+                field(agedAsOfDate; "Period Start Date")
                 {
                     Caption = 'Period Start Date';
                 }
-                field(periodLengthFilter; Rec."Period Length")
+                field(periodLengthFilter; "Period Length")
                 {
                     Caption = 'Period Length';
                 }

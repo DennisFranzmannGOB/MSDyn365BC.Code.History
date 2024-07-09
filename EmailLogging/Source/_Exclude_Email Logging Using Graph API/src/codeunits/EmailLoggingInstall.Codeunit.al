@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.EmailLoggin;
-
-using System.Upgrade;
-
 codeunit 1689 "Email Logging Install"
 {
     SubType = Install;

@@ -34,7 +34,6 @@
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryERM: Codeunit "Library - ERM";
         AvailabilityMgt: Codeunit AvailabilityManagement;
-        LibraryReportDataset: Codeunit "Library - Report Dataset";
         DemandType: Option " ",Production,Sales,Service,Jobs,Assembly;
         isInitialized: Boolean;
         RequisitionLineMustNotExistTxt: Label 'Requisition Line must not exist for Item %1.', Comment = '%1 = Item No.';
@@ -57,7 +56,8 @@
         ItemFilterLbl: Label '%1|%2|%3', Comment = '%1 = Item, %2 = Item 2, %3 = Item 3';
         RequisitionLineMustBeFoundErr: Label 'Requisition Line must be found.';
         BinCodeErr: Label '%1 must be %2 in %3', Comment = '%1 = Bin Code, %2 = Bin Code value, %3 = Planning Component';
-        BOMLineNoAndProdOrderBOMLineNoMustNotMatchErr: Label 'BOM Line No. and Prod. Order BOM Line No. must not match.';
+        ItemFiltersLbl: Label '%1|%2', Comment = '%1 = Item, %2 = Item 2';
+        QuantityErr: Label '%1 must be %2 in %3', Comment = '%1 = Quantity, %2 = Minimum Order Quanity, %3 = Requisition Line';
 
     [Test]
     [HandlerFunctions('MessageHandler')]
@@ -4150,105 +4150,6 @@
     end;
 
     [Test]
-    procedure ShowErrorIfItemVariantIsPurchasingBlockedWhenCarryOutActionMessage()
-    var
-        Item: Record Item;
-        Vendor: Record Vendor;
-        ItemVariant: Record "Item Variant";
-        RequisitionLine: Record "Requisition Line";
-        RequisitionWkshName: Record "Requisition Wksh. Name";
-    begin
-        // [SCENARIO 492287] Purchase order can be created for a blocked item variant using planning worksheet for creation
-        Initialize();
-
-        // [GIVEN] Create Item.
-        LibraryInventory.CreateItem(Item);
-
-        // [GIVEN] Create Item Variant and Validate Purchasing Blocked.
-        LibraryInventory.CreateItemVariant(ItemVariant, Item."No.");
-        ItemVariant.Validate("Purchasing Blocked", true);
-        ItemVariant.Modify(true);
-
-        // [GIVEN] Create Vendor.
-        LibraryPurchase.CreateVendor(Vendor);
-
-        // [GIVEN] Create Requisition WorkSheet Name.
-        CreateRequisitionWorksheetName(RequisitionWkshName);
-
-        // [WHEN] Create Requisition Line.
-        CreateRequisitionLineWithItemVariant(
-            RequisitionLine,
-            RequisitionWkshName,
-            Item,
-            ItemVariant,
-            Vendor);
-
-        // [VERIFY] Verify Carry Out Action Message gives an error.
-        asserterror CarryOutActionPlan(RequisitionLine);
-    end;
-
-    [Test]
-    [HandlerFunctions('PurchaseOrderSaveAsXML')]
-    [Scope('OnPrem')]
-    procedure PrintMultiplePurchaseOrdersWhenUsingCarryOutActionMessage()
-    var
-        RequisitionPlanningLine: array[2] of Record "Requisition Line";
-        RequisitionLine: Record "Requisition Line";
-        RequisitionWkshName: Record "Requisition Wksh. Name";
-        PurchaseHeader: Record "Purchase Header";
-        NewPurchOrderChoice: Option " ","Make Purch. Orders","Make Purch. Orders & Print","Copy to Req. Wksh";
-        ItemNo, VendorNo : array[2] of Code[20];
-        i: Integer;
-    begin
-        // [SCENARIO 492125] Verify printing of multiple purchase orders in the "planning worksheet" sheet when using Carry Out Action Message.
-        Initialize();
-
-        // [GIVEN] Create multiple vendors and items
-        for i := 1 to ArrayLen(VendorNo) do begin
-            VendorNo[i] := LibraryPurchase.CreateVendorNo();
-            ItemNo[i] := LibraryInventory.CreateItemNo();
-        end;
-
-        // [GIVEN] Select Planning worksheet.
-        LibraryPlanning.SelectRequisitionWkshName(RequisitionWkshName, RequisitionWkshName."Template Type"::Planning);
-
-        // [GIVEN] Create and modify the requisition line for Vendor "A".
-        LibraryPlanning.CreateRequisitionLine(RequisitionPlanningLine[1], RequisitionWkshName."Worksheet Template Name", RequisitionWkshName.Name);
-        RequisitionPlanningLine[1].Validate(Type, RequisitionPlanningLine[1].Type::Item);
-        RequisitionPlanningLine[1].Validate("No.", ItemNo[1]);
-        RequisitionPlanningLine[1].Validate("Vendor No.", VendorNo[1]);
-        RequisitionPlanningLine[1].Validate("Accept Action Message", true);
-        RequisitionPlanningLine[1].Validate(Quantity, LibraryRandom.RandInt(10));
-        RequisitionPlanningLine[1].Modify(true);
-
-        // [GIVEN] Create and modify the requisition line for Vendor "B".
-        LibraryPlanning.CreateRequisitionLine(RequisitionPlanningLine[2], RequisitionWkshName."Worksheet Template Name", RequisitionWkshName.Name);
-        RequisitionPlanningLine[2].Validate(Type, RequisitionPlanningLine[2].Type::Item);
-        RequisitionPlanningLine[2].Validate("No.", ItemNo[2]);
-        RequisitionPlanningLine[2].Validate("Vendor No.", VendorNo[2]);
-        RequisitionPlanningLine[2].Validate("Accept Action Message", true);
-        RequisitionPlanningLine[2].Validate(Quantity, LibraryRandom.RandInt(10));
-        RequisitionPlanningLine[2].Modify(true);
-
-        // [GIVEN] Filter newly created requisition lines.
-        RequisitionLine.SetRange("Worksheet Template Name", RequisitionWkshName."Worksheet Template Name");
-        RequisitionLine.SetRange("Journal Batch Name", RequisitionWkshName.Name);
-        RequisitionLine.FindSet();
-
-        // [GIVEN] Setup report selection.
-        SetupReportSelections("Report Selection Usage"::"P.Order", Report::"Standard Purchase - Order");
-
-        // [WHEN] Carry out action in planning worksheet with option "Make Purch. Orders & Print".
-        LibraryPlanning.CarryOutPlanWksh(
-            RequisitionLine, 0, NewPurchOrderChoice::"Make Purch. Orders & Print", 0,
-            0, RequisitionWkshName."Worksheet Template Name", RequisitionWkshName.Name, '', '');
-
-        // [VERIFY] Verify Print of Multiple Purchase Orders When Using Carry Out Action Message.
-        PurchaseHeader.SetFilter("Buy-from Vendor No.", '%1|%2', VendorNo[1], VendorNo[2]);
-        VerifyPrintedPurchaseOrders(PurchaseHeader);
-    end;
-
-    [Test]
     [Scope('OnPrem')]
     [HandlerFunctions('ConfirmHandler')]
     procedure ComponentsArePlannedWhenProdBOMStatusIsNewButProdBOMVersionStatusIsCertified()
@@ -4266,6 +4167,7 @@
         ProductionBOMLine2: Record "Production BOM Line";
         Salesheader: Record "Sales Header";
         RequisitionLine: Record "Requisition Line";
+        LowLevelCodeCalculator: Codeunit "Low-Level Code Calculator";
     begin
         // [SCENARIO 498471] Components are planned in Planning Worksheet even when Status of Production BOM is New or Under Development but the Status of its active Production BOM Version is Certified.
         Initialize();
@@ -4301,7 +4203,8 @@
         CreateProductionBOMVersion(ProductionBOMVersion, ProductionBOMHeader, ProductionBOMLine2, Item2, Item3);
 
         // [GIVEN] Update Production BOM Version Status.
-        LibraryManufacturing.UpdateProductionBOMVersionStatus(ProductionBOMVersion, ProductionBOMVersion.Status::Certified);
+        ProductionBomVersion.Validate(Status, ProductionBOMVersion.Status::Certified);
+        ProductionBomVersion.Modify(true);
 
         // [GIVEN] Update Production BOM Status.
         LibraryManufacturing.UpdateProductionBOMStatus(ProductionBOMHeader, ProductionBOMHeader.Status::Certified);
@@ -4318,7 +4221,7 @@
 
         // [GIVEN] Calculate Low Level Code.
         LibraryVariableStorage.Enqueue(CalculateLowLevelCodeConfirmQst);
-        LibraryPlanning.CalculateLowLevelCode();
+        LowLevelCodeCalculator.Run();
 
         // [GIVEN] Run Calculate Regenerative Plan.
         RunCalculateRegenerativePlan(StrSubstNo(ItemFilterLbl, Item."No.", Item2."No.", Item3."No."), '');
@@ -4437,130 +4340,83 @@
 
     [Test]
     [Scope('OnPrem')]
-    procedure CommentsOnProdBOMLineItemsAreCopiedToSameItemsInProdOrderCompWhenCarryOutAction()
+    procedure CalcRegPlanCreatesOneReqLineForItemHavingMinQtyAndOrderMultiple()
     var
-        ProdItem: Record Item;
-        CompItem, CompItem2, CompItem3, CompItem4 : Record Item;
-        UnitOfMeasure: Record "Unit of Measure";
-        ItemUnitOfMeasure: Record "Item Unit of Measure";
-        ProductionBOMHeader: Record "Production BOM Header";
-        ProductionBOMLine: Record "Production BOM Line";
-        Salesheader: Record "Sales Header";
-        ProductionBOMCommentLine: Record "Production BOM Comment Line";
-        ProdOrderCompCmtLine: Record "Prod. Order Comp. Cmt Line";
+        Item: array[3] of Record Item;
+        Customer: Record Customer;
+        SalesHeader: array[2] of Record "Sales Header";
+        SalesLine: array[5] of Record "Sales Line";
         RequisitionLine: Record "Requisition Line";
-        ProductionBOMNo: Code[20];
+        MinOrderQty: Decimal;
     begin
-        // [SCENARIO 504309] When Calculate Regenerative Planning and Carry Out Action in Planning Worksheet, Comments on Production BOM Line Items are copied to the same Items in Prod Order Components.
+        // [SCENARIO 502028] When Calculate Regenerative Planning in Planning Worksheet for Items having Minimum Order Quantity,
+        // Order Multiple, Reorder policy set as Lot-for-Lot and Manufacturing Policy set as Make-to-Order.
         Initialize();
 
-        // [GIVEN] Create Unit of Measure Code.
-        LibraryInventory.CreateUnitOfMeasureCode(UnitOfMeasure);
+        // [GIVEN] Generate and save Minimum Order Quantity in a Variable.
+        MinOrderQty := LibraryRandom.RandIntInRange(50, 50);
 
-        // [GIVEN] Create three Component Items.
-        CreateItemWithReorderPolicy(CompItem, UnitOfMeasure, ItemUnitOfMeasure, CompItem."Replenishment System"::Purchase, CompItem."Reordering Policy"::" ");
-        CreateItemWithReorderPolicy(CompItem2, UnitOfMeasure, ItemUnitOfMeasure, CompItem2."Replenishment System"::Purchase, CompItem2."Reordering Policy"::" ");
-        CreateItemWithReorderPolicy(CompItem3, UnitOfMeasure, ItemUnitOfMeasure, CompItem3."Replenishment System"::Purchase, CompItem3."Reordering Policy"::" ");
-        CreateItemWithReorderPolicy(CompItem4, UnitOfMeasure, ItemUnitOfMeasure, CompItem4."Replenishment System"::Purchase, CompItem4."Reordering Policy"::" ");
+        // [GIVEN] Create MTO Item with Lot-for-Lot Reordering Policy.
+        CreateMTOItemWithLotForLotReorderingPolicy(Item[1]);
 
-        // [GIVEN] Create Production Item.
-        CreateItemWithReorderPolicy(ProdItem, UnitOfMeasure, ItemUnitOfMeasure, ProdItem."Replenishment System"::"Prod. Order", ProdItem."Reordering Policy"::Order);
+        // [GIVEN] Create MTO Item 2 with Lot-for-Lot Reordering Policy.
+        CreateMTOItemWithLotForLotReorderingPolicy(Item[2]);
 
-        // [GIVEN] Create Production BOM Header.
-        LibraryManufacturing.CreateProductionBOMHeader(ProductionBOMHeader, ProdItem."Base Unit of Measure");
+        // [GIVEN] Create Sales Header and Validate Shipment Date.
+        LibrarySales.CreateSalesHeader(SalesHeader[1], SalesHeader[1]."Document Type"::Order, Customer."No.");
+        SalesHeader[1].Validate("Shipment Date", WorkDate());
+        SalesHeader[1].Modify(true);
 
-        // [GIVEN] Create Production BOM Line.
-        LibraryManufacturing.CreateProductionBOMLine(
-            ProductionBOMHeader,
-            ProductionBOMLine,
-            '',
-            ProductionBOMLine.Type::Item,
-            CompItem."No.",
-            LibraryRandom.RandInt(0));
+        // [GIVEN] Create three Sales Lines with Item and Item 2.
+        LibrarySales.CreateSalesLine(SalesLine[1], SalesHeader[1], SalesLine[1].Type::Item, Item[1]."No.", LibraryRandom.RandIntInRange(5, 5));
+        LibrarySales.CreateSalesLine(SalesLine[2], SalesHeader[1], SalesLine[2].Type::Item, Item[1]."No.", LibraryRandom.RandIntInRange(2, 2));
+        LibrarySales.CreateSalesLine(SalesLine[3], SalesHeader[1], SalesLine[3].Type::Item, Item[2]."No.", LibraryRandom.RandIntInRange(8, 8));
 
-        // [GIVEN] Create Production BOM Line.
-        LibraryManufacturing.CreateProductionBOMLine(
-            ProductionBOMHeader,
-            ProductionBOMLine,
-            '',
-            ProductionBOMLine.Type::Item,
-            CompItem2."No.",
-            LibraryRandom.RandInt(0));
+        // [GIVEN] Create Sales Header 2 and Validate Shipment Date.
+        LibrarySales.CreateSalesHeader(SalesHeader[2], SalesHeader[2]."Document Type"::Order, Customer."No.");
+        SalesHeader[2].Validate("Shipment Date", CalcDate('<30D>', WorkDate()));
+        SalesHeader[2].Modify(true);
 
-        ProductionBOMNo := ProductionBOMHeader."No.";
+        // [GIVEN] Create two Sales Lines with Item and Items 2.
+        LibrarySales.CreateSalesLine(SalesLine[3], SalesHeader[2], SalesLine[3].Type::Item, Item[1]."No.", LibraryRandom.RandIntInRange(8, 8));
+        LibrarySales.CreateSalesLine(SalesLine[4], SalesHeader[2], SalesLine[4].Type::Item, Item[2]."No.", LibraryRandom.RandIntInRange(8, 8));
 
-        // [GIVEN] Update Production BOM Status.
-        LibraryManufacturing.UpdateProductionBOMStatus(ProductionBOMHeader, ProductionBOMHeader.Status::Certified);
-
-        // [GIVEN] Create another Production BOM Header.
-        LibraryManufacturing.CreateProductionBOMHeader(ProductionBOMHeader, ProdItem."Base Unit of Measure");
-
-        // [GIVEN] Create Production BOM Line.
-        LibraryManufacturing.CreateProductionBOMLine(
-            ProductionBOMHeader,
-            ProductionBOMLine,
-            '',
-            ProductionBOMLine.Type::Item,
-            CompItem3."No.",
-            LibraryRandom.RandInt(0));
-
-        // [GIVEN] Create second Production BOM Line.
-        LibraryManufacturing.CreateProductionBOMLine(
-            ProductionBOMHeader,
-            ProductionBOMLine,
-            '',
-            ProductionBOMLine.Type::"Production BOM",
-            ProductionBOMNo,
-            LibraryRandom.RandInt(0));
-
-        // [GIVEN] Create third Production BOM Line.
-        LibraryManufacturing.CreateProductionBOMLine(
-            ProductionBOMHeader,
-            ProductionBOMLine,
-            '',
-            ProductionBOMLine.Type::Item,
-            CompItem4."No.",
-            LibraryRandom.RandInt(0));
-
-        // [GIVEN] Create Production BOM Comment Line for third Production BOM Line.
-        LibraryManufacturing.CreateProductionBOMCommentLine(ProductionBOMLine);
-
-        // [GIVEN] Update Production BOM Status.
-        LibraryManufacturing.UpdateProductionBOMStatus(ProductionBOMHeader, ProductionBOMHeader.Status::Certified);
-
-        // [GIVEN] Validate Production BOM No. in Production Item.
-        ProdItem.Validate("Production BOM No.", ProductionBOMHeader."No.");
-        ProdItem.Modify(true);
-
-        // [GIVEN] Create Sales Order.
-        CreateSalesOrder(Salesheader, ProdItem);
-        LibrarySales.ReleaseSalesDocument(Salesheader);
+        // [GIVEN] Set Item Filter.
+        Item[3].SetFilter("No.", StrSubstNo(ItemFiltersLbl, Item[1]."No.", Item[2]."No."));
 
         // [GIVEN] Run Calculate Regenerative Plan.
-        RunCalculateRegenerativePlan(ProdItem."No.", '');
+        LibraryPlanning.CalcRegenPlanForPlanWksh(
+            Item[3],
+            CalcDate('<-CM>', WorkDate()),
+            CalcDate('<CM>', CalcDate('<50D>', WorkDate())));
 
-        // [GIVEN] Accept Action Message on Requisition Line.
-        AcceptActionMessageOnReqLine(RequisitionLine, ProdItem."No.");
-        // Commit();
+        // [WHEN] Find Requisition Line.
+        RequisitionLine.SetRange("No.", Item[1]."No.");
+        RequisitionLine.FindFirst();
 
-        // [GIVEN] Run Carry Out Action Plan.
-        CarryOutActionPlanForPlannedProdOrder(RequisitionLine);
+        // [THEN] Quantity of Requisition Line must be equal to Minimum Order Quantity.
+        Assert.AreEqual(
+            MinOrderQty,
+            RequisitionLine.Quantity,
+            StrSubstNo(
+                QuantityErr,
+                RequisitionLine.FieldCaption(Quantity),
+                MinOrderQty,
+                RequisitionLine.TableCaption()));
 
-        // [GIVEN] Find Production BOM Comment Line.
-        ProductionBOMCommentLine.SetRange("Production BOM No.", ProductionBOMHeader."No.");
-        ProductionBOMCommentLine.SetRange("BOM Line No.", ProductionBOMLine."Line No.");
-        ProductionBOMCommentLine.FindFirst();
+        // [WHEN] Find Requisition Line.
+        RequisitionLine.SetRange("No.", Item[2]."No.");
+        RequisitionLine.FindFirst();
 
-        // [WHEN] Find Prod. Order Comp. Cmt Line.
-        ProdOrderCompCmtLine.SetRange(Status, ProdOrderCompCmtLine.Status::Planned);
-        ProdOrderCompCmtLine.SetRange(Comment, ProductionBOMCommentLine.Comment);
-        ProdOrderCompCmtLine.FindFirst();
-
-        // [VERIFY] Comment in Production BOM Comment Line and Prod. Order Comp. Cmt Line is same.
-        Assert.AreNotEqual(
-            ProductionBOMCommentLine."BOM Line No.",
-            ProdOrderCompCmtLine."Prod. Order BOM Line No.",
-            BOMLineNoAndProdOrderBOMLineNoMustNotMatchErr);
+        // [THEN] Quantity of Requisition Line must be equal to Minimum Order Quantity.
+        Assert.AreEqual(
+            MinOrderQty,
+            RequisitionLine.Quantity,
+            StrSubstNo(
+                QuantityErr,
+                RequisitionLine.FieldCaption(Quantity),
+                MinOrderQty,
+                RequisitionLine.TableCaption()));
     end;
 
     local procedure Initialize()
@@ -6007,45 +5863,6 @@
         end;
     end;
 
-    local procedure CreateRequisitionLineWithItemVariant(
-        var RequisitionLine: Record "Requisition Line";
-        RequisitionWkshName: Record "Requisition Wksh. Name";
-        Item: Record Item;
-        ItemVariant: Record "Item Variant";
-        Vendor: Record Vendor)
-    begin
-        LibraryPlanning.CreateRequisitionLine(RequisitionLine, RequisitionWkshName."Worksheet Template Name", RequisitionWkshName.Name);
-        RequisitionLine.Validate(Type, RequisitionLine.Type::Item);
-        RequisitionLine.Validate("No.", Item."No.");
-        RequisitionLine.Validate("Variant Code", ItemVariant.Code);
-        RequisitionLine.Validate("Vendor No.", Vendor."No.");
-        RequisitionLine.Validate(Quantity, LibraryRandom.RandInt(0));
-        RequisitionLine.Modify(true);
-    end;
-
-    local procedure VerifyPrintedPurchaseOrders(var PurchaseHeader: Record "Purchase Header")
-    begin
-        PurchaseHeader.FindSet();
-        repeat
-            LibraryReportDataset.AssertElementWithValueExists('No_PurchHeader', PurchaseHeader."No.");
-            LibraryReportDataset.GetNextRow();
-        until PurchaseHeader.Next() = 0;
-    end;
-
-    local procedure SetupReportSelections(ReportSelectionUsage: Enum "Report Selection Usage"; ReportId: Integer)
-    var
-        ReportSelections: Record "Report Selections";
-    begin
-        ReportSelections.SetRange(Usage, ReportSelectionUsage);
-        ReportSelections.DeleteAll();
-
-        ReportSelections.Init();
-        ReportSelections.Validate(Usage, ReportSelectionUsage);
-        ReportSelections.Validate(Sequence, LibraryRandom.RandText(2));
-        ReportSelections.Validate("Report ID", ReportId);
-        ReportSelections.Insert(true);
-    end;
-
     local procedure CreateProductionBOMVersion(
         var ProductionBOMVersion: Record "Production BOM Version";
         var ProductionBOMHeader: Record "Production BOM Header";
@@ -6190,60 +6007,16 @@
         LibraryERM.CreateGeneralPostingSetup(GeneralPostingSetup, GenBusinessPostingGroup.Code, GenProductPostingSetup.Code);
     end;
 
-    local procedure CreateItemWithReorderPolicy(
-        var Item: Record Item;
-        var UnitOfMeasure: Record "Unit of Measure";
-        var ItemUnitOfMeasure: Record "Item Unit of Measure";
-        ReplenishmentSystem: Enum "Replenishment System";
-        ReorderPolicy: Enum "Reordering Policy")
-    var
-        VATPostingSetup: Record "VAT Posting Setup";
-        GeneralPostingSetup: Record "General Posting Setup";
-        InventoryPostingGroup: Record "Inventory Posting Group";
+    local procedure CreateMTOItemWithLotForLotReorderingPolicy(var Item: Record Item)
     begin
         LibraryInventory.CreateItem(Item);
-
-        LibraryInventory.CreateItemUnitOfMeasure(
-            ItemUnitOfMeasure,
-            Item."No.",
-            UnitOfMeasure.Code,
-            LibraryRandom.RandInt(0));
-
-        CreateVATPostingGroup(VATPostingSetup);
-        CreateGeneralPostingSetup(GeneralPostingSetup);
-        LibraryInventory.CreateInventoryPostingGroup(InventoryPostingGroup);
-
-        Item.Validate(Description, Item."No.");
-        Item.Validate("Base Unit of Measure", UnitOfMeasure.Code);
-        Item.Validate(Type, Item.Type::Inventory);
-        Item.Validate("Replenishment System", ReplenishmentSystem);
-        Item.Validate("Reordering Policy", ReorderPolicy);
-        Item.Validate("Inventory Posting Group", InventoryPostingGroup.Code);
-        Item.Validate("Gen. Prod. Posting Group", GeneralPostingSetup."Gen. Prod. Posting Group");
-        Item.Validate("VAT Prod. Posting Group", VATPostingSetup."VAT Prod. Posting Group");
+        Item.Validate("Replenishment System", Item."Replenishment System"::Purchase);
+        Item.Validate("Manufacturing Policy", Item."Manufacturing Policy"::"Make-to-Order");
+        Item.Validate("Reordering Policy", Item."Reordering Policy"::"Lot-for-Lot");
+        Item.Validate("Minimum Order Quantity", LibraryRandom.RandIntInRange(50, 50));
+        Item.Validate("Order Multiple", LibraryRandom.RandIntInRange(10, 10));
+        Evaluate(Item."Lot Accumulation Period", '5D');
         Item.Modify(true);
-    end;
-
-    local procedure AcceptActionMessageOnReqLine(var RequisitionLine: Record "Requisition Line"; ItemNo: Code[20])
-    begin
-        RequisitionLine.SetRange("No.", ItemNo);
-        RequisitionLine.FindFirst();
-        RequisitionLine.Validate("Accept Action Message", true);
-        RequisitionLine.Modify(true);
-    end;
-
-    local procedure CarryOutActionPlanForPlannedProdOrder(var ReqLine: Record "Requisition Line")
-    var
-        MfgUserTemplate: Record "Manufacturing User Template";
-        CarryOutActionMsgPlan: Report "Carry Out Action Msg. - Plan.";
-    begin
-        MfgUserTemplate.Init();
-        MfgUserTemplate.Validate("Create Production Order", MfgUserTemplate."Create Production Order"::Planned);
-
-        ReqLine.SetRecFilter();
-        CarryOutActionMsgPlan.UseRequestPage(false);
-        CarryOutActionMsgPlan.SetDemandOrder(ReqLine, MfgUserTemplate);
-        CarryOutActionMsgPlan.RunModal();
     end;
 
     [RequestPageHandler]
@@ -6326,14 +6099,6 @@
     begin
         LibraryVariableStorage.Dequeue(QueuedMsg);
         Assert.IsTrue(AreSameMessages(Message, QueuedMsg), Message);
-    end;
-
-    [ReportHandler]
-    procedure PurchaseOrderSaveAsXML(var StandardPurchaseOrder: Report "Standard Purchase - Order")
-    var
-        PurchaseHeader: Record "Purchase Header";
-    begin
-        LibraryReportDataset.RunReportAndLoad(Report::"Standard Purchase - Order", PurchaseHeader, '');
     end;
 }
 

@@ -1,5 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
 page 1606 "Office Doc Selection Dlg"
 {
     Caption = 'No document found';

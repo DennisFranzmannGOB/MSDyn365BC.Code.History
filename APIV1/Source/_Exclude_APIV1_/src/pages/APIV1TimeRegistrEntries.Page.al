@@ -1,9 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.HumanResources.Employee;
-using Microsoft.Projects.Project.Job;
-using Microsoft.Integration.Graph;
-
 page 20041 "APIV1 - Time Registr. Entries"
 {
     APIVersion = 'v1.0';
@@ -22,118 +16,118 @@ page 20041 "APIV1 - Time Registr. Entries"
         {
             repeater(Group)
             {
-                field(employeeId; Rec."Employee Id")
+                field(employeeId; "Employee Id")
                 {
                     Caption = 'employeeId', Locked = true;
 
                     trigger OnValidate()
 
                     begin
-                        if Rec."Employee Id" = BlankGUID then begin
-                            Rec."Employee No" := '';
-                            exit;
-                        end;
+                        IF "Employee Id" = BlankGUID THEN BEGIN
+                            "Employee No" := '';
+                            EXIT;
+                        END;
 
-                        if Rec.HasFilter() then
-                            if Rec."Employee Id" <> Rec.GetFilter("Employee Id") then
+                        if HasFilter() then
+                            if "Employee Id" <> GetFilter("Employee Id") then
                                 Error(CannotChangeEmployeeIdErr);
 
-                        if not Employee.GetBySystemId(Rec."Employee Id") then
-                            error(EmployeeIdDoesNotMatchAnEmployeeErr);
+                        IF NOT Employee.GetBySystemId("Employee Id") THEN
+                            ERROR(EmployeeIdDoesNotMatchAnEmployeeErr);
 
-                        Rec."Employee No" := Employee."No.";
+                        "Employee No" := Employee."No.";
                     end;
                 }
-                field(employeeNumber; Rec."Employee No")
+                field(employeeNumber; "Employee No")
                 {
                     Caption = 'employeeNumber', Locked = true;
                     trigger OnValidate()
                     begin
-                        if Employee."No." <> '' then begin
-                            if Employee."No." <> Rec."Employee No" then
-                                error(EmployeeValuesDontMatchErr);
-                            exit;
-                        end;
+                        IF Employee."No." <> '' THEN BEGIN
+                            IF Employee."No." <> "Employee No" THEN
+                                ERROR(EmployeeValuesDontMatchErr);
+                            EXIT;
+                        END;
 
-                        if Rec."Employee No" = '' then begin
-                            Rec."Employee Id" := BlankGUID;
-                            exit;
-                        end;
+                        IF "Employee No" = '' THEN BEGIN
+                            "Employee Id" := BlankGUID;
+                            EXIT;
+                        END;
 
-                        if not Employee.GET(Rec."Employee No") then
-                            error(EmployeeNumberDoesNotMatchAnEmployeeErr);
+                        IF NOT Employee.GET("Employee No") THEN
+                            ERROR(EmployeeNumberDoesNotMatchAnEmployeeErr);
 
-                        if Rec.HasFilter() then
-                            if Employee.SystemId <> Rec.GetFilter("Employee Id") then
+                        if HasFilter() then
+                            if Employee.SystemId <> GetFilter("Employee Id") then
                                 Error(CannotChangeEmployeeNumberErr);
 
-                        Rec.Validate("Employee Id", Employee.SystemId);
+                        VALIDATE("Employee Id", Employee.SystemId);
                     end;
 
                 }
-                field(jobId; Rec."job id")
+                field(jobId; "job id")
                 {
                     Caption = 'jobId', Locked = true;
                     trigger OnValidate()
                     begin
-                        if Rec."Job Id" = BlankGUID then begin
-                            Rec."Job No." := '';
-                            exit;
-                        end;
+                        IF "Job Id" = BlankGUID THEN BEGIN
+                            "Job No." := '';
+                            EXIT;
+                        END;
 
-                        if not Job.GetBySystemId(Rec."Job Id") then
-                            error(JobIdDoesNotMatchAJobErr);
+                        IF NOT Job.GetBySystemId("Job Id") THEN
+                            ERROR(JobIdDoesNotMatchAJobErr);
 
-                        Rec."Job No." := Job."No.";
+                        "Job No." := Job."No.";
                     end;
                 }
-                field(jobNumber; Rec."Job No.")
+                field(jobNumber; "Job No.")
                 {
                     Caption = 'jobNumber', Locked = true;
                     trigger OnValidate()
                     begin
-                        if Job."No." <> '' then begin
-                            if Job."No." <> Rec."Job No." then
-                                error(JobValuesDontMatchErr);
-                            exit;
-                        end;
+                        IF Job."No." <> '' THEN BEGIN
+                            IF Job."No." <> "Job No." THEN
+                                ERROR(JobValuesDontMatchErr);
+                            EXIT;
+                        END;
 
-                        if Rec."Job No." = '' then begin
-                            Rec."Job Id" := BlankGUID;
-                            exit;
-                        end;
+                        IF "Job No." = '' THEN BEGIN
+                            "Job Id" := BlankGUID;
+                            EXIT;
+                        END;
 
-                        if not Job.GET(Rec."Job No.") then
-                            error(JobNumberDoesNotMatchAJobErr);
+                        IF NOT Job.GET("Job No.") THEN
+                            ERROR(JobNumberDoesNotMatchAJobErr);
 
-                        Rec.Validate("Job Id", Job.SystemId);
+                        VALIDATE("Job Id", Job.SystemId);
                     end;
 
                 }
-                field(absence; Rec."Cause of Absence Code")
+                field(absence; "Cause of Absence Code")
                 {
                     Caption = 'absence', Locked = true;
                     Editable = false;
                 }
-                field(lineNumber; Rec."Line No")
+                field(lineNumber; "Line No")
                 {
                     Caption = 'lineNumber', Locked = true;
                     Editable = false;
                 }
-                field(date; Rec.Date)
+                field(date; Date)
                 {
                     Caption = 'date', Locked = true;
                 }
-                field(quantity; Rec.Quantity)
+                field(quantity; Quantity)
                 {
                     Caption = 'quantity', Locked = true;
                 }
-                field(status; Rec.Status)
+                field(status; Status)
                 {
                     Caption = 'status', Locked = true;
                     Editable = false;
                 }
-                field(unitOfMeasureId; Rec."Unit of Measure Id")
+                field(unitOfMeasureId; "Unit of Measure Id")
                 {
                     Caption = 'unitOfMeasureId', Locked = true;
                     Editable = false;
@@ -161,11 +155,11 @@ page 20041 "APIV1 - Time Registr. Entries"
                         DimensionsSet := PreviousDimensionsJSON <> DimensionsJSON;
                     end;
                 }
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'id', Locked = true;
                 }
-                field(lastModfiedDateTime; Rec."Last Modified Date Time")
+                field(lastModfiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModfiedDateTime', Locked = true;
                 }
@@ -189,46 +183,46 @@ page 20041 "APIV1 - Time Registr. Entries"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        Rec.PropagateDelete();
+        PropagateDelete();
     end;
 
     trigger OnFindRecord(Which: Text): Boolean
     begin
-        if not LinesLoaded then begin
-            Rec.LoadRecords(Rec.GetFilter(Id), Rec.GetFilter(Date), Rec.GetFilter("Employee Id"));
-            if not Rec.FINDFIRST() then
-                exit(false);
-            LinesLoaded := true;
-        end;
+        IF NOT LinesLoaded THEN BEGIN
+            LoadRecords(GETFILTER(Id), GETFILTER(Date), GETFILTER("Employee Id"));
+            IF NOT FINDFIRST() THEN
+                EXIT(FALSE);
+            LinesLoaded := TRUE;
+        END;
 
-        exit(true);
+        EXIT(TRUE);
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        if Rec."Employee Id" = BlankGUID then begin
-            if not Rec.HasFilter() then
+        if "Employee Id" = BlankGUID then begin
+            if not HasFilter() then
                 Error(EmployeeIdOrNumberShouldBeSpecifiedErr);
-            Rec.Validate("Employee Id", Rec.GetFilter("Employee Id"));
-            Employee.GetBySystemId(Rec."Employee Id");
-            Rec."Employee No" := Employee."No.";
+            Validate("Employee Id", GetFilter("Employee Id"));
+            Employee.GetBySystemId("Employee Id");
+            "Employee No" := Employee."No.";
         end;
 
         UpdateDimensions(false);
-        Rec.PropagateInsert();
+        PropagateInsert();
         SetCalculatedFields();
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        if Rec."Employee Id" <> xRec."Employee Id" then
-            error(CannotModifyEmployeeIdErr);
+        IF "Employee Id" <> xRec."Employee Id" THEN
+            ERROR(CannotModifyEmployeeIdErr);
 
-        if Rec.Date <> xRec.Date then
-            error(CannotModifyDateErr);
+        IF Date <> xRec.Date THEN
+            ERROR(CannotModifyDateErr);
 
         UpdateDimensions(true);
-        Rec.PropagateModify();
+        PropagateModify();
         SetCalculatedFields();
     end;
 
@@ -257,8 +251,8 @@ page 20041 "APIV1 - Time Registr. Entries"
     var
         GraphMgtComplexTypes: Codeunit "Graph Mgt - Complex Types";
     begin
-        DimensionsJSON := GraphMgtComplexTypes.GetDimensionsJSON(Rec."Dimension Set ID");
-        UnitOfMeasureJSON := GraphMgtComplexTypes.GetUnitOfMeasureJSON(Rec."Unit of Measure Code");
+        DimensionsJSON := GraphMgtComplexTypes.GetDimensionsJSON("Dimension Set ID");
+        UnitOfMeasureJSON := GraphMgtComplexTypes.GetUnitOfMeasureJSON("Unit of Measure Code");
         PreviousDimensionsJSON := DimensionsJSON;
     end;
 
@@ -270,11 +264,11 @@ page 20041 "APIV1 - Time Registr. Entries"
         if not DimensionsSet then
             exit;
 
-        GraphMgtComplexTypes.GetDimensionSetFromJSON(DimensionsJSON, Rec."Dimension Set ID", NewDimensionSetId);
-        if Rec."Dimension Set ID" <> NewDimensionSetId then begin
-            Rec."Dimension Set ID" := NewDimensionSetId;
+        GraphMgtComplexTypes.GetDimensionSetFromJSON(DimensionsJSON, "Dimension Set ID", NewDimensionSetId);
+        if "Dimension Set ID" <> NewDimensionSetId then begin
+            "Dimension Set ID" := NewDimensionSetId;
             if LineExists then
-                Rec.Modify();
+                Modify();
         end;
     end;
 
@@ -285,4 +279,3 @@ page 20041 "APIV1 - Time Registr. Entries"
         Clear(DimensionsSet);
     end;
 }
-

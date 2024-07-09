@@ -1,5 +1,3 @@
-namespace System.Reflection;
-
 page 9629 "Available Field Selection Page"
 {
     Caption = 'Select Field';

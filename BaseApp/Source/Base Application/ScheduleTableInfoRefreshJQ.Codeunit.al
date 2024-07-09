@@ -1,8 +1,3 @@
-namespace System.Threading;
-
-using System.Environment;
-using System.DataAdministration;
-
 codeunit 9035 "Schedule Table Info Refresh JQ"
 {
     Access = Public;

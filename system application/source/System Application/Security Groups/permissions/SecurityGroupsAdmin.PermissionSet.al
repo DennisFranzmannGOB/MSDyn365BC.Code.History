@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 permissionset 9022 "Security Groups - Admin"
 {
     Access = Internal;
@@ -12,7 +10,7 @@ permissionset 9022 "Security Groups - Admin"
 
     IncludedPermissionSets = "Security Groups - Read";
 
-    Permissions = tabledata "Access Control" = imd,
-                  tabledata "Security Group" = imd,
+    Permissions = tabledata "Security Group" = imd,
+                  tabledata "Access Control" = imd,
                   tabledata User = md;
 }

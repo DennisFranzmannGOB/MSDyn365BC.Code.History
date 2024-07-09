@@ -1226,15 +1226,6 @@ codeunit 137272 "SCM Reservation V"
         Location.Validate("Require Receive", RequireReceipt);
         Location.Validate("Require Put-away", RequirePutAway);
         Location.Validate("Require Pick", RequirePick);
-        if Location."Require Pick" then
-            if Location."Require Shipment" then
-                Location."Prod. Consump. Whse. Handling" := Location."Prod. Consump. Whse. Handling"::"Warehouse Pick (mandatory)"
-            else
-                Location."Prod. Consump. Whse. Handling" := Location."Prod. Consump. Whse. Handling"::"Inventory Pick/Movement";
-
-        if Location."Require Put-away" then
-            Location."Prod. Output Whse. Handling" := Location."Prod. Output Whse. Handling"::"Inventory Put-away";
-
         Location.Modify(true);
         exit(Location.Code);
     end;
@@ -1379,7 +1370,6 @@ codeunit 137272 "SCM Reservation V"
             SetRange("Document No.", SalesHeader."No.");
             SetRange(Type, Type::Item);
             FindFirst();
-            Validate("VAT Prod. Posting Group", "VAT Prod. Posting Group");
             Validate("Return Qty. to Receive", QtyToReceive);
             Modify();
         end;

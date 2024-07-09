@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Utilities;
 
 table 4150 "Temp Blob"
 {
@@ -21,7 +19,7 @@ table 4150 "Temp Blob"
         {
             DataClassification = SystemMetadata;
         }
-        field(2; Blob; Blob)
+        field(2; Blob; BLOB)
         {
             DataClassification = SystemMetadata;
         }
@@ -35,5 +33,8 @@ table 4150 "Temp Blob"
         }
     }
 
+    fieldgroups
+    {
+    }
 }
 

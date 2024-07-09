@@ -3,19 +3,12 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
-#if not CLEAN22
-using System.Security.User;
-#endif
-using System.Security.AccessControl;
-
 /// <summary>
 /// Stores information about properties changed for users in Office 365 in-memory.
 /// </summary>
 table 9010 "Azure AD User Update Buffer"
 {
-    Caption = 'Microsoft Entra User Updates';
+    Caption = 'Azure AD User Updates';
     ReplicateData = false;
     InherentEntitlements = X;
     InherentPermissions = X;
@@ -56,9 +49,7 @@ table 9010 "Azure AD User Update Buffer"
                     "Update Type"::Change:
                         begin
 #if not CLEAN22
-#pragma warning disable AL0432
                             "Needs User Review" := UserPermissions.HasUserCustomPermissions("User Security ID");
-#pragma warning restore AL0432
 #else
                             "Needs User Review" := AzureADUserManagement.ArePermissionsCustomized("User Security ID");
 #endif
@@ -106,7 +97,7 @@ table 9010 "Azure AD User Update Buffer"
             Editable = false;
             DataClassification = SystemMetadata;
         }
-        field(8; "Permission Change Action"; Enum "Azure AD Permission Change Action")
+        field(8; "Permission Change Action"; enum "Azure AD Permission Change Action")
         {
             Caption = 'Handle permission change';
             DataClassification = SystemMetadata;

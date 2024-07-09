@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 permissionset 1927 "Data Cleanup - Objects"
 {
     Access = Internal;

@@ -1,10 +1,3 @@
-namespace System.Security.AccessControl;
-
-using System.IO;
-using System.Xml;
-using Microsoft.EServices.EDocument;
-using Microsoft.Foundation.Address;
-
 permissionset 2066 "Data Exchange - Admin"
 {
     Access = Public;

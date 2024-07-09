@@ -1,9 +1,3 @@
-namespace Microsoft.Finance.Latepayment;
-
-using Microsoft.Sales.Document;
-using Microsoft.Sales.History;
-using Microsoft.Sales.Receivables;
-using System.AI;
 table 1951 "LP ML Input Data"
 {
     ReplicateData = false;

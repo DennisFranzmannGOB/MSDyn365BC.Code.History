@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Bank.BankAccount;
-using Microsoft.Integration.Graph;
-
 page 30020 "APIV2 - Payment Methods"
 {
     APIVersion = 'v2.0';
@@ -22,31 +17,31 @@ page 30020 "APIV2 - Payment Methods"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'Code';
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FieldNo(Code));
                     end;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'Description';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FieldNo(Description));
                     end;
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }
@@ -64,17 +59,17 @@ page 30020 "APIV2 - Payment Methods"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         PaymentMethodRecordRef: RecordRef;
     begin
-        PaymentMethod.SetRange(Code, Rec.Code);
+        PaymentMethod.SetRange(Code, Code);
         if not PaymentMethod.IsEmpty() then
-            Rec.Insert();
+            Insert();
 
-        Rec.Insert(true);
+        Insert(true);
 
         PaymentMethodRecordRef.GetTable(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(PaymentMethodRecordRef, TempFieldSet, CurrentDateTime());
         PaymentMethodRecordRef.SetTable(Rec);
 
-        Rec.Modify(true);
+        Modify(true);
         exit(false);
     end;
 
@@ -82,14 +77,14 @@ page 30020 "APIV2 - Payment Methods"
     var
         PaymentMethod: Record "Payment Method";
     begin
-        PaymentMethod.GetBySystemId(Rec.SystemId);
+        PaymentMethod.GetBySystemId(SystemId);
 
-        if Rec.Code = PaymentMethod.Code then
-            Rec.Modify(true)
+        if Code = PaymentMethod.Code then
+            Modify(true)
         else begin
             PaymentMethod.TransferFields(Rec, false);
-            PaymentMethod.Rename(Rec.Code);
-            Rec.TransferFields(PaymentMethod);
+            PaymentMethod.Rename(Code);
+            TransferFields(PaymentMethod);
         end;
     end;
 
@@ -107,6 +102,7 @@ page 30020 "APIV2 - Payment Methods"
         TempFieldSet.Insert(true);
     end;
 }
+
 
 
 

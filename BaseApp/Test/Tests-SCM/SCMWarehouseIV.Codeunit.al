@@ -10,7 +10,6 @@ codeunit 137407 "SCM Warehouse IV"
     end;
 
     var
-        DummyLocation: Record Location;
         LibraryPurchase: Codeunit "Library - Purchase";
         LibrarySales: Codeunit "Library - Sales";
         LibraryService: Codeunit "Library - Service";
@@ -1783,7 +1782,6 @@ codeunit 137407 "SCM Warehouse IV"
         LotNo: Code[50];
         Qty: Integer;
         WarrantyStartDate: Date;
-        WarrantyStartingDateWhenItemTrackingExists: Date;
     begin
         // [FEATURE] [Warranty Date] [Item Tracking] [Service]
         // [SCENARIO 312703] Warranty Date specified via Lot Item Tracking is propagated to Service Item Warranty Starting Dates when Sales Order is posted
@@ -1829,17 +1827,16 @@ codeunit 137407 "SCM Warehouse IV"
 
         // [WHEN] Post Sales Order
         LibrarySales.PostSalesDocument(SalesHeader, true, true);
-        WarrantyStartingDateWhenItemTrackingExists := CalcDate(StrSubstNo('<-%1>', ItemTrackingCode."Warranty Date Formula"), WarrantyStartDate);
 
         // [THEN] Service Item is created with Warranty Starting Date (Parts) = Warranty Starting Date (Labor)
         // [THEN] Warranty Ending Date (Parts) = 1/2/2020 <> Warranty Ending Date (Labor) = 1/2/2021
         with ServiceItem do begin
             SetRange("Item No.", Item."No.");
             FindFirst();
-            TestField("Warranty Starting Date (Parts)", WarrantyStartingDateWhenItemTrackingExists);
-            TestField("Warranty Starting Date (Labor)", WarrantyStartingDateWhenItemTrackingExists);
-            TestField("Warranty Ending Date (Parts)", WarrantyStartDate);
-            TestField("Warranty Ending Date (Labor)", CalcDate(DefaultWarrantyDuration, WarrantyStartingDateWhenItemTrackingExists));
+            TestField("Warranty Starting Date (Parts)", WarrantyStartDate);
+            TestField("Warranty Starting Date (Labor)", "Warranty Starting Date (Parts)");
+            TestField("Warranty Ending Date (Parts)", CalcDate(WarrantyDateFormula, WarrantyStartDate));
+            TestField("Warranty Ending Date (Labor)", CalcDate(DefaultWarrantyDuration, WarrantyStartDate));
         end;
 
         LibraryVariableStorage.AssertEmpty;
@@ -2021,6 +2018,82 @@ codeunit 137407 "SCM Warehouse IV"
     end;
 
     [Test]
+    [HandlerFunctions('ItemTrackingLinesHandler,ConfirmHandlerTrue')]
+    [Scope('OnPrem')]
+    procedure ValidateServiceItemHavingCorrectWarrantyDateAfterUndoShipment()
+    var
+        ItemTrackingCode: Record "Item Tracking Code";
+        ServiceItemGroup: Record "Service Item Group";
+        Item: Record Item;
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        SalesShipmentLine: Record "Sales Shipment Line";
+        WarrantyDateFormula: DateFormula;
+        DefaultWarrantyDuration: DateFormula;
+        LotNo: Code[50];
+        Qty: Integer;
+        WarrantyStartDate: Date;
+    begin
+        // [SCENARIO 464877]: Warranty date is recalculated on new Shipment which was previously reversed via Undo shipment.
+
+        // [GIVEN] Initialize initials
+        Initialize();
+        Evaluate(WarrantyDateFormula, '<10Y>');
+        Evaluate(DefaultWarrantyDuration, '<3Y>');
+        LotNo := LibraryUtility.GenerateGUID();
+        Qty := LibraryRandom.RandInt(10);
+        WarrantyStartDate := CalcDate('<1M>', WorkDate());
+
+        // [GIVEN] Service Mgt. Setup had Default Warranty Duration = 3Y
+        SetServiceSetupDefaultWarrantyDuration(DefaultWarrantyDuration);
+
+        // [GIVEN] Item Tracking Code with Lot Sales Tracking and Man. Warranty Date Entry Reqd. enabled, Warranty Date Formula = 10Y
+        CreateItemTrackingCode(ItemTrackingCode, true, false, false);
+        ItemTrackingCode.Validate("Warranty Date Formula", WarrantyDateFormula);
+        ItemTrackingCode.Modify(true);
+
+        // [GIVEN] Service Item Group with Create Service Item enabled
+        LibraryService.CreateServiceItemGroup(ServiceItemGroup);
+        ServiceItemGroup.Validate("Create Service Item", true);
+        ServiceItemGroup.Modify(true);
+
+        // [GIVEN] Item with Item Tracking Code and Service Item Group had stock of 10 PCS
+        LibraryInventory.CreateItem(Item);
+        Item.Validate("Item Tracking Code", ItemTrackingCode.Code);
+        Item.Validate("Service Item Group", ServiceItemGroup.Code);
+        Item.Modify(true);
+        PostItemJournalLineWithLotTracking(Item."No.", LotNo, Qty);
+
+        // [GIVEN] New Sales Order with Item Tracking
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
+        SalesHeader.Validate("Posting Date", WorkDate());
+        SalesHeader.Modify(true);
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", Qty);
+        EnqueueTrackingLotAndQty(ItemTrackingMode::AssignLotAndQty, LotNo, Qty);
+        SalesLine.OpenItemTrackingLines();
+        ModifyReservationEntryWarrantyDate(Item."No.", WarrantyStartDate);
+
+        // [WHEN] Post Sales Order
+        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+
+        // [VERIFY] Verify: Warranty date fields in Service Item table
+        VerifyWarrantyDatesOnServiceItem(Item."No.", WarrantyStartDate, WarrantyDateFormula, DefaultWarrantyDuration);
+
+        // [THEN] Find Shipment Line
+        FindSalesShipmentLine(SalesShipmentLine, SalesLine."Document No.");
+
+        // [WHEN] Undo sales shipment.
+        LibrarySales.UndoSalesShipmentLine(SalesShipmentLine);
+        ModifyReservationEntryWarrantyDate(Item."No.", WarrantyStartDate);
+
+        // [THEN] Post Sales Order
+        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+
+        // [VERIFY] Verify: Warranty date fields in Service Item table
+        VerifyWarrantyDatesOnServiceItem(Item."No.", WarrantyStartDate, WarrantyDateFormula, DefaultWarrantyDuration);
+    end;
+
+    [Test]
     [HandlerFunctions('ConfirmHandlerEnqueueQuestion')]
     procedure TestItemJnlPostWithProhibitBinCapacityPolicy()
     var
@@ -2192,390 +2265,6 @@ codeunit 137407 "SCM Warehouse IV"
 
         // [THEN] Error is not thrown
         // No error is thrown
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure NeverCheckBinPolicyOnAdvancedWarehouseWithNoViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 5, 10, 5, 1, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure NeverCheckBinPolicyOnAdvancedWarehouseWithMaxQtyViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 5, 10, 1, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure NeverCheckBinPolicyOnAdvancedWarehouseWithMaxWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 5, 10, 5, 4, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure NeverCheckBinPolicyOnAdvancedWarehouseWithMaxQtyAndWgtViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 5, 10, 5, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure NeverCheckBinPolicyOnAdvancedWarehouseWithNoMaxQtySetAndWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 0, 10, 5, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure AllowCheckBinPolicyOnAdvancedWarehouseWithNoViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 5, 10, 5, 1, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure AllowCheckBinPolicyOnAdvancedWarehouseWithMaxQtyViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 5, 10, 1, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure AllowCheckBinPolicyOnAdvancedWarehouseWithMaxWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 5, 10, 5, 4, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure AllowCheckBinPolicyOnAdvancedWarehouseWithMaxQtyAndWgtViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 5, 10, 5, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure AllowCheckBinPolicyOnAdvancedWarehouseWithNoMaxQtySetAndWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 0, 10, 5, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure ProhibitCheckBinPolicyOnAdvancedWarehouseWithNoViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 5, 10, 5, 1, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,CalculateWhseAdjustmentHandler,MessageHandler')]
-    procedure ProhibitCheckBinPolicyOnAdvancedWarehouseWithMaxQtyViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 5, 10, 1, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion')]
-    procedure ProhibitCheckBinPolicyOnAdvancedWarehouseWithMaxWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 5, 10, 5, 4, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion')]
-    procedure ProhibitCheckBinPolicyOnAdvancedWarehouseWithMaxQtyAndWgtViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 5, 10, 5, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion')]
-    procedure ProhibitCheckBinPolicyOnAdvancedWarehouseWithNoMaxQtySetAndWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 0, 10, 5, 6, true);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure NeverCheckBinPolicyOnBasicWarehouseWithNoViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 5, 10, 5, 1, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure NeverCheckBinPolicyOnBasicWarehouseWithMaxQtyViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 5, 10, 1, 6, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure NeverCheckBinPolicyOnBasicWarehouseWithMaxWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 5, 10, 5, 4, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure NeverCheckBinPolicyOnBasicWarehouseWithMaxQtyAndWgtViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 5, 10, 5, 6, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure NeverCheckBinPolicyOnBasicWarehouseWithNoMaxQtySetAndWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Never Check Capacity", 0, 10, 5, 6, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure AllowCheckBinPolicyOnBasicWarehouseWithNoViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 5, 10, 5, 1, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure AllowCheckBinPolicyOnBasicWarehouseWithMaxQtyViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 5, 10, 1, 6, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure AllowCheckBinPolicyOnBasicWarehouseWithMaxWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 5, 10, 5, 4, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure AllowCheckBinPolicyOnBasicWarehouseWithMaxQtyAndWgtViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 5, 10, 5, 6, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure AllowCheckBinPolicyOnBasicWarehouseWithNoMaxQtySetAndWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Allow More Than Max. Capacity", 0, 10, 5, 6, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion,MessageHandler')]
-    procedure ProhibitCheckBinPolicyOnBasicWarehouseWithNoViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 5, 10, 5, 1, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion')]
-    procedure ProhibitCheckBinPolicyOnBasicWarehouseWithMaxQtyViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 5, 10, 1, 6, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion')]
-    procedure ProhibitCheckBinPolicyOnBasicWarehouseWithMaxWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 5, 10, 5, 4, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion')]
-    procedure ProhibitCheckBinPolicyOnBasicWarehouseWithMaxQtyAndWgtViolationsTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 5, 10, 5, 6, false);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerEnqueueQuestion')]
-    procedure ProhibitCheckBinPolicyOnBasicWarehouseWithNoMaxQtySetAndWgtViolationTest()
-    begin
-        BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(DummyLocation."Bin Capacity Policy"::"Prohibit More Than Max. Cap.", 0, 10, 5, 6, false);
-    end;
-
-    local procedure BinPolicyOnWarehouseWithMaxQtyAndMaxWgtViolationTest(
-         BinCapacityPolicy: Option "Never Check Capacity","Allow More Than Max. Capacity","Prohibit More Than Max. Cap.";
-         MaxQty: Decimal; MaxWeight: Decimal; ItemWeight: Decimal; QtyOnDoc: Decimal;
-         IsAdvancedWarehouse: Boolean
-         )
-    var
-        Location: Record Location;
-        Zone: Record Zone;
-        Bin: Record Bin;
-        BinContent: Record "Bin Content";
-        Item: Record Item;
-        ItemJournalLine: Record "Item Journal Line";
-        WarehouseEmployee: Record "Warehouse Employee";
-        ItemUnitOfMeasure: Record "Item Unit of Measure";
-        ItemJnlPost: Codeunit "Item Jnl.-Post";
-        ItemJournal: TestPage "Item Journal";
-        QtyViolation, WeightViolation : Boolean;
-    begin
-        Initialize();
-
-        // [GIVEN] Calculate violations
-        QtyViolation := (QtyOnDoc > MaxQty) and (MaxQty <> 0);
-        WeightViolation := ItemWeight * QtyOnDoc > MaxWeight;
-
-        // [GIVEN] Location and bin are created
-        if IsAdvancedWarehouse then begin
-            LibraryWarehouse.CreateFullWMSLocation(Location, 2);
-            LibraryWarehouse.FindZone(Zone, Location.Code, LibraryWarehouse.SelectBinType(true, false, false, false), false);
-            LibraryWarehouse.FindBin(Bin, Location.Code, Zone.Code, 1);
-        end else begin
-            LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
-            Location.Validate("Bin Mandatory", true);
-            LibraryWarehouse.CreateBin(Bin, Location.Code, '', '', '');
-        end;
-
-        // [GIVEN] 'Bin Capacity Policy' is set
-        Location.Validate("Bin Capacity Policy", BinCapacityPolicy);
-        Location.Modify(true);
-
-        // [GIVEN] Max weight on the Bin is set
-        Bin.Validate("Maximum Weight", MaxWeight);
-        Bin.Modify(true);
-
-        // [GIVEN] Current user added as an warehouse employee
-        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, false);
-
-        // [GIVEN] Item with weight set on the unit of measure
-        LibraryInventory.CreateItem(Item);
-        ItemUnitOfMeasure.Get(Item."No.", Item."Base Unit of Measure");
-        ItemUnitOfMeasure.Validate(Weight, ItemWeight);
-        ItemUnitOfMeasure.Modify(true);
-
-        // [GIVEN] Create BinContent with a Max. Qty.
-        LibraryWarehouse.CreateBinContent(BinContent, Location.Code, Bin."Zone Code", Bin.Code, Item."No.", '', Item."Base Unit of Measure");
-        if MaxQty <> 0 then begin
-            if (MaxQty * ItemWeight) > MaxWeight then
-                LibraryVariableStorage.Enqueue(true); // if weight violation, check for 'The total weight'
-            BinContent.Validate("Min. Qty.", 1);
-            BinContent.Validate("Max. Qty.", MaxQty);
-            if (MaxQty * ItemWeight) > MaxWeight then
-                Assert.ExpectedConfirm('The total weight', LibraryVariableStorage.DequeueText()); // if weight violation, check for 'The total weight'
-            BinContent.Modify(true);
-        end;
-
-        // [GIVEN] Create Item Journal Line for basic warehouse and for advanced warehouse, create Warehouse Journal Line and then the Item Journal Lines.
-        if IsAdvancedWarehouse then begin
-            if BinCapacityPolicy in [BinCapacityPolicy::"Allow More Than Max. Capacity", BinCapacityPolicy::"Prohibit More Than Max. Cap."] then begin
-                if QtyViolation or WeightViolation then // if qty. or wgt. violation, handle confirmation while Warehouse Journal Line creation
-                    LibraryVariableStorage.Enqueue(true);
-                if QtyViolation and WeightViolation then // if qty. and wgt. violation, handle confirmation while Warehouse Journal Line creation
-                    LibraryVariableStorage.Enqueue(true);
-                if WeightViolation then // if wgt. violation, handle confirmation while Warehouse Journal Line creation
-                    LibraryVariableStorage.Enqueue(true);
-            end;
-
-            // [WHEN] Warehouse Journal Lines are created and registered
-            if (BinCapacityPolicy = BinCapacityPolicy::"Prohibit More Than Max. Cap.") and (WeightViolation) then begin
-                // [THEN] Error is thrown for max. weight violation
-                asserterror LibraryWarehouse.UpdateWarehouseStockOnBin(Bin, Item."No.", QtyOnDoc, false);
-                Assert.ExpectedError('exceeds the available capacity');
-                exit;
-            end else
-                // [THEN] Creation of Warehouse Journal Lines succeeds
-                LibraryWarehouse.UpdateWarehouseStockOnBin(Bin, Item."No.", QtyOnDoc, false);
-
-            // [THEN] Expected confirmations are shown
-            if BinCapacityPolicy in [BinCapacityPolicy::"Allow More Than Max. Capacity", BinCapacityPolicy::"Prohibit More Than Max. Cap."] then begin
-                if QtyViolation or WeightViolation then
-                    Assert.ExpectedConfirm('exceeds the available capacity', LibraryVariableStorage.DequeueText());
-                if QtyViolation and WeightViolation then
-                    Assert.ExpectedConfirm('exceeds the available capacity', LibraryVariableStorage.DequeueText());
-                if WeightViolation/* and (MaxQty = 0)*/ then
-                    Assert.ExpectedConfirm('exceeds the available capacity', LibraryVariableStorage.DequeueText());
-            end;
-
-            // [GIVEN] Item Journal Lines are created
-            ItemJournal.OpenEdit();
-            ItemJournal."&Calculate Warehouse Adjustment".Invoke();
-            ItemJournal.Close();
-
-            // [WHEN] Item Journal Line is poted
-            ItemJournalLine.SetRange("Location Code", Location.Code);
-            ItemJournalLine.FindFirst();
-            LibraryVariableStorage.Enqueue(true);// Do you want to post journal?
-            ItemJnlPost.Run(ItemJournalLine);
-
-            // [THEN] Posting succeeds and expected confirmations are shown
-            Assert.ExpectedConfirm('Do you want to post the journal lines?', LibraryVariableStorage.DequeueText());
-        end else begin
-            // [GIVEN] Create Item Journal Line.
-            LibraryInventory.CreateItemJournalLineInItemTemplate(
-              ItemJournalLine, Item."No.", Location.Code, Bin.Code, 1);
-
-            // [WHEN] Item Journal Lines are created
-            ItemJournal.OpenEdit();
-            ItemJournal.GoToRecord(ItemJournalLine);
-            if BinCapacityPolicy in [BinCapacityPolicy::"Allow More Than Max. Capacity", BinCapacityPolicy::"Prohibit More Than Max. Cap."] then begin
-                if QtyViolation then
-                    LibraryVariableStorage.Enqueue(true);
-                if WeightViolation then // if wgt. violation, handle confirmation while Warehouse Journal Line creation
-                    LibraryVariableStorage.Enqueue(true);
-            end;
-            ItemJournal.Quantity.SetValue(QtyOnDoc);
-            ItemJournal.Close();
-
-            // [THEN] Item Journal Lines creation succeeds with expected cofirmations
-            if BinCapacityPolicy in [BinCapacityPolicy::"Allow More Than Max. Capacity", BinCapacityPolicy::"Prohibit More Than Max. Cap."] then begin
-                if QtyViolation then
-                    Assert.ExpectedConfirm('exceeds the available capacity', LibraryVariableStorage.DequeueText());
-                if WeightViolation then
-                    Assert.ExpectedConfirm('exceeds the available capacity', LibraryVariableStorage.DequeueText());
-            end;
-
-            // [WHEN] Item Journal is posted
-            ItemJournalLine.SetRange("Location Code", Location.Code);
-            ItemJournalLine.FindFirst();
-            LibraryVariableStorage.Enqueue(true);// Do you want to post journal?
-
-            case BinCapacityPolicy of
-                Location."Bin Capacity Policy"::"Never Check Capacity":
-                    begin
-                        // [THEN] Item Journal posting succeeds
-                        ItemJnlPost.Run(ItemJournalLine);
-                        Assert.ExpectedConfirm('Do you want to post the journal lines?', LibraryVariableStorage.DequeueText());
-                    end;
-                Location."Bin Capacity Policy"::"Allow More Than Max. Capacity":
-                    begin
-                        // [THEN] Item Journal posting succeeds and necessary confirmation are shown
-                        if QtyViolation then
-                            LibraryVariableStorage.Enqueue(true);
-                        if WeightViolation then
-                            LibraryVariableStorage.Enqueue(true);// Violation confirmation?
-                        ItemJnlPost.Run(ItemJournalLine);
-                        Assert.ExpectedConfirm('Do you want to post the journal lines?', LibraryVariableStorage.DequeueText());
-                        if QtyViolation then
-                            Assert.ExpectedConfirm('exceeds the available capacity', LibraryVariableStorage.DequeueText());// Violation confirmation?
-                        if WeightViolation then
-                            Assert.ExpectedConfirm('exceeds the available capacity', LibraryVariableStorage.DequeueText());// Violation confirmation?
-                    end;
-                Location."Bin Capacity Policy"::"Prohibit More Than Max. Cap.":
-                    begin
-                        // [THEN] Item Journal Posting throws error for weight violation, else succeeds
-                        if WeightViolation or QtyViolation then begin
-                            asserterror ItemJnlPost.Run(ItemJournalLine);
-                            Assert.ExpectedError('exceeds the available capacity');
-                        end else begin
-                            ItemJnlPost.Run(ItemJournalLine);
-                            Assert.ExpectedConfirm('Do you want to post the journal lines?', LibraryVariableStorage.DequeueText());
-                        end;
-                    end;
-            end;
-        end;
     end;
 
     [Test]
@@ -2802,7 +2491,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to SKU/Item");
         Location.Modify();
         LibraryWarehouse.CreateBin(Bin, Location.Code, '', '', '');
@@ -2857,7 +2545,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to SKU/Item");
         Location.Modify();
 
@@ -2910,7 +2597,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to SKU/Item");
         Location.Modify();
 
@@ -2960,7 +2646,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to Bin");
         Location.Modify();
 
@@ -3015,7 +2700,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to Bin");
         Location.Modify();
         LibraryWarehouse.CreateBin(Bin, Location.Code, '', '', '');
@@ -3070,7 +2754,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to Bin");
         Location.Modify();
         LibraryWarehouse.CreateBin(Bin, Location.Code, '', '', '');
@@ -3120,7 +2803,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to Bin");
         Location.Modify();
 
@@ -3178,7 +2860,6 @@ codeunit 137407 "SCM Warehouse IV"
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Receive", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to SKU/Item");
         LibraryWarehouse.CreateBin(Bin, Location.Code, '', '', '');
         Location.Validate("Receipt Bin Code", Bin.Code);
@@ -3224,7 +2905,6 @@ codeunit 137407 "SCM Warehouse IV"
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Require Receive", true);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Special Equipment", Location."Special Equipment"::"According to Bin");
         LibraryWarehouse.CreateBin(Bin, Location.Code, '', '', '');
         Location.Validate("Receipt Bin Code", Bin.Code);
@@ -3424,7 +3104,6 @@ codeunit 137407 "SCM Warehouse IV"
         // [GIVEN] Location is created
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Require Receive", false);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Check Whse. Class", true);
@@ -3784,84 +3463,6 @@ codeunit 137407 "SCM Warehouse IV"
     end;
 
     [Test]
-    [HandlerFunctions('ItemTrackingLinesHandler,ConfirmHandlerTrue')]
-    [Scope('OnPrem')]
-    procedure ValidateServiceItemHavingCorrectWarrantyDateAfterUndoShipment()
-    var
-        ItemTrackingCode: Record "Item Tracking Code";
-        ServiceItemGroup: Record "Service Item Group";
-        Item: Record Item;
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        SalesShipmentLine: Record "Sales Shipment Line";
-        WarrantyDateFormula: DateFormula;
-        DefaultWarrantyDuration: DateFormula;
-        LotNo: Code[50];
-        Qty: Integer;
-        WarrantyStartDate: Date;
-        WarrantyStartingDateWhenItemTrackingExists: Date;
-    begin
-        // [SCENARIO 464877]: Warranty date is recalculated on new Shipment which was previously reversed via Undo shipment.
-
-        // [GIVEN] Initialize initials
-        Initialize();
-        Evaluate(WarrantyDateFormula, '<10Y>');
-        Evaluate(DefaultWarrantyDuration, '<3Y>');
-        LotNo := LibraryUtility.GenerateGUID();
-        Qty := LibraryRandom.RandInt(10);
-        WarrantyStartDate := CalcDate('<1M>', WorkDate());
-
-        // [GIVEN] Service Mgt. Setup had Default Warranty Duration = 3Y
-        SetServiceSetupDefaultWarrantyDuration(DefaultWarrantyDuration);
-
-        // [GIVEN] Item Tracking Code with Lot Sales Tracking and Man. Warranty Date Entry Reqd. enabled, Warranty Date Formula = 10Y
-        CreateItemTrackingCode(ItemTrackingCode, true, false, false);
-        ItemTrackingCode.Validate("Warranty Date Formula", WarrantyDateFormula);
-        ItemTrackingCode.Modify(true);
-
-        // [GIVEN] Service Item Group with Create Service Item enabled
-        LibraryService.CreateServiceItemGroup(ServiceItemGroup);
-        ServiceItemGroup.Validate("Create Service Item", true);
-        ServiceItemGroup.Modify(true);
-
-        // [GIVEN] Item with Item Tracking Code and Service Item Group had stock of 10 PCS
-        LibraryInventory.CreateItem(Item);
-        Item.Validate("Item Tracking Code", ItemTrackingCode.Code);
-        Item.Validate("Service Item Group", ServiceItemGroup.Code);
-        Item.Modify(true);
-        PostItemJournalLineWithLotTracking(Item."No.", LotNo, Qty);
-
-        // [GIVEN] New Sales Order with Item Tracking
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
-        SalesHeader.Validate("Posting Date", WorkDate());
-        SalesHeader.Modify(true);
-        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", Qty);
-        EnqueueTrackingLotAndQty(ItemTrackingMode::AssignLotAndQty, LotNo, Qty);
-        SalesLine.OpenItemTrackingLines();
-        ModifyReservationEntryWarrantyDate(Item."No.", WarrantyStartDate);
-
-        // [WHEN] Post Sales Order
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
-        WarrantyStartingDateWhenItemTrackingExists := CalcDate(StrSubstNo('<-%1>', ItemTrackingCode."Warranty Date Formula"), WarrantyStartDate);
-
-        // [VERIFY] Verify: Warranty date fields in Service Item table
-        VerifyWarrantyDatesOnServiceItem(Item."No.", WarrantyStartingDateWhenItemTrackingExists, WarrantyDateFormula, DefaultWarrantyDuration);
-
-        // [THEN] Find Shipment Line
-        FindSalesShipmentLine(SalesShipmentLine, SalesLine."Document No.");
-
-        // [WHEN] Undo sales shipment.
-        LibrarySales.UndoSalesShipmentLine(SalesShipmentLine);
-        ModifyReservationEntryWarrantyDate(Item."No.", WarrantyStartDate);
-
-        // [THEN] Post Sales Order
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
-
-        // [VERIFY] Verify: Warranty date fields in Service Item table
-        VerifyWarrantyDatesOnServiceItem(Item."No.", WarrantyStartingDateWhenItemTrackingExists, WarrantyDateFormula, DefaultWarrantyDuration);
-    end;
-
-    [Test]
     [HandlerFunctions('VerifyNewItemTrackingLinesHandler,EnterQuantityToCreateHandler,MessageHandler,ItemTrackingSummaryPageHandler')]
     [Scope('OnPrem')]
     procedure VerifyWarrantyDateOnSeriallyTrackedSalesOrder()
@@ -3887,10 +3488,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryVariableStorage.Enqueue(ItemTrackingModeWithVerification::AssignSerialNo);
         CreateAndPostPurchaseOrderWithItemTrackingLines(PurchaseLine, true, Item."No.", Location.Code, Bin.Code);
 
-        // [THEN] Clear Storage
-        LibraryVariableStorage.DequeueText();
-        LibraryVariableStorage.DequeueDate();
-
         // [WHEN] Sales Order Created with Serially Tracked Item
         Qty := LibraryRandom.RandInt(5);
         CreateAndReleaseSalesOrderWithSelectEntriesForItemTrackingLines(SalesLine, true, WorkDate(), Item."No.", Location.Code, Bin.Code, Qty);
@@ -3900,148 +3497,14 @@ codeunit 137407 "SCM Warehouse IV"
         SalesLine.OpenItemTrackingLines();
     end;
 
-    [Test]
-    [HandlerFunctions('VerifyNewItemTrackingLinesHandler,EnterQuantityToCreateHandler,MessageHandler')]
-    [Scope('OnPrem')]
-    procedure VerifyWarrantyDateOnSeriallyTrackedWarehouseShipment()
-    var
-        Item: Record Item;
-        Bin: Record Bin;
-        Location: Record Location;
-        PurchaseHeader: Record "Purchase Header";
-        PurchaseLine: Record "Purchase Line";
-        SalesLine: Record "Sales Line";
-        WarehouseShipmentHeader: Record "Warehouse Shipment Header";
-        ItemTrackingCode: Record "Item Tracking Code";
-        WarehouseActivityLine: Record "Warehouse Activity Line";
-        WarrantyDateFormula: DateFormula;
-        Qty: Decimal;
-    begin
-        // [SCENARIO 504307] Error "Warranty Date must have a value in Tracking Specification" when Posting a Warehouse Shipment 
-        // for an item with Serial Tracking and Warranty date if the tracking is assigned using the Field Serial Number on the Warehouse Pick
-        Initialize();
-        Evaluate(WarrantyDateFormula, '<1M>');
-
-        // [GIVEN] WMS location "L" with mandatory shipment and pick.
-        CreateAndUpdateLocationWithSetup(Location, true, true, true);
-        LibraryWarehouse.FindBin(Bin, Location.Code, '', 1);
-
-        // [GIVEN] Item "I" with serial no. tracking.
-        CreateItemWithItemTrackingCode(Item, true, false);
-
-        // [GIVEN] Item Tracking Code with Lot Sales Tracking and Man. Warranty Date Entry Reqd. enabled, Warranty Date Formula = 1M
-        CreateItemTrackingCode(ItemTrackingCode, false, true, true);
-        ItemTrackingCode.Validate("Man. Warranty Date Entry Reqd.", true);
-        ItemTrackingCode.Validate("Use Expiration Dates", true);
-        ItemTrackingCode.Validate("Warranty Date Formula", WarrantyDateFormula);
-        ItemTrackingCode.Modify(true);
-
-        // [GIVEN] X serial nos. "S1".."SX" of "I" are purchased and put-away.
-        LibraryVariableStorage.Enqueue(ItemTrackingMode::AssignSerialNo);
-        CreateAndReleasePurchaseOrderWithItemTrackingLines(PurchaseLine, true, Item."No.", Location.Code, Bin.Code);
-        PurchaseHeader.Get(PurchaseLine."Document Type", PurchaseLine."Document No.");
-        LibraryWarehouse.CreateWhseReceiptFromPO(PurchaseHeader);
-        PostWarehouseReceipt(PurchaseHeader."No.");
-        RegisterWarehouseActivity(PurchaseHeader."No.");
-
-        // [GIVEN] Sales order for "Y" ("Y" < "X") pcs of "I". No item tracking is selected on the sales line.
-        // [GIVEN] Warehouse shipment and pick are created for the order.
-        Qty := LibraryRandom.RandInt(5);
-        CreateAndReleaseSalesOrderWithItemTrackingLines(SalesLine, false, WorkDate(), Item."No.", Location.Code, Bin.Code, Qty);
-        CreateAndReleaseWarehouseShipmentFromSalesOrder(WarehouseShipmentHeader, SalesLine);
-        LibraryWarehouse.CreatePick(WarehouseShipmentHeader);
-
-        // [THEN] Update Serial No. from "Whse. Pick Subform" Page
-        UpdateSerialNoOnWhseActivityLine(SalesLine."Document No.");
-
-        // [VERIFY] Verify: Warranty Date Warehouse Activity Line Table
-        FindWarehouseActivityNo(WarehouseActivityLine, SalesLine."Document No.", WarehouseActivityLine."Activity Type"::Pick);
-        Assert.AreEqual(
-            WorkDate(),
-            WarehouseActivityLine."Warranty Date",
-            StrSubstNo(
-                WarrantyDateError,
-                WarehouseActivityLine."Warranty Date"));
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesHandler')]
-    [Scope('OnPrem')]
-    procedure ValidateWarrantyIsCorrectOnServiceItemCreatedFromSalesOrder()
-    var
-        ItemTrackingCode: Record "Item Tracking Code";
-        ServiceItemGroup: Record "Service Item Group";
-        Item: Record Item;
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        WarrantyDateFormula: DateFormula;
-        DefaultWarrantyDuration: DateFormula;
-        LotNo: Code[50];
-        Qty: Integer;
-        WarrantyStartDate: Date;
-        WarrantyStartingDateWhenItemTrackingExists: Date;
-    begin
-        // [SCENARIO 508064]: When a Warranty Item that has a Service Item Group assigned to it with 'Create Service Item', and a Sales Order creates the Service Item, the Warranty is not correct.
-
-        // [GIVEN] Initialize initials
-        Initialize();
-        Evaluate(WarrantyDateFormula, '<2Y>');
-        Evaluate(DefaultWarrantyDuration, '<1Y>');
-        LotNo := LibraryUtility.GenerateGUID();
-        Qty := LibraryRandom.RandIntInRange(1, 1);
-        WarrantyStartDate := WorkDate();
-
-        // [GIVEN] Service Mgt. Setup had Default Warranty Duration = 3Y
-        SetServiceSetupDefaultWarrantyDuration(DefaultWarrantyDuration);
-
-        // [GIVEN] Item Tracking Code with Lot Sales Tracking and Man. Warranty Date Entry Reqd. enabled, Warranty Date Formula = 10Y
-        CreateItemTrackingCode(ItemTrackingCode, true, false, false);
-        ItemTrackingCode.Validate("Warranty Date Formula", WarrantyDateFormula);
-        ItemTrackingCode.Modify(true);
-
-        // [GIVEN] Service Item Group with Create Service Item enabled
-        LibraryService.CreateServiceItemGroup(ServiceItemGroup);
-        ServiceItemGroup.Validate("Create Service Item", true);
-        ServiceItemGroup.Modify(true);
-
-        // [GIVEN] Item with Item Tracking Code and Service Item Group had stock of 10 PCS
-        LibraryInventory.CreateItem(Item);
-        Item.Validate("Service Item Group", ServiceItemGroup.Code);
-        Item.Validate("Item Tracking Code", ItemTrackingCode.Code);
-        Item.Modify(true);
-        PostItemJournalLineWithLotTracking(Item."No.", LotNo, Qty);
-
-        // [GIVEN] New Sales Order with Item Tracking
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
-        SalesHeader.Validate("Posting Date", WorkDate());
-        SalesHeader.Modify(true);
-        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", Qty);
-        EnqueueTrackingLotAndQty(ItemTrackingMode::AssignLotAndQty, LotNo, Qty);
-        SalesLine.OpenItemTrackingLines();
-        ModifyReservationEntryWarrantyDate(Item."No.", WarrantyStartDate);
-
-        // [WHEN] Post Sales Order
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
-        WarrantyStartingDateWhenItemTrackingExists := CalcDate(StrSubstNo('<-%1>', ItemTrackingCode."Warranty Date Formula"), WarrantyStartDate);
-
-        // [THEN] Verify: Warranty date fields in Service Item table
-        VerifyWarrantyDatesOnServiceItem(Item."No.", WarrantyStartingDateWhenItemTrackingExists, WarrantyDateFormula, DefaultWarrantyDuration);
-    end;
-
     local procedure Initialize()
     var
         WarehouseSetup: Record "Warehouse Setup";
-        ItemJournalLine: Record "Item Journal Line";
-        WarehouseJournalLine: Record "Warehouse Journal Line";
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"SCM Warehouse IV");
         LibraryVariableStorage.Clear();
         LibrarySetupStorage.Restore();
-
-        ItemJournalLine.DeleteAll();
-        WarehouseJournalLine.DeleteAll();
-
         // Clear global variables.
         Clear(BinTemplateCode);
         Clear(RackNo);
@@ -4190,12 +3653,12 @@ codeunit 137407 "SCM Warehouse IV"
         LibraryWarehouse.FindBin(Bin, Location.Code, '', 1);  // Find Bin of Index 1.
         CreateItemWithItemTrackingCode(Item, true, false);
         LibraryPurchase.CreateVendor(Vendor);
+        LibraryVariableStorage.Enqueue(ItemTrackingMode::AssignSerialNo);
         for Counter := 1 to LoopCount do begin
             Clear(PurchaseHeader);
             LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, Vendor."No.");
             CreateAndUpdatePurchaseLine(
               PurchaseLine, PurchaseHeader, LibraryRandom.RandInt(5), Item."No.", Bin."Location Code", Bin.Code);  // Integer Value required.
-            LibraryVariableStorage.Enqueue(ItemTrackingMode::AssignSerialNo);
             PurchaseLine.OpenItemTrackingLines();
             PurchaseOrderNo[Counter] := PurchaseHeader."No.";
             PurchaseReceiptNo[Counter] := LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, false);
@@ -4631,9 +4094,7 @@ codeunit 137407 "SCM Warehouse IV"
         exit(WarehouseRegister.FindFirst())
     end;
 
-    local procedure FindWhseActivityLine(var WarehouseActivityLine: Record "Warehouse Activity Line"; ActivityType: Enum "Warehouse Activity Type"; LocationCode: Code[10];
-                                                                                                                        SourceNo: Code[20];
-                                                                                                                        ActionType: Enum "Warehouse Action Type")
+    local procedure FindWhseActivityLine(var WarehouseActivityLine: Record "Warehouse Activity Line"; ActivityType: Enum "Warehouse Activity Type"; LocationCode: Code[10]; SourceNo: Code[20]; ActionType: Enum "Warehouse Action Type")
     begin
         FindWarehouseActivityNo(WarehouseActivityLine, SourceNo, ActivityType);
         WarehouseActivityLine.SetRange("Activity Type", ActivityType);
@@ -5316,16 +4777,6 @@ codeunit 137407 "SCM Warehouse IV"
         LibrarySales.ReleaseSalesDocument(SalesHeader);
     end;
 
-    local procedure UpdateSerialNoOnWhseActivityLine(DocumentNo: Code[20])
-    var
-        WarehouseActivityLine: Record "Warehouse Activity Line";
-    begin
-        FindWarehouseActivityNo(WarehouseActivityLine, DocumentNo, WarehouseActivityLine."Activity Type"::Pick);
-        WarehouseActivityLine.Validate("Serial No.", LibraryVariableStorage.DequeueText());
-        WarehouseActivityLine.Validate("Warranty Date", LibraryVariableStorage.DequeueDate());
-        WarehouseActivityLine.Modify(true);
-    end;
-
     [ConfirmHandler]
     [Scope('OnPrem')]
     procedure ConfirmHandlerFalse(ConfirmMessage: Text[1024]; var Reply: Boolean)
@@ -5551,8 +5002,6 @@ codeunit 137407 "SCM Warehouse IV"
             ReservationEntry.SetRange("Serial No.", SerialNo);
             if ReservationEntry.FindFirst() then begin
                 ReservationEntry."Warranty Date" := WorkDate();
-                LibraryVariableStorage.Enqueue(SerialNo);
-                LibraryVariableStorage.Enqueue(ReservationEntry."Warranty Date");
                 ReservationEntry.Modify(true);
             end;
         end;
@@ -5590,20 +5039,6 @@ codeunit 137407 "SCM Warehouse IV"
     begin
         CreateInvtPutawayPickMvmt.CreateInventorytPutAway.SetValue(true);
         CreateInvtPutawayPickMvmt.OK.Invoke;
-    end;
-
-    [RequestPageHandler]
-    [Scope('OnPrem')]
-    procedure CalculateWhseAdjustmentHandler(var CalculateWhseAdjustment: TestRequestPage "Calculate Whse. Adjustment")
-    begin
-        CalculateWhseAdjustment.OK().Invoke();
-    end;
-
-    [ModalPageHandler]
-    [Scope('OnPrem')]
-    procedure ItemTrackingSummaryModalPageHandler(var ItemTrackingSummary: TestPage "Item Tracking Summary")
-    begin
-        ItemTrackingSummary.OK().Invoke();
     end;
 }
 

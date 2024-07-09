@@ -3,12 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 permissionset 88 "Permissions & Licenses - Read"
 {
     Access = Public;
-    Assignable = false;
+    Assignable = False;
 
     Permissions = tabledata "Access Control" = R,
                   tabledata Entitlement = R,
@@ -16,13 +14,9 @@ permissionset 88 "Permissions & Licenses - Read"
                   tabledata "Membership Entitlement" = R,
                   tabledata "License Information" = R,
                   tabledata "License Permission" = R,
-#pragma warning disable AL0432
                   tabledata Permission = R,
-#pragma warning restore AL0432
                   tabledata "Permission Range" = R,
-#pragma warning disable AL0432
                   tabledata "Permission Set" = R,
-#pragma warning restore AL0432
                   tabledata "Tenant License State" = R,
                   tabledata "Tenant Permission" = R,
                   tabledata "Tenant Permission Set" = R,

@@ -1,9 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.Environment;
-using System.Utilities;
-using Microsoft.Inventory.Item;
-
 /// <summary>
 /// Codeunit Shpfy Hash (ID 30156).
 /// </summary>

@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy Install Mgt. (ID 30105).
 /// </summary>

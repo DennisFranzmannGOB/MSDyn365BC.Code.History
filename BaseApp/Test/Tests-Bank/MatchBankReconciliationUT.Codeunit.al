@@ -229,7 +229,7 @@ codeunit 134252 "Match Bank Reconciliation - UT"
     end;
 
     [Test]
-    [HandlerFunctions('MatchRecLinesReqPageHandler,MessageHandler')]
+    [HandlerFunctions('MatchRecLinesReqPageHandler,MessageHandler,ConfirmOverwriteAutoMatchHandlerDefault')]
     [Scope('OnPrem')]
     procedure OneBankEntryMoreRecLinesDateRange()
     var
@@ -271,7 +271,7 @@ codeunit 134252 "Match Bank Reconciliation - UT"
     end;
 
     [Test]
-    [HandlerFunctions('MatchRecLinesReqPageHandler,MessageHandler')]
+    [HandlerFunctions('MatchRecLinesReqPageHandler,MessageHandler,ConfirmOverwriteAutoMatchHandlerDefault')]
     [Scope('OnPrem')]
     procedure OneBankEntryMoreRecLinesDateVsRange()
     var
@@ -1038,6 +1038,7 @@ codeunit 134252 "Match Bank Reconciliation - UT"
         BankAccountLedgerEntry: Record "Bank Account Ledger Entry";
         BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line";
         BankAccRecMatchBuffer: Record "Bank Acc. Rec. Match Buffer";
+        BankAccount: Record "Bank Account";
         BankAccReconciliationPage: TestPage "Bank Acc. Reconciliation";
         MatchBankRecLines: Codeunit "Match Bank Rec. Lines";
         MatchBankRecScenarios: Codeunit "Match Bank Rec. Scenarios";
@@ -1053,6 +1054,7 @@ codeunit 134252 "Match Bank Reconciliation - UT"
 
         // Setup.
         CreateInputData(PostingDate, BankAccountNo, StatementNo, DocumentNo, Description, Amount);
+        CreateBankAccountWithNo(BankAccount, BankAccountNo);
         ExpectedMatchedEntryNo := CreateBankAccLedgerEntry(BankAccountNo, PostingDate, DocumentNo, '', 2 * Amount, Description);
         CreateBankAccRec(BankAccReconciliation, BankAccountNo, StatementNo);
         CreateBankAccRecLine(BankAccReconciliation, PostingDate, Description, '', Amount);
@@ -1246,7 +1248,7 @@ codeunit 134252 "Match Bank Reconciliation - UT"
     end;
 
     [Test]
-    [HandlerFunctions('MatchRecLinesReqPageHandler,MessageHandler')]
+    [HandlerFunctions('MatchRecLinesReqPageHandler,MessageHandler,ConfirmOverwriteAutoMatchHandlerDefault')]
     [Scope('OnPrem')]
     procedure VerifyBankEntryMatchToExactBankAccReconciliationLine()
     var
@@ -1288,7 +1290,7 @@ codeunit 134252 "Match Bank Reconciliation - UT"
     end;
 
     [Test]
-    [HandlerFunctions('MatchRecLinesReqPageHandler,MessageHandler')]
+    [HandlerFunctions('MatchRecLinesReqPageHandler,MessageHandler,ConfirmOverwriteAutoMatchHandlerDefault')]
     procedure MatchToSimilarLinesShouldBeKept()
     var
         BankAccReconciliation: Record "Bank Acc. Reconciliation";
@@ -1415,15 +1417,10 @@ codeunit 134252 "Match Bank Reconciliation - UT"
 
     local procedure Initialize()
     var
-        BankAccReconciliation: Record "Bank Acc. Reconciliation";
-        BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line";
         LibraryApplicationArea: Codeunit "Library - Application Area";
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"Match Bank Reconciliation - UT");
         LibraryApplicationArea.EnableFoundationSetup();
-        BankAccReconciliationLine.DeleteAll();
-        BankAccReconciliation.DeleteAll();
-
         if isInitialized then
             exit;
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"Match Bank Reconciliation - UT");
@@ -1448,7 +1445,6 @@ codeunit 134252 "Match Bank Reconciliation - UT"
         BankAccount.Init();
         BankAccount.Validate("No.", BankAccountNo);
         BankAccount.Validate(Name, BankAccount."No.");  // Validating No. as Name because value is not important.
-        BankAccount.IBAN := LibraryUtility.GenerateGUID();
         BankAccount.Insert(true);
         BankAccount.Validate("Bank Acc. Posting Group", BankAccountPostingGroup.Code);
         BankAccount.Modify(true);
@@ -1487,7 +1483,6 @@ codeunit 134252 "Match Bank Reconciliation - UT"
 
     local procedure CreateInputData(var PostingDate: Date; var BankAccountNo: Code[20]; var StatementNo: Code[20]; var DocumentNo: Code[20]; var Description: Text[50]; var Amount: Decimal)
     var
-        BankAccount: Record "Bank Account";
         BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line";
     begin
         Amount := -LibraryRandom.RandDec(1000, 2);
@@ -1499,8 +1494,6 @@ codeunit 134252 "Match Bank Reconciliation - UT"
         DocumentNo := LibraryUtility.GenerateRandomCode(BankAccReconciliationLine.FieldNo("Document No."),
             DATABASE::"Bank Acc. Reconciliation Line");
         Description := CopyStr(CreateGuid, 1, 50);
-        if not BankAccount.Get(BankAccountNo) then
-            CreateBankAccountWithNo(BankAccount, BankAccountNo);
     end;
 
     local procedure CreateBankAccRec(var BankAccReconciliation: Record "Bank Acc. Reconciliation"; BankAccountNo: Code[20]; StatementNo: Code[20])

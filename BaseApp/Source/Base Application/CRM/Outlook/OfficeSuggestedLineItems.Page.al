@@ -1,11 +1,7 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.Inventory.Item;
-
 page 1637 "Office Suggested Line Items"
 {
     Caption = 'Suggested Line Items';
-    DataCaptionExpression = ''; // Avoid showing zero as a subcaption
+    DataCaptionExpression = PageTitleTxt;
     PageType = StandardDialog;
     ShowFilter = false;
     SourceTable = "Office Suggested Line Item";
@@ -21,13 +17,13 @@ page 1637 "Office Suggested Line Items"
                 repeater(Control3)
                 {
                     ShowCaption = false;
-                    field(Add; Rec.Add)
+                    field(Add; Add)
                     {
                         ApplicationArea = Basic, Suite;
                         ToolTip = 'Specifies whether to add this item to the document';
                         trigger OnValidate()
                         begin
-                            if Rec.Add and (Rec.Matches > 1) then
+                            if Add and (Matches > 1) then
                                 Error(ItemNeedsToBeResolvedErr);
                         end;
                     }
@@ -39,7 +35,7 @@ page 1637 "Office Suggested Line Items"
                         Lookup = false;
                         QuickEntry = false;
                         Style = Attention;
-                        StyleExpr = Rec.Matches > 1;
+                        StyleExpr = Matches > 1;
                         ToolTip = 'Specifies the item';
                         Width = 10;
 
@@ -48,20 +44,20 @@ page 1637 "Office Suggested Line Items"
                             Item: Record Item;
                             ItemNo: Text[50];
                         begin
-                            if Rec.Matches > 1 then begin
-                                if Item.TryGetItemNo(ItemNo, Rec."Item Description", false) then
+                            if Matches > 1 then begin
+                                if Item.TryGetItemNo(ItemNo, "Item Description", false) then
                                     Item.Get(ItemNo);
                             end else
                                 Item.PickItem(Item);
 
                             if Item."No." <> '' then begin
-                                Rec.Validate("Item No.", Item."No.");
-                                Rec.Validate("Item Description", Item.Description);
-                                Rec.Validate(Add, true);
-                                Rec.Validate(Matches, 1);
-                                if Rec."Line No." = 0 then begin
-                                    Rec.Validate("Line No.", LastLineNo + 1000);
-                                    LastLineNo := Rec."Line No.";
+                                Validate("Item No.", Item."No.");
+                                Validate("Item Description", Item.Description);
+                                Validate(Add, true);
+                                Validate(Matches, 1);
+                                if "Line No." = 0 then begin
+                                    Validate("Line No.", LastLineNo + 1000);
+                                    LastLineNo := "Line No.";
                                 end;
                             end;
                         end;
@@ -70,10 +66,10 @@ page 1637 "Office Suggested Line Items"
                         var
                             TempOfficeSuggestedLineItem: Record "Office Suggested Line Item" temporary;
                         begin
-                            if Rec."Line No." = 0 then begin
+                            if "Line No." = 0 then begin
                                 TempOfficeSuggestedLineItem.Copy(Rec, true);
                                 if TempOfficeSuggestedLineItem.FindLast() then
-                                    Rec."Line No." := TempOfficeSuggestedLineItem."Line No." + 1000;
+                                    "Line No." := TempOfficeSuggestedLineItem."Line No." + 1000;
                             end;
                         end;
                     }
@@ -82,7 +78,7 @@ page 1637 "Office Suggested Line Items"
                         ApplicationArea = Basic, Suite;
                         Caption = 'Description';
                         Editable = false;
-                        TableRelation = Item.Description where("No." = field("Item No."));
+                        TableRelation = Item.Description WHERE("No." = FIELD("Item No."));
                         Width = 20;
                     }
                     field(Quantity; Rec.Quantity)
@@ -110,8 +106,8 @@ page 1637 "Office Suggested Line Items"
 
     trigger OnOpenPage()
     begin
-        if Rec.FindLast() then
-            LastLineNo := Rec."Line No.";
+        if FindLast() then
+            LastLineNo := "Line No.";
     end;
 
     trigger OnAfterGetCurrRecord()
@@ -127,6 +123,7 @@ page 1637 "Office Suggested Line Items"
     end;
 
     var
+        PageTitleTxt: Label 'Suggested Line Items';
         ResolveItemTxt: Label 'Resolve item';
         LastLineNo: Integer;
         DoNotShowAgain: Boolean;
@@ -136,18 +133,18 @@ page 1637 "Office Suggested Line Items"
 
     local procedure GetDescription() Description: Text
     begin
-        if Rec.Matches > 1 then
-            Description := StrSubstNo(MultipleMatchesTxt, Rec."Item Description", Rec.Matches)
+        if Matches > 1 then
+            Description := StrSubstNo(MultipleMatchesTxt, "Item Description", Matches)
         else
-            Description := Rec."Item Description";
+            Description := "Item Description";
     end;
 
     local procedure GetItem() Item: Text
     begin
-        if Rec.Matches > 1 then
+        if Matches > 1 then
             Item := ResolveItemTxt
         else
-            Item := Rec."Item No.";
+            Item := "Item No.";
     end;
 
     [IntegrationEvent(false, false)]

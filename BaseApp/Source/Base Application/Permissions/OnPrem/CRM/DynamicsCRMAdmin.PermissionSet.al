@@ -1,9 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Integration.D365Sales;
-using Microsoft.Integration.Dataverse;
-using Microsoft.Integration.SyncEngine;
-
 permissionset 2393 "Dynamics CRM - Admin"
 {
     Access = Public;

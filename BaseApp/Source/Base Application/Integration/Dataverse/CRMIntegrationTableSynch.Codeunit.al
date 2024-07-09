@@ -1,18 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.CRM.Contact;
-using Microsoft.Foundation.PaymentTerms;
-using Microsoft.Foundation.Shipping;
-using Microsoft.Integration.D365Sales;
-using Microsoft.Integration.SyncEngine;
-using System.Reflection;
-using System.Threading;
-using System.Utilities;
-
 codeunit 5340 "CRM Integration Table Synch."
 {
     TableNo = "Integration Table Mapping";
@@ -34,16 +19,16 @@ codeunit 5340 "CRM Integration Table Synch."
         ConnectionName := InitConnection();
         TestConnection();
 
-        if Rec."Int. Table UID Field Type" = Field.Type::Option then
+        if "Int. Table UID Field Type" = Field.Type::Option then
             SynchOption(Rec)
         else begin
             Rec.SetOriginalJobQueueEntryOnHold(OriginalJobQueueEntry, PrevStatus);
-            if Rec.Direction in [Rec.Direction::ToIntegrationTable, Rec.Direction::Bidirectional] then
+            if Direction in [Direction::ToIntegrationTable, Direction::Bidirectional] then
                 LatestModifiedOn[DateType::Local] := PerformScheduledSynchToIntegrationTable(Rec);
-            if Rec.Direction in [Rec.Direction::FromIntegrationTable, Rec.Direction::Bidirectional] then
+            if Direction in [Direction::FromIntegrationTable, Direction::Bidirectional] then
                 LatestModifiedOn[DateType::Integration] := PerformScheduledSynchFromIntegrationTable(Rec);
-            MappingName := Rec.Name;
-            if not Rec.Find() then
+            MappingName := Name;
+            if not Find() then
                 Session.LogMessage('0000GAP', StrSubstNo(UnableToFindMappingErr, MappingName), Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok)
             else begin
                 LocalUpdateTableMappingModifiedOn(Rec, LatestModifiedOn);

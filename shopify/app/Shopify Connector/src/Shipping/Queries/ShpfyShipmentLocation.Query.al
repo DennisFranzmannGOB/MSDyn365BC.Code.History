@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.History;
-
 query 30100 "Shpfy Shipment Location"
 {
     Access = Internal;
@@ -19,14 +15,14 @@ query 30100 "Shpfy Shipment Location"
                 DataItemLink = "Document No." = SalesShipmentHeader."No.";
                 DataItemTableFilter = Type = const(Item), Quantity = filter('>0');
                 SqlJoinType = InnerJoin;
-                column(Shpfy_Order_Line_Id; "Shpfy Order Line Id") { }
+                column(LocationCode; "Location Code") { }
 
-                dataitem(OrderLine; "Shpfy Order Line")
+                dataitem(ShopLocation; "Shpfy Shop Location")
                 {
-                    DataItemLink = "Line Id" = SalesShipmentLine."Shpfy Order Line Id";
+                    DataItemLink = "Default Location Code" = SalesShipmentLine."Location Code";
                     SqlJoinType = InnerJoin;
 
-                    column(LocationId; "Location Id") { }
+                    column(LocationId; Id) { }
 
                     column(NoOfLines)
                     {

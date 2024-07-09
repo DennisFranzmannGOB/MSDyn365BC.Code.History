@@ -520,8 +520,7 @@ codeunit 139836 "APIV2 - Sales Quote Lines E2E"
         SalesHeader: Record "Sales Header";
         Item: Record "Item";
         SalesLine: Record "Sales Line";
-        DiscountAmount: Decimal;
-        InvDiscAmount: Decimal;
+        DiscountAmount, InvDiscAmount : Decimal;
         TargetURL: Text;
         QuoteLineJSON: Text;
         ResponseText: Text;

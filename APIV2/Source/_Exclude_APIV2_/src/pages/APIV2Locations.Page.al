@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Inventory.Location;
-
 page 30076 "APIV2 - Locations"
 {
     DelayedInsert = true;
@@ -21,63 +17,58 @@ page 30076 "APIV2 - Locations"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(code; Rec.Code)
+                field(code; Code)
                 {
                     Caption = 'Code';
                 }
-                field(displayName; Rec.Name)
+                field(displayName; Name)
                 {
                     Caption = 'Name';
                 }
-                field(contact; Rec.Contact)
+                field(contact; Contact)
                 {
                     Caption = 'Contact';
                 }
-                field(addressLine1; Rec.Address)
+                field(addressLine1; Address)
                 {
                     Caption = 'Address Line 1';
                 }
-                field(addressLine2; Rec."Address 2")
+                field(addressLine2; "Address 2")
                 {
                     Caption = 'Address Line 2';
                 }
-                field(city; Rec.City)
+                field(city; City)
                 {
                     Caption = 'City';
                 }
-                field(state; Rec.County)
+                field(state; County)
                 {
                     Caption = 'State';
                 }
-                field(country; Rec."Country/Region Code")
+                field(country; "Country/Region Code")
                 {
                     Caption = 'Country/Region Code';
                 }
-                field(postalCode; Rec."Post Code")
+                field(postalCode; "Post Code")
                 {
                     Caption = 'Post Code';
                 }
-                field(phoneNumber; Rec."Phone No.")
+                field(phoneNumber; "Phone No.")
                 {
                     Caption = 'Phone No.';
                 }
-                field(email; Rec."E-Mail")
+                field(email; "E-Mail")
                 {
                     Caption = 'Email';
                 }
-                field(website; Rec."Home Page")
+                field(website; "Home Page")
                 {
                     Caption = 'Website';
-                }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
-                {
-                    Caption = 'Last Modified Date';
-                    Editable = false;
                 }
             }
         }

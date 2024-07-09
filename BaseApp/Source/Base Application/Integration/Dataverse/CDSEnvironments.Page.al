@@ -1,9 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
 page 7207 "CDS Environments"
 {
     Extensible = false;
@@ -12,7 +6,7 @@ page 7207 "CDS Environments"
     PageType = List;
     SourceTable = "CDS Environment";
     SourceTableTemporary = true;
-    SourceTableView = sorting("Environment Name");
+    SourceTableView = SORTING("Environment Name");
 
     layout
     {
@@ -27,7 +21,7 @@ page 7207 "CDS Environments"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the name of the Dataverse environment.', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
                 }
-                field(Url; Rec.Url)
+                field(Url; Url)
                 {
                     Caption = 'URL';
                     ApplicationArea = All;

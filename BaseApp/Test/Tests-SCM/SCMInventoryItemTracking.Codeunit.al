@@ -611,7 +611,7 @@ codeunit 137260 "SCM Inventory Item Tracking"
     var
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
-        SalesWarehouseMgt: Codeunit "Sales Warehouse Mgt.";
+        WhseValidateSourceLine: Codeunit "Whse. Validate Source Line";
     begin
         // Verify Warehouse Shipment exit error using Item Tracking Message using Delete Sales Line with Item Tracking and Warehouse Shipment
 
@@ -624,7 +624,7 @@ codeunit 137260 "SCM Inventory Item Tracking"
         DeleteSalesLine(SalesLine);
 
         // Exercise:
-        asserterror SalesWarehouseMgt.SalesLineDelete(SalesLine);
+        asserterror WhseValidateSourceLine.SalesLineDelete(SalesLine);
 
         // Verify: Verify Warehouse Shipment exit error using Item Tracking Message using Delete Sales Line with Item Tracking and Warehouse Shipment, verification done in ConfirmHandler.
         Assert.ExpectedError(DeleteSalesLineWhseShptError);

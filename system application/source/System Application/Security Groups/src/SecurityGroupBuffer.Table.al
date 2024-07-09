@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 /// <summary>
 /// The container used for fetching the defined security groups.
 /// </summary>
@@ -25,20 +23,20 @@ table 9022 "Security Group Buffer"
         {
         }
         /// <summary>
-        /// User security ID of a special user record that corresponds to a Microsoft Entra security group or Windows group.
+        /// User security ID of a special user record that corresponds to an AAD security group or Windows group.
         /// </summary>
         field(2; "Group User SID"; Guid)
         {
             TableRelation = User;
         }
         /// <summary>
-        /// SID of a Windows group or an object ID of a Microsoft Entra security group.
+        /// SID of a Windows group or an AAD object ID of an AAD security group.
         /// </summary>
         field(3; "Group ID"; Text[250])
         {
         }
         /// <summary>
-        /// Windows group name or a Microsoft Entra security group name.
+        /// Windows group name or an AAD security group name.
         /// </summary>
         field(4; "Group Name"; Text[250])
         {

@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Foundation.Shipping;
-using Microsoft.Integration.Graph;
-
 page 20024 "APIV1 - Shipment Methods"
 {
     APIVersion = 'v1.0';
@@ -21,31 +16,31 @@ page 20024 "APIV1 - Shipment Methods"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'code', Locked = true;
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FIELDNO(Code));
                     end;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'displayName', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FIELDNO(Description));
                     end;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
@@ -63,33 +58,33 @@ page 20024 "APIV1 - Shipment Methods"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         RecordRef: RecordRef;
     begin
-        ShipmentMethod.SETRANGE(Code, Rec.Code);
-        if not ShipmentMethod.ISEMPTY() then
-            Rec.insert();
+        ShipmentMethod.SETRANGE(Code, Code);
+        IF NOT ShipmentMethod.ISEMPTY() THEN
+            INSERT();
 
-        Rec.insert(true);
+        INSERT(TRUE);
 
-        RecordRef.GetTable(Rec);
+        RecordRef.GETTABLE(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(RecordRef, TempFieldSet, CURRENTDATETIME());
-        RecordRef.SetTable(Rec);
+        RecordRef.SETTABLE(Rec);
 
-        Rec.Modify(true);
-        exit(false);
+        MODIFY(TRUE);
+        EXIT(FALSE);
     end;
 
     trigger OnModifyRecord(): Boolean
     var
         ShipmentMethod: Record "Shipment Method";
     begin
-        ShipmentMethod.GetBySystemId(Rec.SystemId);
+        ShipmentMethod.GetBySystemId(SystemId);
 
-        if Rec.Code = ShipmentMethod.Code then
-            Rec.Modify(true)
-        else begin
-            ShipmentMethod.TransferFields(Rec, false);
-            ShipmentMethod.Rename(Rec.Code);
-            Rec.TransferFields(ShipmentMethod, true);
-        end;
+        IF Code = ShipmentMethod.Code THEN
+            MODIFY(TRUE)
+        ELSE BEGIN
+            ShipmentMethod.TRANSFERFIELDS(Rec, FALSE);
+            ShipmentMethod.RENAME(Code);
+            TRANSFERFIELDS(ShipmentMethod, TRUE);
+        END;
     end;
 
     var
@@ -97,16 +92,15 @@ page 20024 "APIV1 - Shipment Methods"
 
     local procedure RegisterFieldSet(FieldNo: Integer)
     begin
-        if TempFieldSet.GET(DATABASE::"Shipment Method", FieldNo) then
-            exit;
+        IF TempFieldSet.GET(DATABASE::"Shipment Method", FieldNo) THEN
+            EXIT;
 
         TempFieldSet.INIT();
         TempFieldSet.TableNo := DATABASE::"Shipment Method";
-        TempFieldSet.Validate("No.", FieldNo);
-        TempFieldSet.insert(true);
+        TempFieldSet.VALIDATE("No.", FieldNo);
+        TempFieldSet.INSERT(TRUE);
     end;
 }
-
 
 
 

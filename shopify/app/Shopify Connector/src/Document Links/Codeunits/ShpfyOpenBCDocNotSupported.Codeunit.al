@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 codeunit 30252 "Shpfy OpenBCDoc NotSupported" implements "Shpfy IOpenBCDocument"
 {
     var

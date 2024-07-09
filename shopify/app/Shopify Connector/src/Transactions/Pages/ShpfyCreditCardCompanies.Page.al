@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Page Shpfy Credit Card Companies (ID 30130).
 /// </summary>

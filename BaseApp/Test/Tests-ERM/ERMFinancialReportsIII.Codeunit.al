@@ -49,7 +49,6 @@ codeunit 134987 "ERM Financial Reports III"
         AmountToApplyDiscTolSalesTxt: Label 'Amount_to_Apply____AmountDiscounted___AmountPmtDiscTolerance___AmountPmtTolerance_';
         AmountToApplyDiscTolPurchTxt: Label 'Amount_to_Apply____AmountDiscounted___AmountPmtDiscTolerance___AmountPmtTolerance__Control3036';
         AmountTotalDiscTolAppliedTxt: Label 'Amount___TotalAmountDiscounted___TotalAmountPmtDiscTolerance___TotalAmountPmtTolerance___AmountApplied';
-        FormatTok: Label '<Precision,%1:%2><Standard Format,1>', Locked = true;
 
     [Test]
     [HandlerFunctions('BalanceCompPrevYearReqPageHandler')]
@@ -139,7 +138,7 @@ codeunit 134987 "ERM Financial Reports III"
         LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('G_L_Account___No__', GenJournalLine."Account No.");
         if not LibraryReportDataset.GetNextRow then
-            Error(RowNotFoundErr, 'G_L_Account___No__', GenJournalLine."Account No.");
+            Error(StrSubstNo(RowNotFoundErr, 'G_L_Account___No__', GenJournalLine."Account No."));
         VerifyTextAmountInXMLFile(
           'ColumnValuesAsText_1_', FormatAmount(Round(GLAccount."Debit Amount" / RoundingFactorAmount, 0.1), Decimals));
 
@@ -159,7 +158,7 @@ codeunit 134987 "ERM Financial Reports III"
 
         LibraryReportDataset.SetRange('G_L_Account___No__', GenJournalLine."Account No.");
         if not LibraryReportDataset.GetNextRow then
-            Error(RowNotFoundErr, 'G_L_Account___No__', GenJournalLine."Account No.");
+            Error(StrSubstNo(RowNotFoundErr, 'G_L_Account___No__', GenJournalLine."Account No."));
         VerifyTextAmountInXMLFile(
           'ColumnValuesAsText_3_', FormatAmount(Round(GLAccount."Balance at Date" / RoundingFactorAmount, 0.1), Decimals));
 
@@ -262,7 +261,7 @@ codeunit 134987 "ERM Financial Reports III"
         LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('G_L_Account___No__', GLAccount."No.");
         if not LibraryReportDataset.GetNextRow then
-            Error(RowNotFoundErr, 'G_L_Account___No__', GLAccount."No.");
+            Error(StrSubstNo(RowNotFoundErr, 'G_L_Account___No__', GLAccount."No."));
         VerifyTextAmountInXMLFile(
           'ColumnValuesAsText_3_', FormatAmount(Round(GenJournalLine.Amount / RoundingFactorAmount, 0.1), Decimals));
         LibraryReportDataset.Reset();
@@ -316,7 +315,7 @@ codeunit 134987 "ERM Financial Reports III"
         LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('StrsubNototalCurrCode', 'Total ' + CurrencyCode);
         if not LibraryReportDataset.GetNextRow then
-            Error(RowNotFoundErr, 'StrsubNototalCurrCode', 'Total ' + CurrencyCode);
+            Error(StrSubstNo(RowNotFoundErr, 'StrsubNototalCurrCode', 'Total ' + CurrencyCode));
         LibraryReportDataset.AssertCurrentRowValueEquals('CalcTotalBalanceLCY', -GLAccount.Balance);
 
         Currency.Get(CurrencyCode);
@@ -358,7 +357,7 @@ codeunit 134987 "ERM Financial Reports III"
         LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('TrnsctnDte_BnkAcStmtLin', Format(BankAccountStatementLine."Transaction Date"));
         if not LibraryReportDataset.GetNextRow then
-            Error(RowNotFoundErr, 'TrnsctnDte_BnkAcStmtLin', Format(BankAccountStatementLine."Transaction Date"));
+            Error(StrSubstNo(RowNotFoundErr, 'TrnsctnDte_BnkAcStmtLin', Format(BankAccountStatementLine."Transaction Date")));
         LibraryReportDataset.AssertCurrentRowValueEquals('Amt_BankAccStmtLineStmt', BankAccountStatementLine."Statement Amount");
     end;
 
@@ -571,8 +570,8 @@ codeunit 134987 "ERM Financial Reports III"
 
         // [THEN] Verify check has two lines for 100 for Invoice and -90 for Credit Memo and a Total amount = 10
         LibraryReportDataset.LoadDataSetFile;
-        LibraryReportDataset.AssertElementWithValueExists('LineAmount', -AmountCreditMemo);
-        LibraryReportDataset.AssertElementWithValueExists('LineAmount', AmountInvoice);
+        LibraryReportDataset.AssertElementWithValueExists('LineAmt', -AmountCreditMemo);
+        LibraryReportDataset.AssertElementWithValueExists('LineAmt', AmountInvoice);
         LibraryReportDataset.AssertElementWithValueExists('TotalLineAmount', AmountInvoice - AmountCreditMemo);
 
         LibraryVariableStorage.AssertEmpty;
@@ -710,6 +709,34 @@ codeunit 134987 "ERM Financial Reports III"
     [Test]
     [HandlerFunctions('VendorPrePaymentJournalHandler')]
     [Scope('OnPrem')]
+    procedure OnAfterGetRecordGenJnlLineCustPaymentJnlPreCheck()
+    var
+        Customer: Record Customer;
+        GenJournalLine: Record "Gen. Journal Line";
+        CustLedgerEntry: Record "Cust. Ledger Entry";
+    begin
+        // [FEATURE] [Report] [Vendor Pre-Payment Journal] [Customer]
+        // [SCENARIO] Gen. Journal Line - OnAfterGetRecord trigger of the Report ID: 10087, Payment Journal - Pre-Check Report for Amount and Description for Gen. Journal Line Account Type Customer.
+        Initialize();
+
+        CreateCustomer(Customer);
+        CreateCustLedgerEntry(CustLedgerEntry, CustLedgerEntry."Document Type"::Invoice, Customer."No.");
+        UpdateCustLedgEntryWithPmtDisc(CustLedgerEntry, LibraryRandom.RandDec(10, 2));
+        CreateGenJournalLineWithAppliesToDocType(
+          GenJournalLine, GenJournalLine."Account Type"::Customer, Customer."No.", GenJournalLine."Document Type"::Invoice);
+
+        // Exercise.
+        RunVendorPrePaymentJournal(GenJournalLine);
+
+        // Verify: Verify the Customer Description and Amount LCY after running Payment Journal Pre Check Report.
+        LibraryReportDataset.LoadDataSetFile;
+        LibraryReportDataset.AssertElementWithValueExists(CustVendNameLbl, Customer.Name);
+        LibraryReportDataset.AssertElementWithValueExists(AmountLcyCapTxt, GenJournalLine."Amount (LCY)");
+    end;
+
+    [Test]
+    [HandlerFunctions('VendorPrePaymentJournalHandler')]
+    [Scope('OnPrem')]
     procedure OnAfterGetRecordGenJnlLineVendPaymentJnlPreCheck()
     var
         GenJournalLine: Record "Gen. Journal Line";
@@ -732,6 +759,35 @@ codeunit 134987 "ERM Financial Reports III"
         LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.AssertElementWithValueExists(CustVendNameLbl, Vendor.Name);
         LibraryReportDataset.AssertElementWithValueExists(AmountLcyCapTxt, GenJournalLine."Amount (LCY)");
+    end;
+
+    [Test]
+    [HandlerFunctions('VendorPrePaymentJournalHandler')]
+    [Scope('OnPrem')]
+    procedure OnAfterGetRecordGenJnlLineCustPaymtToleranceJnlPreChk()
+    var
+        GenJournalLine: Record "Gen. Journal Line";
+        CustLedgerEntry: Record "Cust. Ledger Entry";
+        CustomerNo: Code[20];
+    begin
+        // [FEATURE] [Report] [Vendor Pre-Payment Journal] [Customer]
+        // [SCENARIO] Gen. Journal Line - OnAfterGetRecord trigger of the Report ID: 10087, Payment Journal - Pre-Check Report for Accepted Payment Tolerance of Account Type Customer.
+        Initialize();
+
+        CustomerNo := LibrarySales.CreateCustomerNo();
+        CreateCustLedgerEntry(CustLedgerEntry, CustLedgerEntry."Document Type"::Invoice, CustomerNo);
+        UpdateCustLedgEntryWithPmtDisc(CustLedgerEntry, LibraryRandom.RandDec(10, 2));
+        CreateGenJournalLineWithAppliesToDocType(
+          GenJournalLine, GenJournalLine."Account Type"::Customer, CustomerNo, GenJournalLine."Document Type"::Invoice);
+        UpdateAppliesToDocumentNoOnGenJournalLine(GenJournalLine, CustLedgerEntry."Document No.");
+
+        // Exercise.
+        RunVendorPrePaymentJournal(GenJournalLine);
+
+        // Verify: Verify the Customer Accepted Payment Tolerance and Amount Bal. LCY after running Payment Journal Pre Check Report.
+        LibraryReportDataset.LoadDataSetFile;
+        LibraryReportDataset.AssertElementWithValueExists(AmountPmtToleranceCapTxt, -CustLedgerEntry."Accepted Payment Tolerance");
+        LibraryReportDataset.AssertElementWithValueExists(AmountBalLcyCapTxt, GenJournalLine."Balance (LCY)");
     end;
 
     [Test]
@@ -1241,7 +1297,7 @@ codeunit 134987 "ERM Financial Reports III"
         UpdateGLSetupToleranceDiscount;
         CreatePaymentTerms(PaymentTerms);
         PaymentTermsCode := PaymentTerms.Code;
-        InvoiceAmt := LibraryRandom.RandDecInRange(1000, 2000, 2);
+        InvoiceAmt := LibraryRandom.RandDecInRange(1000, 2000, 2) * 100; // rounding issue in dach
         DiscountAmt := Round(InvoiceAmt * LibraryERM.GetPaymentTermsDiscountPct(PaymentTerms) / 100);
         ToleranceAmt := Round(InvoiceAmt * LibraryPmtDiscSetup.GetPmtTolerancePct / 100);
         PaymentDate :=
@@ -1395,6 +1451,13 @@ codeunit 134987 "ERM Financial Reports III"
         CreatePaymentGeneralBatch(GenJournalBatch);
         SuggestVendorPayment(GenJournalLine, GenJournalBatch, VendorNo, BankAccount."No.", false);
         BatchName := GenJournalLine."Journal Batch Name";
+    end;
+
+    local procedure CreateCustomer(var Customer: Record Customer)
+    begin
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Validate(Name, LibraryUtility.GenerateGUID());
+        Customer.Modify(true);
     end;
 
     local procedure CreateVendor(var Vendor: Record Vendor)
@@ -1924,20 +1987,11 @@ codeunit 134987 "ERM Financial Reports III"
     end;
 
     local procedure VerifyCheckTotalAmount(InvoiceAmount: Decimal; CrMemoAmount: Decimal)
-    var
-        DotNetMath: DotNet Math;
-        FormatString: Text;
     begin
         LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('TotalText', 'Total');
         Assert.IsTrue(LibraryReportDataset.GetNextRow, StrSubstNo(RowNotFoundErr, 'TotalText', 'Total'));
         LibraryReportDataset.AssertCurrentRowValueEquals('TotalLineAmount', InvoiceAmount - CrMemoAmount);
-        FormatString :=
-          StrSubstNo(
-            FormatTok,
-            DotNetMath.Log10(1 / LibraryERM.GetAmountRoundingPrecision),
-            DotNetMath.Log10(1 / LibraryERM.GetAmountRoundingPrecision));
-        LibraryReportDataset.AssertCurrentRowValueEquals('CheckAmountText', Format(InvoiceAmount - CrMemoAmount, 0, FormatString));
     end;
 
     local procedure VerifyInvAndPmtDiscInPreCheckReport(AmountToApplyDiscTolCap: Text; InvAmount: Decimal; PmtDiscAmount: Decimal)

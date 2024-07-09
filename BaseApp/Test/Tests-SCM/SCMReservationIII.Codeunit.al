@@ -577,10 +577,9 @@ codeunit 137270 "SCM Reservation III"
         LibraryWarehouse.CreatePick(WarehouseShipmentHeader);
 
         // Verify: Verify Warehouse Activity line.
-        if PurchaseLine.Quantity < SalesLine.Quantity then
-            VerifyWhseActivityLine(WarehouseActivityLine."Activity Type"::Pick, SalesLine."Document No.", SalesLine."No.", SalesLine."Location Code", PurchaseLine.Quantity)
-        else
-            VerifyWhseActivityLine(WarehouseActivityLine."Activity Type"::Pick, SalesLine."Document No.", SalesLine."No.", SalesLine."Location Code", SalesLine.Quantity);
+        VerifyWhseActivityLine(
+          WarehouseActivityLine."Activity Type"::Pick, SalesLine."Document No.", SalesLine."No.", SalesLine."Location Code",
+          SalesLine.Quantity);
     end;
 
     [Test]

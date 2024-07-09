@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Environment.Configuration;
 
 /// <summary>
 /// Page that enables a user to pick which new features to use
@@ -14,8 +12,6 @@ page 2610 "Feature Management"
     Caption = 'Feature Management';
     ApplicationArea = All;
     UsageCategory = Administration;
-    AboutTitle = 'Managing change';
-    AboutText = 'Some new features are turned off when Business Central is updated to a newer version. These features are optional for a period of time until they are automatically enabled for all users in a later software update according to the [Release Plan](https://go.microsoft.com/fwlink/?linkid=2227906). You can prepare in advance by enabling these features for all users on the right environment at the right time that suits your schedule.';
     AdditionalSearchTerms = 'new features,feature key,opt in,turn off features,enable features,early access,preview';
     SourceTable = "Feature Key";
     PromotedActionCategories = 'New,Process,Report,Data Update';
@@ -23,8 +19,8 @@ page 2610 "Feature Management"
     DeleteAllowed = false;
     LinksAllowed = false;
     Extensible = false;
-    Permissions = tabledata "Feature Data Update Status" = r,
-                  tabledata "Feature Key" = rm;
+    Permissions = tabledata "Feature Key" = rm,
+                  tabledata "Feature Data Update Status" = r;
 
     layout
     {
@@ -35,10 +31,9 @@ page 2610 "Feature Management"
                 field(FeatureDescription; Rec.Description)
                 {
                     Caption = 'Feature';
-                    ToolTip = 'Specifies the name of the new capability or change in design.';
+                    ToolTip = 'The name of the new capability or change in design.';
                     ApplicationArea = All;
                     Editable = false;
-                    Width = 60;
                 }
                 field(LearnMore; LearnMoreLbl)
                 {
@@ -65,7 +60,7 @@ page 2610 "Feature Management"
                     Caption = 'Enabled for';
                     ToolTip = 'Specifies whether the feature is enabled for all users or for none. The change takes effect the next time each user signs in.';
                     ApplicationArea = All;
-                    Editable = (not Rec."Is One Way") or (Rec.Enabled = Rec.Enabled::None);
+                    Editable = (not "Is One Way") or (Enabled = Enabled::None);
                     StyleExpr = EnabledForStyle;
 
                     trigger OnValidate()
@@ -103,14 +98,12 @@ page 2610 "Feature Management"
                     Caption = 'Get started';
                     ApplicationArea = All;
                     Editable = false;
-                    Enabled = Rec."Can Try";
-#pragma warning disable AA0219
+                    Enabled = "Can Try";
                     ToolTip = 'Starts a new session with the feature temporarily enabled (opens in a new tab). This does not affect any other users.';
-#pragma warning restore AA0219
                     trigger OnDrillDown()
                     begin
                         if Rec."Can Try" then begin
-                            Hyperlink(FeatureManagementFacade.GetFeatureKeyUrlForWeb(Rec.ID));
+                            HyperLink(FeatureManagementFacade.GetFeatureKeyUrlForWeb(Rec.ID));
                             Message(TryItOutStartedMsg);
                         end;
                     end;
@@ -130,21 +123,21 @@ page 2610 "Feature Management"
                     Editable = false;
                     ToolTip = 'Specifies the earliest date and time when the data update task should be run.';
                 }
-                field("Task Id"; FeatureDataUpdateStatus."Task Id")
+                field("Task Id"; FeatureDataUpdateStatus."Task ID")
                 {
                     ApplicationArea = All;
                     Visible = false;
                     Editable = false;
                     ToolTip = 'Specifies the id of the scheduled task.';
                 }
-                field("Session Id"; FeatureDataUpdateStatus."Session Id")
+                field("Session Id"; FeatureDataUpdateStatus."Session ID")
                 {
                     ApplicationArea = All;
                     Visible = false;
                     Editable = false;
                     ToolTip = 'Specifies the session id where the task is being ran.';
                 }
-                field("Server Instance ID"; FeatureDataUpdateStatus."Server Instance Id")
+                field("Server Instance ID"; FeatureDataUpdateStatus."Server Instance ID")
                 {
                     ApplicationArea = All;
                     Visible = false;
@@ -153,19 +146,13 @@ page 2610 "Feature Management"
                 }
             }
         }
-#if not CLEAN23
-        area(FactBoxes)
+        area(factboxes)
         {
             part("Upcoming Changes FactBox"; "Upcoming Changes Factbox")
             {
                 ApplicationArea = All;
-                Visible = false;
-                ObsoleteReason = 'Replaced by teaching tips';
-                ObsoleteState = Pending;
-                ObsoleteTag = '23.0';
             }
         }
-#endif
     }
     actions
     {
@@ -219,7 +206,7 @@ page 2610 "Feature Management"
                     PromotedCategory = Category4;
                     trigger OnAction()
                     begin
-                        FeatureManagementFacade.CancelTask(FeatureDataUpdateStatus, true);
+                        FeatureManagementFacade.CancelTask(FeatureDataUpdateStatus, True);
                     end;
                 }
             }

@@ -1,7 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
-using System.Security.AccessControl;
-
 table 1154 "COHUB User Task"
 {
     ReplicateData = false;

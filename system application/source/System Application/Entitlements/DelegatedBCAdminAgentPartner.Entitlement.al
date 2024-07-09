@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System.Azure.Identity;
-using System.Environment.Configuration;
-using System.Email;
-using System.Apps;
-
 entitlement "Delegated BC Admin agent - Partner"
 {
     Type = Role;

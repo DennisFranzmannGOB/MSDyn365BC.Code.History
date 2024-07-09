@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Document;
-
 /// <summary>
 /// PageExtension Shpfy Sales Order List (ID 30116) extends Record Sales Order List.
 /// </summary>

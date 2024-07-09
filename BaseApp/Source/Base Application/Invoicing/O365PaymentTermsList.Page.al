@@ -19,7 +19,7 @@ page 2153 "O365 Payment Terms List"
         {
             repeater(Group)
             {
-                field("Code"; Rec.Code)
+                field("Code"; Code)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Caption = 'Short name';
@@ -82,7 +82,7 @@ page 2153 "O365 Payment Terms List"
                     PaymentTerms: Record "Payment Terms";
                     BCO365PaymentTermsCard: Page "BC O365 Payment Terms Card";
                 begin
-                    if PaymentTerms.Get(Rec.Code) then begin
+                    if PaymentTerms.Get(Code) then begin
                         BCO365PaymentTermsCard.SetPaymentTerms(PaymentTerms);
                         BCO365PaymentTermsCard.LookupMode(true);
                         if BCO365PaymentTermsCard.RunModal() = ACTION::LookupOK then;
@@ -112,14 +112,14 @@ page 2153 "O365 Payment Terms List"
 
     trigger OnAfterGetRecord()
     begin
-        Days := CalcDate(Rec."Due Date Calculation", Today) - Today;
+        Days := CalcDate("Due Date Calculation", Today) - Today;
     end;
 
     trigger OnFindRecord(Which: Text): Boolean
     begin
-        Rec.RefreshRecords();
+        RefreshRecords();
 
-        exit(Rec.Find(Which));
+        exit(Find(Which));
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)

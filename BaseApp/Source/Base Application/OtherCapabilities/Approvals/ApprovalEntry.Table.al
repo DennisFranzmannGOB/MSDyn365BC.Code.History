@@ -1,20 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace System.Automation;
-
-using Microsoft.Finance.Currency;
-using Microsoft.Purchases.Document;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-using Microsoft.Sales.Document;
-using Microsoft.Utilities;
-using System.Environment.Configuration;
-using System.Reflection;
-using System.Security.AccessControl;
-using System.Security.User;
-
 table 454 "Approval Entry"
 {
     Caption = 'Approval Entry';
@@ -47,6 +30,8 @@ table 454 "Approval Entry"
             Caption = 'Sender ID';
             DataClassification = EndUserIdentifiableInformation;
             TableRelation = User."User Name";
+            //This property is currently not supported
+            //TestTableRelation = false;
         }
         field(7; "Salespers./Purch. Code"; Code[20])
         {
@@ -57,6 +42,8 @@ table 454 "Approval Entry"
             Caption = 'Approver ID';
             DataClassification = EndUserIdentifiableInformation;
             TableRelation = User."User Name";
+            //This property is currently not supported
+            //TestTableRelation = false;
         }
         field(9; Status; Enum "Approval Status")
         {
@@ -83,12 +70,14 @@ table 454 "Approval Entry"
             Caption = 'Last Modified By User ID';
             DataClassification = EndUserIdentifiableInformation;
             TableRelation = User."User Name";
+            //This property is currently not supported
+            //TestTableRelation = false;
         }
         field(13; Comment; Boolean)
         {
-            CalcFormula = exist("Approval Comment Line" where("Table ID" = field("Table ID"),
-                                                               "Record ID to Approve" = field("Record ID to Approve"),
-                                                               "Workflow Step Instance ID" = field("Workflow Step Instance ID")));
+            CalcFormula = Exist("Approval Comment Line" WHERE("Table ID" = FIELD("Table ID"),
+                                                               "Record ID to Approve" = FIELD("Record ID to Approve"),
+                                                               "Workflow Step Instance ID" = FIELD("Workflow Step Instance ID")));
             Caption = 'Comment';
             Editable = false;
             FieldClass = FlowField;
@@ -99,7 +88,7 @@ table 454 "Approval Entry"
         }
         field(15; Amount; Decimal)
         {
-            AutoFormatExpression = Rec."Currency Code";
+            AutoFormatExpression = "Currency Code";
             AutoFormatType = 1;
             Caption = 'Amount';
         }
@@ -127,9 +116,9 @@ table 454 "Approval Entry"
         }
         field(21; "Pending Approvals"; Integer)
         {
-            CalcFormula = count("Approval Entry" where("Record ID to Approve" = field("Record ID to Approve"),
-                                                        Status = filter(Created | Open),
-                                                        "Workflow Step Instance ID" = field("Workflow Step Instance ID")));
+            CalcFormula = Count("Approval Entry" WHERE("Record ID to Approve" = FIELD("Record ID to Approve"),
+                                                        Status = FILTER(Created | Open),
+                                                        "Workflow Step Instance ID" = FIELD("Workflow Step Instance ID")));
             Caption = 'Pending Approvals';
             FieldClass = FlowField;
         }
@@ -144,17 +133,17 @@ table 454 "Approval Entry"
         }
         field(26; "Number of Approved Requests"; Integer)
         {
-            CalcFormula = count("Approval Entry" where("Record ID to Approve" = field("Record ID to Approve"),
-                                                        Status = filter(Approved),
-                                                        "Workflow Step Instance ID" = field("Workflow Step Instance ID")));
+            CalcFormula = Count("Approval Entry" WHERE("Record ID to Approve" = FIELD("Record ID to Approve"),
+                                                        Status = FILTER(Approved),
+                                                        "Workflow Step Instance ID" = FIELD("Workflow Step Instance ID")));
             Caption = 'Number of Approved Requests';
             FieldClass = FlowField;
         }
         field(27; "Number of Rejected Requests"; Integer)
         {
-            CalcFormula = count("Approval Entry" where("Record ID to Approve" = field("Record ID to Approve"),
-                                                        Status = filter(Rejected),
-                                                        "Workflow Step Instance ID" = field("Workflow Step Instance ID")));
+            CalcFormula = Count("Approval Entry" WHERE("Record ID to Approve" = FIELD("Record ID to Approve"),
+                                                        Status = FILTER(Rejected),
+                                                        "Workflow Step Instance ID" = FIELD("Workflow Step Instance ID")));
             Caption = 'Number of Rejected Requests';
             FieldClass = FlowField;
         }
@@ -169,8 +158,8 @@ table 454 "Approval Entry"
         }
         field(31; "Related to Change"; Boolean)
         {
-            CalcFormula = exist("Workflow - Record Change" where("Workflow Step Instance ID" = field("Workflow Step Instance ID"),
-                                                                  "Record ID" = field("Record ID to Approve")));
+            CalcFormula = Exist("Workflow - Record Change" WHERE("Workflow Step Instance ID" = FIELD("Workflow Step Instance ID"),
+                                                                  "Record ID" = FIELD("Record ID to Approve")));
             Caption = 'Related to Change';
             FieldClass = FlowField;
         }
@@ -193,7 +182,6 @@ table 454 "Approval Entry"
         }
         key(Key5; "Sender ID")
         {
-            IncludedFields = Status;
         }
         key(Key6; "Due Date")
         {
@@ -237,7 +225,7 @@ table 454 "Approval Entry"
     var
         WorkflowEventQueue: Record "Workflow Event Queue";
     begin
-        WorkflowEventQueue.SetRange("Record ID", Rec.RecordId);
+        WorkflowEventQueue.SetRange("Record ID", RecordId);
         WorkflowEventQueue.DeleteAll();
     end;
 
@@ -304,7 +292,7 @@ table 454 "Approval Entry"
         ChangeRecordDetails := GetChangeRecordDetails();
 
         case RecRef.Number of
-            Database::"Sales Header":
+            DATABASE::"Sales Header":
                 begin
                     RecRef.SetTable(SalesHeader);
                     SalesHeader.CalcFields(Amount);
@@ -312,7 +300,7 @@ table 454 "Approval Entry"
                       StrSubstNo(
                         '%1 ; %2: %3', SalesHeader."Sell-to Customer Name", SalesHeader.FieldCaption(Amount), SalesHeader.Amount);
                 end;
-            Database::"Purchase Header":
+            DATABASE::"Purchase Header":
                 begin
                     RecRef.SetTable(PurchHeader);
                     PurchHeader.CalcFields(Amount);
@@ -350,25 +338,25 @@ table 454 "Approval Entry"
             exit;
 
         case "Table ID" of
-            Database::"Purchase Header":
+            DATABASE::"Purchase Header":
                 begin
                     RecRef.SetTable(PurchaseHeader);
                     CustVendorNo := PurchaseHeader."Pay-to Vendor No.";
                     CustVendorName := PurchaseHeader."Pay-to Name";
                 end;
-            Database::"Sales Header":
+            DATABASE::"Sales Header":
                 begin
                     RecRef.SetTable(SalesHeader);
                     CustVendorNo := SalesHeader."Bill-to Customer No.";
                     CustVendorName := SalesHeader."Bill-to Name";
                 end;
-            Database::Customer:
+            DATABASE::Customer:
                 begin
                     RecRef.SetTable(Customer);
                     CustVendorNo := Customer."No.";
                     CustVendorName := Customer.Name;
                 end;
-            Database::Vendor:
+            DATABASE::Vendor:
                 begin
                     RecRef.SetTable(Vendor);
                     CustVendorNo := Vendor."No.";

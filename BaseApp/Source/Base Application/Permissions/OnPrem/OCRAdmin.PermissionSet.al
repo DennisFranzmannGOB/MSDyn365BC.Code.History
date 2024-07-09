@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.EServices.EDocument;
-
 permissionset 9195 "OCR - Admin"
 {
     Access = Public;

@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Device;
-
-using System.Utilities;
-
 codeunit 1908 "Camera Page Impl."
 {
     Access = Internal;

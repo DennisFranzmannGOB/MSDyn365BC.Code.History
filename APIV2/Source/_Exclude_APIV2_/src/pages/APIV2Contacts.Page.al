@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.CRM.Contact;
-using Microsoft.Integration.Graph;
-
 page 30071 "APIV2 - Contacts"
 {
     APIVersion = 'v2.0';
@@ -23,174 +18,174 @@ page 30071 "APIV2 - Contacts"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'No.';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("No."));
+                        RegisterFieldSet(FieldNo("No."));
                     end;
                 }
-                field(type; Rec.Type)
+                field(type; Type)
                 {
                     Caption = 'Type';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Type));
+                        RegisterFieldSet(FieldNo(Type));
                     end;
                 }
-                field(displayName; Rec.Name)
+                field(displayName; Name)
                 {
                     Caption = 'Display Name';
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        if Rec.Name = '' then
+                        if Name = '' then
                             Error(BlankContactNameErr);
-                        RegisterFieldSet(Rec.FieldNo(Name));
+                        RegisterFieldSet(FieldNo(Name));
                     end;
                 }
-                field(companyNumber; Rec."Company No.")
+                field(companyNumber; "Company No.")
                 {
                     Caption = 'Company Number';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Company No."));
+                        RegisterFieldSet(FieldNo("Company No."));
                     end;
                 }
-                field(companyName; Rec."Company Name")
+                field(companyName; "Company Name")
                 {
                     Caption = 'Company Name';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Company Name"));
+                        RegisterFieldSet(FieldNo("Company Name"));
                     end;
                 }
-                field(contactBusinessRelation; Rec."Contact Business Relation")
+                field(contactBusinessRelation; "Contact Business Relation")
                 {
                     Caption = 'Business Relation';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Contact Business Relation"));
+                        RegisterFieldSet(FieldNo("Contact Business Relation"));
                     end;
                 }
-                field(addressLine1; Rec.Address)
+                field(addressLine1; Address)
                 {
                     Caption = 'Address Line 1';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Address"));
+                        RegisterFieldSet(FieldNo("Address"));
                     end;
                 }
-                field(addressLine2; Rec."Address 2")
+                field(addressLine2; "Address 2")
                 {
                     Caption = 'Address Line 2';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Address 2"));
+                        RegisterFieldSet(FieldNo("Address 2"));
                     end;
                 }
-                field(city; Rec.City)
+                field(city; City)
                 {
                     Caption = 'City';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("City"));
+                        RegisterFieldSet(FieldNo("City"));
                     end;
                 }
-                field(state; Rec.County)
+                field(state; County)
                 {
                     Caption = 'State';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("County"));
+                        RegisterFieldSet(FieldNo("County"));
                     end;
                 }
-                field(country; Rec."Country/Region Code")
+                field(country; "Country/Region Code")
                 {
                     Caption = 'Country/Region Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Country/Region Code"));
+                        RegisterFieldSet(FieldNo("Country/Region Code"));
                     end;
                 }
-                field(postalCode; Rec."Post Code")
+                field(postalCode; "Post Code")
                 {
                     Caption = 'Post Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Post Code"));
+                        RegisterFieldSet(FieldNo("Post Code"));
                     end;
                 }
-                field(phoneNumber; Rec."Phone No.")
+                field(phoneNumber; "Phone No.")
                 {
                     Caption = 'Phone No.';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Phone No."));
+                        RegisterFieldSet(FieldNo("Phone No."));
                     end;
                 }
-                field(mobilePhoneNumber; Rec."Mobile Phone No.")
+                field(mobilePhoneNumber; "Mobile Phone No.")
                 {
                     Caption = 'Mobile Phone No.';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Mobile Phone No."));
+                        RegisterFieldSet(FieldNo("Mobile Phone No."));
                     end;
                 }
-                field(email; Rec."E-Mail")
+                field(email; "E-Mail")
                 {
                     Caption = 'Email';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("E-Mail"));
+                        RegisterFieldSet(FieldNo("E-Mail"));
                     end;
                 }
-                field(website; Rec."Home Page")
+                field(website; "Home Page")
                 {
                     Caption = 'Website';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Home Page"));
+                        RegisterFieldSet(FieldNo("Home Page"));
                     end;
                 }
-                field(searchName; Rec."Search Name")
+                field(searchName; "Search Name")
                 {
                     Caption = 'Search Name';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Search Name"));
+                        RegisterFieldSet(FieldNo("Search Name"));
                     end;
                 }
-                field(privacyBlocked; Rec."Privacy Blocked")
+                field(privacyBlocked; "Privacy Blocked")
                 {
                     Caption = 'Privacy Blocked';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Privacy Blocked"));
+                        RegisterFieldSet(FieldNo("Privacy Blocked"));
                     end;
                 }
                 field(taxRegistrationNumber; TaxRegistrationNumber)
@@ -204,24 +199,24 @@ page 30071 "APIV2 - Contacts"
                         if IsEnterpriseNumber(EnterpriseNoFieldRef) then begin
                             if (Rec."Country/Region Code" <> BECountryCodeLbl) and (Rec."Country/Region Code" <> '') then begin
                                 Rec.Validate("VAT Registration No.", TaxRegistrationNumber);
-                                RegisterFieldSet(Rec.FieldNo("VAT Registration No."));
+                                RegisterFieldSet(FieldNo("VAT Registration No."));
                             end else begin
                                 EnterpriseNoFieldRef.Validate(TaxRegistrationNumber);
                                 EnterpriseNoFieldRef.Record().SetTable(Rec);
-                                RegisterFieldSet(Rec.FieldNo("VAT Registration No."));
+                                RegisterFieldSet(FieldNo("VAT Registration No."));
                             end;
                         end else begin
                             Rec.Validate("VAT Registration No.", TaxRegistrationNumber);
-                            RegisterFieldSet(Rec.FieldNo("VAT Registration No."));
+                            RegisterFieldSet(FieldNo("VAT Registration No."));
                         end;
                     end;
                 }
-                field(lastInteractionDate; Rec."Date of Last Interaction")
+                field(lastInteractionDate; "Date of Last Interaction")
                 {
                     Caption = 'Date of Last Interaction';
                     Editable = false;
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }
@@ -231,7 +226,7 @@ page 30071 "APIV2 - Contacts"
                     Multiplicity = ZeroOrOne;
                     EntityName = 'picture';
                     EntitySetName = 'pictures';
-                    SubPageLink = Id = field(SystemId), "Parent Type" = const(Contact);
+                    SubPageLink = Id = Field(SystemId), "Parent Type" = const(Contact);
                 }
             }
         }
@@ -251,20 +246,20 @@ page 30071 "APIV2 - Contacts"
         Contact: Record Contact;
         ContactRecordRef: RecordRef;
     begin
-        if Rec.Name = '' then
+        if Name = '' then
             Error(NotProvidedContactNameErr);
 
-        Contact.SetRange("No.", Rec."No.");
+        Contact.SetRange("No.", "No.");
         if not Contact.IsEmpty() then
-            Rec.Insert();
+            Insert();
 
-        Rec.Insert(true);
+        Insert(true);
 
         ContactRecordRef.GetTable(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(ContactRecordRef, TempFieldSet, CurrentDateTime());
         ContactRecordRef.SetTable(Rec);
 
-        Rec.Modify(true);
+        Modify(true);
         SetCalculatedFields();
         exit(false);
     end;
@@ -273,14 +268,14 @@ page 30071 "APIV2 - Contacts"
     var
         Contact: Record Contact;
     begin
-        Contact.GetBySystemId(Rec.SystemId);
+        Contact.GetBySystemId(SystemId);
 
-        if Rec."No." = Contact."No." then
-            Rec.Modify(true)
+        if "No." = Contact."No." then
+            Modify(true)
         else begin
             Contact.TransferFields(Rec, false);
-            Contact.Rename(Rec."No.");
-            Rec.TransferFields(Contact);
+            Contact.Rename("No.");
+            TransferFields(Contact);
         end;
 
         SetCalculatedFields();
@@ -314,7 +309,7 @@ page 30071 "APIV2 - Contacts"
 
     local procedure ClearCalculatedFields()
     begin
-        Clear(Rec.SystemId);
+        Clear(SystemId);
         Clear(TaxRegistrationNumber);
         TempFieldSet.DeleteAll();
     end;

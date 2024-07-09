@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration;
-
-using System.Telemetry;
-using System.Globalization;
-using System.Azure.Identity;
-using System.Environment;
-
 /// <summary>
 /// Codeunit that contains the implementation for document sharing.
 /// </summary>
@@ -136,7 +129,7 @@ codeunit 9561 "Document Sharing Impl."
                         DocumentSharingCodeunit.OnGetFileContents(DocumentSharing, Handled);
                     end;
 
-                    Handled := false;
+                    Handled := False;
                     DocumentSharingCodeunit.OnDeleteDocument(DocumentSharing, Handled);
                 end;
             else begin
@@ -167,7 +160,7 @@ codeunit 9561 "Document Sharing Impl."
         exit(CanHandle);
     end;
 
-    procedure Share(FileName: Text; FileExtension: Text; InStream: InStream; DocumentSharingIntent: Enum "Document Sharing Intent"; DocumentSharingSource: Enum "Document Sharing Source")
+    procedure Share(FileName: Text; FileExtension: Text; InStream: Instream; DocumentSharingIntent: Enum "Document Sharing Intent"; DocumentSharingSource: Enum "Document Sharing Source")
     var
         TempDocumentSharing: Record "Document Sharing" temporary;
         OutStream: OutStream;

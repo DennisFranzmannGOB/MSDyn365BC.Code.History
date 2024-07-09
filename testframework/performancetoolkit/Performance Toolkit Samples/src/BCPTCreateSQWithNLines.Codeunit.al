@@ -1,31 +1,22 @@
-namespace System.Test.Tooling;
-
-using Microsoft.Foundation.NoSeries;
-using Microsoft.Inventory.Item;
-using Microsoft.Sales.Customer;
-using Microsoft.Sales.Document;
-using Microsoft.Sales.Setup;
-using System.Tooling;
-
 codeunit 149105 "BCPT Create SQ with N Lines" implements "BCPT Test Param. Provider"
 {
     SingleInstance = true;
 
     trigger OnRun();
     begin
-        if not IsInitialized then begin
+        If not IsInitialized then begin
             InitTest();
             IsInitialized := true;
         end;
-        CreateSalesQuote(GlobalBCPTTestContext);
+        CreateSalesQuote(BCPTTestContext);
     end;
 
     var
-        GlobalBCPTTestContext: Codeunit "BCPT Test Context";
+        BCPTTestContext: Codeunit "BCPT Test Context";
         IsInitialized: Boolean;
         NoOfLinesToCreate: Integer;
         NoOfLinesParamLbl: Label 'Lines';
-        ParamValidationErr: Label 'Parameter is not defined in the correct format. The expected format is "%1"', Comment = '%1 is a string';
+        ParamValidationErr: Label 'Parameter is not defined in the correct format. The expected format is "%1"';
 
     local procedure InitTest();
     var
@@ -35,7 +26,7 @@ codeunit 149105 "BCPT Create SQ with N Lines" implements "BCPT Test Param. Provi
         SalesSetup.Get();
         SalesSetup.TestField("Quote Nos.");
         NoSeriesLine.SetRange("Series Code", SalesSetup."Quote Nos.");
-        NoSeriesLine.FindSet(true);
+        NoSeriesLine.findset(true, true);
         repeat
             if NoSeriesLine."Ending No." <> '' then begin
                 NoSeriesLine."Ending No." := '';
@@ -45,10 +36,10 @@ codeunit 149105 "BCPT Create SQ with N Lines" implements "BCPT Test Param. Provi
         until NoSeriesLine.Next() = 0;
         commit();
 
-        if Evaluate(NoOfLinesToCreate, GlobalBCPTTestContext.GetParameter(NoOfLinesParamLbl)) then;
+        if Evaluate(NoOfLinesToCreate, BCPTTestContext.GetParameter(NoOfLinesParamLbl)) then;
     end;
 
-    local procedure CreateSalesQuote(var BCPTTestContext: Codeunit "BCPT Test Context")
+    local procedure CreateSalesQuote(Var BCPTTestContext: Codeunit "BCPT Test Context")
     var
         Customer: Record Customer;
         Item: Record Item;

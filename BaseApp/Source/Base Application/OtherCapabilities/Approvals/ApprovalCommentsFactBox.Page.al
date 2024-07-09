@@ -1,11 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace System.Automation;
-
-using System.Security.User;
-
 page 9104 "Approval Comments FactBox"
 {
     Caption = 'Comments';
@@ -22,7 +14,7 @@ page 9104 "Approval Comments FactBox"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Comment; Rec.Comment)
+                field(Comment; Comment)
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the comment. You can enter a maximum of 250 characters, both numbers and letters.';
@@ -36,7 +28,7 @@ page 9104 "Approval Comments FactBox"
                     var
                         UserMgt: Codeunit "User Management";
                     begin
-                        UserMgt.DisplayUserInformation(Rec."User ID");
+                        UserMgt.DisplayUserInformation("User ID");
                     end;
                 }
                 field("Date and Time"; Rec."Date and Time")
@@ -54,11 +46,11 @@ page 9104 "Approval Comments FactBox"
 
     procedure SetFilterFromApprovalEntry(ApprovalEntry: Record "Approval Entry"): Boolean
     begin
-        Rec.SetRange("Record ID to Approve", ApprovalEntry."Record ID to Approve");
-        Rec.SetRange("Workflow Step Instance ID", ApprovalEntry."Workflow Step Instance ID");
+        SetRange("Record ID to Approve", ApprovalEntry."Record ID to Approve");
+        SetRange("Workflow Step Instance ID", ApprovalEntry."Workflow Step Instance ID");
         OnSetFilterFromApprovalEntryOnAfterSetFilters(Rec, ApprovalEntry);
         CurrPage.Update(false);
-        exit(not Rec.IsEmpty);
+        exit(not IsEmpty);
     end;
 
     [IntegrationEvent(false, false)]

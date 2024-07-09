@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.RoleCenters;
-
 /// <summary>
 /// PageExtension Shpfy Order Processor RC (ID 30102) extends Record Order Processor Role Center.
 /// </summary>

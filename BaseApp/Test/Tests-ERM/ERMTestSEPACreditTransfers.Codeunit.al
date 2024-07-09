@@ -38,7 +38,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         EURCode: Code[10];
         PostingDocNoWithGapOnNoSeriesErr: Label 'You have one or more documents that must be posted before you post document no. %1 according to your company''s No. Series setup.', Comment = '%1 = Document number to be posted.';
         ExtDocNoTxt: Label 'A123', Locked = true;
-        NamespaceTxt: Label 'urn:iso:std:iso:20022:tech:xsd:pain.001.001.03';
+        NamespaceTxt: Label 'urn:iso:std:iso:20022:tech:xsd:pain.001.001.09';
         MessageToRecipientNotFoundErr: Label 'The Message To Recipient was not found in the XML file.';
         MessageExceedsLimitErr: Label 'The length of the string is %1, but it must be less than or equal to', Comment = '.';
         TransferDateErr: Label 'The earliest possible transfer date is today.';
@@ -49,9 +49,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         PaymentInformationIDErr: Label 'Wrong Payment Information ID in Payment Export Data.';
         EndtoEndIDErr: Label 'Wrong End-to-End ID in Payment Export Data.';
         HasErrorsErr: Label 'The file export has one or more errors.\\For each line to be exported, resolve the errors displayed to the right and then try to export again.';
-        CdtrAgtTagErr: Label 'There should not be CdtrAgt tag.';
         EuroCurrErr: Label 'Only transactions in euro (EUR) are allowed, because the %1 bank account is set up to use the %2 export format.', Comment = '%1= bank account No, %2 export format; Example: Only transactions in euro (EUR) are allowed, because the GIRO bank account is set up to use the SEPACT export format.';
-        SEPAFormat: Option pain,CBI,AMC;
         ErrorTextsExistErr: Label 'Error texts entries has to be deleted, from %1 table.', Comment = '%1 = Payment Jnl. Export Error Text';
 
     [Test]
@@ -507,7 +505,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
     begin
         Init();
         CreateGenJnlLine(GenJnlLine);
-        SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData, SEPAFormat::pain);
+        SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData);
         Assert.AreEqual(1, TempPaymentExportData.Count, 'Wrong number of payment lines created.');
         TempPaymentExportData.GetRemittanceTexts(TempPaymentExportRemittanceText);
         Assert.AreEqual(1, TempPaymentExportRemittanceText.Count, 'Wrong number of remittance lines created.');
@@ -535,7 +533,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         if CreditTransferRegister.FindLast() then;
         LastTransferRegNo := CreditTransferRegister."No.";
 
-        asserterror SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData, SEPAFormat::pain);
+        asserterror SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData);
 
         if CreditTransferRegister.FindLast() then;
         Assert.AreEqual(LastTransferRegNo, CreditTransferRegister."No.", 'Credit Transfer Reg. was inserted.');
@@ -626,7 +624,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         VendorBankAccount."Bank Clearing Standard" := LibraryUtility.GenerateGUID();
         VendorBankAccount."Bank Clearing Code" := LibraryUtility.GenerateGUID();
 
-        PaymentExportData.SetVendorAsRecipient(Vendor, VendorBankAccount, SEPAFormat::pain);
+        PaymentExportData.SetVendorAsRecipient(Vendor, VendorBankAccount);
 
         PaymentExportData.TestField("Recipient Name", Vendor.Name);
         PaymentExportData.TestField("Recipient Address", CopyStr(Vendor.Address, 1, 70));
@@ -701,7 +699,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         BankAccount."Bank Clearing Standard" := LibraryUtility.GenerateGUID();
         BankAccount."Bank Clearing Code" := LibraryUtility.GenerateGUID();
 
-        PaymentExportData.SetBankAsSenderBank(BankAccount, SEPAFormat::pain);
+        PaymentExportData.SetBankAsSenderBank(BankAccount);
 
         PaymentExportData.TestField("Sender Bank Name", BankAccount.Name);
         PaymentExportData.TestField("Sender Bank Address", BankAccount.Address);
@@ -733,7 +731,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         InStr.ReadText(s);
         Assert.AreEqual('<?xml version="1.0" encoding="UTF-8" standalone="no"?>', s, 'Wrong XML header.');
         InStr.ReadText(s);
-        Assert.IsTrue(StrPos(s, 'xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03"') > 0, 'Wrong XML Instruction.');
+        Assert.IsTrue(StrPos(s, 'xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.09"') > 0, 'Wrong XML Instruction.');
         InStr.ReadText(s);
         Assert.AreEqual('  <CstmrCdtTrfInitn>', s, 'Wrong XML root.');
     end;
@@ -796,9 +794,6 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
 
         Assert.AreEqual(ExpectedNoOfGroups, NoOfPmtInf, 'Wrong number of PmtInf nodes.');
 
-        // TFS378393 No empty 'CdtrAgt' tag is exported
-        XMLNodes := XMLDoc.GetElementsByTagName('CdtrAgt');
-        Assert.AreEqual(0, XMLNodes.Count, CdtrAgtTagErr);
     end;
 
     [Test]
@@ -809,7 +804,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         TempBlob: Codeunit "Temp Blob";
         OutStr: OutStream;
     begin
-        // [SCENARIO 318397] Exported SEPA CT 001.001.03 contains one Ustrd tag with "Applies-to Ext. Doc. No." and "Message to Recipient"
+        // [SCENARIO 318397] Exported SEPA CT 001.001.09 contains one Ustrd tag with "Applies-to Ext. Doc. No." and "Message to Recipient"
         Init();
         // [GIVEN] GenJnlLine with "Message to recipient" "Applies-to Ext. Doc. No." not empty
         CreateGenJnlLine(GenJnlLine);
@@ -839,7 +834,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         TempBlob: Codeunit "Temp Blob";
         OutStr: OutStream;
     begin
-        // [SCENARIO 318397] Exported SEPA CT 001.001.03 contains one Ustrd tag with "Description" and "Message to Recipient"
+        // [SCENARIO 318397] Exported SEPA CT 001.001.09 contains one Ustrd tag with "Description" and "Message to Recipient"
         Init();
 
         // [GIVEN] GenJnlLine with "Message to recipient" and Decsription not empty, "Applies-to Ext. Doc. No." empty
@@ -871,7 +866,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         TempBlob: Codeunit "Temp Blob";
         OutStr: OutStream;
     begin
-        // [SCENARIO 318397] Exported SEPA CT 001.001.03 contains one Ustrd tag with "Message to Recipient"
+        // [SCENARIO 318397] Exported SEPA CT 001.001.09 contains one Ustrd tag with "Message to Recipient"
         Init();
 
         // [GIVEN] GenJnlLine with "Message to recipient" not empty, Description and "Applies-to Ext. Doc. No." empty
@@ -936,7 +931,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         PaymentJnlExportErrorText.DeleteAll();
 
         // Exercise.
-        SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData, SEPAFormat::pain);
+        SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData);
 
         // Verify.
         TempPaymentExportData.TestField("Transfer Date", GenJnlLine."Posting Date");
@@ -965,7 +960,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         PaymentJnlExportErrorText.DeleteAll();
 
         // Exercise.
-        asserterror SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData, SEPAFormat::pain);
+        asserterror SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData);
 
         // Verify.
         Assert.ExpectedError(HasErrorsErr);
@@ -991,7 +986,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         GenJnlLine.Modify();
 
         // Exercise.
-        SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData, SEPAFormat::pain);
+        SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData);
 
         // Verify.
         TempPaymentExportData.TestField("Transfer Date", GenJnlLine."Posting Date");
@@ -1089,7 +1084,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         GenJnlLine.SetRange("Journal Batch Name", GenJournalBatch.Name);
 
         // Exercise
-        SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData, SEPAFormat::pain);
+        SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData);
 
         // Verify
         Assert.AreEqual(1, TempPaymentExportData.Count, 'Wrong number of payment lines created.');
@@ -1152,7 +1147,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         with PaymentExportData do begin
             Assert.AreEqual(MessageID, "Message ID", MessageIDErr);
             Assert.AreEqual(PaymentInformationID, "Payment Information ID", PaymentInformationIDErr);
-            Assert.AreEqual(Format(EntryNo), "End-to-End ID", EndtoEndIDErr);
+            Assert.AreEqual(PaymentInformationID, "End-to-End ID", EndtoEndIDErr);
         end;
     end;
 
@@ -1609,7 +1604,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         if CreditTransferRegister.FindLast() then;
         GenJournalLine.SetRange("Journal Template Name", GenJournalLine."Journal Template Name");
         GenJournalLine.SetRange("Journal Batch Name", GenJournalLine."Journal Batch Name");
-        SEPACTFillExportBuffer.FillExportBuffer(GenJournalLine, TempPaymentExportData, SEPAFormat::pain);
+        SEPACTFillExportBuffer.FillExportBuffer(GenJournalLine, TempPaymentExportData);
 
         // [THEN] Credit Transfer Register is created with 3 entries
         CreditTransferEntry.SetRange("Credit Transfer Register No.", CreditTransferRegister."No." + 1);
@@ -1670,7 +1665,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
 
         // [GIVEN] Invoke Export
         if CreditTransferRegister.FindLast() then;
-        SEPACTFillExportBuffer.FillExportBuffer(GenJournalLine, TempPaymentExportData, SEPAFormat::pain);
+        SEPACTFillExportBuffer.FillExportBuffer(GenJournalLine, TempPaymentExportData);
         ExpUserFeedbackGenJnl.SetGivenExportFlagOnGenJnlLine(GenJournalLine, true);
         // [GIVEN] 2 credit transfer register entries created
         CreditTransferEntry.SetRange("Credit Transfer Register No.", CreditTransferRegister."No." + 1);
@@ -1695,7 +1690,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         TempBlob: Codeunit "Temp Blob";
         BlobOutStream: OutStream;
     begin
-        // [SCENARIO 441036] Tag "InitgPty/Id/OrgId/Othr/Id" contains VAT Registration No. from Company Information when xml is exported using "SEPA CT pain.001.001.03" xmlport.
+        // [SCENARIO 441036] Tag "InitgPty/Id/OrgId/Othr/Id" contains VAT Registration No. from Company Information when xml is exported using "SEPA CT pain.001.001.09" xmlport.
         Init();
 
         // [GIVEN] Company Information with VAT Registartion No. "AB12345".
@@ -1704,7 +1699,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         // [GIVEN] General Journal Line.
         CreateGenJnlLine(GenJournalLine);
 
-        // [WHEN] Export General Jornal Line using XmlPort "SEPA CT pain.001.001.03".
+        // [WHEN] Export General Jornal Line using XmlPort "SEPA CT pain.001.001.09".
         TempBlob.CreateOutStream(BlobOutStream);
         Xmlport.Export(BankAccount.GetPaymentExportXMLPortID, BlobOutStream, GenJournalLine);
 
@@ -1733,7 +1728,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         GenJnlLine.Modify(true);
 
         // [WHEN] Execute fill export buffer the system will generate an error for negative amount with Document No. D1
-        asserterror SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData, SEPAFormat::pain);
+        asserterror SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData);
 
         // [THEN] Modify the payment journal document no. form D1 to D2 
         GenJnlLine."Document No." := LibraryRandom.RandText(10);
@@ -1741,7 +1736,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         GenJnlLine.Modify(true);
 
         // [WHEN] Execute fill export buffer the system will generate another error for negative amount with Document No. D2
-        asserterror SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData, SEPAFormat::pain);
+        asserterror SEPACTFillExportBuffer.FillExportBuffer(GenJnlLine, TempPaymentExportData);
 
         // [WHEN] Delete the payment general line
         GenJnlLine.Delete(true);
@@ -1801,6 +1796,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         VendorBankAccount.Name := 'Alban Bank No. 1';
         VendorBankAccount."Bank Account No." := '1234567890';
         VendorBankAccount.IBAN := 'AL47 2121 1009 0000 0002 3569 8741';
+        VendorBankAccount."SWIFT Code" := LibraryUtility.GenerateGUID();
         VendorBankAccount.Modify();
 
         LibrarySales.CreateCustomer(Customer);
@@ -1817,6 +1813,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         BankAccount.IBAN := 'AL47 2121 1009 0000 0002 3569 8741';
         BankAccount."Credit Transfer Msg. Nos." := NoSeries.Code;
         BankAccount."Payment Export Format" := BankExportImportSetup.Code;
+        BankAccount."SWIFT Code" := LibraryUtility.GenerateGUID();
         BankAccount.Modify();
         Initialized := true;
         LibrarySetupStorage.Save(DATABASE::"General Ledger Setup");
@@ -1898,7 +1895,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
                 Delete();
             Direction := Direction::Export;
             "Processing Codeunit ID" := CODEUNIT::"SEPA CT-Export File";
-            "Processing XMLport ID" := XMLPORT::"SEPA CT pain.001.001.03";
+            "Processing XMLport ID" := XMLPORT::"SEPA CT pain.001.001.09";
             "Check Export Codeunit" := CODEUNIT::"SEPA CT-Check Line";
             Insert();
         end;
@@ -2216,6 +2213,8 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
     var
         XMLNodes: DotNet XmlNodeList;
         XMLNode: DotNet XmlNode;
+        ReqdExctnDtXMLNodes: DotNet XmlNodeList;
+        DtXMLNode: DotNet XMLNode;
         ActualDate: Date;
         NoOfCdtTrfTxInf: Integer;
         i: Integer;
@@ -2226,7 +2225,7 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
         for i := 0 to XMLNodes.Count - 1 do begin
             XMLNode := XMLNodes.ItemOf(i);
             case XMLNode.Name of
-                'PmtInfId', 'BtchBookg', 'PmtTpInf', 'Dbtr', 'DbtrAcct', 'DbtrAgt':
+                'PmtInfId', 'BtchBookg', 'PmtTpInf', 'Dbtr', 'DbtrAcct', 'DbtrAgt', 'CdtrAgt', 'FinInstnId', 'BICFI', 'AnyBIC':
                     ;
                 'PmtMtd':
                     Assert.AreEqual('TRF', XMLNode.InnerXml, 'PmtMtd');
@@ -2244,8 +2243,10 @@ codeunit 134403 "ERM Test SEPA Credit Transfers"
                     end;
                 'ReqdExctnDt':
                     begin
-                        Evaluate(ActualDate, XMLNode.InnerXml, 9);
-                        Assert.AreEqual(ExpectedDate, ActualDate, 'ReqdExctnDt');
+                        ReqdExctnDtXMLNodes := XmlNode.ChildNodes;
+                        DtXMLNode := ReqdExctnDtXMLNodes.ItemOf(0);
+                        Evaluate(ActualDate, DtXMLNode.InnerXml, 9);
+                        Assert.AreEqual(ExpectedDate, ActualDate, 'ReqdExctnDt/Dt');
                     end;
                 'CdtTrfTxInf':
                     NoOfCdtTrfTxInf += 1;

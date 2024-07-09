@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Sharepoint;
-
 /// <summary>
 /// Holds information about list item attachment entity.
 /// </summary>
@@ -59,7 +57,7 @@ table 9104 "SharePoint List Item Atch"
 
     keys
     {
-        key(PK; OdataId)
+        key(PK; "OdataId")
         {
             Clustered = true;
         }

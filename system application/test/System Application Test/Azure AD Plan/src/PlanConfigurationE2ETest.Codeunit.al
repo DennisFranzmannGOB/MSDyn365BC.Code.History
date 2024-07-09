@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Azure.ActiveDirectory;
-
-using System.Azure.Identity;
-using System.TestLibraries.Azure.ActiveDirectory;
-using System.TestLibraries.Security.AccessControl;
-using System.TestLibraries.Utilities;
-
 codeunit 132925 "Plan Configuration E2E Test"
 {
     Subtype = Test;

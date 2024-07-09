@@ -344,12 +344,13 @@ codeunit 148035 "Audit File Export Tests"
     local procedure GetFileContentFromZip(var ZipTempBlob: Codeunit "Temp Blob"; var TempBlob: Codeunit "Temp Blob"; FileNameInZip: Text)
     var
         DataCompression: Codeunit "Data Compression";
+        ZipEntryLength: Integer;
         FileOutStream: OutStream;
     begin
         Clear(TempBlob);
         DataCompression.OpenZipArchive(ZipTempBlob, false);
         TempBlob.CreateOutStream(FileOutStream);
-        DataCompression.ExtractEntry(FileNameInZip, FileOutStream);
+        DataCompression.ExtractEntry(FileNameInZip, FileOutStream, ZipEntryLength);
         DataCompression.CloseZipArchive();
     end;
 

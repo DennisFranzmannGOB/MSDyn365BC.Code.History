@@ -1,9 +1,3 @@
-namespace System.Security.AccessControl;
-
-using System.Utilities;
-using System.Threading;
-using System.Environment;
-
 permissionset 650 "Reten. Pol. Setup - BaseApp"
 {
     Access = Internal;

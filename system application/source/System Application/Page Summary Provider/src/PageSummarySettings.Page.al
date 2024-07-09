@@ -1,13 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-
-namespace System.Integration;
-
-using System.Environment;
-using System.Environment.Configuration;
-
 page 2718 "Page Summary Settings"
 {
     ApplicationArea = Basic, Suite;
@@ -19,13 +9,12 @@ page 2718 "Page Summary Settings"
     PageType = NavigatePage;
     Extensible = false;
     AccessByPermission = tabledata "Page Summary Settings" = M;
-    Permissions = tabledata Media = r,
-                  tabledata "Media Resources" = r;
+    Permissions = tabledata Media = r, tabledata "Media Resources" = r;
     UsageCategory = Administration;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             group(NotCompletedTopBanner)
             {
@@ -58,7 +47,7 @@ page 2718 "Page Summary Settings"
                 Visible = IntroSaasStepVisible;
                 ShowCaption = false;
 
-                group(IntroductionSaasGroup)
+                group("IntroductionSaasGroup")
                 {
                     ShowCaption = false;
 
@@ -82,7 +71,7 @@ page 2718 "Page Summary Settings"
 
                         trigger OnDrillDown()
                         begin
-                            Hyperlink(LearnMoreSaasUrlLbl);
+                            Hyperlink(LearnMoreSaaSUrlLbl);
                         end;
                     }
                 }
@@ -112,7 +101,7 @@ page 2718 "Page Summary Settings"
                 Visible = IntroOnPremStepVisible;
                 ShowCaption = false;
 
-                group(IntroductionOnPremGroup)
+                group("IntroductionOnPremGroup")
                 {
                     Caption = 'Card settings are not available';
 
@@ -230,7 +219,7 @@ page 2718 "Page Summary Settings"
 
     actions
     {
-        area(Processing)
+        area(processing)
         {
             action(ActionBack)
             {
@@ -266,7 +255,6 @@ page 2718 "Page Summary Settings"
                 Caption = 'Try it out';
                 Visible = TryItOutActionVisible;
                 InFooterBar = true;
-                Image = Action;
 
                 trigger OnAction()
                 begin
@@ -364,7 +352,7 @@ page 2718 "Page Summary Settings"
     var
         PageSummaryProviderSettings: Record "Page Summary Settings";
     begin
-        if IsSaaS then begin
+        If IsSaaS then begin
             IntroSaasStepVisible := true;
             NextActionVisible := PageSummaryProviderSettings.ReadPermission() and PageSummaryProviderSettings.WritePermission();
         end else

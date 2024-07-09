@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 entitlement "D365 Business Central Infrastructure COHUB"
 {
     Type = Application;

@@ -1,17 +1,11 @@
-namespace Microsoft.FixedAssets.Repair;
-
-using Microsoft.FixedAssets.FixedAsset;
-using Microsoft.FixedAssets.Setup;
-using System.Threading;
-
-codeunit 6091 "FA Card Notifications"
+Codeunit 6091 "FA Card Notifications"
 {
     var
         NotificationForFAEntriesThatCouldByCorrectedMsg: Label 'There are fixed asset entries with potential rounding issues.';
         SeeMoreMsg: Label 'See more';
 
     [EventSubscriber(ObjectType::Page, Page::"Fixed Asset Card", 'OnAfterGetCurrRecordEvent', '', false, false)]
-    local procedure IsDataCorrupted(var Rec: Record "Fixed Asset")
+    Local Procedure IsDataCorrupted(var Rec: Record "Fixed Asset")
     var
         FALedgEntrywIssue: Record "FA Ledg. Entry w. Issue";
     begin
@@ -40,7 +34,7 @@ codeunit 6091 "FA Card Notifications"
     var
         FALedgEntrywIssue: Record "FA Ledg. Entry w. Issue";
     begin
-        if not FALedgEntrywIssue.ReadPermission then
+        if not FALedgEntrywIssue.ReadPermission THEN
             exit;
         if FALedgEntrywIssue.IsEmpty then begin
             ScanEntries();

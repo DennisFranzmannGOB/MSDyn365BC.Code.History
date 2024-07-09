@@ -46,7 +46,7 @@ page 2183 "O365 Sales Invoice Line Dummy"
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                 }
-                field(LineAmountExclVAT; Rec.GetLineAmountExclVAT())
+                field(LineAmountExclVAT; GetLineAmountExclVAT())
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     AutoFormatExpression = CurrencyFormat;
@@ -55,7 +55,7 @@ page 2183 "O365 Sales Invoice Line Dummy"
                     Editable = false;
                     ToolTip = 'Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.';
                 }
-                field(LineAmountInclVAT; Rec.GetLineAmountInclVAT())
+                field(LineAmountInclVAT; GetLineAmountInclVAT())
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     AutoFormatExpression = CurrencyFormat;
@@ -103,12 +103,12 @@ page 2183 "O365 Sales Invoice Line Dummy"
                 var
                     EnvInfoProxy: Codeunit "Env. Info Proxy";
                 begin
-                    if Rec."No." = '' then
+                    if "No." = '' then
                         exit;
 
                     if not Confirm(DeleteQst, true) then
                         exit;
-                    Rec.Delete(true);
+                    Delete(true);
                     if not EnvInfoProxy.IsInvoicing() then
                         CurrPage.Update();
                 end;
@@ -150,11 +150,11 @@ page 2183 "O365 Sales Invoice Line Dummy"
         GLSetup: Record "General Ledger Setup";
         CurrencySymbol: Text[10];
     begin
-        if Rec."Currency Code" = '' then begin
+        if "Currency Code" = '' then begin
             GLSetup.Get();
             CurrencySymbol := GLSetup.GetCurrencySymbol();
         end else begin
-            if Currency.Get(Rec."Currency Code") then;
+            if Currency.Get("Currency Code") then;
             CurrencySymbol := Currency.GetCurrencySymbol();
         end;
         CurrencyFormat := StrSubstNo('%1<precision, 2:2><standard format, 0>', CurrencySymbol);

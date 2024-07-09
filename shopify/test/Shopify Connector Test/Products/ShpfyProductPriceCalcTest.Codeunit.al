@@ -1,4 +1,3 @@
-#if not CLEAN23
 /// <summary>
 /// Codeunit Shpfy Product Price Calc. Test (ID 139605).
 /// </summary>
@@ -6,18 +5,13 @@ codeunit 139605 "Shpfy Product Price Calc. Test"
 {
     Subtype = Test;
     TestPermissions = Disabled;
-    ObsoleteReason = 'Empty codeunit.';
-    ObsoleteState = Pending;
-    ObsoleteTag = '23.0';
 
 #if not CLEAN21
     var
         Any: Codeunit Any;
         LibraryAssert: Codeunit "Library Assert";
 
-#pragma warning disable AS0072
-    [Obsolete('Test is no longer relevant.', '21.0')]
-#pragma warning restore AS0072
+
     [Test]
     procedure UnitTestCalcPriceTest()
     var
@@ -84,4 +78,3 @@ codeunit 139605 "Shpfy Product Price Calc. Test"
     end;
 #endif
 }
-#endif

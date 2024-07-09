@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Email;
-
-using System.Email;
-using System.TestLibraries.Email;
-using System.TestLibraries.Utilities;
-using System.TestLibraries.Security.AccessControl;
-
 codeunit 134699 "Email Address Lookup Tests"
 {
     SubType = Test;

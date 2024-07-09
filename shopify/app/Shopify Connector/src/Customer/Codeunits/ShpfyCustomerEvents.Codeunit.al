@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Customer;
-
 /// <summary>
 /// Codeunit Shpfy Customer Events (ID 30115).
 /// </summary>

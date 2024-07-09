@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Device;
-
-using System;
-
 /// <summary>
 /// This page shows instructional text for the user and is opened when the geographical location of the client device is requested.
 /// </summary>
@@ -17,12 +13,10 @@ page 7568 Geolocation
     Editable = false;
     LinksAllowed = false;
     Extensible = false;
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             group(Location)
             {
@@ -34,7 +28,7 @@ page 7568 Geolocation
             {
                 Caption = 'Could not access the geographical location';
                 InstructionalText = 'Could not access the geographical location of the device. Make sure that you are using the app for Windows, Android, or iOS.';
-                Visible = not LocationAvailable;
+                Visible = NOT LocationAvailable;
             }
         }
     }

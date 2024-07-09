@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
 /// <summary>
 /// List part page to integrate the plan configurations.
 /// </summary>
@@ -14,13 +12,13 @@ page 9065 "Plan Configurations Part"
     Editable = false;
     PageType = ListPart;
     SourceTable = "Plan Configuration";
-    CardPageId = "Plan Configuration Card";
+    CardPageID = "Plan Configuration Card";
     Permissions = tabledata "Plan Configuration" = r;
     Extensible = false;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {

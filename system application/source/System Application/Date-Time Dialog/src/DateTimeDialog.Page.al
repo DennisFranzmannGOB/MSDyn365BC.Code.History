@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.DateTime;
 
 /// <summary>
 /// Dialog for entering Date or DateTime values.
@@ -13,12 +11,10 @@ page 684 "Date-Time Dialog"
     Extensible = false;
     PageType = StandardDialog;
     ContextSensitiveHelpPage = 'ui-enter-date-ranges';
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             field(Date; DateValue)
             {
@@ -42,10 +38,14 @@ page 684 "Date-Time Dialog"
         }
     }
 
+    actions
+    {
+    }
 
     var
         DateValue: Date;
         TimeValue: Time;
+        [InDataSet]
         TimeHidden: Boolean;
 
     /// <summary>

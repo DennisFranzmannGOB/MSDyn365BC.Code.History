@@ -3,11 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
-using System.Environment;
-using System.Security.AccessControl;
-
 page 1927 "Detached Media Cleanup"
 {
     PageType = Worksheet;
@@ -31,22 +26,22 @@ page 1927 "Detached Media Cleanup"
             {
                 ApplicationArea = All;
                 Caption = 'Load Limit';
-                ToolTip = 'Specifies the maximum number of records to load. Depending on the limit, this may take a long time to complete.';
+                ToolTip = 'The maximum number of records to load. Depending on the limit, this may take a long time to complete.';
                 MinValue = 1;
             }
             field(CompanyFilterField; CompanyFilter)
             {
                 ApplicationArea = All;
                 Caption = 'Company Filter';
-                ToolTip = 'Specifies the filter to a specific company.';
+                ToolTip = 'Filter to a specific company.';
                 TableRelation = Company.Name;
 
                 trigger OnValidate()
                 begin
                     if CompanyFilter <> '' then
-                        Rec.SetRange("Company Name", CompanyFilter)
+                        SetRange("Company Name", CompanyFilter)
                     else
-                        Rec.SetRange("Company Name");
+                        SetRange("Company Name");
                 end;
             }
             field(LoadDetachedMediaSetField; LoadDetachedMediaSet)
@@ -200,6 +195,7 @@ page 1927 "Detached Media Cleanup"
     end;
 
     trigger OnOpenPage()
+    var
     begin
         LoadLimit := 10000;
     end;

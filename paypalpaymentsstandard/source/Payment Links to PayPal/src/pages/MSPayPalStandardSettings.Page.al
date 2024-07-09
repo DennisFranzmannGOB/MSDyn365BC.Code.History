@@ -1,6 +1,3 @@
-namespace Microsoft.Bank.PayPal;
-
-
 page 1074 "MS - PayPal Standard Settings"
 {
     Caption = 'PayPal';
@@ -32,7 +29,7 @@ page 1074 "MS - PayPal Standard Settings"
                         MSPayPalStandardMgt: Codeunit "MS - PayPal Standard Mgt.";
                     begin
                         MSPayPalStandardMgt.SetPaypalAccount(PayPalAccountID, false);
-                        if Rec.FindFirst() then;
+                        if FindFirst() then;
                     end;
                 }
                 field("Terms of Service"; TermsOfServiceLbl)
@@ -45,7 +42,7 @@ page 1074 "MS - PayPal Standard Settings"
 
                     trigger OnDrillDown();
                     begin
-                        Hyperlink(Rec."Terms of Service");
+                        Hyperlink("Terms of Service");
                     end;
                 }
 
@@ -70,8 +67,8 @@ page 1074 "MS - PayPal Standard Settings"
 
     trigger OnAfterGetCurrRecord();
     begin
-        PayPalAccountID := Rec."Account ID";
-        IsSandbox := (lowercase(Rec.GetTargetURL()) = lowercase(MSPayPalStandardMgt.GetSandboxURL()));
+        PayPalAccountID := "Account ID";
+        IsSandbox := (lowercase(GetTargetURL()) = lowercase(MSPayPalStandardMgt.GetSandboxURL()));
     end;
 
     trigger OnOpenPage();
@@ -79,14 +76,14 @@ page 1074 "MS - PayPal Standard Settings"
         TempPaymentServiceSetup: Record 1060 temporary;
         MSPayPalStandardTemplate: Record "MS - PayPal Standard Template";
     begin
-        if Rec.ISEMPTY() then begin
+        IF ISEMPTY() THEN BEGIN
             MSPayPalStandardMgt.RegisterPayPalStandardTemplate(TempPaymentServiceSetup);
 
             MSPayPalStandardMgt.GetTemplate(MSPayPalStandardTemplate);
             MSPayPalStandardTemplate.RefreshLogoIfNeeded();
-            Rec.TRANSFERFIELDS(MSPayPalStandardTemplate, false);
-            Rec.INSERT(true);
-        end;
+            TRANSFERFIELDS(MSPayPalStandardTemplate, FALSE);
+            INSERT(TRUE);
+        END;
     end;
 
     var
@@ -95,6 +92,4 @@ page 1074 "MS - PayPal Standard Settings"
         IsSandbox: Boolean;
         TermsOfServiceLbl: Label 'Terms of service';
 }
-
-
 

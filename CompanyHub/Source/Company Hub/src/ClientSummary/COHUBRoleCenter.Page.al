@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 page 1151 "COHUB Role Center"
 {
     Caption = 'Company Hub';
@@ -66,6 +64,10 @@ page 1151 "COHUB Role Center"
                     RunObject = page "COHUB Group List";
                     ToolTip = 'Show enviroment groups.';
                     Visible = true;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    PromotedOnly = true;
                 }
 
                 action(ReloadAllCompanies)

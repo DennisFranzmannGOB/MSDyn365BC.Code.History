@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 entitlement "Delegated BC Admin agent - Partner COHUB"
 {
     Type = Role;

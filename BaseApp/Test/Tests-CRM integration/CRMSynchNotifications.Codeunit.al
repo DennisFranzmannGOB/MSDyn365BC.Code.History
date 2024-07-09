@@ -22,7 +22,6 @@ codeunit 139185 "CRM Synch. Notifications"
     [Test]
     [HandlerFunctions('FailedSyncNotification,RecallNotificationHandler')]
     [TransactionModel(TransactionModel::AutoRollback)]
-
     [Scope('OnPrem')]
     procedure ContactCardPageShowsNotificationOnFailedSync()
     var
@@ -516,7 +515,9 @@ codeunit 139185 "CRM Synch. Notifications"
 
         // [THEN] "Integration Synch. Job List" page open, where are 2 jobs for "CUSTOMER"
         IntegrationSynchJobListPage.First;
+        IntegrationSynchJobListPage.Message.AssertEquals(Msg[2]); // latest job goes first due to sorting by datetime
         IntegrationSynchJobListPage.Next();
+        IntegrationSynchJobListPage.Message.AssertEquals(Msg[1]);
         Assert.IsFalse(IntegrationSynchJobListPage.Next, 'There should be 2 records in the list.');
         IntegrationSynchJobListPage.Close();
     end;
@@ -564,9 +565,12 @@ codeunit 139185 "CRM Synch. Notifications"
 
         // [THEN] "Integration Synch. Job List" page open, where are 3 jobs for "CUSTOMER", sorted by "Start Date/Time"
         Assert.IsTrue(IntegrationSynchJobListPage.First, 'there should be first job in the list.');
+        IntegrationSynchJobListPage.Message.AssertEquals(Msg[3]);
         IntegrationSynchJobListPage.Next();
+        IntegrationSynchJobListPage.Message.AssertEquals(Msg[2]);
         IntegrationSynchJobListPage.Next();
-        Assert.IsFalse(IntegrationSynchJobListPage.Next(), 'there should be three jobs in the list.');
+        IntegrationSynchJobListPage.Message.AssertEquals(Msg[1]);
+        Assert.IsFalse(IntegrationSynchJobListPage.Next, 'there should be three jobs in the list.');
         IntegrationSynchJobListPage.Close();
     end;
 

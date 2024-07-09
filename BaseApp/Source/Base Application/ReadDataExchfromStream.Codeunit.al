@@ -1,7 +1,3 @@
-namespace System.IO;
-
-using System.Utilities;
-
 codeunit 1413 "Read Data Exch. from Stream"
 {
     TableNo = "Data Exch.";
@@ -16,9 +12,9 @@ codeunit 1413 "Read Data Exch. from Stream"
         OnGetDataExchFileContentEvent(Rec, TempBlob, EventHandled);
 
         if EventHandled then begin
-            Rec."File Name" := 'Data Stream';
+            "File Name" := 'Data Stream';
             RecordRef.GetTable(Rec);
-            TempBlob.ToRecordRef(RecordRef, Rec.FieldNo("File Content"));
+            TempBlob.ToRecordRef(RecordRef, FieldNo("File Content"));
             RecordRef.SetTable(Rec);
         end;
     end;

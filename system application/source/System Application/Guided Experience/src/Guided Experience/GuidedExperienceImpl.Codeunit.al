@@ -3,16 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Media;
-using System.Utilities;
-using System.Globalization;
-using System.Telemetry;
-using System.Reflection;
-using System.Apps;
-using System.Environment;
-
 codeunit 1991 "Guided Experience Impl."
 {
     Access = Internal;
@@ -27,7 +17,6 @@ codeunit 1991 "Guided Experience Impl."
         TempBlob: Codeunit "Temp Blob";
         ObjectAndLinkToRunErr: Label 'You cannot insert a guided experience item with both an object to run and a link.';
         InvalidObjectTypeErr: Label 'The object type to run is not valid';
-        ExpectedDurationOverflowErr: Label 'The Expected Duration is too large: %1, it needs to be lower than 30000.', Comment = '%1 = Expected Duration in minutes';
         ObjectDoesNotExistErr: Label 'The object %1 %2 does not exist', Comment = '%1 = Object type, %2 = The object ID';
         RunSetupAgainQst: Label 'You have already completed the %1 assisted setup guide. Do you want to run it again?', Comment = '%1 = Assisted Setup Name';
         CodeFormatLbl: Label '%1_%2_%3_%4_%5', Locked = true;
@@ -140,10 +129,20 @@ codeunit 1991 "Guided Experience Impl."
         GuidedExperienceItem: Record "Guided Experience Item";
         PrevGuidedExperienceItem: Record "Guided Experience Item";
         GuidedExperience: Codeunit "Guided Experience";
+#if not CLEAN18
+#pragma warning disable AL0432
+        ManualSetup: Codeunit "Manual Setup";
+#pragma warning restore
+#endif
     begin
         Clear(PageIDs);
 
         GuidedExperience.OnRegisterManualSetup();
+#if not CLEAN18
+#pragma warning disable AL0432
+        ManualSetup.OnRegisterManualSetup();
+#pragma warning restore
+#endif
 
         GuidedExperienceItem.SetCurrentKey("Guided Experience Type", "Object Type to Run", "Object ID to Run", Link, Version);
         GuidedExperienceItem.SetRange("Guided Experience Type", GuidedExperienceItem."Guided Experience Type"::"Manual Setup");
@@ -545,8 +544,8 @@ codeunit 1991 "Guided Experience Impl."
             if (GuidedExperienceItem."Guided Experience Type" = Enum::"Guided Experience Type"::Video) and
                 (GuidedExperienceItem."Guided Experience Type" = PrevGuidedExperienceItem."Guided Experience Type")
             then
-                if (GuidedExperienceItem.Title <> PrevGuidedExperienceItem.Title)
-                    or (GuidedExperienceItem.Description <> PrevGuidedExperienceItem.Description)
+                if (GuidedExperienceItem."Title" <> PrevGuidedExperienceItem."Title")
+                        or (GuidedExperienceItem.Description <> PrevGuidedExperienceItem.Description)
                     or (GuidedExperienceItem."Video Url" <> PrevGuidedExperienceItem."Video Url")
                     or (GuidedExperienceItem."Video Category" <> PrevGuidedExperienceItem."Video Category")
                 then
@@ -724,9 +723,6 @@ codeunit 1991 "Guided Experience Impl."
     var
         IconInStream: InStream;
     begin
-        if ExpectedDuration > 30000 then
-            Error(ExpectedDurationOverflowErr, ExpectedDuration);
-
         GuidedExperienceItem.Code := Code;
         GuidedExperienceItem.Version := Version;
         GuidedExperienceItem.Title := Title;
@@ -835,7 +831,7 @@ codeunit 1991 "Guided Experience Impl."
         InsertTranslations(GuidedExperienceItem, GuidedExperienceItem.Title, GuidedExperienceItem."Short Title",
             GuidedExperienceItem.Description, GuidedExperienceItem.Keywords);
 
-        // if this isn't the first version of the record, copy all the existing translations for the
+        // if this isn't the first version of the record, copy all the existing translations for the 
         // record if the fields haven't changed and if the translations don't already exist
         if GuidedExperienceItem.Version > 0 then begin
             if PrevVersionGuidedExperienceItem.Title = GuidedExperienceItem.Title then
@@ -909,6 +905,12 @@ codeunit 1991 "Guided Experience Impl."
     var
         ConfirmManagement: Codeunit "Confirm Management";
         GuidedExperience: Codeunit "Guided Experience";
+#if not CLEAN18
+#pragma warning disable AL0432
+        AssistedSetup: Codeunit "Assisted Setup";
+        HandledAssistedSetup: Boolean;
+#pragma warning restore
+#endif
         Handled: Boolean;
         ObjectType: ObjectType;
     begin
@@ -918,8 +920,16 @@ codeunit 1991 "Guided Experience Impl."
             GuidedExperience.OnReRunOfCompletedAssistedSetup(GuidedExperienceItem."Extension ID", ObjectType,
                 GuidedExperienceItem."Object ID to Run", Handled);
 
+#if CLEAN18
             if Handled then
+                exit;           
+#else
+#pragma warning disable AL0432
+            AssistedSetup.OnReRunOfCompletedSetup(GuidedExperienceItem."Extension ID", GuidedExperienceItem."Object ID to Run", HandledAssistedSetup);
+            if Handled or HandledAssistedSetup then
                 exit;
+#pragma warning restore
+#endif
 
             if not ConfirmManagement.GetResponse(StrSubstNo(RunSetupAgainQst, GuidedExperienceItem.Title), false) then
                 exit;
@@ -927,6 +937,12 @@ codeunit 1991 "Guided Experience Impl."
 
         RunObject(GuidedExperienceItem);
 
+#if not CLEAN18
+#pragma warning disable AL0432
+        if GuidedExperienceItem."Guided Experience Type" = GuidedExperienceItem."Guided Experience Type"::"Assisted Setup" then
+            AssistedSetup.OnAfterRun(GuidedExperienceItem."Extension ID", GuidedExperienceItem."Object ID to Run");
+#pragma warning restore
+#endif
         if GuidedExperienceItem."Guided Experience Type" = GuidedExperienceItem."Guided Experience Type"::"Assisted Setup" then
             GuidedExperience.OnAfterRunAssistedSetup(GuidedExperienceItem."Extension ID", ObjectType, GuidedExperienceItem."Object ID to Run");
     end;
@@ -1060,12 +1076,25 @@ codeunit 1991 "Guided Experience Impl."
     local procedure OpenRoleBasedSetupExperience(var Handled: Boolean)
     var
         GuidedExperience: Codeunit "Guided Experience";
+#if not CLEAN18
+#pragma warning disable AL0432
+        AssistedSetup: Codeunit "Assisted Setup";
+        HandledAssistedSetup: Boolean;
+#pragma warning restore
+#endif
         RoleBasedSetupExperienceID: Integer;
     begin
         RoleBasedSetupExperienceID := Page::"Assisted Setup";
 
         GuidedExperience.OnBeforeOpenRoleBasedAssistedSetupExperience(RoleBasedSetupExperienceID, Handled);
+#if not CLEAN18
+#pragma warning disable AL0432
+        AssistedSetup.OnBeforeOpenRoleBasedSetupExperience(RoleBasedSetupExperienceID, HandledAssistedSetup);
+        if not (HandledAssistedSetup or Handled) then
+#pragma warning restore
+#else
         if not Handled then
+#endif
             Page.Run(RoleBasedSetupExperienceID);
 
         Handled := true;
@@ -1086,8 +1115,8 @@ codeunit 1991 "Guided Experience Impl."
     var
         PublishedApplication: Record "Published Application";
         Media: Record Media;
-        LogoInStream: InStream;
-        LogoOutStream: OutStream;
+        LogoInStream: Instream;
+        LogoOutStream: Outstream;
     begin
         PublishedApplication.SetRange(ID, AppId);
         PublishedApplication.SetRange("Tenant Visible", true);
@@ -1101,7 +1130,7 @@ codeunit 1991 "Guided Experience Impl."
             Media.CalcFields(Content);
             Media.Content.CreateInStream(LogoInStream);
 
-            LogoTempBlob.CreateOutStream(LogoOutStream);
+            LogoTempBlob.CreateOutstream(LogoOutStream);
             CopyStream(LogoOutStream, LogoInStream);
         end;
     end;

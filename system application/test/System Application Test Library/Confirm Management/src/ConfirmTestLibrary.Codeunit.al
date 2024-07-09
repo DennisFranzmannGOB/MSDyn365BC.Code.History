@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Utilities;
-
-using System.Utilities;
-
 codeunit 132513 "Confirm Test Library"
 {
     EventSubscriberInstance = Manual;
@@ -15,7 +11,7 @@ codeunit 132513 "Confirm Test Library"
         GuiAllowed: Boolean;
 
     /// <summary>
-    /// Sets the value of GUI allowed. This value will be used to determine if the confirm dialog should be shown in
+    /// Sets the value of GUI allowed. This value will be used to determine if the confirm dialog should be shown in 
     /// GetResponse and GetResponseOrDefault functions when the subscription is bound.
     /// Uses <see cref="OnBeforeGuiAllowed"/> event.
     /// </summary>

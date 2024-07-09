@@ -1,5 +1,3 @@
-namespace System.Reflection;
-
 page 9628 "Available Table Selection List"
 {
     Caption = 'Select Table';

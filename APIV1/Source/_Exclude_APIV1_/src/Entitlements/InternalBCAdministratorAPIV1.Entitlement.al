@@ -1,5 +1,3 @@
-namespace Microsoft.API.V1;
-
 entitlement "Internal BC Administrator APIV1"
 {
     Type = Role;

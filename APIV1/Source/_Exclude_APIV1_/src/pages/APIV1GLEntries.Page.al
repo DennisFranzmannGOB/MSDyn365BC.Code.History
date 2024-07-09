@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Finance.GeneralLedger.Ledger;
-using Microsoft.Integration.Graph;
-
 page 20018 "APIV1 - G/L Entries"
 {
     APIVersion = 'v1.0';
@@ -24,40 +19,40 @@ page 20018 "APIV1 - G/L Entries"
         {
             repeater(Group)
             {
-                field(id; Rec."Entry No.")
+                field(id; "Entry No.")
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field(postingDate; Rec."Posting Date")
+                field(postingDate; "Posting Date")
                 {
                     Caption = 'postingDate', Locked = true;
                 }
-                field(documentNumber; Rec."Document No.")
+                field(documentNumber; "Document No.")
                 {
                     Caption = 'documentNumber', Locked = true;
                 }
-                field(documentType; Rec."Document Type")
+                field(documentType; "Document Type")
                 {
                     Caption = 'documentType', Locked = true;
                 }
-                field(accountId; Rec."Account Id")
+                field(accountId; "Account Id")
                 {
                     Caption = 'accountId', Locked = true;
                 }
-                field(accountNumber; Rec."G/L Account No.")
+                field(accountNumber; "G/L Account No.")
                 {
                     Caption = 'accountNumber', Locked = true;
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     Caption = 'description', Locked = true;
                 }
-                field(debitAmount; Rec."Debit Amount")
+                field(debitAmount; "Debit Amount")
                 {
                     Caption = 'debitAmount', Locked = true;
                 }
-                field(creditAmount; Rec."Credit Amount")
+                field(creditAmount; "Credit Amount")
                 {
                     Caption = 'creditAmount', Locked = true;
                 }
@@ -69,7 +64,7 @@ page 20018 "APIV1 - G/L Entries"
 #pragma warning restore
                     ToolTip = 'Specifies Journal Line Dimensions.';
                 }
-                field(lastModifiedDateTime; Rec."Last Modified DateTime")
+                field(lastModifiedDateTime; "Last Modified DateTime")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
@@ -93,9 +88,8 @@ page 20018 "APIV1 - G/L Entries"
     var
         GraphMgtComplexTypes: Codeunit "Graph Mgt - Complex Types";
     begin
-        DimensionsJSON := GraphMgtComplexTypes.GetDimensionsJSON(Rec."Dimension Set ID");
+        DimensionsJSON := GraphMgtComplexTypes.GetDimensionsJSON("Dimension Set ID");
 
     end;
 }
-
 

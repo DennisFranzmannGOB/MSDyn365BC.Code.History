@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Inventory.Ledger;
-
 page 30069 "APIV2 - Item Ledger Entries"
 {
     APIVersion = 'v2.0';
@@ -25,61 +21,61 @@ page 30069 "APIV2 - Item Ledger Entries"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(entryNumber; Rec."Entry No.")
+                field(entryNumber; "Entry No.")
                 {
                     Caption = 'Entry No.';
                     Editable = false;
                 }
-                field(itemNumber; Rec."Item No.")
+                field(itemNumber; "Item No.")
                 {
                     Caption = 'Item No.';
                 }
-                field(postingDate; Rec."Posting Date")
+                field(postingDate; "Posting Date")
                 {
                     Caption = 'Posting Date';
                 }
-                field(entryType; Rec."Entry Type")
+                field(entryType; "Entry Type")
                 {
                     Caption = 'Entry Type';
                 }
-                field(sourceNumber; Rec."Source No.")
+                field(sourceNumber; "Source No.")
                 {
                     Caption = 'Source No.';
                 }
-                field(sourceType; Rec."Source Type")
+                field(sourceType; "Source Type")
                 {
                     Caption = 'Source Type';
                 }
-                field(documentNumber; Rec."Document No.")
+                field(documentNumber; "Document No.")
                 {
                     Caption = 'Document No.';
                 }
-                field(documentType; Rec."Document Type")
+                field(documentType; "Document Type")
                 {
                     Caption = 'Document Type';
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     Caption = 'Description';
                 }
-                field(quantity; Rec.Quantity)
+                field(quantity; Quantity)
                 {
                     Caption = 'Quantity';
                 }
-                field(salesAmountActual; Rec."Sales Amount (Actual)")
+                field(salesAmountActual; "Sales Amount (Actual)")
                 {
                     Caption = 'Sales Amount (Actual)';
                 }
-                field(costAmountActual; Rec."Cost Amount (Actual)")
+                field(costAmountActual; "Cost Amount (Actual)")
                 {
                     Caption = 'Cost Amount (Actual)';
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }

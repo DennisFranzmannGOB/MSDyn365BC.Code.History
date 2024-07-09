@@ -25,7 +25,7 @@ page 2330 "BC O365 Business Info Settings"
                     ToolTip = 'Specifies the name of your company.';
                     Visible = false;
                 }
-                field(Picture; Rec.Picture)
+                field(Picture; Picture)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Caption = 'Add your logo';
@@ -34,10 +34,10 @@ page 2330 "BC O365 Business Info Settings"
 
                     trigger OnValidate()
                     begin
-                        Rec.Modify(true);
+                        Modify(true);
                     end;
                 }
-                field(Address; Rec.Address)
+                field(Address; Address)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies your company''s address.';
@@ -63,7 +63,7 @@ page 2330 "BC O365 Business Info Settings"
                         PostCode.UpdateFromCompanyInformation(Rec, true);
                     end;
                 }
-                field(City; Rec.City)
+                field(City; City)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Lookup = false;
@@ -77,7 +77,7 @@ page 2330 "BC O365 Business Info Settings"
                         PostCode.UpdateFromCompanyInformation(Rec, false);
                     end;
                 }
-                field(County; Rec.County)
+                field(County; County)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies your company''s county.';
@@ -103,7 +103,7 @@ page 2330 "BC O365 Business Info Settings"
                         if PAGE.RunModal(PAGE::"O365 Country/Region List", O365CountryRegion) <> ACTION::LookupOK then
                             exit;
 
-                        Rec."Country/Region Code" := O365CountryRegion.Code;
+                        "Country/Region Code" := O365CountryRegion.Code;
                     end;
                 }
                 field("E-Mail"; Rec."E-Mail")
@@ -117,8 +117,8 @@ page 2330 "BC O365 Business Info Settings"
                     var
                         MailManagement: Codeunit "Mail Management";
                     begin
-                        if Rec."E-Mail" <> '' then
-                            MailManagement.CheckValidEmailAddress(Rec."E-Mail");
+                        if "E-Mail" <> '' then
+                            MailManagement.CheckValidEmailAddress("E-Mail");
                     end;
                 }
                 field("Home Page"; Rec."Home Page")
@@ -153,10 +153,10 @@ page 2330 "BC O365 Business Info Settings"
 
     local procedure Initialize()
     begin
-        Rec.Reset();
-        if not Rec.Get() then begin
-            Rec.Init();
-            Rec.Insert();
+        Reset();
+        if not Get() then begin
+            Init();
+            Insert();
         end;
     end;
 }

@@ -1,7 +1,3 @@
-namespace System.Environment.Configuration;
-
-using Microsoft.Foundation.Navigate;
-
 page 2845 "Data Upgrade Overview"
 {
     Caption = 'Data Update Overview';
@@ -48,7 +44,7 @@ page 2845 "Data Upgrade Overview"
         if TempDocumentEntry.FindSet() then
             repeat
                 Rec := TempDocumentEntry;
-                Rec.Insert();
+                Insert();
             until TempDocumentEntry.Next() = 0;
     end;
 }

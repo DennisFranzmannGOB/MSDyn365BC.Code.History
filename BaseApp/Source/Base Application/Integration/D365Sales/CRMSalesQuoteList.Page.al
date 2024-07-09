@@ -1,13 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.D365Sales;
-
-using Microsoft.Integration.Dataverse;
-using Microsoft.Sales.Document;
-using Microsoft.Utilities;
-
 page 5351 "CRM Sales Quote List"
 {
     ApplicationArea = Suite;
@@ -16,7 +6,7 @@ page 5351 "CRM Sales Quote List"
     InsertAllowed = false;
     PageType = List;
     SourceTable = "CRM Quote";
-    SourceTableView = where(StateCode = filter(Active | Won));
+    SourceTableView = WHERE(StateCode = FILTER(Active | Won));
     UsageCategory = Lists;
 
     layout
@@ -32,32 +22,32 @@ page 5351 "CRM Sales Quote List"
                     StyleExpr = FirstColumnStyle;
                     ToolTip = 'Specifies the name of the record.';
                 }
-                field(StateCode; Rec.StateCode)
+                field(StateCode; StateCode)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Status';
                     OptionCaption = 'Draft,Active,Won,Closed';
                     ToolTip = 'Specifies information related to the Dynamics 365 Sales connection. ';
                 }
-                field(TotalAmount; Rec.TotalAmount)
+                field(TotalAmount; TotalAmount)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Total Amount';
                     ToolTip = 'Specifies information related to the Dynamics 365 Sales connection. ';
                 }
-                field(EffectiveFrom; Rec.EffectiveFrom)
+                field(EffectiveFrom; EffectiveFrom)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Effective From';
                     ToolTip = 'Specifies which date the sales quote is valid from.';
                 }
-                field(EffectiveTo; Rec.EffectiveTo)
+                field(EffectiveTo; EffectiveTo)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Effective To';
                     ToolTip = 'Specifies which date the sales quote is valid to.';
                 }
-                field(ClosedOn; Rec.ClosedOn)
+                field(ClosedOn; ClosedOn)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Closed On';
@@ -91,7 +81,7 @@ page 5351 "CRM Sales Quote List"
                     var
                         CRMIntegrationManagement: Codeunit "CRM Integration Management";
                     begin
-                        HyperLink(CRMIntegrationManagement.GetCRMEntityUrlFromCRMID(DATABASE::"CRM Quote", Rec.QuoteId));
+                        HyperLink(CRMIntegrationManagement.GetCRMEntityUrlFromCRMID(DATABASE::"CRM Quote", QuoteId));
                     end;
                 }
             }
@@ -114,7 +104,7 @@ page 5351 "CRM Sales Quote List"
                         CRMQuoteToSalesQuote: Codeunit "CRM Quote to Sales Quote";
                         PageManagement: Codeunit "Page Management";
                     begin
-                        if Rec.IsEmpty() then
+                        if IsEmpty() then
                             exit;
 
                         if Coupled = 'Yes' then
@@ -142,7 +132,7 @@ page 5351 "CRM Sales Quote List"
 
                     trigger OnAction()
                     begin
-                        Rec.MarkedOnly(true);
+                        MarkedOnly(true);
                     end;
                 }
                 action(ShowAll)
@@ -155,7 +145,7 @@ page 5351 "CRM Sales Quote List"
 
                     trigger OnAction()
                     begin
-                        Rec.MarkedOnly(false);
+                        MarkedOnly(false);
                     end;
                 }
             }
@@ -198,7 +188,7 @@ page 5351 "CRM Sales Quote List"
 
     trigger OnAfterGetCurrRecord()
     begin
-        HasRecords := not IsNullGuid(Rec.QuoteId);
+        HasRecords := not IsNullGuid(QuoteId);
     end;
 
     trigger OnAfterGetRecord()
@@ -207,15 +197,15 @@ page 5351 "CRM Sales Quote List"
         BlankGUID: Guid;
         Style: Integer;
     begin
-        CRMIntegrationRecord.SetRange("CRM ID", Rec.QuoteId);
+        CRMIntegrationRecord.SetRange("CRM ID", QuoteId);
         if CRMIntegrationRecord.FindFirst() then begin
-            if CurrentlyCoupledCRMQuote.QuoteId = Rec.QuoteId then
+            if CurrentlyCoupledCRMQuote.QuoteId = QuoteId then
                 Style := 1
             else
-                if Rec.StateCode = Rec.StateCode::Active then
+                if StateCode = StateCode::Active then
                     Style := 2
                 else
-                    if Rec.StateCode = Rec.StateCode::Won then
+                    if StateCode = StateCode::Won then
                         if CRMIntegrationRecord."Integration ID" = BlankGUID then
                             Style := 2
                         else
@@ -226,17 +216,17 @@ page 5351 "CRM Sales Quote List"
         if Style = 1 then begin
             Coupled := 'Current';
             FirstColumnStyle := 'Strong';
-            Rec.Mark(true);
+            Mark(true);
         end else
             if Style = 2 then begin
                 Coupled := 'Yes';
                 FirstColumnStyle := 'Subordinate';
-                Rec.Mark(false);
+                Mark(false);
             end else
                 if Style = 3 then begin
                     Coupled := 'No';
                     FirstColumnStyle := 'None';
-                    Rec.Mark(true);
+                    Mark(true);
                 end;
     end;
 
@@ -251,17 +241,12 @@ page 5351 "CRM Sales Quote List"
         CRMConnectionSetup: Record "CRM Connection Setup";
         CDSIntegrationMgt: Codeunit "CDS Integration Mgt.";
         EmptyGuid: Guid;
-        MultipleCompanies: Boolean;
     begin
         CRMIntegrationEnabled := CRMConnectionSetup.IsEnabled();
-        MultipleCompanies := (CDSCompany.Count() > 1);
-        Rec.FilterGroup(2);
+        FilterGroup(2);
         if CDSIntegrationMgt.GetCDSCompany(CDSCompany) then
-            if not MultipleCompanies then
-                Rec.SetFilter(CompanyId, StrSubstno('%1|%2', CDSCompany.CompanyId, EmptyGuid))
-            else
-                Rec.SetRange(CompanyId, CDSCompany.CompanyId);
-        Rec.FilterGroup(0);
+            SetFilter(CompanyId, StrSubstno('%1|%2', CDSCompany.CompanyId, EmptyGuid));
+        FilterGroup(0);
     end;
 
     var

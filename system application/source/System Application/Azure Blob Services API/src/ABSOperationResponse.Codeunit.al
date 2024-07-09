@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Storage;
-
 /// <summary>
 /// Holder object for holding for ABS client operations result.
 /// </summary>
@@ -16,7 +14,7 @@ codeunit 9050 "ABS Operation Response"
 
     /// <summary>
     /// Checks whether the operation was successful.
-    /// </summary>
+    /// </summary>    
     /// <returns>True if the operation was successful; otherwise - false.</returns>
     procedure IsSuccessful(): Boolean
     begin
@@ -52,7 +50,7 @@ codeunit 9050 "ABS Operation Response"
     end;
 
     /// <summary>
-    /// Gets the result of a ABS client operation as text,
+    /// Gets the result of a ABS client operation as text, 
     /// </summary>
     /// <returns>The content of the response.</returns>
     [NonDebuggable]
@@ -63,7 +61,7 @@ codeunit 9050 "ABS Operation Response"
     end;
 
     /// <summary>
-    /// Gets the result of a ABS client operation as stream,
+    /// Gets the result of a ABS client operation as stream, 
     /// </summary>
     /// <returns>The content of the response.</returns>
     [NonDebuggable]
@@ -80,7 +78,7 @@ codeunit 9050 "ABS Operation Response"
     end;
 
     [NonDebuggable]
-    procedure GetHeaderValueFromResponseHeaders(HeaderName: Text): Text
+    internal procedure GetHeaderValueFromResponseHeaders(HeaderName: Text): Text
     var
         Headers: HttpHeaders;
         Values: array[100] of Text;

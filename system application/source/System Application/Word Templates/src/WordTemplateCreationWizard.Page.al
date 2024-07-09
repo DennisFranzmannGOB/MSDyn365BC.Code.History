@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Word;
-
-using System.Globalization;
-using System.Telemetry;
-using System.Reflection;
-
 /// <summary>
 /// Wizard to create a Word template.
 /// </summary>
@@ -171,7 +165,7 @@ page 9995 "Word Template Creation Wizard"
                         ApplicationArea = All;
                         Editable = false;
                         Caption = 'Uploaded file';
-                        ToolTip = 'Specifies the name of the file that was uploaded.';
+                        ToolTip = 'The name of the file that was uploaded.';
                     }
 
                     field(TemplateEntity; WordTemplate."Table Caption")
@@ -186,7 +180,7 @@ page 9995 "Word Template Creation Wizard"
                             WordTemplateImpl: Codeunit "Word Template Impl.";
                             TableId: Integer;
                         begin
-                            TableId := WordTemplateImpl.SelectTable();
+                            TableID := WordTemplateImpl.SelectTable();
 
                             if TableId <> 0 then begin
                                 WordTemplate."Table ID" := TableId;
@@ -395,7 +389,7 @@ page 9995 "Word Template Creation Wizard"
 
                     // Add related tables
                     CurrPage.RelatedTables.Page.GetRelatedTables(TempRelatedTables);
-                    if TempRelatedTables.FindSet() then
+                    if TempRelatedTables.Findset() then
                         repeat
                             RelatedTables.TransferFields(TempRelatedTables);
                             RelatedTables.Code := WordTemplate.Code;
@@ -501,7 +495,7 @@ page 9995 "Word Template Creation Wizard"
                 FilterBuilder.Append('|');
         end;
         OnSetTableNo(SelectedTable);
-        // As this method populates the page, before it is run,
+        // As this method populates the page, before it is run, 
         // we commit to make sure that database transactions are done.
         Commit();
 

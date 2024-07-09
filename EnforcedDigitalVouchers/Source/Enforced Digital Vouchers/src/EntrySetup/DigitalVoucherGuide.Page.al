@@ -1,15 +1,4 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.EServices.EDocument;
-
-using System.Environment;
-using System.Environment.Configuration;
-using System.Telemetry;
-using System.Utilities;
-
-page 5580 "Digital Voucher Guide"
+﻿page 5580 "Digital Voucher Guide"
 {
     PageType = NavigatePage;
     RefreshOnActivate = true;

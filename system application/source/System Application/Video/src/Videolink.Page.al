@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Media;
-
 /// <summary>This page shows the video playing in Business Central.</summary>
 page 1821 "Video Link"
 {
@@ -13,12 +11,10 @@ page 1821 "Video Link"
     Editable = false;
     PageType = Card;
     ContextSensitiveHelpPage = 'across-videos';
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             group(Control5)
             {

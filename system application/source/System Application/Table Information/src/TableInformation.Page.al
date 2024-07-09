@@ -3,11 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
-using System.Security.User;
-using System.Environment;
-
 /// <summary>
 /// The Table Information page shows information about database tables.
 /// </summary>
@@ -88,7 +83,7 @@ page 8700 "Table Information"
                     ToolTip = 'Specifies how much space the table indexes (keys) occupy in the database (in kilobytes).';
                 }
 
-                field(Compression; Rec."Compression")
+                field("Compression"; Rec."Compression")
                 {
                     ApplicationArea = All;
                     OptionCaption = 'None,Row,Page,,';
@@ -100,7 +95,7 @@ page 8700 "Table Information"
 
     trigger OnInit()
     var
-        UserPermissions: Codeunit "User Permissions";
+        UserPermissions: codeunit "User Permissions";
     begin
         Rec.FilterGroup(2);
         if UserPermissions.IsSuper(UserSecurityId()) then

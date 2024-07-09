@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
 page 1563 "Privacy Notice"
 {
     Caption = 'Please review terms and conditions';

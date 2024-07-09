@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using System.Environment;
-using System.IO;
-
 page 20000 "APIV1 - Aut. Config. Packages"
 {
     APIGroup = 'automation';
@@ -22,62 +17,62 @@ page 20000 "APIV1 - Aut. Config. Packages"
         {
             repeater(Group)
             {
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'code', Locked = true;
                 }
-                field(packageName; Rec."Package Name")
+                field(packageName; "Package Name")
                 {
                     Caption = 'packageName', Locked = true;
                     ToolTip = 'Specifies the name of the package.';
                 }
-                field(languageId; Rec."Language ID")
+                field(languageId; "Language ID")
                 {
                     Caption = 'languageId', Locked = true;
                 }
-                field(productVersion; Rec."Product Version")
+                field(productVersion; "Product Version")
                 {
                     Caption = 'productVersion', Locked = true;
                 }
-                field(processingOrder; Rec."Processing Order")
+                field(processingOrder; "Processing Order")
                 {
                     Caption = 'processingOrder', Locked = true;
                 }
-                field(excludeConfigurationTables; Rec."Exclude Config. Tables")
+                field(excludeConfigurationTables; "Exclude Config. Tables")
                 {
                     Caption = 'excludeConfigurationTables', Locked = true;
                 }
-                field(numberOfTables; Rec."No. of Tables")
+                field(numberOfTables; "No. of Tables")
                 {
                     Caption = 'numberOfTables', Locked = true;
                     Editable = false;
                 }
-                field(numberOfRecords; Rec."No. of Records")
+                field(numberOfRecords; "No. of Records")
                 {
                     Caption = 'numberOfRecords', Locked = true;
                     Editable = false;
                 }
-                field(numberOfErrors; Rec."No. of Errors")
+                field(numberOfErrors; "No. of Errors")
                 {
                     Caption = 'numberOfErrors', Locked = true;
                     Editable = false;
                 }
-                field(importStatus; Rec."Import Status")
+                field(importStatus; "Import Status")
                 {
                     Caption = 'importStatus', Locked = true;
                     Editable = false;
                 }
-                field(importError; Rec."Import Error")
+                field(importError; "Import Error")
                 {
                     Caption = 'importError', Locked = true;
                     Editable = false;
                 }
-                field(applyStatus; Rec."Apply Status")
+                field(applyStatus; "Apply Status")
                 {
                     Caption = 'applyStatus', Locked = true;
                     Editable = false;
                 }
-                field(applyError; Rec."Apply Error")
+                field(applyError; "Apply Error")
                 {
                     Caption = 'applyError', Locked = true;
                     Editable = false;
@@ -87,7 +82,7 @@ page 20000 "APIV1 - Aut. Config. Packages"
                     Caption = 'file', Locked = true;
                     EntityName = 'file';
                     EntitySetName = 'file';
-                    SubPageLink = Code = field(Code);
+                    SubPageLink = Code = FIELD(Code);
                 }
             }
         }
@@ -101,11 +96,11 @@ page 20000 "APIV1 - Aut. Config. Packages"
     var
         TenantConfigPackageFile: Record "Tenant Config. Package File";
     begin
-        Rec.Validate("Import Status", Rec."Import Status"::No);
-        Rec.Validate("Apply Status", Rec."Apply Status"::No);
+        VALIDATE("Import Status", "Import Status"::No);
+        VALIDATE("Apply Status", "Apply Status"::No);
 
-        TenantConfigPackageFile.Validate(Code, Rec.Code);
-        TenantConfigPackageFile.insert(true);
+        TenantConfigPackageFile.VALIDATE(Code, Code);
+        TenantConfigPackageFile.INSERT(TRUE);
     end;
 
     trigger OnOpenPage()
@@ -127,31 +122,31 @@ page 20000 "APIV1 - Aut. Config. Packages"
         TenantConfigPackageFile: Record "Tenant Config. Package File";
         ImportSessionID: Integer;
     begin
-        if IsImportOrApplyPending() then
-            error(ApplyOrImportInProgressImportErr);
+        IF IsImportOrApplyPending() THEN
+            ERROR(ApplyOrImportInProgressImportErr);
 
-        TenantConfigPackageFile.SETAUTOCALCfieldS(Content);
-        if not TenantConfigPackageFile.Get(Rec.Code) then
-            error(MissingRapisStartFileErr);
-        if not TenantConfigPackageFile.Content.HasValue() then
-            error(MissingRapisStartFileErr);
+        TenantConfigPackageFile.SETAUTOCALCFIELDS(Content);
+        IF NOT TenantConfigPackageFile.GET(Code) THEN
+            ERROR(MissingRapisStartFileErr);
+        IF NOT TenantConfigPackageFile.Content.HASVALUE() THEN
+            ERROR(MissingRapisStartFileErr);
 
-        Rec.Validate("Import Status", Rec."Import Status"::Scheduled);
-        Rec.Modify(true);
+        VALIDATE("Import Status", "Import Status"::Scheduled);
+        MODIFY(TRUE);
 
-        if TaskScheduler.CanCreateTask() then
+        IF TASKSCHEDULER.CANCREATETASK() THEN
             TASKSCHEDULER.CREATETASK(
-              Codeunit::"Automation - Import RSPackage", Codeunit::"Automation - Failure RSPackage", true, CompanyName(), CurrentDateTime() + 200,
-              Rec.RecordId())
-        else begin
+              CODEUNIT::"Automation - Import RSPackage", CODEUNIT::"Automation - Failure RSPackage", TRUE, COMPANYNAME(), CURRENTDATETIME() + 200,
+              RECORDID())
+        ELSE BEGIN
             COMMIT();
             ImportSessionID := 0;
             STARTSESSION(ImportSessionID, CODEUNIT::"Automation - Import RSPackage", COMPANYNAME(), Rec);
-        end;
+        END;
 
         ActionContext.SetObjectType(ObjectType::Page);
         ActionContext.SetObjectId(Page::"APIV1 - Aut. Config. Packages");
-        ActionContext.AddEntityKey(Rec.FieldNo(Code), Rec.Code);
+        ActionContext.AddEntityKey(FieldNo(Code), Code);
         ActionContext.SetResultCode(WebServiceActionResultCode::Updated);
     end;
 
@@ -161,37 +156,36 @@ page 20000 "APIV1 - Aut. Config. Packages"
     var
         ImportSessionID: Integer;
     begin
-        if IsImportOrApplyPending() then
-            error(ApplyOrImportInProgressApplyErr);
+        IF IsImportOrApplyPending() THEN
+            ERROR(ApplyOrImportInProgressApplyErr);
 
-        if Rec."Import Status" <> Rec."Import Status"::Completed then
-            error(ImportNotCompletedErr);
+        IF "Import Status" <> "Import Status"::Completed THEN
+            ERROR(ImportNotCompletedErr);
 
-        Rec.Validate("Apply Status", Rec."Apply Status"::Scheduled);
-        Rec.Modify(true);
+        VALIDATE("Apply Status", "Apply Status"::Scheduled);
+        MODIFY(TRUE);
 
-        if TaskScheduler.CanCreateTask() then
+        IF TASKSCHEDULER.CANCREATETASK() THEN
             TASKSCHEDULER.CREATETASK(
-              Codeunit::"Automation - Apply RSPackage", Codeunit::"Automation - Failure RSPackage", true, CompanyName(), CurrentDateTime() + 200,
-              Rec.RecordId())
-        else begin
-            Commit();
+              CODEUNIT::"Automation - Apply RSPackage", CODEUNIT::"Automation - Failure RSPackage", TRUE, COMPANYNAME(), CURRENTDATETIME() + 200,
+              RECORDID())
+        ELSE BEGIN
+            COMMIT();
             ImportSessionID := 0;
-            StartSession(ImportSessionID, Codeunit::"Automation - Apply RSPackage", Companyname(), Rec);
-        end;
+            STARTSESSION(ImportSessionID, CODEUNIT::"Automation - Apply RSPackage", COMPANYNAME(), Rec);
+        END;
 
         ActionContext.SetObjectType(ObjectType::Page);
         ActionContext.SetObjectId(Page::"APIV1 - Aut. Config. Packages");
-        ActionContext.AddEntityKey(Rec.FieldNo(Code), Rec.Code);
+        ActionContext.AddEntityKey(FieldNo(Code), Code);
         ActionContext.SetResultCode(WebServiceActionResultCode::Updated);
     end;
 
     local procedure IsImportOrApplyPending(): Boolean
     begin
-        exit(
-          (Rec."Import Status" in [Rec."Import Status"::InProgress, Rec."Import Status"::Scheduled]) or
-          (Rec."Apply Status" in [Rec."Apply Status"::InProgress, Rec."Apply Status"::Scheduled]));
+        EXIT(
+          ("Import Status" IN ["Import Status"::InProgress, "Import Status"::Scheduled]) OR
+          ("Apply Status" IN ["Apply Status"::InProgress, "Apply Status"::Scheduled]));
     end;
 }
-
 

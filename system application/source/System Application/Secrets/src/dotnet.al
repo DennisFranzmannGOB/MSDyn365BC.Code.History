@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security;
-
 dotnet
 {
     assembly("Microsoft.Dynamics.Nav.AzureKeyVaultClient")

@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
-using System.Environment;
-
 page 4500 "Current User Email Account"
 {
     PageType = NavigatePage;

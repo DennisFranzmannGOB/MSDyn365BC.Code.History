@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Page Shpfy Order Risks (ID 30123).
 /// </summary>

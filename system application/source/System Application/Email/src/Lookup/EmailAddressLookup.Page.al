@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 /// <summary>
 /// Page to view suggested addresses.
 /// </summary>
@@ -32,7 +30,7 @@ page 8944 "Email Address Lookup"
                 {
                     ApplicationArea = All;
                     Caption = 'Select entity';
-                    ToolTip = 'Specifies the type of entity to show';
+                    ToolTip = 'Select type of entity to show';
 
                     trigger OnValidate()
                     begin
@@ -46,17 +44,17 @@ page 8944 "Email Address Lookup"
                 field("Email Address"; Rec."E-Mail Address")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the E-Mail Address.';
+                    ToolTip = 'E-Mail Address.';
                 }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Name.';
+                    ToolTip = 'Name.';
                 }
                 field(Company; Rec.Company)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Company.';
+                    ToolTip = 'Company.';
                 }
             }
 
@@ -102,7 +100,7 @@ page 8944 "Email Address Lookup"
         exit(FullAddressLookup);
     end;
 
-    internal procedure SetEntityType(EmailAddressEntity: Enum "Email Address Entity")
+    internal procedure SetEntityType(EmailAddressEntity: enum "Email Address Entity")
     begin
         EntityType := EmailAddressEntity;
     end;
@@ -164,7 +162,8 @@ page 8944 "Email Address Lookup"
     end;
 
     protected var
-        EntityType: Enum "Email Address Entity";
+        [InDataSet]
+        EntityType: enum "Email Address Entity";
 
     var
         FullAddressLookup: Boolean;

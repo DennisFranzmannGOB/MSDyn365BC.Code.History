@@ -69,12 +69,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Data Search Result - Field Table Subtype - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3305910297 - Field 3501343248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Table/Type ID</source>
-          <target state="translated">ID tabulky/typu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Data Search Result - Field Table/Type ID - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 4025139878 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Search Setup (Field)</source>
           <target state="translated">Nastavení vyhledávání (pole)</target>
@@ -201,41 +195,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType NoTablesDefinedErr</note>
         </trans-unit>
-        <trans-unit id="Page 3130159978 - NamedType 1979840324" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Searching for "%1"...</source>
-          <target state="translated">Hledání "%1"...</target>
-          <note from="Developer" annotates="general" priority="2">%1 can be any text</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType StatusSearchLbl</note>
+        <trans-unit id="Page 3130159978 - NamedType 3193096050" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Searching ...</source>
+          <target state="translated">Hledání...</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType StatusLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 3130159978 - Control 3906556071 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Results</source>
+          <target state="translated">Výsledky</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3130159978 - Control 2210060298 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Text to search for (enter at least 3 characters)</source>
+          <target state="translated">Hledaný text (zadejte alespoň 3 znaky)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchStringgrp - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3130159978 - Control 2400258197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify at least three characters to search for. You can enter multiple search words, and we will only find data that contains all words.</source>
-          <target state="translated">Zadejte alespoň tři znaky, které chcete vyhledat. Můžete zadat více hledaných slov a my najdeme pouze data, která obsahují všechna slova.</target>
+          <source>Enter at least three characters to search for.</source>
+          <target state="translated">Zadejte alespoň tři znaky, které chcete vyhledat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchString - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3130159978 - Control 2400258197 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Search for (min. 3 characters)</source>
-          <target state="translated">Hledat (min. 3 znaky)</target>
+          <source>Text to search for</source>
+          <target state="translated">Hledaný text</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchString - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3130159978 - Action 782762290 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Starts the search.</source>
-          <target state="translated">Spustí vyhledávání.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Search - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3130159978 - Action 782762290 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Start search</source>
-          <target state="translated">Spustit vyhledávání</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Search - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3130159978 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Search</source>
-          <target state="translated">Hledání</target>
-          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 1.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Results</source>
@@ -248,12 +236,6 @@
           <target state="translated">%1: Zobrazit všechny výsledky</target>
           <note from="Developer" annotates="general" priority="2">%1 is a table name, e.g. Customer</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - NamedType MoreRecLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 3789408733 - Method 1852034151 - NamedType 3118294464" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You have made changes to the setup. Please select the Start search action for the new settings to take effect.</source>
-          <target state="translated">Provedli jste změny v nastavení. Vyberte akci Spustit hledání, aby se nová nastavení projevila.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Method RunSetupPage - NamedType SetupChangedMsg</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the found entry.</source>
@@ -268,28 +250,16 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Control Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Action 1514883969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens a page that lists which tables are enabled for search for your role center. If you have permissions, you can change which tables and fields are searched.</source>
-          <target state="translated">Otevře stránku se seznamem tabulek, ve kterých je povoleno vyhledávání pro vaše centrum rolí. Pokud máte oprávnění, můžete změnit, které tabulky a pole se budou prohledávat.</target>
+          <source>Opens a page that lists which tables are searched for your role center. If you have permissions, you can change which tables and fields are searched.</source>
+          <target state="translated">Otevře stránku se seznamem tabulek, které jsou prohledávány pro vaše centrum rolí. Pokud máte oprávnění, můžete změnit, které tabulky a pole se budou prohledávat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action Setup - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Action 1514883969 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up which tables to search</source>
-          <target state="translated">Nastavení prohledávaných tabulek</target>
+          <source>Show tables to search</source>
+          <target state="translated">Zobrazit tabulky k vyhledávání</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3789408733 - Action 1509359154 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens a page that shows which lists are enabled for search for your role center. If you have permissions, you can change which lists, tables and fields are searched.</source>
-          <target state="translated">Otevře stránku, která ukazuje, ve kterých seznamech je povoleno vyhledávání ve vašem centru rolí. Pokud máte oprávnění, můžete změnit, které seznamy, tabulky a pole se budou prohledávat.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action SetupLists - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3789408733 - Action 1509359154 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up where to search</source>
-          <target state="translated">Nastavení vyhledávání</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action SetupLists - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 218848851 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Column,Record</source>
@@ -424,8 +394,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Result Records - Action ShowRecord - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enable fields for searching</source>
-          <target state="translated">Povolení polí pro vyhledávání</target>
+          <source>Search Setup (Field) List</source>
+          <target state="translated">Přehled nastavení vyhledávání (pole)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -454,8 +424,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Control 823559016 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Field Name</source>
-          <target state="translated">Název pole</target>
+          <source>Field Caption</source>
+          <target state="translated">Titulek pole</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -478,20 +448,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Control 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Field No.</source>
-          <target state="translated">Číslo pole</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
-        </trans-unit>
-        <trans-unit id="Page 3477219812 - Control 1595823452 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the caption of the field, that is, the name that will be shown in the user interface.</source>
-          <target state="translated">Určuje titulek pole, to znamená název, který se zobrazí v uživatelském rozhraní.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
-        </trans-unit>
-        <trans-unit id="Page 3477219812 - Control 1595823452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Table Name</source>
-          <target state="translated">Název tabulky</target>
+          <source>No.</source>
+          <target state="translated">Číslo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -537,129 +495,9 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
-        <trans-unit id="Page 344073747 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enable lists for searching</source>
-          <target state="translated">Povolení seznamů pro vyhledávání</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - NamedType 1516037821" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Do you want to remove the current setup and insert the default?</source>
-          <target state="translated">Chcete odebrat aktuální nastavení a vložit výchozí?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 3224703576 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether this list is included in search.</source>
-          <target state="translated">Určuje, zda je tento seznam zahrnut do vyhledávání.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 3224703576 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enable Search</source>
-          <target state="translated">Povolit vyhledávání</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 1599953061 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the list.</source>
-          <target state="translated">Určuje název seznamu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 1599953061 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>List Name</source>
-          <target state="translated">Název seznamu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 568116884 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the ID of the page. </source>
-          <target state="translated">Určuje ID stránky.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 568116884 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>List No.</source>
-          <target state="translated">Číslo seznamu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 1595823452 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the base table name of the list.</source>
-          <target state="translated">Určuje název základní tabulky seznamu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 1595823452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Main Source Table</source>
-          <target state="translated">Hlavní zdrojová tabulka</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 3669144757 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies which role the search setup is valid for.</source>
-          <target state="translated">Určuje, pro kterou roli je nastavení vyhledávání platné.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 3669144757 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Choose among lists for role</source>
-          <target state="translated">Vyberte si ze seznamů pro roli</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 580853590 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether only the enabled lists are shown or all lists are shown.</source>
-          <target state="translated">Určuje, zda budou zobrazeny pouze povolené seznamy nebo všechny seznamy.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Control 580853590 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show only search enabled lists</source>
-          <target state="translated">Zobrazit pouze seznamy s povoleným vyhledáváním</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Action 2402477966 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Removes the current selection for this rolecenter and inserts the default list selection.</source>
-          <target state="translated">Odebere aktuální výběr pro toto centrum rolí a vloží výchozí výběr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Action 2402477966 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reset to default</source>
-          <target state="translated">Obnovit výchozí</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Action 2574700765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Select this action if you want to see all lists and/or select more lists to be included in the search.</source>
-          <target state="translated">Tuto akci vyberte, pokud chcete zobrazit všechny seznamy a/nebo vybrat více seznamů, které chcete zahrnout do vyhledávání.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Action 2574700765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>All lists</source>
-          <target state="translated">Všechny seznamy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Action 478093921 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Compacts the view, so you only see the lists that have been enabled for search.</source>
-          <target state="translated">Zkompaktní zobrazení, takže uvidíte pouze seznamy, které byly povoleny pro vyhledávání.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
-        <trans-unit id="Page 344073747 - Action 478093921 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Only enabled lists</source>
-          <target state="translated">Pouze povolené seznamy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
-        </trans-unit>
         <trans-unit id="Page 1032144280 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enable tables for searching</source>
-          <target state="translated">Povolit tabulky pro vyhledávání</target>
+          <source>Search Setup (Table) List</source>
+          <target state="translated">Přehled nastavení vyhledávání (tabulka)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -700,8 +538,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Control 3986492796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enable Search</source>
-          <target state="translated">Povolit vyhledávání</target>
+          <source>Search Enabled</source>
+          <target state="translated">Vyhledávání povoleno</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -712,20 +550,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Control 3669144757 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Choose among tables for role</source>
-          <target state="translated">Výběr mezi tabulkami pro roli</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
-        </trans-unit>
-        <trans-unit id="Page 1032144280 - Control 580853590 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether only the enabled tables are shown or all tables are shown.</source>
-          <target state="translated">Určuje, zda budou zobrazeny pouze povolené tabulky nebo všechny tabulky.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
-        </trans-unit>
-        <trans-unit id="Page 1032144280 - Control 580853590 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show only search enabled tables</source>
-          <target state="translated">Zobrazit pouze tabulky s povoleným vyhledáváním</target>
+          <source>Role</source>
+          <target state="translated">Role</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -748,8 +574,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Action 4207440265 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>All tables</source>
-          <target state="translated">Všechny tabulky</target>
+          <source>Show all tables</source>
+          <target state="translated">Zobrazit všechny tabulky</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -760,8 +586,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Action 2618468921 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Only enabled tables</source>
-          <target state="translated">Pouze povolené tabulky</target>
+          <source>Filter to selected tables</source>
+          <target state="translated">Filtr na vybrané tabulky</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>

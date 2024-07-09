@@ -1,10 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.IO;
-using Microsoft.Integration.Graph;
-using System.Utilities;
-using System.Reflection;
-
 page 30039 "APIV2 - Attachments"
 {
     APIVersion = 'v2.0';
@@ -25,59 +18,53 @@ page 30039 "APIV2 - Attachments"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(parentId; Rec."Document Id")
+                field(parentId; "Document Id")
                 {
                     Caption = 'Parent Id';
                     ShowMandatory = true;
                 }
-                field(fileName; Rec."File Name")
+                field(fileName; "File Name")
                 {
                     Caption = 'File Name';
 
                     trigger OnValidate()
                     begin
-                        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo("File Name"), TempFieldBuffer);
+                        GraphMgtAttachmentBuffer.RegisterFieldSet(FieldNo("File Name"), TempFieldBuffer);
                     end;
                 }
-                field(byteSize; Rec."Byte Size")
+                field(byteSize; "Byte Size")
                 {
                     Caption = 'Byte Size';
 
                     trigger OnValidate()
                     begin
-                        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo("Byte Size"), TempFieldBuffer);
+                        GraphMgtAttachmentBuffer.RegisterFieldSet(FieldNo("Byte Size"), TempFieldBuffer);
                     end;
                 }
-                field(attachmentContent; Rec.Content)
+                field(attachmentContent; Content)
                 {
                     Caption = 'Content';
 
                     trigger OnValidate()
                     begin
                         if AttachmentsLoaded then
-                            Rec.Modify();
-                        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo(Content), TempFieldBuffer);
+                            Modify();
+                        GraphMgtAttachmentBuffer.RegisterFieldSet(FieldNo(Content), TempFieldBuffer);
                     end;
                 }
-                field(lastModifiedDateTime; Rec."Created Date-Time")
+                field(lastModifiedDateTime; "Created Date-Time")
                 {
                     Caption = 'Last Modified Date';
                     Editable = false;
                 }
-                field(parentType; Rec."Document Type")
+                field(parentType; "Document Type")
                 {
                     Caption = 'Parent Type';
-
-                    trigger OnValidate()
-                    begin
-                        if Rec."Document Type" in [Rec."Document Type"::Employee, Rec."Document Type"::Job, Rec."Document Type"::Item, Rec."Document Type"::Customer, Rec."Document Type"::Vendor] then
-                            Error(ParentTypeNotSupportedErr, Rec."Document Type");
-                    end;
                 }
             }
         }
@@ -102,10 +89,10 @@ page 30039 "APIV2 - Attachments"
         DocumentId: Guid;
     begin
         if not AttachmentsLoaded then begin
-            FilterView := Rec.GetView();
-            DocumentIdFilter := Rec.GetFilter("Document Id");
-            DocumentTypeFilter := Rec.GetFilter("Document Type");
-            AttachmentIdFilter := Rec.GetFilter(Id);
+            FilterView := GetView();
+            DocumentIdFilter := GetFilter("Document Id");
+            DocumentTypeFilter := GetFilter("Document Type");
+            AttachmentIdFilter := GetFilter(Id);
             if (AttachmentIdFilter <> '') and ((DocumentIdFilter = '') or (DocumentTypeFilter = '')) then begin
                 DocumentId := GraphMgtAttachmentBuffer.GetDocumentIdFromAttachmentId(AttachmentIdFilter);
                 DocumentTypeFilter := Format(GraphMgtAttachmentBuffer.GetDocumentTypeFromAttachmentIdAndDocumentId(AttachmentIdFilter, DocumentId));
@@ -115,8 +102,8 @@ page 30039 "APIV2 - Attachments"
                 Error(MissingParentIdErr);
 
             GraphMgtAttachmentBuffer.LoadAttachmentsWithDocumentType(Rec, DocumentIdFilter, AttachmentIdFilter, DocumentTypeFilter);
-            Rec.SetView(FilterView);
-            AttachmentsFound := Rec.FindFirst();
+            SetView(FilterView);
+            AttachmentsFound := FindFirst();
             if not AttachmentsFound then
                 exit(false);
             AttachmentsLoaded := true;
@@ -132,25 +119,25 @@ page 30039 "APIV2 - Attachments"
         DocumentTypeFilter: Text;
         FilterView: Text;
     begin
-        if IsNullGuid(Rec."Document Id") then begin
-            FilterView := Rec.GetView();
-            DocumentIdFilter := Rec.GetFilter("Document Id");
-            DocumentTypeFilter := Rec.GetFilter("Document Type");
+        if IsNullGuid("Document Id") then begin
+            FilterView := GetView();
+            DocumentIdFilter := GetFilter("Document Id");
+            DocumentTypeFilter := GetFilter("Document Type");
             if (DocumentIdFilter <> '') and (DocumentTypeFilter <> '') then begin
-                Rec.Validate("Document Id", Format(DocumentIdFilter));
+                Validate("Document Id", Format(DocumentIdFilter));
                 Evaluate(AttachmentEntityBufferDocType, DocumentTypeFilter);
-                Rec.Validate("Document Type", AttachmentEntityBufferDocType);
+                Validate("Document Type", AttachmentEntityBufferDocType);
             end;
-            Rec.SetView(FilterView);
+            SetView(FilterView);
         end;
-        if IsNullGuid(Rec."Document Id") then
+        if IsNullGuid("Document Id") then
             Error(MissingParentIdErr);
 
-        if not FileManagement.IsValidFileName(Rec."File Name") then
-            Rec.Validate("File Name", 'filename.txt');
+        if not FileManagement.IsValidFileName("File Name") then
+            Validate("File Name", 'filename.txt');
 
-        Rec.Validate("Created Date-Time", RoundDateTime(CurrentDateTime(), 1000));
-        GraphMgtAttachmentBuffer.RegisterFieldSet(Rec.FieldNo("Created Date-Time"), TempFieldBuffer);
+        Validate("Created Date-Time", RoundDateTime(CurrentDateTime(), 1000));
+        GraphMgtAttachmentBuffer.RegisterFieldSet(FieldNo("Created Date-Time"), TempFieldBuffer);
 
         ByteSizeFromContent();
 
@@ -161,11 +148,11 @@ page 30039 "APIV2 - Attachments"
 
     trigger OnModifyRecord(): Boolean
     begin
-        if xRec.Id <> Rec.Id then
+        if xRec.Id <> Id then
             Error(CannotModifyKeyFieldErr, 'id');
-        if xRec."Document Id" <> Rec."Document Id" then
+        if xRec."Document Id" <> "Document Id" then
             Error(CannotModifyKeyFieldErr, 'parentId');
-        if xRec."Document Type" <> Rec."Document Type" then
+        if xRec."Document Type" <> "Document Type" then
             Error(CannotModifyKeyFieldErr, 'parentType');
 
         GraphMgtAttachmentBuffer.PropagateModifyAttachmentWithDocumentType(Rec, TempFieldBuffer);
@@ -180,13 +167,12 @@ page 30039 "APIV2 - Attachments"
         AttachmentsFound: Boolean;
         MissingParentIdErr: Label 'You must specify a parentId in the request body.';
         CannotModifyKeyFieldErr: Label 'You cannot change the value of the key field %1.', Comment = '%1 = Field name';
-        ParentTypeNotSupportedErr: Label 'Parent type %1 is not supported. Use documentAttachments API instead.', Comment = '%1 = Parent type';
 
     local procedure ByteSizeFromContent()
     var
         TempBlob: Codeunit "Temp Blob";
     begin
-        TempBlob.FromRecord(Rec, Rec.FieldNo(Content));
-        Rec."Byte Size" := GraphMgtAttachmentBuffer.GetContentLength(TempBlob);
+        TempBlob.FromRecord(Rec, FieldNo(Content));
+        "Byte Size" := GraphMgtAttachmentBuffer.GetContentLength(TempBlob);
     end;
 }

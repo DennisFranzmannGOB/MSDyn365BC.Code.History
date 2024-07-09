@@ -88,7 +88,7 @@ page 2300 "BC O365 Getting Started"
                 InFooterBar = true;
                 Promoted = true;
                 RunObject = Page "BC O365 Sales Invoice";
-                RunPageLink = "No." = const('TESTINVOICE');
+                RunPageLink = "No." = CONST('TESTINVOICE');
                 RunPageMode = Create;
                 ToolTip = 'Create a new test invoice for the customer.';
                 Visible = CreateTestInvoiceVisible;
@@ -115,21 +115,21 @@ page 2300 "BC O365 Getting Started"
 
     trigger OnClosePage()
     begin
-        Rec."Tour in Progress" := false;
-        Rec."Tour Completed" := true;
-        Rec.Modify();
+        "Tour in Progress" := false;
+        "Tour Completed" := true;
+        Modify();
     end;
 
     trigger OnInit()
     begin
-        Rec.SetRange("User ID", UserId);
+        SetRange("User ID", UserId);
         CreateTestInvoiceVisible := O365SetupMgmt.ShowCreateTestInvoice();
     end;
 
     trigger OnOpenPage()
     begin
-        if not Rec.AlreadyShown() then
-            Rec.MarkAsShown();
+        if not AlreadyShown() then
+            MarkAsShown();
 
         CurrentPage := true;
     end;

@@ -1,12 +1,4 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.EServices.EDocument;
-
-using Microsoft.Foundation.AuditCodes;
-
-table 5580 "Voucher Entry Source Code"
+﻿table 5580 "Voucher Entry Source Code"
 {
     DataClassification = CustomerContent;
 

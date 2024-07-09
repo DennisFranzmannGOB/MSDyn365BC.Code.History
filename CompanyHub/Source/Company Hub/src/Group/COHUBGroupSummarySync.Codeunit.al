@@ -1,7 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
-using System.Telemetry;
-
 codeunit 1162 "COHUB Group Summary Sync"
 {
     Access = Internal;

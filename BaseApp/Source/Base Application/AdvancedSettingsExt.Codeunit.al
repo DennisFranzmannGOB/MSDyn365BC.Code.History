@@ -1,5 +1,3 @@
-namespace System.Environment.Configuration;
-
 codeunit 9203 "Advanced Settings Ext."
 {
     Access = Public;

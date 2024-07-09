@@ -1,9 +1,3 @@
-namespace System.Email;
-
-using Microsoft.CRM.Setup;
-using Microsoft.CRM.Contact;
-using System.Text;
-
 pageextension 8900 "Email Address Lookup" extends "Email Address Lookup"
 {
     layout

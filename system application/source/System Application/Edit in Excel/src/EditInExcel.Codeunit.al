@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Excel;
-
-using System.Integration;
-
 /// <summary>
 /// This codeunit provides an interface to running Edit in Excel for a specific page.
 /// </summary>

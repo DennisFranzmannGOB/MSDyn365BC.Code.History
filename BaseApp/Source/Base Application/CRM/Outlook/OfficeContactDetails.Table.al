@@ -1,10 +1,3 @@
-﻿namespace Microsoft.CRM.Outlook;
-
-using Microsoft.Bank.BankAccount;
-using Microsoft.CRM.BusinessRelation;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-
 table 1626 "Office Contact Details"
 {
     Caption = 'Office Contact Details';

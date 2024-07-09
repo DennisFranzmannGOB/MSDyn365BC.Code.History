@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.History;
-
 codeunit 30261 "Shpfy Open PostedSalesInvoice" implements "Shpfy IOpenBCDocument"
 {
 

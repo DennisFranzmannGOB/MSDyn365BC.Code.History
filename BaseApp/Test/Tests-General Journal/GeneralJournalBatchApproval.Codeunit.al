@@ -27,8 +27,6 @@ codeunit 134321 "General Journal Batch Approval"
         NoApprovalCommentExistsErr: Label 'There is no approval comment for this approval entry.';
         ApprovalCommentWasNotDeletedErr: Label 'The approval comment for this approval entry was not deleted.';
         RecordRestrictedErr: Label 'You cannot use %1 for this action.', Comment = 'You cannot use Customer 10000 for this action.';
-        PreventModifyRecordWithOpenApprovalEntryMsg: Label 'You can''t modify a record pending approval. Add a comment or reject the approval to modify the record.';
-        ImposedRestrictionLbl: Label 'Imposed restriction';
         LibraryJobQueue: Codeunit "Library - Job Queue";
         IsInitialized: Boolean;
 
@@ -212,7 +210,7 @@ codeunit 134321 "General Journal Batch Approval"
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler,ConfirmHandlerYes')]
+    [HandlerFunctions('MessageHandler')]
     [Scope('OnPrem')]
     procedure DeleteLinesAfterApprovalRequest()
     var
@@ -265,7 +263,7 @@ codeunit 134321 "General Journal Batch Approval"
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler,ConfirmHandlerYes')]
+    [HandlerFunctions('MessageHandler')]
     [Scope('OnPrem')]
     procedure DeleteAfterApprovalRequest()
     var
@@ -911,106 +909,6 @@ codeunit 134321 "General Journal Batch Approval"
         VerifyOpenFirstQualifiedApprovalEntry(PurchaseHeader.RecordId, UserId, ApprovalUserSetup."User ID");
     end;
 
-    [Test]
-    procedure VerifyModifyGenJournalLineIsNotAllowedForCreatedApprovalEntry()
-    var
-        GenJournalBatch: Record "Gen. Journal Batch";
-        GenJournalLine: Record "Gen. Journal Line";
-        ApprovalStatus: Enum "Approval Status";
-    begin
-        // [SCENARIO 492705] Verify that modifying a Gen. Journal Line is not allowed when an approval entry has status created
-        Initialize();
-
-        // [GIVEN] Create Gen. Journal Line
-        CreateGeneralJournalLine(
-          GenJournalLine, GenJournalLine."Account Type"::"G/L Account", LibraryERM.CreateGLAccountNo(),
-          GenJournalLine."Document Type"::" ", LibraryRandom.RandDec(100, 2));
-
-        // [GIVEN] Create Approval Entry for Gen. Journal Batch
-        GenJournalBatch.Get(GenJournalLine."Journal Template Name", GenJournalLine."Journal Batch Name");
-        CreateApprovalEntryForCurrentUser(GenJournalBatch.RecordId, ApprovalStatus::Created);
-
-        // [WHEN] Try to modify a Gen. Journal Line
-        asserterror GenJournalLine.Modify(true);
-
-        // [THEN] Verify error message
-        Assert.ExpectedError(PreventModifyRecordWithOpenApprovalEntryMsg);
-    end;
-
-    [Test]
-    procedure ShowImposedRestrictionBatchStatusIfUserModifyGenJournalLineForApprovedApprovalRequest()
-    var
-        GenJournalTemplate: Record "Gen. Journal Template";
-        GenJournalBatch: Record "Gen. Journal Batch";
-        GenJournalLine: Record "Gen. Journal Line";
-        Workflow: Record Workflow;
-        ApprovalUserSetup: Record "User Setup";
-        GeneralJournal: TestPage "General Journal";
-        ApprovalStatus: Enum "Approval Status";
-    begin
-        // [SCENARIO 498314] Show imposed restriction batch status if user modifies Gen. Journal Line for approved approval request 
-        Initialize();
-
-        GenJournalTemplate.DeleteAll();
-
-        // [GIVEN] Enable Gen. Journal Batch Approval Workflow
-        LibraryDocumentApprovals.SetupUsersForApprovals(ApprovalUserSetup);
-        CreateDirectApprovalEnabledWorkflow(Workflow);
-
-        // [GIVEN] Create Gen. Journal Line
-        CreateGeneralJournalLine(
-          GenJournalLine, GenJournalLine."Account Type"::"G/L Account", LibraryERM.CreateGLAccountNo(),
-          GenJournalLine."Document Type"::" ", LibraryRandom.RandDec(100, 2));
-
-        // [GIVEN] Create Approval Entry for Gen. Journal Batch with a status Approved
-        GenJournalBatch.Get(GenJournalLine."Journal Template Name", GenJournalLine."Journal Batch Name");
-        CreateApprovalEntryForCurrentUser(GenJournalBatch.RecordId, ApprovalStatus::Approved);
-
-        // [WHEN] Modify a Gen. Journal Line
-        GenJournalLine.Validate(Amount, LibraryRandom.RandDec(100, 2));
-        GenJournalLine.Modify(true);
-
-        // [THEN] Verify result
-        GeneralJournal.OpenView();
-        GeneralJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
-        Assert.AreEqual(ImposedRestrictionLbl, GeneralJournal.GenJnlBatchApprovalStatus.Value(), 'Imposed restriction is not shown');
-    end;
-
-    [Test]
-    [HandlerFunctions('MessageHandler')]
-    procedure ShowImposedRestrictionBatchStatusForWorkflowUserGroupIfFirstApprovalEntryIsApproved()
-    var
-        Workflow: Record Workflow;
-        CurrentUserSetup: Record "User Setup";
-        IntermediateApproverUserSetup: Record "User Setup";
-        FinalApproverUserSetup: Record "User Setup";
-        GenJournalLine: Record "Gen. Journal Line";
-        GenJournalBatch: Record "Gen. Journal Batch";
-        GeneralJournal: TestPage "General Journal";
-    begin
-        // [SCENARIO 526988] Show Imposed restriction batch status for Workflow User Group if first approval entry is auto approved
-        Initialize();
-
-        // [GIVEN] Copy Workflow Template
-        LibraryWorkflow.CopyWorkflowTemplate(Workflow, WorkflowSetup.GeneralJournalBatchApprovalWorkflowCode());
-
-        // [GIVEN] Setup - Create 3 user setups, create workflow user group and set the group for the workflow
-        LibraryDocumentApprovals.CreateUserSetupsAndGroupOfApproversForWorkflow(
-          Workflow, CurrentUserSetup, IntermediateApproverUserSetup, FinalApproverUserSetup);
-        LibraryWorkflow.EnableWorkflow(Workflow);
-
-        // [GIVEN] Non-empty Gen. Journal Batch
-        CreateGeneralJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-
-        // [WHEN] Approval request has been sent for Gen. Journal Batch
-        SendApprovalRequestBatch(GenJournalBatch.Name);
-
-        // [THEN] Verify result
-        GeneralJournal.OpenView();
-        GeneralJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
-        Assert.AreEqual(ImposedRestrictionLbl, GeneralJournal.GenJnlBatchApprovalStatus.Value(), 'Imposed restriction is not shown');
-    end;
-
     local procedure Initialize()
     var
         Workflow: Record Workflow;
@@ -1140,21 +1038,6 @@ codeunit 134321 "General Journal Batch Approval"
         ApprovalEntry."Record ID to Approve" := RecordID;
         ApprovalEntry."Approver ID" := UserId;
         ApprovalEntry.Status := ApprovalEntry.Status::Open;
-        ApprovalEntry."Sequence No." := 1;
-        ApprovalEntry.Insert();
-    end;
-
-    local procedure CreateApprovalEntryForCurrentUser(RecordID: RecordID; ApprovalStatus: Enum "Approval Status")
-    var
-        ApprovalEntry: Record "Approval Entry";
-    begin
-        ApprovalEntry.Init();
-        ApprovalEntry."Document Type" := ApprovalEntry."Document Type"::" ";
-        ApprovalEntry."Document No." := '';
-        ApprovalEntry."Table ID" := RecordID.TableNo;
-        ApprovalEntry."Record ID to Approve" := RecordID;
-        ApprovalEntry."Approver ID" := UserId;
-        ApprovalEntry.Status := ApprovalStatus;
         ApprovalEntry."Sequence No." := 1;
         ApprovalEntry.Insert();
     end;
@@ -1323,16 +1206,6 @@ codeunit 134321 "General Journal Batch Approval"
         LibraryDocumentApprovals.CreateUserSetup(UserSetup, UserId, '');
         UserSetup."Approval Administrator" := true;
         UserSetup.Modify();
-    end;
-
-    local procedure CreateGeneralJournalLine(var GenJournalLine: Record "Gen. Journal Line"; AccountType: Enum "Gen. Journal Account Type"; AccountNo: Code[20]; DocumentType: Enum "Gen. Journal Document Type"; Amount: Decimal)
-    var
-        GenJournalBatch: Record "Gen. Journal Batch";
-    begin
-        LibraryERM.SelectGenJnlBatch(GenJournalBatch);
-        LibraryERM.ClearGenJournalLines(GenJournalBatch);
-        LibraryERM.CreateGeneralJnlLine(
-          GenJournalLine, GenJournalBatch."Journal Template Name", GenJournalBatch.Name, DocumentType, AccountType, AccountNo, Amount);
     end;
 
     [PageHandler]

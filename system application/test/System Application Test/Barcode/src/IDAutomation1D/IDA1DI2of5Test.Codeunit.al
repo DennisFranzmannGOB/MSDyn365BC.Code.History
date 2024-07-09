@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Text;
-
-using System.Text;
-
 codeunit 135048 "IDA 1D I2of5 Test"
 {
     Subtype = Test;

@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 table 3903 "Retention Policy Allowed Table"
 {
     Access = Internal;
@@ -28,13 +26,11 @@ table 3903 "Retention Policy Allowed Table"
             MinValue = 0;
             MaxValue = 365000; // ~1000 years
         }
-#pragma warning disable AL0771 // The name has a trainling space.
-        field(20; "Reten. Pol. Filtering "; Enum "Reten. Pol. Filtering")
-#pragma warning restore AL0771
+        field(20; "Reten. Pol. Filtering "; enum "Reten. Pol. Filtering")
         {
             DataClassification = SystemMetadata;
         }
-        field(30; "Reten. Pol. Deleting"; Enum "Reten. Pol. Deleting")
+        field(30; "Reten. Pol. Deleting"; enum "Reten. Pol. Deleting")
         {
             DataClassification = SystemMetadata;
         }

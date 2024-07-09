@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Email;
-
-using System.Email;
-
 codeunit 134687 "Test Email Connector" implements "Email Connector"
 {
     procedure Send(EmailMessage: Codeunit "Email Message"; AccountId: Guid)
@@ -28,6 +24,7 @@ codeunit 134687 "Test Email Connector" implements "Email Connector"
     end;
 
     procedure RegisterAccount(var EmailAccount: Record "Email Account"): Boolean
+    var
     begin
         if ConnectorMock.FailOnRegisterAccount() then
             Error('Failed to register account');

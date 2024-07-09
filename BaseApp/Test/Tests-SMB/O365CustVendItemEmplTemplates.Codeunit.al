@@ -1980,18 +1980,12 @@ codeunit 138008 "Cust/Vend/Item/Empl Templates"
         CatalogItemManagement: Codeunit "Catalog Item Management";
     begin
         // [SCENARIO 383147] Create new item from non stock item with template using NonstockAutoItem() procedure from "Catalog Item Management" codeunit
-        // [SCENARIO 497759] Test non-default Costing Method in Item Template
         Initialize();
         BindSubscription(CustVendItemEmplTemplates);
         CustVendItemEmplTemplates.SetItemTemplateFeatureEnabled(true);
 
         // [GIVEN] Template with data and dimensions
         CreateItemTemplateWithDataAndDimensions(ItemTempl);
-
-        // [GIVEN] Template with non-default Costing Method: Average
-        ItemTempl.Validate("Costing Method", ItemTempl."Costing Method"::Average);
-        ItemTempl.Modify(true);
-
         // [GIVEN] Nonstock item
         CreateNonstockItem(NonstockItem, ItemTempl.Code);
 
@@ -2528,126 +2522,6 @@ codeunit 138008 "Cust/Vend/Item/Empl Templates"
 
         // [THEN] "I" has "Costing Method" = "FIFO"
         Item.TestField("Costing Method", Item."Costing Method"::FIFO);
-    end;
-
-    [Test]
-    procedure S495720_ItemTemplate_WithoutDefaultCostingMethodFIFO_WithoutNoSeries()
-    var
-        Item: Record Item;
-        ItemTempl: Record "Item Templ.";
-        InventorySetup: Record "Inventory Setup";
-        ItemTemplMgt: Codeunit "Item Templ. Mgt.";
-        IsHandledVar: Boolean;
-    begin
-        // [SCENARIO 495720] Creation item from template without "No. Series" and with "Costing Method" = Average, the same as inventory setup "Default Costing Method".
-        Initialize();
-
-        // Inventory setup with "Default Costing Method" = "Average"
-        InventorySetup.Get();
-        InventorySetup."Default Costing Method" := InventorySetup."Default Costing Method"::Average;
-        InventorySetup.Modify(true);
-
-        // [GIVEN] Item template with "Costing Method" = "Average"
-        CreateItemTemplateWithDataAndDimensions(ItemTempl);
-        ItemTempl.Validate("Costing Method", ItemTempl."Costing Method"::Average);
-        ItemTempl.Modify(true);
-
-        // [WHEN] Create item "I"
-        ItemTemplMgt.CreateItemFromTemplate(Item, IsHandledVar, ItemTempl.Code);
-
-        // [THEN] "I" has "Costing Method" = "Average"
-        Item.TestField("Costing Method", Item."Costing Method"::Average);
-    end;
-
-    [Test]
-    procedure S495720_ItemTemplate_WithoutDefaultCostingMethodFIFO_WithNoSeries()
-    var
-        Item: Record Item;
-        ItemTempl: Record "Item Templ.";
-        InventorySetup: Record "Inventory Setup";
-        ItemTemplMgt: Codeunit "Item Templ. Mgt.";
-        IsHandledVar: Boolean;
-    begin
-        // [SCENARIO 495720] Creation item from template with "No. Series" and with "Costing Method" = Average, the same as inventory setup "Default Costing Method".
-        Initialize();
-
-        // Inventory setup with "Default Costing Method" = "Average"
-        InventorySetup.Get();
-        InventorySetup."Default Costing Method" := InventorySetup."Default Costing Method"::Average;
-        InventorySetup.Modify(true);
-
-        // [GIVEN] Item template with "Costing Method" = "Average"
-        CreateItemTemplateWithDataAndDimensions(ItemTempl);
-        ItemTempl.Validate("No. Series", LibraryERM.CreateNoSeriesCode('I1T'));
-        ItemTempl.Validate("Costing Method", ItemTempl."Costing Method"::Average);
-        ItemTempl.Modify(true);
-
-        // [WHEN] Create item "I"
-        ItemTemplMgt.CreateItemFromTemplate(Item, IsHandledVar, ItemTempl.Code);
-
-        // [THEN] "I" has "Costing Method" = "Average" and the same "No. Series" as in item template
-        Item.TestField("Costing Method", Item."Costing Method"::Average);
-        Item.TestField("No. Series", ItemTempl."No. Series");
-    end;
-
-    [Test]
-    procedure S495720_ItemTemplate_WithoutDefaultCostingMethodFIFO_WithoutNoSeriesAndCostingMethodFIFO()
-    var
-        Item: Record Item;
-        ItemTempl: Record "Item Templ.";
-        InventorySetup: Record "Inventory Setup";
-        ItemTemplMgt: Codeunit "Item Templ. Mgt.";
-        IsHandledVar: Boolean;
-    begin
-        // [SCENARIO 495720] Creation item from template without "No. Series" and with "Costing Method" = FIFO, while inventory setup "Default Costing Method" is Average.
-        Initialize();
-
-        // Inventory setup with "Default Costing Method" = "Average"
-        InventorySetup.Get();
-        InventorySetup."Default Costing Method" := InventorySetup."Default Costing Method"::Average;
-        InventorySetup.Modify(true);
-
-        // [GIVEN] Item template with "Costing Method" = "FIFO"
-        CreateItemTemplateWithDataAndDimensions(ItemTempl);
-        ItemTempl.Validate("Costing Method", ItemTempl."Costing Method"::FIFO);
-        ItemTempl.Modify(true);
-
-        // [WHEN] Create item "I"
-        ItemTemplMgt.CreateItemFromTemplate(Item, IsHandledVar, ItemTempl.Code);
-
-        // [THEN] "I" has "Costing Method" = "FIFO"
-        Item.TestField("Costing Method", Item."Costing Method"::FIFO);
-    end;
-
-    [Test]
-    procedure S495720_ItemTemplate_WithoutDefaultCostingMethodFIFO_WithNoSeriesAndCostingMethodFIFO()
-    var
-        Item: Record Item;
-        ItemTempl: Record "Item Templ.";
-        InventorySetup: Record "Inventory Setup";
-        ItemTemplMgt: Codeunit "Item Templ. Mgt.";
-        IsHandledVar: Boolean;
-    begin
-        // [SCENARIO 495720] Creation item from template with "No. Series" and with "Costing Method" = FIFO, while inventory setup "Default Costing Method" is Average.
-        Initialize();
-
-        // Inventory setup with "Default Costing Method" = "Average"
-        InventorySetup.Get();
-        InventorySetup."Default Costing Method" := InventorySetup."Default Costing Method"::Average;
-        InventorySetup.Modify(true);
-
-        // [GIVEN] Item template with "Costing Method" = "FIFO"
-        CreateItemTemplateWithDataAndDimensions(ItemTempl);
-        ItemTempl.Validate("No. Series", LibraryERM.CreateNoSeriesCode('I2T'));
-        ItemTempl.Validate("Costing Method", ItemTempl."Costing Method"::FIFO);
-        ItemTempl.Modify(true);
-
-        // [WHEN] Create item "I"
-        ItemTemplMgt.CreateItemFromTemplate(Item, IsHandledVar, ItemTempl.Code);
-
-        // [THEN] "I" has "Costing Method" = "FIFO" and the same "No. Series" as in item template
-        Item.TestField("Costing Method", Item."Costing Method"::FIFO);
-        Item.TestField("No. Series", ItemTempl."No. Series");
     end;
 
     [Test]
@@ -3344,7 +3218,6 @@ codeunit 138008 "Cust/Vend/Item/Empl Templates"
 
         LibrarySetupStorage.SaveSalesSetup();
         LibrarySetupStorage.SavePurchasesSetup();
-        LibrarySetupStorage.Save(Database::"Inventory Setup");
 
         IsInitialized := true;
         Commit();
@@ -3672,7 +3545,6 @@ codeunit 138008 "Cust/Vend/Item/Empl Templates"
         Assert.IsTrue(Item."Inventory Posting Group" = ItemTempl."Inventory Posting Group", InsertedItemErr);
         Assert.IsTrue(Item."Gen. Prod. Posting Group" = ItemTempl."Gen. Prod. Posting Group", InsertedItemErr);
         Assert.IsTrue(Item."VAT Prod. Posting Group" = ItemTempl."VAT Prod. Posting Group", InsertedItemErr);
-        Assert.IsTrue(Item."Costing Method" = ItemTempl."Costing Method", InsertedItemErr);
 
         Assert.IsTrue(Item."Global Dimension 1 Code" = ItemTempl."Global Dimension 1 Code", InsertedItemErr);
         Assert.IsTrue(Item."Global Dimension 2 Code" = ItemTempl."Global Dimension 2 Code", InsertedItemErr);

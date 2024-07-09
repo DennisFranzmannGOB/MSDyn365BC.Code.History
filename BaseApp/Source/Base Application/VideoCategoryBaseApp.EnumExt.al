@@ -1,5 +1,3 @@
-namespace System.Media;
-
 enumextension 3711 "Video Category - BaseApp" extends "Video Category"
 {
     value(1; GettingStarted)

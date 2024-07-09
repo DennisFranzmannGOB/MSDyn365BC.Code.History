@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Interface "Shpfy IGraphQL."
 /// </summary>

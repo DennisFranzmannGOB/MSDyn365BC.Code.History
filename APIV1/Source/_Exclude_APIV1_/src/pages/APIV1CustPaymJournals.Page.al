@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Finance.GeneralLedger.Journal;
-using Microsoft.Integration.Graph;
-
 page 20013 "APIV1 - Cust. Paym. Journals"
 {
     APIVersion = 'v1.0';
@@ -21,29 +16,29 @@ page 20013 "APIV1 - Cust. Paym. Journals"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field("code"; Rec.Name)
+                field("code"; Name)
                 {
                     Caption = 'code', Locked = true;
                     ShowMandatory = true;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'displayName', Locked = true;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified DateTime")
+                field(lastModifiedDateTime; "Last Modified DateTime")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
-                field(balancingAccountId; Rec.BalAccountId)
+                field(balancingAccountId; BalAccountId)
                 {
                     Caption = 'balancingAccountId', Locked = true;
                 }
-                field(balancingAccountNumber; Rec."Bal. Account No.")
+                field(balancingAccountNumber; "Bal. Account No.")
                 {
                     Caption = 'balancingAccountNumber', Locked = true;
                     Editable = false;
@@ -55,7 +50,7 @@ page 20013 "APIV1 - Cust. Paym. Journals"
                 Caption = 'customerPayments', Locked = true;
                 EntityName = 'customerPayment';
                 EntitySetName = 'customerPayments';
-                SubPageLink = "Journal Batch Id" = field(SystemId);
+                SubPageLink = "Journal Batch Id" = FIELD(SystemId);
             }
         }
     }
@@ -66,17 +61,16 @@ page 20013 "APIV1 - Cust. Paym. Journals"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec."Journal Template Name" := GraphMgtJournal.GetDefaultCustomerPaymentsTemplateName();
+        "Journal Template Name" := GraphMgtJournal.GetDefaultCustomerPaymentsTemplateName();
     end;
 
     trigger OnOpenPage()
     begin
-        Rec.SETRANGE("Journal Template Name", GraphMgtJournal.GetDefaultCustomerPaymentsTemplateName());
+        SETRANGE("Journal Template Name", GraphMgtJournal.GetDefaultCustomerPaymentsTemplateName());
     end;
 
     var
         GraphMgtJournal: Codeunit "Graph Mgt - Journal";
 }
-
 
 

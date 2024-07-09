@@ -3,12 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Text;
-
 /// <summary>
 /// Codeunig that exposes encoding functionality.
 /// </summary>
-codeunit 1486 Encoding
+codeunit 1486 "Encoding"
 {
     Access = Public;
     InherentEntitlements = X;

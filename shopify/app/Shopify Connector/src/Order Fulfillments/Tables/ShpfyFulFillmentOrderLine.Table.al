@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 table 30144 "Shpfy FulFillment Order Line"
 {
     Caption = 'FulFillment Order Line';
@@ -42,7 +40,7 @@ table 30144 "Shpfy FulFillment Order Line"
             Caption = 'Remaining Quantity';
             DataClassification = CustomerContent;
         }
-        field(8; "Quantity to Fulfill"; Decimal)
+        Field(8; "Quantity to Fulfill"; Decimal)
         {
             Caption = 'Qty. to Fulfill';
             DataClassification = CustomerContent;

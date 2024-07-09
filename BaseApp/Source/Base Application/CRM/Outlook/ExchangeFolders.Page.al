@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using System.Integration;
-
 page 5320 "Exchange Folders"
 {
     Caption = 'Exchange Folders';
@@ -11,8 +7,8 @@ page 5320 "Exchange Folders"
     ShowFilter = false;
     SourceTable = "Exchange Folder";
     SourceTableTemporary = true;
-    SourceTableView = sorting(FullPath)
-                      order(Ascending);
+    SourceTableView = SORTING(FullPath)
+                      ORDER(Ascending);
 
     layout
     {
@@ -21,7 +17,7 @@ page 5320 "Exchange Folders"
             repeater(Control1)
             {
                 Editable = false;
-                IndentationColumn = Rec.Depth;
+                IndentationColumn = Depth;
                 IndentationControls = Name;
                 //The GridLayout property is only supported on controls of type Grid
                 //GridLayout = Columns;
@@ -33,7 +29,7 @@ page 5320 "Exchange Folders"
                     Caption = 'Folder Name';
                     ToolTip = 'Specifies the name of the public folder that is specified for use with email logging.';
                 }
-                field(FullPath; Rec.FullPath)
+                field(FullPath; FullPath)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Folder Path';
@@ -59,12 +55,12 @@ page 5320 "Exchange Folders"
                     SelectedExchangeFolder: Record "Exchange Folder";
                     HasChildren: Boolean;
                 begin
-                    if not Rec.Cached then begin
+                    if not Cached then begin
                         SelectedExchangeFolder := Rec;
                         HasChildren := ExchangeWebServicesClient.GetPublicFolders(Rec);
                         CurrPage.SetRecord(SelectedExchangeFolder);
                         if HasChildren then
-                            Rec.Next();
+                            Next();
                     end;
                 end;
             }
@@ -85,14 +81,14 @@ page 5320 "Exchange Folders"
     trigger OnClosePage()
     begin
         // This has to be called before GETRECORD that copies the content
-        Rec.CalcFields("Unique ID");
+        CalcFields("Unique ID");
     end;
 
     trigger OnOpenPage()
     begin
         if not ExchangeWebServicesClient.ReadBuffer(Rec) then
             ExchangeWebServicesClient.GetPublicFolders(Rec);
-        if Rec.FindFirst() then;
+        if FindFirst() then;
         CurrPage.Update(false);
     end;
 

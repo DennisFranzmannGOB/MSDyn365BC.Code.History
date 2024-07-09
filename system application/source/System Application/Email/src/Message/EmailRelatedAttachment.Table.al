@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 /// <summary>
 /// Temporary table that holds information about attachments related to an email.
 /// </summary>

@@ -1,5 +1,3 @@
-namespace System.Security.Encryption;
-
 table 1805 "Encrypted Key/Value"
 {
     Caption = 'Encrypted Key/Value';
@@ -59,7 +57,7 @@ table 1805 "Encrypted Key/Value"
         EncryptedText: Text;
     begin
         // Encryption must be enabled on insert
-        EncryptedText := CryptographyManagement.EncryptText(CopyStr(NewValue, 1, 215));
+        EncryptedText := CryptographyManagement.EncryptText(CopyStr(NewValue,1,215));
         Value.CreateOutStream(OutStr);
         OutStr.Write(EncryptedText);
     end;

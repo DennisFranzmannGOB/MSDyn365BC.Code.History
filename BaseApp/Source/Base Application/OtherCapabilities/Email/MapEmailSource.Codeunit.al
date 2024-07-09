@@ -1,9 +1,3 @@
-namespace System.Email;
-
-using Microsoft.Utilities;
-using Microsoft.Foundation.Attachment;
-using System.Utilities;
-
 codeunit 8898 "Map Email Source"
 {
     Access = Internal;
@@ -50,10 +44,11 @@ codeunit 8898 "Map Email Source"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::Email, 'OnGetAttachment', '', false, false)]
     local procedure InsertAttachment(AttachmentTableID: Integer; AttachmentSystemID: Guid; MessageID: Guid)
     var
+        TenantMedia: Record "Tenant Media";
         DocAttachment: Record "Document Attachment";
         EmailMessage: Codeunit "Email Message";
-        TempBlob: Codeunit "Temp Blob";
         AttachmentInStream: InStream;
+        AttachmentGuid: Guid;
         FileName: Text;
     begin
         if (AttachmentTableID <> Database::"Document Attachment") then
@@ -63,15 +58,14 @@ codeunit 8898 "Map Email Source"
             exit;
 
         EmailMessage.Get(MessageID);
+
+        AttachmentGuid := DocAttachment."Document Reference ID".MediaId();
+        TenantMedia.Get(AttachmentGuid);
+        TenantMedia.CalcFields(Content);
+        TenantMedia.Content.CreateInStream(AttachmentInStream);
         FileName := StrSubstNo(FileFormatTxt, DocAttachment."File Name", DocAttachment."File Extension");
 
-        DocAttachment.GetAsTempBlob(TempBlob);
-
-        if not TempBlob.HasValue() then
-            exit;
-
-        TempBlob.CreateInStream(AttachmentInStream);
-        EmailMessage.AddAttachment(CopyStr(FileName, 1, 250), DocAttachment.GetContentType(), AttachmentInStream);
+        EmailMessage.AddAttachment(CopyStr(FileName, 1, 250), TenantMedia."Mime Type", AttachmentInStream);
     end;
 
     var

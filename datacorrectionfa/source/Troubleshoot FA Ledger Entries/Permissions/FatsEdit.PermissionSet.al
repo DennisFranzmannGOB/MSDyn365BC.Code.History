@@ -1,5 +1,3 @@
-namespace Microsoft.FixedAssets.Repair;
-
 permissionset 6091 "FATS - Edit"
 {
     Assignable = false;

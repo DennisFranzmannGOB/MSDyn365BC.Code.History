@@ -1,5 +1,3 @@
-namespace System.IO;
-
 xmlport 1231 "Export Generic Fixed Width"
 {
     Caption = 'Export Generic Fixed Width';

@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Report Shpfy Create Sales Orders (ID 30103).
 /// </summary>

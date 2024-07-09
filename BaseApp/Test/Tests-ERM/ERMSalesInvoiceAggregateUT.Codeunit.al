@@ -1040,10 +1040,11 @@ codeunit 134396 "ERM Sales Invoice Aggregate UT"
         SalesInvoiceEntityAggregate.Get(SalesInvoiceHeader."No.", true);
 
         // Execute
-        asserterror SalesInvoiceAggregator.PropagateOnDelete(SalesInvoiceEntityAggregate);
+        SalesInvoiceAggregator.PropagateOnDelete(SalesInvoiceEntityAggregate);
 
         // Verify
-        Assert.IsTrue(SalesInvoiceEntityAggregate.Find, 'Sales line should not be deleted');
+        Assert.IsFalse(SalesInvoiceHeader.Find, 'Sales header should be deleted');
+        Assert.IsFalse(SalesInvoiceEntityAggregate.Find, 'Sales line should be deleted');
     end;
 
     [Test]
@@ -1863,7 +1864,7 @@ codeunit 134396 "ERM Sales Invoice Aggregate UT"
         Assert.AreEqual(Format(SourceFieldRef.Value), Format(TempSalesInvoiceLineAggregate."Tax Code"), 'Tax code did not match');
         Assert.AreEqual(Format(TaxId), Format(TempSalesInvoiceLineAggregate."Tax Id"), 'Tax ID did not match');
 
-        if TempSalesInvoiceLineAggregate.Type = TempSalesInvoiceLineAggregate.Type::" " then
+        if TempSalesInvoiceLineAggregate.Type <> TempSalesInvoiceLineAggregate.Type::Item then
             exit;
 
         DataTypeManagement.FindFieldByName(SourceRecordRef, SourceFieldRef, SalesLine.FieldName("No."));

@@ -1,11 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Intercompany.BankAccount;
-using Microsoft.Intercompany.Dimension;
-using Microsoft.Intercompany.GLAccount;
-using Microsoft.Intercompany.Partner;
-using Microsoft.Intercompany.Setup;
-
 permissionset 3239 "D365 IC, SETUP"
 {
     Assignable = true;

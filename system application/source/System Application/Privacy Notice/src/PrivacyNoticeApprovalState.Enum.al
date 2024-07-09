@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
 /// <summary>
 /// Specifies the state of the Privacy Notice Approval.
 /// </summary>

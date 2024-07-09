@@ -1,22 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.eServices.OnlineMap;
-
-using Microsoft.Bank.BankAccount;
-using Microsoft.CRM.Contact;
-using Microsoft.Foundation.Address;
-using Microsoft.Foundation.Company;
-using Microsoft.HumanResources.Employee;
-using Microsoft.Inventory.Location;
-using Microsoft.Projects.Project.Job;
-using Microsoft.Projects.Resources.Resource;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-using Microsoft.Utilities;
-using System;
-
 codeunit 802 "Online Map Management"
 {
 
@@ -39,7 +20,7 @@ codeunit 802 "Online Map Management"
         Text008: Label 'The specified record could not be found.';
         Text015: Label 'Bing Maps';
 
-    procedure MakeSelectionIfMapEnabled(TableID: Integer; Position: Text[1000])
+    internal procedure MakeSelectionIfMapEnabled(TableID: Integer; Position: Text[1000])
     var
         OnlineMapSetupLocal: Record "Online Map Setup";
         MapSetupPage: Page "Online Map Setup";
@@ -139,7 +120,7 @@ codeunit 802 "Online Map Management"
         BuildParameters(FromNo, FromRecPosition, Parameters[1], Distance, Route);
         BuildParameters(ToNo, ToRecPosition, Parameters[2], Distance, Route);
 
-        if FromNo = Database::Geolocation then begin
+        if FromNo = DATABASE::Geolocation then begin
             url := OnlineMapParameterSetup."Directions from Location Serv.";
             SubstituteGPSParameters(url, Parameters[1]);
             SubstituteParameters(url, Parameters[2]);
@@ -174,21 +155,14 @@ codeunit 802 "Online Map Management"
         OnlineMapSetup: Record "Online Map Setup";
         OnlineMapParameterSetup: Record "Online Map Parameter Setup";
         i: Integer;
-        IsHandled: Boolean;
     begin
         Clear(Parameters);
         if ValidAddresses(TableNo) then
             GetAddress(TableNo, RecPosition, Parameters)
         else
             Error(Text007, Format(TableNo));
-        if TableNo = Database::Geolocation then
+        if TableNo = DATABASE::Geolocation then
             exit;
-
-        IsHandled := false;
-        OnBuildParametersOnBeforeGetOnlineMapSetup(TableNo, IsHandled);
-        if IsHandled then
-            exit;
-
         OnlineMapSetup.Get();
         OnlineMapSetup.TestField("Map Parameter Setup Code");
         OnlineMapParameterSetup.Get(OnlineMapSetup."Map Parameter Setup Code");
@@ -227,7 +201,7 @@ codeunit 802 "Online Map Management"
             Error(Text008);
 
         case TableID of
-            Database::Location:
+            DATABASE::Location:
                 begin
                     RecordRef.SetTable(Location);
                     Parameters[1] := Format(Location.Address);
@@ -236,27 +210,27 @@ codeunit 802 "Online Map Management"
                     Parameters[4] := Format(Location."Post Code");
                     Parameters[5] := Format(Location."Country/Region Code");
                 end;
-            Database::Customer:
+            DATABASE::Customer:
                 SetParameters(RecordRef, Parameters, 5, 7, 92, 91, 35);
-            Database::Vendor:
+            DATABASE::Vendor:
                 SetParameters(RecordRef, Parameters, 5, 7, 92, 91, 35);
-            Database::"Company Information":
+            DATABASE::"Company Information":
                 SetParameters(RecordRef, Parameters, 4, 6, 31, 30, 36);
-            Database::Resource:
+            DATABASE::Resource:
                 SetParameters(RecordRef, Parameters, 6, 8, 54, 53, 59);
-            Database::Job:
+            DATABASE::Job:
                 SetParameters(RecordRef, Parameters, 59, 61, 63, 64, 67);
-            Database::"Ship-to Address":
+            DATABASE::"Ship-to Address":
                 SetParameters(RecordRef, Parameters, 5, 7, 92, 91, 35);
-            Database::"Order Address":
+            DATABASE::"Order Address":
                 SetParameters(RecordRef, Parameters, 5, 7, 92, 91, 35);
-            Database::"Bank Account":
+            DATABASE::"Bank Account":
                 SetParameters(RecordRef, Parameters, 5, 7, 92, 91, 35);
-            Database::Contact:
+            DATABASE::Contact:
                 SetParameters(RecordRef, Parameters, 5, 7, 92, 91, 35);
-            Database::Employee:
+            DATABASE::Employee:
                 SetParameters(RecordRef, Parameters, 8, 10, 12, 11, 25);
-            Database::Geolocation:
+            DATABASE::Geolocation:
                 begin
                     RecordRef.SetTable(Geolocation);
                     Parameters[10] := Format(Geolocation.Latitude, 0, 2);
@@ -276,18 +250,18 @@ codeunit 802 "Online Map Management"
             exit(true);
 
         IsValid :=
-          TableID in [Database::"Bank Account",
-                      Database::"Company Information",
-                      Database::Contact,
-                      Database::Customer,
-                      Database::Employee,
-                      Database::Job,
-                      Database::Location,
-                      Database::Resource,
-                      Database::"Ship-to Address",
-                      Database::"Order Address",
-                      Database::Vendor,
-                      Database::Geolocation];
+          TableID in [DATABASE::"Bank Account",
+                      DATABASE::"Company Information",
+                      DATABASE::Contact,
+                      DATABASE::Customer,
+                      DATABASE::Employee,
+                      DATABASE::Job,
+                      DATABASE::Location,
+                      DATABASE::Resource,
+                      DATABASE::"Ship-to Address",
+                      DATABASE::"Order Address",
+                      DATABASE::Vendor,
+                      DATABASE::Geolocation];
 
         OnAfterValidAddress(TableID, IsValid);
         exit(IsValid);
@@ -365,11 +339,11 @@ codeunit 802 "Online Map Management"
             Direction::"To Company":
                 ProcessDirections(
                   TableNo, RecPosition,
-                  Database::"Company Information", CompanyInfo.GetPosition(),
+                  DATABASE::"Company Information", CompanyInfo.GetPosition(),
                   OnlineMapSetup."Distance In", OnlineMapSetup.Route);
             Direction::"From Company":
                 ProcessDirections(
-                  Database::"Company Information", CompanyInfo.GetPosition(),
+                  DATABASE::"Company Information", CompanyInfo.GetPosition(),
                   TableNo, RecPosition,
                   OnlineMapSetup."Distance In", OnlineMapSetup.Route);
             Direction::"From my location":
@@ -580,11 +554,6 @@ codeunit 802 "Online Map Management"
 
     [IntegrationEvent(false, false)]
     local procedure OnMakeSelectionAfterStrMenu(var Selection: Integer; var OnlineMapParameterSetup: Record "Online Map Parameter Setup")
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBuildParametersOnBeforeGetOnlineMapSetup(TableNo: Integer; var IsHandled: Boolean)
     begin
     end;
 }

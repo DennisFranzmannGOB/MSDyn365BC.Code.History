@@ -4,8 +4,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.Authentication;
-
 permissionset 1288 "OAuth - Objects"
 {
     Access = Public;

@@ -1,7 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using Microsoft.Finance.Consolidation;
-
 page 30301 "API Finance - Business Unit"
 {
     PageType = API;

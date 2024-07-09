@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.CRM.Contact;
-
 page 30072 "APIV2 - Contacts Information"
 {
     APIVersion = 'v2.0';
@@ -25,27 +21,27 @@ page 30072 "APIV2 - Contacts Information"
         {
             repeater(GroupName)
             {
-                field(contactId; Rec."Contact Id")
+                field(contactId; "Contact Id")
                 {
                     Caption = 'Contact Id';
                 }
-                field(contactNumber; Rec."Contact No.")
+                field(contactNumber; "Contact No.")
                 {
                     Caption = 'Contact No.';
                 }
-                field(contactName; Rec."Contact Name")
+                field(contactName; "Contact Name")
                 {
                     Caption = 'Contact Name';
                 }
-                field(contactType; Rec."Contact Type")
+                field(contactType; "Contact Type")
                 {
                     Caption = 'Contact Type';
                 }
-                field(relatedId; Rec."Related Id")
+                field(relatedId; "Related Id")
                 {
                     Caption = 'Related Id';
                 }
-                field(relatedType; Rec."Related Type")
+                field(relatedType; "Related Type")
                 {
                     Caption = 'Related Type';
                     Editable = false;
@@ -71,17 +67,17 @@ page 30072 "APIV2 - Contacts Information"
         RelatedIdFilter := Rec.GetFilter("Related Id");
         RelatedTypeFilter := Rec.GetFilter("Related Type");
         if RelatedIdFilter = '' then begin
-            Rec.FilterGroup(4);
+            FilterGroup(4);
             RelatedIdFilter := Rec.GetFilter("Related Id");
             RelatedTypeFilter := Rec.GetFilter("Related Type");
-            Rec.FilterGroup(0);
+            FilterGroup(0);
             if (RelatedIdFilter = '') or (RelatedTypeFilter = '') then
                 Error(FiltersNotSpecifiedErrorLbl);
         end;
         if RecordsLoaded then
             exit(true);
         FilterView := Rec.GetView();
-        Rec.LoadDataFromFilters(RelatedIdFilter, RelatedTypeFilter);
+        LoadDataFromFilters(RelatedIdFilter, RelatedTypeFilter);
         Rec.SetView(FilterView);
         if not Rec.FindFirst() then
             exit(false);

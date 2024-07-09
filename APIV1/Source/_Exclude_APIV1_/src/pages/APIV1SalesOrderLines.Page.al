@@ -1,12 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Foundation.UOM;
-using Microsoft.Integration.Entity;
-using Microsoft.Integration.Graph;
-using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Inventory.Item;
-using System.Reflection;
-
 page 20044 "APIV1 - Sales Order Lines"
 {
     DelayedInsert = true;
@@ -22,7 +13,7 @@ page 20044 "APIV1 - Sales Order Lines"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     ApplicationArea = All;
                     Caption = 'id', Locked = true;
@@ -30,11 +21,11 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        if xRec.Id <> Rec.Id then
-                            error(CannotChangeIdNoErr);
+                        IF xRec.Id <> Id THEN
+                            ERROR(CannotChangeIdNoErr);
                     end;
                 }
-                field(documentId; Rec."Document Id")
+                field(documentId; "Document Id")
                 {
                     ApplicationArea = All;
                     Caption = 'documentId', Locked = true;
@@ -42,11 +33,11 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        if (not IsNullGuid(xRec."Document Id")) and (xRec."Document Id" <> Rec."Document Id") then
-                            error(CannotChangeDocumentIdNoErr);
+                        IF (not IsNullGuid(xRec."Document Id")) and (xRec."Document Id" <> "Document Id") THEN
+                            ERROR(CannotChangeDocumentIdNoErr);
                     end;
                 }
-                field(sequence; Rec."Line No.")
+                field(sequence; "Line No.")
                 {
                     ApplicationArea = All;
                     Caption = 'sequence', Locked = true;
@@ -54,15 +45,15 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        if (xRec."Line No." <> Rec."Line No.") and
+                        IF (xRec."Line No." <> "Line No.") AND
                            (xRec."Line No." <> 0)
-                        then
-                            error(CannotChangeLineNoErr);
+                        THEN
+                            ERROR(CannotChangeLineNoErr);
 
-                        RegisterFieldSet(Rec.FieldNo("Line No."));
+                        RegisterFieldSet(FIELDNO("Line No."));
                     end;
                 }
-                field(itemId; Rec."Item Id")
+                field(itemId; "Item Id")
                 {
                     ApplicationArea = All;
                     Caption = 'itemId', Locked = true;
@@ -70,19 +61,19 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Type));
-                        RegisterFieldSet(Rec.FieldNo("No."));
-                        RegisterFieldSet(Rec.FieldNo("Item Id"));
+                        RegisterFieldSet(FIELDNO(Type));
+                        RegisterFieldSet(FIELDNO("No."));
+                        RegisterFieldSet(FIELDNO("Item Id"));
 
-                        if not Item.GetBySystemId(Rec."Item Id") then begin
-                            InsertItem := true;
-                            exit;
-                        end;
+                        IF NOT Item.GetBySystemId("Item Id") THEN BEGIN
+                            InsertItem := TRUE;
+                            EXIT;
+                        END;
 
-                        Rec."No." := Item."No.";
+                        "No." := Item."No.";
                     end;
                 }
-                field(accountId; Rec."Account Id")
+                field(accountId; "Account Id")
                 {
                     ApplicationArea = All;
                     Caption = 'accountId', Locked = true;
@@ -92,15 +83,15 @@ page 20044 "APIV1 - Sales Order Lines"
                     var
                         EmptyGuid: Guid;
                     begin
-                        if Rec."Account Id" <> EmptyGuid then
-                            if Item."No." <> '' then
-                                error(BothItemIdAndAccountIdAreSpecifiedErr);
-                        RegisterFieldSet(Rec.FieldNo(Type));
-                        RegisterFieldSet(Rec.FieldNo("Account Id"));
-                        RegisterFieldSet(Rec.FieldNo("No."));
+                        IF "Account Id" <> EmptyGuid THEN
+                            IF Item."No." <> '' THEN
+                                ERROR(BothItemIdAndAccountIdAreSpecifiedErr);
+                        RegisterFieldSet(FIELDNO(Type));
+                        RegisterFieldSet(FIELDNO("Account Id"));
+                        RegisterFieldSet(FIELDNO("No."));
                     end;
                 }
-                field(lineType; Rec."API Type")
+                field(lineType; "API Type")
                 {
                     ApplicationArea = All;
                     Caption = 'lineType', Locked = true;
@@ -108,7 +99,7 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Type));
+                        RegisterFieldSet(FIELDNO(Type));
                     end;
                 }
                 field(lineDetails; LineObjectDetailsJSON)
@@ -124,33 +115,33 @@ page 20044 "APIV1 - Sales Order Lines"
                     var
                         GraphMgtComplexTypes: Codeunit "Graph Mgt - Complex Types";
                     begin
-                        if not InsertItem then
-                            exit;
+                        IF NOT InsertItem THEN
+                            EXIT;
 
                         GraphMgtComplexTypes.ParseDocumentLineObjectDetailsFromJSON(
                           LineObjectDetailsJSON, Item."No.", Item.Description, Item."Description 2");
 
-                        if Item."No." <> '' then
-                            RegisterItemFieldSet(Item.FieldNo("No."));
+                        IF Item."No." <> '' THEN
+                            RegisterItemFieldSet(Item.FIELDNO("No."));
 
-                        RegisterFieldSet(Rec.FieldNo("No."));
+                        RegisterFieldSet(FIELDNO("No."));
 
-                        if Item.Description <> '' then
-                            RegisterItemFieldSet(Item.FieldNo(Description));
+                        IF Item.Description <> '' THEN
+                            RegisterItemFieldSet(Item.FIELDNO(Description));
 
-                        if Rec.Description = '' then begin
-                            Rec.Description := Item.Description;
-                            RegisterFieldSet(Rec.FieldNo(Description));
-                        end;
+                        IF Description = '' THEN BEGIN
+                            Description := Item.Description;
+                            RegisterFieldSet(FIELDNO(Description));
+                        END;
 
-                        if Item."Description 2" <> '' then begin
-                            Rec."Description 2" := Item."Description 2";
-                            RegisterItemFieldSet(Item.FieldNo("Description 2"));
-                            RegisterFieldSet(Rec.FieldNo("Description 2"));
-                        end;
+                        IF Item."Description 2" <> '' THEN BEGIN
+                            "Description 2" := Item."Description 2";
+                            RegisterItemFieldSet(Item.FIELDNO("Description 2"));
+                            RegisterFieldSet(FIELDNO("Description 2"));
+                        END;
                     end;
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     ApplicationArea = All;
                     Caption = 'description';
@@ -158,7 +149,7 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FIELDNO(Description));
                     end;
                 }
                 field(unitOfMeasureId; UnitOfMeasureIdGlobal)
@@ -173,27 +164,27 @@ page 20044 "APIV1 - Sales Order Lines"
                         GraphMgtSalesInvLines: Codeunit "Graph Mgt - Sales Inv. Lines";
                         BlankGUID: Guid;
                     begin
-                        Rec.Validate("Unit of Measure Id", UnitOfMeasureIdGlobal);
+                        VALIDATE("Unit of Measure Id", UnitOfMeasureIdGlobal);
                         SalesInvoiceAggregator.VerifyCanUpdateUOM(Rec);
 
-                        if (UnitOfMeasureJSON = 'null') and (Rec."Unit of Measure Id" <> BlankGUID) then
-                            exit;
+                        IF (UnitOfMeasureJSON = 'null') AND ("Unit of Measure Id" <> BlankGUID) THEN
+                            EXIT;
 
-                        if Rec."Unit of Measure Id" = BlankGUID then
-                            Rec."Unit of Measure Code" := ''
-                        else begin
-                            if not UnitOfMeasureGlobal.GetBySystemId(Rec."Unit of Measure Id") then
-                                error(UnitOfMeasureIdDoesNotMatchAUnitOfMeasureErr);
+                        IF "Unit of Measure Id" = BlankGUID THEN
+                            "Unit of Measure Code" := ''
+                        ELSE BEGIN
+                            IF NOT UnitOfMeasureGlobal.GetBySystemId("Unit of Measure Id") THEN
+                                ERROR(UnitOfMeasureIdDoesNotMatchAUnitOfMeasureErr);
 
-                            Rec."Unit of Measure Code" := UnitOfMeasureGlobal.Code;
-                        end;
+                            "Unit of Measure Code" := UnitOfMeasureGlobal.Code;
+                        END;
 
-                        RegisterFieldSet(Rec.FieldNo("Unit of Measure Code"));
+                        RegisterFieldSet(FIELDNO("Unit of Measure Code"));
 
-                        if InsertItem then
-                            exit;
+                        IF InsertItem THEN
+                            EXIT;
 
-                        if Item.GetBySystemId(Rec."Item Id") then
+                        IF Item.GetBySystemId("Item Id") THEN
                             SalesInvoiceAggregator.UpdateUnitOfMeasure(Item, GraphMgtSalesInvLines.GetUnitOfMeasureJSON(Rec));
                     end;
                 }
@@ -215,30 +206,30 @@ page 20044 "APIV1 - Sales Order Lines"
                     begin
                         SalesInvoiceAggregator.VerifyCanUpdateUOM(Rec);
 
-                        if UnitOfMeasureJSON = 'null' then
+                        IF UnitOfMeasureJSON = 'null' THEN
                             TempUnitOfMeasure.Code := ''
-                        else
+                        ELSE
                             GraphCollectionMgtItem.ParseJSONToUnitOfMeasure(UnitOfMeasureJSON, TempUnitOfMeasure);
 
-                        if (UnitOfMeasureJSON = 'null') and (UnitOfMeasureGlobal.Code <> '') then
-                            exit;
-                        if (UnitOfMeasureGlobal.Code <> '') and (UnitOfMeasureGlobal.Code <> TempUnitOfMeasure.Code) then
-                            error(UnitOfMeasureValuesDontMatchErr);
+                        IF (UnitOfMeasureJSON = 'null') AND (UnitOfMeasureGlobal.Code <> '') THEN
+                            EXIT;
+                        IF (UnitOfMeasureGlobal.Code <> '') AND (UnitOfMeasureGlobal.Code <> TempUnitOfMeasure.Code) THEN
+                            ERROR(UnitOfMeasureValuesDontMatchErr);
 
-                        Rec."Unit of Measure Code" := TempUnitOfMeasure.Code;
-                        RegisterFieldSet(Rec.FieldNo("Unit of Measure Code"));
+                        "Unit of Measure Code" := TempUnitOfMeasure.Code;
+                        RegisterFieldSet(FIELDNO("Unit of Measure Code"));
 
-                        if InsertItem then
-                            exit;
+                        IF InsertItem THEN
+                            EXIT;
 
-                        if Item.GetBySystemId(Rec."Item Id") then
-                            if UnitOfMeasureJSON = 'null' then
+                        IF Item.GetBySystemId("Item Id") THEN
+                            IF UnitOfMeasureJSON = 'null' THEN
                                 SalesInvoiceAggregator.UpdateUnitOfMeasure(Item, GraphMgtSalesInvLines.GetUnitOfMeasureJSON(Rec))
-                            else
+                            ELSE
                                 SalesInvoiceAggregator.UpdateUnitOfMeasure(Item, UnitOfMeasureJSON);
                     end;
                 }
-                field(quantity; Rec.Quantity)
+                field(quantity; Quantity)
                 {
                     ApplicationArea = All;
                     Caption = 'quantity', Locked = true;
@@ -246,10 +237,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Quantity));
+                        RegisterFieldSet(FIELDNO(Quantity));
                     end;
                 }
-                field(unitPrice; Rec."Unit Price")
+                field(unitPrice; "Unit Price")
                 {
                     ApplicationArea = All;
                     Caption = 'unitPrice', Locked = true;
@@ -257,10 +248,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Unit Price"));
+                        RegisterFieldSet(FIELDNO("Unit Price"));
                     end;
                 }
-                field(discountAmount; Rec."Line Discount Amount")
+                field(discountAmount; "Line Discount Amount")
                 {
                     ApplicationArea = All;
                     Caption = 'discountAmount', Locked = true;
@@ -268,10 +259,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Line Discount Amount"));
+                        RegisterFieldSet(FIELDNO("Line Discount Amount"));
                     end;
                 }
-                field(discountPercent; Rec."Line Discount %")
+                field(discountPercent; "Line Discount %")
                 {
                     ApplicationArea = All;
                     Caption = 'discountPercent', Locked = true;
@@ -279,17 +270,17 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Line Discount %"));
+                        RegisterFieldSet(FIELDNO("Line Discount %"));
                     end;
                 }
-                field(discountAppliedBeforeTax; Rec."Discount Applied Before Tax")
+                field(discountAppliedBeforeTax; "Discount Applied Before Tax")
                 {
                     ApplicationArea = All;
                     Caption = 'discountAppliedBeforeTax', Locked = true;
                     Editable = false;
                     ToolTip = 'Specifies the discount applied before tax.';
                 }
-                field(amountExcludingTax; Rec."Line Amount Excluding Tax")
+                field(amountExcludingTax; "Line Amount Excluding Tax")
                 {
                     ApplicationArea = All;
                     Caption = 'amountExcludingTax', Locked = true;
@@ -298,10 +289,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Amount));
+                        RegisterFieldSet(FIELDNO(Amount));
                     end;
                 }
-                field(taxCode; Rec."Tax Code")
+                field(taxCode; "Tax Code")
                 {
                     ApplicationArea = All;
                     Caption = 'taxCode', Locked = true;
@@ -311,38 +302,38 @@ page 20044 "APIV1 - Sales Order Lines"
                     var
                         GeneralLedgerSetup: Record "General Ledger Setup";
                     begin
-                        if InsertItem then begin
-                            if GeneralLedgerSetup.UseVat() then
-                                exit;
+                        IF InsertItem THEN BEGIN
+                            IF GeneralLedgerSetup.UseVat() THEN
+                                EXIT;
 
-                            Item."Tax Group Code" := COPYSTR(Rec."Tax Code", 1, MAXSTRLEN(Item."Tax Group Code"));
-                            RegisterItemFieldSet(Item.FieldNo("Tax Group Code"));
-                        end;
+                            Item."Tax Group Code" := COPYSTR("Tax Code", 1, MAXSTRLEN(Item."Tax Group Code"));
+                            RegisterItemFieldSet(Item.FIELDNO("Tax Group Code"));
+                        END;
 
-                        if GeneralLedgerSetup.UseVat() then begin
-                            Rec.Validate("VAT Prod. Posting Group", COPYSTR(Rec."Tax Code", 1, 20));
-                            RegisterFieldSet(Rec.FieldNo("VAT Prod. Posting Group"));
-                        end else begin
-                            Rec.Validate("Tax Group Code", COPYSTR(Rec."Tax Code", 1, 20));
-                            RegisterFieldSet(Rec.FieldNo("Tax Group Code"));
-                        end;
+                        IF GeneralLedgerSetup.UseVat() THEN BEGIN
+                            VALIDATE("VAT Prod. Posting Group", COPYSTR("Tax Code", 1, 20));
+                            RegisterFieldSet(FIELDNO("VAT Prod. Posting Group"));
+                        END ELSE BEGIN
+                            VALIDATE("Tax Group Code", COPYSTR("Tax Code", 1, 20));
+                            RegisterFieldSet(FIELDNO("Tax Group Code"));
+                        END;
                     end;
                 }
-                field(taxPercent; Rec."VAT %")
+                field(taxPercent; "VAT %")
                 {
                     ApplicationArea = All;
                     Caption = 'taxPercent', Locked = true;
                     Editable = false;
                     ToolTip = 'Specifies the tax percent.';
                 }
-                field(totalTaxAmount; Rec."Line Tax Amount")
+                field(totalTaxAmount; "Line Tax Amount")
                 {
                     ApplicationArea = All;
                     Caption = 'totalTaxAmount', Locked = true;
                     Editable = false;
                     ToolTip = 'Specifies the tax amount.';
                 }
-                field(amountIncludingTax; Rec."Line Amount Including Tax")
+                field(amountIncludingTax; "Line Amount Including Tax")
                 {
                     ApplicationArea = All;
                     Caption = 'amountIncludingTax', Locked = true;
@@ -351,38 +342,38 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Amount Including VAT"));
+                        RegisterFieldSet(FIELDNO("Amount Including VAT"));
                     end;
                 }
-                field(invoiceDiscountAllocation; Rec."Inv. Discount Amount Excl. VAT")
+                field(invoiceDiscountAllocation; "Inv. Discount Amount Excl. VAT")
                 {
                     ApplicationArea = All;
                     Caption = 'invoiceDiscountAllocation', Locked = true;
                     Editable = false;
                     ToolTip = 'Specifies the invoice discount amount excluding tax.';
                 }
-                field(netAmount; Rec.Amount)
+                field(netAmount; Amount)
                 {
                     ApplicationArea = All;
                     Caption = 'netAmount', Locked = true;
                     Editable = false;
                     ToolTip = 'Specifies the net amount.';
                 }
-                field(netTaxAmount; Rec."Tax Amount")
+                field(netTaxAmount; "Tax Amount")
                 {
                     ApplicationArea = All;
                     Caption = 'netTaxAmount', Locked = true;
                     Editable = false;
                     ToolTip = 'Specifies the net tax amount.';
                 }
-                field(netAmountIncludingTax; Rec."Amount Including VAT")
+                field(netAmountIncludingTax; "Amount Including VAT")
                 {
                     ApplicationArea = All;
                     Caption = 'netAmountIncludingTax', Locked = true;
                     Editable = false;
                     ToolTip = 'Specifies the net amount including tax.';
                 }
-                field(shipmentDate; Rec."Shipment Date")
+                field(shipmentDate; "Shipment Date")
                 {
                     ApplicationArea = All;
                     Caption = 'shipmentDate', Locked = true;
@@ -390,10 +381,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Shipment Date"));
+                        RegisterFieldSet(FIELDNO("Shipment Date"));
                     end;
                 }
-                field(shippedQuantity; Rec."Quantity Shipped")
+                field(shippedQuantity; "Quantity Shipped")
                 {
                     ApplicationArea = All;
                     Caption = 'shippedQuantity', Locked = true;
@@ -401,10 +392,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Quantity Shipped"));
+                        RegisterFieldSet(FIELDNO("Quantity Shipped"));
                     end;
                 }
-                field(invoicedQuantity; Rec."Quantity Invoiced")
+                field(invoicedQuantity; "Quantity Invoiced")
                 {
                     ApplicationArea = All;
                     Caption = 'invoicedQuantity', Locked = true;
@@ -412,10 +403,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Quantity Invoiced"));
+                        RegisterFieldSet(FIELDNO("Quantity Invoiced"));
                     end;
                 }
-                field(invoiceQuantity; Rec."Qty. to Invoice")
+                field(invoiceQuantity; "Qty. to Invoice")
                 {
                     ApplicationArea = All;
                     Caption = 'invoiceQuantity', Locked = true;
@@ -423,10 +414,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Qty. to Invoice"));
+                        RegisterFieldSet(FIELDNO("Qty. to Invoice"));
                     end;
                 }
-                field(shipQuantity; Rec."Qty. to Ship")
+                field(shipQuantity; "Qty. to Ship")
                 {
                     ApplicationArea = All;
                     Caption = 'shipQuantity', Locked = true;
@@ -434,10 +425,10 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Qty. to Ship"));
+                        RegisterFieldSet(FIELDNO("Qty. to Ship"));
                     end;
                 }
-                field(itemVariantId; Rec."Variant Id")
+                field(itemVariantId; "Variant Id")
                 {
                     ApplicationArea = All;
                     Caption = 'itemVariantId', Locked = true;
@@ -445,7 +436,7 @@ page 20044 "APIV1 - Sales Order Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Variant Code"));
+                        RegisterFieldSet(FIELDNO("Variant Code"));
                     end;
                 }
             }
@@ -476,31 +467,31 @@ page 20044 "APIV1 - Sales Order Lines"
         IdFilter: Text;
         FilterView: Text;
     begin
-        if not LinesLoaded then begin
-            FilterView := Rec.GetView();
-            IdFilter := Rec.GetFilter(Id);
-            DocumentIdFilter := Rec.GetFilter("Document Id");
-            if (IdFilter = '') and (DocumentIdFilter = '') then
-                error(IDOrDocumentIdShouldBeSpecifiedForLinesErr);
-            if IdFilter <> '' then
+        IF NOT LinesLoaded THEN BEGIN
+            FilterView := GETVIEW();
+            IdFilter := GETFILTER(Id);
+            DocumentIdFilter := GETFILTER("Document Id");
+            IF (IdFilter = '') AND (DocumentIdFilter = '') THEN
+                ERROR(IDOrDocumentIdShouldBeSpecifiedForLinesErr);
+            IF IdFilter <> '' THEN
                 DocumentIdFilter := GraphMgtSalesInvLines.GetDocumentIdFilterFromIdFilter(IdFilter)
-            else
-                DocumentIdFilter := Rec.GetFilter("Document Id");
+            ELSE
+                DocumentIdFilter := GETFILTER("Document Id");
             GraphMgtSalesOrderBuffer.LoadLines(Rec, DocumentIdFilter);
-            Rec.SETVIEW(FilterView);
-            if not Rec.FINDFIRST() then
-                exit(false);
-            LinesLoaded := true;
-        end;
+            SETVIEW(FilterView);
+            IF NOT FINDFIRST() THEN
+                EXIT(FALSE);
+            LinesLoaded := TRUE;
+        END;
 
-        exit(true);
+        EXIT(TRUE);
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     var
         GraphMgtSalesOrderBuffer: Codeunit "Graph Mgt - Sales Order Buffer";
     begin
-        if InsertItem then
+        IF InsertItem THEN
             InsertItemOnTheFly();
 
         GraphMgtSalesOrderBuffer.PropagateInsertLine(Rec, TempFieldBuffer);
@@ -512,7 +503,7 @@ page 20044 "APIV1 - Sales Order Lines"
     var
         GraphMgtSalesOrderBuffer: Codeunit "Graph Mgt - Sales Order Buffer";
     begin
-        if InsertItem then
+        IF InsertItem THEN
             InsertItemOnTheFly();
 
         GraphMgtSalesOrderBuffer.PropagateModifyLine(Rec, TempFieldBuffer);
@@ -523,8 +514,8 @@ page 20044 "APIV1 - Sales Order Lines"
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         ClearCalculatedFields();
-        Rec.Validate(Type, Rec.Type::Item);
-        RegisterFieldSet(Rec.FieldNo(Type));
+        VALIDATE(Type, Type::Item);
+        RegisterFieldSet(FIELDNO(Type));
     end;
 
     var
@@ -550,14 +541,14 @@ page 20044 "APIV1 - Sales Order Lines"
         LastOrderNo: Integer;
     begin
         LastOrderNo := 1;
-        if TempFieldBuffer.FINDLAST() then
+        IF TempFieldBuffer.FINDLAST() THEN
             LastOrderNo := TempFieldBuffer.Order + 1;
 
         CLEAR(TempFieldBuffer);
         TempFieldBuffer.Order := LastOrderNo;
         TempFieldBuffer."Table ID" := DATABASE::"Sales Invoice Line Aggregate";
         TempFieldBuffer."Field ID" := FieldNo;
-        TempFieldBuffer.insert();
+        TempFieldBuffer.INSERT();
     end;
 
     local procedure ClearCalculatedFields()
@@ -581,18 +572,18 @@ page 20044 "APIV1 - Sales Order Lines"
     begin
         LineObjectDetailsJSON := GraphMgtComplexTypes.GetSalesLineDescriptionComplexType(Rec);
         UnitOfMeasureJSON := GraphMgtSalesInvLines.GetUnitOfMeasureJSON(Rec);
-        UnitOfMeasureIdGlobal := Rec."Unit of Measure Id";
+        UnitOfMeasureIdGlobal := "Unit of Measure Id";
     end;
 
     local procedure RegisterItemFieldSet(FieldNo: Integer)
     begin
-        if TempItemFieldSet.GET(DATABASE::Item, FieldNo) then
-            exit;
+        IF TempItemFieldSet.GET(DATABASE::Item, FieldNo) THEN
+            EXIT;
 
         TempItemFieldSet.INIT();
         TempItemFieldSet.TableNo := DATABASE::Item;
-        TempItemFieldSet.Validate("No.", FieldNo);
-        TempItemFieldSet.insert(true);
+        TempItemFieldSet.VALIDATE("No.", FieldNo);
+        TempItemFieldSet.INSERT(TRUE);
     end;
 
     local procedure InsertItemOnTheFly()
@@ -600,9 +591,9 @@ page 20044 "APIV1 - Sales Order Lines"
         GraphCollectionMgtItem: Codeunit "Graph Collection Mgt - Item";
     begin
         GraphCollectionMgtItem.InsertItemFromSalesDocument(Item, TempItemFieldSet, UnitOfMeasureJSON);
-        Rec.Validate("No.", Item."No.");
+        VALIDATE("No.", Item."No.");
 
-        if Rec.Description = '' then
-            Rec.Description := Item.Description;
+        IF Description = '' THEN
+            Description := Item.Description;
     end;
 }

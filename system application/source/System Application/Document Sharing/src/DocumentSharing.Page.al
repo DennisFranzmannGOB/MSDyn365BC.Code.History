@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration;
-
 /// <summary>
 /// Page which will host the document service share ux
 /// </summary>

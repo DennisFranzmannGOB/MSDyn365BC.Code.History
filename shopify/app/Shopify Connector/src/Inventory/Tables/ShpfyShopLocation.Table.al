@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Inventory.Location;
-
 /// <summary>
 /// Table Shpfy Shop Location (ID 30113).
 /// </summary>
@@ -93,6 +89,7 @@ table 30113 "Shpfy Shop Location"
             ObsoleteState = Removed;
 #endif
             Description = 'This disabled the synchronisation of the stock to Shopify.';
+            InitValue = true;
         }
 
         field(8; Active; Boolean)

@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Utilities;
 
 table 4151 "Persistent Blob"
 {
@@ -18,7 +16,7 @@ table 4151 "Persistent Blob"
             AutoIncrement = true;
             DataClassification = SystemMetadata;
         }
-        field(2; Blob; Blob)
+        field(2; Blob; BLOB)
         {
             DataClassification = CustomerContent;
         }
@@ -32,5 +30,8 @@ table 4151 "Persistent Blob"
         }
     }
 
+    fieldgroups
+    {
+    }
 }
 

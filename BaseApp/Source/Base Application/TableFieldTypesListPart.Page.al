@@ -1,5 +1,3 @@
-namespace System.Reflection;
-
 page 9622 "Table Field Types ListPart"
 {
     Caption = 'Table Field Types ListPart';
@@ -36,7 +34,7 @@ page 9622 "Table Field Types ListPart"
 
     trigger OnAfterGetRecord()
     begin
-        FieldType := Format(Rec.FieldTypeGroup);
+        FieldType := Format(FieldTypeGroup);
     end;
 
     var

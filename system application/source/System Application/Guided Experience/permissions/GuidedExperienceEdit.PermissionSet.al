@@ -3,12 +3,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Globalization;
-using System.Apps;
-
-permissionset 1993 "Guided Experience - Edit"
+PermissionSet 1993 "Guided Experience - Edit"
 {
     Access = Internal;
     Assignable = false;
@@ -20,6 +15,6 @@ permissionset 1993 "Guided Experience - Edit"
                   tabledata "Checklist Item Role" = IMD, // the modify permissions are necessary for the Checklist Item Roles page to work correctly
                   tabledata "Checklist Item User" = IMD,
                   tabledata "Checklist Setup" = IMd,
-                  tabledata "Published Application" = imd,
-                  tabledata "Spotlight Tour Text" = imd;
+                  tabledata "Spotlight Tour Text" = imd,
+                  tabledata "Published Application" = imd;
 }

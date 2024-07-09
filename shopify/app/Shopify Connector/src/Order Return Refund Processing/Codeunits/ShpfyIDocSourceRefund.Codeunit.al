@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 codeunit 30249 "Shpfy IDocSource Refund" implements "Shpfy IDocument Source"
 {
     procedure SetErrorInfo(SourceDocumentId: BigInteger; ErrorDescription: Text)

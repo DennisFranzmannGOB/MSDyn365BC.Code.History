@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
 codeunit 1566 "System Privacy Notice Reg."
 {
     Access = Internal;

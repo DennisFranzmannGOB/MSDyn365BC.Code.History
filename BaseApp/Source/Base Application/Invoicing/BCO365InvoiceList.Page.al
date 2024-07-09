@@ -9,7 +9,7 @@ page 2303 "BC O365 Invoice List"
     RefreshOnActivate = true;
     SourceTable = "O365 Sales Document";
     SourceTableTemporary = true;
-    SourceTableView = sorting("Sell-to Customer Name");
+    SourceTableView = SORTING("Sell-to Customer Name");
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
     ObsoleteState = Pending;
     ObsoleteTag = '21.0';
@@ -90,7 +90,7 @@ page 2303 "BC O365 Invoice List"
 
                 trigger OnAction()
                 begin
-                    Rec.OpenDocument();
+                    OpenDocument();
                 end;
             }
             action(ExportInvoices)
@@ -142,22 +142,22 @@ page 2303 "BC O365 Invoice List"
 
     trigger OnFindRecord(Which: Text): Boolean
     begin
-        exit(Rec.OnFind(Which));
+        exit(OnFind(Which));
     end;
 
     trigger OnInit()
     begin
-        Rec.SetSortByDocDate();
+        SetSortByDocDate();
     end;
 
     trigger OnNextRecord(Steps: Integer): Integer
     begin
-        exit(Rec.OnNext(Steps));
+        exit(OnNext(Steps));
     end;
 
     trigger OnOpenPage()
     begin
-        Rec.SetRange("Document Type", Rec."Document Type"::Invoice);
+        SetRange("Document Type", "Document Type"::Invoice);
     end;
 
     var

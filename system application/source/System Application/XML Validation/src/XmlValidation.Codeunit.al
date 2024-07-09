@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Xml;
-
 /// <summary>
 /// Provides helper functions for xml validation against a schema.
 /// </summary>
@@ -93,7 +91,7 @@ codeunit 6240 "Xml Validation"
     [TryFunction]
     procedure TryAddValidationSchema(Xml: Text; Namespace: Text)
     begin
-        XmlValidationImpl.AddValidationSchema(Xml, Namespace);
+        XmlValidationImpl.AddValidationSchema(Xml, NameSpace);
     end;
 
     /// <summary>
@@ -104,7 +102,7 @@ codeunit 6240 "Xml Validation"
     [TryFunction]
     procedure TryAddValidationSchema(XmlSchemaDoc: XmlDocument; Namespace: Text)
     begin
-        XmlValidationImpl.AddValidationSchema(XmlSchemaDoc, Namespace);
+        XmlValidationImpl.AddValidationSchema(XmlSchemaDoc, NameSpace);
     end;
 
     /// <summary>
@@ -115,7 +113,7 @@ codeunit 6240 "Xml Validation"
     [TryFunction]
     procedure TryAddValidationSchema(XmlSchemaInStream: InStream; Namespace: Text)
     begin
-        XmlValidationImpl.AddValidationSchema(XmlSchemaInStream, Namespace);
+        XmlValidationImpl.AddValidationSchema(XmlSchemaInStream, NameSpace);
     end;
 
     /// <summary>

@@ -1,8 +1,3 @@
-namespace System.Text;
-
-using System;
-using System.Utilities;
-
 codeunit 4113 "Swiss QR Code Helper"
 {
     procedure GenerateQRCodeImage(SourceText: Text; QRCodeImageTempBlob: Codeunit "Temp Blob"): Boolean

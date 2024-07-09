@@ -1,10 +1,4 @@
 #if not CLEAN21
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Graph;
-
 page 2160 "O365 Sales Graph"
 {
     Caption = 'O365 Sales Graph';
@@ -18,7 +12,7 @@ page 2160 "O365 Sales Graph"
     {
         area(content)
         {
-            field(Component; Rec.Component)
+            field(Component; Component)
             {
                 ApplicationArea = Invoicing, Basic, Suite;
             }
@@ -26,7 +20,7 @@ page 2160 "O365 Sales Graph"
             {
                 ApplicationArea = Invoicing, Basic, Suite;
             }
-            field("Schema"; Rec.Schema)
+            field("Schema"; Schema)
             {
                 ApplicationArea = Invoicing, Basic, Suite;
             }
@@ -39,7 +33,7 @@ page 2160 "O365 Sales Graph"
 
     trigger OnModifyRecord(): Boolean
     begin
-        Rec.ParseRefresh();
+        ParseRefresh();
     end;
 }
 #endif

@@ -1,7 +1,3 @@
-namespace System.AI;
-
-using System.Environment;
-
 page 4010 "Intelligent Cloud"
 {
     Caption = 'Intelligent Cloud';

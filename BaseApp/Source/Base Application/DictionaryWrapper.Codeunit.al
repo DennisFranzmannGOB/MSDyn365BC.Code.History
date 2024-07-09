@@ -1,7 +1,3 @@
-namespace System.Utilities;
-
-using System;
-
 codeunit 708 "Dictionary Wrapper"
 {
 

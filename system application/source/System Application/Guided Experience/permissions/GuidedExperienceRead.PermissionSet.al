@@ -3,25 +3,26 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Globalization;
-using System.Reflection;
-using System.Environment;
-using System.Security.AccessControl;
-using System.Apps;
-
-permissionset 1991 "Guided Experience - Read"
+PermissionSet 1991 "Guided Experience - Read"
 {
     Access = Public;
     Assignable = false;
 
     IncludedPermissionSets = "Guided Experience - Objects",
-                             "Translation - Read";
+                             "Translation - Read",
+                             "Upgrade Tags - Read";
 
-    Permissions = tabledata AllObj = r,
+    Permissions = tabledata "All Profile" = r,
+                  tabledata AllObj = r,
                   tabledata AllObjWithCaption = r,
-                  tabledata "All Profile" = r,
+#if not CLEAN18
+#pragma warning disable AL0432
+                  tabledata "Assisted Setup" = R, // needed for AccessByPermission
+                  tabledata "Assisted Setup Log" = r,
+                  tabledata "Manual Setup" = R, // big R needed for Manual Setup to be searchable
+                  tabledata "Business Setup Icon" = r,
+#pragma warning restore
+#endif
                   tabledata "Checklist Item" = R,
                   tabledata "Checklist Item Buffer" = r, // needed for Checklist page to be searchable
                   tabledata "Checklist Item Role" = R,
@@ -29,11 +30,11 @@ permissionset 1991 "Guided Experience - Read"
                   tabledata "Checklist Setup" = R,
                   tabledata Company = r,
                   tabledata "Guided Experience Item" = R,
-                  tabledata "Media" = R,
                   tabledata "Primary Guided Experience Item" = r,
-                  tabledata "Published Application" = R,
-                  tabledata "Spotlight Tour Text" = r,
                   tabledata User = r,
                   tabledata "User Checklist Status" = R,
-                  tabledata "User Personalization" = r;
+                  tabledata "User Personalization" = r,
+                  tabledata "Media" = R,
+                  tabledata "Published Application" = R,
+                  tabledata "Spotlight Tour Text" = r;
 }

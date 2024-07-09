@@ -1,9 +1,3 @@
-﻿namespace Microsoft.CRM.Outlook;
-
-using Microsoft.Booking;
-using System.Azure.Identity;
-using System.Security.AccessControl;
-
 page 6700 "Exchange Sync. Setup"
 {
     ApplicationArea = Basic, Suite;
@@ -47,7 +41,7 @@ page 6700 "Exchange Sync. Setup"
 
                     trigger OnValidate()
                     begin
-                        Rec.SetExchangeAccountPassword(ExchangeAccountPasswordTemp);
+                        SetExchangeAccountPassword(ExchangeAccountPasswordTemp);
                         Commit();
                     end;
                 }
@@ -97,7 +91,7 @@ page 6700 "Exchange Sync. Setup"
 
                     trigger OnAction()
                     begin
-                        if PasswordRequired and IsNullGuid(Rec."Exchange Account Password Key") then
+                        if PasswordRequired and IsNullGuid("Exchange Account Password Key") then
                             Error(PasswordMissingErr);
 
                         PAGE.RunModal(PAGE::"Booking Sync. Setup");
@@ -112,7 +106,7 @@ page 6700 "Exchange Sync. Setup"
 
                     trigger OnAction()
                     begin
-                        if PasswordRequired and IsNullGuid(Rec."Exchange Account Password Key") then
+                        if PasswordRequired and IsNullGuid("Exchange Account Password Key") then
                             Error(PasswordMissingErr);
 
                         PAGE.RunModal(PAGE::"Contact Sync. Setup", Rec);
@@ -152,7 +146,7 @@ page 6700 "Exchange Sync. Setup"
     var
         User: Record User;
     begin
-        Rec.Reset();
+        Reset();
         GetUser(User);
 
         if User."Authentication Email" = '' then
@@ -160,17 +154,17 @@ page 6700 "Exchange Sync. Setup"
 
         ExchangeAccountUserName := User."Authentication Email";
 
-        if not Rec.Get(UserId) then begin
-            Rec.Init();
-            Rec."User ID" := UserId();
-            Rec."Folder ID" := PRODUCTNAME.Short();
-            Rec.Insert();
+        if not Get(UserId) then begin
+            Init();
+            "User ID" := UserId();
+            "Folder ID" := PRODUCTNAME.Short();
+            Insert();
             Commit();
         end;
 
         EvaluatePasswordRequired();
 
-        if (ExchangeAccountUserName <> '') and (not IsNullGuid(Rec."Exchange Account Password Key")) then
+        if (ExchangeAccountUserName <> '') and (not IsNullGuid("Exchange Account Password Key")) then
             ExchangeAccountPasswordTemp := '**********';
     end;
 

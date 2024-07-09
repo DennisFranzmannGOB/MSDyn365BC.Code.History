@@ -1,14 +1,8 @@
-namespace Microsoft.Finance.Analysis.StatisticalAccount;
-
-using Microsoft.Finance.Dimension;
-using System.Security.AccessControl;
-
 table 2633 "Statistical Ledger Entry"
 {
     DataClassification = CustomerContent;
     DrillDownPageId = "Statistical Ledger Entry List";
     LookupPageId = "Statistical Ledger Entry List";
-    Caption = 'Statistical Ledger Entry';
 
     fields
     {
@@ -64,6 +58,8 @@ table 2633 "Statistical Ledger Entry"
             Caption = 'User ID';
             DataClassification = EndUserIdentifiableInformation;
             TableRelation = User."User Name";
+            //This property is currently not supported
+            //TestTableRelation = false;
             ValidateTableRelation = false;
         }
         field(46; "Journal Batch Name"; Code[10])

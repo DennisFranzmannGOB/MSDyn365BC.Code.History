@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy Sync Orders (ID 30168).
 /// </summary>
@@ -17,7 +15,7 @@ codeunit 30168 "Shpfy Sync Orders"
         ImportOrder: Codeunit "Shpfy Import Order";
         OrderMapping: Codeunit "Shpfy Order Mapping";
     begin
-        if Rec.FindSet(true) then
+        if Rec.FindSet(true, false) then
             repeat
                 ClearLastError();
                 Commit();

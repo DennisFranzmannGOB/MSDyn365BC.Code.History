@@ -1,7 +1,3 @@
-namespace Microsoft.Bank.Deposit;
-
-using Microsoft.Foundation.Reporting;
-
 enumextension 1691 "Report Selection Usage Ext" extends "Report Selection Usage"
 {
     value(1690; "Bank Deposit")

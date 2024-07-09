@@ -1,9 +1,3 @@
-﻿namespace System.Environment.Configuration;
-
-using System.IO;
-using System.Reflection;
-using System.Utilities;
-
 page 9820 "Control Add-ins"
 {
     ApplicationArea = Basic, Suite;
@@ -30,15 +24,15 @@ page 9820 "Control Add-ins"
 
                     trigger OnValidate()
                     begin
-                        Rec."Public Key Token" := DelChr(Rec."Public Key Token", '<>', ' ');
+                        "Public Key Token" := DelChr("Public Key Token", '<>', ' ');
                     end;
                 }
-                field(Version; Rec.Version)
+                field(Version; Version)
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the version of the Client Control Add-in that is registered on a Business Central Server.';
                 }
-                field(Category; Rec.Category)
+                field(Category; Category)
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the category of the add-in. There are four categories: DotNet Control Add-in, DotNet Interoperability, Javascript Control Add-in and Language Resource.';
@@ -48,7 +42,7 @@ page 9820 "Control Add-ins"
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the description of the Client Control Add-in.';
                 }
-                field("Resource.HASVALUE"; Rec.Resource.HasValue)
+                field("Resource.HASVALUE"; Resource.HasValue)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Resource', Locked = true;
@@ -79,7 +73,7 @@ page 9820 "Control Add-ins"
                         RecordRef: RecordRef;
                         ResourceName: Text;
                     begin
-                        if Rec.Resource.HasValue() then
+                        if Resource.HasValue() then
                             if not Confirm(ImportQst) then
                                 exit;
 
@@ -89,7 +83,7 @@ page 9820 "Control Add-ins"
 
                         if ResourceName <> '' then begin
                             RecordRef.GetTable(Rec);
-                            TempBlob.ToRecordRef(RecordRef, Rec.FieldNo(Resource));
+                            TempBlob.ToRecordRef(RecordRef, FieldNo(Resource));
                             RecordRef.SetTable(Rec);
                             CurrPage.SaveRecord();
 
@@ -109,9 +103,9 @@ page 9820 "Control Add-ins"
                         TempBlob: Codeunit "Temp Blob";
                         FileManagement: Codeunit "File Management";
                     begin
-                        TempBlob.FromRecord(Rec, Rec.FieldNo(Resource));
+                        TempBlob.FromRecord(Rec, FieldNo(Resource));
                         if TempBlob.HasValue() then
-                            FileManagement.BLOBExport(TempBlob, Rec."Add-in Name" + '.zip', true)
+                            FileManagement.BLOBExport(TempBlob, "Add-in Name" + '.zip', true)
                         else
                             Message(NoResourceMsg);
                     end;
@@ -125,10 +119,10 @@ page 9820 "Control Add-ins"
 
                     trigger OnAction()
                     begin
-                        if not Rec.Resource.HasValue() then
+                        if not Resource.HasValue() then
                             exit;
 
-                        Clear(Rec.Resource);
+                        Clear(Resource);
                         CurrPage.SaveRecord();
 
                         Message(RemoveDoneMsg);

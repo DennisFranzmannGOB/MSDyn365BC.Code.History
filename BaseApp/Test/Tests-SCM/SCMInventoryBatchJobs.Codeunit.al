@@ -938,7 +938,6 @@ codeunit 137285 "SCM Inventory Batch Jobs"
         Item: Record Item;
         PurchaseLine: Record "Purchase Line";
         ServiceLine: Record "Service Line";
-        OrderNo: Text[20];
     begin
         // Verify Original Cost and Adjusted Cost on posted Services Invoice Statistics after posting Service Order using Get Service Shipment Lines.
 
@@ -946,7 +945,6 @@ codeunit 137285 "SCM Inventory Batch Jobs"
         Initialize();
         CreateAndPostPurchaseDocument(PurchaseLine, CreateItem('', Item."Costing Method"::FIFO), LibraryRandom.RandDec(10, 2), true);  // Use TRUE for Invoice and Random value for Quantity.
         CreateServiceDocumentAndUpdateServiceLine(ServiceLine, PurchaseLine."No.", CreateCustomer, LibraryRandom.RandDec(10, 2));  // Use Random value for Quantity.
-        OrderNo := ServiceLine."Document No.";
         PostServiceOrder(ServiceLine, false, false);
         LibraryVariableStorage.Enqueue(ServiceLine."Document No.");  // Enqueue value for 'ShipmentLinePageHandler'.
         CreateServiceInvoiceFromGetShipmentLines(ServiceLine, ServiceLine."Customer No.");
@@ -956,7 +954,7 @@ codeunit 137285 "SCM Inventory Batch Jobs"
 
         // Verify: Verify Original Cost and Adjusted Cost on posted Services Invoice Statistics.
         VerifyCostOnPostedServiceInvStatistics(
-          OrderNo, ServiceLine."Document No.", PurchaseLine."Unit Cost (LCY)" * ServiceLine.Quantity,
+          '', ServiceLine."Document No.", PurchaseLine."Unit Cost (LCY)" * ServiceLine.Quantity,
           PurchaseLine."Unit Cost (LCY)" * ServiceLine.Quantity);
     end;
 
@@ -1085,7 +1083,6 @@ codeunit 137285 "SCM Inventory Batch Jobs"
     var
         PurchaseLine: Record "Purchase Line";
         ServiceLine: Record "Service Line";
-        OrderNo: Text[20];
     begin
         // Verify Original Cost and Adjusted Cost on on posted Services Invoice Statistics after posting Service Invoice using Get Service Shipment Lines and Purchase Order with Charge Assignment.
 
@@ -1093,7 +1090,6 @@ codeunit 137285 "SCM Inventory Batch Jobs"
         Initialize();
         PostChargeOnPurchaseDocument(PurchaseLine);
         CreateServiceDocumentAndUpdateServiceLine(ServiceLine, PurchaseLine."No.", CreateCustomer, LibraryRandom.RandDec(10, 2));  // Use Random value for Quantity.
-        OrderNo := ServiceLine."Document No.";
         PostServiceOrder(ServiceLine, false, false);
         LibraryVariableStorage.Enqueue(ServiceLine."Document No.");  // Enqueue value for 'ShipmentLinePageHandler'.
         CreateServiceInvoiceFromGetShipmentLines(ServiceLine, ServiceLine."Customer No.");
@@ -1103,7 +1099,7 @@ codeunit 137285 "SCM Inventory Batch Jobs"
 
         // Verify: Verify Original Cost and Adjusted Cost on posted Services Invoice Statistics.
         VerifyCostOnPostedServiceInvStatistics(
-          OrderNo, ServiceLine."Document No.", PurchaseLine."Unit Cost (LCY)" * ServiceLine.Quantity,
+          '', ServiceLine."Document No.", PurchaseLine."Unit Cost (LCY)" * ServiceLine.Quantity,
           PurchaseLine."Unit Cost (LCY)" * ServiceLine.Quantity);
     end;
 

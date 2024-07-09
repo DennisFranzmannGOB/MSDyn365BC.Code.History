@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Reflection;
-
 table 138706 "Record Reference Test"
 {
     Access = Internal;

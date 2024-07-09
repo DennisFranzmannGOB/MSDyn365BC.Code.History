@@ -1,5 +1,3 @@
-namespace Microsoft.API.V1;
-
 entitlement "Dynamics 365 Business Central External Accountant APIV1"
 {
     Type = PerUserServicePlan;

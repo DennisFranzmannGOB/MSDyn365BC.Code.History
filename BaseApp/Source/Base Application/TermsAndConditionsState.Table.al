@@ -1,7 +1,3 @@
-namespace System.Privacy;
-
-using System.Security.AccessControl;
-
 table 9191 "Terms And Conditions State"
 {
     Caption = 'Terms And Conditions State';

@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 codeunit 30102 "Shpfy GQL Modify Inventory" implements "Shpfy IGraphQL"
 {
     procedure GetGraphQL(): Text

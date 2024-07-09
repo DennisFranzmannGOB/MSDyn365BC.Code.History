@@ -20,6 +20,7 @@ codeunit 139175 "CRM Sales Order Integr. Test"
         LibraryAssembly: Codeunit "Library - Assembly";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
+        LibraryInventory: Codeunit "Library - Inventory";
         Assert: Codeunit Assert;
         isInitialized: Boolean;
         CurrencyNotExistsErr: Label 'The Currency does not exist.';
@@ -1464,8 +1465,10 @@ codeunit 139175 "CRM Sales Order Integr. Test"
         Customer: Record Customer;
         CRMAccount: Record "CRM Account";
         CRMPost: Record "CRM Post";
+        CRMSalesorder: Record "CRM Salesorder";
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
+        CRMIntegrationRecord: Record "CRM Integration Record";
         ItemNo: Code[20];
     begin
         // [SCENARIO 270978] Posting Sales Document for coupled Customer when coupled CRM Account is deleted
@@ -1612,6 +1615,7 @@ codeunit 139175 "CRM Sales Order Integr. Test"
         CRMProduct: Record "CRM Product";
         CRMSalesOrder: Record "CRM Salesorder";
         CRMSalesOrderDetail: Record "CRM Salesorderdetail";
+        Currency: Record Currency;
         CRMTransactioncurrency: Record "CRM Transactioncurrency";
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
@@ -2057,7 +2061,7 @@ codeunit 139175 "CRM Sales Order Integr. Test"
             if ActualText = AnnotationText then
                 exit;
         until RecordLink.Next() = 0;
-        Error(SalesOrdernoteNotFoundErr, SalesHeader."No.", AnnotationText);
+        Error(StrSubstNo(SalesOrdernoteNotFoundErr, SalesHeader."No.", AnnotationText));
     end;
 
     local procedure VerifyCRMSalesOrderNote(SalesHeader: Record "Sales Header"; AnnotationText: Text)
@@ -2078,13 +2082,14 @@ codeunit 139175 "CRM Sales Order Integr. Test"
             if ActualText = AnnotationText then
                 exit;
         until CRMAnnotation.Next() = 0;
-        Error(CRMSalesOrdernoteNotFoundErr, CRMSalesorderID, AnnotationText);
+        Error(StrSubstNo(CRMSalesOrdernoteNotFoundErr, CRMSalesorderID, AnnotationText));
     end;
 
     [Scope('OnPrem')]
     procedure CreateNote(SalesHeader: Record "Sales Header"; AnnotationText: Text; var RecordLink: Record "Record Link")
     var
         RecordLinkManagement: Codeunit "Record Link Management";
+        OutStream: OutStream;
     begin
         RecordLink."Record ID" := SalesHeader.RecordId;
         RecordLink.Type := RecordLink.Type::Note;

@@ -1,5 +1,3 @@
-namespace System.Test.Tooling;
-
 codeunit 149116 "BCPT Sleep 1s"
 {
     trigger OnRun();

@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.Environment;
-using System.Security.AccessControl;
-
 page 30082 "APIV2 - Aut. Security Groups"
 {
     APIGroup = 'automation';
@@ -18,8 +13,6 @@ page 30082 "APIV2 - Aut. Security Groups"
     Extensible = false;
     SourceTableTemporary = true;
     ODataKeyFields = "Group ID";
-    InsertAllowed = false;
-    ModifyAllowed = false;
 
     layout
     {
@@ -65,21 +58,12 @@ page 30082 "APIV2 - Aut. Security Groups"
         if not AreRecordsLoaded then begin
             LoadRecords();
             AreRecordsLoaded := true;
-            if Rec.IsEmpty() then
-                exit(false);
         end;
-
-        exit(true);
     end;
 
     trigger OnOpenPage()
     begin
         BindSubscription(AutomationAPIManagement);
-    end;
-
-    trigger OnDeleteRecord(): Boolean
-    begin
-        SecurityGroup.Delete(Rec.Code);
     end;
 
     local procedure LoadRecords()

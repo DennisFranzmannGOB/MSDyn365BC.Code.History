@@ -1,8 +1,3 @@
-namespace System.Security.AccessControl;
-
-using System.Environment;
-using System.Threading;
-
 permissionset 4184 "Job Queue - Admin"
 {
     Access = Public;

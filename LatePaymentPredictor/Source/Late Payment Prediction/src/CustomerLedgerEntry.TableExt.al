@@ -1,6 +1,3 @@
-namespace Microsoft.Finance.Latepayment;
-
-using Microsoft.Sales.Receivables;
 tableextension 1952 CustomerLedgerEntryLPP extends "Cust. Ledger Entry"
 {
     fields

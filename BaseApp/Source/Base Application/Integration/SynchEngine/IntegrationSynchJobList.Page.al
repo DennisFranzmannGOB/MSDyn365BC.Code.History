@@ -1,17 +1,8 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.SyncEngine;
-
-using System.Reflection;
-using Microsoft.Integration.Dataverse;
-
 page 5338 "Integration Synch. Job List"
 {
     ApplicationArea = Suite;
     Caption = 'Integration Synchronization Jobs';
-    DataCaptionExpression = Rec."Integration Table Mapping Name";
+    DataCaptionExpression = "Integration Table Mapping Name";
     DeleteAllowed = true;
     Editable = false;
     InsertAllowed = false;
@@ -19,8 +10,8 @@ page 5338 "Integration Synch. Job List"
     ModifyAllowed = false;
     PageType = List;
     SourceTable = "Integration Synch. Job";
-    SourceTableView = sorting("Start Date/Time", ID)
-                      order(Descending);
+    SourceTableView = SORTING("Start Date/Time", ID)
+                      ORDER(Descending);
     UsageCategory = Lists;
 
     layout
@@ -127,7 +118,7 @@ page 5338 "Integration Synch. Job List"
                         IntegrationSynchJobErrors.Ascending := false;
 
                         IntegrationSynchJobErrors.FilterGroup(2);
-                        IntegrationSynchJobErrors.SetRange("Integration Synch. Job ID", Rec.ID);
+                        IntegrationSynchJobErrors.SetRange("Integration Synch. Job ID", ID);
                         IntegrationSynchJobErrors.FilterGroup(0);
 
                         IntegrationSynchJobErrors.FindFirst();
@@ -138,22 +129,6 @@ page 5338 "Integration Synch. Job List"
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the number of records that were skipped during the integration synchronization job.';
-
-                    trigger OnDrillDown()
-                    var
-                        IntegrationTableMapping: Record "Integration Table Mapping";
-                        CRMIntegrationRecord: Record "CRM Integration Record";
-                        CRMSkippedRecords: Page "CRM Skipped Records";
-                    begin
-                        if IntegrationTableMapping.Get(Rec."Integration Table Mapping Name") then begin
-                            CRMIntegrationRecord.SetRange("Table ID", IntegrationTableMapping."Table ID");
-                            CRMIntegrationRecord.SetRange(Skipped, true);
-                            if CRMIntegrationRecord.FindFirst() then begin
-                                CRMSkippedRecords.SetRecords(CRMIntegrationRecord);
-                                CRMSkippedRecords.Run();
-                            end;
-                        end;
-                    end;
                 }
                 field("Synch. Direction"; Rec."Synch. Direction")
                 {
@@ -199,7 +174,7 @@ page 5338 "Integration Synch. Job List"
 
                 trigger OnAction()
                 begin
-                    Rec.DeleteEntries(7);
+                    DeleteEntries(7);
                 end;
             }
             action(Delete0days)
@@ -212,7 +187,7 @@ page 5338 "Integration Synch. Job List"
 
                 trigger OnAction()
                 begin
-                    Rec.DeleteEntries(0);
+                    DeleteEntries(0);
                 end;
             }
         }
@@ -240,9 +215,9 @@ page 5338 "Integration Synch. Job List"
         JobTypeFilter := Rec.GetFilter(Type);
         if JobTypeFilter <> '' then begin
             TempIntegrationSynchJob.SetRange(Type, TempIntegrationSynchJob.Type::Uncoupling);
-            UncouplingSpecificColumnsVisible := Rec.GetFilter(Type) = TempIntegrationSynchJob.GetFilter(Type);
+            UncouplingSpecificColumnsVisible := GetFilter(Type) = TempIntegrationSynchJob.GetFilter(Type);
             TempIntegrationSynchJob.SetRange(Type, TempIntegrationSynchJob.Type::Coupling);
-            CouplingSpecificColumnsVisible := Rec.GetFilter(Type) = TempIntegrationSynchJob.GetFilter(Type);
+            CouplingSpecificColumnsVisible := GetFilter(Type) = TempIntegrationSynchJob.GetFilter(Type);
             SynchSpecificColumnsVisible := (not UncouplingSpecificColumnsVisible) and (not CouplingSpecificColumnsVisible);
             if UncouplingSpecificColumnsVisible then
                 CurrPage.Caption(IntegrationUncouplingJobsCaptionTxt);
@@ -261,7 +236,7 @@ page 5338 "Integration Synch. Job List"
         TableMetadata: Record "Table Metadata";
     begin
         SynchDirection := '';
-        if IntegrationTableMapping.Get(Rec."Integration Table Mapping Name") then begin
+        if IntegrationTableMapping.Get("Integration Table Mapping Name") then begin
             TableMetadata.Get(IntegrationTableMapping."Table ID");
             if not (Rec.Type in [Rec.Type::Uncoupling, Rec.Type::Coupling]) then
                 if Rec."Synch. Direction" = Rec."Synch. Direction"::ToIntegrationTable then

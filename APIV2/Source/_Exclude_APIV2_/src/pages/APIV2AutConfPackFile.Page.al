@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.Environment;
-using System.IO;
-
 page 30057 "APIV2 - Aut. Conf. Pack. File"
 {
     DelayedInsert = true;
@@ -47,10 +42,10 @@ page 30057 "APIV2 - Aut. Conf. Pack. File"
         CodeFilter: Text;
     begin
         if not FilesLoaded then begin
-            CodeFilter := Rec.GetFilter(Code);
+            CodeFilter := GetFilter(Code);
             if CodeFilter = '' then
                 Error(CodeNotSpecifiedForLinesErr);
-            if not Rec.FindFirst() then
+            if not FindFirst() then
                 exit(false);
             FilesLoaded := true;
         end;

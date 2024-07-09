@@ -1,17 +1,14 @@
-namespace Microsoft.Foundation.DataSearch;
-
-using System.Telemetry;
-
-#pragma warning disable AS0040 // SourceTable has been removed
 page 2680 "Data Search"
-#pragma warning restore AS0040
 {
     PageType = ListPlus;
     Caption = 'Search in company data [Preview]';
     ApplicationArea = All;
+    UsageCategory = Tasks;
+    SourceTable = "Data Search Source Temp";  // necessary in order to position cursor in search field
+    SourceTableTemporary = true;
+    DeleteAllowed = false;
     AboutTitle = 'About Search in company data';
     AboutText = 'Enter one or more search words in the search field. To see which tables are being searched, select Results | Show tables to search.';
-    InherentEntitlements = X;
 
     layout
     {
@@ -19,16 +16,14 @@ page 2680 "Data Search"
         {
             group(SearchStringgrp)
             {
-                ShowCaption = false;
-                field(SearchString; DisplaySearchString)
+                Caption = 'Text to search for (enter at least 3 characters)';
+                field(SearchString; SearchString)
                 {
-                    Caption = 'Search for (min. 3 characters)';
-#pragma warning disable AA0219
-                    ToolTip = 'Specify at least three characters to search for. You can enter multiple search words, and we will only find data that contains all words.';
-#pragma warning restore AA0219
+                    ShowCaption = false;
+                    Caption = 'Text to search for';
+                    ToolTip = 'Enter at least three characters to search for.';
                     ApplicationArea = All;
-                    Style = Subordinate;
-                    StyleExpr = SearchInProgress;
+                    Width = 250;
 
                     trigger OnValidate()
                     var
@@ -36,7 +31,7 @@ page 2680 "Data Search"
                         SearchStrings: List of [Text];
                         FirstString: Text;
                     begin
-                        SearchString := DelChr(DisplaySearchString, '<>', ' ');
+                        SearchString := DelChr(SearchString, '<>', ' ');
                         if StrLen(DelChr(SearchString, '=', '*')) < 3 then
                             exit;
                         DataSearchInTable.SplitSearchString(SearchString, SearchStrings);
@@ -48,75 +43,33 @@ page 2680 "Data Search"
                     end;
                 }
             }
-            part(LinesPart; "Data Search lines")
-            {
-                ApplicationArea = All;
-                UpdatePropagation = Both;
-            }
             group(lines)
             {
-                ObsoleteState = Pending;
-                ObsoleteReason = 'Unnecessary';
-                ObsoleteTag = '23.0';
-                Visible = false;
+                Caption = 'Results';
                 ShowCaption = false;
-            }
-        }
-    }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(Search)
-            {
-                ApplicationArea = All;
-                Caption = 'Start search';
-                ToolTip = 'Starts the search.';
-                Image = Find;
-                Enabled = SearchString <> '';
-
-                trigger OnAction()
-                begin
-                    LaunchDeltaSearch();
-                end;
-            }
-        }
-        area(Promoted)
-        {
-            group(Category_Process)
-            {
-                Caption = 'Search', Comment = 'Generated from the PromotedActionCategories property index 1.';
-
-                actionref(Contact_Promoted; Search)
+                part(LinesPart; "Data Search lines")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
     }
 
     var
+        Notification: Notification;
         SearchString: Text;
-        DisplaySearchString: Text;
-        SearchInProgress: Boolean;
         ActiveSearches: Dictionary of [Integer, Integer];
         QueuedSearches: List of [Integer];
         NoOfParallelTasks: Integer;
         NoTablesDefinedErr: Label 'No tables defined for search.';
-        StatusSearchLbl: Label 'Searching for "%1"...', Comment = '%1 can be any text';
+        StatusLbl: Label 'Searching ...';
         DataSearchStartedTelemetryLbl: Label 'Data Search started', Locked = true;
         TelemetryCategoryLbl: Label 'Data Search', Locked = true;
 
     trigger OnInit()
     begin
-        NoOfParallelTasks := 6;
+        NoOfParallelTasks := 5;
         SearchString := '';
-    end;
-
-    trigger OnOpenPage()
-    begin
-        if SearchString <> '' then
-            LaunchSearch();
     end;
 
     trigger OnClosePage()
@@ -125,6 +78,12 @@ page 2680 "Data Search"
         FeatureUptakeStatus: Enum "Feature Uptake Status";
     begin
         FeatureTelemetry.LogUptake('0000IOJ', TelemetryCategoryLbl, FeatureUptakeStatus::Discovered);
+    end;
+
+    // necessary in order to position cursor in search field
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        Rec.Description := CopyStr(CurrPage.Caption, 1, MaxStrLen(Rec.Description));
     end;
 
     internal procedure LaunchSearch()
@@ -152,9 +111,8 @@ page 2680 "Data Search"
         DataSearchSetupTable.SetAscending("No. of Hits", false);
         if not DataSearchSetupTable.FindSet() then
             error(NoTablesDefinedErr);
-
-        SearchInProgress := true;
-        DisplaySearchString := StrSubstNo(StatusSearchLbl, SearchString);
+        Notification.Message := StatusLbl;
+        Notification.Send();
         repeat
             QueueSearchInBackground(DataSearchSetupTable."Table/Type ID");
             NoOfTablesToSearch += 1;
@@ -165,28 +123,6 @@ page 2680 "Data Search"
         Dimensions.Add('NumberOfSearchWords', Format(SearchStrings.Count()));
         Dimensions.Add('NumberOfTablesToSearch', Format(NoOfTablesToSearch));
         FeatureTelemetry.LogUsage('0000I9B', TelemetryCategoryLbl, DataSearchStartedTelemetryLbl, Dimensions);
-    end;
-
-    local procedure LaunchDeltaSearch()
-    var
-        ModifiedTablesSetup: List of [Integer];
-        TableTypeID: Integer;
-    begin
-        if SearchString = '' then
-            exit;
-        if CurrPage.LinesPart.Page.HasChangedSetupNotification() then begin
-            ModifiedTablesSetup := CurrPage.LinesPart.Page.GetModifiedSetup();
-            CurrPage.LinesPart.Page.RemoveResultsForModifiedSetup();
-            CurrPage.LinesPart.Page.RecallLastNotification();
-            if ModifiedTablesSetup.Count() > 0 then begin
-                CancelRunningTasks();
-                SearchInProgress := true;
-                DisplaySearchString := StrSubstNo(StatusSearchLbl, SearchString);
-                foreach TableTypeID in ModifiedTablesSetup do
-                    QueueSearchInBackground(TableTypeID);
-            end;
-        end else
-            LaunchSearch();
     end;
 
     local procedure QueueSearchInBackground(TableTypeID: Integer)
@@ -246,15 +182,13 @@ page 2680 "Data Search"
         TableTypeID := ActiveSearches.Get(TaskId);
         ActiveSearches.Remove(TaskId);
         if (ActiveSearches.Count() = 0) and (QueuedSearches.Count() = 0) then
-            DisplaySearchString := SearchString
+            Notification.Recall()
         else
             DeQueueSearchInBackground();
 
         AddResults(TableTypeID, Results);
-        if (ActiveSearches.Count() = 0) and (QueuedSearches.Count() = 0) then begin
-            SearchInProgress := false;
-            CurrPage.Update(false);
-        end;
+        if (ActiveSearches.Count() = 0) and (QueuedSearches.Count() = 0) then
+            CurrPage.Update(true);
     end;
 
     protected procedure AddResults(TableTypeId: Integer; var Results: Dictionary of [Text, Text])
@@ -272,6 +206,6 @@ page 2680 "Data Search"
 
     procedure SetSearchString(NewSearchString: Text)
     begin
-        SearchString := DelChr(NewSearchString, '<>', ' ');
+        SearchString := NewSearchString;
     end;
 }

@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Foundation.Address;
-using Microsoft.Integration.Graph;
-
 page 30027 "APIV2 - Countries/Regions"
 {
     APIVersion = 'v2.0';
@@ -22,40 +17,40 @@ page 30027 "APIV2 - Countries/Regions"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'Code';
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FieldNo(Code));
                     end;
                 }
-                field(displayName; Rec.Name)
+                field(displayName; Name)
                 {
                     Caption = 'Name';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Name));
+                        RegisterFieldSet(FieldNo(Name));
                     end;
                 }
-                field(addressFormat; Rec."Address Format")
+                field(addressFormat; "Address Format")
                 {
                     Caption = 'Address Format';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Address Format"));
+                        RegisterFieldSet(FieldNo("Address Format"));
                     end;
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }
@@ -73,17 +68,17 @@ page 30027 "APIV2 - Countries/Regions"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         CountryRegionRecordRef: RecordRef;
     begin
-        CountryRegion.SetRange(Code, Rec.Code);
+        CountryRegion.SetRange(Code, Code);
         if not CountryRegion.IsEmpty() then
-            Rec.Insert();
+            Insert();
 
-        Rec.Insert(true);
+        Insert(true);
 
         CountryRegionRecordRef.GetTable(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(CountryRegionRecordRef, TempFieldSet, CurrentDateTime());
         CountryRegionRecordRef.SetTable(Rec);
 
-        Rec.Modify(true);
+        Modify(true);
         exit(false);
     end;
 
@@ -91,14 +86,14 @@ page 30027 "APIV2 - Countries/Regions"
     var
         CountryRegion: Record "Country/Region";
     begin
-        CountryRegion.GetBySystemId(Rec.SystemId);
+        CountryRegion.GetBySystemId(SystemId);
 
-        if Rec.Code = CountryRegion.Code then
-            Rec.Modify(true)
+        if Code = CountryRegion.Code then
+            Modify(true)
         else begin
             CountryRegion.TransferFields(Rec, false);
-            CountryRegion.Rename(Rec.Code);
-            Rec.TransferFields(CountryRegion);
+            CountryRegion.Rename(Code);
+            TransferFields(CountryRegion);
         end;
     end;
 

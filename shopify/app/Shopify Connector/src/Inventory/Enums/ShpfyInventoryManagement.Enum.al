@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Enum Shpfy Inventory Management (ID 30124).
 /// </summary>

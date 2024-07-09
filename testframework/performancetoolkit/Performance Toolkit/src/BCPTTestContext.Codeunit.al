@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Tooling;
-
 /// <summary>
 /// Exposes functions that can be used by the BCPT tests.
 /// </summary>
@@ -100,14 +98,14 @@ codeunit 149003 "BCPT Test Context"
         BCPTLine: Record "BCPT Line";
     begin
         GetBCPTLine(BCPTLine);
-        exit(BCPTLine.Parameters);
+        Exit(BCPTLine.Parameters);
     end;
 
     /// <summary>
     /// Returns the requested paramater value associated with the session.
     /// </summary>
     /// <param name="ParameterName">Name of the parameter.</param>
-    procedure GetParameter(ParameterName: Text): Text
+    Procedure GetParameter(ParameterName: Text): Text
     var
         BCPTLine: Record "BCPT Line";
         dict: Dictionary of [Text, Text];

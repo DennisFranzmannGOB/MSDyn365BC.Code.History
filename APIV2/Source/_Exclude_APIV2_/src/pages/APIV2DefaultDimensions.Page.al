@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Finance.Dimension;
-
 page 30054 "APIV2 - Default Dimensions"
 {
     APIVersion = 'v2.0';
@@ -21,45 +17,40 @@ page 30054 "APIV2 - Default Dimensions"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(parentType; Rec."Parent Type")
+                field(parentType; "Parent Type")
                 {
                     Caption = 'Parent Type';
                 }
-                field(parentId; Rec.ParentId)
+                field(parentId; ParentId)
                 {
                     Caption = 'Parent Id';
                 }
-                field(dimensionId; Rec.DimensionId)
+                field(dimensionId; DimensionId)
                 {
                     Caption = 'Dimension Id';
                 }
-                field(dimensionCode; Rec."Dimension Code")
+                field(dimensionCode; "Dimension Code")
                 {
                     Caption = 'Dimension Code';
                     Editable = false;
                 }
-                field(dimensionValueId; Rec.DimensionValueId)
+                field(dimensionValueId; DimensionValueId)
                 {
                     Caption = 'Dimension Value Id';
                 }
-                field(dimensionValueCode; Rec."Dimension Value Code")
+                field(dimensionValueCode; "Dimension Value Code")
                 {
                     Caption = 'Dimension Value Code';
                     Editable = false;
                 }
-                field(postingValidation; Rec."Value Posting")
+                field(postingValidation; "Value Posting")
                 {
                     Caption = 'Posting Validation';
-                }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
-                {
-                    Caption = 'Last Modified Date';
-                    Editable = false;
                 }
             }
         }
@@ -75,18 +66,18 @@ page 30054 "APIV2 - Default Dimensions"
         ParentIdFilter: Text;
         ParentTypeFilter: Text;
     begin
-        if Rec."Parent Type" = Rec."Parent Type"::" " then begin
-            ParentTypeFilter := Rec.GetFilter("Parent Type");
+        if "Parent Type" = "Parent Type"::" " then begin
+            ParentTypeFilter := GetFilter("Parent Type");
             if ParentTypeFilter = '' then
                 Error(ParentNotSpecifiedErr);
             Evaluate(DefaultDimensionParentType, ParentTypeFilter);
-            Rec.Validate("Parent Type", DefaultDimensionParentType);
+            Validate("Parent Type", DefaultDimensionParentType);
         end;
-        if IsNullGuid(Rec.ParentId) then begin
-            ParentIdFilter := Rec.GetFilter(ParentId);
+        if IsNullGuid(ParentId) then begin
+            ParentIdFilter := GetFilter(ParentId);
             if ParentIdFilter = '' then
                 Error(ParentNotSpecifiedErr);
-            Rec.Validate(ParentId, ParentIdFilter);
+            Validate(ParentId, ParentIdFilter);
         end;
         exit(true);
     end;

@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Integration.Entity;
-using Microsoft.Integration.Graph;
-
 page 20035 "APIV1 - Income Statement"
 {
     APIVersion = 'v1.0';
@@ -25,29 +20,29 @@ page 20035 "APIV1 - Income Statement"
         {
             repeater(Group)
             {
-                field(lineNumber; Rec."Line No.")
+                field(lineNumber; "Line No.")
                 {
                     Caption = 'lineNumber', Locked = true;
                 }
-                field(display; Rec.Description)
+                field(display; Description)
                 {
                     Caption = 'description', Locked = true;
                 }
-                field(netChange; Rec."Net Change")
+                field(netChange; "Net Change")
                 {
                     AutoFormatType = 0;
                     BlankZero = true;
                     Caption = 'netChange', Locked = true;
                 }
-                field(lineType; Rec."Line Type")
+                field(lineType; "Line Type")
                 {
                     Caption = 'lineType', Locked = true;
                 }
-                field(indentation; Rec.Indentation)
+                field(indentation; Indentation)
                 {
                     Caption = 'indentation', Locked = true;
                 }
-                field(dateFilter; Rec."Date Filter")
+                field(dateFilter; "Date Filter")
                 {
                     Caption = 'dateFilter', Locked = true;
                 }
@@ -69,6 +64,5 @@ page 20035 "APIV1 - Income Statement"
         GraphMgtReports.SetUpAccountScheduleBaseAPIDataWrapper(RecVariant, ReportAPIType::"Income Statement");
     end;
 }
-
 
 

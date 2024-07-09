@@ -1,4 +1,4 @@
-﻿codeunit 134590 "Mandatory Fields Tests"
+codeunit 134590 "Mandatory Fields Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -211,7 +211,6 @@
         Assert.IsTrue(CompanyInformation."Post Code".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsTrue(CompanyInformation.City.ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsTrue(CompanyInformation."Country/Region Code".ShowMandatory, UnexpectedShowMandatoryValueTxt);
-        Assert.IsTrue(CompanyInformation.County.ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsTrue(CompanyInformation."Bank Name".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsTrue(CompanyInformation."Bank Branch No.".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsTrue(CompanyInformation."Bank Account No.".ShowMandatory, UnexpectedShowMandatoryValueTxt);
@@ -239,7 +238,7 @@
         SetExternalDocNoMandatory(true);
         SalesInvoice.OpenNew();
         Assert.IsTrue(SalesInvoice."Sell-to Customer Name".ShowMandatory, UnexpectedShowMandatoryValueTxt);
-        Assert.IsTrue(SalesInvoice."External Document No.".ShowMandatory, UnexpectedShowMandatoryValueTxt); // TFS 405629
+        Assert.IsTrue(SalesInvoice."External Document No.".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         SalesInvoice."Sell-to Customer Name".SetValue(Customer."No.");
         SalesInvoice.SalesLines.New;
         Assert.AreEqual(false, SalesInvoice.SalesLines.Quantity.ShowMandatory, UnexpectedShowMandatoryValueTxt);
@@ -272,7 +271,7 @@
         SetExternalDocNoMandatory(true);
         SalesOrder.OpenNew();
         Assert.IsTrue(SalesOrder."Sell-to Customer Name".ShowMandatory, UnexpectedShowMandatoryValueTxt);
-        Assert.IsTrue(SalesOrder."External Document No.".ShowMandatory, UnexpectedShowMandatoryValueTxt); // TFS 405629
+        Assert.IsTrue(SalesOrder."External Document No.".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         SalesOrder."Sell-to Customer Name".SetValue(Customer."No.");
         SalesOrder.SalesLines.New;
         Assert.IsFalse(SalesOrder.SalesLines.Quantity.ShowMandatory, UnexpectedShowMandatoryValueTxt);
@@ -385,7 +384,6 @@
         Assert.IsTrue(PurchaseInvoice."Buy-from Vendor Name".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsTrue(PurchaseInvoice."Vendor Invoice No.".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         PurchaseInvoice."Buy-from Vendor Name".SetValue(Vendor.Name);
-        Assert.IsTrue(PurchaseInvoice."Check Total".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         PurchaseInvoice.PurchLines.New;
         Assert.IsFalse(PurchaseInvoice.PurchLines.Quantity.ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsFalse(PurchaseInvoice.PurchLines."Direct Unit Cost".ShowMandatory, UnexpectedShowMandatoryValueTxt);
@@ -418,7 +416,6 @@
         PurchaseOrder.OpenNew();
         Assert.IsTrue(PurchaseOrder."Buy-from Vendor Name".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsTrue(PurchaseOrder."Vendor Invoice No.".ShowMandatory, UnexpectedShowMandatoryValueTxt);
-        Assert.IsTrue(PurchaseOrder."Check Total".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         PurchaseOrder."Buy-from Vendor Name".SetValue(Vendor."No.");
         PurchaseOrder.PurchLines.New;
         Assert.IsFalse(PurchaseOrder.PurchLines.Quantity.ShowMandatory, UnexpectedShowMandatoryValueTxt);
@@ -452,8 +449,6 @@
         PurchaseCreditMemo.OpenNew();
         Assert.IsTrue(PurchaseCreditMemo."Buy-from Vendor Name".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         Assert.IsTrue(PurchaseCreditMemo."Vendor Cr. Memo No.".ShowMandatory, UnexpectedShowMandatoryValueTxt);
-        Assert.IsTrue(PurchaseCreditMemo."Operation Type".ShowMandatory, UnexpectedShowMandatoryValueTxt);
-        Assert.IsTrue(PurchaseCreditMemo."Check Total".ShowMandatory, UnexpectedShowMandatoryValueTxt);
         PurchaseCreditMemo."Buy-from Vendor Name".SetValue(Vendor.Name);
         PurchaseCreditMemo.PurchLines.New;
         Assert.IsFalse(PurchaseCreditMemo.PurchLines.Quantity.ShowMandatory, UnexpectedShowMandatoryValueTxt);

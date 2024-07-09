@@ -31,7 +31,6 @@
         RandomizeCount: Integer;
         AvailableCharacters: Label 'abcdefghijklmnopqrstuvwxyz0123456789', Locked = true;
         ShortNameToExcludFromMatching: Label 'aaa', Locked = true;
-        IBANMandatoryTxt: Label 'The field IBAN is mandatory.';
 
     [Test]
     [HandlerFunctions('MessageHandler')]
@@ -2410,13 +2409,12 @@
 
         // Setup
         CreateCustomer(Customer);
+        TextMapper := GenerateTextToAccountMapping();
         LibraryERM.CreateAccountMappingGLAccount(TextToAccMapping, TextMapper, LibraryERM.CreateGLAccountNo, '');
 
         Amount := LibraryRandom.RandDecInRange(1, 1000, 2);
         DocumentNo := CreateAndPostSalesInvoiceWithOneLine(Customer."No.", GenerateExtDocNo, Amount);
         DocumentNo2 := CreateAndPostSalesInvoiceWithOneLine(Customer."No.", GenerateExtDocNo, Amount);
-
-        TextMapper := GenerateTextToAccountMapping();
 
         CreateBankReconciliationAmountTolerance(BankAccReconciliation, 0);
         CreateBankReconciliationLine(
@@ -3545,7 +3543,7 @@
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler,ConfirmHandler,VerifyMatchDetailsOnPaymentApplicationsPage')]
+    [HandlerFunctions('MessageHandler,VerifyMatchDetailsOnPaymentApplicationsPage')]
     [Scope('OnPrem')]
     procedure TestVendMatchOnBankAccountOnly()
     var
@@ -3566,8 +3564,6 @@
         CreateBankReconciliationAmountTolerance(BankAccReconciliation, 0);
         CreateBankReconciliationLine(BankAccReconciliation, BankAccReconciliationLine, -Amount / 2, '', '');
         UpdateBankReconciliationLine(BankAccReconciliationLine, BankAccReconciliation."Bank Account No.", '', '', '');
-        LibraryVariableStorage.Enqueue(IBANMandatoryTxt);
-        LibraryVariableStorage.Enqueue(true);
         CreateVendorBankAccount(VendorBankAccount, Vendor."No.", BankAccReconciliation."Bank Account No.");
 
         // Exercise
@@ -4104,7 +4100,7 @@
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler,ConfirmHandler,VerifyMatchDetailsOnPaymentApplicationsPage')]
+    [HandlerFunctions('MessageHandler,VerifyMatchDetailsOnPaymentApplicationsPage')]
     [Scope('OnPrem')]
     procedure TestVendCertainAndMultipleAmountMatch()
     var
@@ -4126,8 +4122,6 @@
         CreateBankReconciliationAmountTolerance(BankAccReconciliation, 0);
         CreateBankReconciliationLine(BankAccReconciliation, BankAccReconciliationLine, -Amount, '', '');
         UpdateBankReconciliationLine(BankAccReconciliationLine, BankAccReconciliation."Bank Account No.", '', '', '');
-        LibraryVariableStorage.Enqueue(IBANMandatoryTxt);
-        LibraryVariableStorage.Enqueue(true);
         CreateVendorBankAccount(VendorBankAccount, Vendor."No.", BankAccReconciliation."Bank Account No.");
 
         // Exercise
@@ -4142,7 +4136,7 @@
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler,ConfirmHandler,VerifyMatchDetailsOnPaymentApplicationsPage')]
+    [HandlerFunctions('MessageHandler,VerifyMatchDetailsOnPaymentApplicationsPage')]
     [Scope('OnPrem')]
     procedure TestVendCertainAndSingleAmountMatch()
     var
@@ -4163,8 +4157,6 @@
         CreateBankReconciliationAmountTolerance(BankAccReconciliation, 0);
         CreateBankReconciliationLine(BankAccReconciliation, BankAccReconciliationLine, -Amount, '', '');
         UpdateBankReconciliationLine(BankAccReconciliationLine, BankAccReconciliation."Bank Account No.", '', '', '');
-        LibraryVariableStorage.Enqueue(IBANMandatoryTxt);
-        LibraryVariableStorage.Enqueue(true);
         CreateVendorBankAccount(VendorBankAccount, Vendor."No.", BankAccReconciliation."Bank Account No.");
 
         // Exercise
@@ -6213,7 +6205,7 @@
         SalesHeader.Validate("External Document No.", ExtDocNo);
 
         if DueDate <> 0D then
-            SalesHeader.Validate("Document Date", DueDate);
+            SalesHeader.Validate("Due Date", DueDate);
 
         SalesHeader.Modify(true);
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", 1);
@@ -6236,7 +6228,7 @@
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, VendorNo);
         PurchaseHeader.Validate("Vendor Invoice No.", ExtDocNo);
         if DueDate <> 0D then
-            PurchaseHeader.Validate("Document Date", DueDate);
+            PurchaseHeader.Validate("Due Date", DueDate);
 
         PurchaseHeader.Modify(true);
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, Item."No.", 1);
@@ -6930,21 +6922,6 @@
         Assert.AreEqual(AppliedPaymentEntry."Applied Amount", ExpectedAppliedAmount, 'Wrong amount set');
         Assert.AreEqual(AppliedPaymentEntry."Applies-to Entry No.", ExpectedAppliesToEntryNo, 'Wrong Applies-to Entry No. value is set');
         Assert.AreEqual(AppliedPaymentEntry.Quality, Quality, 'Wrong quality is set');
-    end;
-
-    [ConfirmHandler]
-    [Scope('OnPrem')]
-    procedure ConfirmHandler(Question: Text[1024]; var Reply: Boolean)
-    var
-        ExpectedMsg: Variant;
-        ExpectedReply: Variant;
-    begin
-        LibraryVariableStorage.Dequeue(ExpectedMsg);
-        LibraryVariableStorage.Dequeue(ExpectedReply);
-
-        Assert.IsTrue(StrPos(Question, ExpectedMsg) > 0, Question);
-
-        Reply := ExpectedReply;
     end;
 }
 

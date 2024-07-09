@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Enum Shpfy Cancel Reason (ID 30116).
 /// </summary>

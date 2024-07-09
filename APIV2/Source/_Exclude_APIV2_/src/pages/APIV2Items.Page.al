@@ -1,12 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Foundation.UOM;
-using Microsoft.Inventory.Item;
-using Microsoft.Finance.SalesTax;
-using Microsoft.Integration.Graph;
-using Microsoft.Inventory.Journal;
-using Microsoft.Inventory.Posting;
-
 page 30008 "APIV2 - Items"
 {
     APIVersion = 'v2.0';
@@ -27,22 +18,22 @@ page 30008 "APIV2 - Items"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'No.';
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'Display Name';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FieldNo(Description));
                     end;
                 }
                 field(displayName2; Rec."Description 2")
@@ -51,75 +42,75 @@ page 30008 "APIV2 - Items"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Description 2"));
+                        RegisterFieldSet(FieldNo("Description 2"));
                     end;
                 }
-                field(type; Rec.Type)
+                field(type; Type)
                 {
                     Caption = 'Type';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Type));
+                        RegisterFieldSet(FieldNo(Type));
                     end;
                 }
-                field(itemCategoryId; Rec."Item Category Id")
+                field(itemCategoryId; "Item Category Id")
                 {
                     Caption = 'Item Category Id';
 
                     trigger OnValidate()
                     begin
-                        if Rec."Item Category Id" = BlankGUID then
-                            Rec."Item Category Code" := ''
+                        if "Item Category Id" = BlankGUID then
+                            "Item Category Code" := ''
                         else begin
-                            if not ItemCategory.GetBySystemId(Rec."Item Category Id") then
+                            if not ItemCategory.GetBySystemId("Item Category Id") then
                                 Error(ItemCategoryIdDoesNotMatchAnItemCategoryGroupErr);
 
-                            Rec."Item Category Code" := ItemCategory.Code;
+                            "Item Category Code" := ItemCategory.Code;
                         end;
 
-                        RegisterFieldSet(Rec.FieldNo("Item Category Code"));
-                        RegisterFieldSet(Rec.FieldNo("Item Category Id"));
+                        RegisterFieldSet(FieldNo("Item Category Code"));
+                        RegisterFieldSet(FieldNo("Item Category Id"));
                     end;
                 }
-                field(itemCategoryCode; Rec."Item Category Code")
+                field(itemCategoryCode; "Item Category Code")
                 {
                     Caption = 'Item Category Code';
 
                     trigger OnValidate()
                     begin
                         if ItemCategory.Code <> '' then begin
-                            if ItemCategory.Code <> Rec."Item Category Code" then
+                            if ItemCategory.Code <> "Item Category Code" then
                                 Error(ItemCategoriesValuesDontMatchErr);
                             exit;
                         end;
 
-                        if Rec."Item Category Code" = '' then
-                            Rec."Item Category Id" := BlankGUID
+                        if "Item Category Code" = '' then
+                            "Item Category Id" := BlankGUID
                         else begin
-                            if not ItemCategory.Get(Rec."Item Category Code") then
+                            if not ItemCategory.Get("Item Category Code") then
                                 Error(ItemCategoryCodeDoesNotMatchATaxGroupErr);
 
-                            Rec."Item Category Id" := ItemCategory.SystemId;
+                            "Item Category Id" := ItemCategory.SystemId;
                         end;
                     end;
                 }
-                field(blocked; Rec.Blocked)
+                field(blocked; Blocked)
                 {
                     Caption = 'Blocked';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Blocked));
+                        RegisterFieldSet(FieldNo(Blocked));
                     end;
                 }
-                field(gtin; Rec.GTIN)
+                field(gtin; GTIN)
                 {
                     Caption = 'GTIN';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(GTIN));
+                        RegisterFieldSet(FieldNo(GTIN));
                     end;
                 }
                 field(inventory; InventoryValue)
@@ -128,149 +119,149 @@ page 30008 "APIV2 - Items"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Inventory));
+                        RegisterFieldSet(FieldNo(Inventory));
                     end;
                 }
-                field(unitPrice; Rec."Unit Price")
+                field(unitPrice; "Unit Price")
                 {
                     Caption = 'Unit Price';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Unit Price"));
+                        RegisterFieldSet(FieldNo("Unit Price"));
                     end;
                 }
-                field(priceIncludesTax; Rec."Price Includes VAT")
+                field(priceIncludesTax; "Price Includes VAT")
                 {
                     Caption = 'Price Includes Tax';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Price Includes VAT"));
+                        RegisterFieldSet(FieldNo("Price Includes VAT"));
                     end;
                 }
-                field(unitCost; Rec."Unit Cost")
+                field(unitCost; "Unit Cost")
                 {
                     Caption = 'Unit Cost';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Unit Cost"));
+                        RegisterFieldSet(FieldNo("Unit Cost"));
                     end;
                 }
-                field(taxGroupId; Rec."Tax Group Id")
+                field(taxGroupId; "Tax Group Id")
                 {
                     Caption = 'Tax Group Id';
 
                     trigger OnValidate()
                     begin
-                        if Rec."Tax Group Id" = BlankGUID then
-                            Rec."Tax Group Code" := ''
+                        if "Tax Group Id" = BlankGUID then
+                            "Tax Group Code" := ''
                         else begin
-                            if not TaxGroup.GetBySystemId(Rec."Tax Group Id") then
+                            if not TaxGroup.GetBySystemId("Tax Group Id") then
                                 Error(TaxGroupIdDoesNotMatchATaxGroupErr);
 
-                            Rec."Tax Group Code" := TaxGroup.Code;
+                            "Tax Group Code" := TaxGroup.Code;
                         end;
 
-                        RegisterFieldSet(Rec.FieldNo("Tax Group Code"));
-                        RegisterFieldSet(Rec.FieldNo("Tax Group Id"));
+                        RegisterFieldSet(FieldNo("Tax Group Code"));
+                        RegisterFieldSet(FieldNo("Tax Group Id"));
                     end;
                 }
-                field(taxGroupCode; Rec."Tax Group Code")
+                field(taxGroupCode; "Tax Group Code")
                 {
                     Caption = 'Tax Group Code';
 
                     trigger OnValidate()
                     begin
                         if TaxGroup.Code <> '' then begin
-                            if TaxGroup.Code <> Rec."Tax Group Code" then
+                            if TaxGroup.Code <> "Tax Group Code" then
                                 Error(TaxGroupValuesDontMatchErr);
                             exit;
                         end;
 
-                        if Rec."Tax Group Code" = '' then
-                            Rec."Tax Group Id" := BlankGUID
+                        if "Tax Group Code" = '' then
+                            "Tax Group Id" := BlankGUID
                         else begin
-                            if not TaxGroup.Get(Rec."Tax Group Code") then
+                            if not TaxGroup.Get("Tax Group Code") then
                                 Error(TaxGroupCodeDoesNotMatchATaxGroupErr);
 
-                            Rec."Tax Group Id" := TaxGroup.SystemId;
+                            "Tax Group Id" := TaxGroup.SystemId;
                         end;
 
-                        RegisterFieldSet(Rec.FieldNo("Tax Group Code"));
-                        RegisterFieldSet(Rec.FieldNo("Tax Group Id"));
+                        RegisterFieldSet(FieldNo("Tax Group Code"));
+                        RegisterFieldSet(FieldNo("Tax Group Id"));
                     end;
                 }
-                field(baseUnitOfMeasureId; Rec."Unit of Measure Id")
+                field(baseUnitOfMeasureId; "Unit of Measure Id")
                 {
                     Caption = 'Base Unit Of Measure Id';
 
                     trigger OnValidate()
                     begin
-                        if not IsNullGuid(Rec."Unit of Measure Id") then
-                            if not ValidateUnitOfMeasure.GetBySystemId(Rec."Unit of Measure Id") then
+                        if not IsNullGuid("Unit of Measure Id") then
+                            if not ValidateUnitOfMeasure.GetBySystemId("Unit of Measure Id") then
                                 Error(UnitOfMeasureIdDoesNotMatchAUnitOfMeasureErr);
 
                         BaseUnitOfMeasureIdValidated := true;
 
-                        RegisterFieldSet(Rec.FieldNo("Unit of Measure Id"));
-                        RegisterFieldSet(Rec.FieldNo("Base Unit of Measure"));
+                        RegisterFieldSet(FieldNo("Unit of Measure Id"));
+                        RegisterFieldSet(FieldNo("Base Unit of Measure"));
                     end;
                 }
-                field(baseUnitOfMeasureCode; Rec."Base Unit of Measure")
+                field(baseUnitOfMeasureCode; "Base Unit of Measure")
                 {
                     Caption = 'Base Unit Of Measure Code';
 
                     trigger OnValidate()
                     begin
-                        if (Rec."Base Unit of Measure" <> '') and (ValidateUnitOfMeasure.Code <> '') then
-                            if ValidateUnitOfMeasure.Code <> Rec."Base Unit of Measure" then
+                        if ("Base Unit of Measure" <> '') and (ValidateUnitOfMeasure.Code <> '') then
+                            if ValidateUnitOfMeasure.Code <> "Base Unit of Measure" then
                                 Error(UnitOfMeasureValuesDontMatchErr);
 
                         BaseUnitOfMeasureCodeValidated := true;
 
-                        RegisterFieldSet(Rec.FieldNo("Unit of Measure Id"));
-                        RegisterFieldSet(Rec.FieldNo("Base Unit of Measure"));
+                        RegisterFieldSet(FieldNo("Unit of Measure Id"));
+                        RegisterFieldSet(FieldNo("Base Unit of Measure"));
                     end;
                 }
-                field(generalProductPostingGroupId; Rec."Gen. Prod. Posting Group Id")
+                field(generalProductPostingGroupId; "Gen. Prod. Posting Group Id")
                 {
                     Caption = 'General Product Posting Group Id';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Gen. Prod. Posting Group Id"));
+                        RegisterFieldSet(FieldNo("Gen. Prod. Posting Group Id"));
                     end;
                 }
-                field(generalProductPostingGroupCode; Rec."Gen. Prod. Posting Group")
+                field(generalProductPostingGroupCode; "Gen. Prod. Posting Group")
                 {
                     Caption = 'General Product Posting Group Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Gen. Prod. Posting Group"));
+                        RegisterFieldSet(FieldNo("Gen. Prod. Posting Group"));
                     end;
                 }
-                field(inventoryPostingGroupId; Rec."Inventory Posting Group Id")
+                field(inventoryPostingGroupId; "Inventory Posting Group Id")
                 {
                     Caption = 'Inventory Posting Group Id';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Inventory Posting Group Id"));
+                        RegisterFieldSet(FieldNo("Inventory Posting Group Id"));
                     end;
                 }
-                field(inventoryPostingGroupCode; Rec."Inventory Posting Group")
+                field(inventoryPostingGroupCode; "Inventory Posting Group")
                 {
                     Caption = 'Inventory Posting Group Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Inventory Posting Group"));
+                        RegisterFieldSet(FieldNo("Inventory Posting Group"));
                     end;
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                     Editable = false;
@@ -282,7 +273,7 @@ page 30008 "APIV2 - Items"
                     Multiplicity = ZeroOrOne;
                     EntityName = 'inventoryPostingGroup';
                     EntitySetName = 'inventoryPostingGroups';
-                    SubPageLink = SystemId = field("Inventory Posting Group Id");
+                    SubPageLink = SystemId = Field("Inventory Posting Group Id");
                 }
                 part(generalProductPostingGroup; "APIV2 - Gen. Prod. Post. Group")
                 {
@@ -290,7 +281,7 @@ page 30008 "APIV2 - Items"
                     Multiplicity = ZeroOrOne;
                     EntityName = 'generalProductPostingGroup';
                     EntitySetName = 'generalProductPostingGroups';
-                    SubPageLink = SystemId = field("Gen. Prod. Posting Group Id");
+                    SubPageLink = SystemId = Field("Gen. Prod. Posting Group Id");
                 }
                 part(baseUnitOfMeasure; "APIV2 - Units of Measure")
                 {
@@ -298,7 +289,7 @@ page 30008 "APIV2 - Items"
                     Multiplicity = ZeroOrOne;
                     EntityName = 'unitOfMeasure';
                     EntitySetName = 'unitsOfMeasure';
-                    SubPageLink = SystemId = field("Unit of Measure Id");
+                    SubPageLink = SystemId = Field("Unit of Measure Id");
                 }
                 part(picture; "APIV2 - Pictures")
                 {
@@ -306,14 +297,14 @@ page 30008 "APIV2 - Items"
                     Multiplicity = ZeroOrOne;
                     EntityName = 'picture';
                     EntitySetName = 'pictures';
-                    SubPageLink = Id = field(SystemId), "Parent Type" = const(Item);
+                    SubPageLink = Id = Field(SystemId), "Parent Type" = const(Item);
                 }
                 part(defaultDimensions; "APIV2 - Default Dimensions")
                 {
                     Caption = 'Default Dimensions';
                     EntityName = 'defaultDimension';
                     EntitySetName = 'defaultDimensions';
-                    SubPageLink = ParentId = field(SystemId), "Parent Type" = const(Item);
+                    SubPageLink = ParentId = Field(SystemId), "Parent Type" = const(Item);
                 }
                 part(itemVariants; "APIV2 - Item Variants")
                 {
@@ -327,7 +318,7 @@ page 30008 "APIV2 - Items"
                     Caption = 'Document Attachments';
                     EntityName = 'documentAttachment';
                     EntitySetName = 'documentAttachments';
-                    SubPageLink = "Document Id" = field(SystemId), "Document Type" = const(Item);
+                    SubPageLink = "Document Id" = Field(SystemId), "Document Type" = const(Item);
                 }
             }
         }
@@ -354,17 +345,17 @@ page 30008 "APIV2 - Items"
         if IsInsert then
             exit(InsertItem());
 
-        if TempFieldSet.Get(Database::Item, Rec.FieldNo(Inventory)) then
+        if TempFieldSet.Get(Database::Item, FieldNo(Inventory)) then
             UpdateInventory();
 
-        Item.GetBySystemId(Rec.SystemId);
+        Item.GetBySystemId(SystemId);
 
-        if Rec."No." = Item."No." then
-            Rec.Modify(true)
+        if "No." = Item."No." then
+            Modify(true)
         else begin
             Item.TransferFields(Rec, false);
-            Item.Rename(Rec."No.");
-            Rec.TransferFields(Item, true);
+            Item.Rename("No.");
+            TransferFields(Item, true);
         end;
 
         SetCalculatedFields();
@@ -374,7 +365,7 @@ page 30008 "APIV2 - Items"
 
     trigger OnOpenPage()
     begin
-        Rec.SetAutoCalcFields(Inventory);
+        SetAutoCalcFields(Inventory);
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -406,7 +397,7 @@ page 30008 "APIV2 - Items"
 
     local procedure InsertItem(): Boolean
     begin
-        if TempFieldSet.Get(Database::Item, Rec.FieldNo(Inventory)) then
+        if TempFieldSet.Get(Database::Item, FieldNo(Inventory)) then
             Error(InventoryCannotBeChangedInAPostRequestErr);
 
         if not BaseUnitOfMeasureCodeValidated then
@@ -426,12 +417,12 @@ page 30008 "APIV2 - Items"
     local procedure SetCalculatedFields()
     begin
         // Inventory
-        InventoryValue := Rec.Inventory;
+        InventoryValue := Inventory;
     end;
 
     local procedure ClearCalculatedFields()
     begin
-        Clear(Rec.SystemId);
+        Clear(SystemId);
         Clear(InventoryValue);
         Clear(BaseUnitOfMeasureCodeValidated);
         Clear(BaseUnitOfMeasureIdValidated);
@@ -443,24 +434,24 @@ page 30008 "APIV2 - Items"
         ItemJournalLine: Record "Item Journal Line";
         ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
     begin
-        Rec.calcfields(Inventory);
-        if Rec.Inventory = InventoryValue then
+        calcfields(Inventory);
+        if Inventory = InventoryValue then
             exit;
         ItemJournalLine.Init();
         ItemJournalLine.Validate("Posting Date", Today());
-        ItemJournalLine."Document No." := Rec."No.";
+        ItemJournalLine."Document No." := "No.";
 
-        if Rec.Inventory < InventoryValue then
+        if Inventory < InventoryValue then
             ItemJournalLine.Validate("Entry Type", ItemJournalLine."Entry Type"::"Positive Adjmt.")
         else
             ItemJournalLine.Validate("Entry Type", ItemJournalLine."Entry Type"::"Negative Adjmt.");
 
-        ItemJournalLine.Validate("Item No.", Rec."No.");
-        ItemJournalLine.Validate(Description, Rec.Description);
-        ItemJournalLine.Validate(Quantity, Abs(InventoryValue - Rec.Inventory));
+        ItemJournalLine.Validate("Item No.", "No.");
+        ItemJournalLine.Validate(Description, Description);
+        ItemJournalLine.Validate(Quantity, Abs(InventoryValue - Inventory));
 
         ItemJnlPostLine.RunWithCheck(ItemJournalLine);
-        Rec.Get(Rec."No.");
+        Get("No.");
     end;
 
     local procedure RegisterFieldSet(FieldNo: Integer)

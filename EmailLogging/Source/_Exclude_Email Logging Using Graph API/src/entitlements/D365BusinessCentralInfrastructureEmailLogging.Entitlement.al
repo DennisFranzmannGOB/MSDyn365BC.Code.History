@@ -1,5 +1,3 @@
-namespace Microsoft.CRM.EmailLoggin;
-
 entitlement "D365 Business Central Infrastructure Email Logging"
 {
     Type = Application;

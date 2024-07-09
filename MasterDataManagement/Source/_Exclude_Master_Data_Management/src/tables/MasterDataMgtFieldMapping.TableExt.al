@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.MDM;
-
-using Microsoft.Integration.SyncEngine;
-
 tableextension 7234 MasterDataMgtFieldMapping extends "Integration Field Mapping"
 {
     fields

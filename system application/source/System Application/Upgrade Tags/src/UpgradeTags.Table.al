@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Upgrade;
-
 table 9999 "Upgrade Tags"
 {
     Access = Internal;
@@ -47,5 +45,8 @@ table 9999 "Upgrade Tags"
         }
     }
 
+    fieldgroups
+    {
+    }
 }
 

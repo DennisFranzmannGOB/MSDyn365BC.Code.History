@@ -19,7 +19,7 @@ page 134449 "County Caption Test List"
                 {
                     ApplicationArea = All;
                 }
-                field(County; Rec.County)
+                field(County; County)
                 {
                     ApplicationArea = All;
                 }

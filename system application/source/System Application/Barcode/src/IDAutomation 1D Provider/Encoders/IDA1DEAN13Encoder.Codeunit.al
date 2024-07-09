@@ -1,14 +1,8 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation. All rights reserved. 
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Text;
-
-using System;
-using System.Utilities;
-
-/// <summary>
+/// <summary> 
 /// EAN-13 barcode font implementation from IDAutomation
 /// from: https://www.barcodefaq.com/barcode-properties/symbologies/ean-13/
 /// Is most commonly used to encode 13 digits of the GTIN barcode symbology and also to identify books with Bookland or ISBN barcode symbols.
@@ -29,7 +23,7 @@ codeunit 9208 "IDA 1D EAN13 Encoder" implements "Barcode Font Encoder"
 
     procedure IsValidInput(InputText: Text; var BarcodeEncodeSettings: Record "Barcode Encode Settings"): Boolean;
     var
-        RegexPattern: Codeunit Regex;
+        RegexPattern: codeunit Regex;
     begin
         if InputText = '' then
             exit(false);

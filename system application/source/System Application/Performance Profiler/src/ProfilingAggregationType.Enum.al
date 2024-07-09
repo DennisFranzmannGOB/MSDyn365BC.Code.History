@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Tooling;
-
 /// <summary>
 /// The types of aggregation over profiling nodes.
 /// </summary>
@@ -15,7 +13,7 @@ enum 1921 "Profiling Aggregation Type"
     /// <summary>
     /// No aggregation.
     /// </summary>
-    value(0; None)
+    value(0; "None")
     {
     }
 

@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System.Telemetry;
-using System.Utilities;
-using System.Security.User;
-
 /// <summary>
 /// The main page for interacting with security groups.
 /// </summary>
@@ -25,13 +19,12 @@ page 9871 "Security Groups"
     SourceTable = "Security Group Buffer";
     SourceTableTemporary = true;
     UsageCategory = Lists;
-    ContextSensitiveHelpPage = 'ui-security-groups';
     AboutTitle = 'About security groups';
     AboutText = 'Security groups help you manage permissions for groups of users.';
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
@@ -50,7 +43,7 @@ page 9871 "Security Groups"
                 }
             }
         }
-        area(FactBoxes)
+        area(factboxes)
         {
             part("Sec. Group Permissions Part"; "Sec. Group Permissions Part")
             {
@@ -96,14 +89,14 @@ page 9871 "Security Groups"
                 end;
             }
         }
-        area(Navigation)
+        area(navigation)
         {
             action(SecurityGroupMembersAad)
             {
                 ApplicationArea = All;
                 Caption = 'Members';
                 Image = Users;
-                RunObject = page "Security Group Members";
+                RunObject = Page "Security Group Members";
                 RunPageLink = "Security Group Code" = field(Code);
                 Scope = Repeater;
                 Visible = not IsWindowsAuthentication;
@@ -116,7 +109,7 @@ page 9871 "Security Groups"
                 ApplicationArea = All;
                 Caption = 'Members';
                 Image = Users;
-                RunObject = page "Security Group Members";
+                RunObject = Page "Security Group Members";
                 RunPageLink = "Security Group Code" = field(Code);
                 Scope = Repeater;
                 Visible = IsWindowsAuthentication;
@@ -147,7 +140,7 @@ page 9871 "Security Groups"
                 end;
             }
         }
-        area(Processing)
+        area(processing)
         {
             action(CopySecurityGroup)
             {
@@ -277,12 +270,17 @@ page 9871 "Security Groups"
     begin
         CanManageUsersOnTenant := UserPermissions.CanManageUsersOnTenant(UserSecurityId());
         FeatureTelemetry.LogUptake('0000JGR', 'Security Groups', Enum::"Feature Uptake Status"::Discovered);
-        RefreshData();
+        RefreshData(false);
         IsWindowsAuthentication := SecurityGroup.IsWindowsAuthentication();
         SecurityGroup.SendNotificationForDeletedGroups(Rec);
     end;
 
     local procedure RefreshData()
+    begin
+        RefreshData(true);
+    end;
+
+    local procedure RefreshData(ShouldRefreshMembers: Boolean)
     var
         NumberOfGroupsBeforeRefresh: Integer;
     begin
@@ -291,8 +289,9 @@ page 9871 "Security Groups"
         SecurityGroup.GetGroups(Rec);
         AreRecordsPresent := not Rec.IsEmpty();
 
-        if Rec.Count() > NumberOfGroupsBeforeRefresh then
-            CurrPage."Security Group Members Part".Page.Refresh(SecurityGroup);
+        if ShouldRefreshMembers then
+            if Rec.Count() > NumberOfGroupsBeforeRefresh then
+                CurrPage."Security Group Members Part".Page.Refresh();
     end;
 
     local procedure GetSelectedGroupCodes(): List of [Code[20]];

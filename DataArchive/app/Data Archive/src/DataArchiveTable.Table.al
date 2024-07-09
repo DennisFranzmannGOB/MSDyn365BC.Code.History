@@ -6,11 +6,6 @@
 /// <summary>
 /// This table contains archived data from the specified table.
 /// </summary>
-
-namespace System.DataAdministration;
-
-using System.Reflection;
-
 table 601 "Data Archive Table"
 {
     Access = Public;

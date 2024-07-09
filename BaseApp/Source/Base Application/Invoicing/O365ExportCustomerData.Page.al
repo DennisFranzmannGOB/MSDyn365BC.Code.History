@@ -2,7 +2,7 @@
 page 2380 "O365 Export Customer Data"
 {
     Caption = 'Export Customer Data';
-    DataCaptionExpression = Rec.Name;
+    DataCaptionExpression = Name;
     PageType = StandardDialog;
     SourceTable = Customer;
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
@@ -16,13 +16,13 @@ page 2380 "O365 Export Customer Data"
             group(Control2)
             {
                 ShowCaption = false;
-                field(CustomerNo; Rec."No.")
+                field(CustomerNo; "No.")
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Caption = 'Customer Number';
                     Visible = false;
                 }
-                field(CustomerName; Rec.Name)
+                field(CustomerName; Name)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Caption = 'Customer Name';
@@ -56,9 +56,9 @@ page 2380 "O365 Export Customer Data"
         User: Record User;
         CompanyInformation: Record "Company Information";
     begin
-        if Rec.GetFilters <> '' then
-            if Rec.FindFirst() then
-                Rec.SetRecFilter();
+        if GetFilters <> '' then
+            if FindFirst() then
+                SetRecFilter();
 
         if User.Get(UserSecurityId()) then
             SendToEmail := User."Contact Email";
@@ -74,7 +74,7 @@ page 2380 "O365 Export Customer Data"
         if SendToEmail = '' then
             Error(EmailAddressErr);
 
-        if SendToEmail = Rec."E-Mail" then // sending directly to the customer?
+        if SendToEmail = "E-Mail" then // sending directly to the customer?
             if not Confirm(StrSubstNo(CustomerEmailQst, SendToEmail), false) then
                 Error('');
 

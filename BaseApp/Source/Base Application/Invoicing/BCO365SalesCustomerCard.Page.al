@@ -2,7 +2,7 @@
 page 2318 "BC O365 Sales Customer Card"
 {
     Caption = 'Customer';
-    DataCaptionExpression = Rec.Name;
+    DataCaptionExpression = Name;
     PageType = Card;
     SourceTable = Customer;
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
@@ -56,7 +56,7 @@ page 2318 "BC O365 Sales Customer Card"
                         var
                             MailManagement: Codeunit "Mail Management";
                         begin
-                            MailManagement.ValidateEmailAddressField(Rec."E-Mail");
+                            MailManagement.ValidateEmailAddressField("E-Mail");
                         end;
                     }
                     field("Phone No."; Rec."Phone No.")
@@ -79,14 +79,14 @@ page 2318 "BC O365 Sales Customer Card"
                         begin
                             if not CurrPageEditable then
                                 exit;
-                            if Rec.Name = '' then
+                            if Name = '' then
                                 exit;
 
                             CurrPage.SaveRecord();
                             Commit();
                             TempStandardAddress.CopyFromCustomer(Rec);
                             if PAGE.RunModal(PAGE::"O365 Address", TempStandardAddress) = ACTION::LookupOK then begin
-                                Rec.Find();
+                                Find();
                                 CurrPage.Update(true);
                             end;
                         end;
@@ -96,7 +96,7 @@ page 2318 "BC O365 Sales Customer Card"
                 {
                     Caption = 'Address';
                     Visible = NOT IsDevice;
-                    field(Address; Rec.Address)
+                    field(Address; Address)
                     {
                         ApplicationArea = Invoicing, Basic, Suite;
                     }
@@ -105,7 +105,7 @@ page 2318 "BC O365 Sales Customer Card"
                         ApplicationArea = Invoicing, Basic, Suite;
                         ToolTip = 'Specifies additional address information.';
                     }
-                    field(City; Rec.City)
+                    field(City; City)
                     {
                         ApplicationArea = Invoicing, Basic, Suite;
                         Lookup = false;
@@ -115,7 +115,7 @@ page 2318 "BC O365 Sales Customer Card"
                         ApplicationArea = Invoicing, Basic, Suite;
                         Lookup = false;
                     }
-                    field(County; Rec.County)
+                    field(County; County)
                     {
                         ApplicationArea = Invoicing, Basic, Suite;
                     }
@@ -134,7 +134,7 @@ page 2318 "BC O365 Sales Customer Card"
                             CountryRegionCode := O365SalesInvoiceMgmt.FindCountryCodeFromInput(CountryRegionCode);
 
                             // Do not VALIDATE("Country/Region Code",CountryRegionCode), as it wipes city, post code and county
-                            Rec."Country/Region Code" := CountryRegionCode;
+                            "Country/Region Code" := CountryRegionCode;
                         end;
                     }
                 }
@@ -185,7 +185,7 @@ page 2318 "BC O365 Sales Customer Card"
                 group(Control13)
                 {
                     ShowCaption = false;
-                    Visible = (Rec."Contact Type" = Rec."Contact Type"::Company) AND IsUsingVAT;
+                    Visible = ("Contact Type" = "Contact Type"::Company) AND IsUsingVAT;
                     field("VAT Registration No."; Rec."VAT Registration No.")
                     {
                         ApplicationArea = Invoicing, Basic, Suite;
@@ -217,7 +217,7 @@ page 2318 "BC O365 Sales Customer Card"
                         TaxArea: Record "Tax Area";
                     begin
                         if PAGE.RunModal(PAGE::"O365 Tax Area List", TaxArea) = ACTION::LookupOK then begin
-                            Rec.Validate("Tax Area Code", TaxArea.Code);
+                            Validate("Tax Area Code", TaxArea.Code);
                             TaxAreaDescription := TaxArea.GetDescriptionInCurrentLanguageFullLength();
                             CurrPage.Update();
                         end;
@@ -228,7 +228,7 @@ page 2318 "BC O365 Sales Customer Card"
                         TaxArea: Record "Tax Area";
                     begin
                         if PAGE.RunModal(PAGE::"O365 Tax Area List", TaxArea) = ACTION::LookupOK then begin
-                            Rec.Validate("Tax Area Code", TaxArea.Code);
+                            Validate("Tax Area Code", TaxArea.Code);
                             TaxAreaDescription := TaxArea.GetDescriptionInCurrentLanguageFullLength();
                         end;
                     end;
@@ -248,13 +248,13 @@ page 2318 "BC O365 Sales Customer Card"
                     begin
                         if not BlockedStatus then
                             if Confirm(UnblockCustomerQst) then begin
-                                Rec.Validate(Blocked, Rec.Blocked::" ");
-                                if not ContBusRel.FindByRelation(ContBusRel."Link to Table"::Customer, Rec."No.") then
+                                Validate(Blocked, Blocked::" ");
+                                if not ContBusRel.FindByRelation(ContBusRel."Link to Table"::Customer, "No.") then
                                     CustContUpdate.OnInsert(Rec)
                             end else
                                 BlockedStatus := true
                         else
-                            Rec.Validate(Blocked, Rec.Blocked::All)
+                            Validate(Blocked, Blocked::All)
                     end;
                 }
             }
@@ -270,7 +270,7 @@ page 2318 "BC O365 Sales Customer Card"
 
                     trigger OnDrillDown()
                     begin
-                        Rec.SetRecFilter();
+                        SetRecFilter();
                         PAGE.RunModal(PAGE::"O365 Export Customer Data", Rec);
                     end;
                 }
@@ -281,17 +281,17 @@ page 2318 "BC O365 Sales Customer Card"
             part(Control50; "Customer Picture")
             {
                 ApplicationArea = Invoicing, Basic, Suite;
-                SubPageLink = "No." = field("No.");
+                SubPageLink = "No." = FIELD("No.");
             }
             part(SalesHistSelltoFactBox; "BC O365 Hist. Sell-to FactBox")
             {
                 ApplicationArea = Invoicing, Basic, Suite;
                 Caption = 'Sales History';
-                SubPageLink = "No." = field("No."),
-                              "Currency Filter" = field("Currency Filter"),
-                              "Date Filter" = field("Date Filter"),
-                              "Global Dimension 1 Filter" = field("Global Dimension 1 Filter"),
-                              "Global Dimension 2 Filter" = field("Global Dimension 2 Filter");
+                SubPageLink = "No." = FIELD("No."),
+                              "Currency Filter" = FIELD("Currency Filter"),
+                              "Date Filter" = FIELD("Date Filter"),
+                              "Global Dimension 1 Filter" = FIELD("Global Dimension 1 Filter"),
+                              "Global Dimension 2 Filter" = FIELD("Global Dimension 2 Filter");
             }
         }
     }
@@ -307,20 +307,20 @@ page 2318 "BC O365 Sales Customer Card"
     begin
         CreateCustomerFromTemplate();
 
-        OverdueAmount := Rec.CalcOverdueBalance();
+        OverdueAmount := CalcOverdueBalance();
 
-        if TaxArea.Get(Rec."Tax Area Code") then
+        if TaxArea.Get("Tax Area Code") then
             TaxAreaDescription := TaxArea.GetDescriptionInCurrentLanguageFullLength();
 
-        BlockedStatus := Rec.IsBlocked();
+        BlockedStatus := IsBlocked();
 
         // Supergroup is visible only if one of the two subgroups is visible
         SalesAndPaymentsVisible := (not TotalsHidden) or
-          ((Rec."Contact Type" = "Contact Type"::Company) and IsUsingVAT);
+          (("Contact Type" = "Contact Type"::Company) and IsUsingVAT);
 
         TempStandardAddress.CopyFromCustomer(Rec);
         FullAddress := TempStandardAddress.ToString();
-        CountryRegionCode := Rec."Country/Region Code";
+        CountryRegionCode := "Country/Region Code";
         CurrPageEditable := CurrPage.Editable;
     end;
 
@@ -345,7 +345,7 @@ page 2318 "BC O365 Sales Customer Card"
         if NewMode then
             exit(true);
 
-        if Rec.Name = '' then
+        if Name = '' then
             CustomerCardState := CustomerCardState::Prompt
         else
             CustomerCardState := CustomerCardState::Keep;
@@ -360,7 +360,7 @@ page 2318 "BC O365 Sales Customer Card"
 
     trigger OnOpenPage()
     begin
-        Rec.SetRange("Date Filter", 0D, WorkDate());
+        SetRange("Date Filter", 0D, WorkDate());
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -392,13 +392,13 @@ page 2318 "BC O365 Sales Customer Card"
 
     local procedure CanExitAfterProcessingCustomer(): Boolean
     begin
-        if Rec."No." = '' then
+        if "No." = '' then
             exit(true);
 
         if CustomerCardState = CustomerCardState::Delete then
             exit(DeleteCustomerRelatedData());
 
-        if GuiAllowed and (CustomerCardState = CustomerCardState::Prompt) and not Rec.IsBlocked()
+        if GuiAllowed and (CustomerCardState = CustomerCardState::Prompt) and not IsBlocked()
         then begin
             if Confirm(ClosePageQst, true) then
                 exit(true);
@@ -413,7 +413,7 @@ page 2318 "BC O365 Sales Customer Card"
         CustContUpdate.DeleteCustomerContacts(Rec);
 
         // workaround for bug: delete for new empty record returns false
-        if Rec.Delete(true) then;
+        if Delete(true) then;
         exit(true);
     end;
 
@@ -432,7 +432,7 @@ page 2318 "BC O365 Sales Customer Card"
     begin
         if NewMode then begin
             if CustomerTemplMgt.InsertCustomerFromTemplate(Customer) then
-                Rec.Copy(Customer);
+                Copy(Customer);
 
             TotalsHidden := true;
 

@@ -3,15 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Security.AccessControl;
-using System.Reflection;
-
 /// <summary>
 /// Manage the checklist presented to users by inserting and deleting checklist items and controling the visibility of the checklist.
 /// </summary>
-codeunit 1992 Checklist
+codeunit 1992 "Checklist"
 {
     Access = Public;
 
@@ -19,7 +14,7 @@ codeunit 1992 Checklist
         ChecklistImplementation: Codeunit "Checklist Implementation";
 
     /// <summary>
-    /// Inserts a new checklist item.
+    /// Inserts a new checklist item. 
     /// </summary>
     /// <param name="GuidedExperienceType">The type of guided experience item that the checklist item references.</param>
     /// <param name="ObjectTypeToRun">The object type run by the guided experience item that the checklist item references.</param>
@@ -160,6 +155,18 @@ codeunit 1992 Checklist
         ChecklistImplementation.Delete(GuidedExperienceType::"Spotlight Tour", ObjectType::Page, PageID, '', SpotlightTourType);
     end;
 
+#if not CLEAN19
+    /// <summary>
+    /// Checks whether the checklist should be initialized.
+    /// </summary>
+    /// <returns>True if the checklist should be initialized and false otherwise.</returns>    
+    [Obsolete('Replaced by ShouldInitializeChecklist(ShouldSkipForEvaluationCompany).', '19.0')]
+    procedure ShouldInitializeChecklist(): Boolean
+    begin
+        exit(ChecklistImplementation.ShouldInitializeChecklist(true));
+    end;
+#endif
+
     /// <summary>
     /// Checks whether the checklist should be initialized for the current company.
     /// </summary>
@@ -195,7 +202,7 @@ codeunit 1992 Checklist
     end;
 
     /// <summary>
-    /// Initializes the guided experience items. Mostly called once in a company's lifecycle from BaseApp, if used in an extension, please see also ShouldInitializeChecklist.
+    /// Initializes the guided experience items.
     /// </summary>
     procedure InitializeGuidedExperienceItems()
     var

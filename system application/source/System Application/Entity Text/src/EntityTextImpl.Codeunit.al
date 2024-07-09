@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Text;
-
-using System;
-using System.Utilities;
-using System.AI;
-using System.Azure.KeyVault;
-
 /// <summary>
 /// Implements functionality to handle text suggestions.
 /// </summary>
@@ -19,42 +12,72 @@ codeunit 2012 "Entity Text Impl."
     InherentEntitlements = X;
     InherentPermissions = X;
 
-    /// <summary>
-    /// Decides visibility on pages
-    /// </summary>
     procedure IsEnabled(Silent: Boolean): Boolean
     var
-        AzureOpenAI: Codeunit "Azure OpenAI";
+        FeatureKey: Record "Feature Key";
+        EntityText: Record "Entity Text";
     begin
-        exit(AzureOpenAI.IsEnabled(Enum::"Copilot Capability"::"Entity Text", Silent));
+        if not FeatureKey.Get('EntityText') then begin
+            Session.LogMessage('0000JVD', TelemetryMissingFeatureKeyTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
+            exit(EntityText.ReadPermission());
+        end;
+
+        if FeatureKey.Enabled = FeatureKey.Enabled::"All Users" then begin
+            Session.LogMessage('0000JVE', TelemetryFeatureKeyEnabledTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
+            exit(EntityText.ReadPermission());
+        end;
+
+        Session.LogMessage('0000JVF', TelemetryFeatureKeyDisabledTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
+        exit(false);
     end;
 
     procedure CanSuggest(): Boolean
     var
-        EntityTextAOAISettings: Codeunit "Entity Text AOAI Settings";
+        AzureOpenAiImpl: Codeunit "Azure OpenAi Impl.";
     begin
-        if not EntityTextAOAISettings.IsEnabled(true) then
+        if not IsEnabled(true) then
+            exit(false);
+
+        if (not AzureOpenAiImpl.IsEnabled(true)) and (not AzureOpenAiImpl.IsPendingPrivacyApproval()) then
             exit(false);
 
         exit(HasPromptInfo());
     end;
 
     [NonDebuggable]
-    procedure GenerateSuggestion(Facts: Dictionary of [Text, Text]; Tone: Enum "Entity Text Tone"; TextFormat: Enum "Entity Text Format"; TextEmphasis: Enum "Entity Text Emphasis"; CallerModuleInfo: ModuleInfo): Text
+    procedure GenerateSuggestion(SourceTableId: Integer; SourceSystemId: Guid; SourceScenario: Enum "Entity Text Scenario"; TextEmphasis: Enum "Entity Text Emphasis"; CallerModuleInfo: ModuleInfo): Text
     var
-        SystemPrompt: Text;
-        UserPrompt: Text;
+        EntityText: Codeunit "Entity Text";
+        Facts: Dictionary of [Text, Text];
+        Tone: Enum "Entity Text Tone";
+        TextFormat: Enum "Entity Text Format";
+        Prompt: Text;
         Suggestion: Text;
+        Handled: Boolean;
     begin
-        if not IsEnabled(true) then
-            Error(CapabilityDisabledErr);
-        if not CanSuggest() then
-            Error(CannotGenerateErr);
-        BuildPrompts(Facts, Tone, TextFormat, TextEmphasis, SystemPrompt, UserPrompt);
+        EntityText.OnRequestEntityContext(SourceTableId, SourceSystemId, SourceScenario, Facts, Tone, TextFormat, Handled);
+
+        if not Handled then
+            Error(NoHandlerErr);
+
+        Prompt := BuildPrompt(Facts, Tone, TextFormat, TextEmphasis);
 
         Session.LogMessage('0000JVG', TelemetryGenerationRequestedTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
 
-        Suggestion := GenerateAndReviewCompletion(SystemPrompt, UserPrompt, TextFormat, Facts, CallerModuleInfo);
+        Suggestion := GenerateAndReviewCompletion(Prompt, TextFormat, Facts, CallerModuleInfo);
+
+        exit(Suggestion);
+    end;
+
+    [NonDebuggable]
+    procedure GenerateSuggestion(Facts: Dictionary of [Text, Text]; Tone: Enum "Entity Text Tone"; TextFormat: Enum "Entity Text Format"; TextEmphasis: Enum "Entity Text Emphasis"; CallerModuleInfo: ModuleInfo): Text
+    var
+        Prompt: Text;
+        Suggestion: Text;
+    begin
+        Prompt := BuildPrompt(Facts, Tone, TextFormat, TextEmphasis);
+
+        Suggestion := GenerateAndReviewCompletion(Prompt, TextFormat, Facts, CallerModuleInfo);
 
         exit(Suggestion);
     end;
@@ -132,50 +155,31 @@ codeunit 2012 "Entity Text Impl."
         exit(Result);
     end;
 
-    procedure SetEntityTextAuthorization(NewEndpoint: Text; NewDeployment: Text; NewApiKey: SecretText)
-    begin
-        Endpoint := NewEndpoint;
-        Deployment := NewEndpoint;
-        ApiKey := NewApiKey;
-    end;
-
     [NonDebuggable]
-    local procedure BuildPrompts(var Facts: Dictionary of [Text, Text]; Tone: Enum "Entity Text Tone"; TextFormat: Enum "Entity Text Format"; TextEmphasis: Enum "Entity Text Emphasis"; var SystemPrompt: Text; var UserPrompt: Text)
+    local procedure BuildPrompt(var Facts: Dictionary of [Text, Text]; Tone: Enum "Entity Text Tone"; TextFormat: Enum "Entity Text Format"; TextEmphasis: Enum "Entity Text Emphasis"): Text
     var
-        EntityTextAOAISettings: Codeunit "Entity Text AOAI Settings";
+        AzureOpenAiImpl: Codeunit "Azure OpenAi Impl.";
         PromptInfo: JsonObject;
-        SystemPromptJson: JsonToken;
-        UserPromptJson: JsonToken;
-        FactsList: Text;
-        LanguageName: Text;
-        Category: Text;
-    begin
-        FactsList := BuildFacts(Facts, Category, TextFormat);
-        LanguageName := EntityTextAOAISettings.GetLanguageName();
-
-        PromptInfo := GetPromptInfo();
-        PromptInfo.Get('system', SystemPromptJson);
-        PromptInfo.Get('user', UserPromptJson);
-
-        SystemPrompt := BuildSinglePrompt(SystemPromptJson.AsObject(), LanguageName, FactsList, Category, Tone, TextFormat, TextEmphasis);
-        UserPrompt := BuildSinglePrompt(UserPromptJson.AsObject(), LanguageName, FactsList, Category, Tone, TextFormat, TextEmphasis);
-    end;
-
-    [NonDebuggable]
-    local procedure BuildSinglePrompt(PromptInfo: JsonObject; LanguageName: Text; FactsList: Text; Category: Text; Tone: Enum "Entity Text Tone"; TextFormat: Enum "Entity Text Format"; TextEmphasis: Enum "Entity Text Emphasis") Prompt: Text
-    var
         PromptHints: JsonToken;
         PromptOrder: JsonToken;
         PromptHint: JsonToken;
         HintName: Text;
+        Prompt: Text;
+        FactsList: Text;
+        LanguageName: Text;
+        Category: Text;
         NewLineChar: Char;
         PromptIndex: Integer;
     begin
         NewLineChar := 10;
+        FactsList := BuildFacts(Facts, Category, TextFormat);
+        LanguageName := AzureOpenAiImpl.GetLanguageName();
 
+        PromptInfo := GetPromptInfo();
         PromptInfo.Get('prompt', PromptHints);
         PromptInfo.Get('order', PromptOrder);
 
+        // generate prompt components
         foreach PromptHint in PromptOrder.AsArray() do begin
             HintName := PromptHint.AsValue().AsText();
             if PromptHints.AsObject().Get(HintName, PromptHint) then begin
@@ -198,6 +202,8 @@ codeunit 2012 "Entity Text Impl."
                 Prompt += StrSubstNo(PromptHint.AsValue().AsText(), NewLineChar, LanguageName, FactsList, Category);
             end;
         end;
+
+        exit(Prompt);
     end;
 
     [NonDebuggable]
@@ -213,7 +219,7 @@ codeunit 2012 "Entity Text Impl."
         if not PromptObject.ReadFrom(PromptObjectText) then
             Error(PromptFormatInvalidErr);
 
-        if (not PromptObject.Contains('user')) or (not PromptObject.Contains('system')) then
+        if (not PromptObject.Contains('prompt')) or (not PromptObject.Contains('order')) then
             Error(PromptFormatMissingPropsErr);
 
         exit(PromptObject);
@@ -272,7 +278,7 @@ codeunit 2012 "Entity Text Impl."
     end;
 
     [NonDebuggable]
-    local procedure GenerateAndReviewCompletion(SystemPrompt: Text; UserPrompt: Text; TextFormat: Enum "Entity Text Format"; Facts: Dictionary of [Text, Text]; CallerModuleInfo: ModuleInfo): Text
+    local procedure GenerateAndReviewCompletion(Prompt: Text; TextFormat: enum "Entity Text Format"; Facts: Dictionary of [Text, Text]; CallerModuleInfo: ModuleInfo): Text
     var
         Completion: Text;
         MaxAttempts: Integer;
@@ -280,17 +286,18 @@ codeunit 2012 "Entity Text Impl."
     begin
         MaxAttempts := 5;
         for Attempt := 0 to MaxAttempts do begin
-            Completion := GenerateCompletion(SystemPrompt, UserPrompt, CallerModuleInfo);
+            Completion := GenerateCompletion(Prompt, CallerModuleInfo);
 
-            if (not CompletionContainsPrompt(Completion, SystemPrompt)) and IsGoodCompletion(Completion, TextFormat, Facts) then
+            if (not CompletionContainsPrompt(Completion, Prompt)) and IsGoodCompletion(Completion, TextFormat, Facts) then
                 exit(Completion);
 
             Sleep(500);
-            Session.LogMessage('0000LVP', StrSubstNo(TelemetryGenerationRetryTxt, Attempt + 1), Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
         end;
 
         // this completion is of low quality
         Session.LogMessage('0000JYB', TelemetryLowQualityCompletionTxt, Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
+        if CompletionContainsPrompt(Completion, Prompt) then
+            exit('');
 
         exit('');
     end;
@@ -300,25 +307,28 @@ codeunit 2012 "Entity Text Impl."
     var
         PromptSentences: List of [Text];
         PromptSentence: Text;
+        PromptEnd: Integer;
     begin
+        PromptEnd := StrPos(Prompt, ':');
+
+        Prompt := CopyStr(Prompt, 1, PromptEnd); // remove facts
         PromptSentences := Prompt.Split('.');
 
         Completion := Completion.ToLower();
         foreach PromptSentence in PromptSentences do begin
             PromptSentence := PromptSentence.Trim().ToLower();
 
-            if PromptSentence <> '' then
-                if Completion.Contains(PromptSentence) then begin
-                    Session.LogMessage('0000JZG', StrSubstNo(TelemetryCompletionHasPromptTxt, PromptSentence), Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
-                    exit(true);
-                end;
+            if Completion.Contains(PromptSentence) then begin
+                Session.LogMessage('0000JZG', StrSubstNo(TelemetryCompletionHasPromptTxt, PromptSentence), Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
+                exit(true);
+            end;
         end;
 
         exit(false);
     end;
 
     [NonDebuggable]
-    local procedure IsGoodCompletion(var Completion: Text; TextFormat: Enum "Entity Text Format"; Facts: Dictionary of [Text, Text]): Boolean
+    local procedure IsGoodCompletion(var Completion: Text; TextFormat: enum "Entity Text Format"; Facts: Dictionary of [Text, Text]): Boolean
     var
         TempMatches: Record Matches temporary;
         Regex: Codeunit Regex;
@@ -346,17 +356,17 @@ codeunit 2012 "Entity Text Impl."
         case TextFormat of
             TextFormat::TaglineParagraph:
                 begin
-                    SplitCompletion := Completion.Split(EncodedNewlineTok + EncodedNewlineTok);
+                    SplitCompletion := Completion.Split('<br /><br />');
                     FormatValid := SplitCompletion.Count() = 2; // a tagline + paragraph must contain an empty line
                     if FormatValid then
                         FormatValid := SplitCompletion.Get(2).Split(' ').Count() >= MinParagraphWords; // the paragraph must be more than MinParagraphWords words
                 end;
             TextFormat::Paragraph:
-                FormatValid := (not Completion.Contains(EncodedNewlineTok + EncodedNewlineTok)) and (Completion.Split(' ').Count() >= MinParagraphWords); // multiple paragraphs should be avoided, and must have more than MinParagraphWords words
+                FormatValid := (not Completion.Contains('<br /><br />')) and (Completion.Split(' ').Count() >= MinParagraphWords); // multiple paragraphs should be avoided, and must have more than MinParagraphWords words
             TextFormat::Tagline:
-                FormatValid := not Completion.Contains(EncodedNewlineTok); // a tagline should not have any newline
+                FormatValid := not Completion.Contains('<br />'); // a tagline should not have any newline
             TextFormat::Brief:
-                FormatValid := Completion.Contains(EncodedNewlineTok + EncodedNewlineTok) and (Completion.Contains(EncodedNewlineTok + '-') or Completion.Contains(EncodedNewlineTok + '•')); // the brief should contain a pargraph and a list
+                FormatValid := Completion.Contains('<br /><br />') and (Completion.Contains('<br />-') or Completion.Contains('<br />•')); // the brief should contain a pargraph and a list
         end;
 
         if not FormatValid then begin
@@ -388,85 +398,40 @@ codeunit 2012 "Entity Text Impl."
             end;
         until TempMatches.Next() = 0;
 
-        if Completion.Contains(StrSubstNo(NoteParagraphTxt, EncodedNewlineTok)) or Completion.Contains(StrSubstNo(TranslationParagraphTxt, EncodedNewlineTok)) then begin
-            Session.LogMessage('0000LHZ', TelemetryCompletionExtraTextTxt, Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
-            exit(false);
-        end;
-
         exit(true);
     end;
 
     [NonDebuggable]
-    local procedure GenerateCompletion(SystemPrompt: Text; UserPrompt: Text; CallerModuleInfo: ModuleInfo): Text
+    local procedure GenerateCompletion(Prompt: Text; CallerModuleInfo: ModuleInfo): Text
     var
-        AzureOpenAI: Codeunit "Azure OpenAI";
-        EntityTextAOAISettings: Codeunit "Entity Text AOAI Settings";
-        AOAIDeployments: Codeunit "AOAI Deployments";
-        AOAIOperationResponse: Codeunit "AOAI Operation Response";
-        AOAICompletionParams: Codeunit "AOAI Chat Completion Params";
-        AOAIChatMessages: Codeunit "AOAI Chat Messages";
+        AzureOpenAiImpl: Codeunit "Azure OpenAi Impl.";
         HttpUtility: DotNet HttpUtility;
         Result: Text;
         NewLineChar: Char;
-        EntityTextModuleInfo: ModuleInfo;
     begin
         NewLineChar := 10;
 
-        NavApp.GetCurrentModuleInfo(EntityTextModuleInfo);
-        if (not IsNullGuid(CallerModuleInfo.Id())) and (CallerModuleInfo.Publisher() = EntityTextModuleInfo.Publisher()) then
-            AzureOpenAI.SetAuthorization(Enum::"AOAI Model Type"::"Chat Completions", AOAIDeployments.GetTurbo0301())
-        else begin
-            if (Endpoint = '') or (Deployment = '') then begin
-                Session.LogMessage('0000LJB', TelemetryNoAuthorizationHandlerTxt, Verbosity::Error, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', TelemetryCategoryLbl);
-                Error(NoAuthorizationHandlerErr);
-            end;
-            AzureOpenAI.SetAuthorization(Enum::"AOAI Model Type"::"Chat Completions", Endpoint, Deployment, ApiKey);
-        end;
-
-        AzureOpenAI.SetCopilotCapability(Enum::"Copilot Capability"::"Entity Text");
-
-        AOAICompletionParams.SetMaxTokens(2500);
-        AOAICompletionParams.SetTemperature(0.7);
-        AOAIChatMessages.SetPrimarySystemMessage(SystemPrompt);
-        AOAIChatMessages.AddUserMessage(UserPrompt);
-
-        AzureOpenAI.GenerateChatCompletion(AOAIChatMessages, AOAICompletionParams, AOAIOperationResponse);
-        if not AOAIOperationResponse.IsSuccess() then begin
-            Clear(Result);
-            Error(CompletionDeniedPhraseErr);
-        end;
-
-        Result := HttpUtility.HtmlEncode(AOAIChatMessages.GetLastMessage());
-        Result := Result.Replace(NewLineChar, EncodedNewlineTok);
-
-        if EntityTextAOAISettings.ContainsWordsInDenyList(Result) then begin
-            Clear(Result);
-            Error(CompletionDeniedPhraseErr);
-        end;
+        Result := AzureOpenAiImpl.GenerateCompletion(Prompt, 250, 0.7, CallerModuleInfo);
+        Result := HttpUtility.HtmlEncode(Result);
+        Result := Result.Replace(NewLineChar, '<br />');
 
         exit(Result);
     end;
 
     var
-        Endpoint: Text;
-        Deployment: Text;
-        ApiKey: SecretText;
-        PromptObjectKeyTxt: Label 'AOAI-Prompt-23', Locked = true;
+        PromptObjectKeyTxt: Label 'AOAI-Prompt-22', Locked = true;
         FactTemplateTxt: Label '- %1: %2%3', Locked = true;
-        EncodedNewlineTok: Label '<br />', Locked = true;
-        NoteParagraphTxt: Label '%1Note:%1', Locked = true, Comment = 'This constant is used to limit the cases when the model goes out of format and must stay in English only.';
-        TranslationParagraphTxt: Label 'Translation:%1', Locked = true, Comment = 'This constant is used to limit the cases when the model goes out of format and must stay in English only.';
-        NoFactsErr: Label 'There''s no information available to draft a text from.';
-        CannotGenerateErr: Label 'Text cannot be generated. Please check your configuration and contact your partner.';
-        CapabilityDisabledErr: Label 'Sorry, your Copilot isn''t activated for Entity Text. Contact the system administrator.';
-        MinFactsErr: Label 'There''s not enough information available to draft a text. Please provide more.';
-        NotEnoughFactsForFormatErr: Label 'There''s not enough information available to draft a text for the chosen format. Please provide more, or choose another format.';
+        NoFactsErr: Label 'No facts were provided. The entity must have some facts.';
+        MinFactsErr: Label 'Not enough facts were provided. At least two facts must be provided.';
+        NotEnoughFactsForFormatErr: Label 'Not enough facts were provided for the requested format. At least four facts must be provided.';
+        NoHandlerErr: Label 'There was no handler to provide information for this entity. Contact your partner.';
         PromptNotFoundErr: Label 'The prompt definition could not be found.';
         PromptFormatInvalidErr: Label 'The prompt definition is in an invalid format.';
-        CompletionDeniedPhraseErr: Label 'Sorry, we could not generate a good suggestion for this. Review the information provided, consider your choice of words, and try again.';
         PromptFormatMissingPropsErr: Label 'Required properties are missing from the prompt definition.';
-        NoAuthorizationHandlerErr: Label 'There was no handler to provide authorization information for the suggestion. Contact your partner.';
         TelemetryCategoryLbl: Label 'Entity Text', Locked = true;
+        TelemetryMissingFeatureKeyTxt: Label 'Feature key is not defined, Entity Text is enabled.', Locked = true;
+        TelemetryFeatureKeyEnabledTxt: Label 'Feature key is enabled, Entity Text is enabled.', Locked = true;
+        TelemetryFeatureKeyDisabledTxt: Label 'Feature key is disabled, Entity Text is disabled.', Locked = true;
         TelemetryGenerationRequestedTxt: Label 'New suggestion requested.', Locked = true;
         TelemetrySuggestionCreatedTxt: Label 'A new suggestion was generated for table %1, scenario %2', Locked = true;
         TelemetryCompletionEmptyTxt: Label 'The returned completion was empty.', Locked = true;
@@ -475,8 +440,5 @@ codeunit 2012 "Entity Text Impl."
         TelemetryCompletionHasPromptTxt: Label 'The completion contains this sentence from the prompt: %1', Locked = true;
         TelemetryTaglineCleanedTxt: Label 'Trimmed a completion', Locked = true;
         TelemetryCompletionInvalidNumberTxt: Label 'A number was found in the completion (%1) that did not exist in the facts.', Locked = true;
-        TelemetryCompletionExtraTextTxt: Label 'The completion contains a Translation or Note section.', Locked = true;
         TelemetryPromptManyFactsTxt: Label 'There are %1 facts defined, they will be limited to %2.', Locked = true;
-        TelemetryNoAuthorizationHandlerTxt: Label 'Entity Text authorization was not set.', Locked = true;
-        TelemetryGenerationRetryTxt: Label 'Retrying text generation, attempt: %1', Locked = true;
 }

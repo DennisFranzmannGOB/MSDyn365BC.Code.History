@@ -19,7 +19,7 @@ codeunit 131009 "Library - Setup Storage"
         RecRef: RecordRef;
     begin
         if TempIntegerStoredTables.Get(TableId) then
-            Error(TableBackupErr, TableId);
+            Error(StrSubstNo(TableBackupErr, TableId));
 
         RecRef.Open(TableId);
         Assert.AreEqual(1, RecRef.Count, OnlyOneEntryAllowedErr);

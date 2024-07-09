@@ -3,17 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestTools.TestRunner;
-
-using System.Reflection;
-
 page 130454 "Select TestRunner"
 {
     Editable = false;
     PageType = List;
     SourceTable = AllObjWithCaption;
-    SourceTableView = where("Object Type" = const(Codeunit),
-                            "Object Subtype" = const('TestRunner'));
+    SourceTableView = WHERE("Object Type" = CONST(Codeunit),
+                            "Object Subtype" = CONST('TestRunner'));
 
     layout
     {

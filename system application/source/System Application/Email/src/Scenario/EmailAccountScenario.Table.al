@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 /// <summary>
 /// Temporary table used to display the tree sctructure in "Email Scenario Setup".
 /// </summary>

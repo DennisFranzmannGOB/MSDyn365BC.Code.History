@@ -1,5 +1,3 @@
-namespace System.Privacy;
-
 page 1820 "Cust. Consent Confirmation"
 {
     Caption = 'Please review terms and conditions';
@@ -88,10 +86,5 @@ page 1820 "Cust. Consent Confirmation"
     procedure SetOpenExternalLinkConsentText()
     begin
         ConsentTextValue := OpenLinkConsentTxt;
-    end;
-
-    procedure SetCustomConsentText(CustomConsentText: Text)
-    begin
-        ConsentTextValue := CustomConsentText;
     end;
 }

@@ -159,16 +159,14 @@ codeunit 134909 "ERM Reminder/Fin.Charge Memo"
         IssueReminder(ReminderHeaderNo, WorkDate());
 
         // [WHEN] Suggested Reminder for Date = 09/02/17
-        CreateAndPostSalesInvoice(Customer."No.");
         GetCustomerReminderLevel(GracePeriod, DueDateCalc, Customer."No.", 1);
         ReminderHeaderNo :=
           CreateReminder(Customer."No.", CalcDate(DueDateCalc, CalcDate(DueDateCalc, FindLastSalesInvPostingDate(Customer."No."))));
 
         // [THEN] 2 Lines suggested with value of "No. of Reminders" = 2 for each line
         ReminderLine.SetRange("Reminder No.", ReminderHeaderNo);
-        ReminderLine.SetRange("No. of Reminders", 1);
-        ReminderLine.FindSet();
-        Assert.RecordCount(ReminderLine, 1);
+        ReminderLine.SetRange("No. of Reminders", 2);
+        Assert.RecordCount(ReminderLine, 2);
     end;
 
     [Test]
@@ -603,7 +601,6 @@ codeunit 134909 "ERM Reminder/Fin.Charge Memo"
         IssueReminder(ReminderHeaderNo, WorkDate());
 
         // [GIVEN] Suggested Reminder for Date = 09/02/17
-        CreateAndPostSalesInvoice(Customer."No.");
         GetCustomerReminderLevel(GracePeriod, DueDateCalc, Customer."No.", 1);
         ReminderHeaderNo :=
           CreateReminder(Customer."No.", CalcDate(DueDateCalc, CalcDate(DueDateCalc, FindLastSalesInvPostingDate(Customer."No."))));
@@ -616,11 +613,10 @@ codeunit 134909 "ERM Reminder/Fin.Charge Memo"
 
         // [THEN] Customer ledger entries for invoices "X" and "Y" have "Last Issued Reminder Level" = 1
         CustLedgerEntry.SetRange("Customer No.", Customer."No.");
-        CustLedgerEntry.FindLast();
-        CustLedgerEntry.Next(-1);
+        CustLedgerEntry.FindSet();
         repeat
             CustLedgerEntry.TestField("Last Issued Reminder Level", 1);
-        until CustLedgerEntry.Next(-1) = 0;
+        until CustLedgerEntry.Next() = 0;
     end;
 
     [Test]
@@ -629,7 +625,6 @@ codeunit 134909 "ERM Reminder/Fin.Charge Memo"
     procedure CancelMultilevelReminderFirstLevel()
     var
         Customer: Record Customer;
-        ReminderLevel: Record "Reminder Level";
         IssuedReminderHeader: array[2] of Record "Issued Reminder Header";
         ReminderHeaderNo: Code[20];
         ReminderTermsCode: Code[10];

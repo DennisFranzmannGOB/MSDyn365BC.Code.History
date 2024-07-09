@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Inventory.Location;
-
 /// <summary>
 /// Report Shpfy Create Location Filter (ID 30101).
 /// </summary>

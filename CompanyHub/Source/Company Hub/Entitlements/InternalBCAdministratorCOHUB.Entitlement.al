@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 entitlement "Internal BC Administrator COHUB"
 {
     Type = Role;

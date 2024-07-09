@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Inventory.Item;
-
 /// <summary>
 /// Codeunit Shpfy Inventory API (ID 30195).
 /// </summary>

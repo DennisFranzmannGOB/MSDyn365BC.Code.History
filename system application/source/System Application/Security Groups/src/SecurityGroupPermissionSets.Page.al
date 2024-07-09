@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 /// <summary>
 /// View and edit the permission sets associated with a security group.
 /// </summary>
@@ -16,7 +14,7 @@ page 9868 "Security Group Permission Sets"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
@@ -35,18 +33,9 @@ page 9868 "Security Group Permission Sets"
                         AggregatePermissionSet: Record "Aggregate Permission Set";
                     begin
                         AggregatePermissionSet.Get(Selected.RecordId);
-                        UpdateAccessControlFields(AggregatePermissionSet);
-                    end;
-
-                    trigger OnValidate()
-                    var
-                        AggregatePermissionSet: Record "Aggregate Permission Set";
-                    begin
-                        AggregatePermissionSet.SetRange("Role ID", Rec."Role ID");
-                        if AggregatePermissionSet.Count() = 1 then begin
-                            AggregatePermissionSet.FindFirst();
-                            UpdateAccessControlFields(AggregatePermissionSet);
-                        end;
+                        Rec.Scope := AggregatePermissionSet.Scope;
+                        Rec."App ID" := AggregatePermissionSet."App ID";
+                        Rec."Role Name" := AggregatePermissionSet.Name;
                     end;
                 }
                 field("Role Name"; Rec."Role Name")
@@ -68,7 +57,7 @@ page 9868 "Security Group Permission Sets"
 
     actions
     {
-        area(Processing)
+        area(processing)
         {
             action(SelectPermissionSets)
             {
@@ -127,13 +116,6 @@ page 9868 "Security Group Permission Sets"
     internal procedure SetGroupCode(GroupCode: Code[20])
     begin
         PageCaptionExpression := GroupCode;
-    end;
-
-    local procedure UpdateAccessControlFields(AggregatePermissionSet: Record "Aggregate Permission Set")
-    begin
-        Rec.Scope := AggregatePermissionSet.Scope;
-        Rec."App ID" := AggregatePermissionSet."App ID";
-        Rec."Role Name" := AggregatePermissionSet.Name;
     end;
 
     var

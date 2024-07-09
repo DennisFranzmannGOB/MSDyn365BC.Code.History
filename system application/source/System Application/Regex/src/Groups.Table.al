@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Utilities;
-
 /// <summary>
 /// Provides a representation of Regex Groups that models Group objects in .Net
 /// </summary>
@@ -62,7 +60,7 @@ table 3964 Groups
     }
 
     /// <summary>
-    /// Reads the value of the group
+    /// Reads the value of the group 
     /// </summary>
     /// <returns>The value of the group.</returns>
     procedure ReadValue() TextValue: Text

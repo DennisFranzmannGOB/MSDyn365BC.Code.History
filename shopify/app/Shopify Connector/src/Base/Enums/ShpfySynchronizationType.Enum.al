@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Enum Shopify Synchronization Type (ID 30103).
 /// </summary>

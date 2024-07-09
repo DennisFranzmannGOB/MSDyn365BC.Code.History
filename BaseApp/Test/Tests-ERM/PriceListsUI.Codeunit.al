@@ -28,7 +28,6 @@ codeunit 134117 "Price Lists UI"
         ViewExistingTxt: Label 'View Existing Prices and Discounts...';
         AllLinesVerifiedMsg: Label 'All price list lines which were modified by you were verified.';
         AmountTypeNotAlowedErr: Label '%1 is not allowed for %2.', Comment = '%1 - Amount type, %2 - source type';
-        CodeErr: Label '%1 must be %2 in %3.', Comment = '%1 = Code, %2 = Next No. from No. Series, %3 = Sales/Purchase Price List';
 
     [Test]
     procedure T000_SalesPriceListsPageIsNotEditable()
@@ -708,60 +707,6 @@ codeunit 134117 "Price Lists UI"
 
         // [THEN] Message "All lines are verified"
         Assert.AreEqual(AllLinesVerifiedMsg, LibraryVariableStorage.DequeueText(), 'Wrong message');
-        // [THEN] Both lines are 'Active'
-        PriceListLine.SetRange("Asset No.");
-        PriceListLine.SetRange(Status, "Price Status"::Active);
-        Assert.RecordCount(PriceListLine, 2);
-
-        LibraryVariableStorage.AssertEmpty();
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmYesHandler,NotificationHandlerSkipMessage')]
-    procedure NewLineAsDraftOnClosingActiveEditableSalesPriceListWithSkipMessage()
-    var
-        PriceListHeader: Record "Price List Header";
-        PriceListLine: Record "Price List Line";
-        PriceListsUI: Codeunit "Price Lists UI";
-        SalesPriceList: TestPage "Sales Price List";
-        ItemNo: Code[20];
-    begin
-        // [FEATURE] [Allow Editing Active Price]
-        // [SCENARIO] New line added to the active (editable) price list gets status 'Draft', gets 'Active' on page closing.
-        Initialize(true);
-        BindSubscription(PriceListsUI);
-        // [GIVEN] "Allow Editing Active Price" is Yes for Sales
-        LibraryPriceCalculation.AllowEditingActiveSalesPrice();
-        // [GIVEN] Price List, where Status is 'Active'
-        LibraryPriceCalculation.CreatePriceHeader(PriceListHeader, "Price Type"::Sale, "Price Source Type"::"All Customers", '');
-        LibraryPriceCalculation.CreatePriceListLine(
-            PriceListLine, PriceListHeader, "Price Amount Type"::Price, "Price Asset Type"::"G/L Account", LibraryERM.CreateGLAccountNo());
-        PriceListHeader.Validate(Status, "Price Status"::Active);
-        PriceListHeader.Modify();
-
-        // [GIVEN] Open price list card
-        SalesPriceList.OpenEdit();
-        SalesPriceList.Filter.SetFilter(Code, PriceListHeader.Code);
-
-        // [WHEN] Add a new line, where "Asset Type" is 'Item', "Asset No." is 'X', "Unit Price" is 100
-        ItemNo := LibraryInventory.CreateItemNo();
-        SalesPriceList.Lines.New();
-        SalesPriceList.Lines."Asset Type".SetValue('Item');
-        SalesPriceList.Lines."Asset No.".SetValue(ItemNo);
-        SalesPriceList.Lines."Unit Price".SetValue(100);
-        SalesPriceList.Lines.First();
-
-        // [THEN] New line, where Status is 'Draft'
-        PriceListLine.SetRange("Price List Code", PriceListHeader.Code);
-        PriceListLine.SetRange("Asset No.", ItemNo);
-        PriceListLine.FindFirst();
-        PriceListLine.TestField(Status, "Price Status"::Draft);
-
-        // [WHEN] Close the price list page
-        SalesPriceList.Close();
-        // [WHEN] Notification appears, click "Verify Lines"
-        Assert.AreEqual(PriceListHeader.Code, LibraryVariableStorage.DequeueText(), 'Header Code in notification');
-
         // [THEN] Both lines are 'Active'
         PriceListLine.SetRange("Asset No.");
         PriceListLine.SetRange(Status, "Price Status"::Active);
@@ -2215,61 +2160,6 @@ codeunit 134117 "Price Lists UI"
 
         // [THEN] Message "All lines are verified"
         Assert.AreEqual(AllLinesVerifiedMsg, LibraryVariableStorage.DequeueText(), 'Wrong message');
-        // [THEN] Both lines are 'Active'
-        PriceListLine.SetRange("Asset No.");
-        PriceListLine.SetRange(Status, "Price Status"::Active);
-        Assert.RecordCount(PriceListLine, 2);
-
-        LibraryVariableStorage.AssertEmpty();
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmYesHandler,NotificationHandlerSkipMessage')]
-    procedure NewLineAsDraftOnClosingActiveEditablePurchPriceListWithSkipMessage()
-    var
-        PriceListHeader: Record "Price List Header";
-        PriceListLine: Record "Price List Line";
-        PriceListsUI: Codeunit "Price Lists UI";
-        PurchasePriceList: TestPage "Purchase Price List";
-        ItemNo: Code[20];
-    begin
-        // [FEATURE] [Allow Editing Active Price]
-        // [SCENARIO] New line added to the active (editable) price list gets status 'Draft', gets 'Active' on page closing.
-        Initialize(true);
-        BindSubscription(PriceListsUI);
-        // [GIVEN] "Allow Editing Active Price" is Yes for Purchase
-        LibraryPriceCalculation.AllowEditingActivePurchPrice();
-        // [GIVEN] Price List, where Status is 'Active'
-        LibraryPriceCalculation.CreatePriceHeader(PriceListHeader, "Price Type"::Purchase, "Price Source Type"::"All Vendors", '');
-        LibraryPriceCalculation.CreatePriceListLine(
-            PriceListLine, PriceListHeader, "Price Amount Type"::Price, "Price Asset Type"::"G/L Account", LibraryERM.CreateGLAccountNo());
-        PriceListHeader.Validate(Status, "Price Status"::Active);
-        PriceListHeader.Modify();
-
-        // [GIVEN] Open price list card
-        PurchasePriceList.OpenEdit();
-        PurchasePriceList.Filter.SetFilter(Code, PriceListHeader.Code);
-
-        // [WHEN] Add a new line, where "Asset Type" is 'Item', "Asset No." is 'X', "Unit Cost" is 100
-        ItemNo := LibraryInventory.CreateItemNo();
-        PurchasePriceList.Lines.New();
-        PurchasePriceList.Lines."Asset Type".SetValue('Item');
-        PurchasePriceList.Lines."Asset No.".SetValue(ItemNo);
-        PurchasePriceList.Lines."Unit Cost".SetValue(100);
-        PurchasePriceList.Lines.First();
-
-        // [THEN] New line, where Status is 'Draft'
-        PriceListLine.SetRange("Price List Code", PriceListHeader.Code);
-        PriceListLine.SetRange("Asset No.", ItemNo);
-        PriceListLine.FindFirst();
-        PriceListLine.TestField("Price Type", "Price Type"::Purchase);
-        PriceListLine.TestField(Status, "Price Status"::Draft);
-
-        // [WHEN] Close the price list page
-        PurchasePriceList.Close();
-        // [WHEN] Notification appears, click "Verify Lines"
-        Assert.AreEqual(PriceListHeader.Code, LibraryVariableStorage.DequeueText(), 'Header Code in notification');
-
         // [THEN] Both lines are 'Active'
         PriceListLine.SetRange("Asset No.");
         PriceListLine.SetRange(Status, "Price Status"::Active);
@@ -4264,78 +4154,6 @@ codeunit 134117 "Price Lists UI"
         VerifyAmountType(PriceListHeader);
     end;
 
-    [Test]
-    procedure NextNoSeriesIsAssignedInCodeFieldOfSalesPriceListWhenCleanEnteredChar()
-    var
-        SalesReceivablesSetup: Record "Sales & Receivables Setup";
-        SalesPriceList: TestPage "Sales Price List";
-        NextNo: Code[20];
-    begin
-        // [SCENARIO 533390] Next No. Series is assigned in Code field of Sales Price List when Stan types something in it and removes it and then press tab.
-        Initialize(true);
-
-        // [GIVEN] Validate Price List Nos. in Sales & Receivables Setup.
-        SalesReceivablesSetup.Get();
-        SalesReceivablesSetup.Validate("Price List Nos.", LibraryERM.CreateNoSeriesCode());
-        SalesReceivablesSetup.Modify(true);
-
-        // [GIVEN] Generate and save Next No. from No. Series in a Variable.
-        NextNo := LibraryUtility.GetNextNoFromNoSeries(SalesReceivablesSetup."Price List Nos.", WorkDate());
-
-        // [GIVEN] Open New Sales Price List.
-        SalesPriceList.OpenNew();
-
-        // [WHEN] Set blank in Code field.
-        SalesPriceList.Code.SetValue('');
-        SalesPriceList.Next();
-
-        // [THEN] Next No. from No. Series and value in Code field of Sales Price List are same.
-        Assert.AreEqual(
-            NextNo,
-            Format(SalesPriceList.Code),
-            StrSubstNo(
-                CodeErr,
-                SalesPriceList.Code.Caption(),
-                NextNo,
-                SalesPriceList.Caption()));
-    end;
-
-    [Test]
-    procedure NextNoSeriesIsAssignedInCodeFieldOfPurchPriceListWhenCleanEnteredChar()
-    var
-        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
-        PurchasePriceList: TestPage "Purchase Price List";
-        NextNo: Code[20];
-    begin
-        // [SCENARIO 533390] Next No. Series is assigned in Code field of Purchase Price List when Stan types something in it and removes it and then press tab.
-        Initialize(true);
-
-        // [GIVEN] Validate Price List Nos. in Purchases & Payables Setup.
-        PurchasesPayablesSetup.Get();
-        PurchasesPayablesSetup.Validate("Price List Nos.", LibraryERM.CreateNoSeriesCode());
-        PurchasesPayablesSetup.Modify(true);
-
-        // [GIVEN] Generate and save Next No. from No. Series in a Variable.
-        NextNo := LibraryUtility.GetNextNoFromNoSeries(PurchasesPayablesSetup."Price List Nos.", WorkDate());
-
-        // [GIVEN] Open New Purchase Price List.
-        PurchasePriceList.OpenNew();
-
-        // [WHEN] Set blank in Code field.
-        PurchasePriceList.Code.SetValue('');
-        PurchasePriceList.Next();
-
-        // [THEN] Next No. from No. Series and value in Code field of Purchase Price List are same.
-        Assert.AreEqual(
-            NextNo,
-            Format(PurchasePriceList.Code),
-            StrSubstNo(
-                CodeErr,
-                PurchasePriceList.Code.Caption(),
-                NextNo,
-                PurchasePriceList.Caption()));
-    end;
-
     local procedure Initialize(Enable: Boolean)
     var
         PriceListHeader: Record "Price List Header";
@@ -4751,17 +4569,6 @@ codeunit 134117 "Price Lists UI"
         LibraryVariableStorage.Enqueue(VerifyLineNotification.GetData(PriceListHeader.FieldName(Code)));
         // simulate action "Verify Lines" of notification
         PriceListManagement.ActivateDraftLines(VerifyLineNotification);
-    end;
-
-    [SendNotificationHandler]
-    procedure NotificationHandlerSkipMessage(var VerifyLineNotification: Notification): Boolean;
-    var
-        PriceListHeader: Record "Price List Header";
-        PriceListManagement: Codeunit "Price List Management";
-    begin
-        LibraryVariableStorage.Enqueue(VerifyLineNotification.GetData(PriceListHeader.FieldName(Code)));
-        // simulate action "Verify Lines" of notification
-        PriceListManagement.ActivateDraftLines(VerifyLineNotification, true);
     end;
 
     [SendNotificationHandler]

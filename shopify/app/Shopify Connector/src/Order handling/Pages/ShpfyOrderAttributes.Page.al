@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Page Shpfy Order Attributes (ID 30114).
 /// </summary>

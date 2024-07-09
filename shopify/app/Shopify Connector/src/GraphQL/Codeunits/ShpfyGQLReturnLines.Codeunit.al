@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 codeunit 30226 "Shpfy GQL ReturnLines" implements "Shpfy IGraphQL"
 {
 

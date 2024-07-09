@@ -1,11 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace System.Automation;
-
-using System.Security.User;
-
 page 9092 "Approval FactBox"
 {
     Caption = 'Approval';
@@ -36,7 +28,7 @@ page 9092 "Approval FactBox"
                 var
                     UserMgt: Codeunit "User Management";
                 begin
-                    UserMgt.DisplayUserInformation(Rec."Approver ID");
+                    UserMgt.DisplayUserInformation("Approver ID");
                 end;
             }
             field("Date-Time Sent for Approval"; Rec."Date-Time Sent for Approval")
@@ -44,7 +36,7 @@ page 9092 "Approval FactBox"
                 ApplicationArea = Suite;
                 ToolTip = 'Specifies the date and the time that the document was sent for approval.';
             }
-            field(Comment; Rec.Comment)
+            field(Comment; Comment)
             {
                 ApplicationArea = Suite;
                 ToolTip = 'Specifies whether there are comments relating to the approval of the record. If you want to read the comments, choose the field to open the Approval Comment Sheet window.';
@@ -66,7 +58,7 @@ page 9092 "Approval FactBox"
         OnBeforeOnFindRecord(Rec);
 
         DocumentHeading := '';
-        exit(Rec.FindLast());
+        exit(FindLast());
     end;
 
     var
@@ -95,14 +87,13 @@ page 9092 "Approval FactBox"
         if IsHandled then
             exit;
 
-        Rec.FilterGroup(2);
-        Rec.SetRange("Record ID to Approve", SourceRecordID);
+        FilterGroup(2);
+        SetRange("Record ID to Approve", SourceRecordID);
         ApprovalEntry.Copy(Rec);
         if ApprovalEntry.FindFirst() then
-            Rec.SetFilter("Approver ID", '<>%1', ApprovalEntry."Sender ID");
-        Rec.FilterGroup(0);
-        OnUpdateApprovalEntriesFromSourceRecordOnAfterApprovalEntrySetFilter(ApprovalEntry);
-        if Rec.FindLast() then;
+            SetFilter("Approver ID", '<>%1', ApprovalEntry."Sender ID");
+        FilterGroup(0);
+        if FindLast() then;
         CurrPage.Update(false);
     end;
 
@@ -113,11 +104,6 @@ page 9092 "Approval FactBox"
 
     [IntegrationEvent(true, false)]
     local procedure OnBeforeUpdateApprovalEntriesFromSourceRecord(var ApprovalEntry: Record "Approval Entry"; SourceRecordID: RecordID; var IsHandled: Boolean);
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnUpdateApprovalEntriesFromSourceRecordOnAfterApprovalEntrySetFilter(var ApprovalEntry: Record "Approval Entry")
     begin
     end;
 }

@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.Purchases.Vendor;
-
 page 1621 "Office Vendor Details"
 {
     Caption = 'Office Vendor Details';

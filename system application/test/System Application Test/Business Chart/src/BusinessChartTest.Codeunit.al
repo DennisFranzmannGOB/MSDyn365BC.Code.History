@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Visualization;
-
-using System.Visualization;
-using System.TestLibraries.Visualization;
-using System;
-using System.TestLibraries.Utilities;
-
 codeunit 135012 "Business Chart Test"
 {
     Subtype = Test;

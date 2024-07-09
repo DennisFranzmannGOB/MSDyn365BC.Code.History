@@ -1,8 +1,3 @@
-namespace Microsoft.Finance.Latepayment;
-
-using Microsoft.Sales.Receivables;
-using Microsoft.Sales.History;
-using Microsoft.Sales.Document;
 codeunit 1957 "LPP Update"
 {
     trigger OnRun()

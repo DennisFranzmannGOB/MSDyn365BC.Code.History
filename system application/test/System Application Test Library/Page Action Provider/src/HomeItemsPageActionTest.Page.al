@@ -3,12 +3,14 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Integration;
-
 page 132617 "Home Items Page Action Test"
 {
     Caption = 'Role Center';
     PageType = RoleCenter;
+
+    layout
+    {
+    }
 
     actions
     {
@@ -17,25 +19,25 @@ page 132617 "Home Items Page Action Test"
             action(PageWithViews)
             {
                 ApplicationArea = All;
-                Caption = 'Page with views';
-                RunObject = page "Views Page Action Test";
+                CaptionML = ENU = 'Page with views';
+                RunObject = Page "Views Page Action Test";
                 ToolTip = 'Test page with views';
             }
             action(EmptyPage)
             {
                 ApplicationArea = All;
                 Caption = 'Empty card page';
-                RunObject = page "Empty Card Page Action Test";
+                RunObject = Page "Empty Card Page Action Test";
                 ToolTip = 'Test empty card page';
             }
         }
-        area(Processing)
+        area(processing)
         {
             action(PageWithViewsInProcesing)
             {
                 ApplicationArea = All;
-                Caption = 'Page with views';
-                RunObject = page "Views Page Action Test";
+                CaptionML = ENU = 'Page with views';
+                RunObject = Page "Views Page Action Test";
                 ToolTip = 'Test page with views';
             }
         }

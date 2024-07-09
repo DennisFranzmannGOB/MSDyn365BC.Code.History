@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy GQL VariantImages (ID 30152) implements Interface Shpfy IGarphQL.
 /// </summary>

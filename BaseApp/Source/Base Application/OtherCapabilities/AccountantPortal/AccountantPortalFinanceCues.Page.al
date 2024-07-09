@@ -1,14 +1,3 @@
-namespace Microsoft.AccountantPortal;
-
-using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Finance.RoleCenters;
-using Microsoft.Projects.TimeSheet;
-using Microsoft.RoleCenters;
-using System.Automation;
-using System.Security.User;
-using System.Text;
-using System.Visualization;
-
 page 1315 "Accountant Portal Finance Cues"
 {
     Caption = 'Accountant Portal Finance Cues';
@@ -385,15 +374,15 @@ page 1315 "Accountant Portal Finance Cues"
 
     trigger OnOpenPage()
     begin
-        Rec.Reset();
-        if not Rec.Get() then begin
-            Rec.Init();
-            Rec.Insert();
+        Reset();
+        if not Get() then begin
+            Init();
+            Insert();
             Commit();
         end;
-        Rec.SetFilter("Due Date Filter", '<=%1', Today);
-        Rec.SetFilter("Overdue Date Filter", '<%1', Today);
-        Rec.SetFilter("Due Next Week Filter", '%1..%2', CalcDate('<1D>', Today), CalcDate('<1W>', Today));
+        SetFilter("Due Date Filter", '<=%1', Today);
+        SetFilter("Overdue Date Filter", '<%1', Today);
+        SetFilter("Due Next Week Filter", '%1..%2', CalcDate('<1D>', Today), CalcDate('<1W>', Today));
     end;
 
     var
@@ -459,95 +448,95 @@ page 1315 "Accountant Portal Finance Cues"
         if GeneralLedgerSetup.Get() then
             CurrencySymbol := GeneralLedgerSetup.GetCurrencySymbol();
 
-        Rec.CalcFields("Overdue Purchase Documents");
-        TempString := Format(Rec."Overdue Purchase Documents");
+        CalcFields("Overdue Purchase Documents");
+        TempString := Format("Overdue Purchase Documents");
         OverduePurchaseDocumentsAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Overdue Purchase Documents"), Rec."Overdue Purchase Documents", OverduePurchaseDocumentsStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Overdue Purchase Documents"), "Overdue Purchase Documents", OverduePurchaseDocumentsStyle);
 
-        Rec.CalcFields("Purchase Discounts Next Week");
-        TempString := Format(Rec."Purchase Discounts Next Week");
+        CalcFields("Purchase Discounts Next Week");
+        TempString := Format("Purchase Discounts Next Week");
         PurchaseDiscountsNextWeekAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Purchase Discounts Next Week"), Rec."Purchase Discounts Next Week", PurchaseDiscountsNextWeekStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Purchase Discounts Next Week"), "Purchase Discounts Next Week", PurchaseDiscountsNextWeekStyle);
 
-        Rec.CalcFields("Overdue Sales Documents");
-        TempString := Format(Rec."Overdue Sales Documents");
+        CalcFields("Overdue Sales Documents");
+        TempString := Format("Overdue Sales Documents");
         OverdueSalesDocumentsAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Overdue Sales Documents"), Rec."Overdue Sales Documents", OverdueSalesDocumentsStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Overdue Sales Documents"), "Overdue Sales Documents", OverdueSalesDocumentsStyle);
 
-        Rec.CalcFields("Purchase Documents Due Today");
-        TempString := Format(Rec."Purchase Documents Due Today");
+        CalcFields("Purchase Documents Due Today");
+        TempString := Format("Purchase Documents Due Today");
         PurchaseDocumentsDueTodayAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Purchase Documents Due Today"), Rec."Purchase Documents Due Today", PurchaseDocumentsDueTodayStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Purchase Documents Due Today"), "Purchase Documents Due Today", PurchaseDocumentsDueTodayStyle);
 
-        Rec.CalcFields("Vendors - Payment on Hold");
-        TempString := Format(Rec."Vendors - Payment on Hold");
+        CalcFields("Vendors - Payment on Hold");
+        TempString := Format("Vendors - Payment on Hold");
         VendorsPaymentsOnHoldAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Vendors - Payment on Hold"), Rec."Vendors - Payment on Hold", VendorsPaymentsOnHoldStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Vendors - Payment on Hold"), "Vendors - Payment on Hold", VendorsPaymentsOnHoldStyle);
 
-        Rec.CalcFields("POs Pending Approval");
-        TempString := Format(Rec."POs Pending Approval");
+        CalcFields("POs Pending Approval");
+        TempString := Format("POs Pending Approval");
         POsPendingApprovalAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("POs Pending Approval"), Rec."POs Pending Approval", POsPendingApprovalStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("POs Pending Approval"), "POs Pending Approval", POsPendingApprovalStyle);
 
-        Rec.CalcFields("SOs Pending Approval");
-        TempString := Format(Rec."SOs Pending Approval");
+        CalcFields("SOs Pending Approval");
+        TempString := Format("SOs Pending Approval");
         SOsPendingApprovalAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("SOs Pending Approval"), Rec."SOs Pending Approval", SOsPendingApprovalStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("SOs Pending Approval"), "SOs Pending Approval", SOsPendingApprovalStyle);
 
-        Rec.CalcFields("Approved Sales Orders");
-        TempString := Format(Rec."Approved Sales Orders");
+        CalcFields("Approved Sales Orders");
+        TempString := Format("Approved Sales Orders");
         ApprovedSalesOrdersAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Approved Sales Orders"), Rec."Approved Sales Orders", ApprovedSalesOrdersStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Approved Sales Orders"), "Approved Sales Orders", ApprovedSalesOrdersStyle);
 
-        Rec.CalcFields("Approved Purchase Orders");
-        TempString := Format(Rec."Approved Purchase Orders");
+        CalcFields("Approved Purchase Orders");
+        TempString := Format("Approved Purchase Orders");
         ApprovedPurchaseOrdersAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Approved Purchase Orders"), Rec."Approved Purchase Orders", ApprovedPurchaseOrdersStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Approved Purchase Orders"), "Approved Purchase Orders", ApprovedPurchaseOrdersStyle);
 
-        Rec.CalcFields("Purchase Return Orders");
-        TempString := Format(Rec."Purchase Return Orders");
+        CalcFields("Purchase Return Orders");
+        TempString := Format("Purchase Return Orders");
         PurchaseReturnOrdersAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Purchase Return Orders"), Rec."Purchase Return Orders", PurchaseReturnOrdersStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Purchase Return Orders"), "Purchase Return Orders", PurchaseReturnOrdersStyle);
 
-        Rec.CalcFields("Sales Return Orders - All");
-        TempString := Format(Rec."Sales Return Orders - All");
+        CalcFields("Sales Return Orders - All");
+        TempString := Format("Sales Return Orders - All");
         SalesReturnOrdersAllAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Sales Return Orders - All"), Rec."Sales Return Orders - All", SalesReturnOrdersAllStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Sales Return Orders - All"), "Sales Return Orders - All", SalesReturnOrdersAllStyle);
 
-        Rec.CalcFields("Customers - Blocked");
-        TempString := Format(Rec."Customers - Blocked");
+        CalcFields("Customers - Blocked");
+        TempString := Format("Customers - Blocked");
         CustomersBlockedAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Customers - Blocked"), Rec."Customers - Blocked", CustomersBlockedStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Customers - Blocked"), "Customers - Blocked", CustomersBlockedStyle);
 
-        Rec.CalcFields("New Incoming Documents");
-        TempString := Format(Rec."New Incoming Documents");
+        CalcFields("New Incoming Documents");
+        TempString := Format("New Incoming Documents");
         NewIncomingDocumentsAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("New Incoming Documents"), Rec."New Incoming Documents", NewIncomingDocumentsStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("New Incoming Documents"), "New Incoming Documents", NewIncomingDocumentsStyle);
 
-        Rec.CalcFields("Approved Incoming Documents");
-        TempString := Format(Rec."Approved Incoming Documents");
+        CalcFields("Approved Incoming Documents");
+        TempString := Format("Approved Incoming Documents");
         ApprovedIncomingDocumentsAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Approved Incoming Documents"), Rec."Approved Incoming Documents", ApprovedIncomingDocumentsStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Approved Incoming Documents"), "Approved Incoming Documents", ApprovedIncomingDocumentsStyle);
 
-        Rec.CalcFields("OCR Pending");
-        TempString := Format(Rec."OCR Pending");
+        CalcFields("OCR Pending");
+        TempString := Format("OCR Pending");
         OCRPendingAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("OCR Pending"), Rec."OCR Pending", OCRPendingStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("OCR Pending"), "OCR Pending", OCRPendingStyle);
 
-        Rec.CalcFields("OCR Completed");
-        TempString := Format(Rec."OCR Completed");
+        CalcFields("OCR Completed");
+        TempString := Format("OCR Completed");
         OCRCompletedAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("OCR Completed"), Rec."OCR Completed", OCRCompletedStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("OCR Completed"), "OCR Completed", OCRCompletedStyle);
 
-        Rec."Cash Accounts Balance" := ActivitiesMgt.CalcCashAccountsBalances();
-        CashAccountsBalanceAmountDecimal := Rec."Cash Accounts Balance";
-        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString(Rec."Cash Accounts Balance");
+        "Cash Accounts Balance" := ActivitiesMgt.CalcCashAccountsBalances();
+        CashAccountsBalanceAmountDecimal := "Cash Accounts Balance";
+        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString("Cash Accounts Balance");
         TempString := CopyStr(UnlimitedTempString, 1, 250);
         CashAccountsBalanceAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Cash Accounts Balance"), Rec."Cash Accounts Balance", CashAccountsBalanceStyle);
+        CuesAndKpis.SetCueStyle(Database::"Finance Cue", FinanceCue.FieldNo("Cash Accounts Balance"), "Cash Accounts Balance", CashAccountsBalanceStyle);
 
-        Rec.CalcFields("Last Depreciated Posted Date");
-        TempString := Format(Rec."Last Depreciated Posted Date");
+        CalcFields("Last Depreciated Posted Date");
+        TempString := Format("Last Depreciated Posted Date");
         LastDepreciatedPostedDateAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
         LastDepreciatedPostedDateStyle := LastDepreciatedPostedDateStyle::None;
 

@@ -1,18 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Foundation.Comment;
-using Microsoft.CRM.Contact;
-using Microsoft.CRM.Profiling;
-using Microsoft.Finance.Currency;
-using Microsoft.Sales.Receivables;
-using Microsoft.Sales.Customer;
-using Microsoft.Finance.Dimension;
-using Microsoft.Inventory.Item.Catalog;
-using Microsoft.Inventory.Location;
-using Microsoft.Sales.FinanceCharge;
-using Microsoft.Service.Document;
-using Microsoft.Foundation.Shipping;
-
 permissionset 4970 "Customer - View"
 {
     Access = Public;

@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Excel;
-
-using System;
-
 /// <summary>
 /// This codeunit provides an interface to running Edit in Excel for a specific page.
 /// </summary>
@@ -70,7 +66,7 @@ codeunit 1492 "Edit in Excel Fld Filter Impl." implements "Edit in Excel Field F
         ExcelFilterNodeType := "Excel Filter Node Type".FromInteger(EditInExcelFilterType.AsInteger()); // Convert from readable "Less Than" to OData "lt"
         FilterBinaryNode := FilterBinaryNode.FilterBinaryNode();
         FilterBinaryNode.Left := FilterLeftOperand;
-        FilterBinaryNode.Operator := Format(ExcelFilterNodeType);
+        FilterBinaryNode.Operator := format(ExcelFilterNodeType);
         FilterBinaryNode.Right := FilterValue;
 
         FilterCollectionNode.Collection.Add(FilterBinaryNode);

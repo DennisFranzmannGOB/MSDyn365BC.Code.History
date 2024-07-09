@@ -7,11 +7,6 @@
 /// This table holds the individual archive headers.
 /// Data from each table is stored in "Data Archive Table"
 /// </summary>
-
-namespace System.DataAdministration;
-
-using System.Security.AccessControl;
-
 table 600 "Data Archive"
 {
     Access = Public;

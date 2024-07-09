@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Device;
-
-using System.Utilities;
-
 codeunit 1909 "Media Upload Page Impl."
 {
     Access = Internal;

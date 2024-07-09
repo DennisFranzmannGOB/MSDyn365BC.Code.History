@@ -1,7 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Finance.GeneralLedger.Account;
-
 page 20014 "APIV1 - Accounts"
 {
     APIVersion = 'v1.0';
@@ -25,33 +21,33 @@ page 20014 "APIV1 - Accounts"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'number', Locked = true;
                 }
-                field(displayName; Rec.Name)
+                field(displayName; Name)
                 {
                     Caption = 'displayName', Locked = true;
                 }
-                field(category; Rec."Account Category")
+                field(category; "Account Category")
                 {
                     Caption = 'category', Locked = true;
                 }
-                field(subCategory; Rec."Account Subcategory Descript.")
+                field(subCategory; "Account Subcategory Descript.")
                 {
                     Caption = 'subCategory', Locked = true;
                 }
-                field(blocked; Rec.Blocked)
+                field(blocked; Blocked)
                 {
                     Caption = 'blocked', Locked = true;
                     ToolTip = 'Specifies the status of the account.';
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
@@ -70,13 +66,12 @@ page 20014 "APIV1 - Accounts"
 
     trigger OnOpenPage()
     begin
-        Rec.SETRANGE("Account Type", Rec."Account Type"::Posting);
-        Rec.SetRange("Direct Posting", true);
+        SETRANGE("Account Type", "Account Type"::Posting);
+        SETRANGE("Direct Posting", TRUE);
     end;
 
     local procedure SetCalculatedFields()
     begin
     end;
 }
-
 

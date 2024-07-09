@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Apps;
 
 /// <summary>
 /// Displays the deployment status for extensions that are deployed or are scheduled for deployment.
@@ -23,7 +21,7 @@ page 2508 "Extension Deployment Status"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
@@ -46,7 +44,7 @@ page 2508 "Extension Deployment Status"
                     ToolTip = 'Specifies the deployment type.';
                     OptionCaption = 'Upload,Install';
                 }
-                field(Status; Rec.Status)
+                field(Status; Status)
                 {
                     ApplicationArea = All;
                     Caption = 'Status';
@@ -66,7 +64,7 @@ page 2508 "Extension Deployment Status"
                     ToolTip = 'Specifies the version of the app.';
                     Width = 6;
                 }
-                field("Started On"; Rec."Started On")
+                field("Started On"; "Started On")
                 {
                     ApplicationArea = All;
                     Caption = 'Started Date';
@@ -78,7 +76,7 @@ page 2508 "Extension Deployment Status"
 
     actions
     {
-        area(Processing)
+        area(processing)
         {
             action(View)
             {
@@ -86,7 +84,7 @@ page 2508 "Extension Deployment Status"
                 ToolTip = 'Specifies the status of the deployment.';
                 Image = View;
                 Scope = Repeater;
-                ShortcutKey = 'Return';
+                ShortCutKey = 'Return';
                 Visible = false;
 
                 trigger OnAction()
@@ -106,21 +104,21 @@ page 2508 "Extension Deployment Status"
     var
         ExtensionOperationImpl: Codeunit "Extension Operation Impl";
     begin
-        if Rec."Operation Type" = 0 then
+        if "Operation Type" = 0 then
             OperationType := OperationType::Install
         else
             OperationType := OperationType::Upload;
 
-        ExtensionOperationImpl.GetDeployOperationInfo(Rec."Operation ID", Version, DeploymentSchedule, AppPublisher, AppName, Rec.Description);
+        ExtensionOperationImpl.GetDeployOperationInfo("Operation ID", Version, DeploymentSchedule, AppPublisher, AppName, Description);
 
-        if Rec.Status = Rec.Status::InProgress then
-            ExtensionOperationImpl.RefreshStatus(Rec."Operation ID");
+        if Status = Status::InProgress then
+            ExtensionOperationImpl.RefreshStatus("Operation ID");
     end;
 
     trigger OnOpenPage()
     begin
-        Rec.SetCurrentKey("Started On");
-        Rec.Ascending(false);
+        SetCurrentKey("Started On");
+        Ascending(false);
     end;
 
     var
@@ -130,5 +128,4 @@ page 2508 "Extension Deployment Status"
         AppName: Text;
         OperationType: Option Upload,Install;
 }
-
 

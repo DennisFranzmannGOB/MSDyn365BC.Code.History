@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Foundation.PaymentTerms;
-using Microsoft.Integration.Graph;
-
 page 20023 "APIV1 - Payment Terms"
 {
     APIVersion = 'v1.0';
@@ -21,67 +16,67 @@ page 20023 "APIV1 - Payment Terms"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'code', Locked = true;
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FIELDNO(Code));
                     end;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'displayName', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FIELDNO(Description));
                     end;
                 }
-                field(dueDateCalculation; Rec."Due Date Calculation")
+                field(dueDateCalculation; "Due Date Calculation")
                 {
                     Caption = 'dueDateCalculation', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Due Date Calculation"));
+                        RegisterFieldSet(FIELDNO("Due Date Calculation"));
                     end;
                 }
-                field(discountDateCalculation; Rec."Discount Date Calculation")
+                field(discountDateCalculation; "Discount Date Calculation")
                 {
                     Caption = 'discountDateCalculation', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Discount Date Calculation"));
+                        RegisterFieldSet(FIELDNO("Discount Date Calculation"));
                     end;
                 }
-                field(discountPercent; Rec."Discount %")
+                field(discountPercent; "Discount %")
                 {
                     Caption = 'discountPercent', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Discount %"));
+                        RegisterFieldSet(FIELDNO("Discount %"));
                     end;
                 }
-                field(calculateDiscountOnCreditMemos; Rec."Calc. Pmt. Disc. on Cr. Memos")
+                field(calculateDiscountOnCreditMemos; "Calc. Pmt. Disc. on Cr. Memos")
                 {
                     Caption = 'calcPmtDiscOnCreditMemos', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Calc. Pmt. Disc. on Cr. Memos"));
+                        RegisterFieldSet(FIELDNO("Calc. Pmt. Disc. on Cr. Memos"));
                     end;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
@@ -99,33 +94,33 @@ page 20023 "APIV1 - Payment Terms"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         RecordRef: RecordRef;
     begin
-        PaymentTerms.SETRANGE(Code, Rec.Code);
-        if not PaymentTerms.ISEMPTY() then
-            Rec.insert();
+        PaymentTerms.SETRANGE(Code, Code);
+        IF NOT PaymentTerms.ISEMPTY() THEN
+            INSERT();
 
-        Rec.insert(true);
+        INSERT(TRUE);
 
-        RecordRef.GetTable(Rec);
+        RecordRef.GETTABLE(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(RecordRef, TempFieldSet, CURRENTDATETIME());
-        RecordRef.SetTable(Rec);
+        RecordRef.SETTABLE(Rec);
 
-        Rec.Modify(true);
-        exit(false);
+        MODIFY(TRUE);
+        EXIT(FALSE);
     end;
 
     trigger OnModifyRecord(): Boolean
     var
         PaymentTerms: Record "Payment Terms";
     begin
-        PaymentTerms.GetBySystemId(Rec.SystemId);
+        PaymentTerms.GetBySystemId(SystemId);
 
-        if Rec.Code = PaymentTerms.Code then
-            Rec.Modify(true)
-        else begin
-            PaymentTerms.TransferFields(Rec, false);
-            PaymentTerms.Rename(Rec.Code);
-            Rec.TransferFields(PaymentTerms, true);
-        end;
+        IF Code = PaymentTerms.Code THEN
+            MODIFY(TRUE)
+        ELSE BEGIN
+            PaymentTerms.TRANSFERFIELDS(Rec, FALSE);
+            PaymentTerms.RENAME(Code);
+            TRANSFERFIELDS(PaymentTerms, TRUE);
+        END;
     end;
 
     var
@@ -133,16 +128,15 @@ page 20023 "APIV1 - Payment Terms"
 
     local procedure RegisterFieldSet(FieldNo: Integer)
     begin
-        if TempFieldSet.GET(DATABASE::"Payment Terms", FieldNo) then
-            exit;
+        IF TempFieldSet.GET(DATABASE::"Payment Terms", FieldNo) THEN
+            EXIT;
 
         TempFieldSet.INIT();
         TempFieldSet.TableNo := DATABASE::"Payment Terms";
-        TempFieldSet.Validate("No.", FieldNo);
-        TempFieldSet.insert(true);
+        TempFieldSet.VALIDATE("No.", FieldNo);
+        TempFieldSet.INSERT(TRUE);
     end;
 }
-
 
 
 

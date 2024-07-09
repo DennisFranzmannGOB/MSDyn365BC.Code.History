@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Reflection;
-
 page 135536 "Record Selection Test Page"
 {
     PageType = Card;
@@ -21,25 +19,25 @@ page 135536 "Record Selection Test Page"
                 field(SomeInteger; Rec.SomeInteger)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies some Integer';
+                    ToolTip = 'Some Integer';
                 }
 
                 field(SomeCode; Rec.SomeCode)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies some Code';
+                    ToolTip = 'Some Code';
                 }
 
                 field(SomeText; Rec.SomeText)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies some Text';
+                    ToolTip = 'Some Text';
                 }
 
                 field(SomeOtherText; Rec.SomeOtherText)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies some Other Text';
+                    ToolTip = 'Some Other Text';
                 }
             }
         }

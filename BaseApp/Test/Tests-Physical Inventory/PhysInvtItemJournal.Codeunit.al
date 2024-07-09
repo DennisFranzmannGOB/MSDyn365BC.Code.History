@@ -215,10 +215,10 @@ codeunit 137463 "Phys. Invt. Item Journal"
         ItemReference.Modify(true);
 
         // [WHEN] Validate item reference no using existing refernce no that has non-base unit of measure
-        ItemJournalLine.Validate("Item Reference No.", ItemReference."Reference No.");
+        asserterror ItemJournalLine.Validate("Item Reference No.", ItemReference."Reference No.");
 
-        // [THEN] No error is thrown
-
+        // [THEN] Verify error
+        Assert.ExpectedError(ItemReference.FieldCaption("Unit of Measure") + ' must not be ' + ItemReference."Unit of Measure" + ' in ' + ItemReference.TableCaption());
     end;
 
     [ConfirmHandler]

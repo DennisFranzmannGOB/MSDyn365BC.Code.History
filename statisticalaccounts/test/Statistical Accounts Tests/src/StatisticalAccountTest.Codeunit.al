@@ -424,40 +424,6 @@ codeunit 139683 "Statistical Account Test"
         VerifyShortcutDimensionsInStatisticalAccountsJournal(DimensionValue, StatisticalAccount);
     end;
 
-    [Test]
-    procedure VerifyShortcutDimensionClearWhenNewLineSetupOnStatisticalAccountJournal()
-    var
-        StatisticalAccount: Record "Statistical Account";
-        DimensionValue: Record "Dimension Value";
-        StatisticalAccountsJournal: TestPage "Statistical Accounts Journal";
-    begin
-        // [SCENARIO 487974] Issues with manually entering the lines on the Statistical Account Journal with Dimensions as well as copying & pasting into the journal.
-        Initialize();
-
-        // [GIVEN] - Create Statistical Account with Dimension
-        CreateStatisticalAccountWithDimensions(StatisticalAccount);
-
-        // [GIVEN] Create new Shortcut Dimensiona and update ShortCut Dimension.
-        LibraryDimension.CreateDimWithDimValue(DimensionValue);
-        LibraryERM.SetShortcutDimensionCode(3, DimensionValue."Dimension Code");
-
-        // [THEN] Create Statistical Account Journal Lines on Page, set defaults and Shortcut Dimension 3
-        StatisticalAccountsJournal.OpenEdit();
-        StatisticalAccountsJournal.New();
-        StatisticalAccountsJournal."Posting Date".SetValue(WorkDate());
-        StatisticalAccountsJournal."Document No.".SetValue(LibraryRandom.RandText(10));
-        StatisticalAccountsJournal.StatisticalAccountNo.SetValue(StatisticalAccount."No.");
-        StatisticalAccountsJournal.Amount.SetValue(LibraryRandom.RandInt(20));
-        StatisticalAccountsJournal.ShortcutDimCode3.SetValue(DimensionValue.Code);
-
-        // [WHEN] Move to Next Line
-        StatisticalAccountsJournal.Next();
-
-        // [VERIFY] Verify: Moving to next line the shortcut dimension 3 should blank
-        StatisticalAccountsJournal.ShortcutDimCode3.AssertEquals('');
-        StatisticalAccountsJournal.Close();
-    end;
-
     local procedure SetupFinancialReport()
     var
         AccScheduleLine: Record "Acc. Schedule Line";

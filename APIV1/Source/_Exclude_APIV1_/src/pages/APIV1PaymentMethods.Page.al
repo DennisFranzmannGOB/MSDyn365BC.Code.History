@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Bank.BankAccount;
-using Microsoft.Integration.Graph;
-
 page 20020 "APIV1 - Payment Methods"
 {
     APIVersion = 'v1.0';
@@ -21,31 +16,31 @@ page 20020 "APIV1 - Payment Methods"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'code', Locked = true;
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FIELDNO(Code));
                     end;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'description', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FIELDNO(Description));
                     end;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
@@ -63,33 +58,33 @@ page 20020 "APIV1 - Payment Methods"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         RecordRef: RecordRef;
     begin
-        PaymentMethod.SETRANGE(Code, Rec.Code);
-        if not PaymentMethod.ISEMPTY() then
-            Rec.insert();
+        PaymentMethod.SETRANGE(Code, Code);
+        IF NOT PaymentMethod.ISEMPTY() THEN
+            INSERT();
 
-        Rec.insert(true);
+        INSERT(TRUE);
 
-        RecordRef.GetTable(Rec);
+        RecordRef.GETTABLE(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(RecordRef, TempFieldSet, CURRENTDATETIME());
-        RecordRef.SetTable(Rec);
+        RecordRef.SETTABLE(Rec);
 
-        Rec.Modify(true);
-        exit(false);
+        MODIFY(TRUE);
+        EXIT(FALSE);
     end;
 
     trigger OnModifyRecord(): Boolean
     var
         PaymentMethod: Record "Payment Method";
     begin
-        PaymentMethod.GetBySystemId(Rec.SystemId);
+        PaymentMethod.GetBySystemId(SystemId);
 
-        if Rec.Code = PaymentMethod.Code then
-            Rec.Modify(true)
-        else begin
-            PaymentMethod.TransferFields(Rec, false);
-            PaymentMethod.Rename(Rec.Code);
-            Rec.TransferFields(PaymentMethod);
-        end;
+        IF Code = PaymentMethod.Code THEN
+            MODIFY(TRUE)
+        ELSE BEGIN
+            PaymentMethod.TRANSFERFIELDS(Rec, FALSE);
+            PaymentMethod.RENAME(Code);
+            TRANSFERFIELDS(PaymentMethod);
+        END;
     end;
 
     var
@@ -97,16 +92,15 @@ page 20020 "APIV1 - Payment Methods"
 
     local procedure RegisterFieldSet(FieldNo: Integer)
     begin
-        if TempFieldSet.GET(DATABASE::"Payment Method", FieldNo) then
-            exit;
+        IF TempFieldSet.GET(DATABASE::"Payment Method", FieldNo) THEN
+            EXIT;
 
         TempFieldSet.INIT();
         TempFieldSet.TableNo := DATABASE::"Payment Method";
-        TempFieldSet.Validate("No.", FieldNo);
-        TempFieldSet.insert(true);
+        TempFieldSet.VALIDATE("No.", FieldNo);
+        TempFieldSet.INSERT(TRUE);
     end;
 }
-
 
 
 

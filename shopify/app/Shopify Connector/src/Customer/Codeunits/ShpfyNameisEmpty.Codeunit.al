@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy Name is Empty (ID 30119) implements Interface Shpfy ICustomer Name.
 /// </summary>

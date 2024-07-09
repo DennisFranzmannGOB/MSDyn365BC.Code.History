@@ -1,11 +1,6 @@
 #if not CLEAN21
 codeunit 132220 "Library - Invoicing App"
 {
-    ObsoleteReason = 'Microsoft Invoicing is not supported.';
-    ObsoleteState = Pending;
-#pragma warning disable AS0072
-    ObsoleteTag = '21.0';
-#pragma warning restore AS0072    
 
     trigger OnRun()
     begin

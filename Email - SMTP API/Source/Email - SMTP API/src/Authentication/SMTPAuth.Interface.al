@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
-using System;
-
 /// <summary>
 /// Functions to be implemented by every SMTP authentication type
 /// </summary>

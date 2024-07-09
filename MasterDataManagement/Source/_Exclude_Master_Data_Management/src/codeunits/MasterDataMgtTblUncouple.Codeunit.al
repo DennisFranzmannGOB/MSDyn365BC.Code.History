@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.MDM;
-
-using Microsoft.Integration.SyncEngine;
-
 codeunit 7236 "Master Data Mgt. Tbl. Uncouple"
 {
     TableNo = "Integration Table Mapping";
@@ -12,7 +8,7 @@ codeunit 7236 "Master Data Mgt. Tbl. Uncouple"
         Handled: Boolean;
     begin
         OnBeforeRun(Rec, Handled);
-        if Handled then
+        If Handled then
             exit;
 
         PerformScheduledUncoupling(Rec);

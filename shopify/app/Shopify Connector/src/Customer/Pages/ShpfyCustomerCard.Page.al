@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Customer;
-
 /// <summary>
 /// Page Shpfy Customer Card (ID 30106).
 /// </summary>

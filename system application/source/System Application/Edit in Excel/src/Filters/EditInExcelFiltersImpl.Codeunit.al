@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Excel;
-
-using System;
-
 /// <summary>
 /// This codeunit provides an interface to running Edit in Excel for a specific page.
 /// </summary>
@@ -35,7 +31,7 @@ codeunit 1491 "Edit in Excel Filters Impl."
 
     procedure AddField(ODataFieldName: Text; EditinExcelFilterCollectionType: Enum "Edit in Excel Filter Collection Type"; EditInExcelEdmType: Enum "Edit in Excel Edm Type"): Interface "Edit in Excel Field Filter"
     begin
-        TryAdd(ODataFieldName, EditinExcelFilterCollectionType, Format(EditInExcelEdmType));
+        TryAdd(ODataFieldName, EditinExcelFilterCollectionType, format(EditInExcelEdmType));
         exit(Get(ODataFieldName));
     end;
 
@@ -137,7 +133,7 @@ codeunit 1491 "Edit in Excel Filters Impl."
                             Session.LogMessage('0000I3X', FilterContainsMultipleOperatorsTxt, Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', EditInExcelTelemetryCategoryTxt);
                             exit; // OData does not support filtering on a field with both 'and' and 'or' hence if we see both, ignore the second type
                         end;
-                    Get(ODataFieldName).AddFilterValue(EditinExcelFilterType, FilterValue);
+                    Get(ODataFieldName).AddFilterValue(EditInExcelFilterType, FilterValue);
                 end;
         end;
     end;
@@ -196,7 +192,7 @@ codeunit 1491 "Edit in Excel Filters Impl."
             Error(FilterAlreadyExistErr, ODataFieldName);
 
         FilterCollectionNode := FilterCollectionNode.FilterCollectionNode();
-        FilterCollectionNode.Operator := Format(EditInExcelFilterOperatorType);
+        FilterCollectionNode.Operator := format(EditInExcelFilterOperatorType);
         FieldFilters.Add(ODataFieldName, FilterCollectionNode);
         FieldTypes.Add(ODataFieldName, EdmType);
     end;

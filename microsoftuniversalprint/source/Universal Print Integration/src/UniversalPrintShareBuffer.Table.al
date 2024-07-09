@@ -54,6 +54,6 @@ table 2752 "Universal Print Share Buffer"
         DeleteAll();
         UniversalPrinterSetup.AddAllPrintSharesToBuffer(Rec);
         CopyFilters(UniversalPrintShareBuffer);
-        if Rec.FindFirst() then;
+        If Rec.FindFirst() then;
     end;
 }

@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Storage;
-
-using System.Utilities;
-
 codeunit 9061 "Stor. Serv. Auth. SAS" implements "Storage Service Authorization"
 {
     Access = Internal;
@@ -31,7 +27,7 @@ codeunit 9061 "Stor. Serv. Auth. SAS" implements "Storage Service Authorization"
         if QueryText <> '' then
             QueryText += '&';
         QueryText += GetSharedAccessSignature();
-
+        
         UriBuilder.SetQuery(QueryText);
 
         UriBuilder.GetUri(Uri);
@@ -94,7 +90,7 @@ codeunit 9061 "Stor. Serv. Auth. SAS" implements "Storage Service Authorization"
         Permissions := SignedPermissions;
     end;
 
-    procedure SetProtocol(SignedProtocol: Option "https&http",https)
+    procedure SetProtocol(SignedProtocol: Option "https&http","https")
     begin
         Clear(Protocols);
         Protocols.Add('https');

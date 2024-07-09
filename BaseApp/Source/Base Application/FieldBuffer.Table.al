@@ -1,5 +1,3 @@
-namespace System.Reflection;
-
 table 8450 "Field Buffer"
 {
     Caption = 'Field Buffer';

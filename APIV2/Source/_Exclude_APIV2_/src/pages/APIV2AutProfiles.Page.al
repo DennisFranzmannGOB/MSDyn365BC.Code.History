@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.Reflection;
-
 page 30074 "APIV2 - Aut. Profiles"
 {
     APIGroup = 'automation';
@@ -25,27 +21,27 @@ page 30074 "APIV2 - Aut. Profiles"
         {
             repeater(Group)
             {
-                field(profileId; Rec."Profile ID")
+                field(profileId; "Profile ID")
                 {
                     Caption = 'Profile Id';
                 }
-                field(applicationId; Rec."App ID")
+                field(applicationId; "App ID")
                 {
                     Caption = 'Application Id';
                 }
-                field(scope; Rec.Scope)
+                field(scope; Scope)
                 {
                     Caption = 'Scope';
                 }
-                field(source; Rec."App Name")
+                field(source; "App Name")
                 {
                     Caption = 'Source';
                 }
-                field(displayName; Rec.Caption)
+                field(displayName; Caption)
                 {
                     Caption = 'Display Name';
                 }
-                field(enabled; Rec.Enabled)
+                field(enabled; Enabled)
                 {
                     Caption = 'Enabled';
                 }

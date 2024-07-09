@@ -1,12 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.D365Sales;
-
-using Microsoft.Integration.Dataverse;
-using Microsoft.Integration.SyncEngine;
-
 page 5331 "CRM Full Synch. Review"
 {
     Caption = 'Dataverse Full Synch. Review';
@@ -42,16 +33,16 @@ page 5331 "CRM Full Synch. Review"
 
                     trigger OnDrillDown()
                     begin
-                        Rec.ShowJobQueueLogEntry();
+                        ShowJobQueueLogEntry();
                     end;
                 }
-                field(ActiveSession; Rec.IsActiveSession())
+                field(ActiveSession; IsActiveSession())
                 {
                     ApplicationArea = Suite;
                     Caption = 'Active Session';
                     ToolTip = 'Specifies whether the session is active.';
                 }
-                field(Direction; Rec.Direction)
+                field(Direction; Direction)
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the synchronization direction.';
@@ -64,7 +55,7 @@ page 5331 "CRM Full Synch. Review"
 
                     trigger OnDrillDown()
                     begin
-                        Rec.ShowSynchJobLog(Rec."To Int. Table Job ID");
+                        ShowSynchJobLog("To Int. Table Job ID");
                     end;
                 }
                 field("From Int. Table Job Status"; Rec."From Int. Table Job Status")
@@ -75,7 +66,7 @@ page 5331 "CRM Full Synch. Review"
 
                     trigger OnDrillDown()
                     begin
-                        Rec.ShowSynchJobLog(Rec."From Int. Table Job ID");
+                        ShowSynchJobLog("From Int. Table Job ID");
                     end;
                 }
                 field("Initial Synchronization Recommendation"; InitialSynchRecommendation)
@@ -94,23 +85,12 @@ page 5331 "CRM Full Synch. Review"
                         if not (InitialSynchRecommendation in [MatchBasedCouplingTxt, CouplingCriteriaSelectedTxt]) then
                             exit;
 
-                        if not IntegrationTableMapping.Get(Rec.Name) then
+                        if not IntegrationTableMapping.Get(Name) then
                             exit;
 
                         IntegrationFieldMapping.SetMatchBasedCouplingFilters(IntegrationTableMapping);
                         if Page.RunModal(Page::"Match Based Coupling Criteria", IntegrationFieldMapping) = Action::LookupOK then
                             CurrPage.Update(false);
-                    end;
-                }
-                field("Multi Company Synch. Enabled"; Rec."Multi Company Synch. Enabled")
-                {
-                    ApplicationArea = Suite;
-                    Visible = MultiCompanyCheckboxEnabled;
-                    ToolTip = 'Specifies if the multi-company synchronization should be enabled for the corresponding integration table mapping.';
-
-                    trigger OnValidate()
-                    begin
-                        Message(ResetToApplyTxt);
                     end;
                 }
             }
@@ -143,7 +123,7 @@ page 5331 "CRM Full Synch. Review"
                     else
                         QuestionTxt := StrSubstNo(StartInitialSynchPersonOwnershipModelQst, PRODUCTNAME.Short(), CRMProductName.CDSServiceName());
                     if Confirm(QuestionTxt) then
-                        Rec.Start();
+                        Start();
                 end;
             }
             action(Restart)
@@ -155,9 +135,9 @@ page 5331 "CRM Full Synch. Review"
                 ToolTip = 'Restart the integration job for synchronizing Business Central record types and Dataverse entities, as defined on the Integration Table Mappings page.';
                 trigger OnAction()
                 begin
-                    Rec.Delete();
-                    Rec.Generate(InitialSynchRecommendations, DeletedLines);
-                    Rec.Start();
+                    Delete();
+                    Generate(InitialSynchRecommendations, DeletedLines);
+                    Start();
                 end;
             }
             action(Reset)
@@ -169,10 +149,10 @@ page 5331 "CRM Full Synch. Review"
                 ToolTip = 'Removes all lines, readds all Integration Table Mappings and recalculates synchronization recommendations.';
                 trigger OnAction()
                 begin
-                    Rec.DeleteAll();
+                    DeleteAll();
                     Clear(InitialSynchRecommendations);
                     Clear(DeletedLines);
-                    Rec.Generate();
+                    Generate();
                 end;
             }
             action(ScheduleFullSynch)
@@ -185,35 +165,11 @@ page 5331 "CRM Full Synch. Review"
 
                 trigger OnAction()
                 begin
-                    if InitialSynchRecommendations.ContainsKey(Rec.Name) then
-                        InitialSynchRecommendations.Remove(Rec.Name);
-                    InitialSynchRecommendations.Add(Rec.Name, Rec."Initial Synch Recommendation"::"Full Synchronization");
-                    Rec.Delete();
-                    Rec.Generate(InitialSynchRecommendations, DeletedLines);
-                end;
-            }
-            action(ToggleMultiCompany)
-            {
-                ApplicationArea = Suite;
-                Caption = 'Toggle Multi-Company Synchronization';
-                Visible = MultiCompanyCheckboxEnabled;
-                Image = ToggleBreakpoint;
-                ToolTip = 'Toggle multi-company synchronization for this table mapping.';
-
-                trigger OnAction()
-                var
-                    IntegrationTableMapping: Record "Integration Table Mapping";
-                begin
-                    Rec.Validate("Multi Company Synch. Enabled", (not Rec."Multi Company Synch. Enabled"));
-                    Commit();
-
-                    if InitialSynchRecommendations.ContainsKey(Rec.Name) then
-                        InitialSynchRecommendations.Remove(Rec.Name);
-
-                    IntegrationTableMapping.Get(Rec.Name);
-                    InitialSynchRecommendations.Add(Rec.Name, Rec.GetInitialSynchRecommendation(IntegrationTableMapping, InitialSynchRecommendations));
-                    Rec.Delete();
-                    Rec.Generate(InitialSynchRecommendations, DeletedLines);
+                    if InitialSynchRecommendations.ContainsKey(Name) then
+                        InitialSynchRecommendations.Remove(Name);
+                    InitialSynchRecommendations.Add(Name, "Initial Synch Recommendation"::"Full Synchronization");
+                    Delete();
+                    Generate(InitialSynchRecommendations, DeletedLines);
                 end;
             }
         }
@@ -235,9 +191,6 @@ page 5331 "CRM Full Synch. Review"
                 actionref(ScheduleFullSynch_Promoted; ScheduleFullSynch)
                 {
                 }
-                actionref(ToggleMultiCompany_Promoted; ToggleMultiCompany)
-                {
-                }
             }
         }
     }
@@ -246,20 +199,20 @@ page 5331 "CRM Full Synch. Review"
     var
         IntegrationFieldMapping: Record "Integration Field Mapping";
     begin
-        ActionStartEnabled := (not Rec.IsThereActiveSessionInProgress()) and Rec.IsThereBlankStatusLine();
-        ActionResetEnabled := (not Rec.IsThereActiveSessionInProgress());
-        ActionRestartEnabled := (not Rec.IsThereActiveSessionInProgress()) and ((Rec."Job Queue Entry Status" = Rec."Job Queue Entry Status"::Error) or (Rec."Job Queue Entry Status" = Rec."Job Queue Entry Status"::Finished));
-        ActionRecommendFullSynchEnabled := ActionResetEnabled and (Rec."Initial Synch Recommendation" = Rec."Initial Synch Recommendation"::"Couple Records");
-        JobQueueEntryStatusStyle := Rec.GetStatusStyleExpression(Format(Rec."Job Queue Entry Status"));
-        ToIntTableJobStatusStyle := Rec.GetStatusStyleExpression(Format(Rec."To Int. Table Job Status"));
-        FromIntTableJobStatusStyle := Rec.GetStatusStyleExpression(Format(Rec."From Int. Table Job Status"));
-        if not InitialSynchRecommendations.ContainsKey(Rec.Name) then
-            InitialSynchRecommendations.Add(Rec.Name, Rec."Initial Synch Recommendation");
+        ActionStartEnabled := (not IsThereActiveSessionInProgress()) and IsThereBlankStatusLine();
+        ActionResetEnabled := (not IsThereActiveSessionInProgress());
+        ActionRestartEnabled := (not IsThereActiveSessionInProgress()) and (("Job Queue Entry Status" = "Job Queue Entry Status"::Error) or ("Job Queue Entry Status" = "Job Queue Entry Status"::Finished));
+        ActionRecommendFullSynchEnabled := ActionResetEnabled and ("Initial Synch Recommendation" = "Initial Synch Recommendation"::"Couple Records");
+        JobQueueEntryStatusStyle := GetStatusStyleExpression(Format("Job Queue Entry Status"));
+        ToIntTableJobStatusStyle := GetStatusStyleExpression(Format("To Int. Table Job Status"));
+        FromIntTableJobStatusStyle := GetStatusStyleExpression(Format("From Int. Table Job Status"));
+        if not InitialSynchRecommendations.ContainsKey(Name) then
+            InitialSynchRecommendations.Add(Name, "Initial Synch Recommendation");
 
-        if Rec."Initial Synch Recommendation" <> Rec."Initial Synch Recommendation"::"Couple Records" then
-            InitialSynchRecommendation := Format(Rec."Initial Synch Recommendation")
+        if "Initial Synch Recommendation" <> "Initial Synch Recommendation"::"Couple Records" then
+            InitialSynchRecommendation := Format("Initial Synch Recommendation")
         else begin
-            IntegrationFieldMapping.SetRange("Integration Table Mapping Name", Rec.Name);
+            IntegrationFieldMapping.SetRange("Integration Table Mapping Name", Name);
             IntegrationFieldMapping.SetRange("Use For Match-Based Coupling", true);
             if IntegrationFieldMapping.IsEmpty() then
                 InitialSynchRecommendation := MatchBasedCouplingTxt
@@ -269,17 +222,14 @@ page 5331 "CRM Full Synch. Review"
         if InitialSynchRecommendation = CouplingCriteriaSelectedTxt then
             InitialSynchRecommendationStyle := 'Favorable'
         else
-            InitialSynchRecommendationStyle := Rec.GetInitialSynchRecommendationStyleExpression(Format(Rec."Initial Synch Recommendation"));
+            InitialSynchRecommendationStyle := GetInitialSynchRecommendationStyleExpression(Format("Initial Synch Recommendation"));
         SynchRecommendationDrillDownEnabled := (InitialSynchRecommendation in [MatchBasedCouplingTxt, CouplingCriteriaSelectedTxt]);
     end;
 
     trigger OnOpenPage()
-    var
-        CDSIntegrationImpl: Codeunit "CDS Integration Impl.";
     begin
         Clear(DeletedLines);
-        Rec.Generate(SkipEntitiesNotFullSyncReady);
-        MultiCompanyCheckboxEnabled := CDSIntegrationImpl.MultipleCompaniesConnected();
+        Generate(SkipEntitiesNotFullSyncReady);
     end;
 
     trigger OnDeleteRecord(): Boolean
@@ -301,7 +251,6 @@ page 5331 "CRM Full Synch. Review"
         ActionRecommendFullSynchEnabled: Boolean;
         SkipEntitiesNotFullSyncReady: Boolean;
         SynchRecommendationDrillDownEnabled: Boolean;
-        MultiCompanyCheckboxEnabled: Boolean;
         InitialSynchRecommendations: Dictionary of [Code[20], Integer];
         DeletedLines: List of [Code[20]];
         JobQueueEntryStatusStyle: Text;
@@ -312,7 +261,6 @@ page 5331 "CRM Full Synch. Review"
         InitialSynchRecommendation: Text;
         InitialSynchRecommendationStyle: Text;
         MatchBasedCouplingTxt: Label 'Select Coupling Criteria';
-        CouplingCriteriaSelectedTxt: Label 'Review Selected Coupling Criteria';
-        ResetToApplyTxt: Label 'Choose action ''Reset'' to apply the change.';
+        CouplingCriteriaSelectedTxt: Label 'Coupling Criteria Selected';
 }
 

@@ -1,11 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Apps;
-
-using System.Globalization;
 
 /// <summary>
 /// Allows users to upload an extension and schedule its deployment.
@@ -20,14 +16,14 @@ page 2507 "Upload And Deploy Extension"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             label("Upload Extension")
             {
                 ApplicationArea = All;
                 Caption = 'Upload Extension';
                 Style = StrongAccent;
-                StyleExpr = true;
+                StyleExpr = TRUE;
             }
             field(FileName; FilePath)
             {
@@ -46,7 +42,7 @@ page 2507 "Upload And Deploy Extension"
                 ApplicationArea = All;
                 Caption = 'Deploy Extension';
                 Style = StrongAccent;
-                StyleExpr = true;
+                StyleExpr = TRUE;
             }
             field(DeployTo; DeployToValue)
             {
@@ -58,7 +54,7 @@ page 2507 "Upload And Deploy Extension"
             {
                 ApplicationArea = All;
                 Caption = 'Language';
-                ToolTip = 'Specifies the language of the extension.';
+                ToolTip = 'Language';
                 Editable = false;
 
                 trigger OnAssistEdit()
@@ -85,13 +81,13 @@ page 2507 "Upload And Deploy Extension"
             field(Accepted; IsAccepted)
             {
                 ApplicationArea = All;
-                Caption = 'By deploying this extension you acknowledge that your data may be sent outside the compliance boundary of Business Central. Each per-tenant extension is subject to its own third party terms and conditions and privacy policies.';
+                Caption = 'Accept the privacy policy and the disclaimer';
                 ToolTip = 'Specifies that you accept the privacy policy and the disclaimer.';
             }
             field(Disclaimer; DisclaimerLbl)
             {
                 ApplicationArea = All;
-                Caption = 'Per-Tenant Extension (PTE) Disclaimer';
+                Caption = 'Microsft Business Central Disclaimer';
                 ToolTip = 'View the disclaimer.';
                 Editable = false;
                 ShowCaption = false;
@@ -100,6 +96,20 @@ page 2507 "Upload And Deploy Extension"
                 trigger OnDrillDown()
                 begin
                     Hyperlink(ExtensionInstallationImpl.GetDisclaimerURL());
+                end;
+            }
+            field(PrivacyAndCookies; PrivacyAndCookiesLbl)
+            {
+                ApplicationArea = All;
+                Caption = 'Privacy and Cookies';
+                ToolTip = 'View the privacy and cookies.';
+                Editable = false;
+                ShowCaption = false;
+                Style = None;
+
+                trigger OnDrillDown()
+                begin
+                    Hyperlink(ExtensionInstallationImpl.GetPrivacyAndCookeisURL());
                 end;
             }
             field(BestPractices; 'Read more about the best practices for installing and publishing extensions')
@@ -119,7 +129,7 @@ page 2507 "Upload And Deploy Extension"
 
     actions
     {
-        area(Processing)
+        area(processing)
         {
             action(Deploy)
             {
@@ -180,7 +190,8 @@ page 2507 "Upload And Deploy Extension"
         DialogTitleTxt: Label 'Select .APP';
         AppFileFilterTxt: Label 'Extension Files|*.app', Locked = true;
         ExtensionNotUploadedMsg: Label 'Please upload an extension file before clicking "Deploy" button.';
-        DisclaimerLbl: Label 'Per-Tenant Extension (PTE) Disclaimer';
+        DisclaimerLbl: Label 'Microsoft Business Central PTE Disclaimer';
+        PrivacyAndCookiesLbl: Label 'Privacy and Cookies';
         IsAccepted: Boolean;
 }
 

@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Finance.GeneralLedger.Setup;
-
 page 30079 "APIV2 - Gen. Prod. Post. Group"
 {
     APIVersion = 'v2.0';
@@ -25,30 +21,26 @@ page 30079 "APIV2 - Gen. Prod. Post. Group"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                 }
-                field(code; Rec."code")
+                field(code; "code")
                 {
                     Caption = 'Code';
                 }
 
-                field(description; Rec."Description")
+                field(description; "Description")
                 {
                     Caption = 'Description';
                 }
-                field(defaultVATProductPostingGroup; Rec."Def. VAT Prod. Posting Group")
+                field(defaultVATProductPostingGroup; "Def. VAT Prod. Posting Group")
                 {
                     Caption = 'Default VAT Product Posting Group';
                 }
-                field(autoInsertDefault; Rec."Auto Insert Default")
+                field(autoInsertDefault; "Auto Insert Default")
                 {
                     Caption = 'Auto Insert Default';
-                }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
-                {
-                    Caption = 'Last Modified Date';
                 }
             }
         }

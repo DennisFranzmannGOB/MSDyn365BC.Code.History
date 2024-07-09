@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
 /// <summary>
 /// List page that contains all users and the plans that they are assigned to.
 /// </summary>
@@ -17,11 +15,11 @@ page 9822 "User Plan Members"
     PageType = List;
     SourceTable = "User Plan";
     ContextSensitiveHelpPage = 'ui-how-users-permissions';
-    Permissions = tabledata "User Plan" = r;
+    permissions = tabledata "User Plan" = r;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
@@ -44,5 +42,8 @@ page 9822 "User Plan Members"
         }
     }
 
+    actions
+    {
+    }
 }
 

@@ -25,6 +25,4 @@ enum 5557 Licenses
     { }
     value(9; Viral)
     { }
-    value(10; "D365 Admin")
-    { }
 }

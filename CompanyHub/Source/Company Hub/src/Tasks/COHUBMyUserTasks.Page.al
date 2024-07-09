@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 page 1154 "COHUB My User Tasks"
 {
     Caption = 'My User Tasks';

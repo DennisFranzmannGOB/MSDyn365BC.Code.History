@@ -135,12 +135,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Master Data Management Setup - NamedType MustPickSourceCompanyErr</note>
         </trans-unit>
-        <trans-unit id="Table 1217273708 - NamedType 881355107" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There are existing synchronization table definitions in this company. Do you want to reset them to the default configuration?</source>
-          <target state="translated">Tässä yrityksessä on synkronointitaulukon määrityksiä. Haluatko palauttaa ne oletusmääritykseen?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Master Data Management Setup - NamedType ResetConfigQst</note>
-        </trans-unit>
         <trans-unit id="Table 1217273708 - NamedType 2451012386" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The synchronization of data from company %1 is enabled. \\To review the tables and fields that will be synchronized, choose action Synchronization Tables. \\To perform the initial synchronization of data from %1, choose Start Initial Synchronization. \\After the initial synchronization is done, job queue entries will continue to synchronize modifications.</source>
           <target state="translated">Yrityksen %1 tietojen synkronointi on käytössä. \\Jos haluat tarkistaa synkronoitavat taulukot ja kentät, valitse Synkronointitaulukot-toiminto. \\Voit suorittaa yrityksen %1 tietojen ensimmäisen synkronoinnin valitsemalla Suorita täysi synkronointi. \\Kun ensimmäinen synkronointi on tehty, työjonotapahtumat jatkavat muutosten synkronointia.</target>
@@ -670,8 +664,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control Direction - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 4260367546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of jobs for data coming from the source table. </source>
-          <target state="translated">Määrittää lähdetaulukosta siirrettävien tietojen töiden tilan. </target>
+          <source>Specifies the status of jobs for data coming from the integration table. </source>
+          <target state="translated">Määrittää integrointitaulukosta siirrettävien tietojen projektien tilan. </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control From Int. Table Job Status - Property ToolTip</note>
         </trans-unit>
@@ -712,8 +706,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 4125410309 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of jobs for data going to the source table. </source>
-          <target state="translated">Määrittää lähdetaulukkoon siirrettävien tietojen töiden tilan. </target>
+          <source>Specifies the status of jobs for data going to the integration table. </source>
+          <target state="translated">Määrittää integrointitaulukkoon siirrettävien tietojen projektien tilan. </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control To Int. Table Job Status - Property ToolTip</note>
         </trans-unit>
@@ -844,8 +838,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SyncNowScheduledMsg</note>
         </trans-unit>
         <trans-unit id="Page 1217273708 - Control 3997336476 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the source company that you synchronize data from.</source>
-          <target state="translated">Määrittää sen lähdeyrityksen nimen, josta synkronoit tietoja.</target>
+          <source>Specifies the name of the cource company that you synchronize data from.</source>
+          <target state="translated">Määrittää sen lähdeyrityksen nimen, josta kopioit tiedot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Control Company Name - Property ToolTip</note>
         </trans-unit>
@@ -904,9 +898,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action IntegrationTableMappings - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Resets the synchronization tables, fields, and job queue entries to the default values for the connection with the source company. All current synchronization tables are deleted and recreated.</source>
-          <target state="translated">Palauttaa synkronointitaulukot, kentät ja työjonotapahtumat lähdeyritysyhteyden oletusarvoihin. Kaikki nykyiset synkronointitaulukot poistetaan ja luodaan uudelleen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <source>Resets the integration table mappings and synchronization jobs to the default values for a connection with the source company. All current mappings are deleted and recreated.</source>
+          <target state="translated">Palauttaa integrointitaulukon yhdistämismääritysten ja synkronointitöiden oletusarvot lähdeyrityksen yhteydelle. Kaikki nykyiset yhdistämismääritykset poistetaan ja luodaan uudelleen.</target>
+          <note from="Developer" annotates="general" priority="2">Business Central is the name of a Microsoft Service and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
@@ -994,8 +988,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Direction - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 823559016 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the caption of the field.</source>
-          <target state="translated">Määrittää kentän selosteen.</target>
+          <source>Specifies the caption of the field in Business Central.</source>
+          <target state="translated">Määrittää Business Centralissa olevan kentän otsikon.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Field Caption - Property ToolTip</note>
         </trans-unit>
@@ -1030,8 +1024,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Transformation Direction - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 1420580905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a rule for transforming the value that is being synchronized from the source company.</source>
-          <target state="translated">Määrittää säännön, joka muuntaa lähdeyrityksestä synkronoitavan arvon.</target>
+          <source>Specifies a rule for transforming imported text to a supported value before it can be mapped to a specified field in Microsoft Dynamics 365.</source>
+          <target state="translated">Määrittää säännön, joka muuntaa tuodun tekstin tuettuun arvoon ennen kuin se voidaan yhdistää määritettyyn Microsoft Dynamics 365 -kenttään.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Transformation Rule - Property ToolTip</note>
         </trans-unit>
@@ -1066,8 +1060,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Action Enable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3185645072 - Action 2573355370 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Updates field mappings to match table schema. Use this action if you added fields to the table with an extension.</source>
-          <target state="translated">Päivittää kentän yhdistämismääritykset vastaamaan taulukon mallia. Käytä tätä toimintoa, jos lisäsit kenttiä laajennuksen sisältävään taulukkoon.</target>
+          <source>Updates field mappings to match table schema. Use this action if the table schema was changed since the mappings were generated.</source>
+          <target state="translated">Päivittää kentän yhdistämismääritykset taulukon mallia vastaaviksi. Käytä tätä toimintoa, jos taulukon mallia on muutettu yhdistämismääritysten luonnin jälkeen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Action FieldMapping - Property ToolTip</note>
         </trans-unit>
@@ -1216,8 +1210,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType UncouplingCompletedMsg</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2987383563 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the action to take when a coupled record that is attempting to synchronize is deleted locally.</source>
-          <target state="translated">Määrittää toiminnon, joka tehdään, kun synkronoitava yhdistetty tietue poistetaan paikallisesti.</target>
+          <source>Specifies the action to take when a coupled record is deleted in one of the connected applications.</source>
+          <target state="translated">Määrittää toiminnon, joka suoritetaan, kun yhdistetty tietue poistetaan jostakin yhdistetystä sovelluksesta.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Deletion-Conflict Resolution - Property ToolTip</note>
         </trans-unit>
@@ -1228,8 +1222,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Disable Event Job Resch. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3277867247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the caption of the table.</source>
-          <target state="translated">Määrittää taulukon selosteen.</target>
+          <source>Specifies the ID of the integration table to map to the business table.</source>
+          <target state="translated">Määrittää yritystaulukkoon yhdistettävän integrointitaulukon tunnuksen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableCaptionValue - Property ToolTip</note>
         </trans-unit>
@@ -1240,8 +1234,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableCaptionValue - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3207106980 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a filter on the table in the source company to control which records should be synchronized.</source>
-          <target state="translated">Määrittää lähdeyrityksen taulukon suodattimen, jonka avulla hallitaan, mitkä tietueet synkronoidaan.</target>
+          <source>Specifies a filter on the integration table to control which records can be synchronized with the corresponding records in the business data table that is specified by the Table field.</source>
+          <target state="translated">Määrittää integrointitaulukossa olevan suodattimen, joka määrittää, mitkä tietueet voidaan synkronoida vastaavien Integrointitaulukon tunnus -kentässä määritetyn yritystietotaulukon tietueiden kanssa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property ToolTip</note>
         </trans-unit>
@@ -1252,8 +1246,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the table.</source>
-          <target state="translated">Määrittää taulukon nimen.</target>
+          <source>Specifies the name of the integration table mapping entry.</source>
+          <target state="translated">Määrittää integrointitaulukon yhdistämismäärityksen tapahtuman nimen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -1264,20 +1258,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Overwrite Local Change - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if synchronization is enabled for this table.</source>
-          <target state="translated">Määrittää, onko synkronointi käytössä tässä taulukossa.</target>
+          <source>Specifies if this mapping is enabled.</source>
+          <target state="translated">Määrittää, onko tämä yhdistämismääritys käytössä.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4108847349 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a date/time that is used to determine which records to synchronize to the source company. Only records that have SystemModifiedAt value greater than this value, will be synchronized. This value keeps changing with every synchronization job.</source>
-          <target state="translated">Määrittää päivämäärän/kellonajan, jonka avulla määritetään, mitkä tietueet synkronoidaan lähdeyritykseen. Vain tietueet, joiden SystemModifiedAt-arvo on suurempi kuin tämä arvo, synkronoidaan. Tämä arvo muuttuu jatkuvasti jokaisessa synkronointityössä.</target>
+          <source>Specifies a date/time filter that uses the date on which records were modified to determine which records to synchronize to the chosen source company. The filter is based on the SystemModifiedAt field on the Business Central table records.</source>
+          <target state="translated">Määrittää päivämäärä-/aikasuodattimen, joka selvittää tietueiden muokkauspäivämäärän avulla, mitkä tietueet synkronoidaan valitusta lähdeyrityksestä. Suodatin perustuu Business Central -taulukon tietueiden SystemModifiedAt-kenttään.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Int. Tbl. Mod. On Fltr. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3696389755 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a date/time that is used to determine which records to synchronize from the source company. Only records that have SystemModifiedAt value greater than this value, will be synchronized. This value keeps changing with every synchronization job.</source>
-          <target state="translated">Määrittää päivämäärän/kellonajan, jonka avulla määritetään, mitkä tietueet synkronoidaan lähdeyrityksestä. Vain tietueet, joiden SystemModifiedAt-arvo on suurempi kuin tämä arvo, synkronoidaan. Tämä arvo muuttuu jatkuvasti jokaisessa synkronointityössä.</target>
+          <source>Specifies a date/time filter that uses the date on which records were modified to determine which records to synchronize from the chosen source company. The filter is based on the Modified On field on the integration table records.</source>
+          <target state="translated">Määrittää päivämäärä-/aikasuodattimen, joka selvittää tietueiden muokkauspäivämäärän avulla, mitkä tietueet synkronoidaan valitusta lähdeyrityksestä. Suodatin perustuu integrointitaulukon tietueiden Muokattu-kenttään.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Modified On Filter - Property ToolTip</note>
         </trans-unit>
@@ -1288,20 +1282,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Modified On Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3252819777 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if synchronization jobs should synchronize only currently coupled records. To synchronize newly inserted records, uncheck this checkbox.</source>
-          <target state="translated">Määrittää, synkronoivatko synkronointityöt vain nykyiset yhdistetyt tietueet. Jos haluat synkronoida äskettäin lisätyt tietueet, poista valintaruudun valinta.</target>
+          <source>Specifies how to handle uncoupled records in Dynamics 365 Sales entities and Dynamics 365 tables when synchronization is performed by an integration synchronization job.</source>
+          <target state="translated">Määrittää, miten käsitellään kytkemättömiä tietueita Dynamics 365 Sales -objekteissa ja Dynamics 365 -taulukoissa, kun synkronointi suoritetaan integroinnin synkronointityönä.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Only Coupled Records - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3064002603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a configuration template to use when creating new records out of the table in the source company.</source>
-          <target state="translated">Määrittää määritysmallin, jota käytetään luotaessa uusia tietueita lähdeyrityksen taulukosta.</target>
+          <source>Specifies a configuration template to use when creating new records in the Dynamics 365 business table (specified by the Table ID field) during synchronization.</source>
+          <target state="translated">Määrittää kokoonpanomallin, jota käytetään luotaessa uusia tietueita Dynamics 365:n liiketoiminnan taulukkoon (määritetty Taulukon tunnus -kentässä) synkronoinnin aikana.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Table Config Template Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 1694497541 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the table caption.</source>
-          <target state="translated">Määrittää taulukon selosteen.</target>
+          <source>Specifies the name of the business data table in Business Central to map to the integration table.</source>
+          <target state="translated">Määrittää integrointitaulukkoon yhdistettävän Business Centralin yritystietotaulukon nimen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableCaptionValue - Property ToolTip</note>
         </trans-unit>
@@ -1312,8 +1306,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableCaptionValue - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4005701527 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the filter on the table to control which records should be synchronized.</source>
-          <target state="translated">Määrittää taulukon suodattimen, jolla hallitaan, mitkä tietueet synkronoidaan.</target>
+          <source>Specifies a filter on the business data table in Dynamics 365 to control which records can be synchronized with the corresponding records in the integration table that is specified by the Integration Table ID field.</source>
+          <target state="translated">Määrittää Dynamics 365 -ohjelman yritystietotaulukossa olevan suodattimen, joka määrittää, mitkä tietueet voidaan synkronoida vastaavien Integrointitaulukon tunnus -kentässä määritetyn integrointitaulukon tietueiden kanssa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableFilterValue - Property ToolTip</note>
         </trans-unit>
@@ -1324,8 +1318,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableFilterValue - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 1439815520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the action to take when a coupled record is updated both in the source and in the local company.</source>
-          <target state="translated">Määrittää toiminnon, joka tehdään, kun yhdistetty tietue päivitetään sekä lähdeyrityksessä että paikallisessa yrityksessä.</target>
+          <source>Specifies the action to take when a coupled record is updated in both of the connected applications.</source>
+          <target state="translated">Määrittää toiminnon, joka suoritetaan, kun yhdistetty tietue päivitetään molemmassa yhdistetyssä sovelluksessa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Update-Conflict Resolution - Property ToolTip</note>
         </trans-unit>
@@ -1354,8 +1348,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action Enable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 2573355370 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shows the fields that are synchronized.</source>
-          <target state="translated">Näyttää synkronoidut kentät.</target>
+          <source>View fields that are synchronized.</source>
+          <target state="translated">Näytä synkronoidut kentät.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action FieldMapping - Property ToolTip</note>
         </trans-unit>
@@ -1378,8 +1372,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action JobQueueEntry - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 2976546385 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Couple existing records in the selected tables based on matching criteria.</source>
-          <target state="translated">Yhdistä valittujen taulukoiden aiemmin luodut tietueet vastaavuusehtojen perusteella.</target>
+          <source>Make couplings between the selected Business Central record types based on matching criteria.</source>
+          <target state="translated">Tee yhdistämiset valittujen Business Centralin tietuetyyppien välillä vastaavuusehtojen perusteella.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action MatchBasedCoupling - Property ToolTip</note>
         </trans-unit>
@@ -1390,8 +1384,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action MatchBasedCoupling - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 1723776373 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete couplings for the selected tables.</source>
-          <target state="translated">Poista valittujen taulukoiden yhdistämiset.</target>
+          <source>Delete couplings for the selected Business Central record types.</source>
+          <target state="translated">Poista valittujen Business Centralin tietuetyyppien yhdistämiset.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action RemoveCoupling - Property ToolTip</note>
         </trans-unit>
@@ -1402,8 +1396,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action RemoveCoupling - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Resets the tables, fields and synchronization jobs to the default values for the connection with the source company. All default synchronization table definitions are deleted and recreated.</source>
-          <target state="translated">Palauttaa taulukoiden, kenttien ja synkronointitöiden lähdeyritysyhteyden oletusarvoihin. Kaikki nykyiset synkronointitalulukon määritykset poistetaan ja luodaan uudelleen.</target>
+          <source>Resets the tables and synchronization jobs to the default values for a connection with the source company. All current mappings are deleted.</source>
+          <target state="translated">Palauttaa taulukot ja synkronointityöt lähdeyrityksen yhteyden oletusarvoihin. Kaikki nykyiset yhdistämismääritykset poistetaan.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action ResetConfiguration - Property ToolTip</note>
         </trans-unit>
@@ -1450,8 +1444,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Coupling Job Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 3601201259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the status of the individual synchronization jobs that have been run for this table.</source>
-          <target state="translated">Näytä tässä taulukossa suoritettujen yksittäisten synkronointitöiden tila.</target>
+          <source>View the status of the individual synchronization jobs that have been run for this table. This includes synchronization jobs that have been run from the job queue and manual synchronization jobs that were performed on records from the Business Central client.</source>
+          <target state="translated">Näytä niiden yksittäisten synkronointitöiden tila, jotka on suoritettu tälle taulukolle. Tällaisia synkronointitöitä ovat esimerkiksi työjonosta suoritetut ja manuaaliset synkronointityöt, jotka on suoritettu Business Central -asiakasohjelman tietueille.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Synch. Job Log - Property ToolTip</note>
         </trans-unit>
@@ -1462,8 +1456,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Synch. Job Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 269808213 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the status of jobs for uncoupling records.</source>
-          <target state="translated">Näytä tietueiden yhdistämisen poistotöiden tila.</target>
+          <source>View the status of jobs for uncoupling records. The jobs were run either from the job queue, or manually, in Business Central.</source>
+          <target state="translated">Näytä tietueiden poistamistöiden tila. Työt suoritettiin Business Centralissa joko työjonosta tai manuaalisesti.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Uncouple Job Log - Property ToolTip</note>
         </trans-unit>

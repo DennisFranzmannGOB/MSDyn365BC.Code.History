@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Tooling;
-
 permissionset 132553 "Prev. Mtd. Upd - Obj"
 {
     Assignable = false;

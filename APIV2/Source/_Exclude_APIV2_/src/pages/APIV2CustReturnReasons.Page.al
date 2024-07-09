@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Foundation.AuditCodes;
-
 page 30077 "APIV2 - Cust. Return Reasons"
 {
     DelayedInsert = true;
@@ -21,23 +17,18 @@ page 30077 "APIV2 - Cust. Return Reasons"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(code; Rec.Code)
+                field(code; Code)
                 {
                     Caption = 'Code';
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     Caption = 'Description';
-                }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
-                {
-                    Caption = 'Last Modified Date';
-                    Editable = false;
                 }
             }
         }

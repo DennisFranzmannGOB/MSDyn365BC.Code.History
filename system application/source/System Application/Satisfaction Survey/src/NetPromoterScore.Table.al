@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Feedback;
 
 table 1433 "Net Promoter Score"
 {
@@ -37,5 +35,8 @@ table 1433 "Net Promoter Score"
         }
     }
 
+    fieldgroups
+    {
+    }
 }
 

@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.DataAdministration;
-
-using System.TestLibraries.DataAdministration;
-using System.DataAdministration;
-using System.TestLibraries.Utilities;
-using System.TestLibraries.Security.AccessControl;
-
 codeunit 138702 "Retention Policy Test"
 {
     Subtype = Test;

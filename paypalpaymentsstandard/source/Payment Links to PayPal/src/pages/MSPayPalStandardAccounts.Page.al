@@ -1,7 +1,3 @@
-namespace Microsoft.Bank.PayPal;
-using System.Telemetry;
-
-
 page 1073 "MS - PayPal Standard Accounts"
 {
     Caption = 'PayPal Payments Standard Accounts';
@@ -19,27 +15,27 @@ page 1073 "MS - PayPal Standard Accounts"
         {
             repeater(Group)
             {
-                field(Name; Rec.Name)
+                field(Name; Name)
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the name of the PayPal Standard account.';
                 }
-                field(Description; Rec.Description)
+                field(Description; Description)
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the PayPal Standard account description.';
                 }
-                field(Enabled; Rec.Enabled)
+                field(Enabled; Enabled)
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies whether the PayPal Standard account is enabled.';
                 }
-                field("Always Include on Documents"; Rec."Always Include on Documents")
+                field("Always Include on Documents"; "Always Include on Documents")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies whether to make this PayPal Standard account available on all documents.';
                 }
-                field("Account ID"; Rec."Account ID")
+                field("Account ID"; "Account ID")
                 {
                     ApplicationArea = Basic, Suite;
                     Visible = false;
@@ -74,14 +70,5 @@ page 1073 "MS - PayPal Standard Accounts"
             }
         }
     }
-    trigger OnOpenPage()
-    var
-        MSPayPalStandardMgt: Codeunit "MS - PayPal Standard Mgt.";
-        FeatureTelemetry: Codeunit "Feature Telemetry";
-    begin
-        FeatureTelemetry.LogUptake('0000LHS', MSPayPalStandardMgt.GetFeatureTelemetryName(), Enum::"Feature Uptake Status"::Discovered);
-    end;
 }
-
-
 

@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Inventory.Analysis;
-
 permissionset 1698 "Inventory Analysis - View"
 {
     Access = Public;

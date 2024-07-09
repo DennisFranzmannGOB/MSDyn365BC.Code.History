@@ -1,12 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Environment;
-
-using System;
-using System.Environment.Configuration;
 
 codeunit 3702 "Environment Information Impl."
 {
@@ -111,7 +106,7 @@ codeunit 3702 "Environment Information Impl."
     var
         AppInfo: ModuleInfo;
     begin
-        NavApp.GetModuleInfo(AppID, AppInfo);
+        NavApp.GetModuleInfo(AppId, AppInfo);
         exit(AppInfo.DataVersion.Major());
     end;
 

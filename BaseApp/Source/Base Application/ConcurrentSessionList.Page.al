@@ -1,5 +1,3 @@
-namespace System.Environment;
-
 page 670 "Concurrent Session List"
 {
     Caption = 'Concurrent Session List';
@@ -7,7 +5,7 @@ page 670 "Concurrent Session List"
     PageType = List;
     ShowFilter = false;
     SourceTable = "Active Session";
-    SourceTableView = where("Client Type" = filter(<> "Web Service" & <> "Management Client" & <> NAS & <> "Client Service"));
+    SourceTableView = WHERE("Client Type" = FILTER(<> "Web Service" & <> "Management Client" & <> NAS & <> "Client Service"));
 
     layout
     {
@@ -47,12 +45,12 @@ page 670 "Concurrent Session List"
 
     trigger OnOpenPage()
     begin
-        Rec.SetRange("Server Instance ID", ServiceInstanceId());
+        SetRange("Server Instance ID", ServiceInstanceId());
     end;
 
     local procedure IsCurrentSession(): Boolean
     begin
-        exit(Rec."Session ID" = SessionId());
+        exit("Session ID" = SessionId());
     end;
 }
 

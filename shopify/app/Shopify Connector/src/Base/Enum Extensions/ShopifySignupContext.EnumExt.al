@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.Environment.Configuration;
-
 /// <summary>
 /// Extension Signup Context enum
 /// </summary>

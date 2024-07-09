@@ -1,7 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Integration.Entity;
-
 page 20055 "APIV1 - Pictures"
 {
     Caption = 'picture', Locked = true;
@@ -18,28 +14,28 @@ page 20055 "APIV1 - Pictures"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     ApplicationArea = All;
                     Caption = 'id', Locked = true;
                     ToolTip = 'Specifies the id.';
                     Editable = false;
                 }
-                field(width; Rec.Width)
+                field(width; Width)
                 {
                     ApplicationArea = All;
                     Caption = 'width', Locked = true;
                     ToolTip = 'Specifies the width.';
                     Editable = false;
                 }
-                field(height; Rec.Height)
+                field(height; Height)
                 {
                     ApplicationArea = All;
                     Caption = 'height', Locked = true;
                     ToolTip = 'Specifies the height.';
                     Editable = false;
                 }
-                field(contentType; Rec."Mime Type")
+                field(contentType; "Mime Type")
                 {
                     ApplicationArea = All;
                     Caption = 'contentType';
@@ -48,7 +44,7 @@ page 20055 "APIV1 - Pictures"
                 }
 #pragma warning disable AL0273
 #pragma warning disable AW0004
-                field(content; Rec.Content)
+                field(content; Content)
 #pragma warning restore
                 {
                     ApplicationArea = All;
@@ -65,14 +61,14 @@ page 20055 "APIV1 - Pictures"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        Rec.DeletePicture();
+        DeletePicture();
     end;
 
     trigger OnFindRecord(Which: Text): Boolean
     begin
         if not DataLoaded then begin
-            Rec.LoadData(Rec.GetFilter(Id));
-            Rec.Insert(true);
+            LoadData(GetFilter(Id));
+            Insert(true);
         end;
 
         DataLoaded := true;
@@ -81,16 +77,15 @@ page 20055 "APIV1 - Pictures"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Rec.SavePicture();
+        SavePicture();
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        Rec.SavePicture();
+        SavePicture();
     end;
 
     var
         DataLoaded: Boolean;
 }
-
 

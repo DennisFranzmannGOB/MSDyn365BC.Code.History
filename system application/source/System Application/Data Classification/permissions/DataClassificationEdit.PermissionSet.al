@@ -3,9 +3,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
-permissionset 1751 "Data Classification - Edit"
+PermissionSet 1751 "Data Classification - Edit"
 {
     Access = Internal;
     Assignable = false;
@@ -13,6 +11,6 @@ permissionset 1751 "Data Classification - Edit"
     IncludedPermissionSets = "Data Classification - Read";
 
     Permissions = tabledata "Data Privacy Entities" = IMD,
-                  tabledata "Data Sensitivity" = imd,
-                  tabledata "Fields Sync Status" = imd;
+                  tabledata "Fields Sync Status" = imd,
+                  tabledata "Data Sensitivity" = imd;
 }

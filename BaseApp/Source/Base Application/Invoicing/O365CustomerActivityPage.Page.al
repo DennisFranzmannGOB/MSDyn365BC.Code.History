@@ -8,8 +8,8 @@ page 2101 "O365 Customer Activity Page"
     PromotedActionCategories = 'New,Process,Report,Manage';
     RefreshOnActivate = true;
     SourceTable = Customer;
-    SourceTableView = sorting(Name)
-                      where(Blocked = const(" "));
+    SourceTableView = SORTING(Name)
+                      WHERE(Blocked = CONST(" "));
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
     ObsoleteState = Pending;
     ObsoleteTag = '21.0';
@@ -31,7 +31,7 @@ page 2101 "O365 Customer Activity Page"
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies the customer''s telephone number.';
                 }
-                field(Contact; Rec.Contact)
+                field(Contact; Contact)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies the name of the person you regularly contact when you do business with this customer.';
@@ -48,7 +48,7 @@ page 2101 "O365 Customer Activity Page"
 
                     trigger OnDrillDown()
                     begin
-                        Rec.OpenCustomerLedgerEntries(true);
+                        OpenCustomerLedgerEntries(true);
                     end;
                 }
                 field("Sales (LCY)"; Rec."Sales (LCY)")
@@ -90,7 +90,7 @@ page 2101 "O365 Customer Activity Page"
 
     trigger OnAfterGetRecord()
     begin
-        Rec."Balance Due (LCY)" := Rec.CalcOverdueBalance();
+        "Balance Due (LCY)" := CalcOverdueBalance();
     end;
 
     trigger OnDeleteRecord(): Boolean
@@ -103,7 +103,7 @@ page 2101 "O365 Customer Activity Page"
 
     trigger OnOpenPage()
     begin
-        Rec.SetRange("Date Filter", 0D, WorkDate());
+        SetRange("Date Filter", 0D, WorkDate());
         OverdueBalanceAutoFormatExpr := StrSubstNo(AutoFormatExprWithPrefixTxt, OverdueTxt);
     end;
 

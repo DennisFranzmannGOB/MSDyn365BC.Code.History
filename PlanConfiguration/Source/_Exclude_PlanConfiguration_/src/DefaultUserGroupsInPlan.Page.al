@@ -4,10 +4,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
-using System.Security.AccessControl;
-
 /// <summary>
 /// List page that hold the default user groups assigned to a plan.
 /// </summary>
@@ -22,7 +18,7 @@ page 9049 "Default User Groups In Plan"
     DeleteAllowed = false;
     LinksAllowed = false;
     ObsoleteState = Pending;
-    ObsoleteReason = '[220_UserGroups] Use the Default Permission Sets in Plan page instead. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.';
+    ObsoleteReason = 'Use the Default Permission Sets in Plan page instead.';
     ObsoleteTag = '22.0';
 
     layout

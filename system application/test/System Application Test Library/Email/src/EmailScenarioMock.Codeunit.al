@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Email;
-
-using System.Email;
-
 codeunit 134694 "Email Scenario Mock"
 {
     Permissions = tabledata "Email Scenario" = rid;

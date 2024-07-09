@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration;
-
 /// <summary>
 /// Enumeration used for determining the type of contained actions of a group control.
 /// </summary>

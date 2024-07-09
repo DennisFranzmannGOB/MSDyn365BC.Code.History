@@ -1,5 +1,3 @@
-namespace Microsoft.Bank.PayPal;
-
 permissionset 45615 "PayPal - Edit"
 {
     Assignable = false;

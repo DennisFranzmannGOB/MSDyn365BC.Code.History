@@ -14,7 +14,7 @@ page 1312 "Office 365 Credentials"
             {
                 InstructionalText = 'Provide your Office 365 email address and password:';
                 ShowCaption = false;
-                field(Email; Rec.Email)
+                field(Email; Email)
                 {
                     ApplicationArea = Basic, Suite;
                     ExtendedDatatype = EMail;
@@ -67,15 +67,15 @@ page 1312 "Office 365 Credentials"
 
     trigger OnOpenPage()
     begin
-        PasswordText := Rec.GetPassword();
+        PasswordText := GetPassword();
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     begin
         if (CloseAction = ACTION::OK) or (CloseAction = ACTION::LookupOK) then begin
-            if not Rec.Get() then
-                Rec.Insert();
-            Rec.SavePassword(PasswordText);
+            if not Get() then
+                Insert();
+            SavePassword(PasswordText);
         end;
     end;
 

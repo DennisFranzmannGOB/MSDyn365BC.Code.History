@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 /// <summary>
 /// Present security group memberships in a page part or factbox.
 /// </summary>
@@ -17,7 +15,7 @@ page 9866 "Security Group Members Part"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
@@ -38,20 +36,15 @@ page 9866 "Security Group Members Part"
     }
 
     trigger OnOpenPage()
+    begin
+        Refresh();
+    end;
+
+    internal procedure Refresh()
     var
         SecurityGroup: Codeunit "Security Group";
     begin
-        if not IsInitializedByParentPage then
-            Refresh(SecurityGroup);
-    end;
-
-    internal procedure Refresh(var SecurityGroup: Codeunit "Security Group")
-    begin
-        IsInitializedByParentPage := true;
         SecurityGroup.GetMembers(Rec);
     end;
-
-    var
-        IsInitializedByParentPage: Boolean;
 }
 

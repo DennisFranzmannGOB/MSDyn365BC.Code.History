@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 codeunit 8896 "Default Email Rate Limit" implements "Default Email Rate Limit"
 {
     InherentEntitlements = X;

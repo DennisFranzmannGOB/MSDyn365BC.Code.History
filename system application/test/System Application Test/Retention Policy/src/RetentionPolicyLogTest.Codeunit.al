@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.DataAdministration;
-
-using System.DataAdministration;
-using System.TestLibraries.DataAdministration;
-using System.TestLibraries.Utilities;
-using System.TestLibraries.Security.AccessControl;
-
 // This codeunit must be executed by a test-runnner which has test-isolation disabled. 
 
 codeunit 138705 "Retention Policy Log Test"
@@ -87,7 +80,7 @@ codeunit 138705 "Retention Policy Log Test"
         LastRetentionPolicyLogEntryNo := RetentionPolicyLogEntry."Entry No.";
 
         //Exercise
-        asserterror
+        AssertError
     RetentionPolicyLog.LogError(RetentionPolicyLogCategory::"Retention Policy - Period", StrSubstNo(TestLogMessageLbl, RetentionPolicyLogEntry."Message Type"::Error, LastRetentionPolicyLogEntryNo + 1)); // runs a background task
 
         // Verify
@@ -108,7 +101,7 @@ codeunit 138705 "Retention Policy Log Test"
         LastRetentionPolicyLogEntryNo := RetentionPolicyLogEntry."Entry No.";
 
         //Exercise
-        asserterror
+        AssertError
     RetentionPolicyLog.LogError(RetentionPolicyLogCategory::"Retention Policy - Period", StrSubstNo(TestLogMessageLbl, RetentionPolicyLogEntry."Message Type"::Error, LastRetentionPolicyLogEntryNo + 1), true); // runs a background task
 
         // Verify

@@ -1,19 +1,12 @@
-namespace Microsoft.Foundation.DataSearch;
-
-using System.Environment.Configuration;
-using System.Reflection;
-
 page 2683 "Data Search Setup (Table) List"
 {
-    Caption = 'Enable tables for searching';
+    Caption = 'Search Setup (Table) List';
     DeleteAllowed = false;
     InsertAllowed = false;
     LinksAllowed = true;
     PageType = List;
     UsageCategory = Administration;
     SourceTable = AllObjWithCaption;
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
@@ -22,7 +15,7 @@ page 2683 "Data Search Setup (Table) List"
             field(RoleName; AllProfile.Caption)
             {
                 ApplicationArea = All;
-                Caption = 'Choose among tables for role';
+                Caption = 'Role';
                 Editable = false;
                 ToolTip = 'Specifies which role the search setup is valid for.';
 
@@ -44,22 +37,6 @@ page 2683 "Data Search Setup (Table) List"
                             CurrPage.Update(false);
                         end;
                     end;
-                end;
-            }
-            field(ShowAll; TableFilterIsSet)
-            {
-                ApplicationArea = All;
-                Caption = 'Show only search enabled tables';
-                ToolTip = 'Specifies whether only the enabled tables are shown or all tables are shown.';
-                trigger OnValidate()
-                begin
-                    if TableFilterIsSet then
-                        SetEnabledTablesFilter(RoleCenterID)
-                    else begin
-                        Rec.SetRange("Object ID");
-                        TableFilterIsSet := false;
-                    end;
-                    CurrPage.Update(false);
                 end;
             }
             repeater(Control1)
@@ -87,7 +64,7 @@ page 2683 "Data Search Setup (Table) List"
                 field(TableIsEnabledCtrl; TableIsEnabled)
                 {
                     ApplicationArea = All;
-                    Caption = 'Enable Search';
+                    Caption = 'Search Enabled';
                     ToolTip = 'Specifies whether this table is included in search.';
 
                     trigger OnValidate()
@@ -114,7 +91,6 @@ page 2683 "Data Search Setup (Table) List"
             action(ResetSetup)
             {
                 ApplicationArea = All;
-                AccessByPermission = TableData "Data Search Setup (Table)" = IMD;
                 Caption = 'Reset to default';
                 ToolTip = 'Removes the current selection for this rolecenter and inserts the default table selection.';
                 Image = Restore;
@@ -130,12 +106,10 @@ page 2683 "Data Search Setup (Table) List"
             action(ShowAllTables)
             {
                 ApplicationArea = All;
-                AccessByPermission = TableData "Data Search Setup (Table)" = IMD;
-                Caption = 'All tables';
+                Caption = 'Show all tables';
                 ToolTip = 'Select this action if you want to see all tables and/or select more tables to be included in the search.';
                 Image = ShowList;
                 Enabled = TableFilterIsSet;
-                Visible = false;
 
                 trigger OnAction()
                 begin
@@ -146,28 +120,15 @@ page 2683 "Data Search Setup (Table) List"
             action(ShowFilteredTables)
             {
                 ApplicationArea = All;
-                Caption = 'Only enabled tables';
+                Caption = 'Filter to selected tables';
                 ToolTip = 'Compacts the view, so you only see the tables that have been selected for search.';
                 Image = FilterLines;
                 Enabled = not TableFilterIsSet;
-                Visible = false;
 
                 trigger OnAction()
                 begin
                     SetEnabledTablesFilter(RoleCenterID);
                 end;
-            }
-        }
-        area(Promoted)
-        {
-            actionref(ShowAllTables_Promoted; ShowAllTables)
-            {
-            }
-            actionref(ShowFilteredTables_Promoted; ShowFilteredTables)
-            {
-            }
-            actionref(ResetSetup_Promoted; ResetSetup)
-            {
             }
         }
     }
@@ -201,6 +162,7 @@ page 2683 "Data Search Setup (Table) List"
         DataSearchSetupTable: Record "Data Search Setup (Table)";
         TempDataSearchSetupTable: Record "Data Search Setup (Table)" temporary;
         AllProfile: Record "All Profile";
+        [InDataSet]
         TableIsEnabled: Boolean;
         TableFilterIsSet: Boolean;
         ProfileID: Code[30];
@@ -239,11 +201,11 @@ page 2683 "Data Search Setup (Table) List"
     local procedure UpdateRec()
     begin
         if not TableIsEnabled then begin
-            DataSearchSetupTable.DeleteRec(true);  // deletes for all table subtypes
-            TempDataSearchSetupTable.DeleteRec(true);
+            if DataSearchSetupTable.Delete(true) then;  // deletes for all table subtypes
+            if TempDataSearchSetupTable.Delete() then;
         end else begin
-            DataSearchSetupTable.InsertRec(true); // inserts for all table subtypes
-            TempDataSearchSetupTable.InsertRec(true);
+            if not DataSearchSetupTable.Insert(true) then; // inserts for all table subtypes
+            if not TempDataSearchSetupTable.Insert() then;
         end;
     end;
 

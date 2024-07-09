@@ -1,15 +1,5 @@
 dotnet
 {
-    assembly("Microsoft.Dynamics.Nav.ClientExtensions")
-    {
-        type("Microsoft.Dynamics.Nav.Client.Capabilities.CameraBarcodeScannerProvider"; "CameraBarcodeScannerProvider")
-        {
-        }
-
-        type("Microsoft.Dynamics.Nav.Client.Capabilities.BarcodeScannerProvider"; "BarcodeScannerProvider")
-        {
-        }
-    }
     assembly("Microsoft.Dynamics.Nav.Client.RoleCenterSelector")
     {
         type("Microsoft.Dynamics.Nav.Client.RoleCenterSelector.IRoleCenterSelector"; "Microsoft.Dynamics.Nav.Client.RoleCenterSelector")
@@ -99,10 +89,6 @@ dotnet
         }
 
         type("Microsoft.Dynamics.Nav.Runtime.LastError"; "LastError")
-        {
-        }
-
-        type("Microsoft.Dynamics.Nav.Runtime.VSCodeRequestHelper"; "VSCodeRequestHelper")
         {
         }
     }

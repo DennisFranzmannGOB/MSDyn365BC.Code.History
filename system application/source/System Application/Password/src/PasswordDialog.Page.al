@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Security.AccessControl;
 
 /// <summary>
 /// A Page that allows the user to enter a password.
@@ -18,7 +16,7 @@ page 9810 "Password Dialog"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             field(OldPassword; OldPasswordValue)
             {
@@ -58,6 +56,9 @@ page 9810 "Password Dialog"
         }
     }
 
+    actions
+    {
+    }
 
     trigger OnInit()
     begin
@@ -72,7 +73,7 @@ page 9810 "Password Dialog"
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     begin
-        if CloseAction = Action::OK then begin
+        if CloseAction = ACTION::OK then begin
             ValidPassword := PasswordDialogImpl.ValidatePassword(
                 RequiresPasswordConfirmation,
                 RequiresPasswordValidation,
@@ -85,8 +86,11 @@ page 9810 "Password Dialog"
     var
         PasswordDialogImpl: Codeunit "Password Dialog Impl.";
         PasswordMismatchErr: Label 'The passwords that you entered do not match.';
+        [InDataSet]
         PasswordValue: Text;
+        [InDataSet]
         ConfirmPasswordValue: Text;
+        [InDataSet]
         OldPasswordValue: Text;
         ShowOldPassword: Boolean;
         ValidPassword: Boolean;

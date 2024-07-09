@@ -59,7 +59,6 @@ codeunit 137161 "SCM Warehouse Orders"
         WrongNoOfRecordsErr: Label 'The list must contain %1 records', Comment = '%1 = Record count';
         InsufficientQtyItemTrkgErr: Label 'Item tracking defined for source line %1 of %2 %3 amounts to more than the quantity you have entered.';
         DialogCodeErr: Label 'Dialog';
-        QtyToHandleErr: Label '%1 must be %2 in %3', Comment = '%1 = Qty. to Handle, %2 = Quantity * Qty. per Unit of Measure, %3 = Whse. Worksheet Line';
 
     [Test]
     [HandlerFunctions('PartialReservationPageHandler,HandlePickSelectionPage')]
@@ -1104,7 +1103,7 @@ codeunit 137161 "SCM Warehouse Orders"
         // [SCENARIO 225420] When "Always Create Pick Line" is enabled, Warehouse Pick created via Pick Worksheet has a bin code populated for a shipment that can be picked from inventory and blank bin code for a shipment reserved from outstanding purchase
         Initialize();
 
-        Qty := 20;
+        Qty := LibraryRandom.RandIntInRange(20, 40);
         LibraryInventory.CreateItem(Item);
 
         // [GIVEN] "Always Create Pick Line" is enabled at location.
@@ -1829,7 +1828,7 @@ codeunit 137161 "SCM Warehouse Orders"
     end;
 
     [Test]
-    [HandlerFunctions('ItemTrackingPageHandler,WhseItemTrackingLinesHandler,ConfirmHandlerYes')]
+    [HandlerFunctions('ItemTrackingPageHandler,WhseItemTrackingLinesHandler')]
     [Scope('OnPrem')]
     procedure ReservationEntryForLotAndOrderTrackedItemWhenCreatePickFromWhseShipment()
     var
@@ -2181,7 +2180,7 @@ codeunit 137161 "SCM Warehouse Orders"
 
         // [THEN] A pick worksheet line shows "Qty. Avail. to Pick" = 30.
         FindWhseWorksheetLine(WhseWorksheetLine, WhseWorksheetName, Location.Code);
-        Assert.AreEqual(Qty + Qty / 4 + Qty / 4, WhseWorksheetLine.AvailableQtyToPick(), '');
+        Assert.AreEqual(Qty + Qty / 4 + Qty / 4, WhseWorksheetLine.AvailableQtyToPickExcludingQCBins(), '');
     end;
 
     [Test]
@@ -2236,7 +2235,7 @@ codeunit 137161 "SCM Warehouse Orders"
 
         // [THEN] A pick worksheet line shows "Qty. Avail. to Pick" = 10.
         FindWhseWorksheetLine(WhseWorksheetLine, WhseWorksheetName, Location.Code);
-        Assert.AreEqual(Qty / 2, WhseWorksheetLine.AvailableQtyToPick(), '');
+        Assert.AreEqual(Qty / 2, WhseWorksheetLine.AvailableQtyToPickExcludingQCBins(), '');
     end;
 
     [Test]
@@ -2301,76 +2300,7 @@ codeunit 137161 "SCM Warehouse Orders"
 
         // [THEN] A pick worksheet line shows "Qty. Avail. to Pick" = 15.
         FindWhseWorksheetLine(WhseWorksheetLine, WhseWorksheetName, Location.Code);
-        Assert.AreEqual(Qty * 3 / 4, WhseWorksheetLine.AvailableQtyToPick(), '');
-    end;
-
-    [Test]
-    procedure QtyToHandleAsPerUOMIsPopulatedInPickWorkSheetLine()
-    var
-        Location: Record Location;
-        WarehouseEmployee: Record "Warehouse Employee";
-        Item: Record Item;
-        UnitOfMeasure: array[2] of Record "Unit of Measure";
-        ItemUnitOfMeasure: array[2] of Record "Item Unit of Measure";
-        SalesHeader: Record "Sales Header";
-        WarehouseShipmentHeader: Record "Warehouse Shipment Header";
-        WhseWorksheetName: Record "Whse. Worksheet Name";
-        WhseWorksheetLine: Record "Whse. Worksheet Line";
-        Quantity: Decimal;
-    begin
-        // [SCENARIO 535725] When Purchase Order and Sales Order is received, put-away and shipped in different Unit of Measure Codes then Qty. to handle field in Pick Worksheet shows quanity based on Unit of Measure.
-        Initialize();
-
-        // [GIVEN] Create a Location.
-        LibraryWarehouse.CreateFullWMSLocation(Location, 2);
-
-        // [GIVEN] Create a Warehouse Employee.
-        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, true);
-
-        // [GIVEN] Create an Item.
-        LibraryInventory.CreateItem(Item);
-
-        // [GIVEN] Create two Unit of Measure Codes.
-        LibraryInventory.CreateUnitOfMeasureCode(UnitOfMeasure[1]);
-        LibraryInventory.CreateUnitOfMeasureCode(UnitOfMeasure[2]);
-
-        // [GIVEN] Create two Item Unit of Measures.
-        LibraryInventory.CreateItemUnitOfMeasure(ItemUnitOfMeasure[1], Item."No.", UnitOfMeasure[1].Code, LibraryRandom.RandInt(0));
-        LibraryInventory.CreateItemUnitOfMeasure(ItemUnitOfMeasure[2], Item."No.", UnitOfMeasure[2].Code, LibraryRandom.RandIntInRange(20, 20));
-
-        // [GIVEN] Validate Base Unit of Measure, Sales Unit of Measure and Purch. Unit of Measure in Item.
-        Item.Validate("Base Unit of Measure", ItemUnitOfMeasure[1].Code);
-        Item.Validate("Sales Unit of Measure", ItemUnitOfMeasure[2].Code);
-        Item.Validate("Purch. Unit of Measure", ItemUnitOfMeasure[1].Code);
-        Item.Modify(true);
-
-        // [GIVEN] Generate and save Quantity in a Variable.
-        Quantity := LibraryRandom.RandIntInRange(16, 16);
-
-        // [GIVEN] Create and Register Put-Away from Warehouse Receipt using Purchase Order.
-        CreateAndRegisterPutAwayFromWarehouseReceiptUsingPurchaseOrder(Item."No.", Quantity, Location.Code);
-
-        // [GIVEN] Create and Release Sales Order.
-        CreateAndReleaseSalesOrder(SalesHeader, LibrarySales.CreateCustomerNo(), Item."No.", LibraryRandom.RandIntInRange(25, 25), Location.Code);
-
-        // [GIVEN] Create and Release Warehouse Shipment.
-        CreateAndReleaseWarehouseShipment(WarehouseShipmentHeader, SalesHeader);
-
-        // [GIVEN] Get Warehouse Document on Whse. Worksheet Line.
-        GetWarehouseDocumentOnWarehouseWorksheetLine(WhseWorksheetName, Location.Code, WarehouseShipmentHeader."No.", '');
-
-        // [WHEN] Find Whse. Worksheet Line.
-        FindWhseWorksheetLine(WhseWorksheetLine, WhseWorksheetName, Location.Code);
-
-        // [THEN] Qty. to Handle in Whse. WorksheetLine must be equal to Quantity / Qty. per Unit of Measure of Item Unit of Measure 2.
-        Assert.AreEqual(
-            Quantity / ItemUnitOfMeasure[2]."Qty. per Unit of Measure",
-            WhseWorksheetLine."Qty. to Handle",
-            StrSubstNo(
-                QtyToHandleErr,
-                WhseWorksheetLine.FieldCaption("Qty. to Handle"),
-                Quantity / ItemUnitOfMeasure[2]."Qty. per Unit of Measure",
-                WhseWorksheetLine.TableCaption()));
+        Assert.AreEqual(Qty * 3 / 4, WhseWorksheetLine.AvailableQtyToPickExcludingQCBins(), '');
     end;
 
     local procedure Initialize()
@@ -2598,8 +2528,8 @@ codeunit 137161 "SCM Warehouse Orders"
         Quantity2: Decimal;
     begin
         // Create Lot for Lot Item. Create Sales Order and Update Shipment Date. Create Multiple Purchase Orders with Lot Item Tracking and Update Planning Flexibility on Purchase Line.
-        Quantity := 200;  // Large value Required.
-        Quantity2 := 300;  // Large value Required.
+        Quantity := LibraryRandom.RandInt(100) + 100;  // Large value Required.
+        Quantity2 := LibraryRandom.RandInt(100) + 100;  // Large value Required.
         CreateLotForLotItem(Item);
         ShipmentDate := CalcDate('<' + Format(LibraryRandom.RandInt(5)) + 'D>', WorkDate());
         CreateAndReleaseSalesOrderWithShipmentDate(
@@ -2610,7 +2540,7 @@ codeunit 137161 "SCM Warehouse Orders"
         LotNo2 :=
           CreateAndReleasePurchaseOrderWithLotTrackingAndNonePlanningFlexibility(
             PurchaseHeader2, PurchaseLine2, PurchaseHeader."Buy-from Vendor No.", Item."No.",
-            Quantity2 + 100, LocationWhite.Code);
+            Quantity2 + LibraryRandom.RandInt(100), LocationWhite.Code);
 
         // Exercise: Calculate Plan for Requisition Worksheet.
         LibraryPlanning.CalcRequisitionPlanForReqWksh(Item, WorkDate(), ShipmentDate);
@@ -3591,12 +3521,10 @@ codeunit 137161 "SCM Warehouse Orders"
     var
         i: Integer;
     begin
-        Quantity[1] := 60;
-        Quantity[2] := 120;
-        Quantity[3] := 180;
-        Quantity[4] := 180;
+        for i := 1 to ArrayLen(Quantity) do
+            Quantity[i] := LibraryRandom.RandIntInRange(10, 20);
         SalesQty1 := Quantity[1] + Quantity[2] / 2;
-        SalesQty2 := Quantity[1] + Quantity[2] + Quantity[3] + Quantity[4] + 10;
+        SalesQty2 := Quantity[1] + Quantity[2] + Quantity[3] + Quantity[4] + LibraryRandom.RandIntInRange(10, 20);
     end;
 
     local procedure OpenInventoryPickPageAndAutoFillQtyToHandle(var InventoryPick: TestPage "Inventory Pick"; SourceNo: Code[20])

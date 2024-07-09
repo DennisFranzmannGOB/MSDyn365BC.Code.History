@@ -4,9 +4,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.User;
-
-permissionset 9013 "User Login Times - View"
+PermissionSet 9013 "User Login Times - View"
 {
     Access = Public;
     Assignable = false;

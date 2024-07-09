@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Word;
-
-using System.Reflection;
-
 codeunit 9989 "Word Template Field Selection"
 {
     Access = Internal;
@@ -36,7 +32,7 @@ codeunit 9989 "Word Template Field Selection"
 
             Field.SetRange(TableNo, TableId);
             Field.SetRange(FieldName, ExcludeFieldName);
-            if Field.FindFirst() then
+            if field.FindFirst() then
                 WordTemplateField."Field No." := Field."No.";
 
             WordTemplateField.Insert();
@@ -61,7 +57,7 @@ codeunit 9989 "Word Template Field Selection"
 
                 Field.SetRange(TableNo, TableId);
                 Field.SetRange(FieldName, IncludeFieldName);
-                if Field.FindFirst() then
+                if field.FindFirst() then
                     WordTemplateField."Field No." := Field."No.";
                 WordTemplateField.Insert();
             end;

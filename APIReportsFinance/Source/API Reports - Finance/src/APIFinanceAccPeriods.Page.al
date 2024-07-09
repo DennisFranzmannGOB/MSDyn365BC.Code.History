@@ -1,8 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Foundation.Period;
-
 page 30300 "API Finance - Acc Periods"
 {
     PageType = API;
@@ -19,7 +14,7 @@ page 30300 "API Finance - Acc Periods"
     DeleteAllowed = false;
     SourceTable = "Accounting Period";
     ODataKeyFields = SystemId;
-    SourceTableView = sorting("Starting Date");
+    SourceTableView = SORTING("Starting Date");
 
     layout
     {

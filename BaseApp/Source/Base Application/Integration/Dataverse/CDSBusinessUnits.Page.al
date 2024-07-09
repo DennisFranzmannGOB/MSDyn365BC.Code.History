@@ -1,11 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.Integration.D365Sales;
-
 page 7203 "CDS Business Units"
 {
     Caption = 'Dataverse Business Units', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
@@ -16,7 +8,7 @@ page 7203 "CDS Business Units"
     PageType = List;
     SourceTable = "CRM Businessunit";
     SourceTableTemporary = true;
-    SourceTableView = sorting(Name);
+    SourceTableView = SORTING(Name);
 
     layout
     {
@@ -24,7 +16,7 @@ page 7203 "CDS Business Units"
         {
             repeater(Group)
             {
-                field(BusinessUnitId; Rec.BusinessUnitId)
+                field(BusinessUnitId; BusinessUnitId)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Id';

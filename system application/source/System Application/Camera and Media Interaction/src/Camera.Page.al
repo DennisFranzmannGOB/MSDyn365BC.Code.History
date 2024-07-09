@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Device;
-
-using System.Utilities;
-
 /// <summary>
 /// Provides an interface for accessing the camera on the client device.
 /// </summary>
@@ -27,12 +23,10 @@ page 1908 Camera
     LinksAllowed = false;
     PageType = Card;
     Extensible = true;
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             group(TakingPicture)
             {
@@ -44,7 +38,7 @@ page 1908 Camera
             {
                 Caption = 'Could not connect to camera';
                 InstructionalText = 'Could not access the camera on the device. Make sure that you are using the app for Windows, Android, or iOS.';
-                Visible = not CameraAvailable;
+                Visible = NOT CameraAvailable;
             }
         }
     }
@@ -54,6 +48,7 @@ page 1908 Camera
         [RunOnClient]
         [WithEvents]
         CameraProvider: DotNet CameraProvider;
+        [InDataSet]
         CameraAvailable: Boolean;
 
 
@@ -136,7 +131,7 @@ page 1908 Camera
     /// </summary>
     /// <param name="InStream">The InStream to read the picture from.</param>
     /// <error>The picture is not available.</error>
-    procedure GetPicture(InStream: InStream)
+    procedure GetPicture(InStream: Instream)
     begin
         CameraPageImpl.GetPicture(InStream);
     end;

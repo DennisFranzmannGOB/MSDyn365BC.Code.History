@@ -1,5 +1,3 @@
-namespace System.DataAdministration;
-
 pageextension 8700 "Table Information Ext." extends "Table Information"
 {
 

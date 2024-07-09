@@ -1,11 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Privacy;
-
-using System.Reflection;
 
 codeunit 1753 "Data Classification Mgt. Impl."
 {
@@ -370,7 +366,7 @@ codeunit 1753 "Data Classification Mgt. Impl."
     begin
         DataSensitivity.SetRange("Company Name", CompanyName());
         DataSensitivity.SetFilter("Table No", DataClassificationMgtImpl.GetTableNoFilterForTablesWhoseNameContains(TableNoFilter));
-        Page.Run(Page::"Data Classification Worksheet", DataSensitivity);
+        PAGE.Run(PAGE::"Data Classification Worksheet", DataSensitivity);
     end;
 
     procedure RunDataClassificationWorksheetForPersonalAndSensitiveDataInTable(TableNo: Integer)
@@ -385,7 +381,7 @@ codeunit 1753 "Data Classification Mgt. Impl."
             DataSensitivity."Data Sensitivity"::Personal,
             DataSensitivity."Data Sensitivity"::Sensitive));
         DataClassificationMgtImpl.FindSimilarFieldsInRelatedTables(DataSensitivity);
-        Page.RunModal(Page::"Data Classification Worksheet", DataSensitivity);
+        PAGE.RunModal(PAGE::"Data Classification Worksheet", DataSensitivity);
     end;
 
     procedure RunDataClassificationWorksheetForTable(TableNo: Integer)
@@ -395,7 +391,7 @@ codeunit 1753 "Data Classification Mgt. Impl."
         DataSensitivity.SetRange("Company Name", CompanyName());
         DataSensitivity.FilterGroup(2);
         DataSensitivity.SetRange("Table No", TableNo);
-        Page.RunModal(Page::"Data Classification Worksheet", DataSensitivity);
+        PAGE.RunModal(PAGE::"Data Classification Worksheet", DataSensitivity);
     end;
 }
 

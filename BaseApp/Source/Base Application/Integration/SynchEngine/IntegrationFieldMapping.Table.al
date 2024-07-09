@@ -1,14 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.SyncEngine;
-
-using Microsoft.Integration.Dataverse;
-using System.IO;
-using System.Reflection;
-using System.Threading;
-
 table 5336 "Integration Field Mapping"
 {
     Caption = 'Integration Field Mapping';
@@ -184,11 +173,6 @@ table 5336 "Integration Field Mapping"
 
     procedure CreateRecord(IntegrationTableMappingName: Code[20]; TableFieldNo: Integer; IntegrationTableFieldNo: Integer; SynchDirection: Option; ConstValue: Text; ValidateField: Boolean; ValidateIntegrationTableField: Boolean)
     begin
-        CreateRecord(IntegrationTableMappingName, TableFieldNo, IntegrationTableFieldNo, SynchDirection, ConstValue, ValidateField, ValidateIntegrationTableField, true);
-    end;
-
-    internal procedure CreateRecord(IntegrationTableMappingName: Code[20]; TableFieldNo: Integer; IntegrationTableFieldNo: Integer; SynchDirection: Option; ConstValue: Text; ValidateField: Boolean; ValidateIntegrationTableField: Boolean; Enabled: Boolean)
-    begin
         Init();
         "No." := 0;
         "Integration Table Mapping Name" := IntegrationTableMappingName;
@@ -198,10 +182,6 @@ table 5336 "Integration Field Mapping"
         "Constant Value" := CopyStr(ConstValue, 1, MaxStrLen("Constant Value"));
         "Validate Field" := ValidateField;
         "Validate Integration Table Fld" := ValidateIntegrationTableField;
-        if Enabled then
-            Status := Status::Enabled
-        else
-            Status := Status::Disabled;
         Insert();
     end;
 

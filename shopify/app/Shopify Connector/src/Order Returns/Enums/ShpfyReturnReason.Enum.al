@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 enum 30138 "Shpfy Return Reason"
 {
 

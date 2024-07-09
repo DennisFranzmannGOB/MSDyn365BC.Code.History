@@ -1,7 +1,3 @@
-namespace Microsoft.Bank.Deposit;
-
-using Microsoft.Foundation.AuditCodes;
-
 tableextension 1695 SourceCodeSetupExtension extends "Source Code Setup"
 {
     fields
@@ -10,7 +6,6 @@ tableextension 1695 SourceCodeSetupExtension extends "Source Code Setup"
         {
             Caption = 'Bank Deposit';
             TableRelation = "Source Code";
-            DataClassification = SystemMetadata;
         }
     }
 }

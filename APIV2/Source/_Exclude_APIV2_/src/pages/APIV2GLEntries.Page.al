@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Finance.GeneralLedger.Ledger;
-
 page 30018 "APIV2 - G/L Entries"
 {
     APIVersion = 'v2.0';
@@ -25,57 +21,49 @@ page 30018 "APIV2 - G/L Entries"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(entryNumber; Rec."Entry No.")
+                field(entryNumber; "Entry No.")
                 {
                     Caption = 'Entry No.';
                     Editable = false;
                 }
-                field(postingDate; Rec."Posting Date")
+                field(postingDate; "Posting Date")
                 {
                     Caption = 'Posting Date';
                 }
-                field(documentNumber; Rec."Document No.")
+                field(documentNumber; "Document No.")
                 {
                     Caption = 'Document No.';
                 }
-                field(documentType; Rec."Document Type")
+                field(documentType; "Document Type")
                 {
                     Caption = 'Document Type';
                 }
-                field(accountId; Rec."Account Id")
+                field(accountId; "Account Id")
                 {
                     Caption = 'Account Id';
                 }
-                field(accountNumber; Rec."G/L Account No.")
+                field(accountNumber; "G/L Account No.")
                 {
                     Caption = 'Account No.';
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     Caption = 'Description';
                 }
-                field(debitAmount; Rec."Debit Amount")
+                field(debitAmount; "Debit Amount")
                 {
                     Caption = 'Debit Amount';
                 }
-                field(creditAmount; Rec."Credit Amount")
+                field(creditAmount; "Credit Amount")
                 {
                     Caption = 'Credit Amount';
                 }
-                field(additionalCurrencyDebitAmount; Rec."Add.-Currency Debit Amount")
-                {
-                    Caption = 'Additional Currency Debit Amount';
-                }
-                field(additionalCurrencyCreditAmount; Rec."Add.-Currency Credit Amount")
-                {
-                    Caption = 'Additional Currency Credit Amount';
-                }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }
@@ -84,14 +72,14 @@ page 30018 "APIV2 - G/L Entries"
                     Caption = 'Attachments';
                     EntityName = 'attachment';
                     EntitySetName = 'attachments';
-                    SubPageLink = "Document Id" = field(SystemId), "Document Type" = const(Journal);
+                    SubPageLink = "Document Id" = Field(SystemId), "Document Type" = const(Journal);
                 }
                 part(dimensionSetLines; "APIV2 - Dimension Set Lines")
                 {
                     Caption = 'Dimension Set Lines';
                     EntityName = 'dimensionSetLine';
                     EntitySetName = 'dimensionSetLines';
-                    SubPageLink = "Parent Id" = field(SystemId), "Parent Type" = const("General Ledger Entry");
+                    SubPageLink = "Parent Id" = Field(SystemId), "Parent Type" = const("General Ledger Entry");
                 }
             }
         }

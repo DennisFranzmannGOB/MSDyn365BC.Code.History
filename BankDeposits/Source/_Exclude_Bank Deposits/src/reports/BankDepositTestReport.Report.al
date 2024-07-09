@@ -1,21 +1,3 @@
-namespace Microsoft.Bank.Deposit;
-
-using Microsoft.Foundation.Company;
-using Microsoft.Bank.BankAccount;
-using Microsoft.Finance.Dimension;
-using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Finance.Currency;
-using Microsoft.Sales.Customer;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Intercompany.Partner;
-using Microsoft.Finance.GeneralLedger.Account;
-using System.Security.User;
-using Microsoft.Sales.Receivables;
-using Microsoft.Purchases.Payables;
-using Microsoft.Finance.GeneralLedger.Journal;
-using Microsoft.HumanResources.Employee;
-using System.Utilities;
-
 report 1691 "Bank Deposit Test Report"
 {
     DefaultLayout = RDLC;
@@ -42,7 +24,7 @@ report 1691 "Bank Deposit Test Report"
             }
             dataitem(PageHeader; "Integer")
             {
-                DataItemTableView = sorting(Number) where(Number = const(1));
+                DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                 column(USERID; UserId)
                 {
                 }
@@ -174,7 +156,7 @@ report 1691 "Bank Deposit Test Report"
                 }
                 dataitem(DimensionLoop1; "Integer")
                 {
-                    DataItemTableView = sorting(Number);
+                    DataItemTableView = SORTING(Number);
                     column(DimensionSetEntry__Dimension_Code_; DimensionSetEntry."Dimension Code")
                     {
                     }
@@ -214,7 +196,7 @@ report 1691 "Bank Deposit Test Report"
                 }
                 dataitem(HeaderErrorLoop; "Integer")
                 {
-                    DataItemTableView = sorting(Number);
+                    DataItemTableView = SORTING(Number);
                     column(ErrorText_Number_; ErrorText[Number])
                     {
                     }
@@ -237,9 +219,9 @@ report 1691 "Bank Deposit Test Report"
                 }
                 dataitem("Gen. Journal Line"; "Gen. Journal Line")
                 {
-                    DataItemLink = "Journal Template Name" = field("Journal Template Name"), "Journal Batch Name" = field("Journal Batch Name");
+                    DataItemLink = "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD("Journal Batch Name");
                     DataItemLinkReference = "Bank Deposit Header";
-                    DataItemTableView = sorting("Journal Template Name", "Journal Batch Name", "Line No.");
+                    DataItemTableView = SORTING("Journal Template Name", "Journal Batch Name", "Line No.");
                     column(Gen__Journal_Line__Account_Type_; "Account Type")
                     {
                     }
@@ -386,8 +368,8 @@ report 1691 "Bank Deposit Test Report"
                     }
                     dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
                     {
-                        DataItemLink = "Customer No." = field("Account No."), "Applies-to ID" = field("Applies-to ID");
-                        DataItemTableView = sorting("Customer No.", "Applies-to ID", Open, Positive, "Due Date");
+                        DataItemLink = "Customer No." = FIELD("Account No."), "Applies-to ID" = FIELD("Applies-to ID");
+                        DataItemTableView = SORTING("Customer No.", "Applies-to ID", Open, Positive, "Due Date");
                         column(Cust__Ledger_Entry__Document_Type_; "Document Type")
                         {
                         }
@@ -519,8 +501,8 @@ report 1691 "Bank Deposit Test Report"
                     }
                     dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
                     {
-                        DataItemLink = "Vendor No." = field("Account No."), "Applies-to ID" = field("Applies-to ID");
-                        DataItemTableView = sorting("Vendor No.", "Applies-to ID", Open, Positive, "Due Date");
+                        DataItemLink = "Vendor No." = FIELD("Account No."), "Applies-to ID" = FIELD("Applies-to ID");
+                        DataItemTableView = SORTING("Vendor No.", "Applies-to ID", Open, Positive, "Due Date");
                         column(AmountDue_Control1480028; AmountDue)
                         {
                             AutoFormatExpression = "Currency Code";
@@ -648,7 +630,7 @@ report 1691 "Bank Deposit Test Report"
                     }
                     dataitem(TotalApplicationLoop; "Integer")
                     {
-                        DataItemTableView = sorting(Number) where(Number = const(1));
+                        DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                         column(TotalAmountApplied; TotalAmountApplied)
                         {
                             AutoFormatExpression = "Gen. Journal Line"."Currency Code";
@@ -677,7 +659,7 @@ report 1691 "Bank Deposit Test Report"
                     }
                     dataitem(DimensionLoop2; "Integer")
                     {
-                        DataItemTableView = sorting(Number);
+                        DataItemTableView = SORTING(Number);
                         column(DimensionSetEntry2__Dimension_Value_Code_; DimensionSetEntry2."Dimension Value Code")
                         {
                         }
@@ -717,7 +699,7 @@ report 1691 "Bank Deposit Test Report"
                     }
                     dataitem(LineErrorCounter; "Integer")
                     {
-                        DataItemTableView = sorting(Number);
+                        DataItemTableView = SORTING(Number);
                         column(ErrorText_Number__Control1020070; ErrorText[Number])
                         {
                         }
@@ -783,29 +765,29 @@ report 1691 "Bank Deposit Test Report"
                             ShowApplyToOutput := true;
                             case "Account Type" of
                                 "Account Type"::Customer:
-                                    begin
-                                        CustLedgerEntry.Reset();
-                                        CustLedgerEntry.SetCurrentKey(CustLedgerEntry."Document No.", CustLedgerEntry."Document Type");
-                                        CustLedgerEntry.SetRange(CustLedgerEntry."Document Type", "Gen. Journal Line"."Applies-to Doc. Type");
-                                        CustLedgerEntry.SetRange(CustLedgerEntry."Document No.", "Gen. Journal Line"."Applies-to Doc. No.");
-                                        CustLedgerEntry.SetRange(CustLedgerEntry."Customer No.", "Gen. Journal Line"."Account No.");
-                                        if CustLedgerEntry.FindFirst() then begin
-                                            CustLedgerEntry.CalcFields(CustLedgerEntry."Remaining Amount");
-                                            "Gen. Journal Line"."Due Date" := CustLedgerEntry."Due Date";
-                                            "Gen. Journal Line".Description := CustLedgerEntry.Description;
-                                            AmountDue := CustLedgerEntry."Remaining Amount";
+                                    with CustLedgerEntry do begin
+                                        Reset();
+                                        SetCurrentKey("Document No.", "Document Type");
+                                        SetRange("Document Type", "Gen. Journal Line"."Applies-to Doc. Type");
+                                        SetRange("Document No.", "Gen. Journal Line"."Applies-to Doc. No.");
+                                        SetRange("Customer No.", "Gen. Journal Line"."Account No.");
+                                        if FindFirst() then begin
+                                            CalcFields("Remaining Amount");
+                                            "Gen. Journal Line"."Due Date" := "Due Date";
+                                            "Gen. Journal Line".Description := Description;
+                                            AmountDue := "Remaining Amount";
                                             AmountPaid := -"Gen. Journal Line".Amount;
-                                            AmountPmtTolerance := CustLedgerEntry."Accepted Payment Tolerance";
+                                            AmountPmtTolerance := "Accepted Payment Tolerance";
                                             AmountDiscounted := 0;
                                             AmountPmtDiscTolerance := 0;
-                                            if (CustLedgerEntry."Remaining Pmt. Disc. Possible" <> 0) and
-                                               ((CustLedgerEntry."Pmt. Discount Date" >= "Gen. Journal Line"."Posting Date") or CustLedgerEntry."Accepted Pmt. Disc. Tolerance") and
-                                               (AmountPaid + AmountPmtTolerance + CustLedgerEntry."Remaining Pmt. Disc. Possible" >= AmountDue)
+                                            if ("Remaining Pmt. Disc. Possible" <> 0) and
+                                               (("Pmt. Discount Date" >= "Gen. Journal Line"."Posting Date") or "Accepted Pmt. Disc. Tolerance") and
+                                               (AmountPaid + AmountPmtTolerance + "Remaining Pmt. Disc. Possible" >= AmountDue)
                                             then
-                                                if CustLedgerEntry."Pmt. Discount Date" >= "Gen. Journal Line"."Posting Date" then
-                                                    AmountDiscounted := CustLedgerEntry."Remaining Pmt. Disc. Possible"
+                                                if "Pmt. Discount Date" >= "Gen. Journal Line"."Posting Date" then
+                                                    AmountDiscounted := "Remaining Pmt. Disc. Possible"
                                                 else
-                                                    AmountPmtDiscTolerance := CustLedgerEntry."Remaining Pmt. Disc. Possible";
+                                                    AmountPmtDiscTolerance := "Remaining Pmt. Disc. Possible";
                                             AmountApplied := AmountPaid + AmountPmtTolerance + AmountDiscounted + AmountPmtDiscTolerance;
                                             if AmountApplied > AmountDue then
                                                 AmountApplied := AmountDue;
@@ -819,29 +801,29 @@ report 1691 "Bank Deposit Test Report"
                                             ShowApplyToOutput := false;
                                     end;
                                 "Account Type"::Vendor:
-                                    begin
-                                        VendorLedgerEntry.Reset();
-                                        VendorLedgerEntry.SetCurrentKey(VendorLedgerEntry."Document No.", VendorLedgerEntry."Document Type");
-                                        VendorLedgerEntry.SetRange(VendorLedgerEntry."Document Type", "Gen. Journal Line"."Applies-to Doc. Type");
-                                        VendorLedgerEntry.SetRange(VendorLedgerEntry."Document No.", "Gen. Journal Line"."Applies-to Doc. No.");
-                                        VendorLedgerEntry.SetRange(VendorLedgerEntry."Vendor No.", "Gen. Journal Line"."Account No.");
-                                        if VendorLedgerEntry.FindFirst() then begin
-                                            VendorLedgerEntry.CalcFields(VendorLedgerEntry."Remaining Amount");
-                                            "Gen. Journal Line"."Due Date" := VendorLedgerEntry."Due Date";
-                                            "Gen. Journal Line".Description := VendorLedgerEntry.Description;
-                                            AmountDue := VendorLedgerEntry."Remaining Amount";
+                                    with VendorLedgerEntry do begin
+                                        Reset();
+                                        SetCurrentKey("Document No.", "Document Type");
+                                        SetRange("Document Type", "Gen. Journal Line"."Applies-to Doc. Type");
+                                        SetRange("Document No.", "Gen. Journal Line"."Applies-to Doc. No.");
+                                        SetRange("Vendor No.", "Gen. Journal Line"."Account No.");
+                                        if FindFirst() then begin
+                                            CalcFields("Remaining Amount");
+                                            "Gen. Journal Line"."Due Date" := "Due Date";
+                                            "Gen. Journal Line".Description := Description;
+                                            AmountDue := "Remaining Amount";
                                             AmountPaid := -"Gen. Journal Line".Amount;
-                                            AmountPmtTolerance := VendorLedgerEntry."Accepted Payment Tolerance";
+                                            AmountPmtTolerance := "Accepted Payment Tolerance";
                                             AmountDiscounted := 0;
                                             AmountPmtDiscTolerance := 0;
-                                            if (VendorLedgerEntry."Remaining Pmt. Disc. Possible" <> 0) and
-                                               ((VendorLedgerEntry."Pmt. Discount Date" >= "Gen. Journal Line"."Posting Date") or VendorLedgerEntry."Accepted Pmt. Disc. Tolerance") and
-                                               (AmountPaid + AmountPmtTolerance + VendorLedgerEntry."Remaining Pmt. Disc. Possible" >= AmountDue)
+                                            if ("Remaining Pmt. Disc. Possible" <> 0) and
+                                               (("Pmt. Discount Date" >= "Gen. Journal Line"."Posting Date") or "Accepted Pmt. Disc. Tolerance") and
+                                               (AmountPaid + AmountPmtTolerance + "Remaining Pmt. Disc. Possible" >= AmountDue)
                                             then
-                                                if VendorLedgerEntry."Pmt. Discount Date" >= "Gen. Journal Line"."Posting Date" then
-                                                    AmountDiscounted := VendorLedgerEntry."Remaining Pmt. Disc. Possible"
+                                                if "Pmt. Discount Date" >= "Gen. Journal Line"."Posting Date" then
+                                                    AmountDiscounted := "Remaining Pmt. Disc. Possible"
                                                 else
-                                                    AmountPmtDiscTolerance := VendorLedgerEntry."Remaining Pmt. Disc. Possible";
+                                                    AmountPmtDiscTolerance := "Remaining Pmt. Disc. Possible";
                                             AmountApplied := AmountPaid + AmountPmtTolerance + AmountDiscounted + AmountPmtDiscTolerance;
                                             if AmountApplied > AmountDue then
                                                 AmountApplied := AmountDue;
@@ -1131,96 +1113,97 @@ report 1691 "Bank Deposit Test Report"
 
     local procedure ApplyAccountTypeLogic(var GenJournalLine: Record "Gen. Journal Line")
     begin
-        case GenJournalLine."Account Type" of
-            GenJournalLine."Account Type"::"G/L Account":
-                begin
-                    if GLAccount.Get(GenJournalLine."Account No.") then begin
-                        AccountName := GLAccount.Name;
-                        if GLAccount.Blocked then
-                            AddError(
-                              StrSubstNo(GLAccountBlockedErr, GenJournalLine."Account No."));
-                        if GLAccount."Account Type" <> GLAccount."Account Type"::Posting then
-                            AddError(
-                              StrSubstNo(PostingAccountErr, GLAccount.TableCaption, GenJournalLine."Account No."))
-                        else
-                            if not GLAccount."Direct Posting" then
+        with GenJournalLine do
+            case "Account Type" of
+                "Account Type"::"G/L Account":
+                    begin
+                        if GLAccount.Get("Account No.") then begin
+                            AccountName := GLAccount.Name;
+                            if GLAccount.Blocked then
                                 AddError(
-                                  StrSubstNo(DirectPostingAccountErr, GLAccount.TableCaption, GenJournalLine."Account No."));
-                    end else begin
-                        AddError(
-                          StrSubstNo(AccountNotValidErr, GenJournalLine."Account No.", GenJournalLine."Account Type"));
-                        AccountName := StrSubstNo(InvalidAccountTxt, GLAccount.TableCaption);
+                                  StrSubstNo(GLAccountBlockedErr, "Account No."));
+                            if GLAccount."Account Type" <> GLAccount."Account Type"::Posting then
+                                AddError(
+                                  StrSubstNo(PostingAccountErr, GLAccount.TableCaption, "Account No."))
+                            else
+                                if not GLAccount."Direct Posting" then
+                                    AddError(
+                                      StrSubstNo(DirectPostingAccountErr, GLAccount.TableCaption, "Account No."));
+                        end else begin
+                            AddError(
+                              StrSubstNo(AccountNotValidErr, "Account No.", "Account Type"));
+                            AccountName := StrSubstNo(InvalidAccountTxt, GLAccount.TableCaption);
+                        end;
+                        if Description = AccountName then
+                            Description := '';
                     end;
-                    if GenJournalLine.Description = AccountName then
-                        GenJournalLine.Description := '';
-                end;
-            GenJournalLine."Account Type"::Customer:
-                begin
-                    if Customer.Get(GenJournalLine."Account No.") then begin
-                        if Customer."Privacy Blocked" then
+                "Account Type"::Customer:
+                    begin
+                        if Customer.Get("Account No.") then begin
+                            if Customer."Privacy Blocked" then
+                                AddError(
+                                  StrSubstNo(CustomerPrivacyBlockedErr, "Account No."));
+                            if Customer.Blocked <> Customer.Blocked::" " then
+                                AddError(
+                                  StrSubstNo(CustomerBlockedErr, "Account No."));
+                            AccountName := Customer.Name;
+                        end else begin
                             AddError(
-                              StrSubstNo(CustomerPrivacyBlockedErr, GenJournalLine."Account No."));
-                        if Customer.Blocked <> Customer.Blocked::" " then
-                            AddError(
-                              StrSubstNo(CustomerBlockedErr, GenJournalLine."Account No."));
-                        AccountName := Customer.Name;
-                    end else begin
-                        AddError(
-                          StrSubstNo(AccountNotValidErr, GenJournalLine."Account No.", GenJournalLine."Account Type"));
-                        AccountName := StrSubstNo(InvalidAccountTxt, Customer.TableCaption);
+                              StrSubstNo(AccountNotValidErr, "Account No.", "Account Type"));
+                            AccountName := StrSubstNo(InvalidAccountTxt, Customer.TableCaption);
+                        end;
+                        if Description = AccountName then
+                            Description := '';
                     end;
-                    if GenJournalLine.Description = AccountName then
-                        GenJournalLine.Description := '';
-                end;
-            GenJournalLine."Account Type"::Vendor:
-                begin
-                    if Vendor.Get(GenJournalLine."Account No.") then begin
-                        AccountName := Vendor.Name;
-                        if Vendor."Privacy Blocked" then
+                "Account Type"::Vendor:
+                    begin
+                        if Vendor.Get("Account No.") then begin
+                            AccountName := Vendor.Name;
+                            if Vendor."Privacy Blocked" then
+                                AddError(
+                                  StrSubstNo(VendorPrivacyBlockedErr, "Account No."));
+                            if Vendor.Blocked <> Vendor.Blocked::" " then
+                                AddError(
+                                  StrSubstNo(VendorBlockedErr, "Account No."));
+                        end else begin
                             AddError(
-                              StrSubstNo(VendorPrivacyBlockedErr, GenJournalLine."Account No."));
-                        if Vendor.Blocked <> Vendor.Blocked::" " then
-                            AddError(
-                              StrSubstNo(VendorBlockedErr, GenJournalLine."Account No."));
-                    end else begin
-                        AddError(
-                          StrSubstNo(AccountNotValidErr, GenJournalLine."Account No.", GenJournalLine."Account Type"));
-                        AccountName := StrSubstNo(InvalidAccountTxt, Vendor.TableCaption);
+                              StrSubstNo(AccountNotValidErr, "Account No.", "Account Type"));
+                            AccountName := StrSubstNo(InvalidAccountTxt, Vendor.TableCaption);
+                        end;
+                        if Description = AccountName then
+                            Description := '';
                     end;
-                    if GenJournalLine.Description = AccountName then
-                        GenJournalLine.Description := '';
-                end;
-            GenJournalLine."Account Type"::"Bank Account":
-                begin
-                    if BankAccount2.Get(GenJournalLine."Account No.") then begin
-                        AccountName := BankAccount2.Name;
-                        if BankAccount2.Blocked then
+                "Account Type"::"Bank Account":
+                    begin
+                        if BankAccount2.Get("Account No.") then begin
+                            AccountName := BankAccount2.Name;
+                            if BankAccount2.Blocked then
+                                AddError(
+                                  StrSubstNo(BankAccountBlockedErr, "Account No."));
+                        end else begin
                             AddError(
-                              StrSubstNo(BankAccountBlockedErr, GenJournalLine."Account No."));
-                    end else begin
-                        AddError(
-                          StrSubstNo(AccountNotValidErr, GenJournalLine."Account No.", GenJournalLine."Account Type"));
-                        AccountName := StrSubstNo(InvalidAccountTxt, BankAccount2.TableCaption);
+                              StrSubstNo(AccountNotValidErr, "Account No.", "Account Type"));
+                            AccountName := StrSubstNo(InvalidAccountTxt, BankAccount2.TableCaption);
+                        end;
+                        if Description = AccountName then
+                            Description := '';
                     end;
-                    if GenJournalLine.Description = AccountName then
-                        GenJournalLine.Description := '';
-                end;
-            GenJournalLine."Account Type"::"IC Partner":
-                if not ICPartner.Get(GenJournalLine."Account No.") then
+                "Account Type"::"IC Partner":
+                    if not ICPartner.Get("Account No.") then
+                        AddError(
+                          StrSubstNo(AccountNotValidErr, "Account No.", "Account Type"))
+                    else begin
+                        AccountName := ICPartner.Name;
+                        if ICPartner.Blocked then
+                            AddError(
+                              StrSubstNo(ICPartnerBlockedErr, "Account No."));
+                    end;
+                "Account Type"::Employee:
+                    UpdateFromAccountTypeEmployee("Gen. Journal Line");
+                else
                     AddError(
-                      StrSubstNo(AccountNotValidErr, GenJournalLine."Account No.", GenJournalLine."Account Type"))
-                else begin
-                    AccountName := ICPartner.Name;
-                    if ICPartner.Blocked then
-                        AddError(
-                          StrSubstNo(ICPartnerBlockedErr, GenJournalLine."Account No."));
-                end;
-            GenJournalLine."Account Type"::Employee:
-                UpdateFromAccountTypeEmployee("Gen. Journal Line");
-            else
-                AddError(
-                  StrSubstNo(AccountNotValidErr, GenJournalLine."Account Type", GenJournalLine.FieldCaption(GenJournalLine."Account Type")));
-        end;
+                      StrSubstNo(AccountNotValidErr, "Account Type", FieldCaption("Account Type")));
+            end;
     end;
 }
 

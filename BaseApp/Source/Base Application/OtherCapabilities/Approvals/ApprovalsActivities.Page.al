@@ -1,9 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace System.Automation;
-
 page 9144 "Approvals Activities"
 {
     Caption = 'Approvals';
@@ -43,11 +37,11 @@ page 9144 "Approvals Activities"
 
     trigger OnOpenPage()
     begin
-        Rec.Reset();
-        if not Rec.Get() then begin
-            Rec.Init();
-            Rec.Insert();
+        Reset();
+        if not Get() then begin
+            Init();
+            Insert();
         end;
-        Rec.SetRange("User ID Filter", UserId);
+        SetRange("User ID Filter", UserId);
     end;
 }

@@ -1,11 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Reflection;
-
-using System.Apps;
 
 /// <summary>
 /// List page that contains all of the application objects.
@@ -19,14 +15,11 @@ page 358 Objects
     InsertAllowed = false;
     ModifyAllowed = false;
     SourceTable = AllObjWithCaption;
-    InherentEntitlements = X;
-    InherentPermissions = X;
-    Permissions = tabledata AllObjWithCaption = r,
-                  tabledata "Published Application" = r;
+    Permissions = tabledata AllObjWithCaption = r, tabledata "Published Application" = r;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Control1)
             {
@@ -77,6 +70,9 @@ page 358 Objects
         }
     }
 
+    actions
+    {
+    }
 
     // Used to set the Extension Name field
     // in case the object comes from an installed extension.
@@ -86,13 +82,13 @@ page 358 Objects
     begin
         AppName := '';
 
-        if IsNullGuid(Rec."App Package ID") then
+        if IsNullGuid("App Package ID") then
             exit;
 
         if not PublishedApplication.ReadPermission() then
             exit;
 
-        PublishedApplication.SetRange("Package ID", Rec."App Package ID");
+        PublishedApplication.SetRange("Package ID", "App Package ID");
         PublishedApplication.SetRange("Tenant Visible", true);
 
         if PublishedApplication.FindFirst() then
@@ -131,5 +127,4 @@ page 358 Objects
         VisibleObjName: Boolean;
         HiddenObjCaption: Boolean;
 }
-
 

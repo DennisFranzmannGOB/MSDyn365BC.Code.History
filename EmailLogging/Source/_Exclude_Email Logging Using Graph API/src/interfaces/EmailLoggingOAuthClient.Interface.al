@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.EmailLoggin;
-
-using System.Security.Authentication;
-
 interface "Email Logging OAuth Client"
 {
     Access = Internal;

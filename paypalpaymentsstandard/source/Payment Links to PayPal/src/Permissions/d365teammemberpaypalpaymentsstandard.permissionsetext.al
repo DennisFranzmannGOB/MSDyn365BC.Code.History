@@ -1,7 +1,3 @@
-namespace Microsoft.Bank.PayPal;
-
-using System.Security.AccessControl;
-
 permissionsetextension 6558 "D365 TEAM MEMBER - PayPal Payments Standard" extends "D365 TEAM MEMBER"
 {
     Permissions = tabledata "MS - PayPal Standard Account" = R,

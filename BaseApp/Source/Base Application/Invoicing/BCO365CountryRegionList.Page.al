@@ -20,14 +20,14 @@ page 2352 "BC O365 Country/Region List"
         {
             repeater(Group)
             {
-                field("Code"; Rec.Code)
+                field("Code"; Code)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies the ISO code of the country or region.';
 
                     trigger OnValidate()
                     begin
-                        if (xRec.Code <> '') and (Rec.Code <> xRec.Code) then
+                        if (xRec.Code <> '') and (Code <> xRec.Code) then
                             Error(RenameCountryErr);
                     end;
                 }
@@ -63,14 +63,14 @@ page 2352 "BC O365 Country/Region List"
     var
         CountryRegion: Record "Country/Region";
     begin
-        Rec.DeleteAll();
+        DeleteAll();
         if CountryRegion.FindSet() then
             repeat
-                Rec.Code := CountryRegion.Code;
-                Rec.Name := CountryRegion.GetNameInCurrentLanguage();
-                if Rec.Insert() then;
+                Code := CountryRegion.Code;
+                Name := CountryRegion.GetNameInCurrentLanguage();
+                if Insert() then;
             until CountryRegion.Next() = 0;
-        Rec.SetCurrentKey(Name);
+        SetCurrentKey(Name);
     end;
 
     var

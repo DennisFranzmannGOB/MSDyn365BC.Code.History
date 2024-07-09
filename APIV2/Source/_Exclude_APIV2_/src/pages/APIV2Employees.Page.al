@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.HumanResources.Employee;
-using Microsoft.Integration.Graph;
-
 page 30017 "APIV2 - Employees"
 {
     APIVersion = 'v2.0';
@@ -22,12 +17,12 @@ page 30017 "APIV2 - Employees"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'No.';
                 }
@@ -36,153 +31,153 @@ page 30017 "APIV2 - Employees"
                     Caption = 'Display Name';
                     Editable = false;
                 }
-                field(givenName; Rec."First Name")
+                field(givenName; "First Name")
                 {
                     Caption = 'Given Name';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("First Name"));
+                        RegisterFieldSet(FieldNo("First Name"));
                     end;
                 }
-                field(middleName; Rec."Middle Name")
+                field(middleName; "Middle Name")
                 {
                     Caption = 'Middle Name';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Middle Name"));
+                        RegisterFieldSet(FieldNo("Middle Name"));
                     end;
                 }
-                field(surname; Rec."Last Name")
+                field(surname; "Last Name")
                 {
                     Caption = 'Surname';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Last Name"));
+                        RegisterFieldSet(FieldNo("Last Name"));
                     end;
                 }
-                field(jobTitle; Rec."Job Title")
+                field(jobTitle; "Job Title")
                 {
                     Caption = 'Job Title';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Job Title"));
+                        RegisterFieldSet(FieldNo("Job Title"));
                     end;
                 }
-                field(addressLine1; Rec.Address)
+                field(addressLine1; Address)
                 {
                     Caption = 'Address Line 1';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Address"));
+                        RegisterFieldSet(FieldNo("Address"));
                     end;
                 }
-                field(addressLine2; Rec."Address 2")
+                field(addressLine2; "Address 2")
                 {
                     Caption = 'Address Line 2';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Address 2"));
+                        RegisterFieldSet(FieldNo("Address 2"));
                     end;
                 }
-                field(city; Rec.City)
+                field(city; City)
                 {
                     Caption = 'City';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("City"));
+                        RegisterFieldSet(FieldNo("City"));
                     end;
                 }
-                field(state; Rec.County)
+                field(state; County)
                 {
                     Caption = 'State';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("County"));
+                        RegisterFieldSet(FieldNo("County"));
                     end;
                 }
-                field(country; Rec."Country/Region Code")
+                field(country; "Country/Region Code")
                 {
                     Caption = 'Country/Region Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Country/Region Code"));
+                        RegisterFieldSet(FieldNo("Country/Region Code"));
                     end;
                 }
-                field(postalCode; Rec."Post Code")
+                field(postalCode; "Post Code")
                 {
                     Caption = 'Post Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Post Code"));
+                        RegisterFieldSet(FieldNo("Post Code"));
                     end;
                 }
-                field(phoneNumber; Rec."Phone No.")
+                field(phoneNumber; "Phone No.")
                 {
                     Caption = 'Phone No.';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Phone No."));
+                        RegisterFieldSet(FieldNo("Phone No."));
                     end;
                 }
-                field(mobilePhone; Rec."Mobile Phone No.")
+                field(mobilePhone; "Mobile Phone No.")
                 {
                     Caption = 'Mobile Phone No.';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Mobile Phone No."));
+                        RegisterFieldSet(FieldNo("Mobile Phone No."));
                     end;
                 }
-                field(email; Rec."Company E-Mail")
+                field(email; "Company E-Mail")
                 {
                     Caption = 'Email';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Company E-Mail"));
+                        RegisterFieldSet(FieldNo("Company E-Mail"));
                     end;
                 }
-                field(personalEmail; Rec."E-Mail")
+                field(personalEmail; "E-Mail")
                 {
                     Caption = 'Personal Email';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("E-Mail"));
+                        RegisterFieldSet(FieldNo("E-Mail"));
                     end;
                 }
-                field(employmentDate; Rec."Employment Date")
+                field(employmentDate; "Employment Date")
                 {
                     Caption = 'Employment Date';
                 }
-                field(terminationDate; Rec."Termination Date")
+                field(terminationDate; "Termination Date")
                 {
                     Caption = 'Termination Date';
                 }
-                field(status; Rec.Status)
+                field(status; Status)
                 {
                     Caption = 'Status';
                 }
-                field(birthDate; Rec."Birth Date")
+                field(birthDate; "Birth Date")
                 {
                     Caption = 'Birth Date';
                 }
-                field(statisticsGroupCode; Rec."Statistics Group Code")
+                field(statisticsGroupCode; "Statistics Group Code")
                 {
                     Caption = 'Statistics Group Code';
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }
@@ -192,28 +187,28 @@ page 30017 "APIV2 - Employees"
                     Multiplicity = ZeroOrOne;
                     EntityName = 'picture';
                     EntitySetName = 'pictures';
-                    SubPageLink = Id = field(SystemId), "Parent Type" = const(Employee);
+                    SubPageLink = Id = Field(SystemId), "Parent Type" = const(Employee);
                 }
                 part(defaultDimensions; "APIV2 - Default Dimensions")
                 {
                     Caption = 'Default Dimensions';
                     EntityName = 'defaultDimension';
                     EntitySetName = 'defaultDimensions';
-                    SubPageLink = ParentId = field(SystemId), "Parent Type" = const(Employee);
+                    SubPageLink = ParentId = Field(SystemId), "Parent Type" = const(Employee);
                 }
                 part(timeRegistrationEntries; "APIV2 - Time Registr. Entries")
                 {
                     Caption = 'Time Registration Entries';
                     EntityName = 'timeRegistrationEntry';
                     EntitySetName = 'timeRegistrationEntries';
-                    SubPageLink = "Employee Id" = field(SystemId);
+                    SubPageLink = "Employee Id" = Field(SystemId);
                 }
                 part(documentAttachments; "APIV2 - Document Attachments")
                 {
                     Caption = 'Document Attachments';
                     EntityName = 'documentAttachment';
                     EntitySetName = 'documentAttachments';
-                    SubPageLink = "Document Id" = field(SystemId), "Document Type" = const(Employee);
+                    SubPageLink = "Document Id" = Field(SystemId), "Document Type" = const(Employee);
                 }
             }
         }
@@ -233,13 +228,13 @@ page 30017 "APIV2 - Employees"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         EmployeeRecordRef: RecordRef;
     begin
-        Rec.Insert(true);
+        Insert(true);
 
         EmployeeRecordRef.GetTable(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(EmployeeRecordRef, TempFieldSet, CurrentDateTime());
         EmployeeRecordRef.SetTable(Rec);
 
-        Rec.Modify(true);
+        Modify(true);
         SetCalculatedFields();
         exit(false);
     end;
@@ -248,14 +243,14 @@ page 30017 "APIV2 - Employees"
     var
         Employee: Record "Employee";
     begin
-        Employee.GetBySystemId(Rec.SystemId);
+        Employee.GetBySystemId(SystemId);
 
-        if Rec."No." = Employee."No." then
-            Rec.Modify(true)
+        if "No." = Employee."No." then
+            Modify(true)
         else begin
             Employee.TransferFields(Rec, false);
-            Employee.Rename(Rec."No.");
-            Rec.TransferFields(Employee);
+            Employee.Rename("No.");
+            TransferFields(Employee);
         end;
 
         SetCalculatedFields();
@@ -274,12 +269,12 @@ page 30017 "APIV2 - Employees"
 
     local procedure SetCalculatedFields()
     begin
-        EmployeeDisplayName := StrSubstNo(EmployeeDisplayNameFormatTxt, Rec."First Name", Rec."Last Name");
+        EmployeeDisplayName := StrSubstNo(EmployeeDisplayNameFormatTxt, "First Name", "Last Name");
     end;
 
     local procedure ClearCalculatedFields()
     begin
-        Clear(Rec.SystemId);
+        Clear(SystemId);
         TempFieldSet.DeleteAll();
     end;
 

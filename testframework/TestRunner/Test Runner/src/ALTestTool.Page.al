@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestTools.TestRunner;
-
-using System.TestTools.CodeCoverage;
-
 page 130451 "AL Test Tool"
 {
     AccessByPermission = TableData "Test Method Line" = RIMD;
@@ -115,7 +111,7 @@ page 130451 "AL Test Tool"
                 field(LineType; Rec."Line Type")
                 {
                     ApplicationArea = All;
-                    Tooltip = 'Specifies the line type.';
+                    Tooltip = 'Specified the line type.';
                     Caption = 'Line Type';
                     Editable = false;
                     Style = Strong;
@@ -168,7 +164,7 @@ page 130451 "AL Test Tool"
                     DrillDown = true;
                     Editable = false;
                     Style = Unfavorable;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies full error message with stack trace';
 
                     trigger OnDrillDown()
@@ -447,10 +443,14 @@ page 130451 "AL Test Tool"
         Success: Integer;
         Failure: Integer;
         NotExecuted: Integer;
+        [InDataSet]
         NameIndent: Integer;
+        [InDataSet]
         LineTypeEmphasize: Boolean;
         NameEmphasize: Boolean;
+        [InDataSet]
         TestCodeunitEmphasize: Boolean;
+        [InDataSet]
         ResultEmphasize: Boolean;
         RunDuration: Duration;
         TestRunnerDisplayName: Text;
@@ -521,7 +521,7 @@ page 130451 "AL Test Tool"
     begin
         CurrPage.SetSelectionFilter(TestMethodLine);
 
-        if TestMethodLine.FindSet(true) then
+        if TestMethodLine.FindSet(true, false) then
             repeat
                 TestMethodLine.Validate(Run, not TestMethodLine.Run);
                 TestMethodLine.Modify(true);

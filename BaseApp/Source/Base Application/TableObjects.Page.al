@@ -1,11 +1,9 @@
-namespace System.Reflection;
-
 page 669 "Table Objects"
 {
     Caption = 'Table Objects';
     PageType = List;
     SourceTable = AllObjWithCaption;
-    SourceTableView = where("Object Type" = const(Table));
+    SourceTableView = WHERE("Object Type" = CONST(Table));
 
     layout
     {

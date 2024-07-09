@@ -35,8 +35,6 @@ codeunit 137140 "SCM Inventory Documents"
         DimensionErr: Label 'Expected dimension should be %1.', Comment = '%1=Value';
         SourceCodeErr: Label 'Source Code should not be blank in %1.', Comment = '%1=TableCaption()';
         DimensionValueErr: Label 'Dimension Value must match with %1', Comment = '%1= Dimension Value';
-        ReorderingPolicyShouldBeVisibleErr: Label 'Reordering Policy should be visible.';
-        SpecialEquipmentCodeShouldBeVisibleErr: Label 'Special Equipment Code should be visible.';
 
     [Test]
     [Scope('OnPrem')]
@@ -468,7 +466,7 @@ codeunit 137140 "SCM Inventory Documents"
     end;
 
     [Test]
-    [HandlerFunctions('ItemTrackingLinesModalPageHandler,EnterQuantityToCreateModalPageHandler')]
+    [HandlerFunctions('ItemTrackingLinesModalPageHandler,EnterQuantityToCreateModalPageHandler,NotCopiedAppliesValuesMessageHandler')]
     [Scope('OnPrem')]
     procedure CopyInvReceiptFromPostedInvReceiptWithItemTrackedLines()
     var
@@ -514,119 +512,6 @@ codeunit 137140 "SCM Inventory Documents"
         // [WHEN] [THAN] Coping from posted Inventory Receipt with NewFillAppliesFields = true will be done without error
         CopyInvtDocMgt.SetProperties(true, false, false, false, true);
         CopyInvtDocMgt.CopyItemDoc(Enum::"Invt. Doc. Document Type From"::"Posted Receipt", InvtRcptHeader."No.", InvtDocumentHeader);
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesModalPageHandler,EnterQuantityToCreateModalPageHandler')]
-    [Scope('OnPrem')]
-    procedure CopyCorrectionInvReceiptFromPostedInvReceiptWithItemTrackedLines()
-    var
-        Location: Record Location;
-        Item: Record Item;
-        SNTrackedItem: Record Item;
-        InvtDocumentHeader: Record "Invt. Document Header";
-        InvtDocumentLine: Record "Invt. Document Line";
-        InvtRcptHeader: Record "Invt. Receipt Header";
-        CopyInvtDocMgt: Codeunit "Copy Invt. Document Mgt.";
-    begin
-        // [FEATURE] [Inventory Receipt] [Item Tracking] [Copy Document]
-        // [SCENARIO 474794] Posting correction inventory receipt with multiple serial nos. for posted inventory receipt 
-
-        Initialize();
-
-        // [GIVEN] Location
-        LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
-
-        // [GIVEN] Serial No. tracked item and item without tracking.
-        CreateSNTrackedItem(SNTrackedItem);
-        LibraryInventory.CreateItem(Item);
-
-        // [GIVEN] Create item receipt, with 2 lines, assign 5 serial nos. to the line with tracking.
-        LibraryInventory.CreateInvtDocument(InvtDocumentHeader, InvtDocumentHeader."Document Type"::Receipt, Location.Code);
-        LibraryInventory.CreateInvtDocumentLine(InvtDocumentHeader, InvtDocumentLine, Item."No.", LibraryRandom.RandInt(100), LibraryRandom.RandInt(10));
-        LibraryInventory.CreateInvtDocumentLine(InvtDocumentHeader, InvtDocumentLine, SNTrackedItem."No.", LibraryRandom.RandInt(100), LibraryRandom.RandInt(10));
-        LibraryVariableStorage.Enqueue(ItemTrackingAction::AssignSerialNo);
-        InvtDocumentLine.OpenItemTrackingLines();
-
-        // [GIVEN] Post the item receipt.
-        LibraryInventory.PostInvtDocument(InvtDocumentHeader);
-
-        // [GIVEN] Find posted Inventory Receipt.
-        InvtRcptHeader.SetRange("Receipt No.", InvtDocumentHeader."No.");
-        InvtRcptHeader.FindLast();
-
-        // [GIVEN] Init new Inventory Receipt.
-        InvtDocumentHeader.Init();
-        InvtDocumentHeader."Document Type" := InvtDocumentHeader."Document Type"::Receipt;
-        InvtDocumentHeader.InitRecord();
-        InvtDocumentHeader.Insert(true);
-
-        // [GIVEN] Update inventory receipt with location and correction.
-        InvtDocumentHeader.Validate("Location Code", Location.Code);
-        InvtDocumentHeader.Validate("Correction", true);
-        InvtDocumentHeader.Modify();
-
-        // [WHEN]  Coping lines from posted Inventory Receipt with item tracking data and apllies values 
-        CopyInvtDocMgt.SetProperties(false, true, false, false, true);
-        CopyInvtDocMgt.SetCopyItemTracking(true);
-        CopyInvtDocMgt.CopyItemDoc(Enum::"Invt. Doc. Document Type From"::"Posted Receipt", InvtRcptHeader."No.", InvtDocumentHeader);
-
-        // [THEN] Posting should be done without error
-        LibraryInventory.PostInvtDocument(InvtDocumentHeader);
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesModalPageHandler,EnterQuantityToCreateModalPageHandler')]
-    [Scope('OnPrem')]
-    procedure CopyInvShipmentFromPostedInvReceiptWithItemTrackedLines()
-    var
-        Location: Record Location;
-        Item: Record Item;
-        SNTrackedItem: Record Item;
-        InvtDocumentHeader: Record "Invt. Document Header";
-        InvtDocumentLine: Record "Invt. Document Line";
-        InvtRcptHeader: Record "Invt. Receipt Header";
-        CopyInvtDocMgt: Codeunit "Copy Invt. Document Mgt.";
-    begin
-        // [FEATURE] [Inventory Receipt] [Inventory Shipment] [Item Tracking] [Copy Document]
-        // [SCENARIO 474794] Posting inventory receipt with multiple serial nos.
-
-        Initialize();
-
-        // [GIVEN] Location
-        LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
-
-        // [GIVEN] Serial No. tracked item and item without tracking.
-        CreateSNTrackedItem(SNTrackedItem);
-        LibraryInventory.CreateItem(Item);
-
-        // [GIVEN] Create item receipt, with 2 lines, assign 5 serial nos. to the line with tracking.
-        LibraryInventory.CreateInvtDocument(InvtDocumentHeader, InvtDocumentHeader."Document Type"::Receipt, Location.Code);
-        LibraryInventory.CreateInvtDocumentLine(InvtDocumentHeader, InvtDocumentLine, Item."No.", LibraryRandom.RandInt(100), LibraryRandom.RandInt(10));
-        LibraryInventory.CreateInvtDocumentLine(InvtDocumentHeader, InvtDocumentLine, SNTrackedItem."No.", LibraryRandom.RandInt(100), LibraryRandom.RandInt(10));
-        LibraryVariableStorage.Enqueue(ItemTrackingAction::AssignSerialNo);
-        InvtDocumentLine.OpenItemTrackingLines();
-
-        // [GIVEN] Post the item receipt.
-        LibraryInventory.PostInvtDocument(InvtDocumentHeader);
-
-        // [GIVEN] Find posted Inventory Receipt.
-        InvtRcptHeader.SetRange("Receipt No.", InvtDocumentHeader."No.");
-        InvtRcptHeader.FindLast();
-
-        // [GIVEN] Init new Inventory Receipt.
-        InvtDocumentHeader.Init();
-        InvtDocumentHeader."Document Type" := InvtDocumentHeader."Document Type"::Shipment;
-        InvtDocumentHeader.InitRecord();
-        InvtDocumentHeader.Insert(true);
-
-        // [WHEN] Coping lines from posted Inventory Receipt with item tracking data and apllies values
-        CopyInvtDocMgt.SetProperties(true, false, false, false, true);
-        CopyInvtDocMgt.SetCopyItemTracking(true);
-        CopyInvtDocMgt.CopyItemDoc(Enum::"Invt. Doc. Document Type From"::"Posted Receipt", InvtRcptHeader."No.", InvtDocumentHeader);
-
-        // [THEN] Posting should be done without error
-        LibraryInventory.PostInvtDocument(InvtDocumentHeader);
     end;
 
     [MessageHandler]
@@ -1312,80 +1197,6 @@ codeunit 137140 "SCM Inventory Documents"
     end;
 
     [Test]
-    procedure InventoryReceiptDoesNotRequireWarehouseHandling()
-    var
-        Location: Record Location;
-        Bin: Record Bin;
-        Item: Record Item;
-        InvtDocumentHeader: Record "Invt. Document Header";
-        InvtDocumentLine: Record "Invt. Document Line";
-        WarehouseEntry: Record "Warehouse Entry";
-    begin
-        // [FEATURE] [Item Receipt] [Warehouse]
-        // [SCENARIO 481855] Inventory Receipt does not require warehouse handling.
-        Initialize();
-
-        LibraryInventory.CreateItem(Item);
-
-        LibraryWarehouse.CreateLocationWMS(Location, true, false, false, true, false);
-        LibraryWarehouse.CreateBin(Bin, Location.Code, LibraryUtility.GenerateGUID(), '', '');
-
-        LibraryInventory.CreateInvtDocument(InvtDocumentHeader, InvtDocumentHeader."Document Type"::Receipt, Location.Code);
-        LibraryInventory.CreateInvtDocumentLine(InvtDocumentHeader, InvtDocumentLine, Item."No.", 0, 1);
-        InvtDocumentLine.Validate("Bin Code", Bin.Code);
-        InvtDocumentLine.Modify(true);
-        LibraryInventory.PostInvtDocument(InvtDocumentHeader);
-
-        Item.CalcFields(Inventory);
-        Item.TestField(Inventory, 1);
-
-        WarehouseEntry.SetRange("Item No.", Item."No.");
-        WarehouseEntry.SetRange("Location Code", Location.Code);
-        WarehouseEntry.SetRange("Bin Code", Bin.Code);
-        WarehouseEntry.CalcSums("Qty. (Base)");
-        WarehouseEntry.TestField("Qty. (Base)", 1);
-    end;
-
-    [Test]
-    procedure InventoryShipmentDoesNotRequireWarehouseHandling()
-    var
-        Location: Record Location;
-        Bin: Record Bin;
-        Item: Record Item;
-        InvtDocumentHeader: Record "Invt. Document Header";
-        InvtDocumentLine: Record "Invt. Document Line";
-        WarehouseEntry: Record "Warehouse Entry";
-        QtyInStock: Decimal;
-    begin
-        // [FEATURE] [Item Shipment] [Warehouse]
-        // [SCENARIO 481855] Inventory Shipment does not require warehouse handling.
-        Initialize();
-
-        LibraryInventory.CreateItem(Item);
-
-        LibraryWarehouse.CreateLocationWMS(Location, true, false, false, false, true);
-        LibraryWarehouse.CreateBin(Bin, Location.Code, LibraryUtility.GenerateGUID(), '', '');
-
-        QtyInStock := CreateAndPostItemJournalLine(Item."No.", Location.Code, Bin.Code);
-
-        LibraryInventory.CreateInvtDocument(InvtDocumentHeader, InvtDocumentHeader."Document Type"::Shipment, Location.Code);
-        LibraryInventory.CreateInvtDocumentLine(InvtDocumentHeader, InvtDocumentLine, Item."No.", 0, 1);
-        InvtDocumentLine.Validate("Bin Code", Bin.Code);
-        InvtDocumentLine.Modify(true);
-        LibraryInventory.PostInvtDocument(InvtDocumentHeader);
-
-        Item.Get(InvtDocumentLine."Item No.");
-        Item.CalcFields(Inventory);
-        Item.TestField(Inventory, QtyInStock - 1);
-
-        WarehouseEntry.SetRange("Item No.", Item."No.");
-        WarehouseEntry.SetRange("Location Code", Location.Code);
-        WarehouseEntry.SetRange("Bin Code", Bin.Code);
-        WarehouseEntry.CalcSums("Qty. (Base)");
-        WarehouseEntry.TestField("Qty. (Base)", QtyInStock - 1);
-    end;
-
-    [Test]
     [Scope('OnPrem')]
     procedure VerifyShortcutDimensionOnPostedInventoryReceiptSubForm()
     var
@@ -1520,7 +1331,7 @@ codeunit 137140 "SCM Inventory Documents"
         // [VERIFY] Verify: Shortcut Dimension 3 on Posted Invt. Shipment Subform
         PostedInvtShipmentSubform."ShortcutDimCode[3]".AssertEquals(DimValue);
     end;
-    
+
     [Test]
     [HandlerFunctions('ConfirmHandlerNo')]
     procedure VerifyDimIsNotUpdatedOnLineAfterLocationCodeIsValidatedOnHeaderAndUserDontWantToUpdateDimOnLines()
@@ -1683,40 +1494,6 @@ codeunit 137140 "SCM Inventory Documents"
 
         // [VERIFY] Posted Invt. Document Line has Dimesnion Value same as defined.
         VerifyInvtDocumentLineWithDimensionValue(DimensionValue.Code, InvtDocumentHeader);
-    end;
-
-    [Test]
-    procedure PlanningAndWarehouseTabsVisibleForTypeInventorySKUCardAfterItemInsert()
-    var
-        Item: Record Item;
-        Location: Record Location;
-        StocKkeepingUnitCard: TestPage "Stockkeeping Unit Card";
-    begin
-        // [SCENARIO 524116] When creating new stockkeeping unit card initially only General, Invoicing and Replenishment are visible, and Planning and Warehouse are not.
-        Initialize();
-
-        // [GIVEN] Create an Item and Validate Type as Inventory.
-        LibraryInventory.CreateItem(Item);
-        Item.Validate(Type, Item.Type::Inventory);
-        Item.Modify(true);
-
-        // [GIVEN] Create a Location.
-        LibraryWarehouse.CreateLocation(Location);
-
-        // [WHEN] Open Stockkeeping Unit Card page.
-        StocKkeepingUnitCard.OpenNew();
-        StocKkeepingUnitCard."Item No.".SetValue(Item."No.");
-        StocKkeepingUnitCard."Location Code".SetValue(Location.Code);
-
-        // [THEN] Verify Planning tab is visible.
-        Assert.IsTrue(
-            StocKkeepingUnitCard."Reordering Policy".Visible(),
-            ReorderingPolicyShouldBeVisibleErr);
-
-        // [THEN] Verify Warehouse tab is visible.
-        Assert.IsTrue(
-            StocKkeepingUnitCard."Special Equipment Code".Visible(),
-            SpecialEquipmentCodeShouldBeVisibleErr);
     end;
 
     local procedure Initialize()

@@ -1,9 +1,3 @@
-namespace Microsoft.Integration.MDM;
-
-using Microsoft.Integration.SyncEngine;
-using System.Reflection;
-
-
 page 7236 "Master Data Synch. Fields"
 {
     Caption = 'Synchronization Fields';
@@ -21,7 +15,7 @@ page 7236 "Master Data Synch. Fields"
         {
             repeater(Group)
             {
-                field(Status; Rec.Status)
+                field(Status; Status)
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies if field synchronization is enabled or disabled.';
@@ -38,7 +32,7 @@ page 7236 "Master Data Synch. Fields"
                 {
                     ApplicationArea = Suite;
                     Editable = false;
-                    ToolTip = 'Specifies the caption of the field.';
+                    ToolTip = 'Specifies the caption of the field in Business Central.';
                 }
                 field("Integration Table Field No."; Rec."Integration Table Field No.")
                 {
@@ -48,7 +42,7 @@ page 7236 "Master Data Synch. Fields"
                     ToolTip = 'Specifies the number of the field in the source company.';
                     Visible = false;
                 }
-                field(Direction; Rec.Direction)
+                field(Direction; Direction)
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the direction of the synchronization.';
@@ -63,14 +57,14 @@ page 7236 "Master Data Synch. Fields"
                 field("Transformation Rule"; Rec."Transformation Rule")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies a rule for transforming the value that is being synchronized from the source company.';
+                    ToolTip = 'Specifies a rule for transforming imported text to a supported value before it can be mapped to a specified field in Microsoft Dynamics 365.';
                     Visible = false;
                 }
                 field("Transformation Direction"; Rec."Transformation Direction")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the direction of the transformation.';
-                    Editable = Rec."Direction" = Rec."Direction"::Bidirectional;
+                    Editable = "Direction" = "Direction"::Bidirectional;
                     Visible = false;
                 }
                 field("Validate Field"; Rec."Validate Field")
@@ -96,7 +90,7 @@ page 7236 "Master Data Synch. Fields"
                 ApplicationArea = Suite;
                 Caption = 'Update Fields';
                 Image = Relationship;
-                ToolTip = 'Updates field mappings to match table schema. Use this action if you added fields to the table with an extension.';
+                ToolTip = 'Updates field mappings to match table schema. Use this action if the table schema was changed since the mappings were generated.';
 
                 trigger OnAction()
                 var
@@ -256,6 +250,4 @@ page 7236 "Master Data Synch. Fields"
         FieldsRemovedTxt: label '%1 fields removed.', Comment = '%1 - an integer';
         FieldsAddedAndRemovedTxt: label '%1 fields added, %2 fields removed.', Comment = '%1 - an integer, %2 - an integer';
 }
-
-
 

@@ -2659,7 +2659,6 @@ codeunit 134997 "Reminder - Add. Line fee"
         CustomerPostingGroup: Record "Customer Posting Group";
         ReminderHeader: Record "Reminder Header";
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
-        SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"Reminder - Add. Line fee");
         BindActiveDirectoryMockEvents;
@@ -2674,13 +2673,11 @@ codeunit 134997 "Reminder - Add. Line fee"
             exit;
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"Reminder - Add. Line fee");
 
-        SalesReceivablesSetup.Get();
-        SalesReceivablesSetup.Validate("Link Doc. Date To Posting Date", true);
-        SalesReceivablesSetup.Modify();
         SetGLSetupInvoiceRounding();
         LibraryERMCountryData.UpdateJournalTemplMandatory(false);
         CustomerPostingGroup.FindFirst();
         CustomerPostingGroup.ModifyAll("Add. Fee per Line Account", CustomerPostingGroup."Additional Fee Account");
+
         IsInitialized := true;
         Commit();
 
@@ -3166,7 +3163,6 @@ codeunit 134997 "Reminder - Add. Line fee"
         SalesLine: Record "Sales Line";
     begin
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, CustomerNo);
-        SalesHeader.SetHideValidationDialog(true);
         SalesHeader.Validate("Posting Date", PostingDate);
         SalesHeader.Modify(true);
         LibraryInventory.CreateItem(Item);
@@ -3188,7 +3184,6 @@ codeunit 134997 "Reminder - Add. Line fee"
         SalesLine: Record "Sales Line";
     begin
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::"Credit Memo", CustomerNo);
-        SalesHeader.SetHideValidationDialog(true);
         SalesHeader.Validate("Posting Date", PostingDate);
         SalesHeader.Modify(true);
         LibraryInventory.CreateItem(Item);

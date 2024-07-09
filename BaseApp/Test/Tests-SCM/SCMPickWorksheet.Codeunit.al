@@ -293,14 +293,13 @@ codeunit 137015 "SCM Pick Worksheet"
         PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, Shipment3No);
 
         // Validate.
-        // 4 will be reserved against RECEIVE bin and 1 can be picked from the PICK bin.
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 5, 1, 1);
+        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 5, 0, 0);
 
         // Exercise.
         PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, Shipment4No);
 
         // Validate.
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 5, 1, 1);
+        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 5, 0, 0);
         PickWorkSheetValidateLine(WhseWorksheetLine, 20000, 8, 0, 0);
     end;
 
@@ -334,14 +333,13 @@ codeunit 137015 "SCM Pick Worksheet"
         PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, Shipment3No);
 
         // Validate.
-        // 4 will be reserved against RECEIVE bin and 1 can be picked from the PICK bin.
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 4, 4, 4);
+        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 4, 3, 3);
 
         // Exercise.
         PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, Shipment4No);
 
         // Validate.
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 4, 4, 4);
+        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 4, 3, 3);
         PickWorkSheetValidateLine(WhseWorksheetLine, 20000, 2, 0, 0);
     end;
 
@@ -461,106 +459,6 @@ codeunit 137015 "SCM Pick Worksheet"
 
     [Test]
     [Scope('OnPrem')]
-    procedure AvailabilityWithReservationsOnMultipleLines()
-    var
-        Item: Record Item;
-        Location: Record Location;
-        WhseWorksheetTemplate: Record "Whse. Worksheet Template";
-        WhseWorksheetName: Record "Whse. Worksheet Name";
-        WhseWorksheetLine: Record "Whse. Worksheet Line";
-        WarehouseEmployee: Record "Warehouse Employee";
-        PickWorksheetTestPage: TestPage "Pick Worksheet";
-        Shipment3No: Code[20];
-        Shipment4No: Code[20];
-        Shipment5No: Code[20];
-        Shipment6No: Code[20];
-    begin
-        // [SCENARIO 359031] Nothing to handle fix: Qty. available to pick on pick worksheet. The UI shows the minimum of available quantity to pick and quantity.
-        // Setup.
-        Initialize();
-        GetPickWksheetTemplate(WhseWorksheetTemplate);
-        SetupLocation(Location, WhseWorksheetTemplate.Name, true, true, true);
-        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, true);
-        WhseWorksheetLine.DeleteAll();
-        LibraryInventory.CreateItem(Item);
-        CreatePurchase(Item."No.", Location.Code, 10, 10);
-        Shipment3No := CreateSales(Item."No.", Location.Code, 1, true, true, false, 0);
-        Shipment4No := CreateSales(Item."No.", Location.Code, 2, false, true, false, 0);
-        Shipment5No := CreateSales(Item."No.", Location.Code, 3, true, true, false, 0);
-        Shipment6No := CreateSales(Item."No.", Location.Code, 4, false, true, false, 0);
-
-        // Exercise.
-        GetPickWksheetName(WhseWorksheetName);
-        PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, Shipment3No);
-
-        // Validate.
-        // (Total available qty - Qty to Handle on other worksheet lines) - Reserved qty on other worksheet lines
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 1, 1, 7); // QtyAvailToPick = min(10, (10 - 3)); 3 is reserved for Shipment5No
-
-        // Validate Pick Worksheet Page field: Qty. Available to Pick. It will be minimum of available quantity to pick and quantity.
-        PickWorksheetTestPage.OpenView();
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 10000);
-        Assert.AreEqual(1, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.Close();
-
-        // Exercise.
-        PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, Shipment4No);
-
-        // Validate.
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 1, 1, 5); // QtyAvailToPick = min((10 - 2), (10 - 2 - 3));
-        PickWorkSheetValidateLine(WhseWorksheetLine, 20000, 2, 2, 6); // QtyAvailToPick = min((10 - 1), (10 - 1 - 3));
-
-        // Validate Pick Worksheet Page field: Qty. Available to Pick. It will be minimum of available quantity to pick and quantity.
-        PickWorksheetTestPage.OpenView();
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 10000);
-        Assert.AreEqual(1, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 20000);
-        Assert.AreEqual(2, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.Close();
-
-        // Exercise.
-        PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, Shipment5No);
-
-        // Validate.
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 1, 1, 5); // QtyAvailToPick = min((10 - 2 - 3), 0)
-        PickWorkSheetValidateLine(WhseWorksheetLine, 20000, 2, 2, 6); // QtyAvailToPick = min((10 - 1 - 3), 0); 
-        PickWorkSheetValidateLine(WhseWorksheetLine, 30000, 3, 3, 7); // QtyAvailToPick = min((10 - 1 - 2), 0);
-
-        // Validate Pick Worksheet Page field: Qty. Available to Pick. It will be minimum of available quantity to pick and quantity.
-        PickWorksheetTestPage.OpenView();
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 10000);
-        Assert.AreEqual(1, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 20000);
-        Assert.AreEqual(2, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 30000);
-        Assert.AreEqual(3, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.Close();
-
-        // Exercise.
-        PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, Shipment6No);
-
-        // Validate.
-        PickWorkSheetValidateLine(WhseWorksheetLine, 20000, 2, 2, 2); // QtyAvailToPick = min((10 - 1 - 3 - 4), 0)
-        PickWorkSheetValidateLine(WhseWorksheetLine, 30000, 3, 3, 3); // QtyAvailToPick = min((10 - 1 - 2 - 4), 0)
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, 1, 1, 1); // QtyAvailToPick = min((10 - 2 - 3 - 4), 0)
-        PickWorkSheetValidateLine(WhseWorksheetLine, 40000, 4, 4, 4); // QtyAvailToPick = min((10 - 1 - 2 - 3), 0)
-        WhseWorksheetLine.AvailableQtyToPickForCurrentLine();
-
-        // Validate Pick Worksheet Page field: Qty. Available to Pick. It will be minimum of available quantity to pick and quantity.
-        PickWorksheetTestPage.OpenView();
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 10000);
-        Assert.AreEqual(1, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 20000);
-        Assert.AreEqual(2, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 30000);
-        Assert.AreEqual(3, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.GoToKey(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 40000);
-        Assert.AreEqual(4, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.Close();
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
     procedure GetBinBlank()
     var
         WhseWorksheetTemplate: Record "Whse. Worksheet Template";
@@ -662,7 +560,6 @@ codeunit 137015 "SCM Pick Worksheet"
         // [FEATURE] [Pick Worksheet] [Reservation]
         // [SCENARIO 204644] "Available Qty. to Pick" should be 0 in the pick worksheet when all stock is either reserved or pick, but not yet shipped
         Initialize();
-        WhseWorksheetLine.DeleteAll();
 
         ResetDefaultSafetyLeadTime;
 
@@ -932,152 +829,6 @@ codeunit 137015 "SCM Pick Worksheet"
     end;
 
     [Test]
-    procedure AvailableToPickCannotBeNegative()
-    var
-        Location: Record Location;
-        Item: Record Item;
-        WhseWorksheetName: Record "Whse. Worksheet Name";
-        WhseWorksheetLine: Record "Whse. Worksheet Line";
-        WhseWorksheetTemplate: Record "Whse. Worksheet Template";
-        WarehouseEmployee: Record "Warehouse Employee";
-        PickWorksheetTestPage: TestPage "Pick Worksheet";
-        ShipmentNo: array[2] of Code[20];
-        Qty: Integer;
-    begin
-        // [SCENARIO] [BUG] [486361] Pick worksheet: Available to Pick cannot be negative for directed put-away and pick location
-        Initialize();
-
-        // [GIVEN] Location with Directed Put-away and Pick enabled
-        WhseWorksheetLine.DeleteAll();
-        WarehouseEmployee.DeleteAll();
-        GetPickWksheetTemplate(WhseWorksheetTemplate);
-        SetupLocation(Location, WhseWorksheetTemplate.Name, true, true, false);
-        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, true);
-
-        // [GIVEN] Item with not inventory
-        LibraryInventory.CreateItem(Item);
-
-        // [GIVEN] 2 Warehouse shipments for same item
-        Qty := 100;
-        ShipmentNo[1] := CreateSales(Item."No.", Location.Code, Qty, false, true, false, 0);
-        ShipmentNo[2] := CreateSales(Item."No.", Location.Code, Qty, false, true, false, 0);
-
-        // [WHEN] Get the shipment in the pick worksheet
-        WhseWorksheetName.SetRange("Template Type", WhseWorksheetName."Template Type"::Pick);
-        WhseWorksheetName.SetRange("Location Code", Location.Code);
-        WhseWorksheetName.FindFirst();
-        PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, ShipmentNo[1]);
-        PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, ShipmentNo[2]);
-
-        // [THEN] Quantity available to pick is 0
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, Qty, 0, 0);
-        PickWorkSheetValidateLine(WhseWorksheetLine, 20000, Qty, 0, 0);
-
-        // [WHEN] Update the quantity to handle from UI
-        PickWorksheetTestPage.OpenEdit();
-        WhseWorksheetLine.SetRange("Line No.", 10000);
-        WhseWorksheetLine.SetRange("Worksheet Template Name", WhseWorksheetName."Worksheet Template Name");
-        WhseWorksheetLine.FindFirst();
-        PickWorksheetTestPage.GoToRecord(WhseWorksheetLine);
-        PickWorksheetTestPage."Qty. to Handle".SetValue(Qty);
-
-        // [THEN] Quantity available to pick is 0
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, Qty, Qty, 0);
-        Assert.AreEqual(0, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.Close();
-
-        // [WHEN] Update the quantity to handle from UI
-        PickWorksheetTestPage.OpenEdit();
-        WhseWorksheetLine.SetRange("Line No.", 20000);
-        WhseWorksheetLine.SetRange("Worksheet Template Name", WhseWorksheetName."Worksheet Template Name");
-        WhseWorksheetLine.FindFirst();
-        PickWorksheetTestPage.GoToRecord(WhseWorksheetLine);
-        PickWorksheetTestPage."Qty. to Handle".SetValue(Qty);
-
-        // [THEN] Quantity available to pick is 0
-        Assert.AreEqual(0, PickWorksheetTestPage.AvailableQtyToPickExcludingQCBins.AsDecimal(), ErrorDifferentAvailQty);
-        PickWorksheetTestPage.Close();
-
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, Qty, Qty, 0);
-        PickWorkSheetValidateLine(WhseWorksheetLine, 20000, Qty, Qty, 0);
-    end;
-
-    [Test]
-    procedure QtyToHandleIsSetToMaximumAvailableQtyOnGetSrcDoc()
-    var
-        Location: Record Location;
-        WarehouseJournalLine: Record "Warehouse Journal Line";
-        Item: Record Item;
-        WhseWorksheetName: Record "Whse. Worksheet Name";
-        WhseWorksheetLine: Record "Whse. Worksheet Line";
-        WhseWorksheetTemplate: Record "Whse. Worksheet Template";
-        WarehouseEmployee: Record "Warehouse Employee";
-        ShipmentNo: Code[20];
-        BinCode: array[2] of Code[20];
-        ZoneCode: array[2] of Code[10];
-        SalesLineQty: Decimal;
-        Qty: array[2] of Decimal;
-    begin
-        // [SCENARIO 487516] Set the qty. to handle to max available to pick regardless of the settings of location always create pick line
-        Initialize();
-        Qty[1] := 10;
-        Qty[2] := 10;
-        LibraryInventory.CreateItem(Item);
-        WhseWorksheetLine.DeleteAll();
-        GetPickWksheetTemplate(WhseWorksheetTemplate);
-
-        // [GIVEN] Location with Directed Put-away and Pick enabled with two bins:
-        // [GIVEN] Put-away only Bin "BPW"
-        // [GIVEN] Bin "BP" with Pick enabled
-        SetupLocation(Location, WhseWorksheetTemplate.Name, true, true, false);
-        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, true);
-        FindZoneAndBinWithPickDisabled(
-          BinCode[1], ZoneCode[1], Location.Code, StrSubstNo('<>%1', Location."Adjustment Bin Code"),
-          GetBinTypeFilterPickDisabled(true));
-        FindZoneAndBinWithPickEnabled(BinCode[2], ZoneCode[2], Location.Code);
-
-        // [GIVEN] Location has Always Create Pick Line as false
-        Location.Validate("Always Create Pick Line", false);
-        Location.Modify();
-
-        // [GIVEN] Two Warehouse Journal Lines were registered: first with Bin "BPW" and Quantity 10 and second with Bin "BP" and Quantity 10
-        // [GIVEN] Ran Calc. Whse Adj. in Item Journal and posted Item Journal Line
-        CreateTwoWarehouseJnlLinesWithBinsAndZones(
-          WarehouseJournalLine, Location.Code, Item."No.", BinCode, ZoneCode, Qty);
-        LibraryWarehouse.RegisterWhseJournalLine(
-          WarehouseJournalLine."Journal Template Name", WarehouseJournalLine."Journal Batch Name", Location.Code, true);
-        PostWhseAdjustment(WarehouseJournalLine."Item No.");
-
-        // [GIVEN] 2 Warehouse shipments for same item
-        SalesLineQty := 100;
-        ShipmentNo := CreateSales(Item."No.", Location.Code, SalesLineQty, false, true, false, 0);
-
-        // [WHEN] Get the shipment in the pick worksheet
-        WhseWorksheetName.SetRange("Template Type", WhseWorksheetName."Template Type"::Pick);
-        WhseWorksheetName.SetRange("Location Code", Location.Code);
-        WhseWorksheetName.FindFirst();
-        PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, ShipmentNo);
-
-        // [THEN] Quantity to handle is set to available quantity to pick
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, SalesLineQty, Qty[2], Qty[2]);
-
-        // [GIVEN] Delete the pick worksheet lines
-        WhseWorksheetLine.SetRange("Line No.", 10000);
-        WhseWorksheetLine.FindFirst();
-        WhseWorksheetLine.Delete();
-
-        // [GIVEN] Set the Always Create Pick Line to true
-        Location.Validate("Always Create Pick Line", true);
-        Location.Modify();
-
-        // [WHEN] Get the shipment in the pick worksheet
-        PickWorksheetGetSourceDocument(WhseWorksheetName."Worksheet Template Name", WhseWorksheetName.Name, Location.Code, 0, ShipmentNo);
-
-        // [THEN] Quantity to handle is set to available quantity to pick
-        PickWorkSheetValidateLine(WhseWorksheetLine, 10000, SalesLineQty, Qty[2], Qty[2]);
-    end;
-
-    [Test]
     [Scope('OnPrem')]
     procedure AvailableQtyToPickExcludesQCBin()
     var
@@ -1127,7 +878,7 @@ codeunit 137015 "SCM Pick Worksheet"
         CreateWhseWorksheetLineFromWhsePickRequest(WhseWorksheetLine, WhsePickRequest);
 
         // [WHEN] Run AvailableQtyToPickExcludingQCBins from Whse. Worksheet Line
-        AvailableQtyToPick := WhseWorksheetLine.AvailableQtyToPick();
+        AvailableQtyToPick := WhseWorksheetLine.AvailableQtyToPickExcludingQCBins;
 
         // [THEN] AvailableQtyToPick returns 3
         WhseWorksheetLine.TestField("Item No.", WarehouseJournalLine."Item No.");
@@ -1184,7 +935,7 @@ codeunit 137015 "SCM Pick Worksheet"
         CreateWhseWorksheetLineFromWhsePickRequest(WhseWorksheetLine, WhsePickRequest);
 
         // [WHEN] Run AvailableQtyToPickExcludingQCBins from Whse. Worksheet Line
-        AvailableQtyToPick := WhseWorksheetLine.AvailableQtyToPick();
+        AvailableQtyToPick := WhseWorksheetLine.AvailableQtyToPickExcludingQCBins;
 
         // [THEN] AvailableQtyToPick returns 3
         WhseWorksheetLine.TestField("Item No.", WarehouseJournalLine."Item No.");
@@ -1275,7 +1026,7 @@ codeunit 137015 "SCM Pick Worksheet"
         BinContent.Modify();
 
         // [WHEN] Run AvailableQtyToPickExcludingQCBins from Whse. Worksheet Line
-        AvailableQtyToPick := WhseWorksheetLine.AvailableQtyToPick();
+        AvailableQtyToPick := WhseWorksheetLine.AvailableQtyToPickExcludingQCBins;
 
         // [THEN] AvailableQtyToPick returns 2 (quantity on blocked bin is not included) - before the fix the value was 0
         WhseWorksheetLine.TestField("Item No.", WarehouseJournalLine."Item No.");
@@ -1335,7 +1086,7 @@ codeunit 137015 "SCM Pick Worksheet"
         Item.Get(WarehouseJournalLine."Item No.");
 
         // [WHEN] Run AvailableQtyToPickExcludingQCBins from Whse. Worksheet Line
-        AvailableQtyToPick := WhseWorksheetLine.AvailableQtyToPick();
+        AvailableQtyToPick := WhseWorksheetLine.AvailableQtyToPickExcludingQCBins;
 
         // [THEN] AvailableQtyToPick returns 2 (quantity on blocked bin is not included) - it should not be 2 + 3 = 5
         WhseWorksheetLine.TestField("Item No.", WarehouseJournalLine."Item No.");
@@ -1751,7 +1502,6 @@ codeunit 137015 "SCM Pick Worksheet"
             if not Location.FindFirst() then begin
                 LibraryWarehouse.CreateLocation(Location);
                 Location.Validate("Require Put-away", true);
-                Location.Validate("Always Create Put-away Line", true);
                 Location.Validate("Require Pick", true);
                 Location.Validate("Require Receive", ShipmentRequired);
                 Location.Validate("Require Shipment", ShipmentRequired);

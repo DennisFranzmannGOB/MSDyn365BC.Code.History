@@ -1,18 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Graph;
-
-using Microsoft.Integration.Entity;
-using Microsoft.Purchases.Document;
-using Microsoft.Purchases.History;
-using Microsoft.Purchases.Payables;
-using Microsoft.Purchases.Posting;
-using Microsoft.Utilities;
-using System.Reflection;
-using Microsoft.API.Upgrade;
-
 codeunit 5511 "Graph Mgt - Purch. Cr. Memo"
 {
     Permissions = tabledata "Purch. Cr. Memo Hdr." = rimd,
@@ -489,7 +474,7 @@ codeunit 5511 "Graph Mgt - Purch. Cr. Memo"
             PurchCrMemoEntityBuffer.Insert(true);
     end;
 
-    procedure GetPurchaseCrMemoHeaderId(var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."): Guid
+    procedure GetPurchaseCrMemoHeaderId(var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."): Guid // TODONAT - attachment buffer
     begin
         if (not IsNullGuid(PurchCrMemoHdr."Draft Cr. Memo SystemId")) then
             exit(PurchCrMemoHdr."Draft Cr. Memo SystemId");

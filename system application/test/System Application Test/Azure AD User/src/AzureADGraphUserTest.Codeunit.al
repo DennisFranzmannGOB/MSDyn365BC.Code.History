@@ -3,17 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Azure.ActiveDirectory;
-
-using System.Azure.Identity;
-using System.TestLibraries.Azure.ActiveDirectory;
-using System.TestLibraries.Mocking;
-using System.TestLibraries.Environment;
-using System.Security.AccessControl;
-using System;
-using System.TestLibraries.Utilities;
-using System.TestLibraries.Security.AccessControl;
-
 codeunit 132911 "Azure AD Graph User Test"
 {
     Subtype = Test;
@@ -244,7 +233,7 @@ codeunit 132911 "Azure AD Graph User Test"
         // [WHEN] Retrieving the graph user for a newly inserted Azure AD Graph user with an invalid object id
         // [THEN] An error should occur
         asserterror AzureADGraphUser.GetGraphUser(AADUserIdWithEmptyObjectIdLbl, GraphUserInfo);
-        LibraryAssert.ExpectedError('A Microsoft Entra user with the object ID');
+        LibraryAssert.ExpectedError('An Azure Active Directory user');
 
         TearDown();
     end;

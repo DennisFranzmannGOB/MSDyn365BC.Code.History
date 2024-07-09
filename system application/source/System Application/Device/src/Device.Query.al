@@ -3,16 +3,12 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 /// <summary>
 /// Displays a list of devices.
 /// </summary>
 query 776 Device
 {
     Caption = 'Device';
-    InherentEntitlements = X;
-    InherentPermissions = X;
     Permissions = tabledata Device = r;
 
     elements

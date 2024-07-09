@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Azure.ActiveDirectory;
-
-using System.Azure.Identity;
-
 codeunit 132915 "Azure AD User Test Library"
 {
     EventSubscriberInstance = Manual;
@@ -15,7 +11,7 @@ codeunit 132915 "Azure AD User Test Library"
     /// Mocks the behavior of IsUserDelegatedAdmin.
     /// </summary>
     /// <param name="NewValue">The value to set.</param>
-    procedure SetIsUserDelegatedAdmin(NewValue: Boolean)
+    procedure SetIsUserDelegatedtAdmin(NewValue: Boolean)
     begin
         IsUserDelegatedAdminValue := NewValue;
     end;
@@ -24,7 +20,7 @@ codeunit 132915 "Azure AD User Test Library"
     /// Mocks the behavior of IsUserDelegatedHelpdesk.
     /// </summary>
     /// <param name="NewValue">The value to set.</param>
-    procedure SetIsUserDelegatedHelpdesk(NewValue: Boolean)
+    procedure SetIsUserDelegatedtHelpdesk(NewValue: Boolean)
     begin
         IsUserDelegatedHelpdeskValue := NewValue;
     end;

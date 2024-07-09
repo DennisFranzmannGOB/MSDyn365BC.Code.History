@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy Orders API (ID 30165).
 /// </summary>
@@ -12,7 +10,7 @@ codeunit 30165 "Shpfy Orders API"
         LocalShop: Record "Shpfy Shop";
     begin
         LocalShop.SetFilter("Shopify URL", '<>%1', '');
-        if LocalShop.FindSet(false) then
+        if LocalShop.FindSet(false, false) then
             repeat
                 SetShop(LocalShop);
                 GetOrdersToImport(LocalShop);
@@ -42,7 +40,7 @@ codeunit 30165 "Shpfy Orders API"
         Clear(OrdersToImport);
         LastSyncTime := ShopifyShop.GetLastSyncTime("Shpfy Synchronization Type"::Orders);
         Parameters.Add('Time', Format(LastSyncTime, 0, 9));
-        if LastSyncTime = Shop.GetEmptySyncTime() then
+        if LastSyncTime = 0DT then
             GraphQLType := "Shpfy GraphQL Type"::GetOpenOrdersToImport
         else
             GraphQLType := "Shpfy GraphQL Type"::GetOrdersToImport;
@@ -116,7 +114,7 @@ codeunit 30165 "Shpfy Orders API"
 
         Clear(OrderAttribute);
         OrderAttribute.SetRange("Order Id", OrderHeader."Shopify Order Id");
-        if OrderAttribute.FindSet(false) then
+        if OrderAttribute.FindSet(false, false) then
             repeat
                 Clear(JAttrib);
                 JAttrib.Add('key', OrderAttribute."Key");
@@ -193,14 +191,13 @@ codeunit 30165 "Shpfy Orders API"
         JLineItem: JsonToken;
         JValue: JsonValue;
         Tags: TextBuilder;
-        Closed: Boolean;
     begin
         if JsonHelper.GetJsonArray(JResponse, JOrders, 'data.orders.edges') then begin
             foreach JItem in JOrders do begin
                 Cursor := JsonHelper.GetValueAsText(JItem.AsObject(), 'cursor');
                 if JsonHelper.GetJsonObject(JItem.AsObject(), JNode, 'node') then begin
                     Id := JsonHelper.GetValueAsBigInteger(JNode, 'legacyResourceId');
-                    Closed := JsonHelper.GetValueAsBoolean(JNode, 'closed');
+
                     OrdersToImport.SetRange(Id, Id);
                     if not OrdersToImport.FindFirst() then
                         Clear(OrdersToImport);
@@ -239,9 +236,8 @@ codeunit 30165 "Shpfy Orders API"
                     else
                         OrdersToImport."Import Action" := OrdersToImport."Import Action"::Update;
 
-                    if (OrdersToImport."Import Action" = OrdersToImport."Import Action"::Update) or ((OrdersToImport."Import Action" = OrdersToImport."Import Action"::New) and not Closed) then
-                        if not OrdersToImport.Insert() then
-                            OrdersToImport.Modify();
+                    if not OrdersToImport.Insert() then
+                        OrdersToImport.Modify();
                 end;
             end;
             exit(true);

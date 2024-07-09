@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Utilities;
-
 /// <summary>
 /// Specifies how much an image is rotated and the axis used to flip the image.
 /// </summary>

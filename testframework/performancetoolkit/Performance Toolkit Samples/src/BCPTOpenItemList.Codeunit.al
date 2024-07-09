@@ -1,7 +1,3 @@
-namespace System.Test.Tooling;
-
-using Microsoft.Inventory.Item;
-
 codeunit 149111 "BCPT Open Item List"
 {
     // Test codeunits can only run in foreground (UI)

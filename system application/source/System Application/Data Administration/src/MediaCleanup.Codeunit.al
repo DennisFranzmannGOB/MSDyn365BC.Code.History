@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
-using System.Environment;
-
 /// <summary>
 /// Provides an interface for cleaning up Media
 /// </summary>
@@ -91,8 +87,6 @@ codeunit 1927 "Media Cleanup"
 
     /// <summary>
     /// Deletes all detached tenant media.
-    /// Note: This function will delete detached media in batches of 100 and commit in between each batch.
-    /// This is to ensure we don't get stuck always trying to delete the same media and time out.
     /// </summary>
     procedure DeleteDetachedTenantMedia()
     begin

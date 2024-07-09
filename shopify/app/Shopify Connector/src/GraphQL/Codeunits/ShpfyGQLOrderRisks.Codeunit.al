@@ -1,4 +1,3 @@
-namespace Microsoft.Integration.Shopify;
 
 /// <summary>
 /// Codeunit Shpfy GQL OrderRisks (ID 30144) implements Interface Shpfy IGarphQL.

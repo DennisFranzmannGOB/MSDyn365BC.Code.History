@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 entitlement "Dynamics 365 Admin - Partner COHUB"
 {
     Type = Role;

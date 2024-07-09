@@ -1,13 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Privacy;
-
-using System.Environment;
-using System.Reflection;
-using System.Security.AccessControl;
 
 /// <summary>
 /// Exposes functionality that allows users to classify their data.
@@ -16,7 +10,7 @@ page 1751 "Data Classification Worksheet"
 {
     Caption = 'Data Classification Worksheet';
     Extensible = false;
-    AccessByPermission = tabledata "Data Sensitivity" = R;
+    AccessByPermission = TableData "Data Sensitivity" = R;
     ApplicationArea = All;
     DeleteAllowed = false;
     InsertAllowed = false;
@@ -25,7 +19,7 @@ page 1751 "Data Classification Worksheet"
     PromotedActionCategories = 'New,Process,Report,Manage,View';
     RefreshOnActivate = true;
     SourceTable = "Data Sensitivity";
-    SourceTableView = where("Field Caption" = filter(<> ''));
+    SourceTableView = WHERE("Field Caption" = FILTER(<> ''));
     UsageCategory = Administration;
     AdditionalSearchTerms = 'GDPR,Data Privacy,Privacy,Personal Data';
     ContextSensitiveHelpPage = 'admin-classifying-data-sensitivity';
@@ -36,25 +30,25 @@ page 1751 "Data Classification Worksheet"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
-                field("Table No"; Rec."Table No")
+                field("Table No"; "Table No")
                 {
                     ApplicationArea = All;
                     Editable = false;
                     Enabled = false;
                     ToolTip = 'Specifies the number of the affected table.';
                 }
-                field("Field No"; Rec."Field No")
+                field("Field No"; "Field No")
                 {
                     ApplicationArea = All;
                     Editable = false;
                     Enabled = false;
                     ToolTip = 'Specifies the number of the affected field.';
                 }
-                field("Table Caption"; Rec."Table Caption")
+                field("Table Caption"; "Table Caption")
                 {
                     ApplicationArea = All;
                     DrillDown = false;
@@ -62,28 +56,28 @@ page 1751 "Data Classification Worksheet"
                     Enabled = false;
                     ToolTip = 'Specifies the display name of the affected table.';
                 }
-                field("Field Caption"; Rec."Field Caption")
+                field("Field Caption"; "Field Caption")
                 {
                     ApplicationArea = All;
                     DrillDown = false;
                     Editable = false;
                     Enabled = false;
                     Style = Standard;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies the display name of the affected field.';
                 }
-                field("Field Type"; Rec."Field Type")
+                field("Field Type"; "Field Type")
                 {
                     ApplicationArea = All;
                     DrillDown = false;
                     Editable = false;
                     Enabled = false;
                     Style = Standard;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies the type of the affected field.';
                     Visible = false;
                 }
-                field("Data Sensitivity"; Rec."Data Sensitivity")
+                field("Data Sensitivity"; "Data Sensitivity")
                 {
                     ApplicationArea = All;
                     OptionCaption = 'Unclassified,Sensitive,Personal,Company Confidential,Normal';
@@ -91,12 +85,12 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnValidate()
                     begin
-                        Rec.Validate("Last Modified By", UserSecurityId());
-                        Rec.Validate("Last Modified", CurrentDateTime());
+                        Validate("Last Modified By", UserSecurityId());
+                        Validate("Last Modified", CurrentDateTime());
                         SetLastModifiedBy();
                     end;
                 }
-                field("Data Classification"; Rec."Data Classification")
+                field("Data Classification"; "Data Classification")
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -111,7 +105,7 @@ page 1751 "Data Classification Worksheet"
                     Enabled = false;
                     ToolTip = 'Specifies who last changed the field.';
                 }
-                field("Last Modified"; Rec."Last Modified")
+                field("Last Modified"; "Last Modified")
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -124,7 +118,7 @@ page 1751 "Data Classification Worksheet"
 
     actions
     {
-        area(Processing)
+        area(processing)
         {
             group(Edit)
             {
@@ -142,7 +136,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        Page.Run(Page::"Data Classification Wizard");
+                        PAGE.Run(PAGE::"Data Classification Wizard");
                     end;
                 }
                 action("Find New Fields")
@@ -176,7 +170,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        SetSensitivityToSelection(Rec."Data Sensitivity"::Sensitive);
+                        SetSensitivityToSelection("Data Sensitivity"::Sensitive);
                     end;
                 }
                 action("Set as Personal")
@@ -192,7 +186,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        SetSensitivityToSelection(Rec."Data Sensitivity"::Personal);
+                        SetSensitivityToSelection("Data Sensitivity"::Personal);
                     end;
                 }
                 action("Set as Normal")
@@ -208,7 +202,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        SetSensitivityToSelection(Rec."Data Sensitivity"::Normal);
+                        SetSensitivityToSelection("Data Sensitivity"::Normal);
                     end;
                 }
                 action("Set as Company Confidential")
@@ -224,7 +218,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        SetSensitivityToSelection(Rec."Data Sensitivity"::"Company Confidential");
+                        SetSensitivityToSelection("Data Sensitivity"::"Company Confidential");
                     end;
                 }
                 action("Set as Unclassified")
@@ -240,7 +234,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        SetSensitivityToSelection(Rec."Data Sensitivity"::Unclassified);
+                        SetSensitivityToSelection("Data Sensitivity"::Unclassified);
                     end;
                 }
             }
@@ -263,7 +257,7 @@ page 1751 "Data Classification Worksheet"
                         DataClassificationMgtImpl: Codeunit "Data Classification Mgt. Impl.";
                     begin
                         CurrPage.SetSelectionFilter(Rec);
-                        if not Rec.FindSet() then
+                        if not FindSet() then
                             Error(NoRecordsErr);
                         DataClassificationMgtImpl.FindSimilarFieldsInRelatedTables(Rec);
                         CurrPage.Update();
@@ -282,7 +276,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        ViewDataWithSensitivity(Rec."Data Sensitivity"::Unclassified);
+                        ViewDataWithSensitivity("Data Sensitivity"::Unclassified);
                     end;
                 }
                 action("View Sensitive")
@@ -297,7 +291,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        ViewDataWithSensitivity(Rec."Data Sensitivity"::Sensitive);
+                        ViewDataWithSensitivity("Data Sensitivity"::Sensitive);
                     end;
                 }
                 action("View Personal")
@@ -312,7 +306,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        ViewDataWithSensitivity(Rec."Data Sensitivity"::Personal);
+                        ViewDataWithSensitivity("Data Sensitivity"::Personal);
                     end;
                 }
                 action("View Normal")
@@ -327,7 +321,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        ViewDataWithSensitivity(Rec."Data Sensitivity"::Normal);
+                        ViewDataWithSensitivity("Data Sensitivity"::Normal);
                     end;
                 }
                 action("View Company Confidential")
@@ -342,7 +336,7 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        ViewDataWithSensitivity(Rec."Data Sensitivity"::"Company Confidential");
+                        ViewDataWithSensitivity("Data Sensitivity"::"Company Confidential");
                     end;
                 }
                 action("View All")
@@ -357,9 +351,9 @@ page 1751 "Data Classification Worksheet"
 
                     trigger OnAction()
                     begin
-                        Rec.Reset();
-                        Rec.SetRange("Company Name", CompanyName());
-                        Rec.SetFilter("Field Caption", '<>%1', '');
+                        Reset();
+                        SetRange("Company Name", CompanyName());
+                        SetFilter("Field Caption", '<>%1', '');
                     end;
                 }
                 action("Show Field Content")
@@ -389,7 +383,7 @@ page 1751 "Data Classification Worksheet"
         Field: Record Field;
     begin
         CurrPage.SetSelectionFilter(DataSensitivity);
-        FieldContentEnabled := ((Rec."Field Type" = Field.Type::Code) or (Rec."Field Type" = Field.Type::Text))
+        FieldContentEnabled := (("Field Type" = Field.Type::Code) or ("Field Type" = Field.Type::Text))
             and (DataSensitivity.Count() = 1);
     end;
 
@@ -403,7 +397,7 @@ page 1751 "Data Classification Worksheet"
         DataClassificationMgt: Codeunit "Data Classification Mgt.";
     begin
         SendLegalDisclaimerNotification();
-        Rec.SetRange("Company Name", CompanyName());
+        SetRange("Company Name", CompanyName());
         CreateEvalDataOrShowUnclassifiedDataIfTableIsEmpty();
         DataClassificationMgt.OnShowSyncFieldsNotification();
     end;
@@ -431,10 +425,10 @@ page 1751 "Data Classification Worksheet"
         User: Record User;
     begin
         LastModifiedByUser := '';
-        if User.Get(Rec."Last Modified By") then
+        if User.Get("Last Modified By") then
             LastModifiedByUser := User."User Name"
         else
-            if not IsNullGuid(Rec."Last Modified By") then
+            if not IsNullGuid("Last Modified By") then
                 LastModifiedByUser := DeletedUserTok;
     end;
 
@@ -477,7 +471,7 @@ page 1751 "Data Classification Worksheet"
 
     local procedure ViewDataWithSensitivity(Sensitivity: Option)
     begin
-        Rec.SetRange("Data Sensitivity", Sensitivity);
+        SetRange("Data Sensitivity", Sensitivity);
         CurrPage.Update();
     end;
 
@@ -488,14 +482,13 @@ page 1751 "Data Classification Worksheet"
         RecordRef: RecordRef;
         FieldRef: FieldRef;
     begin
-        RecordRef.Open(Rec."Table No");
+        RecordRef.Open("Table No");
         if RecordRef.FindSet() then
             repeat
-                FieldRef := RecordRef.Field(Rec."Field No");
+                FieldRef := RecordRef.Field("Field No");
                 DataClassificationMgtImpl.PopulateFieldValue(FieldRef, TempFieldContentBuffer);
             until RecordRef.Next() = 0;
-        Page.RunModal(Page::"Field Content Buffer", TempFieldContentBuffer);
+        PAGE.RunModal(PAGE::"Field Content Buffer", TempFieldContentBuffer);
     end;
 }
-
 

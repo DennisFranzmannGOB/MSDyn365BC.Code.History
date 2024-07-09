@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Finance.GeneralLedger.Account;
-
 page 30014 "APIV2 - Accounts"
 {
     APIVersion = 'v2.0';
@@ -26,56 +22,44 @@ page 30014 "APIV2 - Accounts"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'No.';
                 }
-                field(displayName; Rec.Name)
+                field(displayName; Name)
                 {
                     Caption = 'Display Name';
                 }
-                field(category; Rec."Account Category")
+                field(category; "Account Category")
                 {
                     Caption = 'Category';
                 }
-                field(subCategory; Rec."Account Subcategory Descript.")
+                field(subCategory; "Account Subcategory Descript.")
                 {
                     Caption = 'Subcategory';
                 }
-                field(blocked; Rec.Blocked)
+                field(blocked; Blocked)
                 {
                     Caption = 'Blocked';
                 }
-                field(accountType; Rec."API Account Type")
+                field(accountType; "API Account Type")
                 {
                     Caption = 'Account Type';
                 }
-                field(directPosting; Rec."Direct Posting")
+                field(directPosting; "Direct Posting")
                 {
                     Caption = 'Direct Posting';
                 }
-                field(netChange; Rec."Net Change")
+                field(netChange; "Net Change")
                 {
                     Caption = 'Net Change';
                 }
-                field(consolidationTranslationMethod; Rec."Consol. Translation Method")
-                {
-                    Caption = 'Consolidation Translation Method';
-                }
-                field(consolidationDebitAccount; Rec."Consol. Debit Acc.")
-                {
-                    Caption = 'Consolidation Debit Account';
-                }
-                field(consolidationCreditAccount; Rec."Consol. Credit Acc.")
-                {
-                    Caption = 'Consolidation Credit Account';
-                }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }

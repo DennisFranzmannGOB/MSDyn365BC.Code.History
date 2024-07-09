@@ -1,11 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Azure.Identity;
-
-using System;
 
 codeunit 3705 "Azure AD Tenant Impl."
 {
@@ -15,49 +11,24 @@ codeunit 3705 "Azure AD Tenant Impl."
     InherentPermissions = X;
 
     var
-        AzureADGraph: Codeunit "Azure AD Graph";
-        TenantInfo: DotNet TenantInfo;
         NavTenantSettingsHelper: DotNet NavTenantSettingsHelper;
-        TenantDomainNameErr: Label 'Failed to retrieve the Microsoft Entra tenant domain name.';
-        CountryLetterCodeErr: Label 'Failed to retrieve the Microsoft Entra tenant country letter code.';
-        PreferredLanguageErr: Label 'Failed to retrieve the Microsoft Entra tenant preferred language code.';
+        AADTenantDomainNameErr: Label 'Failed to retrieve the Azure Active Directory tenant domain name.';
 
-    procedure GetAadTenantId() TenantIdValue: Text
+    procedure GetAadTenantId() TenantAadIdValue: Text
     begin
-        NavTenantSettingsHelper.TryGetStringTenantSetting('AADTENANTID', TenantIdValue);
+        NavTenantSettingsHelper.TryGetStringTenantSetting('AADTENANTID', TenantAadIdValue);
     end;
 
     procedure GetAadTenantDomainName(): Text;
+    var
+        AzureADGraph: Codeunit "Azure AD Graph";
+        TenantInfo: DotNet TenantInfo;
     begin
-        Initialize();
+        AzureADGraph.GetTenantDetail(TenantInfo);
         if not IsNull(TenantInfo) then
             exit(TenantInfo.InitialDomain());
 
-        Error(TenantDomainNameErr);
-    end;
-
-    procedure GetCountryLetterCode(): Code[2];
-    begin
-        Initialize();
-        if not IsNull(TenantInfo) then
-            exit(CopyStr(TenantInfo.CountryLetterCode(), 1, 2));
-
-        Error(CountryLetterCodeErr);
-    end;
-
-    procedure GetPreferredLanguage(): Code[2];
-    begin
-        Initialize();
-        if not IsNull(TenantInfo) then
-            exit(CopyStr(TenantInfo.PreferredLanguage(), 1, 2));
-
-        Error(PreferredLanguageErr);
-    end;
-
-    local procedure Initialize()
-    begin
-        if IsNull(TenantInfo) then
-            AzureADGraph.GetTenantDetail(TenantInfo);
+        Error(AADTenantDomainNameErr);
     end;
 }
 

@@ -3,14 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System.Environment.Configuration;
-
 permissionset 91 "User Personalization - Edit"
 {
     Access = Public;
-    Assignable = false;
+    Assignable = False;
 
     IncludedPermissionSets = "User Personalization - Read";
 

@@ -1,7 +1,3 @@
-namespace System.TestTools;
-
-using System.Reflection;
-
 page 130416 "Get Semi-Manual Test Codeunits"
 {
     Caption = 'Get Semi-Manual Test Codeunits';
@@ -9,7 +5,7 @@ page 130416 "Get Semi-Manual Test Codeunits"
     InsertAllowed = false;
     ModifyAllowed = false;
     SourceTable = AllObjWithCaption;
-    SourceTableView = where("Object Type" = const(Codeunit));
+    SourceTableView = WHERE("Object Type" = CONST(Codeunit));
 
     layout
     {

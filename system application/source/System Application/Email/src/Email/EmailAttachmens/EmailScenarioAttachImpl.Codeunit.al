@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 codeunit 8902 "Email Scenario Attach Impl."
 {
     Access = Internal;
@@ -13,22 +11,27 @@ codeunit 8902 "Email Scenario Attach Impl."
     Permissions = tabledata "Email Attachments" = rimd,
                   tabledata "Email Scenario Attachments" = rimd;
 
-    var
-        ConfirmUploadEmailQst: Label 'Do you want to add the selected attachments?';
-        ConfirmUploadNotDefaultToListQst: Label 'This page is for adding additional, non-default attachments to the scenario. Do you want to add an attachment?';
-        AddeFileToScenariosMsg: Label 'Add attachment to selected email scenario';
-        AddFileToCurrentScenarioMsg: Label 'Add attachment to current email scenario';
-
     procedure GetEmailAttachmentsByEmailScenarios(var Result: Record "Email Attachments"; EmailScenario: Integer)
     var
         EmailScenarioAttachments: Record "Email Scenario Attachments";
-        Email: Codeunit Email;
     begin
-        Email.OnBeforeGetEmailAttachmentsByEmailScenarios(EmailScenarioAttachments);
+        Result.Reset();
+        Result.DeleteAll();
         if EmailScenario <> 0 then
             EmailScenarioAttachments.SetRange(Scenario, Enum::"Email Scenario".FromInteger(EmailScenario));
 
-        SetEmailScenarioAttachment(Result, EmailScenarioAttachments);
+        if not EmailScenarioAttachments.FindSet() then
+            exit;
+
+        repeat
+            Result.Id := EmailScenarioAttachments.Id;
+            Result."Attachment Name" := EmailScenarioAttachments."Attachment Name";
+            Result."Email Attachment" := EmailScenarioAttachments."Email Attachment";
+            Result.Scenario := EmailScenarioAttachments.Scenario;
+            Result.AttachmentDefaultStatus := EmailScenarioAttachments.AttachmentDefaultStatus;
+
+            Result.Insert();
+        until EmailScenarioAttachments.Next() = 0;
     end;
 
     procedure DeleteScenarioAttachments(var EmailAttachments: Record "Email Attachments"; var EmailScenarioAttachments: Record "Email Scenario Attachments"): Boolean
@@ -81,11 +84,17 @@ codeunit 8902 "Email Scenario Attach Impl."
         Result.Reset();
         Result.DeleteAll();
 
-        if EmailScenarioAttachments.FindSet() then
-            repeat
-                Result.TransferFields(EmailScenarioAttachments);
-                Result.Insert();
-            until EmailScenarioAttachments.Next() = 0;
+        if not EmailScenarioAttachments.FindSet() then
+            exit;
+        repeat
+            Result.Id := EmailScenarioAttachments.Id;
+            Result."Attachment Name" := EmailScenarioAttachments."Attachment Name";
+            Result."Email Attachment" := EmailScenarioAttachments."Email Attachment";
+            Result.Scenario := EmailScenarioAttachments.Scenario;
+            Result.AttachmentDefaultStatus := EmailScenarioAttachments.AttachmentDefaultStatus;
+
+            Result.Insert();
+        until EmailScenarioAttachments.Next() = 0;
     end;
 
     procedure AddAttachmentToMessage(var Message: Codeunit "Email Message"; CurrentEmailScenario: Enum "Email Scenario")
@@ -107,12 +116,11 @@ codeunit 8902 "Email Scenario Attach Impl."
     var
         EmailScenario: Integer;
         FileName: Text;
-        Instream: InStream;
+        Instream: Instream;
     begin
         if not SelectedScenarios.FindSet() then
             exit;
 
-        ClearLastError();
         if not UploadIntoStream(AddeFileToScenariosMsg, '', '', FileName, Instream) then
             Error(GetLastErrorText());
 
@@ -135,9 +143,8 @@ codeunit 8902 "Email Scenario Attach Impl."
     procedure AddAttachment(var EmailScenarioAttachments: Record "Email Scenario Attachments"; var EmailAttachments: Record "Email Attachments"; EmailScenario: Integer)
     var
         FileName: Text;
-        Instream: InStream;
+        Instream: Instream;
     begin
-        ClearLastError();
         if not UploadIntoStream(AddFileToCurrentScenarioMsg, '', '', FileName, Instream) then
             Error(GetLastErrorText());
 
@@ -159,4 +166,9 @@ codeunit 8902 "Email Scenario Attach Impl."
         EmailAttachment.Insert();
     end;
 
+    var
+        ConfirmUploadEmailQst: Label 'Do you want to add the selected attachments?';
+        ConfirmUploadNotDefaultToListQst: Label 'This page is for adding additional, non-default attachments to the scenario. Do you want to add an attachment?';
+        AddeFileToScenariosMsg: Label 'Add attachment to selected email scenario';
+        AddFileToCurrentScenarioMsg: Label 'Add attachment to current email scenario';
 }

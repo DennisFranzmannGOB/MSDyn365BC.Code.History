@@ -1,6 +1,8 @@
 report 134601 "Test Report - Default=RDLC"
 {
-    DefaultRenderingLayout = "./Test Report - Default=RDLC.rdlc";
+    DefaultLayout = RDLC;
+    RDLCLayout = './Test Report - Default=RDLC.rdlc';
+    WordLayout = './Test Report - Default=RDLC.docx';
 
     dataset
     {
@@ -26,20 +28,6 @@ report 134601 "Test Report - Default=RDLC"
 
         actions
         {
-        }
-    }
-
-    rendering
-    {
-        layout("./Test Report - Default=RDLC.rdlc")
-        {
-            Type = RDLC;
-            LayoutFile = './Test Report - Default=RDLC.rdlc';
-        }
-        layout("./Test Report - Default=RDLC.docx")
-        {
-            Type = Word;
-            LayoutFile = './Test Report - Default=RDLC.docx';
         }
     }
 

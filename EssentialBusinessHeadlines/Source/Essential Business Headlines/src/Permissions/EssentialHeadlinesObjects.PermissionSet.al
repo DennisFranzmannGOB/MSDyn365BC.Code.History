@@ -1,10 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved. 
-// Licensed under the MIT License. See License.txt in the project root for license information. 
-// ------------------------------------------------------------------------------------------------
-
-namespace System.Visualization;
-
 permissionset 19150 "EssentialHeadlines - Objects"
 {
     Assignable = false;

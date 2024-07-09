@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.History;
-
 /// <summary>
 /// PageExtension Shpfy Post. Sal. Inv. Subform (ID 30111) extends Record Posted Sales Invoice Subform.
 /// </summary>

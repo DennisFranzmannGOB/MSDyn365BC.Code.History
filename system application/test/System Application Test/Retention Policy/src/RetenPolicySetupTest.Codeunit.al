@@ -3,13 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.DataAdministration;
-
-using System.DataAdministration;
-using System.TestLibraries.DataAdministration;
-using System.TestLibraries.Utilities;
-using System.TestLibraries.Security.AccessControl;
-
 codeunit 138701 "Reten. Policy Setup Test"
 {
     Subtype = Test;
@@ -202,7 +195,7 @@ codeunit 138701 "Reten. Policy Setup Test"
         RetentionPolicySetupLine.Insert();
 
         // exercise
-        RetentionPolicySetup.Delete(true);
+        RetentionPolicySetup.Delete(True);
 
         // verify
         Assert.IsFalse(RetentionPolicySetupLine.Get(Database::"Retention Policy Test Data", 10000), 'Record should not exist');
@@ -234,7 +227,7 @@ codeunit 138701 "Reten. Policy Setup Test"
         RetentionPolicySetupLine.Insert();
 
         // exercise
-        TempRetentionPolicySetup.Delete(true);
+        TempRetentionPolicySetup.Delete(True);
 
         // verify
         Assert.IsTrue(RetentionPolicySetupLine.Get(Database::"Retention Policy Test Data", 10000), 'Record should exist');
@@ -286,7 +279,7 @@ codeunit 138701 "Reten. Policy Setup Test"
 
         // exercise
         ClearLastError();
-        asserterror
+        AssertError
             RetentionPolicySetup.Validate("Retention Period", RetentionPeriod.Code);
 
         // verify
@@ -311,7 +304,7 @@ codeunit 138701 "Reten. Policy Setup Test"
 
         // exercise
         ClearLastError();
-        asserterror
+        AssertError
         begin
             RetentionPolicySetupLine.Validate("Retention Period", RetentionPeriod.Code);
             Error('');
@@ -338,7 +331,7 @@ codeunit 138701 "Reten. Policy Setup Test"
 
         // exercise
         ClearLastError();
-        asserterror
+        AssertError
             RetentionPolicySetupLine.Validate("Retention Period", RetentionPeriod.Code);
 
         // verify
@@ -361,7 +354,7 @@ codeunit 138701 "Reten. Policy Setup Test"
         RetentionPolicySetupLine.CalcFields("Table Caption");
 
         // Exercise
-        asserterror RetentionPolicySetupLine.Delete();
+        AssertError RetentionPolicySetupLine.Delete();
 
         // Verify
         Assert.ExpectedError(StrSubstNo(RetentionPolicySetupLineLockedErr, RetentionPolicySetupLine."Table ID", RetentionPolicySetupLine."Table Caption"));
@@ -403,7 +396,7 @@ codeunit 138701 "Reten. Policy Setup Test"
         ClearLastError();
 
         // Exercise
-        asserterror
+        AssertError
         begin
             RetentionPolicySetup.Delete();
             error('');
@@ -430,7 +423,7 @@ codeunit 138701 "Reten. Policy Setup Test"
 
         // Exercise
         RetentionPolicySetupLine.Locked := false;
-        asserterror RetentionPolicySetupLine.Modify();
+        AssertError RetentionPolicySetupLine.Modify();
 
         // Verify
         Assert.ExpectedError(StrSubstNo(RetentionPolicySetupLineLockedErr, RetentionPolicySetupLine."Table ID", RetentionPolicySetupLine."Table Caption"));
@@ -451,7 +444,7 @@ codeunit 138701 "Reten. Policy Setup Test"
         RetentionPolicySetupLine.Insert();
 
         // Exercise
-        asserterror RetentionPolicySetupLine.Rename(Database::"Retention Policy Test Data 3", RetentionPolicySetupLine."Line No.");
+        AssertError RetentionPolicySetupLine.Rename(Database::"Retention Policy Test Data 3", RetentionPolicySetupLine."Line No.");
 
         // Verify
         Assert.ExpectedError(StrSubstNo(RetenPolSetupLineRenameErr, Database::"Retention Policy Test Data", Database::"Retention Policy Test Data 3"));
@@ -468,7 +461,7 @@ codeunit 138701 "Reten. Policy Setup Test"
         RetentionPolicySetup.Insert();
 
         // Exercise
-        asserterror RetentionPolicySetup.Rename(Database::"Retention Policy Test Data 3");
+        AssertError RetentionPolicySetup.Rename(Database::"Retention Policy Test Data 3");
 
         // Verify
         Assert.ExpectedError(StrSubstNo(RetenPolSetupRenameErr, Database::"Retention Policy Test Data", Database::"Retention Policy Test Data 3"));
@@ -557,7 +550,7 @@ codeunit 138701 "Reten. Policy Setup Test"
         RetentionPolicySetupLine.FindFirst();
 
         // exercise
-        asserterror RetentionPolicySetupLine.Delete();
+        AssertError RetentionPolicySetupLine.Delete();
 
         // verify
         Assert.ExpectedError('The retention policy setup for table 138703, Retention Policy Test Data 4 has mandatory filters that cannot be modified.');
@@ -592,7 +585,7 @@ codeunit 138701 "Reten. Policy Setup Test"
 
         // exercise
         RetentionPeriod.Get(RetentionPolicySetupLine."Retention Period");
-        asserterror RetentionPeriod.Delete();
+        AssertError RetentionPeriod.Delete();
 
         // verify
         Assert.ExpectedError('You cannot delete the retention period');
@@ -621,7 +614,7 @@ codeunit 138701 "Reten. Policy Setup Test"
         RetentionPeriod.Get(RetentionPolicySetupLine."Retention Period");
         RetentionPeriod.Validate("Retention Period", RetentionPeriod."Retention Period"::Custom);
         Evaluate(RetentionPeriod."Ret. Period Calculation", '<-2D>');
-        asserterror RetentionPeriod.Modify();
+        AssertError RetentionPeriod.Modify();
 
         // verify
         Assert.ExpectedError('You cannot modify the retention period');

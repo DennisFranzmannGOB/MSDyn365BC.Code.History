@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Finance.GeneralLedger.Journal;
-using Microsoft.Integration.Graph;
-
 page 30013 "APIV2 - Cust. Paym. Journals"
 {
     APIVersion = 'v2.0';
@@ -22,29 +17,29 @@ page 30013 "APIV2 - Cust. Paym. Journals"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field("code"; Rec.Name)
+                field("code"; Name)
                 {
                     Caption = 'Code';
                     ShowMandatory = true;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'Display Name';
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }
-                field(balancingAccountId; Rec.BalAccountId)
+                field(balancingAccountId; BalAccountId)
                 {
                     Caption = 'Balancing Account Id';
                 }
-                field(balancingAccountNumber; Rec."Bal. Account No.")
+                field(balancingAccountNumber; "Bal. Account No.")
                 {
                     Caption = 'Balancing Account No.';
                     Editable = false;
@@ -54,7 +49,7 @@ page 30013 "APIV2 - Cust. Paym. Journals"
                     Caption = 'Customer Payments';
                     EntityName = 'customerPayment';
                     EntitySetName = 'customerPayments';
-                    SubPageLink = "Journal Batch Id" = field(SystemId);
+                    SubPageLink = "Journal Batch Id" = Field(SystemId);
                 }
             }
         }
@@ -66,12 +61,12 @@ page 30013 "APIV2 - Cust. Paym. Journals"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec."Journal Template Name" := GraphMgtJournal.GetDefaultCustomerPaymentsTemplateName();
+        "Journal Template Name" := GraphMgtJournal.GetDefaultCustomerPaymentsTemplateName();
     end;
 
     trigger OnOpenPage()
     begin
-        Rec.SetRange("Journal Template Name", GraphMgtJournal.GetDefaultCustomerPaymentsTemplateName());
+        SetRange("Journal Template Name", GraphMgtJournal.GetDefaultCustomerPaymentsTemplateName());
     end;
 
     var

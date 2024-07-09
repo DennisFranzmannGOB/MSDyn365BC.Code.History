@@ -1,14 +1,8 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation. All rights reserved. 
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Text;
-
-using System;
-using System.Utilities;
-
-/// <summary>
+/// <summary> 
 /// ITF barcode font implementation from IDAutomation
 /// from: https://www.idautomation.com/barcode-fonts/interleaved-2of5/
 /// Interleaved 2 of 5 (ITF) is a numeric only barcode used to encode pairs of numbers into a self-checking, high-density barcode format
@@ -33,7 +27,7 @@ codeunit 9209 "IDA 1D I2of5 Encoder" implements "Barcode Font Encoder"
 
     procedure IsValidInput(InputText: Text; var BarcodeEncodeSettings: Record "Barcode Encode Settings"): Boolean;
     var
-        RegexPattern: Codeunit Regex;
+        RegexPattern: codeunit Regex;
     begin
         if InputText = '' then
             exit(false);

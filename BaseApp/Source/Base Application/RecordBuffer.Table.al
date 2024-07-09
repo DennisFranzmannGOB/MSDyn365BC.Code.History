@@ -1,9 +1,3 @@
-namespace System.IO;
-
-using Microsoft.Inventory.Item;
-using Microsoft.Inventory.Tracking;
-using System.Reflection;
-
 table 6529 "Record Buffer"
 {
     Caption = 'Record Buffer';
@@ -49,12 +43,12 @@ table 6529 "Record Buffer"
         {
             Caption = 'Primary Key Field 1 No.';
             DataClassification = SystemMetadata;
-            TableRelation = Field."No." where(TableNo = field("Table No."));
+            TableRelation = Field."No." WHERE(TableNo = FIELD("Table No."));
         }
         field(9; "Primary Key Field 1 Name"; Text[80])
         {
-            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table No."),
-                                                              "No." = field("Primary Key Field 1 No.")));
+            CalcFormula = Lookup(Field."Field Caption" WHERE(TableNo = FIELD("Table No."),
+                                                              "No." = FIELD("Primary Key Field 1 No.")));
             Caption = 'Primary Key Field 1 Name';
             FieldClass = FlowField;
         }
@@ -67,12 +61,12 @@ table 6529 "Record Buffer"
         {
             Caption = 'Primary Key Field 2 No.';
             DataClassification = SystemMetadata;
-            TableRelation = Field."No." where(TableNo = field("Table No."));
+            TableRelation = Field."No." WHERE(TableNo = FIELD("Table No."));
         }
         field(12; "Primary Key Field 2 Name"; Text[80])
         {
-            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table No."),
-                                                              "No." = field("Primary Key Field 2 No.")));
+            CalcFormula = Lookup(Field."Field Caption" WHERE(TableNo = FIELD("Table No."),
+                                                              "No." = FIELD("Primary Key Field 2 No.")));
             Caption = 'Primary Key Field 2 Name';
             FieldClass = FlowField;
         }
@@ -85,12 +79,12 @@ table 6529 "Record Buffer"
         {
             Caption = 'Primary Key Field 3 No.';
             DataClassification = SystemMetadata;
-            TableRelation = Field."No." where(TableNo = field("Table No."));
+            TableRelation = Field."No." WHERE(TableNo = FIELD("Table No."));
         }
         field(15; "Primary Key Field 3 Name"; Text[80])
         {
-            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table No."),
-                                                              "No." = field("Primary Key Field 3 No.")));
+            CalcFormula = Lookup(Field."Field Caption" WHERE(TableNo = FIELD("Table No."),
+                                                              "No." = FIELD("Primary Key Field 3 No.")));
             Caption = 'Primary Key Field 3 Name';
             FieldClass = FlowField;
         }
@@ -134,7 +128,7 @@ table 6529 "Record Buffer"
         {
             Caption = 'Variant Code';
             DataClassification = SystemMetadata;
-            TableRelation = "Item Variant".Code where("Item No." = field("Item No."));
+            TableRelation = "Item Variant".Code WHERE("Item No." = FIELD("Item No."));
         }
         field(6515; "Package No."; Code[50])
         {

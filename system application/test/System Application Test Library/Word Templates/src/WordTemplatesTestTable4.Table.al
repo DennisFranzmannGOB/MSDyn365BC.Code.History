@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Integration.Word;
-
 table 130446 "Word Templates Test Table 4"
 {
     DataClassification = SystemMetadata;

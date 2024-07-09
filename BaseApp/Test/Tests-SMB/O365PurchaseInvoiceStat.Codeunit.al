@@ -120,8 +120,6 @@ codeunit 138021 "O365 Purchase Invoice Stat."
     local procedure CreateVendor(var Vendor: Record Vendor)
     begin
         LibrarySmallBusiness.CreateVendor(Vendor);
-        Vendor."Payment Terms Code" := '';
-        Vendor.Modify();
     end;
 
     local procedure CreateItem(var Item: Record Item; VATBusPostingGroupCode: Code[20])
@@ -175,10 +173,7 @@ codeunit 138021 "O365 Purchase Invoice Stat."
             "Document No.".SetValue(NoSeriesMgt.GetNextNo(GenJnlBatch."No. Series", PurchInvHeader."Posting Date", false));
             "Account Type".SetValue(GenJnlLine."Account Type"::Vendor);
             "Account No.".SetValue(PurchInvHeader."Buy-from Vendor No.");
-            if PaymentAmount > 0 then
-                "Debit Amount".SetValue(PaymentAmount)
-            else
-                "Credit Amount".SetValue(-PaymentAmount);
+            Amount.SetValue(PaymentAmount);
             "Applies-to Doc. Type".SetValue(GenJnlLine."Applies-to Doc. Type"::Invoice);
             AppliesToDocNo.SetValue(PurchInvHeader."No.");
 

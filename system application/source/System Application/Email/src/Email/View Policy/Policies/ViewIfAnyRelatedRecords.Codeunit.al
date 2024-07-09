@@ -3,12 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
-using System.Security.AccessControl;
-
 /// <summary>
-/// Email policy that show emails to a given user,
+/// Email policy that show emails to a given user, 
 /// if that user has access to any of the related records on the email.
 /// </summary>
 codeunit 8934 "View If Any Related Records" implements "Email View Policy"

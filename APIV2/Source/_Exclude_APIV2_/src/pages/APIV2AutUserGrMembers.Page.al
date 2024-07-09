@@ -1,9 +1,4 @@
 #if not CLEAN22
-namespace Microsoft.API.V2;
-
-using System.Environment;
-using System.Security.AccessControl;
-
 page 30058 "APIV2 - Aut. User Gr. Members"
 {
     APIGroup = 'automation';
@@ -28,25 +23,25 @@ page 30058 "APIV2 - Aut. User Gr. Members"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(userSecurityId; Rec."User Security ID")
+                field(userSecurityId; "User Security ID")
                 {
                     Caption = 'User Security Id';
                     Editable = false;
                 }
-                field("code"; Rec."User Group Code")
+                field("code"; "User Group Code")
                 {
                     Caption = 'Code';
                 }
-                field(displayName; Rec."User Group Name")
+                field(displayName; "User Group Name")
                 {
                     Caption = 'Display Name';
                 }
-                field(companyName; Rec."Company Name")
+                field(companyName; "Company Name")
                 {
                     Caption = 'Company Name';
                 }
@@ -63,10 +58,10 @@ page 30058 "APIV2 - Aut. User Gr. Members"
         UserSecurityIDFilter: Text;
     begin
         if not LinesLoaded then begin
-            UserSecurityIDFilter := Rec.GetFilter("User Security ID");
+            UserSecurityIDFilter := GetFilter("User Security ID");
             if UserSecurityIDFilter = '' then
                 Error(UserIDNotSpecifiedForLinesErr);
-            if not Rec.FindFirst() then
+            if not FindFirst() then
                 exit(false);
             LinesLoaded := true;
         end;

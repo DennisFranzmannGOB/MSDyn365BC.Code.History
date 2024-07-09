@@ -3,14 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System.Environment.Configuration;
-
 permissionset 92 "User Personalization - Read"
 {
     Access = Internal;
-    Assignable = false;
+    Assignable = False;
 
     Permissions = tabledata "Page Data Personalization" = R,
                   tabledata "User Personalization" = R,

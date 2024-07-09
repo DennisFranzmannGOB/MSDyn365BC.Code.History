@@ -1,9 +1,3 @@
-namespace System.Integration;
-
-using Microsoft.Integration.Graph;
-using Microsoft.Utilities;
-using System.Threading;
-
 page 5460 "Webhook Supported Resources"
 {
     APIGroup = 'runtime';
@@ -25,7 +19,7 @@ page 5460 "Webhook Supported Resources"
         {
             repeater(Group)
             {
-                field(resource; Rec."Value Long")
+                field(resource; "Value Long")
                 {
                     ApplicationArea = All;
                     Caption = 'resource', Locked = true;
@@ -54,8 +48,8 @@ page 5460 "Webhook Supported Resources"
             exit(false);
         end;
 
-        View := Rec.GetView();
-        Rec.Reset();
+        View := GetView();
+        Reset();
 
         ApiWebhookEntity.SetRange("Object Type", ApiWebhookEntity."Object Type"::Page);
         ApiWebhookEntity.SetRange("Table Temporary", false);
@@ -67,14 +61,14 @@ page 5460 "Webhook Supported Resources"
             if not IsSystemTable(ApiWebhookEntity) then
                 if not IsCompositeKey(ApiWebhookEntity) then begin
                     I += 1;
-                    Rec.ID := I;
-                    Rec."Value Long" := CopyStr(GetResourceUri(ApiWebhookEntity), 1, MaxStrLen(Rec."Value Long"));
-                    Rec.Insert();
+                    ID := I;
+                    "Value Long" := CopyStr(GetResourceUri(ApiWebhookEntity), 1, MaxStrLen("Value Long"));
+                    Insert();
                 end;
         until ApiWebhookEntity.Next() = 0;
 
-        Rec.SetView(View);
-        Rec.FindFirst();
+        SetView(View);
+        FindFirst();
         Initialized := true;
         exit(true);
     end;

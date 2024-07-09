@@ -1,5 +1,3 @@
-namespace System.Environment;
-
 page 9900 "Import Data"
 {
     Caption = 'Import from a Data File';
@@ -46,12 +44,12 @@ page 9900 "Import Data"
                         then
                             exit;
 
-                        Rec.DeleteAll();
+                        DeleteAll();
                         ContainsCompanies := TempCompany.FindSet();
                         if ContainsCompanies then
                             repeat
                                 Rec := TempCompany;
-                                Rec.Insert();
+                                Insert();
                             until TempCompany.Next() = 0;
 
                         IncludeApplicationData := false;
@@ -78,12 +76,12 @@ page 9900 "Import Data"
                         then
                             exit;
 
-                        Rec.DeleteAll();
+                        DeleteAll();
                         ContainsCompanies := TempCompany.FindSet();
                         if ContainsCompanies then
                             repeat
                                 Rec := TempCompany;
-                                Rec.Insert();
+                                Insert();
                             until TempCompany.Next() = 0;
 
                         IncludeApplicationData := false;
@@ -160,7 +158,7 @@ page 9900 "Import Data"
                                 if TempSelectedCompany.Insert() then;
                             end else begin
                                 IncludeAllCompanies := false;
-                                if TempSelectedCompany.Get(Rec.Name) then
+                                if TempSelectedCompany.Get(Name) then
                                     TempSelectedCompany.Delete();
                             end;
                         end;
@@ -183,7 +181,7 @@ page 9900 "Import Data"
 
     trigger OnAfterGetRecord()
     begin
-        Selected := TempSelectedCompany.Get(Rec.Name);
+        Selected := TempSelectedCompany.Get(Name);
     end;
 
     trigger OnInit()
@@ -242,11 +240,11 @@ page 9900 "Import Data"
         TempSelectedCompany.DeleteAll();
 
         if IncludeAllCompanies then
-            if Rec.FindSet() then
+            if FindSet() then
                 repeat
                     TempSelectedCompany := Rec;
                     TempSelectedCompany.Insert();
-                until Rec.Next() = 0;
+                until Next() = 0;
 
         CurrPage.Update(false);
     end;

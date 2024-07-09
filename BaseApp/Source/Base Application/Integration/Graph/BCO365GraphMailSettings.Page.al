@@ -1,10 +1,4 @@
 #if not CLEAN21
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Graph;
-
 page 2398 "BC O365 Graph Mail Settings"
 {
     Caption = ' ';
@@ -57,15 +51,15 @@ page 2398 "BC O365 Graph Mail Settings"
     var
         GraphMail: Codeunit "Graph Mail";
     begin
-        if not Rec.IsEnabled() then
+        if not IsEnabled() then
             if GraphMail.HasConfiguration() then
-                Rec.Initialize(false);
+                Initialize(false);
     end;
 
     trigger OnOpenPage()
     begin
-        if not Rec.Get() then
-            Rec.Insert(true);
+        if not Get() then
+            Insert(true);
     end;
 
     var

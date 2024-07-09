@@ -10,8 +10,8 @@ codeunit 2163 "O365 Sales Quote Events"
     trigger OnRun()
     begin
         if not IsInvoicing() then begin
-            Rec.Result := NotInvoicingErr;
-            Rec.State := Rec.State::Failed;
+            Result := NotInvoicingErr;
+            State := State::Failed;
             exit;
         end;
 

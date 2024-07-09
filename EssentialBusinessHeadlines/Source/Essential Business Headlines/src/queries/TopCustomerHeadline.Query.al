@@ -3,16 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Visualization;
-
-using Microsoft.Sales.Customer;
-using Microsoft.Sales.Receivables;
-
 query 1441 "Top Customer Headline"
 {
     QueryType = Normal;
-    OrderBy = descending(SumAmountLcy);
-    DataAccessIntent = ReadOnly;
+    OrderBy = descending (SumAmountLcy);
 
     elements
     {
@@ -42,7 +36,7 @@ query 1441 "Top Customer Headline"
 
                 filter(Reversed; Reversed)
                 {
-                    ColumnFilter = Reversed = filter(false);
+                    ColumnFilter = Reversed = filter (false);
                 }
 
                 filter(DocumentType; "Document Type")
@@ -51,7 +45,7 @@ query 1441 "Top Customer Headline"
 
                 filter(Amount; "Amount")
                 {
-                    ColumnFilter = Amount = filter('>0');
+                    ColumnFilter = Amount = filter ('>0');
                 }
                 column(SumAmountLcy; "Amount (LCY)")
                 {

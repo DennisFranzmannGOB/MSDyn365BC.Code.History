@@ -1,9 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
 page 5334 "CRM Option Mapping"
 {
     ApplicationArea = Suite;
@@ -14,7 +8,7 @@ page 5334 "CRM Option Mapping"
     PageType = List;
     ShowFilter = false;
     SourceTable = "CRM Option Mapping";
-    SourceTableView = sorting("Integration Table ID", "Integration Field ID", "Option Value");
+    SourceTableView = SORTING("Integration Table ID", "Integration Field ID", "Option Value");
 
     layout
     {
@@ -48,7 +42,7 @@ page 5334 "CRM Option Mapping"
 
     trigger OnAfterGetRecord()
     begin
-        RecordIDText := Format(Rec."Record ID");
+        RecordIDText := Format("Record ID");
     end;
 
     var

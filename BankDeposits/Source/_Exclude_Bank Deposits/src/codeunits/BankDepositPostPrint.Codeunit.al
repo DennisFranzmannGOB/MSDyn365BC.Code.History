@@ -1,7 +1,3 @@
-namespace Microsoft.Bank.Deposit;
-
-using Microsoft.Foundation.Reporting;
-
 codeunit 1691 "Bank Deposit-Post + Print"
 {
     Permissions = TableData "Bank Deposit Header" = r,
@@ -19,7 +15,7 @@ codeunit 1691 "Bank Deposit-Post + Print"
         Rec := BankDepositHeader;
         Commit();
 
-        if PostedBankDepositHeader.Get(Rec."No.") then begin
+        if PostedBankDepositHeader.Get("No.") then begin
             PostedBankDepositHeader.SetRecFilter();
             PrintPostedBankDeposit();
         end;

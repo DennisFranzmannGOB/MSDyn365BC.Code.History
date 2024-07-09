@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration;
-
 /// <summary>
 /// Table containing the required state for document sharing.
 /// </summary>
@@ -100,7 +98,7 @@ table 9560 "Document Sharing"
         /// <summary>
         /// Specifies the sharing source of the document.
         /// </summary>
-        field(10; Source; Enum "Document Sharing Source")
+        field(10; "Source"; Enum "Document Sharing Source")
         {
             DataClassification = SystemMetadata;
         }

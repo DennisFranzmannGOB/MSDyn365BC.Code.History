@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
-using System.Utilities;
-using System.Environment.Configuration;
-using System.Security.User;
-
 /// <summary>
 /// Administrators can use this page to synchronize information about users from Microsoft 365 to Business Central.
 /// </summary>
@@ -105,31 +99,31 @@ page 9515 "Azure AD User Update Wizard"
                     ShowCaption = false;
                     repeater(Permissions)
                     {
-                        field(DisplayName; Rec."Display Name")
+                        field(DisplayName; "Display Name")
                         {
-                            ToolTip = 'Specifies the display name';
+                            ToolTip = 'The display name';
                             ApplicationArea = All;
                         }
-                        field(CurrentLicense; Rec."Current Value")
+                        field(CurrentLicense; "Current Value")
                         {
                             Caption = 'Current plan';
-                            ToolTip = 'Specifies the current of user entity';
+                            ToolTip = 'The current of user entity';
                             Editable = false;
                             ApplicationArea = All;
                         }
-                        field(NewLicense; Rec."New Value")
+                        field(NewLicense; "New Value")
                         {
                             Caption = 'New plan';
-                            ToolTip = 'Specifies the new value of user entity';
+                            ToolTip = 'The new value of user entity';
                             Editable = false;
                             ApplicationArea = All;
                         }
-                        field(PermissionAction; Rec."Permission Change Action")
+                        field(PermissionAction; "Permission Change Action")
                         {
                             Caption = 'Action';
-                            ToolTip = 'Specifies how this license change should be handled';
+                            ToolTip = 'Choose how this license change should be handled';
                             ApplicationArea = All;
-                            Enabled = Rec."Update Type" = Rec."Update Type"::Change;
+                            Enabled = "Update Type" = "Update Type"::Change;
 
                             trigger OnValidate()
                             begin
@@ -253,7 +247,7 @@ page 9515 "Azure AD User Update Wizard"
                     DoneSelectingPermissionsButtonEnabled := false;
                     ManagePermissionUpdatesButtonVisible := false;
                     ConfirmPermissionChangesVisible := true;
-                    Rec.SetRange("Update Entity", Rec."Update Entity"::Plan);
+                    SetRange("Update Entity", "Update Entity"::Plan);
                 end;
             }
             action(ViewChanges)
@@ -272,7 +266,7 @@ page 9515 "Azure AD User Update Wizard"
                     SetVisiblityOnActions();
                     BackButtonVisible := true;
                     ViewChangesButtonVisible := false;
-                    Rec.SetRange("Needs User Review", false);
+                    SetRange("Needs User Review", false);
                 end;
             }
             action(ApplyUpdates)
@@ -290,10 +284,10 @@ page 9515 "Azure AD User Update Wizard"
                     GuidedExperience: Codeunit "Guided Experience";
                     SuccessCount: Integer;
                 begin
-                    Rec.Reset();
+                    Reset();
                     SuccessCount := AzureADUserSyncImpl.ApplyUpdatesFromAzureGraph(Rec);
-                    NumberOfUpdatesApplied := StrSubstNo(NumberOfUpdatesAppliedTxt, SuccessCount, Rec.Count());
-                    Rec.DeleteAll();
+                    NumberOfUpdatesApplied := StrSubstNo(NumberOfUpdatesAppliedTxt, SuccessCount, Count());
+                    DeleteAll();
 
                     GuidedExperience.CompleteAssistedSetup(ObjectType::Page, Page::"Azure AD User Update Wizard");
 
@@ -323,19 +317,32 @@ page 9515 "Azure AD User Update Wizard"
     }
 
     var
+        [InDataSet]
         WelcomeVisible: Boolean;
+        [InDataSet]
         ConfirmPermissionChangesVisible: Boolean;
+        [InDataSet]
         ListOfChangesVisible: Boolean;
+        [InDataSet]
         FinishedVisible: Boolean;
 
+        [InDataSet]
         CancelButtonVisible: Boolean;
+        [InDataSet]
         BackButtonVisible: Boolean;
+        [InDataSet]
         NextButtonVisible: Boolean;
+        [InDataSet]
         ManagePermissionUpdatesButtonVisible: Boolean;
+        [InDataSet]
         ViewChangesButtonVisible: Boolean;
+        [InDataSet]
         ApplyUpdatesButtonVisible: Boolean;
+        [InDataSet]
         CloseButtonVisible: Boolean;
+        [InDataSet]
         DoneSelectingPermissionsButtonVisible: Boolean;
+        [InDataSet]
         DoneSelectingPermissionsButtonEnabled: Boolean;
 
         CountOfManagedPermissionUpdates: Integer;
@@ -345,14 +352,17 @@ page 9515 "Azure AD User Update Wizard"
         NumberOfUpdatesApplied: Text;
         NumberOfUpdatesAppliedTxt: Label '%1 out of %2 updates have been applied in Business Central. You can close this guide.', Comment = '%1 = An integer count of total updates applied; %2 = total count of updates';
 
+        [InDataSet]
         NoAvailableUpdatesVisible: Boolean;
 
         TotalUpdatesToConfirm: Text;
+        [InDataSet]
         TotalUpdatesToConfirmVisible: Boolean;
         TotalUpdatesToConfirmSingularTxt: Label 'We found %1 license update for a user who has customized permissions. Before continuing, you must either keep the current permissions or add the permissions associated with the new license for the user.', Comment = '%1 = An integer count of total updates to get confirmation on';
         TotalUpdatesToConfirmPluralTxt: Label 'We found %1 license updates for users who have customized permissions. Before continuing, you must either keep the current permissions or add the permissions associated with the new license for those users.', Comment = '%1 = An integer count of total updates to get confirmation on';
 
         TotalUpdatesReadyToApply: Text;
+        [InDataSet]
         TotalUpdatesReadyToApplyVisible: Boolean;
         TotalUpdatesReadyToApplyTxt: Label 'Number of updates ready to be applied: %1. These can be name, email address, preferred language, and user access changes. Choose View changes to see the list.', Comment = '%1 = An integer count of total updates ready to apply';
 
@@ -364,7 +374,7 @@ page 9515 "Azure AD User Update Wizard"
         UserPermissions: Codeunit "User Permissions";
     begin
         if not UserPermissions.CanManageUsersOnTenant(UserSecurityId()) then
-            Error(CannotUpdateUsersFromOfficeErr);
+            error(CannotUpdateUsersFromOfficeErr);
 
         MakeAllGroupsInvisible();
         WelcomeVisible := true;
@@ -432,22 +442,22 @@ page 9515 "Azure AD User Update Wizard"
     var
         TotalNumberOfUpdates: Integer;
     begin
-        Rec.Reset();
+        Reset();
         CancelButtonVisible := true;
         BackButtonVisible := false;
         NextButtonVisible := false;
         CloseButtonVisible := false;
         DoneSelectingPermissionsButtonVisible := false;
-        TotalNumberOfUpdates := Rec.Count();
+        TotalNumberOfUpdates := Count();
 
-        Rec.SetRange("Needs User Review", true);
-        CountOfManagedPermissionUpdates := Rec.Count();
+        SetRange("Needs User Review", true);
+        CountOfManagedPermissionUpdates := Count();
         CountOfApplicableUpdates := TotalNumberOfUpdates - CountOfManagedPermissionUpdates;
 
         ApplyUpdatesButtonVisible := (CountOfManagedPermissionUpdates = 0) and (CountOfApplicableUpdates > 0);
         ManagePermissionUpdatesButtonVisible := CountOfManagedPermissionUpdates > 0;
         ViewChangesButtonVisible := (CountOfApplicableUpdates > 0) and (not ManagePermissionUpdatesButtonVisible);
-        Rec.SetRange("Needs User Review");
+        SetRange("Needs User Review");
         if CountOfApplicableUpdates + CountOfManagedPermissionUpdates = 0 then begin
             CloseButtonVisible := true;
             CancelButtonVisible := false;

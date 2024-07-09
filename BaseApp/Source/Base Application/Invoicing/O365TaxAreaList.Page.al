@@ -20,7 +20,7 @@ page 2151 "O365 Tax Area List"
         {
             repeater(Group)
             {
-                field(Name; Rec.GetDescriptionInCurrentLanguageFullLength())
+                field(Name; GetDescriptionInCurrentLanguageFullLength())
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Caption = 'Name';

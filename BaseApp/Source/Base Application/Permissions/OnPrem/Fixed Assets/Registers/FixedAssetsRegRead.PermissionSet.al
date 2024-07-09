@@ -1,9 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.FixedAssets.Ledger;
-using Microsoft.Finance.GeneralLedger.Ledger;
-using Microsoft.FixedAssets.Maintenance;
-
 permissionset 9918 "Fixed Assets Reg. - Read"
 {
     Access = Public;

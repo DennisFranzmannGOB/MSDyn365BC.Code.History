@@ -3,22 +3,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System.Environment.Configuration;
-using System.Azure.Identity;
-using System.Visualization;
-using System.Text;
-using System.Globalization;
-using System.DataAdministration;
-using System.Feedback;
-using System.Privacy;
-using System.Utilities;
-using System.Security.User;
-using System.Integration;
-using System.Apps;
-
-permissionset 75 "System Application - View"
+PermissionSet 75 "System Application - View"
 {
     Access = Internal;
     Assignable = false;
@@ -34,8 +19,10 @@ permissionset 75 "System Application - View"
                              "Extension Management - View",
                              "Feature Key - View",
                              "Language - View",
+                             "Recurrence Schedule - View",
                              "Retention Policy - View",
                              "Satisfaction Survey - View",
+                             "Upgrade Tags - View",
                              "Media - View",
                              "Priv. Notice - View",
                              "Record Link Management - View",

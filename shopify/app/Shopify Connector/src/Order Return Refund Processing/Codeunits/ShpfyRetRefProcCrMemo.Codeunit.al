@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Document;
-
 codeunit 30243 "Shpfy RetRefProc Cr.Memo" implements "Shpfy IReturnRefund Process"
 {
     procedure IsImportNeededFor(SourceDocumentType: Enum "Shpfy Source Document Type"): Boolean
@@ -73,7 +69,7 @@ codeunit 30243 "Shpfy RetRefProc Cr.Memo" implements "Shpfy IReturnRefund Proces
             end;
 
         CreateSalesDocRefund.SetSource(SourceDocumentId);
-        CreateSalesDocRefund.SetTargetDocumentType(SalesHeader."Document Type"::"Credit Memo");
+        CreateSalesDocRefund.SetTargetDocumentType("Sales Document Type"::"Credit Memo");
         Commit();
         if CreateSalesDocRefund.Run() then begin
             SalesHeader := CreateSalesDocRefund.GetSalesHeader();

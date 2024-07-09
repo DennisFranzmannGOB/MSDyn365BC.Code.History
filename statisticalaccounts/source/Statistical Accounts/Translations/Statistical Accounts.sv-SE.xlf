@@ -4,8 +4,8 @@
     <body>
       <group id="body">
         <trans-unit id="Table 3691299527 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Statistical Account Balance</source>
-          <target state="translated">Saldo på statistiskt konto</target>
+          <source>Stat. Acc. Balance Buffer</source>
+          <target state="translated">Buffert för saldo på statistiskt konto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Stat. Acc. Balance Buffer - Property Caption</note>
         </trans-unit>
@@ -429,18 +429,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType DemoDataSetupCompleteMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3354410436 - NamedType 3268329511" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Distribute cost per department employee headcount</source>
-          <target state="translated">Fördela kostnad per antal anställda på avdelningen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType EmployeesAllocationAccountNameLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3354410436 - NamedType 2217930949" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>EMPL HEADCOUNT DEP</source>
-          <target state="translated">ANT. ANSTÄLLDA PÅ AVD</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType EmployeesAllocationAccountNoLbl</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3354410436 - NamedType 1195497851" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Hired for %1.</source>
           <target state="translated">Anställd för %1.</target>
@@ -500,18 +488,6 @@
           <target state="translated">Kontor i huvudbyggnad – %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 the value of the dimension, e.g. PROD, ADM...</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType OfficesMainBuildingLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3354410436 - NamedType 4049828180" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Distribute the cost per department office space</source>
-          <target state="translated">Fördela kostnaden utifrån avdelningens kontorsyta</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType OfficeSpaceAllocationAccountNameLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3354410436 - NamedType 2851057402" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OFFICE SPACE DEP</source>
-          <target state="translated">AVDELNINGENS KONTORSYTA</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType OfficeSpaceAllocationAccountNoLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3354410436 - NamedType 333660954" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>OFFICESPACE</source>
@@ -1006,8 +982,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account Card - Control No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1103004858 - Action 1892509601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Account</source>
-          <target state="translated">Konto</target>
+          <source>A&amp;ccount</source>
+          <target state="translated">&amp;Konto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account Card - Action A&amp;ccount - Property Caption</note>
         </trans-unit>
@@ -1208,18 +1184,6 @@
           <target state="translated">Periodiska aktiviteter</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account List - Action Periodic Activities - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3735526716 - Action 16094294 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens the allocation accounts page, where you can create allocation accounts that will distribute costs based on statistical account balance.</source>
-          <target state="translated">Öppnar sidan för allokeringskonton där du kan skapa allokeringskonton som fördelar kostnader baserat på statistiskt kontosaldo.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account List - Action AllocationAccounts - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3735526716 - Action 16094294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allocation Accounts</source>
-          <target state="translated">Allokeringskonton</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account List - Action AllocationAccounts - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3735526716 - Action 2694828564 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the statistical accounts journal, for example, to record or post an update to non-transactional data.</source>
@@ -1758,13 +1722,6 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 1082028096</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1082028096 - Field 3714740080 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Statistical Account Journal</source>
-          <target state="translated">Journal för statistiskt konto</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1642199961</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1082028096 - Field 2218020965 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statistical Account Journal</source>
           <target state="translated">Journal för statistiskt konto</target>
@@ -1799,13 +1756,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Enum 1037990914</note>
-        </trans-unit>
-        <trans-unit id="EnumExtension 3392792633 - EnumValue 3703212798 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Statistical Account</source>
-          <target state="translated">Statistiskt konto</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Enum 2427009568</note>
         </trans-unit>
         <trans-unit id="PermissionSet 560783484 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statistical Accounts - View</source>

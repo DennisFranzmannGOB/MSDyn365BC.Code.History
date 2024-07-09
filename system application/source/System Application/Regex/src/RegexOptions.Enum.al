@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Utilities;
-
 enum 3962 RegexOptions
 {
     Extensible = false;

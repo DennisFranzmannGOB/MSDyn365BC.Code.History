@@ -21,6 +21,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SMTP Account - NamedType UnableToSetPasswordMsg</note>
         </trans-unit>
+        <trans-unit id="Table 4170592685 - Field 486669812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Authentication</source>
+          <target state="translated">Godkjenning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SMTP Account - Field Authentication - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4170592685 - Field 2906998308 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Authentication Type</source>
           <target state="translated">Godkjenningstype</target>

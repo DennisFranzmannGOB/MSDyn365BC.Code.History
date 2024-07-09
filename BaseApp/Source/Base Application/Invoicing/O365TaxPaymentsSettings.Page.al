@@ -20,7 +20,7 @@ page 2133 "O365 Tax Payments Settings"
             repeater(Control2)
             {
                 ShowCaption = false;
-                field(Title; Rec.Title)
+                field(Title; Title)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                 }
@@ -48,7 +48,7 @@ page 2133 "O365 Tax Payments Settings"
 
                 trigger OnAction()
                 begin
-                    Rec.OpenPage();
+                    OpenPage();
                 end;
             }
         }
@@ -68,9 +68,9 @@ page 2133 "O365 Tax Payments Settings"
 
     local procedure InsertMenuItems()
     begin
-        Rec.InsertPageMenuItem(PAGE::"O365 Payments Settings", PaymentTitleLbl, PaymentnDescriptionLbl);
+        InsertPageMenuItem(PAGE::"O365 Payments Settings", PaymentTitleLbl, PaymentnDescriptionLbl);
         if O365SalesInitialSetup.IsUsingVAT() then
-            Rec.InsertPageMenuItem(PAGE::"O365 VAT Posting Setup List", VATProdPostingGroupLbl, VATProdPostingGroupDescriptionLbl);
+            InsertPageMenuItem(PAGE::"O365 VAT Posting Setup List", VATProdPostingGroupLbl, VATProdPostingGroupDescriptionLbl);
     end;
 }
 #endif

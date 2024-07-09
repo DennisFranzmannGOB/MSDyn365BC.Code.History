@@ -1,9 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.Environment;
-using System.Apps;
-using Microsoft.API;
-
 page 30006 "APIV2 - Aut. Extension Upload"
 {
     APIGroup = 'automation';
@@ -27,20 +21,20 @@ page 30006 "APIV2 - Aut. Extension Upload"
         {
             repeater(Group)
             {
-                field(systemId; Rec.SystemId)
+                field(systemId; SystemId)
                 {
                     Caption = 'System Id';
                     Editable = false;
                 }
-                field(schedule; Rec.Schedule)
+                field(schedule; Schedule)
                 {
                     Caption = 'Schedule';
                 }
-                field(schemaSyncMode; Rec."Schema Sync Mode")
+                field(schemaSyncMode; "Schema Sync Mode")
                 {
                     Caption = 'Schema Sync Mode';
                 }
-                field(extensionContent; Rec.Content)
+                field(extensionContent; Content)
                 {
                     Caption = 'Content';
                 }
@@ -54,7 +48,7 @@ page 30006 "APIV2 - Aut. Extension Upload"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec.Insert();
+        Insert();
     end;
 
     trigger OnOpenPage()
@@ -69,16 +63,16 @@ page 30006 "APIV2 - Aut. Extension Upload"
         ExtensionManagement: Codeunit "Extension Management";
         FileInStream: InStream;
     begin
-        if Rec.Content.HasValue() then begin
-            Rec.Content.CreateInStream(FileInStream);
+        if Content.HasValue() then begin
+            Content.CreateInStream(FileInStream);
             ExtensionManagement.UploadExtensionToVersion(FileInStream, GlobalLanguage(), Rec.Schedule, Rec."Schema Sync Mode");
-            Rec.Delete();
+            Delete();
         end else
             Error(ExtensionContentEmptyErr);
 
         ActionContext.SetObjectType(ObjectType::Page);
         ActionContext.SetObjectId(Page::"APIV2 - Aut. Extension Upload");
-        ActionContext.AddEntityKey(Rec.FieldNo(SystemId), Rec.SystemId);
+        ActionContext.AddEntityKey(FieldNo(SystemId), SystemId);
         ActionContext.SetResultCode(WebServiceActionResultCode::Updated);
     end;
 

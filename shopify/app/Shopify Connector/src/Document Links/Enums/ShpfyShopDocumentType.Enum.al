@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 enum 30144 "Shpfy Shop Document Type" implements "Shpfy IOpenShopifyDocument"
 {
     Extensible = true;

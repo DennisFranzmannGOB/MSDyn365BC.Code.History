@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Foundation.UOM;
-using Microsoft.Integration.Graph;
-
 page 20030 "APIV1 - Units of Measure"
 {
     APIVersion = 'v1.0';
@@ -21,40 +16,40 @@ page 20030 "APIV1 - Units of Measure"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'code', Locked = true;
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FIELDNO(Code));
                     end;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'displayName', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FIELDNO(Description));
                     end;
                 }
-                field(internationalStandardCode; Rec."International Standard Code")
+                field(internationalStandardCode; "International Standard Code")
                 {
                     Caption = 'internationalStandardCode', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("International Standard Code"));
+                        RegisterFieldSet(FIELDNO("International Standard Code"));
                     end;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
@@ -71,13 +66,13 @@ page 20030 "APIV1 - Units of Measure"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         RecordRef: RecordRef;
     begin
-        Rec.insert(true);
+        INSERT(TRUE);
 
-        RecordRef.GetTable(Rec);
+        RecordRef.GETTABLE(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(RecordRef, TempFieldSet, CURRENTDATETIME());
-        RecordRef.SetTable(Rec);
+        RecordRef.SETTABLE(Rec);
 
-        exit(false);
+        EXIT(FALSE);
     end;
 
     var
@@ -85,16 +80,15 @@ page 20030 "APIV1 - Units of Measure"
 
     local procedure RegisterFieldSet(FieldNo: Integer)
     begin
-        if TempFieldSet.GET(DATABASE::"Unit of Measure", FieldNo) then
-            exit;
+        IF TempFieldSet.GET(DATABASE::"Unit of Measure", FieldNo) THEN
+            EXIT;
 
         TempFieldSet.INIT();
         TempFieldSet.TableNo := DATABASE::"Unit of Measure";
-        TempFieldSet.Validate("No.", FieldNo);
-        TempFieldSet.insert(true);
+        TempFieldSet.VALIDATE("No.", FieldNo);
+        TempFieldSet.INSERT(TRUE);
     end;
 }
-
 
 
 

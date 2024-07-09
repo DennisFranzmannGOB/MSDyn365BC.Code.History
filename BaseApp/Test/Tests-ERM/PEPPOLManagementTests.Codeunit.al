@@ -1,4 +1,4 @@
-﻿codeunit 139155 "PEPPOL Management Tests"
+codeunit 139155 "PEPPOL Management Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -194,7 +194,6 @@
     [Scope('OnPrem')]
     procedure GetAdditionalDocRefInfo()
     var
-        SalesHeader: Record "Sales Header";
         PEPPOLMgt: Codeunit "PEPPOL Management";
         AdditionalDocumentReferenceID: Text;
         AdditionalDocRefDocumentType: Text;
@@ -207,7 +206,7 @@
 
         // Exercise
         PEPPOLMgt.GetAdditionalDocRefInfo(
-          SalesHeader, AdditionalDocumentReferenceID, AdditionalDocRefDocumentType, URI, MimeCode, EmbeddedDocumentBinaryObject, 0);
+          AdditionalDocumentReferenceID, AdditionalDocRefDocumentType, URI, MimeCode, EmbeddedDocumentBinaryObject);
 
         // Verify
         Assert.AreEqual('', AdditionalDocumentReferenceID, '');
@@ -689,6 +688,7 @@
     var
         DummySalesHeader: Record "Sales Header";
         Cust: Record Customer;
+        CountryRegion: Record "Country/Region";
         PEPPOLMgt: Codeunit "PEPPOL Management";
         CustPartyLegalEntityRegName: Text;
         CustPartyLegalEntityCompanyID: Text;
@@ -696,8 +696,9 @@
     begin
         // Setup
         Initialize();
-
+        CountryRegion.FindFirst();
         LibrarySales.CreateCustomer(Cust);
+        Cust."Country/Region Code" := CountryRegion.Code;
         Cust.GLN := LibraryUtility.GenerateGUID();
         Cust."Use GLN in Electronic Document" := true;
         Cust.Modify();

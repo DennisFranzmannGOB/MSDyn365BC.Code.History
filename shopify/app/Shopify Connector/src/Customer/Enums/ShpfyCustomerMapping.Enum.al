@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Enum Shpfy Customer Mapping (ID 30106) implements Interface Shpfy ICustomer Mapping.
 /// </summary>

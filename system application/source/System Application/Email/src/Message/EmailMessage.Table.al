@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 /// <summary>Holds the payload for emails.</summary>
 table 8900 "Email Message"
 {
@@ -39,7 +37,7 @@ table 8900 "Email Message"
         {
             Access = Internal;
             DataClassification = SystemMetadata;
-            InitValue = true;
+            InitValue = True;
         }
         field(6; "No. of Modifies"; Integer)
         {

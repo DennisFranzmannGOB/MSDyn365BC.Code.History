@@ -1,8 +1,3 @@
-namespace System.Test.Tooling;
-
-using Microsoft.Finance.GeneralLedger.Reports;
-using System.Utilities;
-
 codeunit 149107 "BCPT Detail Trial Bal. Report"
 {
     trigger OnRun();

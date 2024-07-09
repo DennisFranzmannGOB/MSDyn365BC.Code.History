@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.EServices.EDocument;
-
 page 1626 "Office OCR Incoming Documents"
 {
     Caption = 'Office Incoming Documents';
@@ -11,8 +7,8 @@ page 1626 "Office OCR Incoming Documents"
     PageType = StandardDialog;
     SourceTable = "Exchange Object";
     SourceTableTemporary = true;
-    SourceTableView = sorting(Name)
-                      order(Ascending);
+    SourceTableView = SORTING(Name)
+                      ORDER(Ascending);
 
     layout
     {
@@ -20,16 +16,16 @@ page 1626 "Office OCR Incoming Documents"
         {
             repeater(Group)
             {
-                field(Selected; Rec.Selected)
+                field(Selected; Selected)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Send';
 
                     trigger OnValidate()
                     begin
-                        if (IncomingDocumentAttachment."Document No. Filter" <> '') and (Rec.Count > 1) and Rec.Selected then begin
-                            Rec.ModifyAll(Selected, false);
-                            Rec.Selected := true;
+                        if (IncomingDocumentAttachment."Document No. Filter" <> '') and (Count > 1) and Selected then begin
+                            ModifyAll(Selected, false);
+                            Selected := true;
                         end;
                     end;
                 }
@@ -48,12 +44,12 @@ page 1626 "Office OCR Incoming Documents"
 
     trigger OnOpenPage()
     begin
-        if Rec.Count = 1 then begin
-            Rec.Selected := true;
-            Rec.Modify();
+        if Count = 1 then begin
+            Selected := true;
+            Modify();
         end else
             if IncomingDocumentAttachment."Document No. Filter" <> '' then
-                Rec.ModifyAll(Selected, false);
+                ModifyAll(Selected, false);
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -66,20 +62,20 @@ page 1626 "Office OCR Incoming Documents"
 
     local procedure onSave(IncomingDocument: Record "Incoming Document"): Boolean
     begin
-        Rec.SetRange(Selected, true);
-        if Rec.FindSet() then begin
+        SetRange(Selected, true);
+        if FindSet() then begin
             repeat
-                case Rec.InitiatedAction of
-                    Rec.InitiatedAction::InitiateSendToIncomingDocuments:
+                case InitiatedAction of
+                    InitiatedAction::InitiateSendToIncomingDocuments:
                         OfficeMgt.SendToIncomingDocument(Rec, IncomingDocument, IncomingDocumentAttachment);
-                    Rec.InitiatedAction::InitiateSendToOCR:
+                    InitiatedAction::InitiateSendToOCR:
                         if OfficeMgt.SendToIncomingDocument(Rec, IncomingDocument, IncomingDocumentAttachment) then
                             OfficeMgt.SendToOCR(IncomingDocument);
-                    Rec.InitiatedAction::InitiateSendToWorkFlow:
+                    InitiatedAction::InitiateSendToWorkFlow:
                         if OfficeMgt.SendToIncomingDocument(Rec, IncomingDocument, IncomingDocumentAttachment) then
                             OfficeMgt.SendApprovalRequest(IncomingDocument);
                 end;
-            until Rec.Next() = 0;
+            until Next() = 0;
             OfficeMgt.DisplaySuccessMessage(Rec);
         end;
     end;
@@ -99,8 +95,8 @@ page 1626 "Office OCR Incoming Documents"
         if TempExchangeObject.FindSet() then
             repeat
                 TempExchangeObject.CalcFields(Content);
-                Rec.TransferFields(TempExchangeObject);
-                Rec.Insert();
+                TransferFields(TempExchangeObject);
+                Insert();
             until TempExchangeObject.Next() = 0;
     end;
 }

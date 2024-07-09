@@ -1,8 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.HumanResources.Setup;
-using Microsoft.HumanResources.Employee;
-
 permissionset 2521 "Confidential - Edit"
 {
     Access = Public;

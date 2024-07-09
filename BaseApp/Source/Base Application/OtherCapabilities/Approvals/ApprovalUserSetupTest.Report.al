@@ -1,12 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace System.Automation;
-
-using System.Security.User;
-using System.Utilities;
-
 report 600 "Approval User Setup Test"
 {
     DefaultLayout = RDLC;
@@ -17,7 +8,7 @@ report 600 "Approval User Setup Test"
     {
         dataitem("Integer"; "Integer")
         {
-            DataItemTableView = sorting(Number);
+            DataItemTableView = SORTING(Number);
             MaxIteration = 1;
             column(COMPANYNAME; COMPANYPROPERTY.DisplayName())
             {
@@ -33,7 +24,7 @@ report 600 "Approval User Setup Test"
             }
             dataitem("Sales Approval"; "User Setup")
             {
-                DataItemTableView = sorting("User ID");
+                DataItemTableView = SORTING("User ID");
                 column(SalesApprovalRoute_1_1_; SalesApprovalRoute[1, 1])
                 {
                 }
@@ -586,7 +577,7 @@ report 600 "Approval User Setup Test"
             }
             dataitem("Purchase Approval"; "User Setup")
             {
-                DataItemTableView = sorting("User ID");
+                DataItemTableView = SORTING("User ID");
                 column(SalesApprovalRoute_1_6__Control173; SalesApprovalRoute[1, 6])
                 {
                 }
@@ -1137,7 +1128,7 @@ report 600 "Approval User Setup Test"
             }
             dataitem("Request Approval"; "User Setup")
             {
-                DataItemTableView = sorting("User ID");
+                DataItemTableView = SORTING("User ID");
                 column(SalesApprovalRoute_1_6__Control319; SalesApprovalRoute[1, 6])
                 {
                 }

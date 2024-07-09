@@ -15,7 +15,7 @@ page 2148 "O365 Address"
     {
         area(content)
         {
-            field(Address; Rec.Address)
+            field(Address; Address)
             {
                 ApplicationArea = Invoicing, Basic, Suite;
                 Editable = IsPageEditable;
@@ -34,14 +34,14 @@ page 2148 "O365 Address"
                 Lookup = false;
                 ToolTip = 'Specifies the postal code.';
             }
-            field(City; Rec.City)
+            field(City; City)
             {
                 ApplicationArea = Invoicing, Basic, Suite;
                 Editable = IsPageEditable;
                 Lookup = false;
                 ToolTip = 'Specifies the address city.';
             }
-            field(County; Rec.County)
+            field(County; County)
             {
                 ApplicationArea = Invoicing, Basic, Suite;
                 Editable = IsPageEditable;
@@ -62,7 +62,7 @@ page 2148 "O365 Address"
                     CountryRegionCode := O365SalesManagement.LookupCountryCodePhone();
 
                     // Do not VALIDATE("Country/Region Code",CountryRegionCode), as it wipes city, post code and county
-                    Rec."Country/Region Code" := CountryRegionCode;
+                    "Country/Region Code" := CountryRegionCode;
                 end;
 
                 trigger OnValidate()
@@ -70,7 +70,7 @@ page 2148 "O365 Address"
                     CountryRegionCode := O365SalesInvoiceMgmt.FindCountryCodeFromInput(CountryRegionCode);
 
                     // Do not VALIDATE("Country/Region Code",CountryRegionCode), as it wipes city, post code and county
-                    Rec."Country/Region Code" := CountryRegionCode;
+                    "Country/Region Code" := CountryRegionCode;
                 end;
             }
         }
@@ -84,9 +84,9 @@ page 2148 "O365 Address"
     var
         RecID: RecordID;
     begin
-        RecID := Rec."Related RecordID";
+        RecID := "Related RecordID";
         IsPageEditable := RecID.TableNo <> DATABASE::"Sales Invoice Header";
-        CountryRegionCode := Rec."Country/Region Code";
+        CountryRegionCode := "Country/Region Code";
 
         if IsPageEditable then
             CurrPage.Caption := EnterAddressPageCaptionLbl
@@ -97,8 +97,8 @@ page 2148 "O365 Address"
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     begin
         if CloseAction = ACTION::LookupOK then begin
-            PostCode.UpdateFromStandardAddress(Rec, Rec."Post Code" <> xRec."Post Code");
-            Rec.SaveToRecord();
+            PostCode.UpdateFromStandardAddress(Rec, "Post Code" <> xRec."Post Code");
+            SaveToRecord();
         end;
     end;
 

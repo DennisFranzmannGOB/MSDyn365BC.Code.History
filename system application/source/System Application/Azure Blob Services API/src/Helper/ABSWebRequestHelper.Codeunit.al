@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Storage;
-
-using System.Security.Authentication;
-
 codeunit 9045 "ABS Web Request Helper"
 {
     Access = Internal;
@@ -46,7 +42,7 @@ codeunit 9045 "ABS Web Request Helper"
     end;
 
     [NonDebuggable]
-    procedure GetOperation(var ABSOperationPayload: Codeunit "ABS Operation Payload"; OperationNotSuccessfulErr: Text): Codeunit "ABS Operation Response"
+    local procedure GetOperation(var ABSOperationPayload: Codeunit "ABS Operation Payload"; OperationNotSuccessfulErr: Text): Codeunit "ABS Operation Response"
     var
         ABSOperationResponse: Codeunit "ABS Operation Response";
         HttpClient: HttpClient;

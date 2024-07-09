@@ -1,12 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Finance.Dimension;
-using Microsoft.FixedAssets.Setup;
-using Microsoft.FixedAssets.Depreciation;
-using Microsoft.FixedAssets.Journal;
-using Microsoft.FixedAssets.FixedAsset;
-using Microsoft.FixedAssets.Insurance;
-
 permissionset 4465 "Insurance Journals - Post"
 {
     Access = Public;

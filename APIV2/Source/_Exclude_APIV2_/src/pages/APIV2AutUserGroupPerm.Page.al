@@ -1,9 +1,4 @@
 #if not CLEAN22
-namespace Microsoft.API.V2;
-
-using System.Environment;
-using System.Security.AccessControl;
-
 page 30075 "APIV2 - Aut. User Group Perm."
 {
     APIGroup = 'automation';
@@ -28,34 +23,34 @@ page 30075 "APIV2 - Aut. User Group Perm."
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(userGroupCode; Rec."User Group Code")
+                field(userGroupCode; "User Group Code")
                 {
                     Caption = 'User Group Code';
                 }
-                field(roleId; Rec."Role ID")
+                field(roleId; "Role ID")
                 {
                     Caption = 'Role Id';
                 }
-                field(displayName; Rec."Role Name")
+                field(displayName; "Role Name")
                 {
                     Caption = 'Display Name';
                     Editable = false;
                 }
-                field(appId; Rec."App ID")
+                field(appId; "App ID")
                 {
                     Caption = 'App Id';
                 }
-                field(extensionName; Rec."Extension Name")
+                field(extensionName; "Extension Name")
                 {
                     Caption = 'Extension Name';
                     Editable = false;
                 }
-                field(scope; Rec.Scope)
+                field(scope; Scope)
                 {
                     Caption = 'Scope';
 

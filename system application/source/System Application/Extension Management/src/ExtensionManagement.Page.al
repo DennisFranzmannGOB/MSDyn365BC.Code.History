@@ -1,12 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Apps;
-
-using System.Environment;
-using System.Environment.Configuration;
 
 /// <summary>
 /// Lists the available extensions, and provides features for managing them.
@@ -24,34 +19,34 @@ page 2500 "Extension Management"
     PromotedActionCategories = 'New,Process,Report,Details,Manage';
     RefreshOnActivate = true;
     SourceTable = "Published Application";
-    SourceTableView = sorting(Name)
-                      order(ascending)
-                      where(Name = filter(<> '_Exclude_*'),
-                            "Package Type" = filter(= Extension | Designer),
-                            "Tenant Visible" = const(true));
+    SourceTableView = SORTING(Name)
+                      ORDER(Ascending)
+                      WHERE(Name = FILTER(<> '_Exclude_*'),
+                            "Package Type" = FILTER(= Extension | Designer),
+                            "Tenant Visible" = CONST(true));
     UsageCategory = Administration;
     ContextSensitiveHelpPage = 'ui-extensions';
     Permissions = tabledata "Published Application" = r;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
                 Editable = false;
-                field(Logo; Rec.Logo)
+                field(Logo; Logo)
                 {
                     ApplicationArea = All;
                     Caption = 'Logo';
                     ToolTip = 'Specifies the logo of the extension, such as the logo of the service provider.';
                 }
-                field(Name; Rec.Name)
+                field(Name; Name)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the name of the extension.';
                 }
-                field(Publisher; Rec.Publisher)
+                field(Publisher; Publisher)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the publisher of the extension.';
@@ -70,7 +65,7 @@ page 2500 "Extension Management"
                     StyleExpr = InfoStyle;
                     ToolTip = 'Specifies whether the extension is installed.';
                 }
-                field("Published As"; Rec."Published As")
+                field("Published As"; "Published As")
                 {
                     ApplicationArea = All;
                     Caption = 'Published As';
@@ -85,9 +80,9 @@ page 2500 "Extension Management"
                     ShowCaption = false;
                     Caption = '';
                     Style = Favorable;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies a spacer for ''Brick'' view mode.';
-                    Visible = not IsOnPremDisplay;
+                    Visible = NOT IsOnPremDisplay;
                 }
             }
         }
@@ -95,7 +90,7 @@ page 2500 "Extension Management"
 
     actions
     {
-        area(Processing)
+        area(processing)
         {
             group(ActionGroup13)
             {
@@ -109,17 +104,17 @@ page 2500 "Extension Management"
                     Promoted = true;
                     PromotedOnly = true;
                     PromotedCategory = Category5;
-                    ShortcutKey = 'Return';
+                    ShortCutKey = 'Return';
                     ToolTip = 'View extension details.';
-                    RunObject = page "Extension Settings";
-                    RunPageLink = "App ID" = field(ID);
+                    RunObject = Page "Extension Settings";
+                    RunPageLink = "App ID" = FIELD(ID);
                     Scope = Repeater;
                 }
                 action(Install)
                 {
                     ApplicationArea = All;
                     Caption = 'Install';
-                    Enabled = ActionsEnabled and (not IsInstalled);
+                    Enabled = ActionsEnabled AND (NOT IsInstalled);
                     Image = NewRow;
                     Promoted = true;
                     PromotedOnly = true;
@@ -130,14 +125,14 @@ page 2500 "Extension Management"
                     trigger OnAction()
                     begin
                         if ExtensionInstallationImpl.RunExtensionInstallation(Rec) then
-                            CurrPage.Update(false);
+                            CurrPage.Update();
                     end;
                 }
                 action(Uninstall)
                 {
                     ApplicationArea = All;
                     Caption = 'Uninstall';
-                    Enabled = ActionsEnabled and IsInstalled;
+                    Enabled = ActionsEnabled AND IsInstalled;
                     Image = RemoveLine;
                     Promoted = true;
                     PromotedOnly = true;
@@ -148,14 +143,14 @@ page 2500 "Extension Management"
                     trigger OnAction()
                     begin
                         if ExtensionInstallationImpl.RunExtensionInstallation(Rec) then
-                            CurrPage.Update(false);
+                            CurrPage.Update();
                     end;
                 }
                 action(Unpublish)
                 {
                     ApplicationArea = All;
                     Caption = 'Unpublish';
-                    Enabled = ActionsEnabled and IsTenantExtension and (not IsInstalled);
+                    Enabled = ActionsEnabled AND IsTenantExtension AND (not IsInstalled);
                     Image = RemoveLine;
                     Promoted = true;
                     PromotedOnly = true;
@@ -165,12 +160,12 @@ page 2500 "Extension Management"
 
                     trigger OnAction()
                     begin
-                        if ExtensionInstallationImpl.IsInstalledByPackageId(Rec."Package ID") then begin
-                            Message(CannotUnpublishIfInstalledMsg, Rec.Name);
+                        if ExtensionInstallationImpl.IsInstalledByPackageId("Package ID") then begin
+                            Message(CannotUnpublishIfInstalledMsg, Name);
                             exit;
                         end;
 
-                        ExtensionOperationImpl.UnpublishUninstalledPerTenantExtension(Rec."Package ID");
+                        ExtensionOperationImpl.UnpublishUninstalledPerTenantExtension("Package ID");
                     end;
                 }
 #if not CLEAN21
@@ -183,7 +178,7 @@ page 2500 "Extension Management"
                     PromotedOnly = true;
                     PromotedCategory = Category5;
                     RunObject = Page "Extension Settings";
-                    RunPageLink = "App ID" = field(ID);
+                    RunPageLink = "App ID" = FIELD(ID);
                     Scope = Repeater;
                     ToolTip = 'Configure the extension.';
                     Visible = false;
@@ -197,7 +192,7 @@ page 2500 "Extension Management"
                     ApplicationArea = All;
                     Caption = 'Set up';
                     Image = SetupList;
-                    Enabled = ActionsEnabled and IsInstalled;
+                    Enabled = ActionsEnabled AND IsInstalled;
                     Promoted = true;
                     PromotedOnly = true;
                     PromotedCategory = Category5;
@@ -230,7 +225,7 @@ page 2500 "Extension Management"
 
                     trigger OnAction()
                     begin
-                        ExtensionOperationImpl.DownloadExtensionSource(Rec."Package ID");
+                        ExtensionOperationImpl.DownloadExtensionSource("Package ID");
                     end;
                 }
                 action("Learn More")
@@ -248,7 +243,7 @@ page 2500 "Extension Management"
 
                     trigger OnAction()
                     begin
-                        HyperLink(Rec.Help);
+                        HyperLink(Help);
                     end;
                 }
                 action(Refresh)
@@ -277,7 +272,7 @@ page 2500 "Extension Management"
                     PromotedCategory = Category5;
                     PromotedIsBig = true;
                     ToolTip = 'Browse the extension marketplace for new extensions to install.';
-                    Visible = not IsOnPremDisplay;
+                    Visible = NOT IsOnPremDisplay;
                     RunObject = page "Extension Marketplace";
                 }
                 action("Upload Extension")
@@ -289,7 +284,7 @@ page 2500 "Extension Management"
                     PromotedOnly = true;
                     PromotedCategory = Category5;
                     PromotedIsBig = true;
-                    RunObject = page "Upload And Deploy Extension";
+                    RunObject = Page "Upload And Deploy Extension";
                     ToolTip = 'Upload an extension to your application.';
                     Ellipsis = true;
                     Visible = IsSaaS;
@@ -303,17 +298,9 @@ page 2500 "Extension Management"
                     PromotedOnly = true;
                     PromotedCategory = Category5;
                     PromotedIsBig = true;
-                    RunObject = page "Extension Deployment Status";
+                    RunObject = Page "Extension Deployment Status";
                     ToolTip = 'Check status for upload process for extensions.';
                     Visible = IsSaaS;
-                }
-                action("Delete Orphaned Extension Data")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Delete Orphaned Extension Data';
-                    Image = Delete;
-                    RunObject = page "Delete Orphaned Extension Data";
-                    ToolTip = 'Delete the data of orphaned extensions.';
                 }
             }
         }
@@ -332,7 +319,7 @@ page 2500 "Extension Management"
 
     trigger OnAfterGetCurrRecord()
     begin
-        HelpActionVisible := StrLen(Rec.Help) > 0;
+        HelpActionVisible := StrLen(Help) > 0;
     end;
 
     trigger OnOpenPage()
@@ -364,15 +351,16 @@ page 2500 "Extension Management"
         IsInstalled: Boolean;
         IsInstallAllowed: Boolean;
         InfoStyle: Boolean;
+        [InDataSet]
         HelpActionVisible: Boolean;
 
     local procedure SetExtensionManagementFilter()
     begin
         // Set installed filter if we are not displaying like on-prem
-        Rec.FilterGroup(2);
+        FilterGroup(2);
         if not IsInstallAllowed then
-            Rec.SetRange("PerTenant Or Installed", true);
-        Rec.FilterGroup(0);
+            SetRange("PerTenant Or Installed", true);
+        FilterGroup(0);
     end;
 
     local procedure DetermineEnvironmentConfigurations()
@@ -395,8 +383,8 @@ page 2500 "Extension Management"
     local procedure DetermineExtensionConfigurations()
     begin
         // Determining Record and Styling Configurations
-        IsInstalled := ExtensionInstallationImpl.IsInstalledByPackageId(Rec."Package ID");
-        IsTenantExtension := Rec."Published As" <> Rec."Published As"::Global;
+        IsInstalled := ExtensionInstallationImpl.IsInstalledByPackageId("Package ID");
+        IsTenantExtension := "Published As" <> "Published As"::Global;
     end;
 
     local procedure GetVersionDisplayText(): Text
@@ -409,5 +397,4 @@ page 2500 "Extension Management"
         InfoStyle := IsInstalled and IsInstallAllowed;
     end;
 }
-
 

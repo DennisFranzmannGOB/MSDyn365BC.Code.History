@@ -1,7 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using Microsoft.Finance.Dimension;
-
 page 30303 "API Finance - Dim Set Entries"
 {
     PageType = API;

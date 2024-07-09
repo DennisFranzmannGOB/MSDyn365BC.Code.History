@@ -1,8 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Sales.Receivables;
-using Microsoft.Finance.GeneralLedger.Ledger;
-
 permissionset 2816 "Recievables Reg. - Read"
 {
     Access = Public;

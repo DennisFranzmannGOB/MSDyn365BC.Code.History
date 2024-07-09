@@ -3,20 +3,16 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Feedback;
-
-using System.Environment.Configuration;
-using System.Reflection;
-using System.Security.AccessControl;
-
-permissionset 1432 "Satisfaction Survey - Read"
+PermissionSet 1432 "Satisfaction Survey - Read"
 {
     Access = Internal;
     Assignable = false;
 
+    IncludedPermissionSets = "Satisfaction Survey - Objects",
+                             "Upgrade Tags - Read";
+
     Permissions = tabledata "Add-in" = r,
                   tabledata "Net Promoter Score" = r,
                   tabledata "Net Promoter Score Setup" = r,
-                  tabledata "User Personalization" = r,
                   tabledata "User Property" = r;
 }

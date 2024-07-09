@@ -1,11 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Entity;
-
-using Microsoft.Integration.Graph;
-
 page 5499 "Aged AR Entity"
 {
     Caption = 'agedAccountsReceivable', Locked = true;
@@ -23,67 +15,67 @@ page 5499 "Aged AR Entity"
         {
             repeater(Group)
             {
-                field(customerId; Rec.AccountId)
+                field(customerId; AccountId)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Account Id.';
                     Caption = 'CustomerId', Locked = true;
                 }
-                field(customerNumber; Rec."No.")
+                field(customerNumber; "No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Customer No..';
                     Caption = 'CustomerNumber', Locked = true;
                 }
-                field(name; Rec.Name)
+                field(name; Name)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Customer Name.';
                     Caption = 'Name', Locked = true;
                 }
-                field(currencyCode; Rec."Currency Code")
+                field(currencyCode; "Currency Code")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Currency Code.';
                     Caption = 'CurrencyCode', Locked = true;
                 }
-                field(balanceDue; Rec.Balance)
+                field(balanceDue; Balance)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Balance Due.';
                     Caption = 'Balance', Locked = true;
                 }
-                field(currentAmount; Rec.Before)
+                field(currentAmount; Before)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the period Before.';
                     Caption = 'Before', Locked = true;
                 }
-                field(period1Amount; Rec."Period 1")
+                field(period1Amount; "Period 1")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies Period 1.';
                     Caption = 'Period1', Locked = true;
                 }
-                field(period2Amount; Rec."Period 2")
+                field(period2Amount; "Period 2")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies Period 2.';
                     Caption = 'Period2', Locked = true;
                 }
-                field(period3Amount; Rec."Period 3")
+                field(period3Amount; "Period 3")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies Period 3.';
                     Caption = 'Period3', Locked = true;
                 }
-                field(agedAsOfDate; Rec."Period Start Date")
+                field(agedAsOfDate; "Period Start Date")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Period Start Date.';
                     Caption = 'PeriodStartDate', Locked = true;
                 }
-                field(periodLengthFilter; Rec."Period Length")
+                field(periodLengthFilter; "Period Length")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Period Length.';

@@ -13,7 +13,7 @@ codeunit 136140 "Service Order Release"
         NothingToReleaseErr: Label 'There is nothing to release for Order %1.';
         OpenServiceOrderWarehouseShipmentErr: Label 'Release Status must be equal to ''%1''  in Service Header: Document Type=Order, No.=%2. Current value is ''%3''.';
         WarehouseShipmentMsg: Label '%1 Warehouse Shipment Header has been created.';
-        NoWarehouseShipmentsErr: Label 'There are no warehouse shipment lines created.';
+        NoWarehouseShipmentsMsg: Label 'There are no Warehouse Shipment Lines created.';
         WarehouseshipmentExistsErr: Label 'The Service Line cannot be deleted when a related Warehouse Shipment Line exists.';
         ServiceOrderInGridTxt: Label 'Service Order';
         WarehouseJournalBatch: Record "Warehouse Journal Batch";
@@ -371,7 +371,7 @@ codeunit 136140 "Service Order Release"
         asserterror CreateWarehouseShipmentFromServiceHeader(ServiceHeader);
 
         // VERIFY: No new shipments are created if no lines have been added
-        Assert.AreEqual(Format(NoWarehouseShipmentsErr), GetLastErrorText, VerifyDisplayedErrorMsg);
+        Assert.AreEqual(Format(NoWarehouseShipmentsMsg), GetLastErrorText, VerifyDisplayedErrorMsg);
     end;
 
     [Test]
@@ -779,7 +779,7 @@ codeunit 136140 "Service Order Release"
         asserterror AddWarehouseShipmentLineUsingGetSourceDocument(WarehouseShipmentHeader, ServiceHeader."No.", ServiceOrderInGridTxt);
 
         // VERIFY: Error message is displayed.
-        Assert.AreEqual(Format(NoWarehouseShipmentsErr), GetLastErrorText, VerifyDisplayedErrorMsg);
+        Assert.AreEqual(Format(NoWarehouseShipmentsMsg), GetLastErrorText, VerifyDisplayedErrorMsg);
     end;
 
     [Test]
@@ -1225,7 +1225,7 @@ codeunit 136140 "Service Order Release"
         asserterror LibraryWarehouse.GetSourceDocumentsShipment(WarehouseShipmentHeader, WarehouseSourceFilter, WMSFullLocation);
 
         // VERIFY: Error message is displayed.
-        Assert.AreEqual(Format(NoWarehouseShipmentsErr), GetLastErrorText, VerifyDisplayedErrorMsg);
+        Assert.AreEqual(Format(NoWarehouseShipmentsMsg), GetLastErrorText, VerifyDisplayedErrorMsg);
     end;
 
     [Test]
@@ -1259,7 +1259,7 @@ codeunit 136140 "Service Order Release"
         asserterror LibraryWarehouse.GetSourceDocumentsShipment(WarehouseShipmentHeader, WarehouseSourceFilter, WMSFullLocation);
 
         // VERIFY: Error message is displayed.
-        Assert.AreEqual(Format(NoWarehouseShipmentsErr), GetLastErrorText, VerifyDisplayedErrorMsg);
+        Assert.AreEqual(Format(NoWarehouseShipmentsMsg), GetLastErrorText, VerifyDisplayedErrorMsg);
     end;
 
     [Test]
@@ -2113,6 +2113,7 @@ codeunit 136140 "Service Order Release"
     end;
 
     [Test]
+    [HandlerFunctions('HandleWarehouseShipmentCreatedMessage')]
     [Scope('OnPrem')]
     procedure PostShipmentAndConsumeOnSilverLocation()
     var
@@ -2126,16 +2127,18 @@ codeunit 136140 "Service Order Release"
     begin
         Initialize();
 
-        // [GIVEN] Create an new Silver location, create a new item.
+        // SETUP: Create an new Silver location, create a new item.
+        // SETUP: Create Supply for that item in the specific location and bin.
         Quantity := LibraryRandom.RandIntInRange(2, 100);
         LineQuantity := Quantity - 1;
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
-        CreateSilverLocation(Location, Bin);
 
-        // [GIVEN] Create Supply for that item in the specific location and bin.
+        CreateSilverLocation(Location, Bin);
         CreateItemAndSupplyForSilverLocation(Item, Location, Bin, Quantity);
 
-        // [GIVEN] Create Service order on the new SILVER Location.
+        // EXECUTE: Create Service order on the new SILVER Location.
+        // EXECUTE: Release the service order.
+        // EXECUTE: Try to create a Warehouse shipment on this order.
         CreateServiceOrderAndServiceLines(ServiceHeader, Item."No.", Quantity, Location.Code);
         FindFirstServiceLineByServiceHeader(ServiceLine, ServiceHeader);
         ServiceLine.Validate("Bin Code", Bin.Code);
@@ -2143,26 +2146,23 @@ codeunit 136140 "Service Order Release"
         ServiceLine.Validate("Qty. to Invoice", 0);
         ServiceLine.Validate("Qty. to Consume", LineQuantity);
         ServiceLine.Modify(true);
-
-        // [GIVEN] Release the service order.        
         LibraryService.ReleaseServiceDocument(ServiceHeader);
-        Commit();
+        CreateWarehouseShipmentFromServiceHeader(ServiceHeader);
 
-        // [WHEN] Try to create a Warehouse shipment on this order.
-        asserterror CreateWarehouseShipmentFromServiceHeader(ServiceHeader);
-
-        // [THEN] No shipments are created since SERVICE ORDER on silver locations can not have warehouse shipment
-        Assert.ExpectedError(NoWarehouseShipmentsErr);
-
-        // [THEN] After dismissing the message service order can be posted with consume
+        // VERIFY: No shipments are created since SERVICE ORDER on silver locations cannot be released.
+        // VERIFY: After dismissing the message service order can be posted with consume
+        Assert.AreEqual(Format(NoWarehouseRequestErrorMsg), ShipmentConfirmationMessage, VerifyDisplayedErrorMsg);
         LibraryService.PostServiceOrder(ServiceHeader, true, true, false);
         FindFirstServiceLineByServiceHeader(ServiceLine, ServiceHeader);
-        ServiceLine.TestField("Quantity Shipped", LineQuantity);
-        ServiceLine.TestField("Quantity Consumed", LineQuantity);
-        ServiceLine.TestField("Qty. to Ship", 1);
+        with ServiceLine do begin
+            TestField("Quantity Shipped", LineQuantity);
+            TestField("Quantity Consumed", LineQuantity);
+            TestField("Qty. to Ship", 1);
+        end;
     end;
 
     [Test]
+    [HandlerFunctions('HandleWarehouseShipmentCreatedMessage')]
     [Scope('OnPrem')]
     procedure PostShipmentOnBlueLocation()
     var
@@ -2173,25 +2173,22 @@ codeunit 136140 "Service Order Release"
     begin
         Initialize();
 
-        // [GIVEN]  Create an new BLUE location, create a new item.
+        // SETUP: Create an new BLUE location, create a new item.
+
         Quantity := LibraryRandom.RandInt(100);
         LibraryInventory.CreateItem(Item);
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
 
-        // [GIVEN] Create Service order on the new BLUE Location.
+        // EXECUTE: Create Service order on the new BLUE Location.
+        // EXECUTE: Release the service order.
+        // EXECUTE: Try to create a Warehouse shipment on this order.
         CreateServiceOrderAndServiceLines(ServiceHeader, Item."No.", Quantity, Location.Code);
-
-        // [GIVEN] Release the service order.
         LibraryService.ReleaseServiceDocument(ServiceHeader);
-        Commit();
+        CreateWarehouseShipmentFromServiceHeader(ServiceHeader);
 
-        // [WHEN] Try to create a Warehouse shipment on this order.
-        asserterror CreateWarehouseShipmentFromServiceHeader(ServiceHeader);
-
-        // [THEN] No shipments are created since SERVICE ORDER on BLUE locations can not have warehouse shipment
-        Assert.ExpectedError(NoWarehouseShipmentsErr);
-
-        // [THEN] After dismissing the message service order can be posted.
+        // VERIFY: No shipments are created since SERVICE ORDER on silver locations cannot be released.
+        // VERIFY: After dismissing the message service order can be posted.
+        Assert.AreEqual(Format(NoWarehouseRequestErrorMsg), ShipmentConfirmationMessage, VerifyDisplayedErrorMsg);
         LibraryService.PostServiceOrder(ServiceHeader, true, false, false);
     end;
 

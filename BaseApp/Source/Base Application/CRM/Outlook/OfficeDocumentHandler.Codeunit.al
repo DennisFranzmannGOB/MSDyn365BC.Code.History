@@ -1,17 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.EServices.EDocument;
-using Microsoft.Purchases.Document;
-using Microsoft.Purchases.History;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-using Microsoft.Sales.Document;
-using Microsoft.Sales.History;
-using Microsoft.Utilities;
-using System;
-using System.Environment;
-using System.Reflection;
-
 codeunit 1637 "Office Document Handler"
 {
     TableNo = "Office Add-in Context";
@@ -70,7 +56,7 @@ codeunit 1637 "Office Document Handler"
         with TempOfficeDocumentSelection do
             case DocSeries of
                 Series::Sales:
-                    GetSalesDocuments(TempOfficeDocumentSelection, DocSeries, Enum::"Sales Document Type".FromInteger(DocType));
+                    GetSalesDocuments(TempOfficeDocumentSelection, DocSeries, "Sales Document Type".FromInteger(DocType));
                 Series::Purchase:
                     GetPurchaseDocuments(TempOfficeDocumentSelection, DocSeries, "Purchase Document Type".FromInteger(DocType));
             end;

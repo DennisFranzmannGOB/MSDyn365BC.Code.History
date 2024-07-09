@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System;
-using System.Telemetry;
-using System.Security.User;
-
 /// <summary>
 /// Implementation codeunit that provides functions for copying permission sets, including/excluding permission sets and getting the permission set tree.
 /// </summary>
@@ -50,7 +44,6 @@ codeunit 9856 "Permission Set Relation Impl."
         TempPermissionSetBuffer."App ID" := AppId;
         TempPermissionSetBuffer."Role ID" := RoleId;
         TempPermissionSetBuffer.Scope := Scope;
-        TempPermissionSetBuffer.Name := CopyStr(Name, 1, MaxStrLen(TempPermissionSetBuffer.Name));
         Page.Run(Page::"Permission Set", TempPermissionSetBuffer);
     end;
 
@@ -67,18 +60,18 @@ codeunit 9856 "Permission Set Relation Impl."
 
     procedure SelectPermissionSets(CurrAppId: Guid; CurrRoleID: Code[30]; CurrScope: Option System,Tenant): Boolean
     var
-        PermissionSetBuffer: Record "PermissionSet Buffer";
+        TempAggregatePermissionSet: Record "Aggregate Permission Set" temporary;
         PermissionType: Option Include,Exclude;
     begin
         VerifyUserCanEditPermissionSet(CurrAppId);
 
-        if not LookupAllPermissionSets(true, PermissionSetBuffer) then
+        if not LookupPermissionSet(true, TempAggregatePermissionSet) then
             exit(false);
 
-        if PermissionSetBuffer.FindSet() then
+        if TempAggregatePermissionSet.FindSet() then
             repeat
-                AddNewPermissionSet(CurrAppId, CurrRoleID, CurrScope, PermissionSetBuffer."App ID", PermissionSetBuffer."Role ID", PermissionSetBuffer.Scope, PermissionType::Include)
-            until PermissionSetBuffer.Next() = 0;
+                AddNewPermissionSet(CurrAppId, CurrRoleID, CurrScope, TempAggregatePermissionSet."App ID", TempAggregatePermissionSet."Role ID", TempAggregatePermissionSet.Scope, PermissionType::Include)
+            until TempAggregatePermissionSet.Next() = 0;
 
         exit(ValidatePermissionSet(CurrAppId, CurrRoleID, CurrScope))
     end;
@@ -92,18 +85,18 @@ codeunit 9856 "Permission Set Relation Impl."
 
     procedure ModifyPermissionSet(CurrAppId: Guid; CurrRoleID: Code[30]; CurrScope: Option System,Tenant; RelatedAppId: Guid; RelatedRoleId: Code[30]; PermissionType: Option Include,Exclude): Boolean
     var
-        PermissionSetBuffer: Record "PermissionSet Buffer";
+        TempAggregatePermissionSet: Record "Aggregate Permission Set" temporary;
         TenantPermissionSetRel: Record "Tenant Permission Set Rel.";
     begin
         VerifyUserCanEditPermissionSet(CurrAppId);
 
-        if not LookupAllPermissionSets(false, PermissionSetBuffer) then
+        if not LookupPermissionSet(false, TempAggregatePermissionSet) then
             exit(false);
 
         if TenantPermissionSetRel.Get(CurrAppId, CurrRoleID, RelatedAppId, RelatedRoleId) then
             TenantPermissionSetRel.Delete();
 
-        exit(AddNewPermissionSet(CurrAppId, CurrRoleID, CurrScope, PermissionSetBuffer."App ID", PermissionSetBuffer."Role ID", PermissionSetBuffer.Scope, PermissionType));
+        exit(AddNewPermissionSet(CurrAppId, CurrRoleID, CurrScope, TempAggregatePermissionSet."App ID", TempAggregatePermissionSet."Role ID", TempAggregatePermissionSet.Scope, PermissionType));
     end;
 
     procedure ModifyPermissionSetType(CurrAppId: Guid; CurrRoleID: Code[30]; CurrScope: Option System,Tenant; RelatedAppId: Guid; RelatedRoleID: Code[30]; PermissionType: Option Include,Exclude): Boolean
@@ -129,7 +122,7 @@ codeunit 9856 "Permission Set Relation Impl."
     begin
         VerifyUserCanEditPermissionSet(CurrAppId);
 
-        if TenantPermissionSetRel.Get(CurrAppId, CurrRoleID, RelatedAppId, RelatedRoleID) then
+        if TenantPermissionSetRel.Get(CurrAppId, CurrRoleID, RelatedAppId, RelatedRoleId) then
             exit(ModifyPermissionSetType(CurrAppId, CurrRoleID, CurrScope, RelatedAppId, RelatedRoleID, PermissionType))
         else
             exit(AddNewPermissionSet(CurrAppId, CurrRoleID, CurrScope, RelatedAppId, RelatedRoleID, RelatedScope, PermissionType));
@@ -141,7 +134,7 @@ codeunit 9856 "Permission Set Relation Impl."
     begin
         VerifyUserCanEditPermissionSet(CurrAppId);
 
-        if TenantPermissionSetRel.Get(CurrAppId, CurrRoleID, RelatedAppId, RelatedRoleID) then
+        if TenantPermissionSetRel.Get(CurrAppId, CurrRoleId, RelatedAppId, RelatedRoleID) then
             TenantPermissionSetRel.Delete();
     end;
 
@@ -163,8 +156,8 @@ codeunit 9856 "Permission Set Relation Impl."
 
         TenantPermissionSetRel.SetRange("Role ID", RoleId);
         TenantPermissionSetRel.SetRange("App ID", AppId);
-        MetadataPermissionSetRel.SetRange("Role ID", RoleId);
-        MetadataPermissionSetRel.SetRange("App ID", AppId);
+        MetaDataPermissionSetRel.SetRange("Role ID", RoleId);
+        MetaDataPermissionSetRel.SetRange("App ID", AppId);
 
         if TenantPermissionSetRel.FindSet() then
             repeat
@@ -174,23 +167,21 @@ codeunit 9856 "Permission Set Relation Impl."
                 PermissionSetRelationBuffer."Related App ID" := TenantPermissionSetRel."Related App ID";
                 PermissionSetRelationBuffer."Related Role ID" := TenantPermissionSetRel."Related Role ID";
                 PermissionSetRelationBuffer."Related Scope" := TenantPermissionSetRel."Related Scope";
-                PermissionSetRelationBuffer."Related Name" := GetPermissionSetName(PermissionSetRelationBuffer."Related App ID", PermissionSetRelationBuffer."Related Role ID", PermissionSetRelationBuffer."Related Scope");
                 PermissionSetRelationBuffer.Type := TenantPermissionSetRel.Type;
                 PermissionSetRelationBuffer.Insert();
             until TenantPermissionSetRel.Next() = 0;
 
-        if MetadataPermissionSetRel.FindSet() then
+        if MetaDataPermissionSetRel.FindSet() then
             repeat
                 PermissionSetRelationBuffer.Init();
-                PermissionSetRelationBuffer."App ID" := MetadataPermissionSetRel."App ID";
-                PermissionSetRelationBuffer."Role ID" := MetadataPermissionSetRel."Role ID";
-                PermissionSetRelationBuffer."Related App ID" := MetadataPermissionSetRel."Related App ID";
-                PermissionSetRelationBuffer."Related Role ID" := MetadataPermissionSetRel."Related Role ID";
+                PermissionSetRelationBuffer."App ID" := MetaDataPermissionSetRel."App ID";
+                PermissionSetRelationBuffer."Role ID" := MetaDataPermissionSetRel."Role ID";
+                PermissionSetRelationBuffer."Related App ID" := MetaDataPermissionSetRel."Related App ID";
+                PermissionSetRelationBuffer."Related Role ID" := MetaDataPermissionSetRel."Related Role ID";
                 PermissionSetRelationBuffer."Related Scope" := TenantPermissionSetRel."Related Scope"::System;
-                PermissionSetRelationBuffer."Related Name" := GetPermissionSetName(PermissionSetRelationBuffer."Related App ID", PermissionSetRelationBuffer."Related Role ID", PermissionSetRelationBuffer."Related Scope");
-                PermissionSetRelationBuffer.Type := MetadataPermissionSetRel.Type;
+                PermissionSetRelationBuffer.Type := MetaDataPermissionSetRel.Type;
                 PermissionSetRelationBuffer.Insert();
-            until MetadataPermissionSetRel.Next() = 0;
+            until MetaDataPermissionSetRel.Next() = 0;
     end;
 
     procedure RefreshPermissionSetTree(RoleId: Code[30]; AppId: Guid; Scope: Option; var PermissionSetRelationBuffer: Record "Permission Set Relation Buffer" temporary)
@@ -252,7 +243,6 @@ codeunit 9856 "Permission Set Relation Impl."
                 PermissionSetBuffer.Scope := PermissionSetBuffer.Scope::Tenant;
                 PermissionSetBuffer."App ID" := TenantPermissionSetRel."Related App ID";
                 PermissionSetBuffer."Role ID" := TenantPermissionSetRel."Related Role ID";
-                PermissionSetBuffer.Name := GetPermissionSetName(TenantPermissionSetRel."Related App ID", TenantPermissionSetRel."Related Role ID", TenantPermissionSetRel."Related Scope");
                 PermissionSetBuffer.Insert();
             until TenantPermissionSetRel.Next() = 0;
 
@@ -262,37 +252,8 @@ codeunit 9856 "Permission Set Relation Impl."
                 PermissionSetBuffer.Scope := PermissionSetBuffer.Scope::System;
                 PermissionSetBuffer."App ID" := MetaDataPermissionSetRel."Related App ID";
                 PermissionSetBuffer."Role ID" := MetaDataPermissionSetRel."Related Role ID";
-                PermissionSetBuffer.Name := GetPermissionSetName(MetaDataPermissionSetRel."Related App ID", MetaDataPermissionSetRel."Related Role ID", PermissionSetBuffer.Scope::System);
                 PermissionSetBuffer.Insert();
             until MetaDataPermissionSetRel.Next() = 0;
-    end;
-
-    procedure GetPermissionSets(var PermissionSetBuffer: Record "PermissionSet Buffer")
-    var
-        TenantPermissionSet: Record "Tenant Permission Set";
-        MetadataPermissionSet: Record "Metadata Permission Set";
-    begin
-        PermissionSetBuffer.DeleteAll();
-
-        if TenantPermissionSet.FindSet() then
-            repeat
-                PermissionSetBuffer.Init();
-                PermissionSetBuffer.Scope := PermissionSetBuffer.Scope::Tenant;
-                PermissionSetBuffer."App ID" := TenantPermissionSet."App ID";
-                PermissionSetBuffer."Role ID" := TenantPermissionSet."Role ID";
-                PermissionSetBuffer.Name := TenantPermissionSet.Name;
-                PermissionSetBuffer.Insert();
-            until TenantPermissionSet.Next() = 0;
-
-        if MetadataPermissionSet.FindSet() then
-            repeat
-                PermissionSetBuffer.Init();
-                PermissionSetBuffer.Scope := PermissionSetBuffer.Scope::System;
-                PermissionSetBuffer."App ID" := MetadataPermissionSet."App ID";
-                PermissionSetBuffer."Role ID" := MetadataPermissionSet."Role ID";
-                PermissionSetBuffer.Name := MetadataPermissionSet.Name;
-                PermissionSetBuffer.Insert();
-            until MetadataPermissionSet.Next() = 0;
     end;
 
     local procedure AddNewPermissionSet(CurrAppId: Guid; CurrRoleID: Code[30]; CurrScope: Option System,Tenant; RelatedAppId: Guid; RelatedRoleId: Code[30]; RelatedScope: Option System,Tenant; PermissionType: Option Include,Exclude) Success: Boolean
@@ -305,7 +266,7 @@ codeunit 9856 "Permission Set Relation Impl."
             else
                 Error(CannotExcludeItselfErr);
 
-        if TenantPermissionSetRel.Get(CurrAppId, CurrRoleID, RelatedAppId, RelatedRoleId) then
+        if TenantPermissionSetRel.Get(CurrAppId, CurrRoleId, RelatedAppId, RelatedRoleId) then
             if TenantPermissionSetRel.Type = PermissionType then
                 if PermissionType = PermissionType::Include then
                     Error(PermissionSetAlreadyIncludedErr, TenantPermissionSetRel."Related Role ID")
@@ -315,7 +276,7 @@ codeunit 9856 "Permission Set Relation Impl."
                 TenantPermissionSetRel.Delete();
 
         TenantPermissionSetRel."App ID" := CurrAppId;
-        TenantPermissionSetRel."Role ID" := CurrRoleID;
+        TenantPermissionSetRel."Role ID" := CurrRoleId;
         TenantPermissionSetRel."Related App ID" := RelatedAppId;
         TenantPermissionSetRel."Related Role ID" := RelatedRoleId;
         TenantPermissionSetRel."Related Scope" := RelatedScope;
@@ -376,7 +337,6 @@ codeunit 9856 "Permission Set Relation Impl."
                 PermissionSetRelationBuffer."Related Role ID" := PermissionSetRelation.RelatedRoleId;
                 PermissionSetRelationBuffer."Related App ID" := PermissionSetRelation.RelatedAppId;
                 PermissionSetRelationBuffer."Related Scope" := PermissionSetRelation.RelatedScope;
-                PermissionSetRelationBuffer."Related Name" := GetPermissionSetName(PermissionSetRelationBuffer."Related App ID", PermissionSetRelationBuffer."Related Role ID", PermissionSetRelationBuffer."Related Scope");
                 PermissionSetRelationBuffer.Indent := PermissionSetRelation.Indent;
                 PermissionSetRelationBuffer.Type := PermissionSetRelation.RelationType;
                 PermissionSetRelationBuffer.Editable := not PermissionSetRelation.ExcludedByParent;
@@ -396,22 +356,6 @@ codeunit 9856 "Permission Set Relation Impl."
 
             Index += 1;
         end;
-    end;
-
-    local procedure GetPermissionSetName(AppId: Guid; RoleId: Code[30]; Scope: Option System,Tenant): Text[30];
-    var
-        TenantPermissionSet: Record "Tenant Permission Set";
-        MetaDataPermissionSet: Record "Metadata Permission Set";
-    begin
-        if Scope = Scope::Tenant then
-            if TenantPermissionSet.Get(AppId, RoleId) then
-                exit(TenantPermissionSet.Name);
-
-        if Scope = Scope::System then
-            if MetaDataPermissionSet.Get(AppId, RoleId) then
-                exit(MetaDataPermissionSet.Name);
-
-        exit('');
     end;
 
     local procedure ValidatePermissionSet(AppId: Guid; RoleId: Code[30]; Scope: Option System,Tenant): Boolean
@@ -448,22 +392,7 @@ codeunit 9856 "Permission Set Relation Impl."
         exit(10);
     end;
 
-    procedure LookupAllPermissionSets(AllowMultiselect: Boolean; var PermissionSetBuffer: Record "PermissionSet Buffer"): Boolean
-    var
-        PermissionSetLookupList: Page "Permission Set Lookup List";
-    begin
-        PermissionSetLookupList.LookupMode(true);
-        if PermissionSetLookupList.RunModal() = Action::LookupOK then begin
-            if AllowMultiselect then
-                PermissionSetLookupList.GetSelectedRecords(PermissionSetBuffer)
-            else
-                PermissionSetLookupList.GetSelectedRecord(PermissionSetBuffer);
-            exit(true);
-        end;
-        exit(false);
-    end;
-
-    procedure LookupAssignablePermissionSets(AllowMultiselect: Boolean; var AggregatePermissionSet: Record "Aggregate Permission Set"): Boolean
+    procedure LookupPermissionSet(AllowMultiselect: Boolean; var AggregatePermissionSet: Record "Aggregate Permission Set"): Boolean
     var
         LookupPermissionSetPage: Page "Lookup Permission Set";
     begin

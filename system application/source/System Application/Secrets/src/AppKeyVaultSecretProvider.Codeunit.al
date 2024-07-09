@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security;
-
 /// <summary>
 /// Exposes functionality to retrieve app secrets from the key vault that is specified in the app's manifest file.
 /// </summary>

@@ -1,13 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.SyncEngine;
-
-using Microsoft.CRM.Outlook;
-using System.Reflection;
-using System.Utilities;
-
 codeunit 5336 "Integration Record Synch."
 {
 
@@ -144,7 +134,7 @@ codeunit 5336 "Integration Record Synch."
         if DestinationFieldRef.Type = FieldType::Code then
             exit(Format(DestinationFieldRef.Value) <> UpperCase(DelChr(Format(SourceFieldRef.Value), '<>')));
 
-        if (SourceFieldRef.Type = FieldType::Blob) or (DestinationFieldRef.Type = FieldType::Blob) then
+        if DestinationFieldRef.Type = FieldType::Blob then
             exit(GetTextValue(DestinationFieldRef) <> GetTextValue(SourceFieldRef));
 
         if DestinationFieldRef.Length <> SourceFieldRef.Length then begin
@@ -398,21 +388,12 @@ codeunit 5336 "Integration Record Synch."
     procedure JoinIDs(var IdList: List of [Guid]; Delimiter: Text[1]): Text
     var
         IdValue: Guid;
-        tb: TextBuilder;
-        isFirst: Boolean;
+        IdFilter: Text;
     begin
-        isFirst := true;
-
-        foreach IdValue in IdList do begin
-            if (isFirst) then
-                isFirst := false
-            else
-                tb.Append(Delimiter);
-
-            tb.Append(IdValue);
-        end;
-
-        exit(tb.ToText())
+        foreach IdValue in IdList do
+            IdFilter += Delimiter + IdValue;
+        IdFilter := IdFilter.TrimStart(Delimiter);
+        exit(IdFilter);
     end;
 
     local procedure ResetFieldModifiedFlags()
@@ -488,7 +469,7 @@ codeunit 5336 "Integration Record Synch."
         // OnTransferFieldData is an event for handling an exceptional mapping that is not implemented by integration records
         OnTransferFieldData(SourceFieldRef, DestinationFieldRef, NewValue, IsValueFound, NeedsConversion);
         if not IsValueFound then
-            if SourceFieldRef.Type = FieldType::Blob then
+            if DestinationFieldRef.Type = FieldType::Blob then
                 NewValue := GetTextValue(SourceFieldRef)
             else
                 NewValue := SourceFieldRef.Value

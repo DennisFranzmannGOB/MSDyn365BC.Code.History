@@ -22,7 +22,7 @@ page 2194 "O365 Units of Measure List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Code"; Rec.Code)
+                field("Code"; Code)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies a code for the unit of measure, which you can select on item and resource cards from where it is copied to.';
@@ -43,7 +43,7 @@ page 2194 "O365 Units of Measure List"
 
     trigger OnAfterGetRecord()
     begin
-        Rec.Description := Rec.GetDescriptionInCurrentLanguage();
+        Description := GetDescriptionInCurrentLanguage();
     end;
 }
 #endif

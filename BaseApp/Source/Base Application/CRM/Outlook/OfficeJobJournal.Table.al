@@ -1,8 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.Projects.Project.Journal;
-using Microsoft.Projects.Project.Planning;
-
 table 1615 "Office Job Journal"
 {
     Caption = 'Office Job Journal';
@@ -24,13 +19,13 @@ table 1615 "Office Job Journal"
         field(4; "Job Journal Template Name"; Code[10])
         {
             Caption = 'Job Journal Template Name';
-            TableRelation = "Job Journal Template".Name where("Page ID" = const(201),
-                                                               Recurring = const(false));
+            TableRelation = "Job Journal Template".Name WHERE("Page ID" = CONST(201),
+                                                               Recurring = CONST(false));
         }
         field(5; "Job Journal Batch Name"; Code[10])
         {
             Caption = 'Job Journal Batch Name';
-            TableRelation = "Job Journal Batch".Name where("Journal Template Name" = field("Job Journal Template Name"));
+            TableRelation = "Job Journal Batch".Name WHERE("Journal Template Name" = FIELD("Job Journal Template Name"));
         }
     }
 

@@ -1,10 +1,3 @@
-namespace Microsoft.CRM.EmailLoggin;
-
-using System.Upgrade;
-using Microsoft.CRM.Outlook;
-using Microsoft.CRM.Setup;
-using System.Threading;
-
 codeunit 1688 "Email Logging Upgrade"
 {
     Subtype = Upgrade;

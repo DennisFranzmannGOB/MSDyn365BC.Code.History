@@ -621,12 +621,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Get Partner VAT For - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3132071445 - Field 3027822327 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Include Drop Shipment</source>
-          <target state="translated">Inkluder direkte levering</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Include Drop Shipment - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3132071445 - Field 1451650335 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Intrastat Contact No.</source>
           <target state="translated">Intrastat-kontaktnr.</target>
@@ -692,6 +686,138 @@
           <target state="translated">ZIP-fil(er)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Zip Files - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 762284302" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are one or more errors. For details, see the report error FactBox.</source>
+          <target state="translated">Det finnes en eller flere feil. Se i faktaboks for rapportfeil hvis du vil ha mer informasjon.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType AdvChecklistErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 245488723" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disable this notification</source>
+          <target state="translated">Deaktiverer denne varslingen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType DisableNotificationTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 3314864117" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The file has not been saved.</source>
+          <target state="translated">Filen er ikke lagret.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType DownloadFromStreamErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 856472750" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Receipts,&amp;Shipments,&amp;Both</source>
+          <target state="translated">&amp;Mottak,&amp;Leveringer,&amp;Begge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ExportSelectionQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 2188659467" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 is empty.</source>
+          <target state="translated">%1 er tom.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - File Content</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ExternalContentErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 2242053473" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 page is part of the new Intrastat Report feature, which is not yet enabled in your Business Central. An administrator can enable the feature on the Feature Management page.</source>
+          <target state="translated">Siden %1 er en del av den nye funksjonen Intrastat-rapport, som ennå ikke er aktivert i din Business Central. En administrator kan aktivere funksjonen på siden Funksjonsstyring.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - page caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType FeatureNotEnabledMessageTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 3415447349" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat-%1.txt</source>
+          <target state="translated">Intrastat-%1.txt</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType FileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 1351222670" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Alert users about the capabilities of the Intrastat Report extension.</source>
+          <target state="translated">Varsle brukere om egenskapene til utvidelsen Intrastat-rapport.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType IntrastatAwarenessNotificationDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 438222509" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify the user about the Intrastat Report extension.</source>
+          <target state="translated">Varsle brukeren om utvidelsen Intrastat-rapport.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType IntrastatAwarenessNotificationNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 2308285312" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This version of Intrastat will be deprecated. We recommend that you enable the Intrastat Report extension.</source>
+          <target state="translated">Denne versjonen av Intrastat blir avskrevet. Vi anbefaler at du aktiverer utvidelsen Intrastat-rapport.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType IntrastatAwarenessNotificationTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 3334639707" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learn more</source>
+          <target state="translated">Finn ut mer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType LearnMoreTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 321666938" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Intrastat Report extension is enabled, which means you can't use the %1 page. You've been redirected to the %2 page for the extension.</source>
+          <target state="translated">Utvidelsen Intrastat-rapport er aktivert, noe som betyr at du ikke kan bruke siden %1. Du er omdirigert til siden %2 for utvidelsen.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - old page caption, %2 - new page caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType NewFeatureEnabledMessageTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 3471781426" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 for %2 %3 does not exist.</source>
+          <target state="translated">%1 for %2 %3 finnes ikke.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Data Exchange Mapping caption, %2 - Data Exchange Definition caption, %3 - Data Exchange Definition code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType NoDataExchMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 3174602886" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You've already submitted the report for this period.\Do you want to continue?</source>
+          <target state="translated">Du har allerede sendt rapporten for denne perioden.\Vil du fortsette?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType PeriodAlreadyReportedQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 1064465840" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is a conflict in checklist rules for '%1' in '%2' (field must be both blank and not blank). Please review filters in %3.</source>
+          <target state="translated">Det er en konflikt i sjekklistereglene for %1 i %2 (feltet må være både tomt og ikke tomt). Kontroller filtrene i %3.</target>
+          <note from="Developer" annotates="general" priority="2">%1=caption of a field, %2=key of record, %3=caption of report checklist page</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType RangeCrossingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 1813144090" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receipt-%1.txt</source>
+          <target state="translated">Mottak-%1.txt</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ReceptFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 452222717" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment-%1.txt</source>
+          <target state="translated">Levering-%1.txt</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ShipmentFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 3217697877" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Alert users about the update of %1 during %2 change.</source>
+          <target state="translated">Varsle brukere om oppdatering av %1 under endring av %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Supplementary Unit of Measure caption, %2 - Tariff Number caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType SupplementaryUnitUpdateNotificationDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 3363457358" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify the user about the %1 update.</source>
+          <target state="translated">Varsle brukeren om %1-oppdateringen.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Supplementary Unit of Measure caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType SupplementaryUnitUpdateNotificationNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 235017519" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 was updated, due to change of %2.</source>
+          <target state="translated">%1 ble oppdatert på grunn av endring av %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Supplementary Unit of Measure caption, %2 - Tariff Number caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType SupplementaryUnitUpdateNotificationTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 3148417553" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Weight,&amp;Supplemental UOM Qty,&amp;Both</source>
+          <target state="translated">&amp;Vekt,&amp;Antall tilleggsenheter,&amp;Begge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType UpdateSelectionQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 2312043988" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat-%1.zip</source>
+          <target state="translated">Intrastat-%1.zip</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ZipFileNameLbl</note>
         </trans-unit>
         <trans-unit id="Page 879680616 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Intrastat Report</source>
@@ -1107,6 +1233,48 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1566601818 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat Report List</source>
+          <target state="translated">Oversikt over Intrastat-rapport</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1566601818 - Control 556262972 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that you use an additional reporting currency in the general ledger and that you want to report Intrastat in this currency.</source>
+          <target state="translated">Angir at du bruker en tilleggsrapporteringsvaluta i finans, og at du vil rapportere intrastat i denne valutaen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Amounts in Add. Currency - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1566601818 - Control 215497968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code that identifies the currency of the Intrastat Report.</source>
+          <target state="translated">Angir en kode for valutaen til Intrastat-rapporten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Currency Identifier - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1566601818 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies some information about the Intrastat Report.</source>
+          <target state="translated">Angir informasjon om Intrastat-rapporten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1566601818 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Intrastat Report number.</source>
+          <target state="translated">Angir nummeret på Intrastat-rapporten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1566601818 - Control 3293730985 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the entry has already been reported to the tax authorities.</source>
+          <target state="translated">Angir om posten allerede er rapportert til skattemyndighetene.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Reported - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1566601818 - Control 970646220 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the month to report data for. Enter the period as a four-digit number, with no spaces or symbols. Enter the year first and then the month, for example, enter 1706 for June, 2017.</source>
+          <target state="translated">Angir måneden som data skal rapporteres for. Angi perioden som et firesifret tall uten mellomrom eller symboler. Angi året først og deretter måneden. Angi for eksempel 1706 for juni 2017.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Statistics Period - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3132071445 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Intrastat Report Setup</source>
           <target state="translated">Oppsett for Intrastat-rapport</target>
@@ -1178,12 +1346,6 @@
           <target state="translated">Angir linjetypen som partnerens organisasjonsnummer oppdateres for.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Get Partner VAT For - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3132071445 - Control 3027822327 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if drop shipment transactions are included in Intrastat reports.</source>
-          <target state="translated">Angir om transaksjoner for direkte levering er inkludert i Intrastat-rapporter.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Include Drop Shipment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 1451650335 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Intrastat contact.</source>
@@ -1293,18 +1455,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Zip Files - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3132071445 - Action 63770366 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create/Restore Default Data Exchange Definition(-s)</source>
-          <target state="translated">Opprett/gjenopprett standard datautvekslingsdefinisjon(er)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Action ImportDefaultDataExchangeDef - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3132071445 - Action 63770366 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create Default Data Exch. Def.</source>
-          <target state="translated">Opprett standard datautvekslingsdef.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Action ImportDefaultDataExchangeDef - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3132071445 - Action 3749148396 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View and edit fields to be verified by the Intrastat check.</source>
           <target state="translated">Vis og rediger felter som skal bekreftes av Intrastat-kontrollen.</target>
@@ -1398,12 +1548,6 @@
           <target state="translated">Angir hvilken linjetype partnerens organisasjonsnummer blir oppdatert for.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Get Partner VAT For - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3458657684 - Control 3027822327 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if drop shipment transactions are included in Intrastat reports.</source>
-          <target state="translated">Angir om transaksjoner for direkte levering er inkludert i Intrastat-rapporter.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Include Drop Shipment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 1451650335 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Intrastat contact.</source>
@@ -2086,13 +2230,6 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1434786627</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3503152889 - Control 1335947384 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the item shall be excluded from Intrastat report.</source>
-          <target state="translated">Angir om varen skal ekskluderes fra Intrastat-rapporten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2185457841</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1246386290 - Control 3678710499 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the conversion factor for the tariff number.</source>
           <target state="translated">Angir konverteringsfaktoren for tariffnummeret.</target>
@@ -2122,15 +2259,15 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
         </trans-unit>
         <trans-unit id="PageExtension 374427272 - Control 830567041 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the default transaction type for regular purchase receipts.</source>
-          <target state="translated">Angir standard transaksjonsart for vanlige kjøpsmottak.</target>
+          <source>Specifies the default transaction type for regular sales shipments and service shipments.</source>
+          <target state="translated">Angir standard transaksjonsart for vanlige følgesedler og servicefølgesedler.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
         </trans-unit>
         <trans-unit id="PageExtension 374427272 - Control 1663358532 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the default transaction type for purchase returns.</source>
-          <target state="translated">Angir standard transaksjonsart for kjøpsreturer.</target>
+          <source>Specifies the default transaction type for sales returns and service returns.</source>
+          <target state="translated">Angir standard transaksjonsart for ordrereturer og servicereturer.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
@@ -2211,13 +2348,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3276313895</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3503152889 - Field 1335947384 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Exclude from Intrastat Report</source>
-          <target state="translated">Utelat fra Intrastat-rapport</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 463323981</note>
         </trans-unit>
         <trans-unit id="TableExtension 2092778747 - NamedType 1370509651" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You have modified %1.\Do you want to update related items?</source>
@@ -2488,186 +2618,6 @@
           <target state="translated">Intrastat-kjerne – objekter</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Intrastat Core - Objects - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 762284302" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There are one or more errors. For details, see the report error FactBox.</source>
-          <target state="translated">Det finnes en eller flere feil. Se i faktaboks for rapportfeil hvis du vil ha mer informasjon.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType AdvChecklistErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 245488723" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Disable this notification</source>
-          <target state="translated">Deaktiverer denne varslingen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType DisableNotificationTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 3314864117" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The file has not been saved.</source>
-          <target state="translated">Filen er ikke lagret.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType DownloadFromStreamErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 856472750" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Receipts,&amp;Shipments,&amp;Both</source>
-          <target state="translated">&amp;Mottak,&amp;Leveringer,&amp;Begge</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ExportSelectionQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 2188659467" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 is empty.</source>
-          <target state="translated">%1 er tom.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - File Content</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ExternalContentErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 2242053473" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The %1 page is part of the new Intrastat Report feature, which is not yet enabled in your Business Central. An administrator can enable the feature on the Feature Management page.</source>
-          <target state="translated">Siden %1 er en del av den nye funksjonen Intrastat-rapport, som ennå ikke er aktivert i din Business Central. En administrator kan aktivere funksjonen på siden Funksjonsstyring.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - page caption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType FeatureNotEnabledMessageTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 3415447349" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Intrastat-%1.txt</source>
-          <target state="translated">Intrastat-%1.txt</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType FileNameLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 186519675" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This will create the default Intrastat %1 . \\All existing default Intrastat %1 will be overwritten.\\Do you want to continue?</source>
-          <target state="translated">Dette oppretter standard Intrastat %1. \\Alle eksisterende standard Intrastat %1 blir overskrevet.\\Vil du fortsette?</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Data Exchange Definition caption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ImportDefaultIntrastatDataExchDefConfirmQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 1351222670" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Alert users about the capabilities of the Intrastat Report extension.</source>
-          <target state="translated">Varsle brukere om egenskapene til utvidelsen Intrastat-rapport.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType IntrastatAwarenessNotificationDescriptionTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 438222509" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Notify the user about the Intrastat Report extension.</source>
-          <target state="translated">Varsle brukeren om utvidelsen Intrastat-rapport.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType IntrastatAwarenessNotificationNameTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 2308285312" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This version of Intrastat will be deprecated. We recommend that you enable the Intrastat Report extension.</source>
-          <target state="translated">Denne versjonen av Intrastat blir avskrevet. Vi anbefaler at du aktiverer utvidelsen Intrastat-rapport.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType IntrastatAwarenessNotificationTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 3334639707" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more</source>
-          <target state="translated">Finn ut mer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType LearnMoreTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 321666938" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The Intrastat Report extension is enabled, which means you can't use the %1 page. You've been redirected to the %2 page for the extension.</source>
-          <target state="translated">Utvidelsen Intrastat-rapport er aktivert, noe som betyr at du ikke kan bruke siden %1. Du er omdirigert til siden %2 for utvidelsen.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - old page caption, %2 - new page caption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType NewFeatureEnabledMessageTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 3471781426" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 for %2 %3 does not exist.</source>
-          <target state="translated">%1 for %2 %3 finnes ikke.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Data Exchange Mapping caption, %2 - Data Exchange Definition caption, %3 - Data Exchange Definition code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType NoDataExchMappingErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 3174602886" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You've already submitted the report for this period.\Do you want to continue?</source>
-          <target state="translated">Du har allerede sendt rapporten for denne perioden.\Vil du fortsette?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType PeriodAlreadyReportedQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 1064465840" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There is a conflict in checklist rules for '%1' in '%2' (field must be both blank and not blank). Please review filters in %3.</source>
-          <target state="translated">Det er en konflikt i sjekklistereglene for %1 i %2 (feltet må være både tomt og ikke tomt). Kontroller filtrene i %3.</target>
-          <note from="Developer" annotates="general" priority="2">%1=caption of a field, %2=key of record, %3=caption of report checklist page</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType RangeCrossingErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 1813144090" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Receipt-%1.txt</source>
-          <target state="translated">Mottak-%1.txt</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ReceptFileNameLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 452222717" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shipment-%1.txt</source>
-          <target state="translated">Levering-%1.txt</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ShipmentFileNameLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 3217697877" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Alert users about the update of %1 during %2 change.</source>
-          <target state="translated">Varsle brukere om oppdatering av %1 under endring av %2.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Supplementary Unit of Measure caption, %2 - Tariff Number caption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType SupplementaryUnitUpdateNotificationDescriptionTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 3363457358" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Notify the user about the %1 update.</source>
-          <target state="translated">Varsle brukeren om %1-oppdateringen.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Supplementary Unit of Measure caption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType SupplementaryUnitUpdateNotificationNameTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 235017519" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 was updated, due to change of %2.</source>
-          <target state="translated">%1 ble oppdatert på grunn av endring av %2.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Supplementary Unit of Measure caption, %2 - Tariff Number caption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType SupplementaryUnitUpdateNotificationTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 3148417553" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Weight,&amp;Supplemental UOM Qty,&amp;Both</source>
-          <target state="translated">&amp;Vekt,&amp;Antall tilleggsenheter,&amp;Begge</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType UpdateSelectionQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 150943441 - NamedType 2312043988" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Intrastat-%1.zip</source>
-          <target state="translated">Intrastat-%1.zip</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ZipFileNameLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 1566601818 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Intrastat Report List</source>
-          <target state="translated">Oversikt over Intrastat-rapport</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1566601818 - Control 556262972 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies that you use an additional reporting currency in the general ledger and that you want to report Intrastat in this currency.</source>
-          <target state="translated">Angir at du bruker en tilleggsrapporteringsvaluta i finans, og at du vil rapportere intrastat i denne valutaen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Amounts in Add. Currency - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1566601818 - Control 215497968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a code that identifies the currency of the Intrastat Report.</source>
-          <target state="translated">Angir en kode for valutaen til Intrastat-rapporten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Currency Identifier - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1566601818 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies some information about the Intrastat Report.</source>
-          <target state="translated">Angir informasjon om Intrastat-rapporten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1566601818 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Intrastat Report number.</source>
-          <target state="translated">Angir nummeret på Intrastat-rapporten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1566601818 - Control 3293730985 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the entry has already been reported to the tax authorities.</source>
-          <target state="translated">Angir om posten allerede er rapportert til skattemyndighetene.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Reported - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1566601818 - Control 970646220 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the month to report data for. Enter the period as a four-digit number, with no spaces or symbols. Enter the year first and then the month, for example, enter 1706 for June, 2017.</source>
-          <target state="translated">Angir måneden som data skal rapporteres for. Angi perioden som et firesifret tall uten mellomrom eller symboler. Angi året først og deretter måneden. Angi for eksempel 1706 for juni 2017.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Statistics Period - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="ReportExtension 1884506917 - NamedType 321666938" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Intrastat Report extension is enabled, which means you can't use the %1 report. You've been redirected to the %2 page for the extension.</source>

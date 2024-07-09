@@ -52,7 +52,7 @@ page 2168 "O365 Sales Year Summary Card"
                     O365SalesStatistics: Codeunit "O365 Sales Statistics";
                 begin
                     GLSetup.Get();
-                    Rec.DeleteAll();
+                    DeleteAll();
                     O365SalesStatistics.GenerateMonthlyOverview(Rec);
                     O365SalesStatistics.GenerateChart(CurrPage.Chart, Rec, MonthTxt, StrSubstNo(AmountTxt, GLSetup.GetCurrencySymbol()));
                 end;
@@ -68,7 +68,7 @@ page 2168 "O365 Sales Year Summary Card"
                     Editable = false;
                     ToolTip = 'Specifies the month';
                 }
-                field(Value; Rec.Value)
+                field(Value; Value)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Caption = 'Amount';

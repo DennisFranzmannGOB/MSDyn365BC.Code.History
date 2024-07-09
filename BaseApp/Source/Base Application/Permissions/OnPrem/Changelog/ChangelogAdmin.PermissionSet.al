@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using System.Diagnostics;
-
 permissionset 3587 "Changelog - Admin"
 {
     Access = Public;

@@ -6,9 +6,6 @@
 /// <summary>
 /// Shows the list of tables belonging to an archive.
 /// </summary>
-
-namespace System.DataAdministration;
-
 page 631 "Data Archive Table List"
 {
     ApplicationArea = All;

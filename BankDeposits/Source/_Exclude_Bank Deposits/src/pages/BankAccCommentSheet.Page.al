@@ -1,5 +1,3 @@
-namespace Microsoft.Bank.Deposit;
-
 page 1699 "Bank Acc. Comment Sheet"
 {
     AutoSplitKey = true;
@@ -43,7 +41,7 @@ page 1699 "Bank Acc. Comment Sheet"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec.SetUpNewLine();
+        SetUpNewLine();
     end;
 }
 

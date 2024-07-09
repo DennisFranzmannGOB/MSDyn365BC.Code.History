@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Utilities;
-
 /// <summary>
 /// This enum contains the Image format types.
 /// </summary>

@@ -3,11 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Telemetry;
-
-using System.Telemetry;
-using System.TestLibraries.Utilities;
-
 codeunit 139482 "Custom Dimensions Test"
 {
     Subtype = Test;
@@ -85,6 +80,7 @@ codeunit 139482 "Custom Dimensions Test"
     end;
 
     local procedure RaiseOnAddCommonCustomDimensionsEvent(var TelemetryCustomDimensions: Codeunit "Telemetry Custom Dimensions")
+    var
     begin
         TelemetryCustomDimensions.AddAllowedCommonCustomDimensionPublisher('Microsoft');
         TelemetryCustomDimensions.OnAddCommonCustomDimensions();

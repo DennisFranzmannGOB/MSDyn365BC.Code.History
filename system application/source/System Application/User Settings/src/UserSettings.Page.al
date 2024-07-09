@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Globalization;
-using System.DateTime;
-using System.Security.AccessControl;
-
 /// <summary>
 /// Page that shows the settings of a given user.
 /// </summary>
@@ -32,7 +26,7 @@ page 9204 "User Settings"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             group(Control1)
             {
@@ -135,7 +129,7 @@ page 9204 "User Settings"
     trigger OnOpenPage()
     begin
         if not Rec.Initialized then
-            UserSettingsImpl.GetUserSettings(UserSecurityId(), Rec);
+            UserSettingsImpl.GetUserSettings(UserSecurityID(), Rec);
 
         OldUserSettings := Rec;
 

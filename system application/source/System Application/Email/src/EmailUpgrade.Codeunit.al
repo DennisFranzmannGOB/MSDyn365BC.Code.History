@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
-using System.Upgrade;
-
 codeunit 1597 "Email Upgrade"
 {
     Subtype = Upgrade;
@@ -38,6 +34,12 @@ codeunit 1597 "Email Upgrade"
     local procedure GetDefaultEmailViewPolicyUpgradeTag(): Code[250]
     begin
         exit('MS-445654-DefaultEmailViewPolicyChanged-20220109');
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"System Initialization", OnAfterLogin, '', false, false)]
+    local procedure AddDefaultEmailViewPolicyAfterLogin()
+    begin
+        SetDefaultEmailViewPolicy(Enum::"Email View Policy"::AllRelatedRecordsEmails);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Upgrade Tag", OnGetPerCompanyUpgradeTags, '', false, false)]

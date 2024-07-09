@@ -1,11 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Globalization;
-
-using System.Environment.Configuration;
 
 /// <summary>
 /// Page for displaying available windows languages.
@@ -23,19 +19,19 @@ page 535 "Windows Languages"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Control2)
             {
                 ShowCaption = false;
-                field("Language ID"; Rec."Language ID")
+                field("Language ID"; "Language ID")
                 {
                     ApplicationArea = All;
                     Caption = 'ID';
                     ToolTip = 'Specifies the unique language ID for the Windows language.';
                     Visible = false;
                 }
-                field(Name; Rec.Name)
+                field(Name; Name)
                 {
                     ApplicationArea = All;
                     Caption = 'Name';
@@ -45,6 +41,8 @@ page 535 "Windows Languages"
         }
     }
 
+    actions
+    {
+    }
 }
-
 

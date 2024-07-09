@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 /// <summary>
 /// Codeunit to create and manage email messages.
 /// </summary>
@@ -148,7 +146,7 @@ codeunit 8904 "Email Message"
     /// </summary>
     /// <param name="RecipientType">Specifies the type of the recipients.</param>
     /// <param name="Recipients">Out parameter filled with the recipients' email addresses.</param>
-    procedure GetRecipients(RecipientType: Enum "Email Recipient Type"; var Recipients: List of [Text])
+    procedure GetRecipients(RecipientType: Enum "Email Recipient Type"; var Recipients: list of [Text])
     begin
         Recipients := EmailMessageImpl.GetRecipients(RecipientType);
     end;
@@ -168,7 +166,7 @@ codeunit 8904 "Email Message"
     /// </summary>
     /// <param name="RecipientType">Specifies the type of the recipients.</param>
     /// <param name="Recipients">Specifies the list of the recipients' email addresses.</param>
-    procedure SetRecipients(RecipientType: Enum "Email Recipient Type"; Recipients: List of [Text])
+    procedure SetRecipients(RecipientType: Enum "Email Recipient Type"; Recipients: list of [Text])
     begin
         EmailMessageImpl.SetRecipients(RecipientType, Recipients);
     end;
@@ -237,35 +235,6 @@ codeunit 8904 "Email Message"
     procedure Attachments_DeleteContent(): Boolean
     begin
         exit(EmailMessageImpl.Attachments_DeleteContent());
-    end;
-
-    /// <summary>
-    /// Deletes the contents of the currently selected attachment.
-    /// </summary>
-    /// <param name="BypassSentCheck">If true, the attachment content will be deleted even if the email message has been sent.</param>
-    /// <returns>Returns true if contents was successfully deleted, otherwise false.</returns>
-    procedure Attachments_DeleteContent(BypassSentCheck: Boolean): Boolean
-    begin
-        exit(EmailMessageImpl.Attachments_DeleteContent(BypassSentCheck));
-    end;
-
-    /// <summary>
-    /// Deletes the currently selected attachment.
-    /// </summary>
-    /// <returns>Returns true if attachment was successfully deleted, otherwise false.</returns>
-    procedure Attachments_Delete(): Boolean
-    begin
-        exit(EmailMessageImpl.Attachments_Delete());
-    end;
-
-    /// <summary>
-    /// Deletes the currently selected attachment.
-    /// </summary>
-    /// <param name="BypassSentCheck">If true, the attachment will be deleted even if the email message has been sent.</param>
-    /// <returns>Returns true if attachment was successfully deleted, otherwise false.</returns>
-    procedure Attachments_Delete(BypassSentCheck: Boolean): Boolean
-    begin
-        exit(EmailMessageImpl.Attachments_Delete(BypassSentCheck));
     end;
 
     /// <summary>
@@ -370,14 +339,14 @@ codeunit 8904 "Email Message"
     end;
 
     /// <summary>
-    /// Integration event to provide the stream of data for a given MediaID. If attachment content has been deleted, this event makes it possible to provide
+    /// Integration event to provide the stream of data for a given MediaID. If attachment content has been deleted, this event makes it possible to provide 
     /// the data from elsewhere.
     /// </summary>
     /// <param name="MediaID">Id of the underlying media field that contains the attachment data.</param>
     /// <param name="InStream">Stream to that should pointed to the attachment data.</param>
     /// <param name="Handled">Was the attachment content added to the stream.</param>
     [IntegrationEvent(false, false)]
-    internal procedure OnGetAttachmentContent(MediaID: Guid; var InStream: InStream; var Handled: Boolean)
+    internal procedure OnGetAttachmentContent(MediaID: Guid; var InStream: Instream; var Handled: Boolean)
     begin
     end;
 

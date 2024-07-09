@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Table Shpfy Shop Inventory (ID 30112).
 /// </summary>

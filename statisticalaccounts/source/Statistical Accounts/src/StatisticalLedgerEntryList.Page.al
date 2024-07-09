@@ -1,9 +1,3 @@
-namespace Microsoft.Finance.Analysis.StatisticalAccount;
-
-using System.Security.User;
-using Microsoft.Finance.GeneralLedger.Reversal;
-using Microsoft.Finance.Dimension;
-
 page 2634 "Statistical Ledger Entry List"
 {
     ApplicationArea = All;

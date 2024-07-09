@@ -1,9 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.D365Sales;
-
 table 5362 "CRM Uomschedule"
 {
     // Dynamics CRM Version: 7.1.0.2040
@@ -91,7 +85,7 @@ table 5362 "CRM Uomschedule"
         }
         field(10; CreatedByName; Text[200])
         {
-            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
+            CalcFormula = Lookup ("CRM Systemuser".FullName WHERE(SystemUserId = FIELD(CreatedBy)));
             Caption = 'CreatedByName';
             ExternalAccess = Read;
             ExternalName = 'createdbyname';
@@ -100,7 +94,7 @@ table 5362 "CRM Uomschedule"
         }
         field(11; ModifiedByName; Text[200])
         {
-            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
+            CalcFormula = Lookup ("CRM Systemuser".FullName WHERE(SystemUserId = FIELD(ModifiedBy)));
             Caption = 'ModifiedByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedbyname';
@@ -109,7 +103,7 @@ table 5362 "CRM Uomschedule"
         }
         field(12; OrganizationIdName; Text[160])
         {
-            CalcFormula = Lookup("CRM Organization".Name where(OrganizationId = field(OrganizationId)));
+            CalcFormula = Lookup ("CRM Organization".Name WHERE(OrganizationId = FIELD(OrganizationId)));
             Caption = 'OrganizationIdName';
             ExternalAccess = Read;
             ExternalName = 'organizationidname';
@@ -151,7 +145,7 @@ table 5362 "CRM Uomschedule"
         }
         field(17; CreatedOnBehalfByName; Text[200])
         {
-            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
+            CalcFormula = Lookup ("CRM Systemuser".FullName WHERE(SystemUserId = FIELD(CreatedOnBehalfBy)));
             Caption = 'CreatedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'createdonbehalfbyname';
@@ -169,7 +163,7 @@ table 5362 "CRM Uomschedule"
         }
         field(19; ModifiedOnBehalfByName; Text[200])
         {
-            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
+            CalcFormula = Lookup ("CRM Systemuser".FullName WHERE(SystemUserId = FIELD(ModifiedOnBehalfBy)));
             Caption = 'ModifiedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedonbehalfbyname';

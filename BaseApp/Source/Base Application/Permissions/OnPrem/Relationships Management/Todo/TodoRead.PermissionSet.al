@@ -1,11 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.CRM.Task;
-using Microsoft.CRM.Interaction;
-using Microsoft.CRM.Comment;
-using Microsoft.CRM.Analysis;
-using Microsoft.CRM.Team;
-
 permissionset 566 "Todo - Read"
 {
     Access = Public;

@@ -182,16 +182,14 @@ codeunit 132216 "Library - Permissions Verify"
 
         TableRelationsMetadata.FindSet();
         repeat
-            if TableRelationsMetadata."Related Table ID" < 2000000000 then begin
-                RelatedRecordRef.Open(TableRelationsMetadata."Related Table ID");
-                RelatedRecordId := RelatedRecordRef.RecordId;
-                if RelatedRecordId.TableNo <> RecordId.TableNo then begin
-                    RelatedRecordRef.DeleteAll();
-                    RelatedRecordRef.Init();
-                    RelatedRecordRef.Insert();
-                end;
-                RelatedRecordRef.Close();
+            RelatedRecordRef.Open(TableRelationsMetadata."Related Table ID");
+            RelatedRecordId := RelatedRecordRef.RecordId;
+            if RelatedRecordId.TableNo <> RecordId.TableNo then begin
+                RelatedRecordRef.DeleteAll();
+                RelatedRecordRef.Init();
+                RelatedRecordRef.Insert();
             end;
+            RelatedRecordRef.Close();
         until TableRelationsMetadata.Next() = 0;
 
         RecordRef.Close();

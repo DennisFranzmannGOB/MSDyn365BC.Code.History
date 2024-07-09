@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Security.AccessControl;
-
-using System.Security.AccessControl;
-
 codeunit 133401 "Library Permission Set"
 {
     Access = Public;

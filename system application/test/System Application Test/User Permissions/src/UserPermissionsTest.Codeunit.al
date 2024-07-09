@@ -3,17 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Security.AccessControl;
-
-using System.Security.User;
-using System.Security.AccessControl;
-using System.TestLibraries.Environment;
-using System.TestLibraries.Utilities;
-using System.TestLibraries.Security.AccessControl;
-
 codeunit 139146 "User Permissions Test"
 {
     Subtype = Test;
+    EventSubscriberInstance = Manual;
 
     var
         Assert: Codeunit "Library Assert";
@@ -27,14 +20,12 @@ codeunit 139146 "User Permissions Test"
     procedure IsSuperWhenUserIsSuperTest()
     var
         UserPermissions: Codeunit "User Permissions";
-        TestUserPermissionsSubs: Codeunit "Test User Permissions Subs.";
         Any: Codeunit Any;
         FirstUserId: Guid;
         SecondUserId: Guid;
         IsUserSuper: Boolean;
     begin
         // [Given] two users - one SUPER and the other - non-SUPER
-        BindSubscription(TestUserPermissionsSubs);
         DeleteAllUsersAndPermissions();
         FirstUserId := AddUser(Any.AlphabeticText(10), true, false);
         SecondUserId := AddUser(Any.AlphabeticText(10), true, true);
@@ -61,14 +52,12 @@ codeunit 139146 "User Permissions Test"
     procedure IsSuperWhenUserIsNotSuperTest()
     var
         UserPermissions: Codeunit "User Permissions";
-        TestUserPermissionsSubs: Codeunit "Test User Permissions Subs.";
         Any: Codeunit Any;
         FirstUserId: Guid;
         SecondUserId: Guid;
         IsUserSuper: Boolean;
     begin
         // [Given] two users - one SUPER and the other - non-SUPER
-        BindSubscription(TestUserPermissionsSubs);
         DeleteAllUsersAndPermissions();
         FirstUserId := AddUser(Any.AlphabeticText(10), true, false);
         SecondUserId := AddUser(Any.AlphabeticText(10), true, true);
@@ -90,14 +79,12 @@ codeunit 139146 "User Permissions Test"
     procedure IsSuperWhenUserIsSuperForSpecificCompanyTest()
     var
         UserPermissions: Codeunit "User Permissions";
-        TestUserPermissionsSubs: Codeunit "Test User Permissions Subs.";
         Any: Codeunit Any;
         UserId: Guid;
         IsUserSuper: Boolean;
         RandomCompanyName: Text[30];
     begin
         // [Given] a user who is SUPER for a specific company
-        BindSubscription(TestUserPermissionsSubs);
         DeleteAllUsersAndPermissions();
         RandomCompanyName := CopyStr(Any.AlphabeticText(10), 1, MaxStrLen(RandomCompanyName));
         UserId := AddUser(Any.AlphabeticText(10), true, false);
@@ -210,6 +197,7 @@ codeunit 139146 "User Permissions Test"
     var
         AccessControl: Record "Access Control";
         UserPermissions: Codeunit "User Permissions";
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -221,6 +209,7 @@ codeunit 139146 "User Permissions Test"
 
         PermissionsMock.Set('User Permission View');
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         AccessControl.SetRange("User Security ID", UserId);
@@ -234,6 +223,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] the user is still SUPER
         Assert.IsTrue(UserPermissions.IsSuper(UserId), 'The user should still be SUPER.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -242,6 +232,7 @@ codeunit 139146 "User Permissions Test"
     procedure DeleteNonSuperAccessControlTest()
     var
         AccessControl: Record "Access Control";
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -252,6 +243,7 @@ codeunit 139146 "User Permissions Test"
         AddPermissions(UserId, SUPERTok, '');
         AddPermissions(UserId, NotSUPERTok, '');
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         AccessControl.SetRange("User Security ID", UserId);
@@ -263,6 +255,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] no error occurs
         Assert.AreEqual('', GetLastErrorText(), 'It should be possible to delete non-SUPER permissions from a SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -271,6 +264,7 @@ codeunit 139146 "User Permissions Test"
     procedure DeleteAccessControlNotSaasTest()
     var
         AccessControl: Record "Access Control";
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -280,6 +274,7 @@ codeunit 139146 "User Permissions Test"
         UserId := AddUser(Any.AlphabeticText(10), true, false);
         AddPermissions(UserId, SUPERTok, '');
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
         AccessControl.SetRange("User Security ID", UserId);
 
@@ -288,6 +283,8 @@ codeunit 139146 "User Permissions Test"
 
         // [Then] no error occurs
         Assert.AreEqual('', GetLastErrorText(), 'It should be possible to delete permissions when not on SaaS.');
+
+        UnbindSubscription(UserPermissionsTest);
     end;
 
     [Test]
@@ -295,6 +292,7 @@ codeunit 139146 "User Permissions Test"
     procedure DeleteAccessControlFromNonSuperUserTest()
     var
         AccessControl: Record "Access Control";
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -304,6 +302,7 @@ codeunit 139146 "User Permissions Test"
         UserId := AddUser(Any.AlphabeticText(10), true, false);
         AddPermissions(UserId, NotSUPERTok, '');
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
         AccessControl.SetRange("User Security ID", UserId);
 
@@ -313,6 +312,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] no error occurs
         Assert.AreEqual('', GetLastErrorText(), 'It should be possible to delete permissions from non-SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -321,6 +321,7 @@ codeunit 139146 "User Permissions Test"
     procedure DisableNonSuperUserTest()
     var
         User: Record User;
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -330,6 +331,7 @@ codeunit 139146 "User Permissions Test"
         UserId := AddUser(Any.AlphabeticText(10), true, false);
         AddPermissions(UserId, NotSUPERTok, '');
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         User.Get(UserId);
@@ -341,6 +343,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] no error occurs
         Assert.AreEqual('', GetLastErrorText(), 'It should be possible to disable a non-SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -349,6 +352,7 @@ codeunit 139146 "User Permissions Test"
     procedure DisableSuperUserWhenAnotherIsSuperTest()
     var
         User: Record User;
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         FirstUserId: Guid;
@@ -362,6 +366,7 @@ codeunit 139146 "User Permissions Test"
         AddPermissions(FirstUserId, SUPERTok, '');
         AddPermissions(SecondUserId, SUPERTok, '');
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         User.Get(FirstUserId);
@@ -373,6 +378,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] no error occurs
         Assert.AreEqual('', GetLastErrorText(), 'It should be possible to disable a SUPER user when there is another SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -381,6 +387,7 @@ codeunit 139146 "User Permissions Test"
     procedure DisableSuperUserWhenAnotherNonSuperUserTest()
     var
         User: Record User;
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         FirstUserId: Guid;
@@ -394,6 +401,7 @@ codeunit 139146 "User Permissions Test"
         AddPermissions(FirstUserId, SUPERTok, '');
         AddPermissions(SecondUserId, NotSUPERTok, '');
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         User.Get(FirstUserId);
@@ -405,6 +413,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] an error occurs
         Assert.AreEqual(SUPERPermissionErr, GetLastErrorText(), 'It should not be possible to disable the only SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -413,6 +422,7 @@ codeunit 139146 "User Permissions Test"
     procedure EnableSuperUserTest()
     var
         User: Record User;
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -423,6 +433,7 @@ codeunit 139146 "User Permissions Test"
 
         AddPermissions(UserId, SUPERTok, '');
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         User.Get(UserId);
@@ -434,6 +445,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] no error occurs
         Assert.AreEqual('', GetLastErrorText(), 'It should be possible to enable a SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -442,6 +454,7 @@ codeunit 139146 "User Permissions Test"
     procedure DisableSuperUserFailsTest()
     var
         User: Record User;
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -453,6 +466,7 @@ codeunit 139146 "User Permissions Test"
 
         User.Get(UserId);
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         Assert.AreEqual(User.State::Enabled, User.State, 'User should be enabled.');
@@ -464,6 +478,7 @@ codeunit 139146 "User Permissions Test"
         asserterror User.Modify(true);
         Assert.AreEqual(SUPERPermissionErr, GetLastErrorText(), 'It should not be possible to disable the only SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -472,6 +487,7 @@ codeunit 139146 "User Permissions Test"
     procedure DeleteNonSuperUserTest()
     var
         User: Record User;
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -483,6 +499,7 @@ codeunit 139146 "User Permissions Test"
 
         User.Get(UserId);
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         // [When] try to delete the user
@@ -491,6 +508,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] no error occurs 
         Assert.AreEqual('', GetLastErrorText(), 'It should be possible to delete a non-SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -499,6 +517,7 @@ codeunit 139146 "User Permissions Test"
     procedure DeleteSuperUserFailsTest()
     var
         User: Record User;
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         UserId: Guid;
@@ -510,6 +529,7 @@ codeunit 139146 "User Permissions Test"
         AddPermissions(UserId, SUPERTok, '');
         User.Get(UserId);
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         // [When] try to delete the only SUPER user
@@ -518,6 +538,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] an error occurs 
         Assert.AreEqual(SUPERPermissionErr, GetLastErrorText(), 'It should not be possible to delete the only SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 
@@ -526,6 +547,7 @@ codeunit 139146 "User Permissions Test"
     procedure DeleteSuperUserWhenAnotherUserIsSuperTest()
     var
         User: Record User;
+        UserPermissionsTest: Codeunit "User Permissions Test";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         Any: Codeunit Any;
         FirstUserId: Guid;
@@ -541,6 +563,7 @@ codeunit 139146 "User Permissions Test"
 
         User.Get(FirstUserId);
 
+        BindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         // [When] try to delete the first user
@@ -549,6 +572,7 @@ codeunit 139146 "User Permissions Test"
         // [Then] no error occurs 
         Assert.AreEqual('', GetLastErrorText(), 'It should not be possible to delete a SUPER user when there is another SUPER user.');
 
+        UnbindSubscription(UserPermissionsTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
     end;
 

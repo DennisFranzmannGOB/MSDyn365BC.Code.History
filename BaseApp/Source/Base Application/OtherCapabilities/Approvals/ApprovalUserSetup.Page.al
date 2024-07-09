@@ -1,12 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace System.Automation;
-
-using System.Environment.Configuration;
-using System.Security.User;
-
 page 663 "Approval User Setup"
 {
     AdditionalSearchTerms = 'delegate approver,substitute approver';
@@ -70,7 +61,7 @@ page 663 "Approval User Setup"
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies that the user on this line can approve all purchase quotes regardless of their amount. If you select this check box, then you cannot fill the Request Amount Approval Limit field.';
                 }
-                field(Substitute; Rec.Substitute)
+                field(Substitute; Substitute)
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the User ID of the user who acts as a substitute for the original approver.';
@@ -81,7 +72,7 @@ page 663 "Approval User Setup"
                     ExtendedDatatype = EMail;
                     ToolTip = 'Specifies the email address of the user in the User ID field.';
                 }
-                field(PhoneNo; Rec."Phone No.")
+                field(PhoneNo; "Phone No.")
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the user''s phone number.';
@@ -133,7 +124,7 @@ page 663 "Approval User Setup"
                 Caption = 'Notification Setup';
                 Image = Setup;
                 RunObject = Page "Notification Setup";
-                RunPageLink = "User ID" = field("User ID");
+                RunPageLink = "User ID" = FIELD("User ID");
                 ToolTip = 'Specify how the user receives notifications, for example about approval workflow steps.';
             }
         }
@@ -155,7 +146,7 @@ page 663 "Approval User Setup"
 
     trigger OnOpenPage()
     begin
-        Rec.HideExternalUsers();
+        HideExternalUsers();
     end;
 }
 

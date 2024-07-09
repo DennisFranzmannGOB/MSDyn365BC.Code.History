@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Globalization;
 
 /// <summary>
 /// Exposes function\alitys to add and retrieve translated texts for table fields.
@@ -127,7 +125,7 @@ codeunit 3711 Translation
     /// <param name="ToRecVariant">The record to which the translations are copied.</param>
     /// <error>If the RecVariant parameter is of type Record, and it is temporary.</error>
     /// <error>If the RecVariant parameter is of type Record, and the table number is 0.</error>
-    /// <error>If the FromRecVariant parameter is of type Record, the ToRecVariant parameter is of type Record and they are different.</error>
+    /// <error>If the FromRecVariant parameter is of type Record, the ToRecVariant parameter is of type Record and they are different.</error> 
     procedure Copy(FromRecVariant: Variant; ToRecVariant: Variant)
     begin
         TranslationImplementation.Copy(FromRecVariant, ToRecVariant, 0);
@@ -141,7 +139,7 @@ codeunit 3711 Translation
     /// <param name="FieldId">Id of the field for which the translation will be copied.</param>
     /// <error>If the RecVariant parameter is of type Record, and it is temporary.</error>
     /// <error>If the RecVariant parameter is of type Record, and the table number is 0.</error>
-    /// <error>If the FromRecVariant parameter is of type Record, the ToRecVariant parameter is of type Record and they are different.</error>
+    /// <error>If the FromRecVariant parameter is of type Record, the ToRecVariant parameter is of type Record and they are different.</error> 
     /// <error>If RecVariant passed is not of type Record.</error>
     /// <error>If the FieldId is 0.</error>
     procedure Copy(FromRecVariant: Variant; ToRecVariant: Variant; FieldId: Integer)
@@ -170,20 +168,7 @@ codeunit 3711 Translation
     /// <error>If the RecVariant parameter is the type Record, and the table number is 0.</error>
     procedure Show(RecVariant: Variant; FieldId: Integer)
     begin
-        Show(RecVariant, FieldId, false);
-    end;
-
-    /// <summary>
-    /// Shows all language translations that are available for a field in a new page.
-    /// </summary>
-    /// <param name="RecVariant">The record to get the translated value for.</param>
-    /// <param name="FieldId">The ID of the field to get translations for.</param>
-    /// <param name="CheckFieldLength">If this value is true, then it's checked that the translation isn't longer than the field length.</param>
-    /// <error>If the RecVariant parameter is the type Record, and it is temporary.</error>
-    /// <error>If the RecVariant parameter is the type Record, and the table number is 0.</error>
-    procedure Show(RecVariant: Variant; FieldId: Integer; CheckFieldLength: Boolean)
-    begin
-        TranslationImplementation.Show(RecVariant, FieldId, CheckFieldLength);
+        TranslationImplementation.Show(RecVariant, FieldId);
     end;
 
     /// <summary>

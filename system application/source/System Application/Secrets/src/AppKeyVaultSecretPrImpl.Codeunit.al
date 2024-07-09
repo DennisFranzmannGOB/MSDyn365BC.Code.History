@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security;
-
 codeunit 3801 "App Key Vault Secret Pr. Impl."
 {
     Access = Internal;
@@ -13,7 +11,7 @@ codeunit 3801 "App Key Vault Secret Pr. Impl."
 
     var
         [NonDebuggable]
-        NavAzureKeyVaultAppSecretProvider: DotNet AzureKeyVaultAppSecretProvider;
+        NavAzureKeyVaultAppSecretProvider: dotnet AzureKeyVaultAppSecretProvider;
         IsInitialized: Boolean;
         CannotInitializeErr: Label 'Couldn''t initialize the App Key Vault Secret Provider.\\Common reasons include:\- The extension doesn''t specify a key vault in its app.json file.\- The extension wasn''t published with a PublisherAzureActiveDirectoryTenantId and the server requires it\- The server''s Azure Key Vault settings are incorrect\- The server lacks permission to the private key of Azure Key Vault client certificate\\Please check the Event Log or Application Insights for more details.';
         NotInitializedErr: Label 'Cannot get secrets because the App Key Vault Secret Provider has not been initialized.';

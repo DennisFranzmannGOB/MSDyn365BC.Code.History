@@ -1,9 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.HumanResources.Employee;
-using Microsoft.Projects.Project.Job;
-using Microsoft.Integration.Graph;
-
 page 30041 "APIV2 - Time Registr. Entries"
 {
     APIVersion = 'v2.0';
@@ -23,145 +17,145 @@ page 30041 "APIV2 - Time Registr. Entries"
         {
             repeater(Group)
             {
-                field(employeeId; Rec."Employee Id")
+                field(employeeId; "Employee Id")
                 {
                     Caption = 'Employee Id';
 
                     trigger OnValidate()
 
                     begin
-                        if Rec."Employee Id" = BlankGUID then begin
-                            Rec."Employee No" := '';
+                        if "Employee Id" = BlankGUID then begin
+                            "Employee No" := '';
                             exit;
                         end;
 
-                        if Rec.HasFilter() then
-                            if Rec."Employee Id" <> Rec.GetFilter("Employee Id") then
+                        if HasFilter() then
+                            if "Employee Id" <> GetFilter("Employee Id") then
                                 Error(CannotChangeEmployeeIdErr);
 
-                        if not Employee.GetBySystemId(Rec."Employee Id") then
+                        if not Employee.GetBySystemId("Employee Id") then
                             Error(EmployeeIdDoesNotMatchAnEmployeeErr);
 
-                        Rec."Employee No" := Employee."No.";
+                        "Employee No" := Employee."No.";
                     end;
                 }
-                field(employeeNumber; Rec."Employee No")
+                field(employeeNumber; "Employee No")
                 {
                     Caption = 'Employee No.';
                     trigger OnValidate()
                     begin
                         if Employee."No." <> '' then begin
-                            if Employee."No." <> Rec."Employee No" then
+                            if Employee."No." <> "Employee No" then
                                 Error(EmployeeValuesDontMatchErr);
                             exit;
                         end;
 
-                        if Rec."Employee No" = '' then begin
-                            Rec."Employee Id" := BlankGUID;
+                        if "Employee No" = '' then begin
+                            "Employee Id" := BlankGUID;
                             exit;
                         end;
 
-                        if not Employee.Get(Rec."Employee No") then
+                        if not Employee.Get("Employee No") then
                             Error(EmployeeNumberDoesNotMatchAnEmployeeErr);
 
-                        if Rec.HasFilter() then
-                            if Employee.SystemId <> Rec.GetFilter("Employee Id") then
+                        if HasFilter() then
+                            if Employee.SystemId <> GetFilter("Employee Id") then
                                 Error(CannotChangeEmployeeNumberErr);
 
-                        Rec.Validate("Employee Id", Employee.SystemId);
+                        Validate("Employee Id", Employee.SystemId);
                     end;
 
                 }
-                field(jobId; Rec."job id")
+                field(jobId; "job id")
                 {
                     Caption = 'Job Id';
                     trigger OnValidate()
                     begin
-                        if Rec."Job Id" = BlankGUID then begin
-                            Rec."Job No." := '';
+                        if "Job Id" = BlankGUID then begin
+                            "Job No." := '';
                             exit;
                         end;
 
-                        if not Job.GetBySystemId(Rec."Job Id") then
+                        if not Job.GetBySystemId("Job Id") then
                             Error(JobIdDoesNotMatchAJobErr);
 
-                        Rec."Job No." := Job."No.";
+                        "Job No." := Job."No.";
                     end;
                 }
-                field(jobNumber; Rec."Job No.")
+                field(jobNumber; "Job No.")
                 {
                     Caption = 'Job No.';
                     trigger OnValidate()
                     begin
                         if Job."No." <> '' then begin
-                            if Job."No." <> Rec."Job No." then
+                            if Job."No." <> "Job No." then
                                 Error(JobValuesDontMatchErr);
                             exit;
                         end;
 
-                        if Rec."Job No." = '' then begin
-                            Rec."Job Id" := BlankGUID;
+                        if "Job No." = '' then begin
+                            "Job Id" := BlankGUID;
                             exit;
                         end;
 
-                        if not Job.Get(Rec."Job No.") then
+                        if not Job.Get("Job No.") then
                             Error(JobNumberDoesNotMatchAJobErr);
 
-                        Rec.Validate("Job Id", Job.SystemId);
+                        Validate("Job Id", Job.SystemId);
                     end;
                 }
-                field(jobTaskNumber; Rec."Job Task No.")
+                field(jobTaskNumber; "Job Task No.")
                 {
                     Caption = 'Job Task No.';
                 }
-                field(absence; Rec."Cause of Absence Code")
+                field(absence; "Cause of Absence Code")
                 {
                     Caption = 'Absence';
                     Editable = false;
                 }
-                field(lineNumber; Rec."Line No")
+                field(lineNumber; "Line No")
                 {
                     Caption = 'Line No.';
                     Editable = false;
                 }
-                field(date; Rec.Date)
+                field(date; Date)
                 {
                     Caption = 'Date';
                 }
-                field(quantity; Rec.Quantity)
+                field(quantity; Quantity)
                 {
                     Caption = 'Quantity';
                 }
-                field(status; Rec.Status)
+                field(status; Status)
                 {
                     Caption = 'Status';
                     Editable = false;
                 }
-                field(unitOfMeasureId; Rec."Unit of Measure Id")
+                field(unitOfMeasureId; "Unit of Measure Id")
                 {
                     Caption = 'Unit Of Measure Id';
                     Editable = false;
                 }
-                field(unitOfMeasureCode; Rec."Unit of Measure Code")
+                field(unitOfMeasureCode; "Unit of Measure Code")
                 {
                     Caption = 'Unit Of Measure Code';
                     Editable = false;
                 }
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(lastModfiedDateTime; Rec.SystemModifiedAt)
+                field(lastModfiedDateTime; SystemModifiedAt)
                 {
-                    Caption = 'Last Modified Date Time';
+                    Caption = 'Last Modfied Date Time';
                 }
                 part(dimensionSetLines; "APIV2 - Dimension Set Lines")
                 {
                     Caption = 'Dimension Set Lines';
                     EntityName = 'dimensionSetLine';
                     EntitySetName = 'dimensionSetLines';
-                    SubPageLink = "Parent Id" = field(Id), "Parent Type" = const("Time Registration Entry");
+                    SubPageLink = "Parent Id" = Field(Id), "Parent Type" = const("Time Registration Entry");
                 }
             }
         }
@@ -173,14 +167,14 @@ page 30041 "APIV2 - Time Registr. Entries"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        Rec.PropagateDelete();
+        PropagateDelete();
     end;
 
     trigger OnFindRecord(Which: Text): Boolean
     begin
         if not LinesLoaded then begin
-            Rec.LoadRecords(Rec.GetFilter(Id), Rec.GetFilter(Date), Rec.GetFilter("Employee Id"));
-            if not Rec.FindFirst() then
+            LoadRecords(GetFilter(Id), GetFilter(Date), GetFilter("Employee Id"));
+            if not FindFirst() then
                 exit(false);
             LinesLoaded := true;
         end;
@@ -190,26 +184,26 @@ page 30041 "APIV2 - Time Registr. Entries"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        if Rec."Employee Id" = BlankGUID then begin
-            if not Rec.HasFilter() then
+        if "Employee Id" = BlankGUID then begin
+            if not HasFilter() then
                 Error(EmployeeIdOrNumberShouldBeSpecifiedErr);
-            Rec.Validate("Employee Id", Rec.GetFilter("Employee Id"));
-            Employee.GetBySystemId(Rec."Employee Id");
-            Rec."Employee No" := Employee."No.";
+            Validate("Employee Id", GetFilter("Employee Id"));
+            Employee.GetBySystemId("Employee Id");
+            "Employee No" := Employee."No.";
         end;
 
-        Rec.PropagateInsert();
+        PropagateInsert();
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        if Rec."Employee Id" <> xRec."Employee Id" then
+        if "Employee Id" <> xRec."Employee Id" then
             Error(CannotModifyEmployeeIdErr);
 
-        if Rec.Date <> xRec.Date then
+        if Date <> xRec.Date then
             Error(CannotModifyDateErr);
 
-        Rec.PropagateModify();
+        PropagateModify();
     end;
 
     var

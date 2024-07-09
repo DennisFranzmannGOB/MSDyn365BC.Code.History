@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Storage;
-
-using System.Reflection;
-
 codeunit 9043 "ABS Helper Library"
 {
     Access = Internal;

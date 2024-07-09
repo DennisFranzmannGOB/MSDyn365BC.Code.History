@@ -342,8 +342,6 @@ codeunit 138033 "O365 Navigate"
         PostedSalesInvoice: TestPage "Posted Sales Invoice";
     begin
         LibrarySmallBusiness.CreateCustomer(Customer);
-        Customer."Payment Terms Code" := '';
-        Customer.Modify();
         LibrarySmallBusiness.CreateItem(Item);
 
         SalesInvoice.OpenNew();
@@ -373,8 +371,6 @@ codeunit 138033 "O365 Navigate"
         PurchaseInvoice: TestPage "Purchase Invoice";
     begin
         LibrarySmallBusiness.CreateVendor(Vendor);
-        Vendor."Payment Terms Code" := '';
-        Vendor.Modify();
         LibrarySmallBusiness.CreateItem(Item);
 
         PurchaseInvoice.OpenNew();

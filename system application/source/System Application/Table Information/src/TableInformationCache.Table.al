@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 table 8700 "Table Information Cache"
 {
     DataPerCompany = false;
@@ -40,7 +38,7 @@ table 8700 "Table Information Cache"
         {
             Caption = 'Size (KB)';
         }
-        field(7; Compression; Option)
+        field(7; "Compression"; Option)
         {
             Caption = 'Compression';
             OptionMembers = None,Row,Page,Columnstore,"Columnstore Archive";
@@ -63,7 +61,7 @@ table 8700 "Table Information Cache"
         }
         field(8701; "Last Period No. of Records"; Integer)
         {
-            Caption = 'Last Period No. of Records (30D)';
+            caption = 'Last Period No. of Records (30D)';
         }
 
     }

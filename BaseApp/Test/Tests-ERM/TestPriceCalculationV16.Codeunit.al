@@ -257,14 +257,11 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader."No." := LibraryRandom.RandText(20);
         SalesHeader."Posting Date" := WorkDate() + 5;
         SalesHeader."Order Date" := SalesHeader."Posting Date" - 1;
-        SalesHeader.Insert();
 
         // [GIVEN] Sales Line, where 'Posting Date' is '310120', while WorkDate is '250120'
         SalesLine."Posting Date" := SalesHeader."Posting Date" + 1;
         SalesLine.Type := SalesLine.Type::"G/L Account";
         SalesLine."No." := LibraryERM.CreateGLAccountNo();
-        SalesLine."Document No." := SalesHeader."No.";
-        SalesLine."Document Type" := SalesHeader."Document Type";
 
         // [GIVEN] Initialize LineWithPrice with SalesLine and Header
         LineWithPrice := SalesLinePrice;
@@ -295,14 +292,10 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader."No." := LibraryRandom.RandText(20);
         SalesHeader."Posting Date" := WorkDate() + 5;
         SalesHeader."Order Date" := SalesHeader."Posting Date" - 1;
-        SalesHeader.Insert();
-
         // [GIVEN] Sales Line, where 'Order Date' is '310120', while WorkDate is '250120'
         SalesLine."Posting Date" := SalesHeader."Posting Date" + 1;
         SalesLine.Type := SalesLine.Type::"G/L Account";
         SalesLine."No." := LibraryERM.CreateGLAccountNo();
-        SalesLine."Document No." := SalesHeader."No.";
-        SalesLine."Document Type" := SalesHeader."Document Type";
 
         // [GIVEN] Initialize LineWithPrice with SalesLine and Header
         LineWithPrice := SalesLinePrice;
@@ -533,14 +526,11 @@ codeunit 134159 "Test Price Calculation - V16"
         PurchaseHeader."No." := LibraryRandom.RandText(20);
         PurchaseHeader."Posting Date" := WorkDate() + 5;
         PurchaseHeader."Order Date" := PurchaseHeader."Posting Date" - 1;
-        PurchaseHeader.Insert();
 
         // [GIVEN] Purchase Line, while WorkDate is '250120'
         PurchaseLine.Type := PurchaseLine.Type::Resource;
         LibraryResource.CreateResource(Resource, '');
         PurchaseLine."No." := Resource."No.";
-        PurchaseLine."Document No." := PurchaseHeader."No.";
-        PurchaseLine."Document Type" := PurchaseHeader."Document Type";
 
         // [GIVEN] Initialize LineWithPrice with PurchaseLine and Header
         LineWithPrice := PurchaseLinePrice;
@@ -573,13 +563,9 @@ codeunit 134159 "Test Price Calculation - V16"
         PurchaseHeader."No." := LibraryRandom.RandText(20);
         PurchaseHeader."Posting Date" := WorkDate() + 5;
         PurchaseHeader."Order Date" := PurchaseHeader."Posting Date" - 1;
-        PurchaseHeader.Insert();
-
         // [GIVEN] Purchase Line, while WorkDate is '250120'
         PurchaseLine.Type := PurchaseLine.Type::"G/L Account";
         PurchaseLine."No." := LibraryERM.CreateGLAccountNo();
-        PurchaseLine."Document No." := PurchaseHeader."No.";
-        PurchaseLine."Document Type" := PurchaseHeader."Document Type";
 
         // [GIVEN] Initialize LineWithPrice with PurchaseLine and Header
         LineWithPrice := PurchaseLinePrice;

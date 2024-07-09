@@ -1,7 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using Microsoft.Finance.GeneralLedger.Budget;
-
 page 30305 "API Finance - GL Budgets"
 {
     PageType = API;

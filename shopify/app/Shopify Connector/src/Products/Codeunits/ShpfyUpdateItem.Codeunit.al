@@ -1,8 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Inventory.Item;
-using Microsoft.Purchases.Vendor;
-
 /// <summary>
 /// Codeunit Shpfy Update Item (ID 30188).
 /// </summary>
@@ -30,7 +25,7 @@ codeunit 30188 "Shpfy Update Item"
     begin
         if ShopifyProduct.Get(Rec."Product Id") then begin
             SetShop(ShopifyProduct."Shop Code");
-            if Item.GetBySystemId(Rec."Item SystemId") then begin
+            if Item.GetBySystemId(ShopifyProduct."Item SystemId") then begin
                 ProductEvents.OnBeforeUpdateItem(Shop, ShopifyProduct, Rec, Item, IsHandled);
 
                 if not IsHandled then
@@ -42,7 +37,6 @@ codeunit 30188 "Shpfy Update Item"
                     ProductEvents.OnBeforeUpdateItemVariant(Shop, ShopifyProduct, Rec, Item, ItemVariant, IsHandled);
                     if not IsHandled then begin
                         CreateItem.CreateReferences(ShopifyProduct, Rec, Item, ItemVariant);
-
                         if DoUpdateItemVariant(Rec, ItemVariant) then
                             ProductEvents.OnAfterUpdateItemVariant(Shop, ShopifyProduct, Rec, Item, ItemVariant);
                     end;
@@ -65,7 +59,6 @@ codeunit 30188 "Shpfy Update Item"
         ItemCategory: Record "Item Category";
         Vendor: Record Vendor;
         IsModified: Boolean;
-        IsModifiedByEvent: Boolean;
     begin
         if Item.Description <> ShopifyProduct.Title then begin
             IsModified := true;
@@ -87,10 +80,8 @@ codeunit 30188 "Shpfy Update Item"
                     Item."Vendor No." := Vendor."No.";
                 end;
         end;
-        ProductEvents.OnDoUpdateItemBeforeModify(Shop, ShopifyProduct, Item, IsModifiedByEvent);
-        if IsModified or IsModifiedByEvent then
-            exit(Item.Modify());
-        exit(false);
+        if IsModified then
+            exit(item.Modify());
     end;
 
     /// <summary> 
@@ -100,19 +91,11 @@ codeunit 30188 "Shpfy Update Item"
     /// <param name="ItemVariant">Parameter of type Record "Item Variant".</param>
     /// <returns>Return value of type Boolean.</returns>
     local procedure DoUpdateItemVariant(ShopifyVariant: Record "Shpfy Variant"; var ItemVariant: Record "Item Variant"): Boolean
-    var
-        IsModified: Boolean;
-        IsModifiedByEvent: Boolean;
     begin
         if ItemVariant.Description <> ShopifyVariant.Title then begin
             ItemVariant.Description := ShopifyVariant.Title;
-            IsModified := true;
-        end;
-
-        ProductEvents.OnDoUpdateItemVariantBeforeModify(Shop, ShopifyVariant, ItemVariant, IsModifiedByEvent);
-        if IsModified or IsModifiedByEvent then
             exit(ItemVariant.Modify());
-        exit(false);
+        end;
     end;
 
     /// <summary> 

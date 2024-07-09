@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Integration.Entity;
-
 page 30036 "APIV2 - Tax Areas"
 {
     APIVersion = 'v2.0';
@@ -22,25 +18,25 @@ page 30036 "APIV2 - Tax Areas"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'Code';
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'Display Name';
                 }
-                field(taxType; Rec.Type)
+                field(taxType; Type)
                 {
                     Caption = 'Tax Type';
                     Editable = false;
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                     Editable = false;
@@ -55,21 +51,22 @@ page 30036 "APIV2 - Tax Areas"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        Rec.PropagateDelete();
+        PropagateDelete();
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Rec.PropagateInsert();
+        PropagateInsert();
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        Rec.PropagateModify();
+        PropagateModify();
     end;
 
     trigger OnOpenPage()
     begin
-        Rec.LoadRecords();
+        LoadRecords();
     end;
 }
+

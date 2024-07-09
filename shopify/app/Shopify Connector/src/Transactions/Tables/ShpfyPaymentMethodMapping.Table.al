@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Bank.BankAccount;
-
 /// <summary>
 /// Table Shpfy Payment Method Mapping (ID 30134).
 /// </summary>

@@ -24,7 +24,8 @@ codeunit 134129 "ERM Reverse For Cust/Vendor"
         ReverseSignErr: Label 'Reversed Sign must be TRUE.';
         CustUnapplyErr: Label 'You cannot unapply Cust. Ledger Entry No. %1 because the entry';
         VendUnapplyErr: Label 'You cannot unapply Vendor Ledger Entry No. %1 because the entry';
-        ReversalSuccessfulTxt: Label 'The entries were successfully reversed.';
+        ErrorsMustMatchTxt: Label 'Errors must match.';
+        UnrealizedVATReverseErr: Label 'You cannot reverse %1 No. %2 because the entry has an associated Unrealized VAT Entry.';
 
     [Test]
     [HandlerFunctions('ConfirmHandler,MessageHandler')]
@@ -114,7 +115,7 @@ codeunit 134129 "ERM Reverse For Cust/Vendor"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ReversalMessageHandler')]
+    [HandlerFunctions('ConfirmHandler')]
     [Scope('OnPrem')]
     procedure ReverseCustPmtTransactionWithUnrealizedVAT()
     var
@@ -134,14 +135,18 @@ codeunit 134129 "ERM Reverse For Cust/Vendor"
 
         // Exercise: Reverse Posted Entry from Customer Legder.
         ReversalEntry.SetHideDialog(true);
-        ReversalEntry.ReverseTransaction(TransactionNo);
+        asserterror ReversalEntry.ReverseTransaction(TransactionNo);
 
-        // [THEN] Validation of successful reversal in message handler
+        // Verify: Verify User gets error message about associated unrealized VAT entry
+        Assert.AreEqual(
+          StrSubstNo(UnrealizedVATReverseErr, VATEntry.TableCaption(), VATEntry."Entry No."),
+          GetLastErrorText, ErrorsMustMatchTxt);
+
         ResetUnrealizedVATType;
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ReversalMessageHandler')]
+    [HandlerFunctions('ConfirmHandler')]
     [Scope('OnPrem')]
     procedure ReverseVendPmtTransactionWithUnrealizedVAT()
     var
@@ -161,9 +166,13 @@ codeunit 134129 "ERM Reverse For Cust/Vendor"
 
         // Exercise: Reverse Posted Entry from Customer Legder.
         ReversalEntry.SetHideDialog(true);
-        ReversalEntry.ReverseTransaction(TransactionNo);
+        asserterror ReversalEntry.ReverseTransaction(TransactionNo);
 
-        // [THEN] Validation of successful reversal in message handler
+        // Verify: Verify User gets error message about associated unrealized VAT entry
+        Assert.AreEqual(
+          StrSubstNo(UnrealizedVATReverseErr, VATEntry.TableCaption(), VATEntry."Entry No."),
+          GetLastErrorText, ErrorsMustMatchTxt);
+
         ResetUnrealizedVATType;
     end;
 
@@ -694,7 +703,7 @@ codeunit 134129 "ERM Reverse For Cust/Vendor"
             GLAccount."Gen. Bus. Posting Group", GLAccount."VAT Bus. Posting Group");
 
         CreateSalesDocument(SalesHeader, CustNo, GLAccount."No.");
-        SalesHeader.Validate("Payment Terms Code", '');
+        SalesHeader.Validate("Payment Discount %", 0);
         SalesHeader.Modify(true);
         exit(LibrarySales.PostSalesDocument(SalesHeader, true, true));
     end;
@@ -753,7 +762,7 @@ codeunit 134129 "ERM Reverse For Cust/Vendor"
             GLAccount."Gen. Bus. Posting Group", GLAccount."VAT Bus. Posting Group");
 
         CreatePurchDocument(PurchHeader, VendNo, GLAccount."No.");
-        PurchHeader.Validate("Payment Terms Code", '');
+        PurchHeader.Validate("Payment Discount %", 0);
         PurchHeader.Modify(true);
         exit(LibraryPurchase.PostPurchaseDocument(PurchHeader, true, true));
     end;
@@ -825,13 +834,6 @@ codeunit 134129 "ERM Reverse For Cust/Vendor"
     procedure MessageHandler(Message: Text[1024])
     begin
         // Message Handler.
-    end;
-
-    [MessageHandler]
-    [Scope('OnPrem')]
-    procedure ReversalMessageHandler(Message: Text[1024])
-    begin
-        Assert.ExpectedMessage(ReversalSuccessfulTxt, Message);
     end;
 }
 

@@ -69,17 +69,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType CouldNotGetAccessTokenErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 571534387 - NamedType 2389531293" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Could not establish the connection to the remote service for sending email. Try again later.</source>
-          <target state="translated">Nelze navázat připojení ke vzdálené službě pro odesílání emailů. Zkuste to znovu později.</target>
+        <trans-unit id="Codeunit 3663318601 - NamedType 3856184457" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Third-party extensions are restricted from obtaining access tokens. Please contact your system administrator.</source>
+          <target state="translated">Rozšíření třetích stran mají zakázáno získávat přístupové tokeny. Obraťte se na správce systému.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType ConnectionErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 571534387 - NamedType 3949230830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The request to send email has been blocked. To resolve the problem, enable outgoing HTTP requests for the Email - Outlook REST API app on the Extension Management page.</source>
-          <target state="translated">Žádost o odeslání emailu byla zablokována. Pokud chcete tento problém vyřešit, povolte odchozí požadavky HTTP pro aplikaci Email – Outlook REST API na stránce Správa rozšíření.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType EnvironmentBlocksErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType ThirdPartyExtensionsNotAllowedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2364649794" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Multi-Factor Authentication is enabled on this account but the user did not complete the setup. Please sign in to the account and try again.</source>
@@ -94,8 +88,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2917787611" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Could not send the email, because the user is delegated or external.</source>
-          <target state="translated">Email nelze odeslat, protože uživatel je delegován nebo externí.</target>
+          <source>Could not send the email because the user is external.</source>
+          <target state="translated">Email nelze odeslat, protože uživatel je externí.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailExternalUserErr</note>
         </trans-unit>
@@ -118,8 +112,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType AccountNotFoundErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 1683059839" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Client ID or Client secret is not set up on the Email Microsoft Entra application registration page.</source>
-          <target state="translated">ID klienta nebo tajný klíč klienta není nastaven na stránce registrace aplikace Microsoft Entra emailem.</target>
+          <source>Client ID or Client secret is not set up on the Email Application AAD Registration page.</source>
+          <target state="translated">ID klienta nebo tajný klíč klienta není nastaven na stránce Registrace AAD emailové aplikace.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType CannotConnectToMailServerErr</note>
         </trans-unit>
@@ -130,14 +124,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType OnPremOnlyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 3435643268" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To connect to your email account you must create an App registration in Microsoft Entra and then enter information about the registration on the Email Microsoft Entra application registration page in Business Central. Do you want to do that now?</source>
-          <target state="translated">Chcete-li se připojit ke svému emailovému účtu, musíte vytvořit registraci aplikace v Microsoft Entra a poté zadat informace o registraci na registrační stránce aplikace Email Microsoft Entra v Business Central. Chcete to udělat hned?</target>
+          <source>To connect to your email account you must create an App registration in Azure Active Directory and then enter information about the registration on the Email Application AAD Registration Page in Business Central. Do you want to do that now?</source>
+          <target state="translated">Chcete-li se připojit ke svému emailovému účtu, musíte vytvořit registraci aplikace ve službě Azure Active Directory a potom zadat informace o registraci na stránce registrace AAD emailové aplikace v Business Central. Chcete to udělat teď?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType SetupOutlookAPIQst</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Email Microsoft Entra application registration</source>
-          <target state="translated">Email Microsoft Entra registrace aplikace</target>
+          <source>Email Application AAD Registration</source>
+          <target state="translated">Registrace emailové aplikace AAD</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Property Caption</note>
         </trans-unit>
@@ -178,8 +172,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - NamedType UriIsNotValidErr</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Control 3123527090 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must already have registered your application in Microsoft Entra and granted certain permissions. Use the client ID and secret from that registration to authenticate the email account.</source>
-          <target state="translated">Musíte již zaregistrovat svou aplikaci v Microsoft Entra a udělit určitá oprávnění. K ověření emailového účtu použijte ID klienta a tajný klíč z této registrace.</target>
+          <source>You must already have registered your application in Azure Active Directory and granted certain permissions. Use the client ID and secret from that registration to authenticate the email account.</source>
+          <target state="translated">Musíte již zaregistrovat aplikaci ve službě Azure Active Directory a udělit určitá oprávnění. Pomocí ID klienta a tajného klíče od této registrace ověřte emailový účet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Control Info - Property InstructionalText</note>
         </trans-unit>
@@ -250,8 +244,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Control NotDoneIcon - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Action 2457075619 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete the Microsoft Entra app registration information in Business Central.</source>
-          <target state="translated">Odstraňte registrační informace aplikace Microsoft Entra v Business Central.</target>
+          <source>Delete the Azure Active Directory app registration information in Business Central.</source>
+          <target state="translated">Odstraňte registrační informace aplikace Azure Active Directory v Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Action Clear - Property ToolTip</note>
         </trans-unit>

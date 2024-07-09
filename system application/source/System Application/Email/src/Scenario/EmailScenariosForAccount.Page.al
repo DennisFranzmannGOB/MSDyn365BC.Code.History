@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 /// <summary>
 /// Displays the scenarios that could be linked to a provided e-mail account.
 /// </summary>
@@ -29,7 +27,7 @@ page 8894 "Email Scenarios for Account"
                 field(Name; Rec."Display Name")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the email scenario.';
+                    ToolTip = 'The email scenario.';
                     Caption = 'Email scenario';
                     Editable = false;
                 }

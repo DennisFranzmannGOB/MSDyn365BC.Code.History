@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.Reflection;
-
 table 30114 "Shpfy Data Capture"
 {
     Access = Internal;
@@ -83,7 +79,7 @@ table 30114 "Shpfy Data Capture"
     begin
         Add(TableNo, SystemId, Format(Data));
     end;
-
+    
     internal procedure Add(TableNo: Integer; SystemId: Guid; Data: JsonObject)
     begin
         Add(TableNo, SystemId, Format(Data));

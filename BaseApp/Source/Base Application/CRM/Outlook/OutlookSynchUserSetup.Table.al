@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using System.Security.AccessControl;
-
 table 5305 "Outlook Synch. User Setup"
 {
     Caption = 'Outlook Synch. User Setup';
@@ -19,6 +15,8 @@ table 5305 "Outlook Synch. User Setup"
             DataClassification = EndUserIdentifiableInformation;
             NotBlank = true;
             TableRelation = User."User Name";
+            //This property is currently not supported
+            //TestTableRelation = false;
             ValidateTableRelation = false;
         }
         field(2; "Synch. Entity Code"; Code[10])

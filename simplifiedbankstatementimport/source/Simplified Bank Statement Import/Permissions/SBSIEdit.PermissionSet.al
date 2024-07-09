@@ -1,5 +1,3 @@
-namespace Microsoft.Bank.StatementImport;
-
 permissionset 8857 "SBSI - Edit"
 {
     Assignable = false;

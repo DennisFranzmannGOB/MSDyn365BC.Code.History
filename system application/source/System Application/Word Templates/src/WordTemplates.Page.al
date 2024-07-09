@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Word;
-
-using System.Globalization;
-using System.Integration;
-using System.Telemetry;
-
 /// <summary>
 /// Presents a list of available Word templates.
 /// </summary>
@@ -52,7 +46,7 @@ page 9989 "Word Templates"
                         WordTemplateImpl: Codeunit "Word Template Impl.";
                         TableId: Integer;
                     begin
-                        TableId := WordTemplateImpl.SelectTable();
+                        TableID := WordTemplateImpl.SelectTable();
 
                         if TableId <> 0 then begin
                             Rec."Table ID" := TableId;
@@ -78,13 +72,13 @@ page 9989 "Word Templates"
             }
         }
 
-        area(FactBoxes)
+        area(Factboxes)
         {
             part("Word Template Related"; "Word Templates Related FactBox")
             {
                 ApplicationArea = All;
                 Caption = 'Related Entities';
-                SubPageLink = Code = field(Code);
+                SubPageLink = Code = Field(Code);
                 Editable = false;
             }
         }

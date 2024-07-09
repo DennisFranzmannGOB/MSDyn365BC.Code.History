@@ -1,8 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.History;
-using System.Threading;
-
 /// <summary>
 /// Page Shpfy Activities (ID 30100).
 /// </summary>

@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Utilities;
-
 /// <summary>
 /// Table with options to use with Regular Expressions
 /// </summary>
@@ -83,7 +81,7 @@ table 3966 "Regex Options"
     }
 
     /// <summary>
-    /// Gets the integer-representation of the combined regex options.
+    /// Gets the integer-representation of the combined regex options. 
     /// </summary>
     /// <returns>An integer for the combined regex options.</returns>
     procedure GetRegexOptions(): Integer

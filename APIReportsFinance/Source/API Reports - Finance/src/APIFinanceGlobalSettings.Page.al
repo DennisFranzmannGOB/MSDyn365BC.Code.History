@@ -1,8 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using System.Environment;
-using Microsoft.Finance.GeneralLedger.Setup;
-
 page 30306 "API Finance - Global Settings"
 {
     PageType = API;

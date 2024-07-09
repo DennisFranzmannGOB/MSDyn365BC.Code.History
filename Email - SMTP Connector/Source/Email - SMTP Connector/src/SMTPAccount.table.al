@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
 /// <summary>
 /// Holds the information for all e-mail accounts that are registered via the SMTP connector
 /// </summary>
@@ -37,8 +35,13 @@ table 4511 "SMTP Account"
         {
             DataClassification = CustomerContent;
             ObsoleteReason = 'Replaced by "Authentication Types" as the enum is moving to SMTP API app.';
+#if not CLEAN20
+            ObsoleteState = Pending;
+            ObsoleteTag = '20.0';
+#else
             ObsoleteState = Removed;
-            ObsoleteTag = '23.0';
+            ObsoleteTag = '22.0';
+#endif
         }
 
         field(5; "User Name"; Text[250])

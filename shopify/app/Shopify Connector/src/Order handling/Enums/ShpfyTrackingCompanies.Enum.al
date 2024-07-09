@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 // https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillment
 
 

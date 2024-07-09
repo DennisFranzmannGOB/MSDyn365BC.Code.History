@@ -161,7 +161,7 @@ codeunit 137408 "SCM Warehouse VI"
         CreateAndPostWarehouseReceiptFromPurchaseOrder(PurchaseLine, Location.Code);
         PutAwayWorksheet.OpenEdit;
         PutAwayWorksheet.GetWarehouseDocuments.Invoke;
-        QuantityToHandle := LibraryRandom.RandInt(10);
+        QuantityToHandle := Round(PurchaseLine.Quantity / LibraryRandom.RandDec(5, 2));  // Subtracting Random Quantity from the Purchase line Quantity.
 
         // Exercise: Update Quantity to Handle on Put Away Worksheet line and Invoke Create Put away from Pick Worksheet.
         PutAwayWorksheet."Qty. to Handle".SetValue(QuantityToHandle);
@@ -195,7 +195,7 @@ codeunit 137408 "SCM Warehouse VI"
         PutAwayWorksheet.GetWarehouseDocuments.Invoke;
         Commit();  // COMMIT is required here.
         PutAwayWorksheet.CreatePutAway.Invoke;
-        QuantityToHandle := LibraryRandom.RandInt(10);
+        QuantityToHandle := Round(PurchaseLine.Quantity / LibraryRandom.RandDec(5, 2));  // Subtracting Random Quantity from the Purchase line Quantity.
 
         // Exercise: Update Quantity to Handle on Put Away and Register the Put Away.
         UpdateQuantityToHandleInWarehouseActivityLine(PurchaseLine."Document No.", QuantityToHandle);
@@ -4412,7 +4412,7 @@ codeunit 137408 "SCM Warehouse VI"
         Item: Record Item;
     begin
         CreatePurchaseOrder(
-          PurchaseHeader, PurchaseLine, LocationCode, LibraryInventory.CreateItem(Item), LibraryRandom.RandIntInRange(50, 100));
+          PurchaseHeader, PurchaseLine, LocationCode, LibraryInventory.CreateItem(Item), LibraryRandom.RandDec(100, 2));
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
         LibraryWarehouse.CreateWhseReceiptFromPO(PurchaseHeader);
         PostWarehouseReceipt(PurchaseHeader."No.");
@@ -4440,19 +4440,9 @@ codeunit 137408 "SCM Warehouse VI"
     begin
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Require Put-away", true);
-        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Require Receive", RequireReceive);
         Location.Validate("Require Pick", true);
         Location.Validate("Require Shipment", RequireShipment);
-        if Location."Require Pick" then
-            if Location."Require Shipment" then
-                Location."Prod. Consump. Whse. Handling" := Location."Prod. Consump. Whse. Handling"::"Warehouse Pick (mandatory)"
-            else
-                Location."Prod. Consump. Whse. Handling" := Location."Prod. Consump. Whse. Handling"::"Inventory Pick/Movement";
-
-        if Location."Require Put-away" then
-            Location."Prod. Output Whse. Handling" := Location."Prod. Output Whse. Handling"::"Inventory Put-away";
-
         Location.Modify(true);
     end;
 

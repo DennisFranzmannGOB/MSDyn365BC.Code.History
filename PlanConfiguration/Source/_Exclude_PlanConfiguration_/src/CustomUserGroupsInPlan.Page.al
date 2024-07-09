@@ -4,8 +4,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
 /// <summary>
 /// List page that hold the custom user groups assigned to a plan.
 /// </summary>
@@ -19,7 +17,7 @@ page 9059 "Custom User Groups In Plan"
     Permissions = tabledata "Custom User Group In Plan" = rimd;
     Extensible = false;
     ObsoleteState = Pending;
-    ObsoleteReason = '[220_UserGroups] Use Custom Permission Sets in Plan page instead. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.';
+    ObsoleteReason = 'Use Custom Permission Sets in Plan page instead.';
     ObsoleteTag = '22.0';
 
     layout

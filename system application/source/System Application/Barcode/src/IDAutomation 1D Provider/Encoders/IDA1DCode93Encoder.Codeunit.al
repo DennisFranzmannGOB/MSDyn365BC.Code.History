@@ -1,14 +1,8 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation. All rights reserved. 
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Text;
-
-using System;
-using System.Utilities;
-
-/// <summary>
+/// <summary> 
 /// Code-93 barcode font implementation from IDAutomation
 /// from: https://www.idautomation.com/barcode-fonts/code-93/
 /// Similar to Code 39, but requires two checksum characters.

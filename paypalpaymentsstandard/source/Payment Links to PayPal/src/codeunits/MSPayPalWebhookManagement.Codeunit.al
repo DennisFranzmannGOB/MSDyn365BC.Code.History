@@ -1,10 +1,3 @@
-namespace Microsoft.Bank.PayPal;
-
-using System.Integration;
-using Microsoft.Bank.BankAccount;
-using Microsoft.Bank.Payment;
-using System.Telemetry;
-
 codeunit 1073 "MS - PayPal Webhook Management"
 {
     Permissions = TableData "Webhook Subscription" = rimd;
@@ -17,14 +10,14 @@ codeunit 1073 "MS - PayPal Webhook Management"
         InvoiceNoCode: Code[20];
         TotalAmount: Decimal;
     begin
-        if MSPayPalTransactionsMgt.ValidateNotification(Rec, InvoiceNo, TotalAmount) then begin
+        IF MSPayPalTransactionsMgt.ValidateNotification(Rec, InvoiceNo, TotalAmount) THEN BEGIN
             InvoiceNoCode := COPYSTR(InvoiceNo, 1, MAXSTRLEN(InvoiceNoCode));
             if not PostPaymentForInvoice(InvoiceNoCode, TotalAmount) then begin
                 Session.LogMessage('00008IH', PaymentRegistrationFailedTxt, Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
                 exit;
             end;
             Session.LogMessage('00001V8', MerchantsCustomerPaidTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-        end;
+        END;
     end;
 
     var
@@ -45,8 +38,6 @@ codeunit 1073 "MS - PayPal Webhook Management"
     local procedure SyncToNavOnWebhookNotificationInsert(var Rec: Record "Webhook Notification"; RunTrigger: Boolean);
     var
         WebhookSubscription: Record "Webhook Subscription";
-        MSPayPalStandardMgt: Codeunit "MS - PayPal Standard Mgt.";
-        FeatureTelemetry: Codeunit "Feature Telemetry";
         AccountID: Text[250];
         BackgroundSessionAllowed: Boolean;
     begin
@@ -54,26 +45,25 @@ codeunit 1073 "MS - PayPal Webhook Management"
             exit;
 
         Session.LogMessage('00008IP', ProcessingWebhookNotificationTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-        FeatureTelemetry.LogUsage('0000LHW', MSPayPalStandardMgt.GetFeatureTelemetryName(), ProcessingWebhookNotificationTxt);
 
         AccountID := LOWERCASE(Rec."Subscription ID");
         WebhookSubscription.SetRange("Subscription ID", AccountID);
         WebhookSubscription.SetFilter("Created By", GetCreatedByFilterForWebhooks());
-        if WebhookSubscription.IsEmpty() then begin
+        IF WebhookSubscription.IsEmpty() THEN BEGIN
             Session.LogMessage('00008GK', WebhookSubscriptionNotFoundTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-            exit;
-        end;
+            EXIT;
+        END;
 
-        BackgroundSessionAllowed := true;
+        BackgroundSessionAllowed := TRUE;
         OnBeforeRunPayPalNotificationBackgroundSession(BackgroundSessionAllowed);
 
-        if BackgroundSessionAllowed then begin
+        IF BackgroundSessionAllowed THEN BEGIN
             Session.LogMessage('00008GM', ProcessingPaymentInBackgroundSessionTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-            TASKSCHEDULER.CREATETASK(CODEUNIT::"MS - PayPal Webhook Management", 0, true, COMPANYNAME(), CURRENTDATETIME() + 200, Rec.RECORDID())
-        end else begin
+            TASKSCHEDULER.CREATETASK(CODEUNIT::"MS - PayPal Webhook Management", 0, TRUE, COMPANYNAME(), CURRENTDATETIME() + 200, Rec.RECORDID())
+        END ELSE BEGIN
             Session.LogMessage('00008GN', ProcessingPaymentInCurrentSessionTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
             CODEUNIT.RUN(CODEUNIT::"MS - PayPal Webhook Management", Rec);
-        end;
+        END;
 
         COMMIT();
     end;
@@ -91,28 +81,28 @@ codeunit 1073 "MS - PayPal Webhook Management"
         O365SalesInvoicePayment: Codeunit "O365 Sales Invoice Payment";
         MSPayPalStandardMgt: Codeunit "MS - PayPal Standard Mgt.";
     begin
-        if not O365SalesInvoicePayment.CollectRemainingPayments(InvoiceNo, TempPaymentRegistrationBuffer) then begin
+        IF NOT O365SalesInvoicePayment.CollectRemainingPayments(InvoiceNo, TempPaymentRegistrationBuffer) THEN BEGIN
             Session.LogMessage('00008GO', NoRemainingPaymentsTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-            exit(false);
-        end;
+            EXIT(FALSE);
+        END;
 
-        if TempPaymentRegistrationBuffer."Remaining Amount" >= AmountReceived then begin
+        IF TempPaymentRegistrationBuffer."Remaining Amount" >= AmountReceived THEN BEGIN
             Session.LogMessage('00008GP', RegisteringPaymentTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
             TempPaymentRegistrationBuffer.VALIDATE("Amount Received", AmountReceived);
             TempPaymentRegistrationBuffer.VALIDATE("Date Received", WORKDATE());
             MSPayPalStandardMgt.GetPayPalPaymentMethod(PaymentMethod);
             TempPaymentRegistrationBuffer.VALIDATE("Payment Method Code", PaymentMethod.Code);
-            TempPaymentRegistrationBuffer.MODIFY(true);
-            PaymentRegistrationMgt.Post(TempPaymentRegistrationBuffer, false);
+            TempPaymentRegistrationBuffer.MODIFY(TRUE);
+            PaymentRegistrationMgt.Post(TempPaymentRegistrationBuffer, FALSE);
             OnAfterPostPayPalPayment(TempPaymentRegistrationBuffer, AmountReceived);
             Session.LogMessage('00008IG', PaymentRegistrationSucceedTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-            exit(true);
-        end;
+            EXIT(TRUE);
+        END;
 
         Session.LogMessage('00008GQ', OverpaymentTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
         OnAfterReceivePayPalOverpayment(TempPaymentRegistrationBuffer, AmountReceived);
 
-        exit(false);
+        EXIT(FALSE);
     end;
 
     [IntegrationEvent(false, false)]

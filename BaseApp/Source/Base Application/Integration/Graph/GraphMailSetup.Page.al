@@ -1,13 +1,4 @@
 #if not CLEAN21
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Graph;
-
-using System.Email;
-using System.Security.AccessControl;
-
 page 411 "Graph Mail Setup"
 {
     Caption = 'Email Setup';
@@ -57,10 +48,10 @@ page 411 "Graph Mail Setup"
                         CurrPage.SaveRecord();
                         Commit();
 
-                        UserSpecifiedAddress.SetEmailAddress(Rec."Sender Email");
+                        UserSpecifiedAddress.SetEmailAddress("Sender Email");
                         if UserSpecifiedAddress.RunModal() = ACTION::OK then begin
                             Recipient := UserSpecifiedAddress.GetEmailAddress();
-                            Rec.SendTestMail(Recipient);
+                            SendTestMail(Recipient);
                             Message(StrSubstNo(TestSuccessMsg, Recipient));
                         end;
                     end;
@@ -120,11 +111,11 @@ page 411 "Graph Mail Setup"
         User: Record User;
         GraphMail: Codeunit "Graph Mail";
     begin
-        TokenAcquired := IsolatedStorage.Contains(Format(RefreshTokenKeyTxt), DataScope::Company) and (Rec."Expires On" > CurrentDateTime);
+        TokenAcquired := IsolatedStorage.Contains(Format(RefreshTokenKeyTxt), DataScope::Company) and ("Expires On" > CurrentDateTime);
 
-        if Rec.IsEnabled() then
+        if IsEnabled() then
             if User.Get(UserSecurityId()) then
-                CanSwitchToUserAccount := User."Authentication Email" <> Rec."Sender Email";
+                CanSwitchToUserAccount := User."Authentication Email" <> "Sender Email";
 
         if CanSwitchToUserAccount then
             CanSwitchToUserAccount := GraphMail.UserHasLicense();
@@ -145,8 +136,8 @@ page 411 "Graph Mail Setup"
             GraphMailSetup.Modify(true);
         end;
 
-        Rec.TransferFields(GraphMailSetup);
-        Rec.Insert();
+        TransferFields(GraphMailSetup);
+        Insert();
 
         LookupMode := CurrPage.LookupMode;
     end;
@@ -177,11 +168,11 @@ page 411 "Graph Mail Setup"
 
     local procedure InitAuthFlow()
     begin
-        if not Rec.Initialize(true) then
+        if not Initialize(true) then
             CurrPage.Close();
 
         TokenAcquired := true;
-        Rec.Modify();
+        Modify();
     end;
 
     local procedure ClearRefreshCode()

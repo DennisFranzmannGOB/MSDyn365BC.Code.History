@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Word;
-
-using System.Reflection;
-
 /// <summary>
 /// A list part page to view and edit related entities for Word templates.
 /// </summary>
@@ -23,12 +19,10 @@ page 9987 "Word Templates Related Part"
     Permissions = tabledata "Word Template" = r,
                   tabledata "Word Template Field" = r,
                   tabledata "Word Templates Related Table" = r;
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Tables)
             {
@@ -197,7 +191,7 @@ page 9987 "Word Templates Related Part"
         if Rec."Related Table ID" = SourceTableId then
             Error(CannotDeleteSourceRecordErr);
         TempWordTemplateField.Reset();
-        TempWordTemplateField.SetRange("Table ID", Rec."Related Table ID");
+        TempWordTemplateField.SetRange("Table ID", "Related Table ID");
         TempWordTemplateField.DeleteAll();
     end;
 
@@ -288,7 +282,7 @@ page 9987 "Word Templates Related Part"
     internal procedure GetRelatedTables(var RelatedTableIds: List of [Integer]; var RelatedTableCodes: List of [Code[5]])
     begin
         Rec.Reset();
-        Rec.SetFilter("Related Table ID", '<>%1', SourceTableId); // Exclude source record
+        Rec.SetFilter("Related Table ID", '<>%1', SourceTableId); // Exclude source record 
         if Rec.FindSet() then
             repeat
                 RelatedTableIds.Add(Rec."Related Table ID");
@@ -304,7 +298,7 @@ page 9987 "Word Templates Related Part"
     internal procedure GetRelatedTables(var WordTemplatesRelatedTable: Record "Word Templates Related Table" temporary)
     begin
         Rec.Reset();
-        Rec.SetFilter("Related Table ID", '<>%1', SourceTableId); // Exclude source record
+        Rec.SetFilter("Related Table ID", '<>%1', SourceTableId); // Exclude source record 
         if Rec.FindSet() then
             repeat
                 WordTemplatesRelatedTable.TransferFields(Rec);
@@ -316,7 +310,9 @@ page 9987 "Word Templates Related Part"
         TempWordTemplateField: Record "Word Template Field" temporary;
         WordTemplateImpl: Codeunit "Word Template Impl.";
         SelectedFieldsCount: Dictionary of [Integer, Integer];
+        [InDataSet]
         RecordTypeTxt: Text;
+        [InDataSet]
         NumberOfSelectedFields: Integer;
         EditEnabled: Boolean;
         SourceTableId: Integer;

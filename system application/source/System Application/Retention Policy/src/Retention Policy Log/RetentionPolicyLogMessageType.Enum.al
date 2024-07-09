@@ -3,10 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 /// <summary>
-/// Specifies the type of log message.
+/// Specifies the type of log message. 
 /// </summary>
 #pragma warning disable AL0659
 enum 3902 "Retention Policy Log Message Type"

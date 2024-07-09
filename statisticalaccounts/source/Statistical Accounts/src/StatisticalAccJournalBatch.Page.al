@@ -1,5 +1,3 @@
-namespace Microsoft.Finance.Analysis.StatisticalAccount;
-
 page 2630 "Statistical Acc. Journal Batch"
 {
     Caption = 'Statistical Account Journal Batch';

@@ -1,7 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
-using Microsoft.Finance.RoleCenters;
-
 pageextension 1150 "COHUB Accountant Role Center" extends "Accountant Role Center"
 {
     layout

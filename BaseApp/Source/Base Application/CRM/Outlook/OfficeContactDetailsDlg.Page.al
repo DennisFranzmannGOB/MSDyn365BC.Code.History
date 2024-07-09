@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.CRM.Contact;
-
 page 1630 "Office Contact Details Dlg"
 {
     Caption = 'Create New Contact';

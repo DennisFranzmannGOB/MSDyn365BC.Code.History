@@ -1,13 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.Integration.D365Sales;
-using Microsoft.Integration.SyncEngine;
-using Microsoft.Sales.Document;
-
 page 5336 "CRM Coupling Record"
 {
     Caption = 'Dataverse Coupling Record';
@@ -29,7 +19,7 @@ page 5336 "CRM Coupling Record"
                     group("Business Central")
                     {
                         Caption = 'Business Central';
-                        field(NAVName; Rec."NAV Name")
+                        field(NAVName; "NAV Name")
                         {
                             ApplicationArea = Suite;
                             Caption = 'Business Central Name';
@@ -40,11 +30,11 @@ page 5336 "CRM Coupling Record"
                         group(Control13)
                         {
                             ShowCaption = false;
-                            field(SyncActionControl; Rec."Sync Action")
+                            field(SyncActionControl; "Sync Action")
                             {
                                 ApplicationArea = Suite;
                                 Caption = 'Synchronize After Coupling';
-                                Enabled = not Rec."Create New";
+                                Enabled = NOT "Create New";
                                 OptionCaption = 'No,Yes - Use the Business Central data,Yes - Use the Dataverse data';
                                 ToolTip = 'Specifies whether to synchronize the data in the record in Business Central and the record in Dataverse.';
                             }
@@ -53,7 +43,7 @@ page 5336 "CRM Coupling Record"
                     group("Dynamics 365 Sales")
                     {
                         Caption = 'Dataverse';
-                        field(CRMName; Rec."CRM Name")
+                        field(CRMName; "CRM Name")
                         {
                             ApplicationArea = Suite;
                             Caption = 'Dataverse Name';
@@ -63,7 +53,7 @@ page 5336 "CRM Coupling Record"
 
                             trigger OnLookup(var Text: Text): Boolean
                             begin
-                                Rec.LookUpCRMName();
+                                LookUpCRMName();
                                 RefreshFields();
                             end;
 
@@ -76,17 +66,17 @@ page 5336 "CRM Coupling Record"
                             begin
                                 IntegrationTableMapping.SetRange(Type, IntegrationTableMapping.Type::Dataverse);
                                 IntegrationTableMapping.SetRange("Synch. Codeunit ID", CODEUNIT::"CRM Integration Table Synch.");
-                                IntegrationTableMapping.SetRange("Table ID", Rec."NAV Table ID");
-                                IntegrationTableMapping.SetRange("Integration Table ID", Rec."CRM Table ID");
+                                IntegrationTableMapping.SetRange("Table ID", "NAV Table ID");
+                                IntegrationTableMapping.SetRange("Integration Table ID", "CRM Table ID");
                                 IntegrationTableMapping.SetRange("Delete After Synchronization", false);
                                 if IntegrationTableMapping.FindFirst() then begin
                                     IntTableFilter := IntegrationTableMapping.GetIntegrationTableFilter();
-                                    IntegrationRecordRef.Open(Rec."CRM Table ID");
+                                    IntegrationRecordRef.Open("CRM Table ID");
                                     IntegrationRecordRef.SetView(IntTableFilter);
                                     IDFieldRef := IntegrationRecordRef.Field(IntegrationTableMapping."Integration Table UID Fld. No.");
-                                    IDFieldRef.SetFilter(Rec."CRM ID");
+                                    IDFieldRef.SetFilter("CRM ID");
                                     if IntegrationRecordRef.IsEmpty() then
-                                        Error(IntegrationRecordFilteredOutErr, CRMProductName.CDSServiceName(), Rec."CRM Name", IntegrationTableMapping.Name);
+                                        Error(IntegrationRecordFilteredOutErr, CRMProductName.CDSServiceName(), "CRM Name", IntegrationTableMapping.Name);
                                 end;
                                 RefreshFields();
                             end;
@@ -94,7 +84,7 @@ page 5336 "CRM Coupling Record"
                         group(Control15)
                         {
                             ShowCaption = false;
-                            field(CreateNewControl; Rec."Create New")
+                            field(CreateNewControl; "Create New")
                             {
                                 ApplicationArea = Suite;
                                 Caption = 'Create New';
@@ -144,7 +134,7 @@ page 5336 "CRM Coupling Record"
 
     procedure GetCRMId(): Guid
     begin
-        exit(Rec."CRM ID");
+        exit("CRM ID");
     end;
 
     local procedure RefreshFields()

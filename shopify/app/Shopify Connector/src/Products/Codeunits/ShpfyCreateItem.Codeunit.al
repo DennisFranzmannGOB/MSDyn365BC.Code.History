@@ -1,12 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.IO;
-using Microsoft.Inventory.Item;
-using Microsoft.Finance.Dimension;
-using Microsoft.Foundation.UOM;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Inventory.Item.Catalog;
-
 /// <summary>
 /// Codeunit Shpfy Create Item (ID 30171).
 /// </summary>

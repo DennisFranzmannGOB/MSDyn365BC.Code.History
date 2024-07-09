@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Finance.Dimension;
-
 permissionset 3505 "Global Dimensions - Edit"
 {
     Access = Public;

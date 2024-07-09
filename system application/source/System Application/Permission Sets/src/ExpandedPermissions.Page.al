@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 /// <summary>
 /// Page for viewing the expanded permissions of a permission set.
 /// </summary>
@@ -38,7 +36,6 @@ page 9862 "Expanded Permissions"
                 field("Object Name"; ObjectName)
                 {
                     ApplicationArea = All;
-                    Caption = 'Object Name';
                     ToolTip = 'Specifies the name of the object to which the permissions apply.';
                     Style = Strong;
                     StyleExpr = ZeroObjStyleExpr;

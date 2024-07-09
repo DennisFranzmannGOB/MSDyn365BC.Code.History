@@ -1,12 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.D365Sales;
-
-using Microsoft.Foundation.UOM;
-using Microsoft.Integration.Dataverse;
-
 page 5362 "CRM UnitGroup List"
 {
     ApplicationArea = Suite;
@@ -14,7 +5,7 @@ page 5362 "CRM UnitGroup List"
     Editable = false;
     PageType = List;
     SourceTable = "CRM Uomschedule";
-    SourceTableView = sorting(Name);
+    SourceTableView = SORTING(Name);
     UsageCategory = Lists;
 
     layout
@@ -31,19 +22,19 @@ page 5362 "CRM UnitGroup List"
                     StyleExpr = FirstColumnStyle;
                     ToolTip = 'Specifies the name of the record.';
                 }
-                field(BaseUoMName; Rec.BaseUoMName)
+                field(BaseUoMName; BaseUoMName)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Base Unit Name';
                     ToolTip = 'Specifies the base unit of measure of the Dynamics 365 Sales record.';
                 }
-                field(StateCode; Rec.StateCode)
+                field(StateCode; StateCode)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Status';
                     ToolTip = 'Specifies information related to the Dynamics 365 Sales connection. ';
                 }
-                field(StatusCode; Rec.StatusCode)
+                field(StatusCode; StatusCode)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Status Reason';
@@ -72,7 +63,7 @@ page 5362 "CRM UnitGroup List"
 
                 trigger OnAction()
                 begin
-                    Rec.MarkedOnly(true);
+                    MarkedOnly(true);
                 end;
             }
             action(ShowAll)
@@ -84,7 +75,7 @@ page 5362 "CRM UnitGroup List"
 
                 trigger OnAction()
                 begin
-                    Rec.MarkedOnly(false);
+                    MarkedOnly(false);
                 end;
             }
         }
@@ -116,20 +107,20 @@ page 5362 "CRM UnitGroup List"
         else
             MappedTableId := Database::"Unit of Measure";
 
-        if CRMIntegrationRecord.FindRecordIDFromID(Rec.UoMScheduleId, MappedTableId, RecordID) then
-            if CurrentlyCoupledCRMUomschedule.UoMScheduleId = Rec.UoMScheduleId then begin
+        if CRMIntegrationRecord.FindRecordIDFromID(UoMScheduleId, MappedTableId, RecordID) then
+            if CurrentlyCoupledCRMUomschedule.UoMScheduleId = UoMScheduleId then begin
                 Coupled := 'Current';
                 FirstColumnStyle := 'Strong';
-                Rec.Mark(true);
+                Mark(true);
             end else begin
                 Coupled := 'Yes';
                 FirstColumnStyle := 'Subordinate';
-                Rec.Mark(false);
+                Mark(false);
             end
         else begin
             Coupled := 'No';
             FirstColumnStyle := 'None';
-            Rec.Mark(true);
+            Mark(true);
         end;
     end;
 
@@ -142,9 +133,9 @@ page 5362 "CRM UnitGroup List"
     var
         LookupCRMTables: Codeunit "Lookup CRM Tables";
     begin
-        Rec.FilterGroup(4);
-        Rec.SetView(LookupCRMTables.GetIntegrationTableMappingView(DATABASE::"CRM Uomschedule"));
-        Rec.FilterGroup(0);
+        FilterGroup(4);
+        SetView(LookupCRMTables.GetIntegrationTableMappingView(DATABASE::"CRM Uomschedule"));
+        FilterGroup(0);
     end;
 
     var

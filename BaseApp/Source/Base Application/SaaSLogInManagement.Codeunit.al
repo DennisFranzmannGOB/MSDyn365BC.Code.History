@@ -1,11 +1,5 @@
-namespace System.Environment;
-
-using Microsoft;
-
 codeunit 50 "SaaS Log In Management"
 {
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     trigger OnRun()
     begin

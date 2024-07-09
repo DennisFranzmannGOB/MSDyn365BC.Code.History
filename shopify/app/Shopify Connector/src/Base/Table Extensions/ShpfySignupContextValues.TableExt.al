@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.Environment.Configuration;
-
 /// <summary>
 /// Table extension for the Signup Context values
 /// </summary>

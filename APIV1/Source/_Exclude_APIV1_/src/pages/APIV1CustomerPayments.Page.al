@@ -1,12 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Finance.GeneralLedger.Journal;
-using Microsoft.Sales.Customer;
-using Microsoft.Integration.Entity;
-using Microsoft.Sales.History;
-using Microsoft.Integration.Graph;
-using Microsoft.Finance.Dimension;
-
 page 20058 "APIV1 - Customer Payments"
 {
     APIVersion = 'v1.0';
@@ -25,7 +16,7 @@ page 20058 "APIV1 - Customer Payments"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     ApplicationArea = All;
                     Caption = 'Id', Locked = true;
@@ -41,30 +32,30 @@ page 20058 "APIV1 - Customer Payments"
                         Error(CannotEditBatchNameErr);
                     end;
                 }
-                field(lineNumber; Rec."Line No.")
+                field(lineNumber; "Line No.")
                 {
                     ApplicationArea = All;
                     Caption = 'LineNumber', Locked = true;
                 }
-                field(customerId; Rec."Customer Id")
+                field(customerId; "Customer Id")
                 {
                     ApplicationArea = All;
                     Caption = 'CustomerId', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        if Rec."Customer Id" = BlankGUID then begin
-                            Rec."Account No." := '';
+                        if "Customer Id" = BlankGUID then begin
+                            "Account No." := '';
                             exit;
                         end;
 
-                        if not Customer.GetBySystemId(Rec."Customer Id") then
+                        if not Customer.GetBySystemId("Customer Id") then
                             Error(CustomerIdDoesNotMatchACustomerErr);
 
-                        Rec."Account No." := Customer."No.";
+                        "Account No." := Customer."No.";
                     end;
                 }
-                field(customerNumber; Rec."Account No.")
+                field(customerNumber; "Account No.")
                 {
                     ApplicationArea = All;
                     Caption = 'CustomerNumber', Locked = true;
@@ -73,43 +64,43 @@ page 20058 "APIV1 - Customer Payments"
                     trigger OnValidate()
                     begin
                         if Customer."No." <> '' then begin
-                            if Customer."No." <> Rec."Account No." then
+                            if Customer."No." <> "Account No." then
                                 Error(CustomerValuesDontMatchErr);
                             exit;
                         end;
 
-                        if Rec."Account No." = '' then begin
-                            Rec."Customer Id" := BlankGUID;
+                        if "Account No." = '' then begin
+                            "Customer Id" := BlankGUID;
                             exit;
                         end;
 
-                        if not Customer.Get(Rec."Account No.") then
+                        if not Customer.Get("Account No.") then
                             Error(CustomerNumberDoesNotMatchACustomerErr);
 
-                        Rec."Customer Id" := Customer.SystemId;
+                        "Customer Id" := Customer.SystemId;
                     end;
                 }
-                field(contactId; Rec."Contact Graph Id")
+                field(contactId; "Contact Graph Id")
                 {
                     ApplicationArea = All;
                     Caption = 'ContactId', Locked = true;
                 }
-                field(postingDate; Rec."Posting Date")
+                field(postingDate; "Posting Date")
                 {
                     ApplicationArea = All;
                     Caption = 'PostingDate', Locked = true;
                 }
-                field(documentNumber; Rec."Document No.")
+                field(documentNumber; "Document No.")
                 {
                     ApplicationArea = All;
                     Caption = 'DocumentNumber', Locked = true;
                 }
-                field(externalDocumentNumber; Rec."External Document No.")
+                field(externalDocumentNumber; "External Document No.")
                 {
                     ApplicationArea = All;
                     Caption = 'ExternalDocumentNumber', Locked = true;
                 }
-                field(amount; Rec.Amount)
+                field(amount; Amount)
                 {
                     ApplicationArea = All;
                     Caption = 'Amount', Locked = true;
@@ -124,8 +115,8 @@ page 20058 "APIV1 - Customer Payments"
                     var
                         SalesInvoiceAggregator: Codeunit "Sales Invoice Aggregator";
                     begin
-                        Rec."Applies-to Invoice Id" := AppliesToInvoiceIdText;
-                        if Rec."Applies-to Invoice Id" = BlankGUID then begin
+                        "Applies-to Invoice Id" := AppliesToInvoiceIdText;
+                        if "Applies-to Invoice Id" = BlankGUID then begin
                             AppliesToInvoiceNumberText := '';
                             exit;
                         end;
@@ -136,11 +127,11 @@ page 20058 "APIV1 - Customer Payments"
 
                         AppliesToInvoiceNumberText := SalesInvoiceHeader."No.";
 
-                        if Rec."Account No." = '' then
+                        if "Account No." = '' then
                             if SalesInvoiceHeader."Bill-to Customer No." <> '' then
-                                Rec."Account No." := SalesInvoiceHeader."Bill-to Customer No."
+                                "Account No." := SalesInvoiceHeader."Bill-to Customer No."
                             else
-                                Rec."Account No." := SalesInvoiceHeader."Sell-to Customer No.";
+                                "Account No." := SalesInvoiceHeader."Sell-to Customer No.";
                     end;
                 }
                 field(appliesToInvoiceNumber; AppliesToInvoiceNumberText)
@@ -154,7 +145,7 @@ page 20058 "APIV1 - Customer Payments"
                         SalesInvoiceAggregator: Codeunit "Sales Invoice Aggregator";
                         BlankGUID: Guid;
                     begin
-                        Rec."Applies-to Doc. No." := AppliesToInvoiceNumberText;
+                        "Applies-to Doc. No." := AppliesToInvoiceNumberText;
 
                         if SalesInvoiceHeader."No." <> '' then begin
                             if SalesInvoiceHeader."No." <> AppliesToInvoiceNumberText then
@@ -164,21 +155,21 @@ page 20058 "APIV1 - Customer Payments"
 
                         if SalesInvoiceHeader.Get(AppliesToInvoiceNumberText) then begin
                             AppliesToInvoiceIdText := SalesInvoiceAggregator.GetSalesInvoiceHeaderId(SalesInvoiceHeader);
-                            if Rec."Account No." = '' then
+                            if "Account No." = '' then
                                 if SalesInvoiceHeader."Bill-to Customer No." <> '' then
-                                    Rec."Account No." := SalesInvoiceHeader."Bill-to Customer No."
+                                    "Account No." := SalesInvoiceHeader."Bill-to Customer No."
                                 else
-                                    Rec."Account No." := SalesInvoiceHeader."Sell-to Customer No.";
+                                    "Account No." := SalesInvoiceHeader."Sell-to Customer No.";
                         end else
                             AppliesToInvoiceIdText := BlankGUID;
                     end;
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     ApplicationArea = All;
                     Caption = 'Description', Locked = true;
                 }
-                field(comment; Rec.Comment)
+                field(comment; Comment)
                 {
                     ApplicationArea = All;
                     Caption = 'Comment', Locked = true;
@@ -197,7 +188,7 @@ page 20058 "APIV1 - Customer Payments"
                         DimensionsSet := PreviousDimensionsJSON <> DimensionsJSON;
                     end;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified DateTime")
+                field(lastModifiedDateTime; "Last Modified DateTime")
                 {
                     ApplicationArea = All;
                     Caption = 'LastModifiedDateTime', Locked = true;
@@ -253,14 +244,14 @@ page 20058 "APIV1 - Customer Payments"
     begin
         ProcessAppliesToInvoiceNumberAndId();
 
-        GenJournalLine.GetBySystemId(Rec.SystemId);
+        GenJournalLine.GetBySystemId(SystemId);
 
-        if Rec."Line No." = GenJournalLine."Line No." then
-            Rec.Modify(true)
+        if "Line No." = GenJournalLine."Line No." then
+            Modify(true)
         else begin
             GenJournalLine.TransferFields(Rec, false);
-            GenJournalLine.Rename(Rec."Journal Template Name", Rec."Journal Batch Name", Rec."Line No.");
-            Rec.TransferFields(GenJournalLine, true);
+            GenJournalLine.Rename("Journal Template Name", "Journal Batch Name", "Line No.");
+            TransferFields(GenJournalLine, true);
         end;
 
         UpdateDimensions(false);
@@ -276,9 +267,9 @@ page 20058 "APIV1 - Customer Payments"
 
         ClearCalculatedFields();
 
-        Rec."Document Type" := Rec."Document Type"::Payment;
-        Rec."Account Type" := Rec."Account Type"::Customer;
-        Rec."Applies-to Doc. Type" := Rec."Applies-to Doc. Type"::Invoice;
+        "Document Type" := "Document Type"::Payment;
+        "Account Type" := "Account Type"::Customer;
+        "Applies-to Doc. Type" := "Applies-to Doc. Type"::Invoice;
     end;
 
     trigger OnOpenPage()
@@ -310,17 +301,17 @@ page 20058 "APIV1 - Customer Payments"
     local procedure TransferGeneratedFieldsFromInitializeLine(var GenJournalLine: Record "Gen. Journal Line")
     begin
         if GenJournalLine."Document No." = '' then
-            GenJournalLine."Document No." := Rec."Document No.";
+            GenJournalLine."Document No." := "Document No.";
     end;
 
     local procedure SetCalculatedFields()
     var
         GraphMgtComplexTypes: Codeunit "Graph Mgt - Complex Types";
     begin
-        GlobalJournalDisplayNameTxt := Rec."Journal Batch Name";
-        AppliesToInvoiceNumberText := Rec."Applies-to Doc. No.";
-        AppliesToInvoiceIdText := Rec."Applies-to Invoice Id";
-        DimensionsJSON := GraphMgtComplexTypes.GetDimensionsJSON(Rec."Dimension Set ID");
+        GlobalJournalDisplayNameTxt := "Journal Batch Name";
+        AppliesToInvoiceNumberText := "Applies-to Doc. No.";
+        AppliesToInvoiceIdText := "Applies-to Invoice Id";
+        DimensionsJSON := GraphMgtComplexTypes.GetDimensionsJSON("Dimension Set ID");
         PreviousDimensionsJSON := DimensionsJSON;
     end;
 
@@ -337,14 +328,14 @@ page 20058 "APIV1 - Customer Payments"
     local procedure ProcessAppliesToInvoiceNumberAndId()
     begin
         if AppliesToInvoiceNumberText <> '' then
-            Rec."Applies-to Doc. No." := AppliesToInvoiceNumberText;
-        Rec."Applies-to Invoice Id" := AppliesToInvoiceIdText;
+            "Applies-to Doc. No." := AppliesToInvoiceNumberText;
+        "Applies-to Invoice Id" := AppliesToInvoiceIdText;
     end;
 
     local procedure CheckFilters()
     begin
-        if (Rec.GetFilter("Journal Batch Id") = '') and
-           (Rec.GetFilter(SystemId) = '')
+        if (GetFilter("Journal Batch Id") = '') and
+           (GetFilter(SystemId) = '')
         then
             Error(FiltersNotSpecifiedErr);
     end;
@@ -358,14 +349,13 @@ page 20058 "APIV1 - Customer Payments"
         if not DimensionsSet then
             exit;
 
-        GraphMgtComplexTypes.GetDimensionSetFromJSON(DimensionsJSON, Rec."Dimension Set ID", NewDimensionSetId);
-        if Rec."Dimension Set ID" <> NewDimensionSetId then begin
-            Rec."Dimension Set ID" := NewDimensionSetId;
-            DimensionManagement.UpdateGlobalDimFromDimSetID(NewDimensionSetId, Rec."Shortcut Dimension 1 Code", Rec."Shortcut Dimension 2 Code");
+        GraphMgtComplexTypes.GetDimensionSetFromJSON(DimensionsJSON, "Dimension Set ID", NewDimensionSetId);
+        if "Dimension Set ID" <> NewDimensionSetId then begin
+            "Dimension Set ID" := NewDimensionSetId;
+            DimensionManagement.UpdateGlobalDimFromDimSetID(NewDimensionSetId, "Shortcut Dimension 1 Code", "Shortcut Dimension 2 Code");
             if LineExists then
-                Rec.Modify();
+                Modify();
         end;
     end;
 }
-
 

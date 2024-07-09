@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Finance.Currency;
-using Microsoft.Integration.Graph;
-
 page 20019 "APIV1 - Currencies"
 {
     APIVersion = 'v1.0';
@@ -21,58 +16,58 @@ page 20019 "APIV1 - Currencies"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'code', Locked = true;
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FIELDNO(Code));
                     end;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'description', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FIELDNO(Description));
                     end;
                 }
-                field(symbol; Rec.Symbol)
+                field(symbol; Symbol)
                 {
                     Caption = 'symbol', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Symbol));
+                        RegisterFieldSet(FIELDNO(Symbol));
                     end;
                 }
-                field(amountDecimalPlaces; Rec."Amount Decimal Places")
+                field(amountDecimalPlaces; "Amount Decimal Places")
                 {
                     Caption = 'amountDecimalPlaces', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Amount Decimal Places"));
+                        RegisterFieldSet(FIELDNO("Amount Decimal Places"));
                     end;
                 }
-                field(amountRoundingPrecision; Rec."Invoice Rounding Precision")
+                field(amountRoundingPrecision; "Invoice Rounding Precision")
                 {
                     Caption = 'amountRoundingPrecision', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Amount Rounding Precision"));
+                        RegisterFieldSet(FIELDNO("Amount Rounding Precision"));
                     end;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
@@ -89,27 +84,27 @@ page 20019 "APIV1 - Currencies"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         RecordRef: RecordRef;
     begin
-        Rec.insert(true);
+        INSERT(TRUE);
 
-        RecordRef.GetTable(Rec);
+        RecordRef.GETTABLE(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(RecordRef, TempFieldSet, CURRENTDATETIME());
-        RecordRef.SetTable(Rec);
+        RecordRef.SETTABLE(Rec);
 
-        Rec.Modify(true);
-        exit(false);
+        MODIFY(TRUE);
+        EXIT(FALSE);
     end;
 
     trigger OnModifyRecord(): Boolean
     var
         Currency: Record "Currency";
     begin
-        Currency.GetBySystemId(Rec.SystemId);
+        Currency.GetBySystemId(SystemId);
 
-        if Rec.Code <> Currency.Code then begin
-            Currency.TransferFields(Rec, false);
-            Currency.Rename(Rec.Code);
-            Rec.TransferFields(Currency);
-        end;
+        IF Code <> Currency.Code THEN BEGIN
+            Currency.TRANSFERFIELDS(Rec, FALSE);
+            Currency.RENAME(Code);
+            TRANSFERFIELDS(Currency);
+        END;
     end;
 
     var
@@ -117,16 +112,15 @@ page 20019 "APIV1 - Currencies"
 
     local procedure RegisterFieldSet(FieldNo: Integer)
     begin
-        if TempFieldSet.Get(Database::Currency, FieldNo) then
-            exit;
+        IF TempFieldSet.GET(DATABASE::Currency, FieldNo) THEN
+            EXIT;
 
-        TempFieldSet.Init();
-        TempFieldSet.TableNo := Database::Currency;        TempFieldSet.TableNo := DATABASE::Currency;
-        TempFieldSet.Validate("No.", FieldNo);
-        TempFieldSet.Insert(true);
+        TempFieldSet.INIT();
+        TempFieldSet.TableNo := DATABASE::Currency;
+        TempFieldSet.VALIDATE("No.", FieldNo);
+        TempFieldSet.INSERT(TRUE);
     end;
 }
-
 
 
 

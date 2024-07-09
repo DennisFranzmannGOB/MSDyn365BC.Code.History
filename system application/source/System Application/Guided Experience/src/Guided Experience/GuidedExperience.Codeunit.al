@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Media;
-
 /// <summary>
 /// Manage the guided experience items that users can access.
 /// </summary>
@@ -21,12 +17,11 @@ codeunit 1990 "Guided Experience"
     /// <param name="Title">The title of the manual setup.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the manual setup.</param>
-    /// <param name="ExpectedDuration">How many minutes the setup is expected to take, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">How many minutes the setup is expected to take.</param>
     /// <param name="ObjectTypeToRun">The type of the object to be run as part of the setup.</param>
     /// <param name="ObjectIDToRun">The ID of the object to be run as part of the setup.</param>
     /// <param name="ManualSetupCategory">The category that this manual setup belongs to.</param>
     /// <param name="Keywords">The keywords related to the manual setup.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
     procedure InsertManualSetup(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; ObjectTypeToRun: ObjectType; ObjectIDToRun: Integer; ManualSetupCategory: Enum "Manual Setup Category"; Keywords: Text[250])
     var
         CallerModuleInfo: ModuleInfo;
@@ -47,13 +42,12 @@ codeunit 1990 "Guided Experience"
     /// <param name="Title">The title of the manual setup.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the manual setup.</param>
-    /// <param name="ExpectedDuration">How many minutes the setup is expected to take, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">How many minutes the setup is expected to take.</param>
     /// <param name="ObjectTypeToRun">The type of the object to be run as part of the setup.</param>
     /// <param name="ObjectIDToRun">The ID of the object to be run as part of the setup.</param>
     /// <param name="ManualSetupCategory">The category that this manual setup belongs to.</param>
     /// <param name="Keywords">The keywords related to the manual setup.</param>
-    /// <param name="IsPrimarySetup">Is this a primary setup for this extension.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
+    /// <param name="IsPrimarySetup">Is this a primary setup for this extenion.</param>
     procedure InsertManualSetup(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; ObjectTypeToRun: ObjectType; ObjectIDToRun: Integer; ManualSetupCategory: Enum "Manual Setup Category"; Keywords: Text[250]; IsPrimarySetup: Boolean)
     var
         CallerModuleInfo: ModuleInfo;
@@ -74,14 +68,13 @@ codeunit 1990 "Guided Experience"
     /// <param name="Title">The title of the assisted setup.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the assisted setup.</param>
-    /// <param name="ExpectedDuration">How many minutes the setup is expected to take, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">How many minutes the setup is expected to take.</param>
     /// <param name="ObjectTypeToRun">The type of the object to be run as part of the setup.</param>
     /// <param name="ObjectIDToRun">The ID of the object to be run as part of the setup.</param>
     /// <param name="AssistedSetupGroup">The assisted setup group enum that this belongs to.</param>
     /// <param name="VideoUrl">The URL of the video that explains the purpose and use of this setup.</param>
     /// <param name="VideoCategory">The category of the video for this setup.</param>
     /// <param name="HelpLink">The help url that explains the purpose and usage of this setup.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
     procedure InsertAssistedSetup(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; ObjectTypeToRun: ObjectType; ObjectIDToRun: Integer; AssistedSetupGroup: Enum "Assisted Setup Group"; VideoUrl: Text[250]; VideoCategory: Enum "Video Category"; HelpUrl: Text[250])
     var
         CallerModuleInfo: ModuleInfo;
@@ -101,7 +94,7 @@ codeunit 1990 "Guided Experience"
     /// <param name="Title">The title of the assisted setup.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the assisted setup.</param>
-    /// <param name="ExpectedDuration">How many minutes the setup is expected to take, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">How many minutes the setup is expected to take.</param>
     /// <param name="ObjectTypeToRun">The type of the object to be run as part of the setup.</param>
     /// <param name="ObjectIDToRun">The ID of the object to be run as part of the setup.</param>
     /// <param name="AssistedSetupGroup">The assisted setup group enum that this belongs to.</param>
@@ -109,7 +102,6 @@ codeunit 1990 "Guided Experience"
     /// <param name="VideoCategory">The category of the video for this setup.</param>
     /// <param name="HelpLink">The help url that explains the purpose and usage of this setup.</param>
     /// <param name="IsPrimarySetup">Is this a primary setup for this extenion.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
     procedure InsertAssistedSetup(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; ObjectTypeToRun: ObjectType; ObjectIDToRun: Integer; AssistedSetupGroup: Enum "Assisted Setup Group"; VideoUrl: Text[250]; VideoCategory: Enum "Video Category"; HelpUrl: Text[250]; IsPrimarySetup: Boolean)
     var
         CallerModuleInfo: ModuleInfo;
@@ -125,13 +117,38 @@ codeunit 1990 "Guided Experience"
             SpotlighTourType::None, SpotlightTourTexts, true, IsPrimarySetup);
     end;
 
+#if not CLEAN19
+    /// <summary>Inserts a learn page.</summary>
+    /// <param name="Title">The title of the learn page.</param>
+    /// <param name="ShortTitle">A short title used for the checklist.</param>
+    /// <param name="Description">The description of the learn page.</param>
+    /// <param name="ExpectedDuration">How many minutes the learn page would take to read.</param>
+    /// <param name="PageID">The ID of the learn page.</param>
+    [Obsolete('Use InsertManualSetup instead.', '19.0')]
+    procedure InsertLearnPage(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; PageID: Integer)
+    var
+        CallerModuleInfo: ModuleInfo;
+        GuidedExperienceType: Enum "Guided Experience Type";
+        AssistedSetupGroup: Enum "Assisted Setup Group";
+        VideoCategory: Enum "Video Category";
+        ManualSetupCategory: Enum "Manual Setup Category";
+        SpotlighTourType: Enum "Spotlight Tour Type";
+        SpotlightTourTexts: Dictionary of [Enum "Spotlight Tour Text", Text];
+    begin
+        NavApp.GetCallerModuleInfo(CallerModuleInfo);
+
+        GuidedExperienceImpl.Insert(Title, ShortTitle, Description, ExpectedDuration, CallerModuleInfo.Id, GuidedExperienceType::Learn,
+            ObjectType::Page, PageID, '', AssistedSetupGroup::Uncategorized, '', VideoCategory::Uncategorized, '',
+            ManualSetupCategory::Uncategorized, '', SpotlighTourType::None, SpotlightTourTexts, true);
+    end;
+#endif
+
     /// <summary>Inserts a learn link.</summary>
     /// <param name="Title">The title of the learn link.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the learn link.</param>
-    /// <param name="ExpectedDuration">How many minutes the user should expect to spend using the link, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">How many minutes the user should expect to spend using the link.</param>
     /// <param name="Link">The learn link.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
     procedure InsertLearnLink(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; Link: Text[250])
     var
         CallerModuleInfo: ModuleInfo;
@@ -154,9 +171,8 @@ codeunit 1990 "Guided Experience"
     /// <param name="Title">The title of the tour.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the tour.</param>
-    /// <param name="ExpectedDuration">How many minutes the user should expect to spend taking the tour, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">How many minutes the user should expect to spend taking the tour.</param>
     /// <param name="PageID">The ID of the page that the tour is run on.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
     procedure InsertTour(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; PageID: Integer)
     var
         CallerModuleInfo: ModuleInfo;
@@ -179,11 +195,10 @@ codeunit 1990 "Guided Experience"
     /// <param name="Title">The title of the manual setup.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the manual setup.</param>
-    /// <param name="ExpectedDuration">How many minutes the tour is expected to take, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">How many minutes the tour is expected to take.</param>
     /// <param name="PageID">The ID of the page that the spotlight tour will be run on.</param>
     /// <param name="SpotlightTourType">The type of spotlight tour.</param>
     /// <param name="SpotlightTourTexts">The texts that will be displayed during the spotlight tour.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
     procedure InsertSpotlightTour(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; PageID: Integer; SpotlighTourType: Enum "Spotlight Tour Type"; SpotlightTourTexts: Dictionary of [Enum "Spotlight Tour Text", Text])
     var
         CallerModuleInfo: ModuleInfo;
@@ -203,10 +218,9 @@ codeunit 1990 "Guided Experience"
     /// <param name="Title">The title of the application feature.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the application feature.</param>
-    /// <param name="ExpectedDuration">How many minutes the user should expect to spend, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">How many minutes the user should expect to spend .</param>
     /// <param name="ObjectTypeToRun">The object type to run for the application feature.</param>
     /// <param name="ObjectIDToRun">The object ID to run for the application feature.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
     procedure InsertApplicationFeature(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; ObjectTypeToRun: ObjectType; ObjectIDToRun: Integer)
     var
         CallerModuleInfo: ModuleInfo;
@@ -228,10 +242,9 @@ codeunit 1990 "Guided Experience"
     /// <param name="Title">The title of the video.</param>
     /// <param name="ShortTitle">A short title used for the checklist.</param>
     /// <param name="Description">The description of the video.</param>
-    /// <param name="ExpectedDuration">The duration of the video in minutes, should be lower than 30000.</param>
+    /// <param name="ExpectedDuration">The duration of the video in minutes.</param>
     /// <param name="VideoUrl">The URL of the video.</param>
     /// <param name="VideoCategory">The category of the video.</param>
-    /// <error> If the ExpectedDuration parameter is greater than 30000. </error>
     procedure InsertVideo(Title: Text[2048]; ShortTitle: Text[50]; Description: Text[1024]; ExpectedDuration: Integer; VideoURL: Text[250]; VideoCategory: Enum "Video Category")
     var
         CallerModuleInfo: ModuleInfo;
@@ -277,7 +290,7 @@ codeunit 1990 "Guided Experience"
     end;
 
     /// <summary>Adds the translation for the description of the setup object.</summary>
-    /// <param name="GuidedExperienceType">The type of setup object.</param>///
+    /// <param name="GuidedExperienceType">The type of setup object.</param>/// 
     /// <param name="ObjectType">The object type that identifies the guided experience item.</param>
     /// <param name="ObjectID">The object ID that identifies the guided experience item.</param>
     /// <param name="LanguageID">The language ID for which the translation is made.</param>
@@ -290,7 +303,7 @@ codeunit 1990 "Guided Experience"
     end;
 
     /// <summary>Adds the translation for the short title of the setup object.</summary>
-    /// <param name="GuidedExperienceType">The type of setup object.</param>
+    /// <param name="GuidedExperienceType">The type of setup object.</param> 
     /// <param name="ObjectType">The object type that identifies the guided experience item.</param>
     /// <param name="ObjectID">The object ID that identifies the guided experience item.</param>
     /// <param name="LanguageID">The language ID for which the translation is made.</param>
@@ -305,14 +318,14 @@ codeunit 1990 "Guided Experience"
     /// <summary>Checks whether a user has completed the setup corresponding to the object type and ID.</summary>
     /// <param name="ObjectType">The object type that identifies the guided experience item.</param>
     /// <param name="ObjectID">The object ID that identifies the guided experience item.</param>
-    /// <returns>Returns true if the given setup guide has been completed by a user, otherwise false.</returns>
+    /// <returns>Returns true if the given setup guide has been completed by a user, otherwise false.</returns> 
     procedure IsAssistedSetupComplete(ObjectType: ObjectType; ObjectID: Integer): Boolean
     begin
         exit(GuidedExperienceImpl.IsAssistedSetupComplete(ObjectType, ObjectID));
     end;
 
     /// <summary>Checks whether a guided experience item exists for the given object type and ID.</summary>
-    /// <param name="GuidedExperienceType">The type of setup object.</param>/// ///
+    /// <param name="GuidedExperienceType">The type of setup object.</param>/// /// 
     /// <param name="ObjectType">The object type that identifies the guided experience item.</param>
     /// <param name="ObjectID">The object ID that identifies the guided experience item.</param>
     /// <returns>True if a guided experience item exists for the provided object type and ID; false otherwise.</returns>
@@ -322,7 +335,7 @@ codeunit 1990 "Guided Experience"
     end;
 
     /// <summary>Checks whether a guided experience item exists for the link.</summary>
-    /// <param name="GuidedExperienceType">The type of setup object.</param>/// ///
+    /// <param name="GuidedExperienceType">The type of setup object.</param>/// /// 
     /// <param name="Link">The link that identifies the guided experience item.</param>
     /// <returns>True if a guided experience item exists for the provided link; false otherwise.</returns>
     procedure Exists(GuidedExperienceType: Enum "Guided Experience Type"; Link: Text[250]): Boolean
@@ -357,7 +370,7 @@ codeunit 1990 "Guided Experience"
     end;
 
     /// <summary>Issues the call to start the guided experience item.</summary>
-    /// <param name="GuidedExperienceType">The type of setup object.</param>/// ///
+    /// <param name="GuidedExperienceType">The type of setup object.</param>/// /// 
     /// <param name="ObjectType">The object type that identifies the guided experience item.</param>
     /// <param name="ObjectID">The object ID that identifies the guided experience item.</param>
     procedure Run(GuidedExperienceType: Enum "Guided Experience Type"; ObjectType: ObjectType; ObjectID: Integer)
@@ -468,7 +481,7 @@ codeunit 1990 "Guided Experience"
 
     /// <summary>Notifies that the Open Role Based Setup Experience has been invoked.</summary>
     /// <param name="PageID">The ID of the page being invoked.</param>
-    /// <param name="Handled">The flag which if set, would stop executing the OpenRoleBasedSetupExperience of the assisted setup guide.</param>
+    /// <param name="Handled">The flag which if set, would stop executing the OpenRoleBasedSetupExperience of the assisted setup guide.</param>  
     [IntegrationEvent(false, false)]
     internal procedure OnBeforeOpenRoleBasedAssistedSetupExperience(var PageID: Integer; var Handled: Boolean)
     begin

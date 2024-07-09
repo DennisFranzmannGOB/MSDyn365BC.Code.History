@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration;
-
 /// <summary>
 /// Exposes functionality that gets relevant page actions for a selected page.
 /// This codeunit is exposed as a webservice and hence all functions are available through OData calls.
@@ -12,8 +10,6 @@ namespace System.Integration;
 codeunit 2915 "Page Action Provider"
 {
     Access = Public;
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     /// <summary>
     /// Gets home items for user's current role center.
@@ -47,7 +43,7 @@ codeunit 2915 "Page Action Provider"
     ///       "url": "https://businesscentral.dynamics.com/?company=CRONUS%20International%20Ltd.&amp;page=103"
     ///     }
     ///  ]
-    ///
+    /// 
     /// In case of an error:
     /// {
     ///   "version":"1.0",

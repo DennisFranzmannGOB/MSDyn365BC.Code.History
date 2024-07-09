@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Page Shpfy Shipment Methods Mapping (ID 30129).
 /// </summary>

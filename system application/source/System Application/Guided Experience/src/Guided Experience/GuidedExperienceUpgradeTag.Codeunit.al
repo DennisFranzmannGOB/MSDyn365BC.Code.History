@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Upgrade;
-
 codeunit 1998 "Guided Experience Upgrade Tag"
 {
     Access = Internal;

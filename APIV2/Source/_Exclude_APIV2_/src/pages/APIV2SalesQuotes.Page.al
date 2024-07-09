@@ -1,14 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Integration.Entity;
-using Microsoft.Integration.Graph;
-using Microsoft.Sales.Customer;
-using Microsoft.Finance.Currency;
-using Microsoft.Foundation.PaymentTerms;
-using Microsoft.Foundation.Shipping;
-using Microsoft.Sales.Document;
-using System.Reflection;
-
 page 30037 "APIV2 - Sales Quotes"
 {
     APIVersion = 'v2.0';
@@ -29,384 +18,384 @@ page 30037 "APIV2 - Sales Quotes"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'Id';
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Id));
+                        RegisterFieldSet(FieldNo(Id));
                     end;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'No.';
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("No."));
+                        RegisterFieldSet(FieldNo("No."));
                     end;
                 }
-                field(externalDocumentNumber; Rec."External Document No.")
+                field(externalDocumentNumber; "External Document No.")
                 {
                     Caption = 'External Document No.';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("External Document No."))
+                        RegisterFieldSet(FieldNo("External Document No."))
                     end;
                 }
-                field(documentDate; Rec."Document Date")
+                field(documentDate; "Document Date")
                 {
                     Caption = 'Document Date';
 
                     trigger OnValidate()
                     begin
-                        DocumentDateVar := Rec."Document Date";
+                        DocumentDateVar := "Document Date";
                         DocumentDateSet := true;
 
-                        RegisterFieldSet(Rec.FieldNo("Document Date"));
+                        RegisterFieldSet(FieldNo("Document Date"));
                     end;
                 }
-                field(postingDate; Rec."Posting Date")
+                field(postingDate; "Posting Date")
                 {
                     Caption = 'Posting Date';
 
                     trigger OnValidate()
                     begin
-                        PostingDateVar := Rec."Posting Date";
+                        PostingDateVar := "Posting Date";
                         PostingDateSet := true;
 
-                        RegisterFieldSet(Rec.FieldNo("Posting Date"));
+                        RegisterFieldSet(FieldNo("Posting Date"));
                     end;
                 }
-                field(dueDate; Rec."Due Date")
+                field(dueDate; "Due Date")
                 {
                     Caption = 'Due Date';
 
                     trigger OnValidate()
                     begin
-                        DueDateVar := Rec."Due Date";
+                        DueDateVar := "Due Date";
                         DueDateSet := true;
 
-                        RegisterFieldSet(Rec.FieldNo("Due Date"));
+                        RegisterFieldSet(FieldNo("Due Date"));
                     end;
                 }
-                field(customerId; Rec."Customer Id")
+                field(customerId; "Customer Id")
                 {
                     Caption = 'Customer Id';
 
                     trigger OnValidate()
                     begin
-                        if not SellToCustomer.GetBySystemId(Rec."Customer Id") then
+                        if not SellToCustomer.GetBySystemId("Customer Id") then
                             Error(CouldNotFindSellToCustomerErr);
 
-                        Rec."Sell-to Customer No." := SellToCustomer."No.";
-                        RegisterFieldSet(Rec.FieldNo("Customer Id"));
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Customer No."));
+                        "Sell-to Customer No." := SellToCustomer."No.";
+                        RegisterFieldSet(FieldNo("Customer Id"));
+                        RegisterFieldSet(FieldNo("Sell-to Customer No."));
                     end;
                 }
 
-                field(customerNumber; Rec."Sell-to Customer No.")
+                field(customerNumber; "Sell-to Customer No.")
                 {
                     Caption = 'Customer No.';
 
                     trigger OnValidate()
                     begin
                         if SellToCustomer."No." <> '' then begin
-                            if SellToCustomer."No." <> Rec."Sell-to Customer No." then
+                            if SellToCustomer."No." <> "Sell-to Customer No." then
                                 Error(SellToCustomerValuesDontMatchErr);
                             exit;
                         end;
 
-                        if not SellToCustomer.Get(Rec."Sell-to Customer No.") then
+                        if not SellToCustomer.Get("Sell-to Customer No.") then
                             Error(CouldNotFindSellToCustomerErr);
 
-                        Rec."Customer Id" := SellToCustomer.SystemId;
-                        RegisterFieldSet(Rec.FieldNo("Customer Id"));
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Customer No."));
+                        "Customer Id" := SellToCustomer.SystemId;
+                        RegisterFieldSet(FieldNo("Customer Id"));
+                        RegisterFieldSet(FieldNo("Sell-to Customer No."));
                     end;
                 }
-                field(customerName; Rec."Sell-to Customer Name")
+                field(customerName; "Sell-to Customer Name")
                 {
                     Caption = 'Customer Name';
                     Editable = false;
                 }
-                field(billToName; Rec."Bill-to Name")
+                field(billToName; "Bill-to Name")
                 {
                     Caption = 'Bill-To Name';
                     Editable = false;
                 }
-                field(billToCustomerId; Rec."Bill-to Customer Id")
+                field(billToCustomerId; "Bill-to Customer Id")
                 {
                     Caption = 'Bill-To Customer Id';
                     trigger OnValidate()
                     begin
-                        if not BillToCustomer.GetBySystemId(Rec."Bill-to Customer Id") then
+                        if not BillToCustomer.GetBySystemId("Bill-to Customer Id") then
                             Error(CouldNotFindBillToCustomerErr);
 
-                        Rec."Bill-to Customer No." := BillToCustomer."No.";
-                        RegisterFieldSet(Rec.FieldNo("Bill-to Customer Id"));
-                        RegisterFieldSet(Rec.FieldNo("Bill-to Customer No."));
+                        "Bill-to Customer No." := BillToCustomer."No.";
+                        RegisterFieldSet(FieldNo("Bill-to Customer Id"));
+                        RegisterFieldSet(FieldNo("Bill-to Customer No."));
                     end;
                 }
-                field(billToCustomerNumber; Rec."Bill-to Customer No.")
+                field(billToCustomerNumber; "Bill-to Customer No.")
                 {
                     Caption = 'Bill-To Customer No.';
 
                     trigger OnValidate()
                     begin
                         if BillToCustomer."No." <> '' then begin
-                            if BillToCustomer."No." <> Rec."Bill-to Customer No." then
+                            if BillToCustomer."No." <> "Bill-to Customer No." then
                                 Error(BillToCustomerValuesDontMatchErr);
                             exit;
                         end;
 
-                        if not BillToCustomer.Get(Rec."Bill-to Customer No.") then
+                        if not BillToCustomer.Get("Bill-to Customer No.") then
                             Error(CouldNotFindBillToCustomerErr);
 
-                        Rec."Bill-to Customer Id" := BillToCustomer.SystemId;
-                        RegisterFieldSet(Rec.FieldNo("Bill-to Customer Id"));
-                        RegisterFieldSet(Rec.FieldNo("Bill-to Customer No."));
+                        "Bill-to Customer Id" := BillToCustomer.SystemId;
+                        RegisterFieldSet(FieldNo("Bill-to Customer Id"));
+                        RegisterFieldSet(FieldNo("Bill-to Customer No."));
                     end;
                 }
-                field(shipToName; Rec."Ship-to Name")
+                field(shipToName; "Ship-to Name")
                 {
                     Caption = 'Ship-To Name';
 
                     trigger OnValidate()
                     begin
-                        if xRec."Ship-to Name" <> Rec."Ship-to Name" then begin
-                            Rec."Ship-to Code" := '';
-                            RegisterFieldSet(Rec.FieldNo("Ship-to Code"));
-                            RegisterFieldSet(Rec.FieldNo("Ship-to Name"));
+                        if xRec."Ship-to Name" <> "Ship-to Name" then begin
+                            "Ship-to Code" := '';
+                            RegisterFieldSet(FieldNo("Ship-to Code"));
+                            RegisterFieldSet(FieldNo("Ship-to Name"));
                         end;
                     end;
                 }
-                field(shipToContact; Rec."Ship-to Contact")
+                field(shipToContact; "Ship-to Contact")
                 {
                     Caption = 'Ship-To Contact';
 
                     trigger OnValidate()
                     begin
-                        if xRec."Ship-to Contact" <> Rec."Ship-to Contact" then begin
-                            Rec."Ship-to Code" := '';
-                            RegisterFieldSet(Rec.FieldNo("Ship-to Code"));
-                            RegisterFieldSet(Rec.FieldNo("Ship-to Contact"));
+                        if xRec."Ship-to Contact" <> "Ship-to Contact" then begin
+                            "Ship-to Code" := '';
+                            RegisterFieldSet(FieldNo("Ship-to Code"));
+                            RegisterFieldSet(FieldNo("Ship-to Contact"));
                         end;
                     end;
                 }
-                field(sellToAddressLine1; Rec."Sell-to Address")
+                field(sellToAddressLine1; "Sell-to Address")
                 {
                     Caption = 'Sell-to Address Line 1';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Address"));
+                        RegisterFieldSet(FieldNo("Sell-to Address"));
                     end;
                 }
-                field(sellToAddressLine2; Rec."Sell-to Address 2")
+                field(sellToAddressLine2; "Sell-to Address 2")
                 {
                     Caption = 'Sell-to Address Line 2';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Address 2"));
+                        RegisterFieldSet(FieldNo("Sell-to Address 2"));
                     end;
                 }
-                field(sellToCity; Rec."Sell-to City")
+                field(sellToCity; "Sell-to City")
                 {
                     Caption = 'Sell-to City';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to City"));
+                        RegisterFieldSet(FieldNo("Sell-to City"));
                     end;
                 }
-                field(sellToCountry; Rec."Sell-to Country/Region Code")
+                field(sellToCountry; "Sell-to Country/Region Code")
                 {
                     Caption = 'Sell-to Country/Region Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Country/Region Code"));
+                        RegisterFieldSet(FieldNo("Sell-to Country/Region Code"));
                     end;
                 }
-                field(sellToState; Rec."Sell-to County")
+                field(sellToState; "Sell-to County")
                 {
                     Caption = 'Sell-to State';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to County"));
+                        RegisterFieldSet(FieldNo("Sell-to County"));
                     end;
                 }
-                field(sellToPostCode; Rec."Sell-to Post Code")
+                field(sellToPostCode; "Sell-to Post Code")
                 {
                     Caption = 'Sell-to Post Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Post Code"));
+                        RegisterFieldSet(FieldNo("Sell-to Post Code"));
                     end;
                 }
-                field(billToAddressLine1; Rec."Bill-To Address")
+                field(billToAddressLine1; "Bill-To Address")
                 {
                     Caption = 'Bill-to Address Line 1';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Bill-To Address"));
+                        RegisterFieldSet(FieldNo("Bill-To Address"));
                     end;
                 }
-                field(billToAddressLine2; Rec."Bill-To Address 2")
+                field(billToAddressLine2; "Bill-To Address 2")
                 {
                     Caption = 'Bill-to Address Line 2';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Bill-To Address 2"));
+                        RegisterFieldSet(FieldNo("Bill-To Address 2"));
                     end;
                 }
-                field(billToCity; Rec."Bill-To City")
+                field(billToCity; "Bill-To City")
                 {
                     Caption = 'Bill-to City';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Bill-To City"));
+                        RegisterFieldSet(FieldNo("Bill-To City"));
                     end;
                 }
-                field(billToCountry; Rec."Bill-To Country/Region Code")
+                field(billToCountry; "Bill-To Country/Region Code")
                 {
                     Caption = 'Bill-to Country/Region Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Bill-To Country/Region Code"));
+                        RegisterFieldSet(FieldNo("Bill-To Country/Region Code"));
                     end;
                 }
-                field(billToState; Rec."Bill-To County")
+                field(billToState; "Bill-To County")
                 {
                     Caption = 'Bill-to State';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Bill-To County"));
+                        RegisterFieldSet(FieldNo("Bill-To County"));
                     end;
                 }
-                field(billToPostCode; Rec."Bill-To Post Code")
+                field(billToPostCode; "Bill-To Post Code")
                 {
                     Caption = 'Bill-to Post Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Bill-To Post Code"));
+                        RegisterFieldSet(FieldNo("Bill-To Post Code"));
                     end;
                 }
-                field(shipToAddressLine1; Rec."Ship-to Address")
+                field(shipToAddressLine1; "Ship-to Address")
                 {
                     Caption = 'Ship-to Address Line 1';
 
                     trigger OnValidate()
                     begin
-                        Rec."Ship-to Code" := '';
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Code"));
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Address"));
+                        "Ship-to Code" := '';
+                        RegisterFieldSet(FieldNo("Ship-to Code"));
+                        RegisterFieldSet(FieldNo("Ship-to Address"));
                     end;
                 }
-                field(shipToAddressLine2; Rec."Ship-to Address 2")
+                field(shipToAddressLine2; "Ship-to Address 2")
                 {
                     Caption = 'Ship-to Address Line 2';
 
                     trigger OnValidate()
                     begin
-                        Rec."Ship-to Code" := '';
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Code"));
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Address 2"));
+                        "Ship-to Code" := '';
+                        RegisterFieldSet(FieldNo("Ship-to Code"));
+                        RegisterFieldSet(FieldNo("Ship-to Address 2"));
                     end;
                 }
-                field(shipToCity; Rec."Ship-to City")
+                field(shipToCity; "Ship-to City")
                 {
                     Caption = 'Ship-to City';
 
                     trigger OnValidate()
                     begin
-                        Rec."Ship-to Code" := '';
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Code"));
-                        RegisterFieldSet(Rec.FieldNo("Ship-to City"));
+                        "Ship-to Code" := '';
+                        RegisterFieldSet(FieldNo("Ship-to Code"));
+                        RegisterFieldSet(FieldNo("Ship-to City"));
                     end;
                 }
-                field(shipToCountry; Rec."Ship-to Country/Region Code")
+                field(shipToCountry; "Ship-to Country/Region Code")
                 {
                     Caption = 'Ship-to Country/Region Code';
 
                     trigger OnValidate()
                     begin
-                        Rec."Ship-to Code" := '';
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Code"));
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Country/Region Code"));
+                        "Ship-to Code" := '';
+                        RegisterFieldSet(FieldNo("Ship-to Code"));
+                        RegisterFieldSet(FieldNo("Ship-to Country/Region Code"));
                     end;
                 }
-                field(shipToState; Rec."Ship-to County")
+                field(shipToState; "Ship-to County")
                 {
                     Caption = 'Ship-to State';
 
                     trigger OnValidate()
                     begin
-                        Rec."Ship-to Code" := '';
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Code"));
-                        RegisterFieldSet(Rec.FieldNo("Ship-to County"));
+                        "Ship-to Code" := '';
+                        RegisterFieldSet(FieldNo("Ship-to Code"));
+                        RegisterFieldSet(FieldNo("Ship-to County"));
                     end;
                 }
-                field(shipToPostCode; Rec."Ship-to Post Code")
+                field(shipToPostCode; "Ship-to Post Code")
                 {
                     Caption = 'Ship-to Post Code';
 
                     trigger OnValidate()
                     begin
-                        Rec."Ship-to Code" := '';
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Code"));
-                        RegisterFieldSet(Rec.FieldNo("Ship-to Post Code"));
+                        "Ship-to Code" := '';
+                        RegisterFieldSet(FieldNo("Ship-to Code"));
+                        RegisterFieldSet(FieldNo("Ship-to Post Code"));
                     end;
                 }
-                field(shortcutDimension1Code; Rec."Shortcut Dimension 1 Code")
+                field(shortcutDimension1Code; "Shortcut Dimension 1 Code")
                 {
                     Caption = 'Shortcut Dimension 1 Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Shortcut Dimension 1 Code"));
+                        RegisterFieldSet(FieldNo("Shortcut Dimension 1 Code"));
                     end;
                 }
-                field(shortcutDimension2Code; Rec."Shortcut Dimension 2 Code")
+                field(shortcutDimension2Code; "Shortcut Dimension 2 Code")
                 {
                     Caption = 'Shortcut Dimension 2 Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Shortcut Dimension 2 Code"));
+                        RegisterFieldSet(FieldNo("Shortcut Dimension 2 Code"));
                     end;
                 }
-                field(currencyId; Rec."Currency Id")
+                field(currencyId; "Currency Id")
                 {
                     Caption = 'Currency Id';
 
                     trigger OnValidate()
                     begin
-                        if Rec."Currency Id" = BlankGUID then
-                            Rec."Currency Code" := ''
+                        if "Currency Id" = BlankGUID then
+                            "Currency Code" := ''
                         else begin
-                            if not Currency.GetBySystemId(Rec."Currency Id") then
+                            if not Currency.GetBySystemId("Currency Id") then
                                 Error(CurrencyIdDoesNotMatchACurrencyErr);
 
-                            Rec."Currency Code" := Currency.Code;
+                            "Currency Code" := Currency.Code;
                         end;
 
-                        RegisterFieldSet(Rec.FieldNo("Currency Id"));
-                        RegisterFieldSet(Rec.FieldNo("Currency Code"));
+                        RegisterFieldSet(FieldNo("Currency Id"));
+                        RegisterFieldSet(FieldNo("Currency Code"));
                     end;
                 }
                 field(currencyCode; CurrencyCodeTxt)
@@ -415,74 +404,74 @@ page 30037 "APIV2 - Sales Quotes"
 
                     trigger OnValidate()
                     begin
-                        Rec."Currency Code" :=
+                        "Currency Code" :=
                           GraphMgtGeneralTools.TranslateCurrencyCodeToNAVCurrencyCode(
                             LCYCurrencyCode, COPYSTR(CurrencyCodeTxt, 1, MAXSTRLEN(LCYCurrencyCode)));
 
                         if Currency.Code <> '' then begin
-                            if Currency.Code <> Rec."Currency Code" then
+                            if Currency.Code <> "Currency Code" then
                                 Error(CurrencyValuesDontMatchErr);
                             exit;
                         end;
 
-                        if Rec."Currency Code" = '' then
-                            Rec."Currency Id" := BlankGUID
+                        if "Currency Code" = '' then
+                            "Currency Id" := BlankGUID
                         else begin
-                            if not Currency.Get(Rec."Currency Code") then
+                            if not Currency.Get("Currency Code") then
                                 Error(CurrencyCodeDoesNotMatchACurrencyErr);
 
-                            Rec."Currency Id" := Currency.SystemId;
+                            "Currency Id" := Currency.SystemId;
                         end;
 
-                        RegisterFieldSet(Rec.FieldNo("Currency Id"));
-                        RegisterFieldSet(Rec.FieldNo("Currency Code"));
+                        RegisterFieldSet(FieldNo("Currency Id"));
+                        RegisterFieldSet(FieldNo("Currency Code"));
                     end;
                 }
-                field(paymentTermsId; Rec."Payment Terms Id")
+                field(paymentTermsId; "Payment Terms Id")
                 {
                     Caption = 'Payment Terms Id';
 
                     trigger OnValidate()
                     begin
-                        if Rec."Payment Terms Id" = BlankGUID then
-                            Rec."Payment Terms Code" := ''
+                        if "Payment Terms Id" = BlankGUID then
+                            "Payment Terms Code" := ''
                         else begin
-                            if not PaymentTerms.GetBySystemId(Rec."Payment Terms Id") then
+                            if not PaymentTerms.GetBySystemId("Payment Terms Id") then
                                 Error(PaymentTermsIdDoesNotMatchAPaymentTermsErr);
 
-                            Rec."Payment Terms Code" := PaymentTerms.Code;
+                            "Payment Terms Code" := PaymentTerms.Code;
                         end;
 
-                        RegisterFieldSet(Rec.FieldNo("Payment Terms Id"));
-                        RegisterFieldSet(Rec.FieldNo("Payment Terms Code"));
+                        RegisterFieldSet(FieldNo("Payment Terms Id"));
+                        RegisterFieldSet(FieldNo("Payment Terms Code"));
                     end;
                 }
-                field(shipmentMethodId; Rec."Shipment Method Id")
+                field(shipmentMethodId; "Shipment Method Id")
                 {
                     Caption = 'Shipment Method Id';
 
                     trigger OnValidate()
                     begin
-                        if Rec."Shipment Method Id" = BlankGUID then
-                            Rec."Shipment Method Code" := ''
+                        if "Shipment Method Id" = BlankGUID then
+                            "Shipment Method Code" := ''
                         else begin
-                            if not ShipmentMethod.GetBySystemId(Rec."Shipment Method Id") then
+                            if not ShipmentMethod.GetBySystemId("Shipment Method Id") then
                                 Error(ShipmentMethodIdDoesNotMatchAShipmentMethodErr);
 
-                            Rec."Shipment Method Code" := ShipmentMethod.Code;
+                            "Shipment Method Code" := ShipmentMethod.Code;
                         end;
 
-                        RegisterFieldSet(Rec.FieldNo("Shipment Method Id"));
-                        RegisterFieldSet(Rec.FieldNo("Shipment Method Code"));
+                        RegisterFieldSet(FieldNo("Shipment Method Id"));
+                        RegisterFieldSet(FieldNo("Shipment Method Code"));
                     end;
                 }
-                field(salesperson; Rec."Salesperson Code")
+                field(salesperson; "Salesperson Code")
                 {
                     Caption = 'Salesperson';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Salesperson Code"));
+                        RegisterFieldSet(FieldNo("Salesperson Code"));
                     end;
                 }
                 part(dimensionSetLines; "APIV2 - Dimension Set Lines")
@@ -490,14 +479,14 @@ page 30037 "APIV2 - Sales Quotes"
                     Caption = 'Dimension Set Lines';
                     EntityName = 'dimensionSetLine';
                     EntitySetName = 'dimensionSetLines';
-                    SubPageLink = "Parent Id" = field(Id), "Parent Type" = const("Sales Quote");
+                    SubPageLink = "Parent Id" = Field(Id), "Parent Type" = const("Sales Quote");
                 }
                 part(salesQuoteLines; "APIV2 - Sales Quote Lines")
                 {
                     Caption = 'Lines';
                     EntityName = 'salesQuoteLine';
                     EntitySetName = 'salesQuoteLines';
-                    SubPageLink = "Document Id" = field(Id);
+                    SubPageLink = "Document Id" = Field(Id);
                 }
                 part(pdfDocument; "APIV2 - PDF Document")
                 {
@@ -505,97 +494,97 @@ page 30037 "APIV2 - Sales Quotes"
                     Multiplicity = ZeroOrOne;
                     EntityName = 'pdfDocument';
                     EntitySetName = 'pdfDocument';
-                    SubPageLink = "Document Id" = field(Id), "Document Type" = const("Sales Quote");
+                    SubPageLink = "Document Id" = Field(Id), "Document Type" = const("Sales Quote");
                 }
-                field(discountAmount; Rec."Invoice Discount Amount")
+                field(discountAmount; "Invoice Discount Amount")
                 {
                     Caption = 'Discount Amount';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Invoice Discount Amount"));
-                        InvoiceDiscountAmount := Rec."Invoice Discount Amount";
+                        RegisterFieldSet(FieldNo("Invoice Discount Amount"));
+                        InvoiceDiscountAmount := "Invoice Discount Amount";
                         DiscountAmountSet := true;
                     end;
                 }
-                field(totalAmountExcludingTax; Rec.Amount)
+                field(totalAmountExcludingTax; Amount)
                 {
                     Caption = 'Total Amount Excluding Tax';
                     Editable = false;
                 }
-                field(totalTaxAmount; Rec."Total Tax Amount")
+                field(totalTaxAmount; "Total Tax Amount")
                 {
                     Caption = 'Total Tax Amount';
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Total Tax Amount"));
+                        RegisterFieldSet(FieldNo("Total Tax Amount"));
                     end;
                 }
-                field(totalAmountIncludingTax; Rec."Amount Including VAT")
+                field(totalAmountIncludingTax; "Amount Including VAT")
                 {
                     Caption = 'Total Amount Including Tax';
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Amount Including VAT"));
+                        RegisterFieldSet(FieldNo("Amount Including VAT"));
                     end;
                 }
-                field(status; Rec.Status)
+                field(status; Status)
                 {
                     Caption = 'Status';
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Status));
+                        RegisterFieldSet(FieldNo(Status));
                     end;
                 }
-                field(sentDate; Rec."Quote Sent to Customer")
+                field(sentDate; "Quote Sent to Customer")
                 {
                     Caption = 'Sent Date';
                 }
-                field(validUntilDate; Rec."Quote Valid Until Date")
+                field(validUntilDate; "Quote Valid Until Date")
                 {
                     Caption = 'Valid Until Date';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Quote Valid Until Date"));
+                        RegisterFieldSet(FieldNo("Quote Valid Until Date"));
                     end;
                 }
-                field(acceptedDate; Rec."Quote Accepted Date")
+                field(acceptedDate; "Quote Accepted Date")
                 {
                     Caption = 'Accepted Date';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Quote Accepted Date"));
+                        RegisterFieldSet(FieldNo("Quote Accepted Date"));
                     end;
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                     Editable = false;
                 }
-                field(phoneNumber; Rec."Sell-to Phone No.")
+                field(phoneNumber; "Sell-to Phone No.")
                 {
                     Caption = 'Phone No.';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to Phone No."));
+                        RegisterFieldSet(FieldNo("Sell-to Phone No."));
                     end;
                 }
-                field(email; Rec."Sell-to E-Mail")
+                field(email; "Sell-to E-Mail")
                 {
                     Caption = 'Email';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Sell-to E-Mail"));
+                        RegisterFieldSet(FieldNo("Sell-to E-Mail"));
                     end;
                 }
                 part(attachments; "APIV2 - Attachments")
@@ -603,7 +592,7 @@ page 30037 "APIV2 - Sales Quotes"
                     Caption = 'Attachments';
                     EntityName = 'attachment';
                     EntitySetName = 'attachments';
-                    SubPageLink = "Document Id" = field(Id), "Document Type" = const("Sales Quote");
+                    SubPageLink = "Document Id" = Field(Id), "Document Type" = const("Sales Quote");
                 }
 
                 part(documentAttachments; "APIV2 - Document Attachments")
@@ -611,7 +600,7 @@ page 30037 "APIV2 - Sales Quotes"
                     Caption = 'Document Attachments';
                     EntityName = 'documentAttachment';
                     EntitySetName = 'documentAttachments';
-                    SubPageLink = "Document Id" = field(Id), "Document Type" = const("Sales Quote");
+                    SubPageLink = "Document Id" = Field(Id), "Document Type" = const("Sales Quote");
                 }
             }
         }
@@ -659,7 +648,7 @@ page 30037 "APIV2 - Sales Quotes"
     var
         GraphMgtSalesQuoteBuffer: Codeunit "Graph Mgt - Sales Quote Buffer";
     begin
-        if xRec.Id <> Rec.Id then
+        if xRec.Id <> Id then
             Error(CannotChangeIDErr);
 
         GraphMgtSalesQuoteBuffer.PropagateOnModify(Rec, TempFieldBuffer);
@@ -717,7 +706,7 @@ page 30037 "APIV2 - Sales Quotes"
     local procedure SetCalculatedFields()
     begin
         Rec.LoadFields("Currency Code");
-        CurrencyCodeTxt := GraphMgtGeneralTools.TranslateNAVCurrencyCodeToCurrencyCode(LCYCurrencyCode, Rec."Currency Code");
+        CurrencyCodeTxt := GraphMgtGeneralTools.TranslateNAVCurrencyCodeToCurrencyCode(LCYCurrencyCode, "Currency Code");
     end;
 
     local procedure ClearCalculatedFields()
@@ -745,8 +734,8 @@ page 30037 "APIV2 - Sales Quotes"
 
     local procedure CheckSellToCustomerSpecified()
     begin
-        if (Rec."Sell-to Customer No." = '') and
-           (Rec."Customer Id" = BlankGUID)
+        if ("Sell-to Customer No." = '') and
+           ("Customer Id" = BlankGUID)
         then
             Error(SellToCustomerNotProvidedErr);
     end;
@@ -773,7 +762,7 @@ page 30037 "APIV2 - Sales Quotes"
             exit;
         end;
 
-        SalesHeader.Get(SalesHeader."Document Type"::Quote, Rec."No.");
+        SalesHeader.Get(SalesHeader."Document Type"::Quote, "No.");
         SalesCalcDiscountByType.ApplyInvDiscBasedOnAmt(InvoiceDiscountAmount, SalesHeader);
     end;
 
@@ -788,27 +777,27 @@ page 30037 "APIV2 - Sales Quotes"
         TempFieldBuffer.DeleteAll();
 
         if DocumentDateSet then begin
-            Rec."Document Date" := DocumentDateVar;
-            RegisterFieldSet(Rec.FieldNo("Document Date"));
+            "Document Date" := DocumentDateVar;
+            RegisterFieldSet(FieldNo("Document Date"));
         end;
 
         if PostingDateSet then begin
-            Rec."Posting Date" := PostingDateVar;
-            RegisterFieldSet(Rec.FieldNo("Posting Date"));
+            "Posting Date" := PostingDateVar;
+            RegisterFieldSet(FieldNo("Posting Date"));
         end;
 
         if DueDateSet then begin
-            Rec."Due Date" := DueDateVar;
-            RegisterFieldSet(Rec.FieldNo("Due Date"));
+            "Due Date" := DueDateVar;
+            RegisterFieldSet(FieldNo("Due Date"));
         end;
 
         GraphMgtSalesQuoteBuffer.PropagateOnModify(Rec, TempFieldBuffer);
-        Rec.Find();
+        Find();
     end;
 
     local procedure GetQuote(var SalesHeader: Record "Sales Header")
     begin
-        if not SalesHeader.GetBySystemId(Rec.Id) then
+        if not SalesHeader.GetBySystemId(Id) then
             Error(CannotFindQuoteErr);
     end;
 
@@ -823,7 +812,7 @@ page 30037 "APIV2 - Sales Quotes"
             SalesHeader."Document Type"::Quote:
                 ActionContext.SetObjectId(Page::"APIV2 - Sales Quotes");
         end;
-        ActionContext.AddEntityKey(Rec.FieldNo(Id), SalesHeader.SystemId);
+        ActionContext.AddEntityKey(FieldNo(Id), SalesHeader.SystemId);
         ActionContext.SetResultCode(WebServiceActionResultCode::Deleted);
     end;
 

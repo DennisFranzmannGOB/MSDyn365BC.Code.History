@@ -1,40 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.D365Sales;
-
-using Microsoft.CRM.BusinessRelation;
-using Microsoft.CRM.Contact;
-using Microsoft.CRM.Opportunity;
-using Microsoft.CRM.Team;
-using Microsoft.Finance.Currency;
-using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Foundation.Shipping;
-using Microsoft.Foundation.UOM;
-using Microsoft.Integration.Dataverse;
-using Microsoft.Integration.SyncEngine;
-using Microsoft.Inventory.Item;
-using Microsoft.Pricing.Asset;
-using Microsoft.Pricing.Calculation;
-using Microsoft.Pricing.PriceList;
-using Microsoft.Projects.Resources.Resource;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Archive;
-using Microsoft.Sales.Customer;
-using Microsoft.Sales.Document;
-using Microsoft.Sales.History;
-using Microsoft.Sales.Posting;
-#if not CLEAN21
-using Microsoft.Sales.Pricing;
-#endif
-using Microsoft.Sales.Setup;
-using Microsoft.Utilities;
-using System.Environment.Configuration;
-using System.Telemetry;
-using System.Threading;
-using System.Utilities;
-
 codeunit 5341 "CRM Int. Table. Subscriber"
 {
     SingleInstance = true;
@@ -131,7 +94,6 @@ codeunit 5341 "CRM Int. Table. Subscriber"
     var
         CRMConnectionSetup: Record "CRM Connection Setup";
         IntegrationTableMapping: Record "Integration Table Mapping";
-        JobQueueEntry: Record "Job Queue Entry";
         RecRef: RecordRef;
         ConnectionID: Guid;
     begin
@@ -143,12 +105,6 @@ codeunit 5341 "CRM Int. Table. Subscriber"
         then begin
             CRMConnectionSetup.Get();
             if CRMConnectionSetup."Is Enabled" or CDSIntegrationImpl.IsIntegrationEnabled() then begin
-                JobQueueEntry.SetRange("Record ID to Process", IntegrationTableMapping.RecordId());
-                JobQueueEntry.SetRange(Status, JobQueueEntry.Status::"In Process");
-                if not JobQueueEntry.IsEmpty() then begin
-                    Result := false;
-                    exit;
-                end;
                 ConnectionID := Format(CreateGuid());
                 if CDSIntegrationImpl.IsIntegrationEnabled() then begin
                     CDSIntegrationImpl.RegisterConnection(ConnectionID);
@@ -987,9 +943,6 @@ codeunit 5341 "CRM Int. Table. Subscriber"
     local procedure LogTelemetryOnAfterInitSynchJob(ConnectionType: TableConnectionType; IntegrationTableID: Integer)
     var
         FeatureTelemetry: Codeunit "Feature Telemetry";
-        IntegrationRecordRef: RecordRef;
-        TelemetryCategories: Dictionary of [Text, Text];
-        IntegrationTableName: Text;
     begin
         if ConnectionType <> TableConnectionType::CRM then
             exit;
@@ -1004,22 +957,10 @@ codeunit 5341 "CRM Int. Table. Subscriber"
                 Database::"CRM Uom",
                 Database::"CRM Uomschedule",
                 Database::"CRM Account Statistics"] then begin
-            TelemetryCategories.Add('Category', CategoryTok);
-            TelemetryCategories.Add('IntegrationTableID', Format(IntegrationTableID));
-            if TryCalculateTableName(IntegrationRecordRef, IntegrationTableID, IntegrationTableName) then
-                TelemetryCategories.Add('IntegrationTableName', IntegrationTableName);
-
-            Session.LogMessage('0000FME', StrSubstNo(SynchingSalesSpecificEntityTxt, CRMProductName.SHORT()), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, TelemetryCategories);
+            Session.LogMessage('0000FME', StrSubstNo(SynchingSalesSpecificEntityTxt, CRMProductName.SHORT()), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
             FeatureTelemetry.LogUptake('0000H7F', 'Dynamics 365 Sales', Enum::"Feature Uptake Status"::Used);
             FeatureTelemetry.LogUsage('0000H7G', 'Dynamics 365 Sales', 'Sales entity synch');
         end;
-    end;
-
-    [TryFunction]
-    local procedure TryCalculateTableName(var IntegrationRecordRef: RecordRef; TableId: Integer; var TableName: Text)
-    begin
-        IntegrationRecordRef.Open(TableId);
-        TableName := IntegrationRecordRef.Name();
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Int. Rec. Uncouple Invoke", 'OnAfterUncoupleRecord', '', false, false)]
@@ -1457,7 +1398,6 @@ codeunit 5341 "CRM Int. Table. Subscriber"
                 Error(CustomerHasChangedErr, CRMSalesorder.OrderNumber, CRMProductName.CDSServiceName());
             CRMInvoice.CustomerId := CRMSalesorder.CustomerId;
             CRMInvoice.CustomerIdType := CRMSalesorder.CustomerIdType;
-            OnUpdateCRMInvoiceBeforeInsertRecordOnBeforeDestinationRecordRefGetTable(CRMInvoice, SalesInvoiceHeader);
             DestinationRecordRef.GetTable(CRMInvoice);
             if CRMSalesorder.OwnerIdType = CRMSalesorder.OwnerIdType::systemuser then
                 CDSIntegrationImpl.SetOwningUser(DestinationRecordRef, CRMSalesOrder.OwnerId, true)
@@ -1768,15 +1708,9 @@ codeunit 5341 "CRM Int. Table. Subscriber"
     var
         SalesLine: Record "Sales Line";
         CRMSalesorderdetail: Record "CRM Salesorderdetail";
-        IsHandled: Boolean;
     begin
         SourceRecordRef.SetTable(SalesLine);
         DestinationRecordRef.SetTable(CRMSalesorderdetail);
-
-        IsHandled := false;
-        OnApplySalesLineTaxOnBeforeSetTax(CRMSalesorderdetail, SalesLine, IsHandled);
-        if IsHandled then
-            exit;
 
         CRMSalesorderdetail.Tax := SalesLine."Amount Including VAT" - SalesLine.Amount;
 
@@ -1813,7 +1747,7 @@ codeunit 5341 "CRM Int. Table. Subscriber"
     begin
         DestinationRecordRef.SetTable(CRMProductpricelevel);
         SourceRecordRef.SetTable(SalesPrice);
-        FindCRMUoMIdForSalesPrice(Enum::"Price Asset Type"::Item, SalesPrice."Item No.", SalesPrice."Unit of Measure Code", CRMUom);
+        FindCRMUoMIdForSalesPrice("Price Asset Type"::Item, SalesPrice."Item No.", SalesPrice."Unit of Measure Code", CRMUom);
         if CRMProductpricelevel.UoMId <> CRMUom.UoMId then begin
             CRMProductpricelevel.UoMId := CRMUom.UoMId;
             CRMProductpricelevel.UoMScheduleId := CRMUom.UoMScheduleId;
@@ -2076,7 +2010,7 @@ codeunit 5341 "CRM Int. Table. Subscriber"
         CustomerPriceGroup.Get(SalesPrice."Sales Code");
         if CRMIntegrationRecord.FindByRecordID(CustomerPriceGroup.RecordId()) then begin
             CRMProductpricelevel.SetRange(PriceLevelId, CRMIntegrationRecord."CRM ID");
-            FindCRMUoMIdForSalesPrice(Enum::"Price Asset Type"::Item, SalesPrice."Item No.", SalesPrice."Unit of Measure Code", CRMUom);
+            FindCRMUoMIdForSalesPrice("Price Asset Type"::Item, SalesPrice."Item No.", SalesPrice."Unit of Measure Code", CRMUom);
             CRMProductpricelevel.SetRange(UoMId, CRMUom.UoMId);
             Item.Get(SalesPrice."Item No.");
             CRMIntegrationRecord.FindByRecordID(Item.RecordId());
@@ -2104,12 +2038,12 @@ codeunit 5341 "CRM Int. Table. Subscriber"
             FindCRMUoMIdForSalesPrice(PriceListLine."Asset Type", PriceListLine."Asset No.", PriceListLine."Unit of Measure Code", CRMUom);
             CRMProductpricelevel.SetRange(UoMId, CRMUom.UoMId);
             case PriceListLine."Asset Type" of
-                PriceListLine."Asset Type"::Item:
+                "Price Asset Type"::Item:
                     begin
                         Item.Get(PriceListLine."Asset No.");
                         CRMIntegrationRecord.FindByRecordID(Item.RecordId());
                     end;
-                PriceListLine."Asset Type"::Resource:
+                "Price Asset Type"::Resource:
                     begin
                         Resource.Get(PriceListLine."Asset No.");
                         CRMIntegrationRecord.FindByRecordID(Resource.RecordId());
@@ -2562,7 +2496,7 @@ codeunit 5341 "CRM Int. Table. Subscriber"
             repeat
                 SalesPrice.TestField("Currency Code", ExpectedCurrencyCode);
                 FindCRMProductIdForItem(SalesPrice."Item No.");
-                FindCRMUoMIdForSalesPrice(Enum::"Price Asset Type"::Item, SalesPrice."Item No.", SalesPrice."Unit of Measure Code", CRMUom);
+                FindCRMUoMIdForSalesPrice("Price Asset Type"::Item, SalesPrice."Item No.", SalesPrice."Unit of Measure Code", CRMUom);
             until SalesPrice.Next() = 0;
     end;
 #endif
@@ -2576,9 +2510,9 @@ codeunit 5341 "CRM Int. Table. Subscriber"
             repeat
                 PriceListLine.TestField("Currency Code", ExpectedCurrencyCode);
                 case PriceListLine."Asset Type" of
-                    PriceListLine."Asset Type"::Item:
+                    "Price Asset Type"::Item:
                         FindCRMProductIdForItem(PriceListLine."Asset No.");
-                    PriceListLine."Asset Type"::Resource:
+                    "Price Asset Type"::Resource:
                         FindCRMProductIdForResource(PriceListLine."Asset No.");
                 end;
                 FindCRMUoMIdForSalesPrice(PriceListLine."Asset Type", PriceListLine."Asset No.", PriceListLine."Unit of Measure Code", CRMUom);
@@ -3097,47 +3031,6 @@ codeunit 5341 "CRM Int. Table. Subscriber"
             end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"CDS Int. Table Couple", 'OnBeforeSetMatchingFilter', '', false, false)]
-    local procedure HandleOnBeforeSetMatchingFilter(var IntegrationRecordRef: RecordRef; var MatchingIntegrationRecordFieldRef: FieldRef; var LocalRecordRef: RecordRef; var MatchingLocalFieldRef: FieldRef; var SetMatchingFilterHandled: Boolean)
-    var
-        UnitGroup: Record "Unit Group";
-        Item: Record Item;
-        Resource: Record Resource;
-        ItemUnitOfMeasure: Record "Item Unit of Measure";
-        ResourceUnitOfMeasure: Record "Resource Unit of Measure";
-        CRMUomschedule: Record "CRM Uomschedule";
-        CRMUom: Record "CRM Uom";
-        AdditionalFieldRef: FieldRef;
-    begin
-        if (IntegrationRecordRef.Number = Database::"CRM Uomschedule") and (LocalRecordRef.Number = Database::"Unit Group") then
-            if (MatchingIntegrationRecordFieldRef.Number = CRMUomschedule.FieldNo(Name)) and (MatchingLocalFieldRef.Number = UnitGroup.FieldNo("Source No.")) then begin
-                LocalRecordRef.SetTable(UnitGroup);
-                MatchingIntegrationRecordFieldRef.SetRange(UnitGroup.GetCode());
-                SetMatchingFilterHandled := true;
-            end;
-
-        if (IntegrationRecordRef.Number = Database::"CRM Uom") and ((LocalRecordRef.Number = Database::"Item Unit of Measure") or (LocalRecordRef.Number = Database::"Resource Unit of Measure")) then
-            if (MatchingIntegrationRecordFieldRef.Number = CRMUom.FieldNo(Name)) and ((MatchingLocalFieldRef.Number = ItemUnitOfMeasure.FieldNo("Code")) or (MatchingLocalFieldRef.Number = ResourceUnitOfMeasure.FieldNo("Code"))) then begin
-                if LocalRecordRef.Number = Database::"Item Unit of Measure" then begin
-                    LocalRecordRef.SetTable(ItemUnitOfMeasure);
-                    if Item.Get(ItemUnitOfMeasure."Item No.") then
-                        UnitGroup.Get(UnitGroup."Source Type"::Item, Item.SystemId);
-                end;
-
-                if LocalRecordRef.Number = Database::"Resource Unit of Measure" then begin
-                    LocalRecordRef.SetTable(ResourceUnitOfMeasure);
-                    if Resource.Get(ResourceUnitOfMeasure."Resource No.") then
-                        UnitGroup.Get(UnitGroup."Source Type"::Resource, Resource.SystemId);
-                end;
-
-                CRMUomschedule.SetRange(Name, UnitGroup.GetCode());
-                if CRMUomschedule.FindFirst() then begin
-                    AdditionalFieldRef := IntegrationRecordRef.Field(CRMUom.FieldNo(UoMScheduleId));
-                    AdditionalFieldRef.SetRange(CRMUomschedule.UoMScheduleId);
-                end;
-            end;
-    end;
-
     [IntegrationEvent(false, false)]
     local procedure OnBeforeUpdateCRMInvoiceBeforeInsertRecord(SourceRecordRef: RecordRef; DestinationRecordRef: RecordRef; var IsHandled: Boolean)
     begin
@@ -3170,16 +3063,6 @@ codeunit 5341 "CRM Int. Table. Subscriber"
 
     [IntegrationEvent(false, false)]
     local procedure OnChangeSalesOrderStatusOnBeforeCompareStatus(var SalesHeader: Record "Sales Header"; var NewSalesDocumentStatus: Enum "Sales Document Status")
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnUpdateCRMInvoiceBeforeInsertRecordOnBeforeDestinationRecordRefGetTable(var CRMInvoice: Record "CRM Invoice"; SalesInvoiceHeader: Record "Sales Invoice Header")
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnApplySalesLineTaxOnBeforeSetTax(var CRMSalesorderdetail: Record "CRM Salesorderdetail"; var SalesLine: Record "Sales Line"; var IsHandled: Boolean)
     begin
     end;
 }

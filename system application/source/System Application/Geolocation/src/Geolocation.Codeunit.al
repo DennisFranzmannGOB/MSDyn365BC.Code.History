@@ -3,15 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Device;
-
 /// <summary>
 /// Provides functionality for getting geographical location information from the client device.
 /// <example>
 /// <code>
 /// Geolocation.SetHighAccuracy(true);
 /// if Geolocation.RequestGeolocation() then
-///    Geolocation.GetGeolocation(Latitude, Longitude);
+///    Geolocation.GetGeolocation(Latitude, Longitude);        
 /// </code>
 /// </example>
 /// </summary>

@@ -1,12 +1,7 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation. All rights reserved. 
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Text;
-
-using System;
-using System.Utilities;
 
 codeunit 9213 "IDA 1D UPCE Encoder" implements "Barcode Font Encoder"
 {
@@ -24,7 +19,7 @@ codeunit 9213 "IDA 1D UPCE Encoder" implements "Barcode Font Encoder"
 
     procedure IsValidInput(InputText: Text; var BarcodeEncodeSettings: Record "Barcode Encode Settings"): Boolean;
     var
-        RegexPattern: Codeunit Regex;
+        RegexPattern: codeunit Regex;
     begin
         if InputText = '' then
             exit(false);

@@ -4,7 +4,7 @@
     <body>
       <group id="body">
         <trans-unit id="Codeunit 3929733566 - NamedType 2917787611" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Could not send the email, because the user is delegated or external.</source>
+          <source>Could not send the email because the user is external.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Outlook API Helper Tests - NamedType SendEmailExternalUserErr</note>
         </trans-unit>

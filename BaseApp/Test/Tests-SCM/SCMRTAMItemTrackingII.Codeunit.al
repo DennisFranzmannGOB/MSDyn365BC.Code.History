@@ -3140,7 +3140,7 @@ codeunit 137059 "SCM RTAM Item Tracking-II"
     end;
 
     [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandlerTrackingOptionWithLot,MessageHandler,ConfirmHandler')]
+    [HandlerFunctions('ItemTrackingLinesPageHandlerTrackingOptionWithLot,MessageHandler')]
     procedure VerifyReservationEntryMustExistWhenItemTrackingPageIsClosed()
     var
         Item: Record Item;

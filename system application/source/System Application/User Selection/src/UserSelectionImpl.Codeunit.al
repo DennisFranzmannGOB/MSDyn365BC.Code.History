@@ -1,12 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Security.User;
-
-using System.Environment;
-using System.Security.AccessControl;
 
 codeunit 9844 "User Selection Impl."
 {
@@ -36,7 +31,7 @@ codeunit 9844 "User Selection Impl."
     begin
         UserLookup.SetTableView(SelectedUser);
         UserLookup.LookupMode := true;
-        if UserLookup.RunModal() = Action::LookupOK then begin
+        if UserLookup.RunModal() = ACTION::LookupOK then begin
             UserLookup.GetSelectedUsers(SelectedUser);
             exit(true);
         end;

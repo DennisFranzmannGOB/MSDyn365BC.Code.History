@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
-using System.Telemetry;
-using System.Security.User;
-using System.Security.AccessControl;
-
 /// <summary>
 /// Page to display and control what view policies users have been assigned.
 /// </summary>
@@ -47,10 +41,10 @@ page 8930 "Email View Policy List"
                     AboutTitle = 'Pick a user';
                     AboutText = 'You can define an email view policy for a specific user. However, make sure you have a default policy, which is a line with a policy that is not assigned to a user.';
                 }
-                field(Policy; Rec."Email View Policy")
+                field("Policy"; Rec."Email View Policy")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the assigned email policy';
+                    ToolTip = 'Assigned email policy';
                     Editable = true;
 
                     AboutTitle = 'Specify a policy';
@@ -83,6 +77,7 @@ page 8930 "Email View Policy List"
     end;
 
     var
+        [InDataSet]
         IsDefault: Boolean;
         EmailViewPolicyLbl: Label 'Email View Policy', Locked = true;
 }

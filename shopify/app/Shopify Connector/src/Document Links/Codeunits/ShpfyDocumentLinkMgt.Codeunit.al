@@ -1,9 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Document;
-using Microsoft.Sales.History;
-using Microsoft.Sales.Posting;
-
 codeunit 30262 "Shpfy Document Link Mgt."
 {
     var

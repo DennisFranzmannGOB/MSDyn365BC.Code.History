@@ -3,12 +3,9 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Upgrade;
-
-using System.Environment;
-
-permissionset 135092 "Upgrade Tags View"
+PermissionSet 135092 "Upgrade Tags View"
 {
     Assignable = true;
-    Permissions = tabledata Company = r;
+
+    IncludedPermissionSets = "Upgrade Tags - View";
 }

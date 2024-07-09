@@ -1,12 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Apps;
-
-using System.Environment;
-using System.Globalization;
 
 /// <summary>
 /// Displays details about the selected extension, and offers features for installing and uninstalling it.
@@ -25,7 +20,7 @@ page 2501 "Extension Details"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             group("Install NAV Extension")
             {
@@ -37,7 +32,7 @@ page 2501 "Extension Details"
                     Caption = 'Install Extension';
                     Editable = false;
                     InstructionalText = 'Extensions add new capabilities that extend and enhance functionality.';
-                    field(In_Name; Rec.Name)
+                    field(In_Name; Name)
                     {
                         ApplicationArea = All;
                         Caption = 'Name';
@@ -57,7 +52,7 @@ page 2501 "Extension Details"
                         Caption = 'Version';
                         ToolTip = 'Specifies the version of the extension.';
                     }
-                    field(In_Pub; Rec.Publisher)
+                    field(In_Pub; Publisher)
                     {
                         ApplicationArea = All;
                         Caption = 'Publisher';
@@ -69,7 +64,7 @@ page 2501 "Extension Details"
                         Caption = 'App ID';
                         ToolTip = 'Specifies the app ID of the extension.';
                     }
-                    field(In_PublishedAs; Rec."Published As")
+                    field(In_PublishedAs; "Published As")
                     {
                         ApplicationArea = All;
                         Caption = 'Published As';
@@ -86,7 +81,7 @@ page 2501 "Extension Details"
 
                         trigger OnDrillDown()
                         begin
-                            HyperLink(Rec.Url);
+                            HyperLink(Url);
                         end;
                     }
                     field(In_Help; HelpLbl)
@@ -99,7 +94,7 @@ page 2501 "Extension Details"
 
                         trigger OnDrillDown()
                         begin
-                            HyperLink(Rec.Help);
+                            HyperLink(Help);
                         end;
                     }
                 }
@@ -112,7 +107,7 @@ page 2501 "Extension Details"
                 {
                     Caption = 'Uninstall Extension';
                     InstructionalText = 'Uninstall extension to remove added features.';
-                    field(Un_Name; Rec.Name)
+                    field(Un_Name; Name)
                     {
                         ApplicationArea = All;
                         Caption = 'Name';
@@ -134,7 +129,7 @@ page 2501 "Extension Details"
                         ToolTip = 'Specifies the version of the extension.';
                         Editable = false;
                     }
-                    field(Un_Pub; Rec.Publisher)
+                    field(Un_Pub; Publisher)
                     {
                         ApplicationArea = All;
                         Caption = 'Publisher';
@@ -148,7 +143,7 @@ page 2501 "Extension Details"
                         ToolTip = 'Specifies the app ID of the extension.';
                         Editable = false;
                     }
-                    field(Un_PublishedAs; Rec."Published As")
+                    field(Un_PublishedAs; "Published As")
                     {
                         ApplicationArea = All;
                         Caption = 'Published As';
@@ -164,7 +159,7 @@ page 2501 "Extension Details"
 
                         trigger OnValidate()
                         begin
-                            ExtensionInstallationImpl.GetClearExtensionSchemaConfirmation(Rec."Package ID", ClearSchema);
+                            ExtensionInstallationImpl.GetClearExtensionSchemaConfirmation("Package ID", ClearSchema);
                         end;
                     }
                     field(Un_Terms; TermsLbl)
@@ -181,9 +176,9 @@ page 2501 "Extension Details"
                             EnvironmentInfo: Codeunit "Environment Information";
                         begin
                             if EnvironmentInfo.IsSaaS() then
-                                if Rec.EULA = OnPremEULALbl then
-                                    Rec.EULA := SaaSEULALbl;
-                            HyperLink(Rec.EULA);
+                                if EULA = OnPremEULALbl then
+                                    EULA := SaaSEULALbl;
+                            HyperLink(EULA);
                         end;
                     }
                     field(Un_Privacy; PrivacyLbl)
@@ -200,9 +195,9 @@ page 2501 "Extension Details"
                             EnvironmentInfo: Codeunit "Environment Information";
                         begin
                             if EnvironmentInfo.IsSaaS() then
-                                if Rec."Privacy Statement" = OnPremPrivacyLbl then
-                                    Rec."Privacy Statement" := SaaSPrivacyLbl;
-                            HyperLink(Rec."Privacy Statement");
+                                if "Privacy Statement" = OnPremPrivacyLbl then
+                                    "Privacy Statement" := SaaSPrivacyLbl;
+                            HyperLink("Privacy Statement");
                         end;
                     }
                     field(Un_Url; UrlLbl)
@@ -215,7 +210,7 @@ page 2501 "Extension Details"
 
                         trigger OnDrillDown()
                         begin
-                            HyperLink(Rec.Url);
+                            HyperLink(Url);
                         end;
                     }
                     field(Un_Help; HelpLbl)
@@ -228,7 +223,7 @@ page 2501 "Extension Details"
 
                         trigger OnDrillDown()
                         begin
-                            HyperLink(Rec.Help);
+                            HyperLink(Help);
                         end;
                     }
                 }
@@ -240,14 +235,14 @@ page 2501 "Extension Details"
                 group("Review Extension Information before installation")
                 {
                     Caption = 'Review Extension Information before installation';
-                    field(Name; Rec.Name)
+                    field(Name; Name)
                     {
                         ApplicationArea = All;
                         Caption = 'Name';
                         ToolTip = 'Specifies the name of the extension.';
                         Editable = false;
                     }
-                    field(Publisher; Rec.Publisher)
+                    field(Publisher; Publisher)
                     {
                         ApplicationArea = All;
                         Caption = 'Publisher';
@@ -284,7 +279,7 @@ page 2501 "Extension Details"
 
                             trigger OnDrillDown()
                             begin
-                                HyperLink(Rec.EULA);
+                                HyperLink(EULA);
                             end;
                         }
                         field(Privacy; PrivacyLbl)
@@ -298,14 +293,14 @@ page 2501 "Extension Details"
 
                             trigger OnDrillDown()
                             begin
-                                HyperLink(Rec."Privacy Statement");
+                                HyperLink("Privacy Statement");
                             end;
                         }
                         field(Accepted; IsAccepted)
                         {
                             ApplicationArea = All;
                             Caption = 'I accept the terms and conditions';
-                            ToolTip = 'Specifies the acceptance of terms and conditions.';
+                            ToolTip = 'Acceptance of terms and conditions.';
                             Visible = Legal;
                         }
                     }
@@ -336,7 +331,7 @@ page 2501 "Extension Details"
 
     actions
     {
-        area(Processing)
+        area(processing)
         {
             action(Back)
             {
@@ -380,11 +375,11 @@ page 2501 "Extension Details"
                 Enabled = IsAccepted;
                 Image = Approve;
                 InFooterBar = true;
-                Visible = InstallEnabled and (not IsInstalled);
+                Visible = InstallEnabled AND (not IsInstalled);
 
                 trigger OnAction()
                 begin
-                    ExtensionInstallationImpl.InstallExtensionWithConfirmDialog(Rec."Package ID", LanguageID);
+                    ExtensionInstallationImpl.InstallExtensionWithConfirmDialog("Package ID", LanguageID);
                     CurrPage.Close();
                 end;
             }
@@ -399,7 +394,7 @@ page 2501 "Extension Details"
 
                 trigger OnAction()
                 begin
-                    ExtensionInstallationImpl.UninstallExtensionWithConfirmDialog(Rec."Package ID", false, ClearSchema);
+                    ExtensionInstallationImpl.UninstallExtensionWithConfirmDialog("Package ID", false, ClearSchema);
                     CurrPage.Close();
                 end;
             }
@@ -408,7 +403,7 @@ page 2501 "Extension Details"
 
     trigger OnOpenPage()
     begin
-        PublishedApplication.SetRange("Package ID", Rec."Package ID");
+        PublishedApplication.SetRange("Package ID", "Package ID");
         PublishedApplication.SetRange("Tenant Visible", true);
 
         if not PublishedApplication.FindFirst() then
@@ -450,16 +445,16 @@ page 2501 "Extension Details"
     var
         DescriptionStream: InStream;
     begin
-        Rec.TransferFields(PublishedApplication, true);
+        TransferFields(PublishedApplication, true);
 
-        AppIdDisplay := LowerCase(DelChr(Format(Rec.ID), '=', '{}'));
+        AppIdDisplay := LowerCase(DelChr(Format(ID), '=', '{}'));
         VersionDisplay :=
           ExtensionInstallationImpl.GetVersionDisplayString(PublishedApplication);
         PublishedApplication.CalcFields(Description);
-        PublishedApplication.Description.CreateInStream(DescriptionStream, TextEncoding::UTF8);
+        PublishedApplication.Description.CreateInStream(DescriptionStream, TEXTENCODING::UTF8);
         AppDescription.Read(DescriptionStream);
 
-        Rec.Insert();
+        Insert();
     end;
 
     local procedure SetLanguageConfig()
@@ -474,7 +469,7 @@ page 2501 "Extension Details"
 
     local procedure SetPageConfig()
     begin
-        IsInstalled := ExtensionInstallationImpl.IsInstalledByPackageId(Rec."Package ID");
+        IsInstalled := ExtensionInstallationImpl.IsInstalledByPackageId("Package ID");
         if IsInstalled then begin
             CurrPage.Caption(UninstallationPageCaptionMsg);
             NextEnabled := false;
@@ -486,11 +481,10 @@ page 2501 "Extension Details"
         end;
 
         // Any legal info to display
-        Legal := ((StrLen(Rec."Privacy Statement") <> 0) or (StrLen(Rec.EULA) <> 0));
+        Legal := ((StrLen("Privacy Statement") <> 0) or (StrLen(EULA) <> 0));
 
         // Auto accept if no legal info
         IsAccepted := not Legal;
     end;
 }
-
 

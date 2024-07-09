@@ -1,22 +1,14 @@
-namespace Microsoft.Foundation.DataSearch;
-
-using System.Environment.Configuration;
-using System.Reflection;
-
 table 2681 "Data Search Setup (Table)"
 {
     Caption = 'Search Setup (Table)';
     ReplicateData = true;
-    InherentEntitlements = RIMDX;
-    InherentPermissions = RmX;
 
     fields
     {
         field(1; "Table No."; Integer)
         {
             Caption = 'Table No.';
-            TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const(Table));
-            DataClassification = SystemMetadata;
+            TableRelation = AllObjWithCaption."Object ID" WHERE("Object Type" = CONST(Table));
         }
         field(2; "Table Subtype"; Integer)
         {
@@ -40,7 +32,7 @@ table 2681 "Data Search Setup (Table)"
         }
         field(9; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table), "Object ID" = field("Table No.")));
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" WHERE("Object Type" = CONST(Table), "Object ID" = FIELD("Table No.")));
             Caption = 'Table Caption';
             FieldClass = FlowField;
         }
@@ -66,78 +58,68 @@ table 2681 "Data Search Setup (Table)"
 
     trigger OnInsert()
     var
-        DataSearchDefaults: codeunit "Data Search Defaults";
-    begin
-        DataSearchDefaults.AddDefaultFields(Rec."Table No.");
-    end;
-
-    /// <summary>
-    /// Used for also inserting related records, e.g. for SalesHeader that has several subtypes
-    /// </summary>
-    internal procedure InsertRec(WithSubTypes: Boolean)
-    var
         DataSearchSetupTable: Record "Data Search Setup (Table)";
-        DataSearchObjectMapping: Codeunit "Data Search Object Mapping";
+        DataSearchDefaults: codeunit "Data Search Defaults";
         SubtypeList: list of [Integer];
         Subtype: Integer;
-        SubTableNos: List of [Integer];
-        SubTableNo: Integer;
     begin
-        if Rec.Insert(true) then;
-        DataSearchSetupTable := Rec;
-        SubTableNos := DataSearchObjectMapping.GetSubTableNos(Rec."Table No.");
-        if SubTableNos.Count > 0 then begin
-            foreach SubTableNo in SubtableNos do begin
-                Rec."Table No." := SubTableNo;
-                Rec."Table/Type ID" := 0; // to assign new sequence no.
-                if Rec.Insert(true) then;
-            end;
-            Rec := DataSearchSetupTable;
-        end;
         if Rec.IsTemporary() then
             exit;
-
-        if not WithSubTypes then
+        DataSearchDefaults.AddTextFields(Rec."Table No.");
+        DataSearchDefaults.AddIndexedFields(Rec."Table No.");
+        if Rec."Table/Type ID" > 0 then
             exit;
-        DataSearchObjectMapping.GetSubtypes(Rec, SubtypeList);
-        SubTableNos.Add(Rec."Table No.");  // so parent table and potential subtables are handled in one loop
-        foreach SubTableNo in SubtableNos do
-            foreach Subtype in SubtypeList do
-                if Subtype <> 0 then begin // zero has already been taken care of
-                    DataSearchSetupTable := Rec;
-                    DataSearchSetupTable."Table No." := SubTableNo;
-                    DataSearchSetupTable."Table Subtype" := Subtype;
-                    DataSearchSetupTable."Table/Type ID" := 0; // to assign new sequence no.
-                    if DataSearchSetupTable.Insert() then;
-                end;
+        GetSubtypes(SubtypeList);
+        foreach Subtype in SubtypeList do
+            if Subtype <> 0 then begin // zero has already been taken care of
+                DataSearchSetupTable := Rec;
+                DataSearchSetupTable."Table Subtype" := Subtype;
+                if DataSearchSetupTable.Insert() then;
+            end;
     end;
 
-    /// <summary>
-    /// Used for also deleting related records, e.g. for SalesHeader that has several subtypes
-    /// </summary>    
-    internal procedure DeleteRec(WithSubTypes: Boolean)
+    trigger OnDelete()
     var
         DataSearchSetupTable: Record "Data Search Setup (Table)";
-        DataSearchObjectMapping: Codeunit "Data Search Object Mapping";
-        SubTableNos: List of [Integer];
-        SubTableNo: Integer;
     begin
-        if not Rec.Find() then
-            exit;
-        if Rec.Delete(true) then;
         if Rec.IsTemporary() then
             exit;
-        SubTableNos := DataSearchObjectMapping.GetSubTableNos(Rec."Table No.");
-        SubTableNos.Add(Rec."Table No.");  // so parent table and potential subtables are handled in one loop
-        foreach SubTableNo in SubtableNos do begin
-            DataSearchSetupTable.SetRange("Role Center ID", Rec."Role Center ID");
-            DataSearchSetupTable.SetRange("Table No.", SubTableNo);
-            if WithSubTypes then
-                DataSearchSetupTable.SetRange("Table Subtype")
-            else
-                DataSearchSetupTable.SetRange("Table Subtype", Rec."Table Subtype");
-            DataSearchSetupTable.DeleteAll();
+        DataSearchSetupTable.SetRange("Role Center ID", Rec."Role Center ID");
+        DataSearchSetupTable.SetRange("Table No.", Rec."Table No.");
+        DataSearchSetupTable.SetFilter("Table Subtype", '>0');
+        DataSearchSetupTable.DeleteAll();
+    end;
+
+    local procedure GetSubtypes(var SubtypeList: list of [Integer])
+    var
+        DataSearchEvents: Codeunit "Data Search Events";
+        FieldNo: Integer;
+    begin
+        Case Rec."Table No." of
+            Database::"Sales Header", Database::"Sales Line",
+            Database::"Purchase Header", Database::"Purchase Line",
+            Database::"Service Header", Database::"Service Item Line",
+            Database::"Service Contract Line":
+                FieldNo := 1;
+            Database::"Service Contract Header":
+                FieldNo := 2;
         end;
+        if FieldNo = 0 then
+            DataSearchEvents.OnGetFieldNoForTableType(Rec."Table No.", FieldNo);
+        if FieldNo > 0 then
+            GetSubtypesForField(Rec."Table No.", FieldNo, SubtypeList);
+    end;
+
+    local procedure GetSubtypesForField(TableNo: Integer; FieldNo: Integer; var SubtypeList: list of [Integer])
+    var
+        RecRef: RecordRef;
+        FldRef: FieldRef;
+        i: Integer;
+    begin
+        RecRef.Open(TableNo);
+        FldRef := RecRef.Field(FieldNo);
+        for i := 1 to FldRef.EnumValueCount() do
+            SubtypeList.Add(FldRef.GetEnumValueOrdinal(i));
     end;
 
     internal procedure GetProfileID(): Code[30]

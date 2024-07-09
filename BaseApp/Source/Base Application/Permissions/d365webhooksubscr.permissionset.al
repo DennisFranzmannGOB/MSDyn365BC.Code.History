@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using System.Automation;
-
 permissionset 6006 "D365 WEBHOOK SUBSCR"
 {
     Assignable = true;

@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.Environment;
-using System.Security.AccessControl;
-
 page 30059 "APIV2 - Aut. User Permissions"
 {
     APIGroup = 'automation';
@@ -24,39 +19,39 @@ page 30059 "APIV2 - Aut. User Permissions"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(userSecurityId; Rec."User Security ID")
+                field(userSecurityId; "User Security ID")
                 {
                     Caption = 'User Security Id';
                     Editable = false;
                 }
-                field(roleId; Rec."Role ID")
+                field(roleId; "Role ID")
                 {
                     Caption = 'Role Id';
                 }
-                field(displayName; Rec."Role Name")
+                field(displayName; "Role Name")
                 {
                     Caption = 'Display Name';
                     Editable = false;
                 }
-                field(company; Rec."Company Name")
+                field(company; "Company Name")
                 {
                     Caption = 'Company';
                 }
-                field(appId; Rec."App ID")
+                field(appId; "App ID")
                 {
                     Caption = 'App Id';
                 }
-                field(extensionName; Rec."App Name")
+                field(extensionName; "App Name")
                 {
                     Caption = 'Extension Name';
                     Editable = false;
                 }
-                field(scope; Rec.Scope)
+                field(scope; Scope)
                 {
                     Caption = 'Scope';
 
@@ -78,10 +73,10 @@ page 30059 "APIV2 - Aut. User Permissions"
         UserSecurityIDFilter: Text;
     begin
         if not LinesLoaded then begin
-            UserSecurityIDFilter := Rec.GetFilter("User Security ID");
+            UserSecurityIDFilter := GetFilter("User Security ID");
             if UserSecurityIDFilter = '' then
                 Error(UserIDNotSpecifiedForLinesErr);
-            if not Rec.FindFirst() then
+            if not FindFirst() then
                 exit(false);
             LinesLoaded := true;
         end;
@@ -106,11 +101,11 @@ page 30059 "APIV2 - Aut. User Permissions"
             AggregatePermissionSet.SetRange(Scope, Rec.Scope);
 
         if AggregatePermissionSet.Count() > 1 then
-            Error(MultipleRoleIDErr, Rec."Role ID");
+            Error(MultipleRoleIDErr, "Role ID");
 
         AggregatePermissionSet.FindFirst();
-        Rec.Scope := AggregatePermissionSet.Scope;
-        Rec."App ID" := AggregatePermissionSet."App ID";
+        Scope := AggregatePermissionSet.Scope;
+        "App ID" := AggregatePermissionSet."App ID";
     end;
 
     var

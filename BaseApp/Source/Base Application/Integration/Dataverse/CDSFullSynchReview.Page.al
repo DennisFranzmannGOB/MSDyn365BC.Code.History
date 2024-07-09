@@ -1,19 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.CRM.Contact;
-using Microsoft.CRM.Team;
-using Microsoft.Finance.Currency;
-using Microsoft.Foundation.PaymentTerms;
-using Microsoft.Foundation.Shipping;
-using Microsoft.Integration.D365Sales;
-using Microsoft.Integration.SyncEngine;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-
 page 7208 "CDS Full Synch. Review"
 {
     Caption = 'Dataverse Full Synchronization Review', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
@@ -75,7 +59,7 @@ page 7208 "CDS Full Synch. Review"
 
                     end;
                 }
-                field(Direction; Rec.Direction)
+                field(Direction; Direction)
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the direction in which data will synchronize.';
@@ -84,7 +68,7 @@ page 7208 "CDS Full Synch. Review"
                 {
                     Caption = 'Recommendation';
                     ApplicationArea = Suite;
-                    Enabled = (Rec."Initial Synch Recommendation" = Rec."Initial Synch Recommendation"::"Couple Records");
+                    Enabled = ("Initial Synch Recommendation" = "Initial Synch Recommendation"::"Couple Records");
                     StyleExpr = InitialSynchRecommendationStyle;
                     ToolTip = 'Specifies the recommended action for the initial synchronization.';
 
@@ -123,17 +107,6 @@ page 7208 "CDS Full Synch. Review"
                         IntegrationFieldMapping.SetMatchBasedCouplingFilters(IntegrationTableMapping);
                         if Page.RunModal(Page::"Match Based Coupling Criteria", IntegrationFieldMapping) = Action::LookupOK then
                             CurrPage.Update(false);
-                    end;
-                }
-                field("Multi Company Synch. Enabled"; Rec."Multi Company Synch. Enabled")
-                {
-                    ApplicationArea = Suite;
-                    Visible = true;
-                    ToolTip = 'Specifies if the multi-company synchronization should be enabled for the corresponding integration table mapping.';
-
-                    trigger OnValidate()
-                    begin
-                        Message(RefreshToApplyTxt);
                     end;
                 }
             }
@@ -181,24 +154,6 @@ page 7208 "CDS Full Synch. Review"
                         CurrPage.Update();
                     end;
                 }
-                action(ToggleMultiCompany)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Toggle Multi-Company Synchronization';
-                    Visible = MultiCompanyCheckboxEnabled;
-                    Image = ToggleBreakpoint;
-                    ToolTip = 'Toggle multi-company synchronization for this table mapping.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.Validate("Multi Company Synch. Enabled", (not Rec."Multi Company Synch. Enabled"));
-                        Commit();
-
-                        Rec.DeleteAll();
-                        Rec.Generate();
-                        Commit();
-                    end;
-                }
             }
         }
         area(Promoted)
@@ -213,30 +168,20 @@ page 7208 "CDS Full Synch. Review"
                 actionref(ScheduleFullSynch_Promoted; ScheduleFullSynch)
                 {
                 }
-                actionref(ToggleMultiCompany_Promoted; ToggleMultiCompany)
-                {
-                }
             }
         }
     }
-
-    trigger OnOpenPage()
-    var
-        CDSIntegrationImpl: Codeunit "CDS Integration Impl.";
-    begin
-        MultiCompanyCheckboxEnabled := CDSIntegrationImpl.MultipleCompaniesConnected();
-    end;
 
     trigger OnAfterGetRecord()
     var
         IntegrationFieldMapping: Record "Integration Field Mapping";
     begin
-        ActionStartEnabled := (not Rec.IsThereActiveSessionInProgress()) and Rec.IsThereBlankStatusLine();
-        ActionRecommendFullSynchEnabled := (not Rec.IsThereActiveSessionInProgress()) and (Rec."Initial Synch Recommendation" = Rec."Initial Synch Recommendation"::"Couple Records");
-        if Rec."Initial Synch Recommendation" <> Rec."Initial Synch Recommendation"::"Couple Records" then
-            InitialSynchRecommendation := Format(Rec."Initial Synch Recommendation")
+        ActionStartEnabled := (not IsThereActiveSessionInProgress()) and IsThereBlankStatusLine();
+        ActionRecommendFullSynchEnabled := (not IsThereActiveSessionInProgress()) and ("Initial Synch Recommendation" = "Initial Synch Recommendation"::"Couple Records");
+        if "Initial Synch Recommendation" <> "Initial Synch Recommendation"::"Couple Records" then
+            InitialSynchRecommendation := Format("Initial Synch Recommendation")
         else begin
-            IntegrationFieldMapping.SetRange("Integration Table Mapping Name", Rec.Name);
+            IntegrationFieldMapping.SetRange("Integration Table Mapping Name", Name);
             IntegrationFieldMapping.SetRange("Use For Match-Based Coupling", true);
             if IntegrationFieldMapping.IsEmpty() then
                 InitialSynchRecommendation := MatchBasedCouplingTxt
@@ -247,7 +192,7 @@ page 7208 "CDS Full Synch. Review"
         if InitialSynchRecommendation = CouplingCriteriaSelectedTxt then
             InitialSynchRecommendationStyle := 'Favorable'
         else
-            InitialSynchRecommendationStyle := Rec.GetInitialSynchRecommendationStyleExpression(Format(Rec."Initial Synch Recommendation"));
+            InitialSynchRecommendationStyle := GetInitialSynchRecommendationStyleExpression(Format("Initial Synch Recommendation"));
         GetCDSPageId();
         GetBCPageId();
         GetCDSPageName();
@@ -270,7 +215,7 @@ page 7208 "CDS Full Synch. Review"
 
     local procedure GetCDSPageId()
     begin
-        case Rec.Name of
+        case Name of
             'CONTACT':
                 CDSPageId := 5342;
             'CURRENCY':
@@ -292,7 +237,7 @@ page 7208 "CDS Full Synch. Review"
 
     local procedure GetBCPageId()
     begin
-        case Rec.Name of
+        case Name of
             'CONTACT':
                 BCPageId := Page::"Contact List";
             'CURRENCY':
@@ -314,7 +259,7 @@ page 7208 "CDS Full Synch. Review"
 
     local procedure GetCDSPageName()
     begin
-        case Rec.Name of
+        case Name of
             'CONTACT':
                 CDSPageName := 'Contacts';
             'CURRENCY':
@@ -336,7 +281,7 @@ page 7208 "CDS Full Synch. Review"
 
     local procedure GetBCPageName()
     begin
-        case Rec.Name of
+        case Name of
             'CONTACT':
                 BCPageName := 'Contacts';
             'CURRENCY':
@@ -444,7 +389,6 @@ page 7208 "CDS Full Synch. Review"
         UserPassword: Text;
         ActionStartEnabled: Boolean;
         ActionRecommendFullSynchEnabled: Boolean;
-        MultiCompanyCheckboxEnabled: Boolean;
         BCPageId: Integer;
         CDSPageId: Integer;
         CDSPageName: Text;
@@ -452,7 +396,6 @@ page 7208 "CDS Full Synch. Review"
         InitialSynchRecommendation: Text;
         InitialSynchRecommendationStyle: Text;
         MatchBasedCouplingTxt: Label 'Select Coupling Criteria';
-        CouplingCriteriaSelectedTxt: Label 'Review Selected Coupling Criteria';
-        RefreshToApplyTxt: Label 'Choose action ''Refresh recommendation'' to apply the change.';
+        CouplingCriteriaSelectedTxt: Label 'Coupling Criteria Selected';
 }
 

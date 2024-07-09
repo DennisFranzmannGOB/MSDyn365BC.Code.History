@@ -1,8 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.CRM.Contact;
-using Microsoft.Purchases.Vendor;
-
 page 1628 "Office No Vendor Dlg"
 {
     Caption = 'Create vendor record?';
@@ -15,7 +10,7 @@ page 1628 "Office No Vendor Dlg"
     {
         area(content)
         {
-            field("STRSUBSTNO(VendDialogLbl,Name)"; StrSubstNo(VendDialogLbl, Rec.Name))
+            field("STRSUBSTNO(VendDialogLbl,Name)"; StrSubstNo(VendDialogLbl, Name))
             {
                 ApplicationArea = All;
                 ShowCaption = false;
@@ -23,7 +18,7 @@ page 1628 "Office No Vendor Dlg"
             group(Control2)
             {
                 ShowCaption = false;
-                field(CreateVend; StrSubstNo(CreateVendLbl, Rec.Name))
+                field(CreateVend; StrSubstNo(CreateVendLbl, Name))
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -32,7 +27,7 @@ page 1628 "Office No Vendor Dlg"
 
                     trigger OnDrillDown()
                     begin
-                        Rec.CreateVendorFromTemplate('');
+                        CreateVendorFromTemplate('');
                         CurrPage.Close();
                     end;
                 }

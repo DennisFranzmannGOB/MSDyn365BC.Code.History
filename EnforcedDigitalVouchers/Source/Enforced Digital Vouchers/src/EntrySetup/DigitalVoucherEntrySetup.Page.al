@@ -1,10 +1,4 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.EServices.EDocument;
-
-page 5579 "Digital Voucher Entry Setup"
+﻿page 5579 "Digital Voucher Entry Setup"
 {
     PageType = List;
     SourceTable = "Digital Voucher Entry Setup";

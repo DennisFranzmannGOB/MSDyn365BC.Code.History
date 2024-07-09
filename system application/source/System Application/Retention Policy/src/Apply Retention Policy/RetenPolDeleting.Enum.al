@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 /// <summary>
 /// This enum is used to determine the implementation codeunit called to delete expired records when applying a retention policy.
 /// </summary>

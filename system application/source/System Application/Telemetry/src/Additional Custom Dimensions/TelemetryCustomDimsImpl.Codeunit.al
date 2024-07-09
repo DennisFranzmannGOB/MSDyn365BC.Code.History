@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Telemetry;
-
 codeunit 8707 "Telemetry Custom Dims Impl."
 {
     Access = Internal;

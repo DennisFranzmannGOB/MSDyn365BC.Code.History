@@ -32,12 +32,15 @@
         SellToCustomerName4HandlerFunction: Text[100];
         LeaveDocWithoutPostingTxt: Label 'This document is not posted.';
         CopyItemsOption: Option "None",All,Selected;
+        RefDocType: Option Quote,"Order",Invoice,"Credit Memo";
+        RefMode: Option Manual,Automatic,"Always Ask";
         ControlShouldBeDisabledErr: Label 'Control should be disabled';
         ControlShouldBeEnabledErr: Label 'Control should be enabled';
         CannotCreatePurchaseOrderWithoutVendorErr: Label 'You cannot create purchase orders without specifying a vendor for all lines.';
         EntireOrderIsAvailableTxt: Label 'All items on the sales order are available.';
         NoPurchaseOrdersCreatedErr: Label 'No purchase orders are created.';
         AllItemsAreAvailableErr: Label 'All items are available and no planning lines are created.';
+        CombineShipmentMsg: Label 'The shipments are now combined';
 
     [Test]
     [HandlerFunctions('ConfirmHandlerYes')]
@@ -53,7 +56,7 @@
         Initialize();
 
         // Setup
-        CreateCustomerWithoutPaymentTerms(Customer);
+        LibrarySales.CreateCustomer(Customer);
         LibrarySmallBusiness.CreateItem(Item);
         LibrarySmallBusiness.CreateSalesInvoiceHeader(SalesHeader, Customer);
         AddRandomNumberOfLinesToSalesHeader(SalesHeader, Item);
@@ -85,7 +88,7 @@
         Initialize();
 
         // Setup
-        CreateCustomerWithoutPaymentTerms(Customer);
+        LibrarySales.CreateCustomer(Customer);
         LibrarySmallBusiness.CreateItem(Item);
         LibrarySmallBusiness.CreateSalesInvoiceHeader(SalesHeader, Customer);
         AddRandomNumberOfLinesToSalesHeader(SalesHeader, Item);
@@ -117,7 +120,7 @@
         Initialize();
 
         // Setup
-        CreateVendorWithoutPaymentTerms(Vendor);
+        LibrarySmallBusiness.CreateVendor(Vendor);
         LibrarySmallBusiness.CreateItem(Item);
         LibrarySmallBusiness.CreatePurchaseInvoiceHeader(PurchaseHeader, Vendor);
         LibrarySmallBusiness.CreatePurchaseLine(PurchaseLine, PurchaseHeader, Item, LibraryRandom.RandDecInRange(1, 100, 2));
@@ -150,7 +153,7 @@
         Initialize();
 
         // Setup
-        CreateVendorWithoutPaymentTerms(Vendor);
+        LibrarySmallBusiness.CreateVendor(Vendor);
         LibrarySmallBusiness.CreateItem(Item);
         LibrarySmallBusiness.CreatePurchaseInvoiceHeader(PurchaseHeader, Vendor);
         LibrarySmallBusiness.CreatePurchaseLine(PurchaseLine, PurchaseHeader, Item, LibraryRandom.RandDecInRange(1, 100, 2));
@@ -751,7 +754,7 @@
         Initialize();
 
         LibraryApplicationArea.DisableApplicationAreaSetup;
-        CreateCustomerWithoutPaymentTerms(Cust);
+        CreateCustomerWithNumberAsName(Cust);
 
         LibrarySmallBusiness.CreateSalesQuoteHeader(SalesHeader, Cust);
 
@@ -839,7 +842,9 @@
     begin
         Initialize();
 
-        CreateCustomerWithoutPaymentTerms(Cust);
+        LibrarySmallBusiness.CreateCustomer(Cust);
+        Cust.Name := Cust."No.";
+        Cust.Modify(true);
         LibrarySmallBusiness.CreateItem(Item);
 
         ItemQuantity := LibraryRandom.RandIntInRange(2, 100);
@@ -899,7 +904,9 @@
         ClearTable(DATABASE::"Res. Ledger Entry");
         LibraryApplicationArea.DisableApplicationAreaSetup;
 
-        CreateCustomerWithoutPaymentTerms(Cust);
+        LibrarySmallBusiness.CreateCustomer(Cust);
+        Cust.Name := Cust."No.";
+        Cust.Modify(true);
         LibrarySmallBusiness.CreateItem(Item);
 
         ItemQuantity := LibraryRandom.RandIntInRange(2, 100);
@@ -1043,7 +1050,6 @@
         LibrarySmallBusiness.CreateSalesQuoteHeaderWithLines(SalesHeader, Customer, Item, 1, 1); // 1 line, Qty 1
         SalesQuoteToInvoice.Run(SalesHeader);
         SalesQuoteToInvoice.GetSalesInvoiceHeader(SalesHeader);
-        SalesHeader."Payment Terms Code" := '';
 
         // Exercise
         CODEUNIT.Run(CODEUNIT::"Sales-Post", SalesHeader);
@@ -1158,7 +1164,7 @@
     begin
         Initialize();
 
-        CreateCustomerWithoutPaymentTerms(Cust);
+        LibrarySmallBusiness.CreateCustomer(Cust);
         Cust.Name := Cust."No.";
         Cust.Modify(true);
 
@@ -1182,9 +1188,7 @@
         Initialize();
 
         LibraryApplicationArea.DisableApplicationAreaSetup;
-        CreateCustomerWithoutPaymentTerms(Cust);
-        Cust.Name := Cust."No.";
-        Cust.Modify(true);
+        CreateCustomerWithNumberAsName(Cust);
 
         LibrarySmallBusiness.CreateSalesQuoteHeader(SalesHeader, Cust);
 
@@ -1211,7 +1215,7 @@
     begin
         Initialize();
 
-        CreateCustomerWithoutPaymentTerms(Cust);
+        LibrarySmallBusiness.CreateCustomer(Cust);
         Cust.Name := Cust."No.";
         Cust.Modify(true);
         LibrarySmallBusiness.CreateItem(Item);
@@ -1306,7 +1310,7 @@
     begin
         Initialize();
 
-        CreateCustomerWithoutPaymentTerms(Cust);
+        LibrarySmallBusiness.CreateCustomer(Cust);
         Cust.Name := Cust."No.";
         Cust.Modify(true);
         LibrarySmallBusiness.CreateItem(Item);
@@ -1368,9 +1372,9 @@
         ClearTable(DATABASE::"Res. Ledger Entry");
         LibraryApplicationArea.DisableApplicationAreaSetup;
 
-        CreateCustomerWithoutPaymentTerms(Cust);
+        LibrarySmallBusiness.CreateCustomer(Cust);
         Cust.Name := Cust."No.";
-        Cust.Modify();
+        Cust.Modify(true);
         LibrarySmallBusiness.CreateItem(Item);
 
         ItemQuantity := LibraryRandom.RandIntInRange(2, 100);
@@ -1504,7 +1508,9 @@
     begin
         Initialize();
 
-        CreateCustomerWithoutPaymentTerms(Cust);
+        LibrarySmallBusiness.CreateCustomer(Cust);
+        Cust.Name := Cust."No.";
+        Cust.Modify(true);
         LibrarySmallBusiness.CreateItem(Item);
 
         NoOfLines := LibraryRandom.RandIntInRange(2, 10);
@@ -1526,7 +1532,11 @@
         ItemQuantity: Integer;
         NoOfLines: Integer;
     begin
-        CreateCustomerWithoutPaymentTerms(Cust);
+        LibrarySmallBusiness.CreateCustomer(Cust);
+        Cust.Name := Cust."No.";
+        Cust.Address := LibraryUtility.GenerateRandomCode(Cust.FieldNo(Address), DATABASE::Customer);
+
+        Cust.Modify(true);
         LibrarySmallBusiness.CreateItem(Item);
 
         NoOfLines := LibraryRandom.RandIntInRange(2, 10);
@@ -1706,7 +1716,7 @@
         Initialize();
 
         // Create Sales Invoice and copy to another Sales Quote
-        CreateCustomerWithoutPaymentTerms(Customer);
+        CreateCustomer(Customer);
         LibrarySmallBusiness.CreateItem(Item);
         LibrarySmallBusiness.CreateSalesInvoiceHeader(SalesHeader, Customer);
         LibrarySmallBusiness.CreateSalesLine(SalesLine, SalesHeader, Item, LibraryRandom.RandDec(100, 2));
@@ -1751,7 +1761,7 @@
         Initialize();
 
         // Create Sales Invoice and copy to another Sales Quote
-        CreateCustomerWithoutPaymentTerms(Customer);
+        CreateCustomer(Customer);
         LibrarySmallBusiness.CreateItem(Item);
         LibrarySmallBusiness.CreateSalesInvoiceHeader(SalesHeader, Customer);
         LibrarySmallBusiness.CreateSalesLine(SalesLine, SalesHeader, Item, LibraryRandom.RandDec(100, 2));
@@ -1795,7 +1805,7 @@
         Initialize();
 
         // Create Sales Invoice and copy to another Sales Quote
-        CreateVendorWithoutPaymentTerms(Vendor);
+        CreateVendor(Vendor);
         LibrarySmallBusiness.CreateItem(Item);
         LibrarySmallBusiness.CreatePurchaseInvoiceHeader(PurchaseHeader, Vendor);
         LibrarySmallBusiness.CreatePurchaseLine(PurchaseLine, PurchaseHeader, Item, LibraryRandom.RandDec(100, 2));
@@ -2560,7 +2570,7 @@
         ClearTable(DATABASE::"Res. Ledger Entry");
 
         // [GIVEN] Create Customer which Balance and "Balance Due" are different by posting 2 sales invoices:
-        CreateCustomerWithoutPaymentTerms(Customer);
+        LibrarySmallBusiness.CreateCustomer(Customer);
         LibrarySmallBusiness.CreateItem(TestItem);
         // [GIVEN] Sales Invoice posted on WORKDATE
         LibrarySmallBusiness.CreateSalesInvoiceHeader(SalesHeader, Customer);
@@ -3758,7 +3768,7 @@
         Initialize();
 
         LibrarySmallBusiness.CreateItem(Item);
-        CreateCustomerWithoutPaymentTerms(Customer);
+        CreateCustomer(Customer);
 
         SalesInvoice.OpenNew();
         SalesInvoice."Sell-to Customer Name".SetValue(Customer.Name);
@@ -3787,7 +3797,7 @@
         ClearTable(DATABASE::"Production BOM Line");
 
         LibrarySmallBusiness.CreateItemAsService(Item);
-        CreateCustomerWithoutPaymentTerms(Customer);
+        CreateCustomer(Customer);
 
         SalesInvoice.OpenNew();
         SalesInvoice."Sell-to Customer Name".SetValue(Customer.Name);
@@ -3812,15 +3822,15 @@
     begin
         Initialize();
 
-        CreateCustomerWithoutPaymentTerms(Customer);
+        CreateCustomer(Customer);
+        Customer."Payment Terms Code" := '';
+        Customer.Modify();
 
         SalesInvoice.OpenNew();
         SalesInvoice."Sell-to Customer Name".SetValue(Customer.Name);
 
         Assert.AreEqual(SalesInvoice."Payment Terms Code".Value, '', 'Payment Terms Code should be empty by default');
-        // Due Date is replaced by Operation Occurred Date in IT
-        Assert.AreEqual(SalesInvoice."Operation Occurred Date".AsDate,
-          SalesInvoice."Document Date".AsDate, 'Operation Occurred incorrectly calculated.');
+        Assert.AreEqual(SalesInvoice."Due Date".AsDate, SalesInvoice."Document Date".AsDate, 'Due Date incorrectly calculated.');
     end;
 
     [Test]
@@ -3842,8 +3852,7 @@
         PaymentTerms.FindLast();
         SalesInvoice."Payment Terms Code".SetValue(PaymentTerms.Code);
         ExpectedDueDate := CalcDate(PaymentTerms."Due Date Calculation", SalesInvoice."Document Date".AsDate);
-        // Due Date is replaced by Operation Occurred Date in IT
-        Assert.AreEqual(SalesInvoice."Operation Occurred Date".AsDate, ExpectedDueDate, 'Operation Occurred incorrectly calculated.');
+        Assert.AreEqual(SalesInvoice."Due Date".AsDate, ExpectedDueDate, 'Due Date incorrectly calculated.');
     end;
 
     [Test]
@@ -3896,7 +3905,7 @@
     begin
         // Create data
         LibrarySmallBusiness.CreateItem(Item);
-        CreateCustomerWithoutPaymentTerms(Customer);
+        CreateCustomer(Customer);
         LibrarySmallBusiness.CreateStandardSalesCode(StandardSalesCode);
         LibrarySmallBusiness.CreateCustomerSalesCode(StandardCustomerSalesCode, Customer."No.", StandardSalesCode.Code);
         CreateStandardCodeWithItemAndDescr(StandardSalesCode, Item);
@@ -3945,7 +3954,7 @@
     begin
         // Create data
         LibrarySmallBusiness.CreateItem(Item);
-        CreateCustomerWithoutPaymentTerms(Customer);
+        CreateCustomer(Customer);
         LibrarySmallBusiness.CreateStandardSalesCode(StandardSalesCode);
         LibrarySmallBusiness.CreateCustomerSalesCode(StandardCustomerSalesCode, Customer."No.", StandardSalesCode.Code);
         CreateStandardCodeWithItemAndDescr(StandardSalesCode, Item);
@@ -3978,6 +3987,28 @@
 
         // Verify
         VerifyStandardCodes(StandardSalesCode);
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure SalesInvoiceExternalDocNoFieldIsVisibleUnderBasicExperience()
+    var
+        SalesInvoice: TestPage "Sales Invoice";
+    begin
+        // [FEATURE] [UI] [Application Area] [Invoice]
+        // [SCENARIO 207959] Sales Invoice's "External Document No." field must be visible in Basic application area setup
+
+        // [GIVEN] Setup "Experience" = "Basic"
+        LibraryApplicationArea.EnableBasicSetup;
+
+        // [WHEN] Open Sales Invoice page
+        SalesInvoice.OpenNew();
+
+        // [THEN] Field "External Document No." is visible
+        Assert.IsTrue(SalesInvoice."External Document No.".Visible, '');
+
+        // Tear Down
+        LibraryApplicationArea.DisableApplicationAreaSetup;
     end;
 
     [Test]
@@ -4162,6 +4193,72 @@
         SalesOrder."Bill-to Name".AssertEquals(NewName);
     end;
 
+    [Test]
+    [HandlerFunctions('MessageHandler')]
+    [Scope('OnPrem')]
+    procedure InsertTextStdCustSalesLinesAndCombineShipmentWhenCreateNewSalesOrderFromCustomerCard()
+    var
+        Customer: Record Customer;
+        SalesHeader: array[2] of Record "Sales Header";
+        CustomerCard: TestPage "Customer Card";
+        SalesOrder: TestPage "Sales Order";
+    begin
+        // [FEATURE] [UI] [Automatic mode] [Order]
+        // [SCENARIO 468776]  "The Customer does not exist. Identification fields and values: No.=''" error message appears on using combine shipments with comment lines coming from recurring sales lines
+        Initialize();
+
+        // [GIVEN] Customer "C" with text Std. Sales Code where Insert Rec. Lines On Orders = Automatic
+        Customer.Get(
+            GetNewCustNoWithStandardSalesCodeForCode(RefDocType::Order, RefMode::Automatic, CreateStandardSalesCodeWithItemLineAndCommentLine()));
+        Customer.Validate("Combine Shipments", true);
+        Customer.Modify(true);
+
+        // [GIVEN] Customer List on customer "C" record
+        CustomerCard.OpenEdit();
+        CustomerCard.GotoRecord(Customer);
+
+        // [GIVEN] Perform page action: New Sales Document -> Sales Order
+        SalesOrder.Trap();
+        CustomerCard.NewSalesOrder.Invoke();
+
+        // [WHEN] Activate "Sell-to Customer No." field
+        SalesOrder."Sell-to Customer No.".Activate();
+
+        // [THEN] Text recurring sales line created
+        SalesHeader[1].Get(SalesHeader[1]."Document Type"::Order, SalesOrder."No.".Value);
+
+        SalesOrder.Close();
+        CustomerCard.Close();
+
+        // [THEN] Post Sales Shipment
+        LibrarySales.PostSalesDocument(SalesHeader[1], true, false);
+
+        // [GIVEN] Customer List on customer "C" record
+        CustomerCard.OpenEdit();
+        CustomerCard.GotoRecord(Customer);
+
+        // [GIVEN] Perform page action: New Sales Document -> Sales Order
+        SalesOrder.Trap();
+        CustomerCard.NewSalesOrder.Invoke();
+
+        // [WHEN] Activate "Sell-to Customer No." field
+        SalesOrder."Sell-to Customer No.".Activate();
+
+        // [THEN] Text recurring sales line created
+        SalesHeader[2].Get(SalesHeader[2]."Document Type"::Order, SalesOrder."No.".Value);
+        SalesOrder.Close();
+        CustomerCard.Close();
+
+        // [THEN] Post Sales Shipment
+        LibrarySales.PostSalesDocument(SalesHeader[2], true, false);
+
+        // [WHEN] Run Combine Shipments for "Sell-to Customer No." = 2 for both shipped sales orders without posting
+        RunCombineShipmentsBySellToCustomer(Customer."No.", false, false, false, true);
+
+        // [VERIFY] Verify: Sales Invoice created and also verify the number of combined sales lines
+        VerifySalesInvoice(Customer."No.", LibraryRandom.RandIntInRange(6, 6));
+    end;
+
     local procedure Initialize()
     var
         CustomerTempl: Record "Customer Templ.";
@@ -4283,13 +4380,6 @@
         Customer.Modify();
     end;
 
-    local procedure CreateCustomerWithoutPaymentTerms(var Customer: Record Customer)
-    begin
-        CreateCustomer(Customer);
-        Customer."Payment Terms Code" := '';
-        Customer.Modify();
-    end;
-
     local procedure CreateVendor(var Vendor: Record Vendor)
     begin
         LibrarySmallBusiness.CreateVendor(Vendor);
@@ -4298,13 +4388,6 @@
         Vendor.Validate("Address 2", LibraryUtility.GenerateRandomCode(Vendor.FieldNo("Address 2"), DATABASE::Vendor));
         Vendor.Validate(City, LibraryUtility.GenerateRandomCode(Vendor.FieldNo(City), DATABASE::Vendor));
         Vendor.Validate("Post Code", LibraryUtility.GenerateRandomCode(Vendor.FieldNo("Post Code"), DATABASE::Vendor));
-        Vendor.Modify();
-    end;
-
-    local procedure CreateVendorWithoutPaymentTerms(var Vendor: Record Vendor)
-    begin
-        CreateVendor(Vendor);
-        Vendor."Payment Terms Code" := '';
         Vendor.Modify();
     end;
 
@@ -4540,8 +4623,6 @@
         FieldListToExclude.Add(PurchaseHeaderRef.FieldName("Posting Description"));
         FieldListToExclude.Add(PurchaseHeaderRef.FieldName("No. Series"));
         FieldListToExclude.Add(PurchaseHeaderRef.FieldName("Transaction Specification"));
-        FieldListToExclude.Add(PurchaseHeaderRef.FieldName("Prepayment No. Series"));
-        FieldListToExclude.Add(PurchaseHeaderRef.FieldName("Prepmt. Cr. Memo No. Series"));
 
         OnAfterFillPurchaseHeaderExcludedFieldList(FieldListToExclude);
     end;
@@ -4699,7 +4780,7 @@
 
     local procedure CreateCustomerWithDiscount(var Customer: Record Customer; DiscPct: Decimal; MinimumAmount: Decimal)
     begin
-        CreateCustomerWithoutPaymentTerms(Customer);
+        CreateCustomer(Customer);
         LibrarySmallBusiness.SetInvoiceDiscountToCustomer(Customer, DiscPct, MinimumAmount, '');
     end;
 
@@ -4793,7 +4874,7 @@
         Vendor: Record Vendor;
     begin
         LibrarySales.CreateSalesHeader(SalesHeader, DocumentType, '');
-        CreateVendorWithoutPaymentTerms(Vendor);
+        LibraryPurchase.CreateVendor(Vendor);
         Vendor.Validate(Name, LibraryUtility.GenerateRandomText(MaxStrLen(Vendor.Name)));
         Vendor.Modify(true);
         exit(Vendor."No.");
@@ -4992,6 +5073,95 @@
         LibrarySales.DisableConfirmOnPostingDoc;
 
         PurchaseInvoice.Post.Invoke;
+    end;
+
+    local procedure GetNewCustNoWithStandardSalesCodeForCode(DocType: Option; Mode: Integer; SalesCode: code[10]): Code[20]
+    var
+        StandardCustomerSalesCode: Record "Standard Customer Sales Code";
+    begin
+        StandardCustomerSalesCode.Init();
+        StandardCustomerSalesCode.Validate("Customer No.", LibrarySales.CreateCustomerNo);
+        StandardCustomerSalesCode.Validate(Code, SalesCode);
+        case DocType of
+            RefDocType::Quote:
+                StandardCustomerSalesCode."Insert Rec. Lines On Quotes" := Mode;
+            RefDocType::Order:
+                StandardCustomerSalesCode."Insert Rec. Lines On Orders" := Mode;
+            RefDocType::Invoice:
+                StandardCustomerSalesCode."Insert Rec. Lines On Invoices" := Mode;
+            RefDocType::"Credit Memo":
+                StandardCustomerSalesCode."Insert Rec. Lines On Cr. Memos" := Mode;
+        end;
+        StandardCustomerSalesCode.Insert();
+
+        exit(StandardCustomerSalesCode."Customer No.");
+    end;
+
+    local procedure CreateStandardSalesCodeWithItemLineAndCommentLine(): Code[10]
+    var
+        StandardSalesLine: array[2] of Record "Standard Sales Line";
+        LibraryInventory: Codeunit "Library - Inventory";
+    begin
+        StandardSalesLine[1].Init();
+        StandardSalesLine[1]."Standard Sales Code" := CreateStandardSalesCode;
+        StandardSalesLine[1]."Line No." := 10000;
+        StandardSalesLine[1].Type := StandardSalesLine[1].Type::Item;
+        StandardSalesLine[1]."No." := LibraryInventory.CreateItemNo();
+        StandardSalesLine[1].Quantity := LibraryRandom.RandDec(10, 2);
+        StandardSalesLine[1].Insert();
+
+        StandardSalesLine[2].Init();
+        StandardSalesLine[2]."Line No." := StandardSalesLine[1]."Line No." + 10000;
+        StandardSalesLine[2]."Standard Sales Code" := StandardSalesLine[1]."Standard Sales Code";
+        StandardSalesLine[2].Type := StandardSalesLine[2].Type::" ";
+        StandardSalesLine[2].Insert();
+
+        exit(StandardSalesLine[2]."Standard Sales Code")
+    end;
+
+    local procedure CreateStandardSalesCode(): Code[10]
+    var
+        StandardSalesCode: Record "Standard Sales Code";
+    begin
+        LibrarySales.CreateStandardSalesCode(StandardSalesCode);
+        exit(StandardSalesCode.Code);
+    end;
+
+    local procedure RunCombineShipmentsBySellToCustomer(CustomerNo: Code[20]; CalcInvDisc: Boolean; PostInvoices: Boolean; OnlyStdPmtTerms: Boolean; CopyTextLines: Boolean)
+    var
+        SalesShipmentHeader: Record "Sales Shipment Header";
+        SalesHeader: Record "Sales Header";
+    begin
+        SalesHeader.SetRange("Sell-to Customer No.", CustomerNo);
+        SalesShipmentHeader.SetRange("Sell-to Customer No.", CustomerNo);
+        LibraryVariableStorage.Enqueue(CombineShipmentMsg);  // Enqueue for MessageHandler.
+        LibrarySales.CombineShipments(
+          SalesHeader, SalesShipmentHeader, WorkDate(), WorkDate, CalcInvDisc, PostInvoices, OnlyStdPmtTerms, CopyTextLines);
+    end;
+
+    local procedure VerifySalesInvoice(SellToCustomerNo: Code[20]; ExpectedCount: Integer)
+    var
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+    begin
+        SalesHeader.SetRange("Sell-to Customer No.", SellToCustomerNo);
+        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Invoice);
+        SalesHeader.FindFirst();
+        SalesLine.SetRange("Document No.", SalesHeader."No.");
+        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Invoice);
+        Assert.RecordCount(SalesLine, ExpectedCount);
+    end;
+
+    [MessageHandler]
+    [Scope('OnPrem')]
+    procedure MessageHandler(Message: Text[1024])
+    var
+        DequeueVariable: Variant;
+        LocalMessage: Text[1024];
+    begin
+        LibraryVariableStorage.Dequeue(DequeueVariable);
+        LocalMessage := DequeueVariable;
+        Assert.IsTrue(StrPos(Message, LocalMessage) > 0, Message);
     end;
 
     [ModalPageHandler]
@@ -5544,6 +5714,13 @@
     begin
     end;
 
+    local procedure CreateCustomerWithNumberAsName(var Cust: Record Customer)
+    begin
+        LibrarySmallBusiness.CreateCustomer(Cust);
+        Cust.Name := Cust."No.";
+        Cust.Modify(true);
+    end;
+
     [Test]
     [Scope('OnPrem')]
     procedure SalesInvoiceControlsDisabledBeforeCustomerSelected()
@@ -5783,3 +5960,4 @@
     begin
     end;
 }
+

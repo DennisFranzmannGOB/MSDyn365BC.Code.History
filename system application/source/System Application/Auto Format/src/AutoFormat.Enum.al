@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Text;
-
 /// <summary>
 /// Formats the appearance of decimal data types.
 /// </summary>

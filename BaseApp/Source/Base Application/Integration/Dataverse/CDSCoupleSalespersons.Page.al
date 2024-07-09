@@ -1,14 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.D365Sales;
-
-using Microsoft.CRM.Team;
-using Microsoft.Integration.Dataverse;
-using Microsoft.Integration.SyncEngine;
-using System;
-
 page 7209 "CDS Couple Salespersons"
 {
     Caption = 'Couple Dataverse Users with Salespersons', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
@@ -16,7 +5,7 @@ page 7209 "CDS Couple Salespersons"
     InsertAllowed = false;
     PageType = List;
     SourceTable = "CRM Systemuser";
-    SourceTableView = sorting(FullName) where(IsIntegrationUser = const(false), IsDisabled = const(false), IsLicensed = const(true));
+    SourceTableView = SORTING(FullName) WHERE(IsIntegrationUser = CONST(false), IsDisabled = CONST(false), IsLicensed = CONST(true));
 
     layout
     {
@@ -25,14 +14,14 @@ page 7209 "CDS Couple Salespersons"
             repeater(Control2)
             {
                 ShowCaption = false;
-                field(FullName; Rec.FullName)
+                field(FullName; FullName)
                 {
                     ApplicationArea = Suite;
                     Caption = 'User Name Dataverse', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
                     Editable = false;
                     ToolTip = 'Specifies data from a corresponding column in a Dataverse table.', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
                 }
-                field(InternalEMailAddress; Rec.InternalEMailAddress)
+                field(InternalEMailAddress; InternalEMailAddress)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Email Address';
@@ -57,7 +46,7 @@ page 7209 "CDS Couple Salespersons"
                         if SalespersonsPurchasers.RunModal() = ACTION::LookupOK then begin
                             SalespersonsPurchasers.GetRecord(SalespersonPurchaser);
                             InsertUpdateTempCRMSystemUser(SalespersonPurchaser.Code, true);
-                            CleanDuplicateSalespersonRecords(SalespersonPurchaser.Code, Rec.SystemUserId);
+                            CleanDuplicateSalespersonRecords(SalespersonPurchaser.Code, SystemUserId);
                         end;
                         CurrPage.Update(false);
                     end;
@@ -69,7 +58,7 @@ page 7209 "CDS Couple Salespersons"
                         if TempCRMSystemuser.FirstName <> '' then begin
                             SalespersonPurchaser.Get(TempCRMSystemuser.FirstName);
                             InsertUpdateTempCRMSystemUser(SalespersonPurchaser.Code, true);
-                            CleanDuplicateSalespersonRecords(SalespersonPurchaser.Code, Rec.SystemUserId);
+                            CleanDuplicateSalespersonRecords(SalespersonPurchaser.Code, SystemUserId);
                         end else
                             if (TempCRMSystemuser.FirstName = '') and (Coupled = Coupled::Yes) then
                                 InsertUpdateTempCRMSystemUser('', true);
@@ -214,12 +203,12 @@ page 7209 "CDS Couple Salespersons"
         SalespersonPurchaser: Record "Salesperson/Purchaser";
         RecordID: RecordID;
     begin
-        if CRMIntegrationRecord.FindRecordIDFromID(Rec.SystemUserId, DATABASE::"Salesperson/Purchaser", RecordID) then begin
+        if CRMIntegrationRecord.FindRecordIDFromID(SystemUserId, DATABASE::"Salesperson/Purchaser", RecordID) then begin
             if SalespersonPurchaser.Get(RecordID) then
                 InsertUpdateTempCRMSystemUser(SalespersonPurchaser.Code, false)
             else
                 InsertUpdateTempCRMSystemUser('', false);
-            if CurrentlyCoupledCRMSystemuser.SystemUserId = Rec.SystemUserId then begin
+            if CurrentlyCoupledCRMSystemuser.SystemUserId = SystemUserId then begin
                 Coupled := Coupled::Current;
                 FirstColumnStyle := 'Strong';
             end else begin
@@ -231,7 +220,7 @@ page 7209 "CDS Couple Salespersons"
             Coupled := Coupled::No;
             FirstColumnStyle := 'None';
         end;
-        TempCDSTeammembership.SetRange(SystemUserId, Rec.SystemUserId);
+        TempCDSTeammembership.SetRange(SystemUserId, SystemUserId);
         if not TempCDSTeammembership.IsEmpty() then
             TeamMember := TeamMember::Yes
         else
@@ -374,7 +363,7 @@ page 7209 "CDS Couple Salespersons"
     begin
         // FirstName is used to store coupled/ready to couple Salesperson
         // IsSyncWithDirectory is used to mark CRM User for coupling
-        if TempCRMSystemuser.Get(Rec.SystemUserId) then begin
+        if TempCRMSystemuser.Get(SystemUserId) then begin
             if not TempCRMSystemuser.IsDisabled or SyncNeeded then begin
                 TempCRMSystemuser.FirstName := SalespersonCode;
                 TempCRMSystemuser.IsSyncWithDirectory := SyncNeeded;
@@ -383,7 +372,7 @@ page 7209 "CDS Couple Salespersons"
             end
         end else begin
             TempCRMSystemuser.Init();
-            TempCRMSystemuser.SystemUserId := Rec.SystemUserId;
+            TempCRMSystemuser.SystemUserId := SystemUserId;
             TempCRMSystemuser.FirstName := SalespersonCode;
             TempCRMSystemuser.IsSyncWithDirectory := SyncNeeded;
             TempCRMSystemuser.IsDisabled := SyncNeeded;

@@ -3,12 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.Encryption;
-
 /// <summary>
 /// Provides helper functions for the Advanced Encryption Standard.
 /// </summary>
-codeunit 1378 Rfc2898DeriveBytes
+codeunit 1378 "Rfc2898DeriveBytes"
 {
     Access = Public;
     InherentEntitlements = X;

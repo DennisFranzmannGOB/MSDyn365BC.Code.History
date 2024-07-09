@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Finance.Dimension;
-
 page 30021 "APIV2 - Dimensions"
 {
     APIVersion = 'v2.0';
@@ -25,24 +21,20 @@ page 30021 "APIV2 - Dimensions"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'Code';
                 }
-                field(displayName; Rec.Name)
+                field(displayName; Name)
                 {
                     Caption = 'Display Name';
                 }
-                field(consolidationCode; Rec."Consolidation Code")
-                {
-                    Caption = 'Consolidation Code';
-                }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }
@@ -51,7 +43,7 @@ page 30021 "APIV2 - Dimensions"
                     Caption = 'Dimension Values';
                     EntityName = 'dimensionValue';
                     EntitySetName = 'dimensionValues';
-                    SubPageLink = "Dimension Id" = field(SystemId);
+                    SubPageLink = "Dimension Id" = Field(SystemId);
                 }
             }
         }

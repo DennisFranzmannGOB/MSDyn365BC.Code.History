@@ -1,9 +1,7 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation. All rights reserved. 
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Text;
 
 codeunit 9215 "IDAutomation 1D Provider" implements "Barcode Font Provider"
 {
@@ -12,8 +10,8 @@ codeunit 9215 "IDAutomation 1D Provider" implements "Barcode Font Provider"
     InherentPermissions = X;
 
     var
-        CannotFindBarcodeEncoderErr: Label 'Provider %1: Barcode symbol encoder %2 is not implemented by this provider!', Comment = '%1 Provider Caption, %2 = Symbology Caption';
-        InvalidTextErr: Label 'Input text %1 contains invalid characters for the chosen provider %2 and encoding symbology %3', Comment = '%1 = Input String, %2 = Provider Caption, %3 = Symbology Caption';
+        CannotFindBarcodeEncoderErr: Label 'Provider %1: Barcode symbol encoder %2 is not implemented by this provider!', comment = '%1 Provider Caption, %2 = Symbology Caption';
+        InvalidTextErr: Label 'Input text %1 contains invalid characters for the chosen provider %2 and encoding symbology %3', comment = '%1 = Input String, %2 = Provider Caption, %3 = Symbology Caption';
 
     procedure GetSupportedBarcodeSymbologies(var Result: List of [Enum "Barcode Symbology"])
     var

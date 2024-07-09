@@ -1,8 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Purchases.Document;
-using Microsoft.Sales.Document;
-
 permissionset 9412 "Prepayment - Admin"
 {
     Access = Public;

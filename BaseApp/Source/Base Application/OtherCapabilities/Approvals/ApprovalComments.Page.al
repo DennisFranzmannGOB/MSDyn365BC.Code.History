@@ -1,11 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace System.Automation;
-
-using System.Security.User;
-
 page 660 "Approval Comments"
 {
     Caption = 'Approval Comments';
@@ -24,7 +16,7 @@ page 660 "Approval Comments"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Comment; Rec.Comment)
+                field(Comment; Comment)
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the comment. You can enter a maximum of 250 characters, both numbers and letters.';
@@ -38,7 +30,7 @@ page 660 "Approval Comments"
                     var
                         UserMgt: Codeunit "User Management";
                     begin
-                        UserMgt.DisplayUserInformation(Rec."User ID");
+                        UserMgt.DisplayUserInformation("User ID");
                     end;
                 }
                 field("Date and Time"; Rec."Date and Time")
@@ -62,7 +54,7 @@ page 660 "Approval Comments"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Rec."Workflow Step Instance ID" := WorkflowStepInstanceID;
+        "Workflow Step Instance ID" := WorkflowStepInstanceID;
     end;
 
     var

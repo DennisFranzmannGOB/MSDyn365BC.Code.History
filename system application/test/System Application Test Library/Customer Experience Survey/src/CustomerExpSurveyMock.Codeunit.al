@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Feedback;
-
-using System.Feedback;
-
 codeunit 132100 "Customer Exp. Survey Mock"
 {
     EventSubscriberInstance = Manual;

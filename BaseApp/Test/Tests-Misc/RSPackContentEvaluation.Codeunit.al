@@ -315,6 +315,33 @@ codeunit 138400 "RS Pack Content - Evaluation"
 
     [Test]
     [Scope('OnPrem')]
+    procedure PostPurchOrders()
+    var
+        PurchHeader: Record "Purchase Header";
+        VendLedgEntry: Record "Vendor Ledger Entry";
+        PostedOrderNo: Code[20];
+    begin
+        // [FEATURE] [Purchase]
+        // [SCENARIO] Existing Purchase Orders can be posted without errors
+        Initialize();
+
+        with PurchHeader do begin
+            // [WHEN] Post all Orders
+            Reset();
+            SetRange("Document Type", "Document Type"::Order);
+            FindSet();
+            repeat
+                PostedOrderNo := LibraryPurchase.PostPurchaseDocument(PurchHeader, true, true);
+
+                // [THEN] Vendor Ledger Entries are created
+                VendLedgEntry.FindLast();
+                VendLedgEntry.TestField("Document No.", PostedOrderNo);
+            until Next = 0;
+        end;
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
     procedure CountContacts()
     var
         Customer: Record Customer;
@@ -638,26 +665,6 @@ codeunit 138400 "RS Pack Content - Evaluation"
         ValidateNoSeriesExists(TransShipmentNoSeriesTok);
     end;
 
-    [Test]
-    [Scope('OnPrem')]
-    procedure ReportLayoutSelections()
-    begin
-        // [SCENARIO 215679] There should be BLUESIMPLE custom layouts defined for report layout selections
-        Initialize();
-
-        VerifyReportLayoutSelection(REPORT::"Standard Sales - Quote", 'StandardSalesQuoteBlue.docx');
-        VerifyReportLayoutSelection(REPORT::"Standard Sales - Invoice", 'StandardSalesInvoiceBlueSimple.docx');
-    end;
-
-    local procedure VerifyReportLayoutSelection(ReportID: Integer; CustomReportLayoutName: Text[250])
-    var
-        TenantReportLayoutSelection: Record "Tenant Report Layout Selection";
-    begin
-        TenantReportLayoutSelection.SetRange("Report ID", ReportID);
-        TenantReportLayoutSelection.SetRange("Layout Name", CustomReportLayoutName);
-        Assert.RecordIsNotEmpty(TenantReportLayoutSelection);
-    end;
-
     local procedure ValidateNoSeriesExists(NoSeriesCode: Code[20])
     var
         NoSeries: Record "No. Series";
@@ -675,10 +682,10 @@ codeunit 138400 "RS Pack Content - Evaluation"
     var
         VATProductPostingGroup: Record "VAT Product Posting Group";
     begin
-        // [SCENARIO] There are 7 VAT Prod. Posting groups
+        // [SCENARIO] There are 3 VAT Prod. Posting groups
         Initialize();
 
-        Assert.RecordCount(VATProductPostingGroup, 13);
+        Assert.RecordCount(VATProductPostingGroup, 3);
     end;
 
     [Test]

@@ -1,12 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Integration.Entity;
-using Microsoft.Finance.GeneralLedger.Account;
-using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Integration.Graph;
-using Microsoft.Inventory.Item;
-using System.Reflection;
-
 page 30043 "APIV2 - Sales Invoice Lines"
 {
     DelayedInsert = true;
@@ -27,52 +18,52 @@ page 30043 "APIV2 - Sales Invoice Lines"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(documentId; Rec."Document Id")
+                field(documentId; "Document Id")
                 {
                     Caption = 'Document Id';
 
                     trigger OnValidate()
                     begin
-                        if (not IsNullGuid(xRec."Document Id")) and (xRec."Document Id" <> Rec."Document Id") then
+                        if (not IsNullGuid(xRec."Document Id")) and (xRec."Document Id" <> "Document Id") then
                             Error(CannotChangeDocumentIdNoErr);
                     end;
                 }
-                field(sequence; Rec."Line No.")
+                field(sequence; "Line No.")
                 {
                     Caption = 'Sequence';
 
                     trigger OnValidate()
                     begin
-                        if (xRec."Line No." <> Rec."Line No.") and
+                        if (xRec."Line No." <> "Line No.") and
                            (xRec."Line No." <> 0)
                         then
                             Error(CannotChangeLineNoErr);
 
-                        RegisterFieldSet(Rec.FieldNo("Line No."));
+                        RegisterFieldSet(FieldNo("Line No."));
                     end;
                 }
-                field(itemId; Rec."Item Id")
+                field(itemId; "Item Id")
                 {
                     Caption = 'Item Id';
 
                     trigger OnValidate()
                     begin
-                        if not Item.GetBySystemId(Rec."Item Id") then
+                        if not Item.GetBySystemId("Item Id") then
                             Error(ItemDoesNotExistErr);
 
-                        RegisterFieldSet(Rec.FieldNo(Type));
-                        RegisterFieldSet(Rec.FieldNo("No."));
-                        RegisterFieldSet(Rec.FieldNo("Item Id"));
+                        RegisterFieldSet(FieldNo(Type));
+                        RegisterFieldSet(FieldNo("No."));
+                        RegisterFieldSet(FieldNo("Item Id"));
 
-                        Rec."No." := Item."No.";
+                        "No." := Item."No.";
                     end;
                 }
-                field(accountId; Rec."Account Id")
+                field(accountId; "Account Id")
                 {
                     Caption = 'Account Id';
 
@@ -81,28 +72,28 @@ page 30043 "APIV2 - Sales Invoice Lines"
                         GLAccount: Record "G/L Account";
                         EmptyGuid: Guid;
                     begin
-                        if Rec."Account Id" <> EmptyGuid then
+                        if "Account Id" <> EmptyGuid then
                             if Item."No." <> '' then
                                 Error(BothItemIdAndAccountIdAreSpecifiedErr);
 
-                        if not GLAccount.GetBySystemId(Rec."Account Id") then
+                        if not GLAccount.GetBySystemId("Account Id") then
                             Error(AccountDoesNotExistErr);
 
-                        RegisterFieldSet(Rec.FieldNo(Type));
-                        RegisterFieldSet(Rec.FieldNo("Account Id"));
-                        RegisterFieldSet(Rec.FieldNo("No."));
+                        RegisterFieldSet(FieldNo(Type));
+                        RegisterFieldSet(FieldNo("Account Id"));
+                        RegisterFieldSet(FieldNo("No."));
                     end;
                 }
-                field(lineType; Rec."API Type")
+                field(lineType; "API Type")
                 {
                     Caption = 'Line Type';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Type));
+                        RegisterFieldSet(FieldNo(Type));
                     end;
                 }
-                field(lineObjectNumber; Rec."No.")
+                field(lineObjectNumber; "No.")
                 {
                     Caption = 'Line Object No.';
 
@@ -110,37 +101,37 @@ page 30043 "APIV2 - Sales Invoice Lines"
                     var
                         GLAccount: Record "G/L Account";
                     begin
-                        if (xRec."No." <> Rec."No.") and (xRec."No." <> '') then
+                        if (xRec."No." <> "No.") and (xRec."No." <> '') then
                             Error(CannotChangeLineObjectNoErr);
 
                         case Rec."API Type" of
                             Rec."API Type"::Item:
                                 begin
-                                    if not Item.Get(Rec."No.") then
+                                    if not Item.Get("No.") then
                                         Error(ItemDoesNotExistErr);
 
-                                    RegisterFieldSet(Rec.FieldNo("Item Id"));
-                                    Rec."Item Id" := Item.SystemId;
+                                    RegisterFieldSet(FieldNo("Item Id"));
+                                    "Item Id" := Item.SystemId;
                                 end;
                             Rec."API Type"::Account:
                                 begin
-                                    if not GLAccount.Get(Rec."No.") then
+                                    if not GLAccount.Get("No.") then
                                         Error(AccountDoesNotExistErr);
 
-                                    RegisterFieldSet(Rec.FieldNo("Account Id"));
-                                    Rec."Account Id" := GLAccount.SystemId;
+                                    RegisterFieldSet(FieldNo("Account Id"));
+                                    "Account Id" := GLAccount.SystemId;
                                 end;
                         end;
-                        RegisterFieldSet(Rec.FieldNo("No."));
+                        RegisterFieldSet(FieldNo("No."));
                     end;
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     Caption = 'Description';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FieldNo(Description));
                     end;
                 }
                 field(description2; Rec."Description 2")
@@ -149,79 +140,79 @@ page 30043 "APIV2 - Sales Invoice Lines"
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Description 2"));
+                        RegisterFieldSet(FieldNo("Description 2"));
                     end;
                 }
-                field(unitOfMeasureId; Rec."Unit of Measure Id")
+                field(unitOfMeasureId; "Unit of Measure Id")
                 {
                     Caption = 'Unit Of Measure Id';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Unit of Measure Code"));
+                        RegisterFieldSet(FieldNo("Unit of Measure Code"));
                     end;
                 }
-                field(unitOfMeasureCode; Rec."Unit of Measure Code")
+                field(unitOfMeasureCode; "Unit of Measure Code")
                 {
                     Caption = 'Unit Of Measure Code';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Unit of Measure Code"));
+                        RegisterFieldSet(FieldNo("Unit of Measure Code"));
                     end;
                 }
-                field(quantity; Rec.Quantity)
+                field(quantity; Quantity)
                 {
                     Caption = 'Quantity';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Quantity));
+                        RegisterFieldSet(FieldNo(Quantity));
                     end;
                 }
-                field(unitPrice; Rec."Unit Price")
+                field(unitPrice; "Unit Price")
                 {
                     Caption = 'Unit Price';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Unit Price"));
+                        RegisterFieldSet(FieldNo("Unit Price"));
                     end;
                 }
-                field(discountAmount; Rec."Line Discount Amount")
+                field(discountAmount; "Line Discount Amount")
                 {
                     Caption = 'Discount Amount';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Line Discount Amount"));
+                        RegisterFieldSet(FieldNo("Line Discount Amount"));
                     end;
                 }
-                field(discountPercent; Rec."Line Discount %")
+                field(discountPercent; "Line Discount %")
                 {
                     Caption = 'Discount Percent';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Line Discount %"));
+                        RegisterFieldSet(FieldNo("Line Discount %"));
                     end;
                 }
-                field(discountAppliedBeforeTax; Rec."Discount Applied Before Tax")
+                field(discountAppliedBeforeTax; "Discount Applied Before Tax")
                 {
                     Caption = 'Discount Applied Before Tax';
                     Editable = false;
                 }
-                field(amountExcludingTax; Rec."Line Amount Excluding Tax")
+                field(amountExcludingTax; "Line Amount Excluding Tax")
                 {
                     Caption = 'Amount Excluding Tax';
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Amount));
+                        RegisterFieldSet(FieldNo(Amount));
                     end;
                 }
-                field(taxCode; Rec."Tax Code")
+                field(taxCode; "Tax Code")
                 {
                     Caption = 'Tax Code';
 
@@ -230,79 +221,79 @@ page 30043 "APIV2 - Sales Invoice Lines"
                         GeneralLedgerSetup: Record "General Ledger Setup";
                     begin
                         if GeneralLedgerSetup.UseVat() then begin
-                            Rec.Validate("VAT Prod. Posting Group", COPYSTR(Rec."Tax Code", 1, 20));
-                            RegisterFieldSet(Rec.FieldNo("VAT Prod. Posting Group"));
+                            Validate("VAT Prod. Posting Group", COPYSTR("Tax Code", 1, 20));
+                            RegisterFieldSet(FieldNo("VAT Prod. Posting Group"));
                         end else begin
-                            Rec.Validate("Tax Group Code", COPYSTR(Rec."Tax Code", 1, 20));
-                            RegisterFieldSet(Rec.FieldNo("Tax Group Code"));
+                            Validate("Tax Group Code", COPYSTR("Tax Code", 1, 20));
+                            RegisterFieldSet(FieldNo("Tax Group Code"));
                         end;
                     end;
                 }
-                field(taxPercent; Rec."VAT %")
+                field(taxPercent; "VAT %")
                 {
                     Caption = 'Tax Percent';
                     Editable = false;
                 }
-                field(totalTaxAmount; Rec."Line Tax Amount")
+                field(totalTaxAmount; "Line Tax Amount")
                 {
                     Caption = 'Total Tax Amount';
                     Editable = false;
                 }
-                field(amountIncludingTax; Rec."Line Amount Including Tax")
+                field(amountIncludingTax; "Line Amount Including Tax")
                 {
                     Caption = 'Amount Including Tax';
                     Editable = false;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Amount Including VAT"));
+                        RegisterFieldSet(FieldNo("Amount Including VAT"));
                     end;
                 }
-                field(invoiceDiscountAllocation; Rec."Inv. Discount Amount Excl. VAT")
+                field(invoiceDiscountAllocation; "Inv. Discount Amount Excl. VAT")
                 {
                     Caption = 'Invoice Discount Allocation';
                     Editable = false;
                 }
-                field(netAmount; Rec.Amount)
+                field(netAmount; Amount)
                 {
                     Caption = 'Net Amount';
                     Editable = false;
                 }
-                field(netTaxAmount; Rec."Tax Amount")
+                field(netTaxAmount; "Tax Amount")
                 {
                     Caption = 'Net Tax Amount';
                     Editable = false;
                 }
-                field(netAmountIncludingTax; Rec."Amount Including VAT")
+                field(netAmountIncludingTax; "Amount Including VAT")
                 {
                     Caption = 'Net Amount Including Tax';
                     Editable = false;
                 }
-                field(shipmentDate; Rec."Shipment Date")
+                field(shipmentDate; "Shipment Date")
                 {
                     Caption = 'Shipment Date';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Shipment Date"));
+                        RegisterFieldSet(FieldNo("Shipment Date"));
                     end;
                 }
-                field(itemVariantId; Rec."Variant Id")
+                field(itemVariantId; "Variant Id")
                 {
                     Caption = 'Item Variant Id';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Variant Code"));
+                        RegisterFieldSet(FieldNo("Variant Code"));
                     end;
                 }
-                field(locationId; Rec."Location Id")
+                field(locationId; "Location Id")
                 {
                     Caption = 'Location Id';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo("Location Code"));
+                        RegisterFieldSet(FieldNo("Location Code"));
                     end;
                 }
                 part(dimensionSetLines; "APIV2 - Dimension Set Lines")
@@ -310,7 +301,7 @@ page 30043 "APIV2 - Sales Invoice Lines"
                     Caption = 'Dimension Set Lines';
                     EntityName = 'dimensionSetLine';
                     EntitySetName = 'dimensionSetLines';
-                    SubPageLink = "Parent Id" = field(SystemId), "Parent Type" = const("Sales Invoice Line");
+                    SubPageLink = "Parent Id" = Field(SystemId), "Parent Type" = const("Sales Invoice Line");
                 }
                 part(location; "APIV2 - Locations")
                 {
@@ -345,19 +336,19 @@ page 30043 "APIV2 - Sales Invoice Lines"
         FilterView: Text;
     begin
         if not LinesLoaded then begin
-            FilterView := Rec.GetView();
-            IdFilter := Rec.GetFilter(SystemId);
-            DocumentIdFilter := Rec.GetFilter("Document Id");
+            FilterView := GetView();
+            IdFilter := GetFilter(SystemId);
+            DocumentIdFilter := GetFilter("Document Id");
             if (IdFilter = '') and (DocumentIdFilter = '') then
                 Error(IDOrDocumentIdShouldBeSpecifiedForLinesErr);
             if IdFilter <> '' then begin
                 Evaluate(SysId, IdFilter);
                 DocumentIdFilter := GraphMgtSalesInvLines.GetSalesInvoiceDocumentIdFilterFromSystemId(SysId);
             end else
-                DocumentIdFilter := Rec.GetFilter("Document Id");
+                DocumentIdFilter := GetFilter("Document Id");
             SalesInvoiceAggregator.LoadLines(Rec, DocumentIdFilter);
-            Rec.SetView(FilterView);
-            if not Rec.FindFirst() then
+            SetView(FilterView);
+            if not FindFirst() then
                 exit(false);
             LinesLoaded := true;
         end;
@@ -382,7 +373,7 @@ page 30043 "APIV2 - Sales Invoice Lines"
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         ClearCalculatedFields();
-        RegisterFieldSet(Rec.FieldNo(Type));
+        RegisterFieldSet(FieldNo(Type));
     end;
 
     var

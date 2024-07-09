@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Media;
-
 /// <summary>This page shows all registered videos.</summary>
 page 1470 "Product Videos"
 {
@@ -19,18 +17,16 @@ page 1470 "Product Videos"
     UsageCategory = Administration;
     ApplicationArea = All;
     ContextSensitiveHelpPage = 'across-videos';
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater("Available Videos")
             {
                 Caption = 'Available Videos';
                 Editable = false;
-                field(Title; Rec.Title)
+                field(Title; Title)
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -40,25 +36,25 @@ page 1470 "Product Videos"
                     var
                         Video: Codeunit Video;
                     begin
-                        Video.Play(Rec."Video Url");
-                        Video.OnVideoPlayed(Rec."Table Num", Rec."System ID");
+                        Video.Play("Video Url");
+                        Video.OnVideoPlayed("Table Num", "System ID");
                     end;
                 }
-                field(Category; Rec.Category)
+                field(Category; Category)
                 {
                     ApplicationArea = All;
                     Editable = false;
                     ToolTip = 'Specifies the video category.';
                     Visible = false;
                 }
-                field("App ID"; Rec."App ID")
+                field("App ID"; "App ID")
                 {
                     ApplicationArea = All;
                     Editable = false;
                     ToolTip = 'Specifies the source extension identifier.';
                     Visible = false;
                 }
-                field("Extension Name"; Rec."Extension Name")
+                field("Extension Name"; "Extension Name")
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -88,5 +84,4 @@ page 1470 "Product Videos"
         ShowSpecificCategory: Boolean;
         CategoryToShowVideosFor: Enum "Video Category";
 }
-
 

@@ -343,7 +343,7 @@ codeunit 137065 "SCM Reservation II"
     end;
 
     [Test]
-    [HandlerFunctions('ItemTrackingPageHandler,WhseItemTrackingPageHandler,ConfirmHandler')]
+    [HandlerFunctions('ItemTrackingPageHandler,WhseItemTrackingPageHandler')]
     [Scope('OnPrem')]
     procedure CalculateConsumptionWithLotTracking()
     var
@@ -471,7 +471,7 @@ codeunit 137065 "SCM Reservation II"
     end;
 
     [Test]
-    [HandlerFunctions('WhseItemTrackingPageHandler,ItemTrackingPageHandler,ConfirmHandler')]
+    [HandlerFunctions('WhseItemTrackingPageHandler,ItemTrackingPageHandler')]
     [Scope('OnPrem')]
     procedure PostConsumptionWithProductionOrderWithLotTracking()
     begin
@@ -481,7 +481,7 @@ codeunit 137065 "SCM Reservation II"
     end;
 
     [Test]
-    [HandlerFunctions('WhseItemTrackingPageHandler,ItemTrackingPageHandler,ConfirmHandler')]
+    [HandlerFunctions('WhseItemTrackingPageHandler,ItemTrackingPageHandler')]
     [Scope('OnPrem')]
     procedure PostOutputWithProductionOrderWithLotTracking()
     begin
@@ -2341,7 +2341,7 @@ codeunit 137065 "SCM Reservation II"
     end;
 
     [Test]
-    [HandlerFunctions('ItemTrackingPageHandler,WhseItemTrackingPageHandler,ConfirmHandler')]
+    [HandlerFunctions('ItemTrackingPageHandler,WhseItemTrackingPageHandler')]
     [Scope('OnPrem')]
     procedure CalcConsumptionBatchJobDoesNotCreateItemTrackingOnZeroLine()
     var
@@ -3585,18 +3585,10 @@ codeunit 137065 "SCM Reservation II"
     begin
         with Location do begin
             Validate("Require Receive", Receive);
+            Validate("Require Receive", Receive);
             Validate("Require Shipment", Shipment);
             Validate("Require Put-away", PutAway);
             Validate("Require Pick", Pick);
-
-            if Pick then
-                if Shipment then
-                    "Prod. Consump. Whse. Handling" := "Prod. Consump. Whse. Handling"::"Warehouse Pick (mandatory)"
-                else
-                    "Prod. Consump. Whse. Handling" := "Prod. Consump. Whse. Handling"::"Inventory Pick/Movement";
-            if PutAway then
-                "Prod. Output Whse. Handling" := "Prod. Output Whse. Handling"::"Inventory Put-away";
-
             "Bin Mandatory" := BinRequired; // Skip Validate to improve performance.
             Modify(true);
         end;

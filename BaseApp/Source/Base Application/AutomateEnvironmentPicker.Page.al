@@ -1,9 +1,3 @@
-namespace System.Automation;
-
-using System.Environment;
-using System.Environment.Configuration;
-using System.Privacy;
-
 page 1837 "Automate Environment Picker"
 {
     Caption = 'Power Automate Environment';
@@ -130,7 +124,7 @@ page 1837 "Automate Environment Picker"
                                 EnsureOnlyOneSelection();
                             end;
                         }
-                        field(Enabled; Rec.Enabled)
+                        field(Enabled; Enabled)
                         {
                             ApplicationArea = Basic, Suite;
                             Caption = 'Selected';
@@ -336,8 +330,8 @@ page 1837 "Automate Environment Picker"
     local procedure ShowChoiceStep()
     begin
         // Make sure we reset before fetching to avoid "Record already exists" error
-        Rec.Reset();
-        Rec.DeleteAll();
+        Reset();
+        DeleteAll();
         FlowServiceManagement.GetEnvironments(Rec);
 
         // Make sure we don't display list without any tick
@@ -349,11 +343,11 @@ page 1837 "Automate Environment Picker"
         ChooseActionVisible := true;
         NextActionVisible := false;
 
-        if Rec.IsEmpty() then
+        if IsEmpty() then
             Error(FlowServiceManagement.GetGenericError());
 
         SortByEnvironmentNameAscending();
-        Rec.FindFirst();
+        FindFirst();
     end;
 
     local procedure ShowFinishStep()
@@ -387,12 +381,12 @@ page 1837 "Automate Environment Picker"
     local procedure EnsureOnlyOneSelection()
     begin
         HasSomethingChangedForInvidualChoice := true;
-        Rec.SetRange(Enabled, true);
-        if Rec.Count >= 1 then
-            Rec.ModifyAll(Enabled, false);
+        SetRange(Enabled, true);
+        if Count >= 1 then
+            ModifyAll(Enabled, false);
 
-        Rec.Reset();
-        Rec.Enabled := true;
+        Reset();
+        Enabled := true;
 
         SortByEnvironmentNameAscending();
         CurrPage.Update();
@@ -400,8 +394,8 @@ page 1837 "Automate Environment Picker"
 
     local procedure SortByEnvironmentNameAscending()
     begin
-        Rec.SetCurrentKey("Environment Display Name");
-        Rec.SetAscending("Environment Display Name", true);
+        SetCurrentKey("Environment Display Name");
+        SetAscending("Environment Display Name", true);
     end;
 
     local procedure RestartSession()

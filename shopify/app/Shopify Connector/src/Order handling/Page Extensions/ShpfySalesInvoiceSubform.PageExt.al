@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Document;
-
 /// <summary>
 /// PageExtension Shpfy Sales Invoice Subform (ID 30114) extends Record Sales Invoice Subform.
 /// </summary>

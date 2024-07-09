@@ -1,9 +1,7 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation. All rights reserved. 
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Text;
 
 /// <summary>
 /// Common setting used when encoding barcodes.
@@ -24,7 +22,7 @@ table 9203 "Barcode Encode Settings"
         /// </summary>
         field(1; "Code Set"; Option)
         {
-            OptionMembers = None,A,B,C;
+            OptionMembers = "None","A","B","C";
             DataClassification = SystemMetadata;
         }
 

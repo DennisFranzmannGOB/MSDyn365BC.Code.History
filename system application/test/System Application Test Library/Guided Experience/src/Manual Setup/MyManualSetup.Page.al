@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Environment.Configuration;
-
 page 134934 "My Manual Setup"
 {
     Caption = 'My Manual Setup';
@@ -12,5 +10,11 @@ page 134934 "My Manual Setup"
     ApplicationArea = All;
     UsageCategory = Administration;
 
+    layout
+    {
+    }
 
+    actions
+    {
+    }
 }

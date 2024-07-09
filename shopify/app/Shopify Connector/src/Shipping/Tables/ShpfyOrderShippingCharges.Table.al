@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Table Shpfy Order Shipping Charges (ID 30130).
 /// </summary>

@@ -50,9 +50,7 @@ pageextension 7900 ErrorMessagesRecommendationExt extends "Error Messages"
                 ErrInfo.Title := Rec.Title;
                 ErrInfo.Message := Rec.Message;
                 ErrInfo.Verbosity := ErrInfo.Verbosity::Verbose;
-                ErrInfo.DataClassification := DataClassification::CustomerContent;
                 ErrInfo.CustomDimensions.Add('ErrorCallStack', Rec.GetErrorCallStack());
-                ErrInfo.CustomDimensions.Add('CreatedOn', Format(Rec."Created On"));
                 Error(ErrInfo);
             end;
         }
@@ -88,7 +86,6 @@ pageextension 7900 ErrorMessagesRecommendationExt extends "Error Messages"
             part("Error Messages Card Part"; "Error Messages Card Part")
             {
                 ApplicationArea = Basic, Suite;
-                SubPageLink = ID = field(ID);
             }
         }
     }
@@ -165,30 +162,29 @@ pageextension 7900 ErrorMessagesRecommendationExt extends "Error Messages"
 
     var
         StyleText: Text[20];
+        FeatureUptakeLogged: Boolean;
         ShowAllErrorVisible: Boolean;
 
-    trigger OnOpenPage()
+    trigger OnAfterGetRecord()
     var
-        TempErrorMessageFilters: Record "Error Message" temporary;
         FeatureTelemetry: Codeunit "Feature Telemetry";
         ErrorMessagesActionHandlerImpl: Codeunit ErrorMessagesActionHandlerImpl;
-        CustomDimensions: Dictionary of [Text, Text];
-    begin
-        CurrPage."Error Messages Card Part".PAGE.SetRecords(Rec);
-
-        TempErrorMessageFilters.CopyFilters(Rec);
-        Rec.Reset();
-        CustomDimensions.Add('TotalErrorsOnPage', Format(Rec.Count()));
-        Rec.SetFilter("Error Msg. Fix Implementation", '<>%1', Enum::"Error Msg. Fix Implementation"::" ");
-        Rec.SetFilter("Message Status", '<>%1', Rec."Message Status"::Fixed);
-        CustomDimensions.Add('TotalFixableErrorsOnPage', Format(Rec.Count()));
-        Rec.CopyFilters(TempErrorMessageFilters);
-        FeatureTelemetry.LogUptake('0000LH4', ErrorMessagesActionHandlerImpl.GetFeatureTelemetryName(), Enum::"Feature Uptake Status"::Discovered, CustomDimensions);
-    end;
-
-    trigger OnAfterGetRecord()
     begin
         SetStyle();
+        if not FeatureUptakeLogged then
+            if Rec."Error Msg. Fix Implementation" <> Rec."Error Msg. Fix Implementation"::" " then begin
+                FeatureTelemetry.LogUptake('0000KD8', ErrorMessagesActionHandlerImpl.GetFeatureTelemetryName(), Enum::"Feature Uptake Status"::Used);
+                FeatureUptakeLogged := true;
+            end;
+    end;
+
+    trigger OnAfterGetCurrRecord()
+    var
+        TempErrorMessage: Record "Error Message" temporary;
+    begin
+        TempErrorMessage := Rec;
+        CurrPage."Error Messages Card Part".PAGE.SetRecords(TempErrorMessage);
+        CurrPage."Error Messages Card Part".PAGE.Update();
     end;
 
     local procedure SetStyle()

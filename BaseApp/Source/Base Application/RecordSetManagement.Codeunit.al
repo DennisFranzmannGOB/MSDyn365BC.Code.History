@@ -1,7 +1,3 @@
-namespace System.IO;
-
-using System.Reflection;
-
 codeunit 8400 "Record Set Management"
 {
     Permissions = TableData "Record Set Definition" = rimd,

@@ -3,12 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.Encryption;
-
 /// <summary>
 /// Defines a wrapper object to access the cryptographic service provider (CSP) implementation of the DSA algorithm.
 /// </summary>
-codeunit 1447 DSACryptoServiceProvider
+codeunit 1447 "DSACryptoServiceProvider"
 {
     Access = Public;
     InherentEntitlements = X;

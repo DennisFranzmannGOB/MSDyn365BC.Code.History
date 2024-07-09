@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 /// <summary>
 /// The Company Size Cache Part page shows information about company sizes.
 /// </summary>
@@ -23,14 +21,14 @@ page 8702 "Company Size Cache Part"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(general)
             {
                 field(CompanyName; Rec."Company Name")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the name of the company.';
+                    Tooltip = 'Specifies the name of the company.';
                 }
                 field(SizeKB; Rec."Size (KB)")
                 {

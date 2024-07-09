@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Integration.Entity;
-using Microsoft.Integration.Graph;
-
 page 20031 "APIV1 - Aged AR"
 {
     APIVersion = 'v1.0';
@@ -25,47 +20,47 @@ page 20031 "APIV1 - Aged AR"
         {
             repeater(Group)
             {
-                field(customerId; Rec.AccountId)
+                field(customerId; AccountId)
                 {
                     Caption = 'customerId', Locked = true;
                 }
-                field(customerNumber; Rec."No.")
+                field(customerNumber; "No.")
                 {
                     Caption = 'customerNumber', Locked = true;
                 }
-                field(name; Rec.Name)
+                field(name; Name)
                 {
                     Caption = 'name', Locked = true;
                 }
-                field(currencyCode; Rec."Currency Code")
+                field(currencyCode; "Currency Code")
                 {
                     Caption = 'currencyCode', Locked = true;
                 }
-                field(balanceDue; Rec.Balance)
+                field(balanceDue; Balance)
                 {
                     Caption = 'balance', Locked = true;
                 }
-                field(currentAmount; Rec.Before)
+                field(currentAmount; Before)
                 {
                     Caption = 'before', Locked = true;
                 }
-                field(period1Amount; Rec."Period 1")
+                field(period1Amount; "Period 1")
                 {
                     Caption = 'period1', Locked = true;
                 }
-                field(period2Amount; Rec."Period 2")
+                field(period2Amount; "Period 2")
                 {
                     Caption = 'period2', Locked = true;
                 }
-                field(period3Amount; Rec."Period 3")
+                field(period3Amount; "Period 3")
                 {
                     Caption = 'period3', Locked = true;
                 }
-                field(agedAsOfDate; Rec."Period Start Date")
+                field(agedAsOfDate; "Period Start Date")
                 {
                     Caption = 'periodStartDate', Locked = true;
                 }
-                field(periodLengthFilter; Rec."Period Length")
+                field(periodLengthFilter; "Period Length")
                 {
                     Caption = 'periodLength', Locked = true;
                 }
@@ -87,6 +82,5 @@ page 20031 "APIV1 - Aged AR"
         GraphMgtReports.SetUpAgedReportAPIData(RecVariant, ReportAPIType::"Aged Accounts Receivable");
     end;
 }
-
 
 

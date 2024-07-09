@@ -1,15 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-
-namespace System.Test.Integration.Excel;
-
-using System.Integration.Excel;
-using System.Integration;
-using System.TestLibraries.Integration.Excel;
-using System;
-using System.TestLibraries.Utilities;
 codeunit 132525 "Edit in Excel Test"
 {
     Subtype = Test;
@@ -46,7 +34,6 @@ codeunit 132525 "Edit in Excel Test"
     end;
 
 #if not CLEAN22
-#pragma warning disable AL0432
     [Test]
     procedure TestEditInExcelCreatesWebServiceOld()
     var
@@ -82,7 +69,6 @@ codeunit 132525 "Edit in Excel Test"
         asserterror EditInExcel.EditPageInExcel(PageName, EditInExcelList.ObjectId(false), '');
         LibraryAssert.ExpectedError(StrSubstNo(WebServiceHasBeenDisabledErr, PageName + '_Excel'));
     end;
-#pragma warning restore AL0432
 #endif
 
     [Test]
@@ -109,7 +95,6 @@ codeunit 132525 "Edit in Excel Test"
     end;
 
 #if not CLEAN22
-#pragma warning disable AL0432
     [Test]
     procedure TestEditInExcelReuseWebServiceOld()
     var
@@ -132,7 +117,6 @@ codeunit 132525 "Edit in Excel Test"
         LibraryAssert.AreEqual(PageName + '_Excel', TenantWebService."Service Name", 'The tenant web service name has changed');
         LibraryAssert.AreEqual(PageName + '_Excel', EditInExcelTest.GetServiceName(), 'The service name given to the edit in excel event is incorrect');
     end;
-#pragma warning restore AL0432
 #endif
 
     [Test]
@@ -160,7 +144,6 @@ codeunit 132525 "Edit in Excel Test"
     end;
 
 #if not CLEAN22
-#pragma warning disable AL0432
     [Test]
     procedure TestEditInExcelReuseSpecificWebServiceOld()
     var
@@ -183,7 +166,6 @@ codeunit 132525 "Edit in Excel Test"
         LibraryAssert.RecordCount(TenantWebService, 3);
         LibraryAssert.AreEqual(ServiceName, EditInExcelTest.GetServiceName(), 'The service name used is wrong'); // if there's a service called pageCaption_Excel then always use that one
     end;
-#pragma warning restore AL0432
 #endif
 
     [Test]
@@ -218,7 +200,6 @@ codeunit 132525 "Edit in Excel Test"
     end;
 
 #if not CLEAN22
-#pragma warning disable AL0432
     [Test]
     procedure TestEditInExcelWebServiceStartsWithNumberOld()
     var
@@ -235,7 +216,6 @@ codeunit 132525 "Edit in Excel Test"
         TenantWebService.FindFirst();
         LibraryAssert.AreEqual('WS3Service_Excel', TenantWebService."Service Name", 'The tenant web service has incorrect name');
     end;
-#pragma warning restore AL0432
 #endif
 
     [Test]

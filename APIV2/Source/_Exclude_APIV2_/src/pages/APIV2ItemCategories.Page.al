@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Inventory.Item;
-using Microsoft.Integration.Graph;
-
 page 30025 "APIV2 - Item Categories"
 {
     APIVersion = 'v2.0';
@@ -22,31 +17,31 @@ page 30025 "APIV2 - Item Categories"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'Code';
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FieldNo(Code));
                     end;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'Description';
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FieldNo(Description));
                     end;
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(lastModifiedDateTime; SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                 }
@@ -64,17 +59,17 @@ page 30025 "APIV2 - Item Categories"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         ItemCategoryRecordRef: RecordRef;
     begin
-        ItemCategory.SetRange(Code, Rec.Code);
+        ItemCategory.SetRange(Code, Code);
         if not ItemCategory.IsEmpty() then
-            Rec.Insert();
+            Insert();
 
-        Rec.Insert(true);
+        Insert(true);
 
         ItemCategoryRecordRef.GetTable(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(ItemCategoryRecordRef, TempFieldSet, CurrentDateTime());
         ItemCategoryRecordRef.SetTable(Rec);
 
-        Rec.Modify(true);
+        Modify(true);
         exit(false);
     end;
 
@@ -82,14 +77,14 @@ page 30025 "APIV2 - Item Categories"
     var
         ItemCategory: Record "Item Category";
     begin
-        ItemCategory.GetBySystemId(Rec.SystemId);
+        ItemCategory.GetBySystemId(SystemId);
 
-        if Rec.Code = ItemCategory.Code then
-            Rec.Modify(true)
+        if Code = ItemCategory.Code then
+            Modify(true)
         else begin
             ItemCategory.TransferFields(Rec, false);
-            ItemCategory.Rename(Rec.Code);
-            Rec.TransferFields(ItemCategory);
+            ItemCategory.Rename(Code);
+            TransferFields(ItemCategory);
         end;
     end;
 

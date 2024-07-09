@@ -1,5 +1,3 @@
-namespace Microsoft.Bank.Deposit;
-
 codeunit 1693 "Bank Deposit-Printed"
 {
     Permissions = TableData "Posted Bank Deposit Header" = rm;
@@ -7,12 +5,10 @@ codeunit 1693 "Bank Deposit-Printed"
 
     trigger OnRun()
     begin
-        Rec.Find();
-        Rec."No. Printed" := Rec."No. Printed" + 1;
-        Rec.Modify();
+        Find();
+        "No. Printed" := "No. Printed" + 1;
+        Modify();
         Commit();
     end;
 }
-
-
 

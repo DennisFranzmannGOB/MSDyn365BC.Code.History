@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.Utilities;
-
 /// <summary>
 /// Page Shpfy Data Capture List (ID 30118).
 /// </summary>

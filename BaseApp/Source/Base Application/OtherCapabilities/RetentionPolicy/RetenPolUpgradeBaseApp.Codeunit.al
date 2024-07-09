@@ -1,7 +1,3 @@
-namespace System.DataAdministration;
-
-using System.Environment;
-
 codeunit 3996 "Reten. Pol. Upgrade - BaseApp"
 {
     Subtype = Upgrade;

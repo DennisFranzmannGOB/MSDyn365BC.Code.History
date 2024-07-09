@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Visualization;
-
 /// <summary>
 /// Contains the possible data types that business chart can show.
 /// </summary>
@@ -15,7 +13,7 @@ enum 479 "Business Chart Data Type"
     /// <summary>
     /// String type, corresponds to 'System.String'
     /// </summary>
-    value(0; String)
+    value(0; "String")
     {
         Caption = 'String';
     }

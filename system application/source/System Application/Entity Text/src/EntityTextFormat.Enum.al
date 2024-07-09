@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Text;
-
 /// <summary>
 /// Enum containing supported text formats for generation.
 /// </summary>

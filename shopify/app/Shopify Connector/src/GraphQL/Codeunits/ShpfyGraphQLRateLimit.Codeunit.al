@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.Utilities;
-
 /// <summary>
 /// Codeunit Shpfy GraphQL Rate Limit (ID 30153).
 /// </summary>

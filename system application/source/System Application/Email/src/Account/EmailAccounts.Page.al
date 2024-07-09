@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
-using System.Telemetry;
-
 /// <summary>
 /// Lists all of the registered email accounts
 /// </summary>
@@ -50,7 +46,7 @@ page 8887 "Email Accounts"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the name of the account.';
-                    Visible = not IsLookupMode;
+                    Visible = not LookupMode;
 
                     trigger OnDrillDown()
                     begin
@@ -62,7 +58,7 @@ page 8887 "Email Accounts"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the address of the email account.';
-                    Visible = not IsLookupMode;
+                    Visible = not LookupMode;
 
                     trigger OnDrillDown()
                     begin
@@ -74,14 +70,14 @@ page 8887 "Email Accounts"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the name of the account.';
-                    Visible = IsLookupMode;
+                    Visible = LookupMode;
                 }
 
                 field(EmailAddressLookup; Rec."Email Address")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the address of the email account.';
-                    Visible = IsLookupMode;
+                    Visible = LookupMode;
                 }
 
                 field(DefaultField; DefaultTxt)
@@ -89,7 +85,7 @@ page 8887 "Email Accounts"
                     ApplicationArea = All;
                     Caption = 'Default';
                     ToolTip = 'Specifies whether the email account will be used for all scenarios for which an account is not specified. You must have a default email account, even if you have only one account.';
-                    Visible = not IsLookupMode;
+                    Visible = not LookupMode;
                 }
 
                 field(EmailConnector; Rec.Connector)
@@ -103,7 +99,7 @@ page 8887 "Email Accounts"
                 {
                     ApplicationArea = All;
                     Caption = 'Email Rate Limit';
-                    ToolTip = 'Specifies the rate limit per minute for the email account.';
+                    ToolTip = 'Set rate limit per minute for the email account.';
                     Visible = true;
 
                     trigger OnDrillDown()
@@ -114,7 +110,7 @@ page 8887 "Email Accounts"
             }
         }
 
-        area(FactBoxes)
+        area(factboxes)
         {
             part(Scenarios; "Email Scenarios FactBox")
             {
@@ -152,7 +148,7 @@ page 8887 "Email Accounts"
                 Image = Add;
                 Caption = 'Add an email account';
                 ToolTip = 'Add an email account.';
-                Visible = (not IsLookupMode) and CanUserManageEmailSetup;
+                Visible = (not LookupMode) and CanUserManageEmailSetup;
 
                 trigger OnAction()
                 begin
@@ -174,12 +170,12 @@ page 8887 "Email Accounts"
                 Image = PostMail;
                 Caption = 'Compose Email';
                 ToolTip = 'Compose a new email message.';
-                Visible = not IsLookupMode;
+                Visible = not LookupMode;
                 Enabled = HasEmailAccount;
 
                 trigger OnAction()
                 var
-                    Email: Codeunit Email;
+                    Email: Codeunit "Email";
                     EmailMessage: Codeunit "Email Message";
                 begin
                     EmailMessage.Create('', '', '', true);
@@ -198,7 +194,7 @@ page 8887 "Email Accounts"
                 ToolTip = 'Send a test email to verify your email settings.';
                 RunObject = codeunit "Email Test Mail";
                 RunPageOnRec = true;
-                Visible = not IsLookupMode;
+                Visible = not LookupMode;
                 Enabled = HasEmailAccount;
             }
 
@@ -208,7 +204,7 @@ page 8887 "Email Accounts"
                 Image = Default;
                 Caption = 'Set as default';
                 ToolTip = 'Mark the selected email account as the default account. This account will be used for all scenarios for which an account is not specified.';
-                Visible = (not IsLookupMode) and CanUserManageEmailSetup;
+                Visible = (not LookupMode) and CanUserManageEmailSetup;
                 Promoted = true;
                 PromotedOnly = true;
                 PromotedCategory = Process;
@@ -234,7 +230,7 @@ page 8887 "Email Accounts"
                 Image = Setup;
                 Caption = 'Set email rate limit';
                 ToolTip = 'Sets a limit on how many emails can be sent from the account per minute.';
-                Visible = (not IsLookupMode) and CanUserManageEmailSetup;
+                Visible = (not LookupMode) and CanUserManageEmailSetup;
                 Enabled = HasEmailAccount;
 
                 trigger OnAction()
@@ -252,7 +248,7 @@ page 8887 "Email Accounts"
                 Image = Delete;
                 Caption = 'Delete email account';
                 ToolTip = 'Delete the email account.';
-                Visible = (not IsLookupMode) and CanUserManageEmailSetup;
+                Visible = (not LookupMode) and CanUserManageEmailSetup;
                 Scope = Repeater;
 
                 trigger OnAction()
@@ -278,7 +274,7 @@ page 8887 "Email Accounts"
                 Image = CreateJobSalesInvoice;
                 Caption = 'Email Outbox';
                 ToolTip = 'View emails for the selected account that are either waiting to be sent, or could not be sent because something went wrong.';
-                Visible = not IsLookupMode;
+                Visible = not LookupMode;
 
                 trigger OnAction()
                 var
@@ -298,7 +294,7 @@ page 8887 "Email Accounts"
                 Image = Archive;
                 Caption = 'Sent Emails';
                 ToolTip = 'View the list of emails that you have sent from the selected email account.';
-                Visible = not IsLookupMode;
+                Visible = not LookupMode;
 
                 trigger OnAction()
                 var
@@ -319,7 +315,7 @@ page 8887 "Email Accounts"
                 Image = Answers;
                 Caption = 'Email Scenarios';
                 ToolTip = 'Assign scenarios to the email accounts.';
-                Visible = not IsLookupMode;
+                Visible = not LookupMode;
 
                 trigger OnAction()
                 var
@@ -339,7 +335,7 @@ page 8887 "Email Accounts"
                 Image = Documents;
                 Caption = 'Email Scenario Attachments';
                 ToolTip = 'Assign attachments to email scenarios.';
-                Visible = not IsLookupMode;
+                Visible = not LookupMode;
                 RunObject = page "Email Scenario Attach Setup";
             }
         }
@@ -400,11 +396,12 @@ page 8887 "Email Accounts"
 
     local procedure ShowAccountInformation()
     var
+        EmailAccountImpl: Codeunit "Email Account Impl.";
         Connector: Interface "Email Connector";
     begin
         UpdateAccounts := true;
 
-        if not EmailAccountImpl.IsValidConnector(Rec.Connector) then
+        if not EmailAccountImpl.IsValidConnector(Rec.Connector.AsInteger()) then
             Error(EmailConnectorHasBeenUninstalledMsg);
 
         Connector := Rec.Connector;
@@ -434,7 +431,7 @@ page 8887 "Email Accounts"
     /// </summary>
     procedure EnableLookupMode()
     begin
-        IsLookupMode := true;
+        LookupMode := true;
         CurrPage.LookupMode(true);
     end;
 
@@ -442,13 +439,15 @@ page 8887 "Email Accounts"
         DefaultEmailAccount: Record "Email Account";
         EmailAccountImpl: Codeunit "Email Account Impl.";
         EmailRateLimitImpl: Codeunit "Email Rate Limit Impl.";
+        [InDataSet]
         IsDefault: Boolean;
+        [InDataSet]
         RateLimit: Integer;
         CanUserManageEmailSetup: Boolean;
         DefaultTxt: Text;
         UpdateAccounts: Boolean;
         ShowLogo: Boolean;
-        IsLookupMode: Boolean;
+        LookupMode: Boolean;
         HasEmailAccount: Boolean;
         EmailConnectorHasBeenUninstalledMsg: Label 'The selected email extension has been uninstalled. To view information about the email account, you must reinstall the extension.';
 }

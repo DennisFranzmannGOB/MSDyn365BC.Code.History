@@ -1,10 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Finance.Consolidation;
-using Microsoft.Foundation.Comment;
-using Microsoft.Finance.GeneralLedger.Account;
-using Microsoft.Finance.GeneralLedger.Budget;
-
 permissionset 516 "General Ledger Budget - View"
 {
     Access = Public;
@@ -15,7 +8,6 @@ permissionset 516 "General Ledger Budget - View"
                   tabledata "Business Unit Information" = R,
                   tabledata "Business Unit Setup" = R,
                   tabledata "Comment Line" = R,
-                  tabledata "Consolidation Account" = R,
                   tabledata "G/L Account" = R,
                   tabledata "G/L Budget Entry" = R,
                   tabledata "G/L Budget Name" = RI;

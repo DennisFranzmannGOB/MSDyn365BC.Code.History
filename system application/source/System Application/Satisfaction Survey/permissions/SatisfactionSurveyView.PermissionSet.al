@@ -3,16 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Feedback;
-
-using System.Reflection;
-
-permissionset 1433 "Satisfaction Survey - View"
+PermissionSet 1433 "Satisfaction Survey - View"
 {
     Access = Internal;
     Assignable = false;
 
-    IncludedPermissionSets = "Satisfaction Survey - Read";
+    IncludedPermissionSets = "Satisfaction Survey - Read",
+                             "Upgrade Tags - View";
 
     Permissions = tabledata "Add-in" = i,
                   tabledata "Net Promoter Score" = imd,

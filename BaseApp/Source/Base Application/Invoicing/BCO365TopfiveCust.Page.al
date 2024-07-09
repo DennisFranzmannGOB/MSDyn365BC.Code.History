@@ -24,7 +24,7 @@ page 2301 "BC O365 Top five Cust"
 
                 trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
-                    Rec.SetDrillDownIndexes(point);
+                    SetDrillDownIndexes(point);
                     TopFiveCustomersChartMgt.DrillDown(Rec);
                 end;
 
@@ -60,7 +60,7 @@ page 2301 "BC O365 Top five Cust"
 
     local procedure UpdateChart()
     begin
-        Rec.Update(CurrPage.Chart);
+        Update(CurrPage.Chart);
     end;
 }
 #endif

@@ -10,6 +10,7 @@ codeunit 138200 "Normal DemoData"
 
     var
         Assert: Codeunit Assert;
+        NoPurchHeaderErr: Label 'There is no Purchase Header within the filter.';
         EmptyBlobErr: Label 'BLOB field is empty.';
         XOUTGOINGTxt: Label 'OUTGOING';
         XINCOMETxt: Label 'INCOME';
@@ -43,7 +44,7 @@ codeunit 138200 "Normal DemoData"
         SalesHeader: Record "Sales Header";
     begin
         // [FEATURE] [Sales]
-        // [SCENARIO] There is 1 Sales Invoice and 43 documents of other types
+        // [SCENARIO] There is 0 Sales Invoice and 0 documents of other types
         with SalesHeader do begin
             SetRange("Document Type", "Document Type"::Invoice);
             Assert.RecordCount(SalesHeader, 0);
@@ -60,13 +61,31 @@ codeunit 138200 "Normal DemoData"
         PurchHeader: Record "Purchase Header";
     begin
         // [FEATURE] [Purchase]
-        // [SCENARIO] There are 0 Purchase Invoices and 21 documents of other types
+        // [SCENARIO] There are 0 Purchase Invoices and 0 documents of other types
         with PurchHeader do begin
             SetRange("Document Type", "Document Type"::Invoice);
             Assert.RecordCount(PurchHeader, 0);
 
             SetFilter("Document Type", '<>%1', "Document Type"::Invoice);
             Assert.RecordCount(PurchHeader, 0);
+        end;
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure PostPurchInvoices()
+    var
+        PurchHeader: Record "Purchase Header";
+    begin
+        // [FEATURE] [Purchase]
+        // [SCENARIO] There are no Purchase Invoices to post
+        with PurchHeader do begin
+            // [WHEN] Post all Invoices
+            Reset();
+            SetRange("Document Type", "Document Type"::Invoice);
+            asserterror FindFirst();
+            // [THEN] Error: 'There is no Purchase Header within the filter.'
+            Assert.ExpectedError(NoPurchHeaderErr);
         end;
     end;
 
@@ -184,7 +203,7 @@ codeunit 138200 "Normal DemoData"
         VATProductPostingGroup: Record "VAT Product Posting Group";
     begin
         // [SCENARIO] There are 3 VAT Prod. Posting groups
-        Assert.RecordCount(VATProductPostingGroup, 9);
+        Assert.RecordCount(VATProductPostingGroup, 3);
     end;
 
     [Test]
@@ -203,6 +222,28 @@ codeunit 138200 "Normal DemoData"
         VerifyBLOBMediaResources('SOCIAL - TWITTER.PNG');
         VerifyBLOBMediaResources('SOCIAL - YELP.PNG');
         VerifyBLOBMediaResources('SOCIAL - YOUTUBE.PNG');
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure BankAccountDKKExistsAT()
+    var
+        BankAccount: Record "Bank Account";
+    begin
+        // [SCENARIO 265707] Bank Account WWB-DKK should exist in AT and have Currency = DKK.
+        BankAccount.Get('WWB-DKK');
+        BankAccount.TestField("Currency Code", 'DKK');
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure BankAccountUSDExistsAT()
+    var
+        BankAccount: Record "Bank Account";
+    begin
+        // [SCENARIO 265707] Bank Account WWB-USD should exist in AT and have Currency = USD.
+        BankAccount.Get('WWB-USD');
+        BankAccount.TestField("Currency Code", 'USD');
     end;
 
     local procedure VerifyBLOBMediaResources("Code": Code[50])
@@ -310,16 +351,14 @@ codeunit 138200 "Normal DemoData"
         IntrastatJnlLine: Record "Intrastat Jnl. Line";
         AdvancedIntrastatChecklist: Record "Advanced Intrastat Checklist";
     begin
-        Assert.RecordCount(AdvancedIntrastatChecklist, 17);
+        Assert.RecordCount(AdvancedIntrastatChecklist, 26);
 
-        AdvancedIntrastatChecklistCommonFields(Report::"Intrastat - Checklist");
-        AdvancedIntrastatChecklistCommonFields(Report::"Intrastat - Form");
+        AdvancedIntrastatChecklistCommonFields(Report::"Intrastat - Checklist AT");
+        AdvancedIntrastatChecklistCommonFields(Report::"Intrastat - Form AT");
+        AdvancedIntrastatChecklistCommonFields(Report::"Intrastat - Disk Tax Auth AT");
 
-        AdvancedIntrastatChecklistField(Report::"Intrastat - Checklist", IntrastatJnlLine.FieldNo(Quantity), '');
-        AdvancedIntrastatChecklistField(Report::"Intrastat - Form", IntrastatJnlLine.FieldNo(Quantity), 'Supplementary Units: Yes');
-        AdvancedIntrastatChecklistField(Report::"Intrastat - Make Disk Tax Auth", IntrastatJnlLine.FieldNo("Country/Region Code"), '');
-        AdvancedIntrastatChecklistField(Report::"Intrastat - Make Disk Tax Auth", IntrastatJnlLine.FieldNo("Partner VAT ID"), '');
-        AdvancedIntrastatChecklistField(Report::"Intrastat - Make Disk Tax Auth", IntrastatJnlLine.FieldNo("Country/Region of Origin Code"), 'Type: Shipment');
+        AdvancedIntrastatChecklistField(Report::"Intrastat - Form AT", IntrastatJnlLine.FieldNo("Total Weight"), '');
+        AdvancedIntrastatChecklistField(Report::"Intrastat - Disk Tax Auth AT", IntrastatJnlLine.FieldNo("Total Weight"), '');
     end;
 #endif
 
@@ -370,10 +409,11 @@ codeunit 138200 "Normal DemoData"
         AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Tariff No."), '');
         AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Country/Region Code"), '');
         AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Transaction Type"), '');
-        // TFS ID 437762: Export with supplementary units option enabled and no weight
-        AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Total Weight"), 'Supplementary Units: No');
+        AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Transport Method"), '');
+        AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Transaction Specification"), '');
+        AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo(Quantity), 'Supplementary Units: Yes');
         AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Partner VAT ID"), 'Type: Shipment');
-        AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Country/Region of Origin Code"), 'Type: Shipment');
+        AdvancedIntrastatChecklistField(ReportId, IntrastatJnlLine.FieldNo("Country/Region of Origin Code"), '');
     end;
 
     local procedure AdvancedIntrastatChecklistField(ReportId: Integer; FieldNo: Integer; FilterExpr: Text)

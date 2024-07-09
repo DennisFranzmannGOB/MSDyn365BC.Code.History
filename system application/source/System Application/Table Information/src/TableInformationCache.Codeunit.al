@@ -3,11 +3,9 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
 /// <summary>
 /// Exposes functionality to manage the Table Information Cache table and the Company Size Cache table.
-/// </summary>
+/// </summary> 
 codeunit 8701 "Table Information Cache"
 {
     Access = Public;

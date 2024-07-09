@@ -2,7 +2,7 @@
 page 2102 "O365 Sales Month Summary"
 {
     Caption = 'Invoiced this Month';
-    DataCaptionExpression = Rec.Name;
+    DataCaptionExpression = Name;
     DeleteAllowed = false;
     Editable = false;
     InsertAllowed = false;
@@ -69,14 +69,14 @@ page 2102 "O365 Sales Month Summary"
     var
         TypeHelper: Codeunit "Type Helper";
     begin
-        if Rec.Name = '' then
-            SelectedMonth := Rec.ID
+        if Name = '' then
+            SelectedMonth := ID
         else
-            SelectedMonth := TypeHelper.GetLocalizedMonthToInt(Rec.Name);
+            SelectedMonth := TypeHelper.GetLocalizedMonthToInt(Name);
 
         ShowCustomers();
 
-        if Rec.Insert() then;
+        if Insert() then;
     end;
 
     var

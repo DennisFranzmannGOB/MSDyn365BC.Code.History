@@ -1,11 +1,9 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation. All rights reserved. 
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Text;
-
-/// <summary>
+/// <summary> 
 /// The available barcode font providers.
 /// </summary>
 enum 9203 "Barcode Font Provider" implements "Barcode Font Provider"

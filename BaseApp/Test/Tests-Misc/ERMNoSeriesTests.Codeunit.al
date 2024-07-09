@@ -371,7 +371,7 @@ codeunit 134370 "ERM No. Series Tests"
     begin
         CustomerCard.OpenNew();
         CustomerCard.Name.SetValue('Test Customer');
-        Customer.Get(CustomerCard."No.".Value());
+        Customer.Get(CustomerCard."No.");
         CustomerCard.Close();
         Customer.Find(); // refresh in case there is any onclosepage logic
     end;

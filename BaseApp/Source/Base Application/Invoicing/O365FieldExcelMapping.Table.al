@@ -16,23 +16,23 @@ table 2112 "O365 Field Excel Mapping"
         field(1; "Table ID"; Integer)
         {
             Caption = 'Table ID';
-            TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const(Table));
+            TableRelation = AllObjWithCaption."Object ID" WHERE("Object Type" = CONST(Table));
         }
         field(2; "Table Name"; Text[30])
         {
-            CalcFormula = Lookup("Table Metadata".Name where(ID = field("Table ID")));
+            CalcFormula = Lookup("Table Metadata".Name WHERE(ID = FIELD("Table ID")));
             Caption = 'Table Name';
             FieldClass = FlowField;
         }
         field(3; "Field ID"; Integer)
         {
             Caption = 'Field ID';
-            TableRelation = Field."No." where(TableNo = field("Table ID"));
+            TableRelation = Field."No." WHERE(TableNo = FIELD("Table ID"));
         }
         field(4; "Field Name"; Text[30])
         {
-            CalcFormula = Lookup(Field.FieldName where(TableNo = field("Table ID"),
-                                                        "No." = field("Field ID")));
+            CalcFormula = Lookup(Field.FieldName WHERE(TableNo = FIELD("Table ID"),
+                                                        "No." = FIELD("Field ID")));
             Caption = 'Field Name';
             FieldClass = FlowField;
         }

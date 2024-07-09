@@ -2,9 +2,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Apps;
-
 /// <summary>This table is used to store information about extensions that was installed but did not run the setup.</summary>
 table 2509 "Extension Pending Setup"
 {
@@ -41,4 +38,7 @@ table 2509 "Extension Pending Setup"
         }
     }
 
+    fieldgroups
+    {
+    }
 }

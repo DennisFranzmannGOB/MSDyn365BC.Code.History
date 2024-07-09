@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 entitlement "Dynamics 365 Business Central Essential - Embedded COHUB"
 {
     Type = PerUserServicePlan;

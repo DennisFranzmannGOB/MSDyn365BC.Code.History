@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Document;
-
 codeunit 30257 "Shpfy Open SalesCrMemo" implements "Shpfy IOpenBCDocument"
 {
 
@@ -9,7 +5,7 @@ codeunit 30257 "Shpfy Open SalesCrMemo" implements "Shpfy IOpenBCDocument"
     var
         SalesHeader: Record "Sales Header";
     begin
-        if SalesHeader.Get(SalesHeader."Document Type"::"Credit Memo", DocumentNo) then begin
+        if SalesHeader.Get("Sales Document Type"::"Credit Memo", DocumentNo) then begin
             SalesHeader.SetRecFilter();
             Page.Run(Page::"Sales Credit Memo", SalesHeader);
         end;

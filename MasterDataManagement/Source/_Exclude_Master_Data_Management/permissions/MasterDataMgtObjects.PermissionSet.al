@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.MDM;
-
 /// <summary>
 /// this permission set is used to easily add all the extension objects into the apps license
 /// do not include this permission set in any other permission set

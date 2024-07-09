@@ -1,8 +1,3 @@
-namespace System.Security.AccessControl;
-
-using System.TestTools;
-using System.TestTools.TestRunner;
-
 permissionset 4773 "TEST TOOL"
 {
     Access = Public;

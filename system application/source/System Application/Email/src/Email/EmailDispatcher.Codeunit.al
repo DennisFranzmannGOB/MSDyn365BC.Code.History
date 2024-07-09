@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
-using System.Telemetry;
-
 codeunit 8888 "Email Dispatcher"
 {
     Access = Internal;
@@ -54,6 +50,9 @@ codeunit 8888 "Email Dispatcher"
         SentEmail: Record "Sent Email";
         SendEmailCodeunit: Codeunit "Send Email";
         Email: Codeunit Email;
+#if not CLEAN20
+        ClientTypeManagement: Codeunit "Client Type Management";
+#endif
         FeatureTelemetry: Codeunit "Feature Telemetry";
         Dimensions: Dictionary of [Text, Text];
     begin
@@ -96,6 +95,12 @@ codeunit 8888 "Email Dispatcher"
             Email.OnAfterEmailSent(SentEmail)
         else
             Email.OnAfterEmailSendFailed(EmailOutbox);
+#if not CLEAN20
+#pragma warning disable AL0432
+        if (ClientTypeManagement.GetCurrentClientType() = ClientType::Background) then
+            Email.OnAfterSendEmail(EmailOutbox."Message Id", Success);
+#pragma warning restore AL0432
+#endif
     end;
 
     local procedure RescheduleEmail(Delay: Duration; Dimensions: Dictionary of [Text, Text]; var EmailOutbox: Record "Email Outbox")

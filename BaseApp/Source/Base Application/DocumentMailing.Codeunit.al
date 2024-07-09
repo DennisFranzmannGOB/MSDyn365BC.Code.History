@@ -1,20 +1,4 @@
-﻿namespace System.EMail;
-
-using Microsoft.CRM.Outlook;
-using Microsoft.Foundation.Company;
-using Microsoft.Foundation.Reporting;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-#if not CLEAN21
-using Microsoft.Sales.Document;
-using Microsoft.Sales.History;
-#endif
-using System;
-using System.IO;
-using System.Threading;
-using System.Utilities;
-
-codeunit 260 "Document-Mailing"
+﻿codeunit 260 "Document-Mailing"
 {
     TableNo = "Job Queue Entry";
 
@@ -434,7 +418,7 @@ codeunit 260 "Document-Mailing"
         if Customer.Get(CustomerNo) then;
 
         if EmailParameter.GetParameterWithReportUsage(
-            PostedDocNo, Enum::"Report Selection Usage".FromInteger(ReportUsage), EmailParameter."Parameter Type"::Body)
+            PostedDocNo, "Report Selection Usage".FromInteger(ReportUsage), EmailParameter."Parameter Type"::Body)
         then begin
             String := EmailParameter.GetParameterValue();
             exit(String.Replace(CustomerLbl, Customer.Name));

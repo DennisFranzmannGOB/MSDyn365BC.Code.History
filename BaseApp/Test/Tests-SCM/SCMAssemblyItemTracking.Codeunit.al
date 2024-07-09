@@ -19,7 +19,7 @@ codeunit 137926 "SCM Assembly Item Tracking"
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryAssembly: Codeunit "Library - Assembly";
         LibraryInventory: Codeunit "Library - Inventory";
-        LibraryItemTracking: Codeunit "Library - Item Tracking";        
+        LibraryItemTracking: Codeunit "Library - Item Tracking";
         LibraryManufacturing: Codeunit "Library - Manufacturing";
         LibraryERM: Codeunit "Library - ERM";
         SNMissingErr: Label 'You must assign a serial number for item', Comment = '%1 - Item No.';
@@ -53,6 +53,69 @@ codeunit 137926 "SCM Assembly Item Tracking"
         Initialized := true;
         Commit();
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"SCM Assembly Item Tracking");
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure SalesQuoteToOrderCompSN()
+    var
+        ItemTrackingCode: Record "Item Tracking Code";
+        ItemParent: Record Item;
+        ItemChild: Record Item;
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        ATOLink: Record "Assemble-to-Order Link";
+        AssemblyLine: Record "Assembly Line";
+        ReservEntry: Record "Reservation Entry";
+        SalesOrderHeader: Record "Sales Header";
+        BOMComponent: Record "BOM Component";
+        SalesQuoteToOrder: Codeunit "Sales-Quote to Order";
+        LibrarySales: Codeunit "Library - Sales";
+        SNChild: Code[20];
+    begin
+        Initialize();
+        LibrarySales.SetCreditWarningsToNoWarnings;
+
+        // Create items
+        CreateItemTrackingCode(ItemTrackingCode, true, false);
+        CreateItems(ItemParent, ItemTrackingCode, ItemChild, ItemTrackingCode);
+        ItemParent.Validate("Replenishment System", ItemParent."Replenishment System"::Assembly);
+        ItemParent.Validate("Assembly Policy", ItemParent."Assembly Policy"::"Assemble-to-Order");
+        ItemParent.Modify(true);
+
+        // Add child to parent BOM
+        LibraryManufacturing.CreateBOMComponent(
+          BOMComponent, ItemParent."No.", BOMComponent.Type::Item, ItemChild."No.", 1, '');
+
+        // Add component to inventory
+        SNChild := ItemChild."No.";
+        AddItemToInventory(ItemChild, 1, SNChild, '');
+
+        // Create Sales Quote
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Quote, '20000');
+        SalesHeader.Validate("Shipment Date", WorkDate2);
+        SalesHeader.Modify(true);
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemParent."No.", 1);
+
+        // Add SN to Asm Quote Comp
+        ATOLink.SetRange("Assembly Document Type", ATOLink."Assembly Document Type"::Quote);
+        ATOLink.SetRange(Type, ATOLink.Type::Sale);
+        ATOLink.SetRange("Document Type", ATOLink."Document Type"::Quote);
+        ATOLink.SetRange("Document No.", SalesHeader."No.");
+        ATOLink.FindFirst();
+        AssemblyLine.Get(AssemblyLine."Document Type"::Quote, ATOLink."Assembly Document No.", 10000);
+        LibraryItemTracking.CreateAssemblyLineItemTracking(ReservEntry, AssemblyLine, SNChild, '', 1);
+
+        // Validate SN on asm order comp
+        ValidateQuoteSN(ItemChild."No.", SNChild, -1, 0);
+
+        // Make Sales Order from Quote
+        SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No.");
+        SalesQuoteToOrder.Run(SalesHeader);
+        SalesQuoteToOrder.GetSalesOrderHeader(SalesOrderHeader);
+
+        // Validate SN on asm order comp
+        ValidateQuoteSN(ItemChild."No.", SNChild, -1, 1);
     end;
 
     [Test]
@@ -391,69 +454,6 @@ codeunit 137926 "SCM Assembly Item Tracking"
 
         // [THEN] Validate Item Tracing Lines
         ValidateItemTracingLine(ItemTracingPage, LotNo, AsmItem, CompItem, Qty, QtyPer);
-    end;
-
-    [Test]
-    procedure SerialTrackedOnItemLedgerEntryForAssemblyOrder()
-    var
-        CompItem: Record Item;
-        AsmItem: Record Item;
-        BOMComponent: Record "BOM Component";
-        ItemJournalLine: Record "Item Journal Line";
-        ReservationEntry: Record "Reservation Entry";
-        AssemblyHeader: Record "Assembly Header";
-        AssemblyLine: Record "Assembly Line";
-        ItemLedgerEntry: Record "Item Ledger Entry";
-        SerialNo: Code[20];
-    begin
-        // [SCENARIO 496681] Serial Tracked component on Assembly Order where full Quantity to Assemble is Picked and 
-        // partial quantity is posted gives the proper serial number on Item Ledger Entry 
-        Initialize();
-
-        // [GIVEN] Create Serial No.
-        SerialNo := LibraryUtility.GenerateGUID();
-
-        // [GIVEN] Create Component Item with serial Number
-        LibraryItemTracking.CreateSerialItem(CompItem);
-
-        // [GIVEN] Create Assembled Item
-        LibraryInventory.CreateItem(AsmItem);
-
-        // [GIVEN] Update Replenishment System as Assembly.
-        AsmItem.Validate("Replenishment System", AsmItem."Replenishment System"::Assembly);
-        AsmItem.Modify(true);
-
-        // [GIVEN] Create Assembly BOM of assembled Item
-        LibraryManufacturing.CreateBOMComponent(
-          BOMComponent, AsmItem."No.", BOMComponent.Type::Item, CompItem."No.", 1, CompItem."Base Unit of Measure");
-
-        // [GIVEN] Create Inventory of Componenty Item with Serial Number
-        LibraryInventory.CreateItemJournalLineInItemTemplate(
-          ItemJournalLine, CompItem."No.", '', '', 1);
-        LibraryItemTracking.CreateItemJournalLineItemTracking(
-          ReservationEntry, ItemJournalLine, SerialNo, '', ItemJournalLine.Quantity);
-        LibraryInventory.PostItemJournalLine(ItemJournalLine."Journal Template Name", ItemJournalLine."Journal Batch Name");
-
-        // [GIVEN] Create Assembly Order 
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, LibraryRandom.RandDate(30), AsmItem."No.", '', 1, '');
-
-        // [GIVEN] Create Assembly Line
-        AssemblyLine.SetRange("Document Type", AssemblyHeader."Document Type");
-        AssemblyLine.SetRange("Document No.", AssemblyHeader."No.");
-        AssemblyLine.FindFirst();
-
-        // [GIVEN] Create Item Tracking of Assembly Line
-        LibraryItemTracking.CreateAssemblyLineItemTracking(ReservationEntry, AssemblyLine, SerialNo, '', 1);
-
-        // [WHEN] Post the Assembly Order
-        LibraryAssembly.PostAssemblyHeader(AssemblyHeader, '');
-
-        // [THEN] Filter the posted Item Ledger Entry
-        ItemLedgerEntry.SetRange("Item No.", CompItem."No.");
-        ItemLedgerEntry.FindLast();
-
-        // [VERIFY] Serial No. should be same as assigned earlier on Item Tracking
-        Assert.AreEqual(SerialNo, ItemLedgerEntry."Serial No.", '');
     end;
 
     local procedure ValidateItemTracingLine(var ItemTracingPage: TestPage "Item Tracing"; LNParent: Code[50]; ItemParent: Record Item; ItemChild: Record Item; Quantity: Decimal; QtyPer: Decimal)
@@ -832,26 +832,6 @@ codeunit 137926 "SCM Assembly Item Tracking"
             Location.Modify(true);
         end;
 
-        if Location."Require Pick" then
-            if Location."Require Shipment" then begin
-                Location."Prod. Consump. Whse. Handling" := Location."Prod. Consump. Whse. Handling"::"Warehouse Pick (mandatory)";
-                Location."Asm. Consump. Whse. Handling" := Location."Asm. Consump. Whse. Handling"::"Warehouse Pick (mandatory)";
-                Location."Job Consump. Whse. Handling" := Location."Job Consump. Whse. Handling"::"Warehouse Pick (mandatory)";
-            end else begin
-                Location."Prod. Consump. Whse. Handling" := Location."Prod. Consump. Whse. Handling"::"Inventory Pick/Movement";
-                Location."Asm. Consump. Whse. Handling" := Location."Asm. Consump. Whse. Handling"::"Inventory Movement";
-                Location."Job Consump. Whse. Handling" := Location."Job Consump. Whse. Handling"::"Inventory Pick";
-            end
-        else begin
-            Location."Prod. Consump. Whse. Handling" := Location."Prod. Consump. Whse. Handling"::"Warehouse Pick (optional)";
-            Location."Asm. Consump. Whse. Handling" := Location."Asm. Consump. Whse. Handling"::"Warehouse Pick (optional)";
-            Location."Job Consump. Whse. Handling" := Location."Job Consump. Whse. Handling"::"Warehouse Pick (optional)";
-        end;
-
-        if Location."Require Put-away" and not Location."Require Receive" then
-            Location."Prod. Output Whse. Handling" := Location."Prod. Output Whse. Handling"::"Inventory Put-away";
-        Location.Modify(true);
-
         // create 4 bins - 2 for Picking and 2 for put-awaying
         LibraryWarehouse.CreateBin(Bin, Location.Code, 'BIN1', Zone.Code, BinTypePick.Code);
         LibraryWarehouse.CreateBin(Bin, Location.Code, 'BIN2', Zone.Code, BinTypePick.Code);
@@ -1013,6 +993,19 @@ codeunit 137926 "SCM Assembly Item Tracking"
     begin
         NavigatePage."Table Name".AssertEquals(TableName);
         NavigatePage."No. of Records".AssertEquals(NoOfRecords);
+    end;
+
+    local procedure ValidateQuoteSN(ItemNo: Code[20]; SerialNo: Code[50]; Qty: Decimal; SourceSubType: Option)
+    var
+        ReservEntry: Record "Reservation Entry";
+    begin
+        ReservEntry.SetRange("Item No.", ItemNo);
+        ReservEntry.SetRange("Serial No.", SerialNo);
+        ReservEntry.SetRange("Quantity (Base)", Qty);
+        ReservEntry.SetRange("Source Type", DATABASE::"Assembly Line");
+        ReservEntry.SetRange("Source Subtype", SourceSubType);
+        Assert.AreEqual(1, ReservEntry.Count, WrongNoOfT337RecordsErr);
+        Assert.AreEqual(true, ReservEntry.FindFirst, 'T337 records are different from what expected :(');
     end;
 
     [ModalPageHandler]

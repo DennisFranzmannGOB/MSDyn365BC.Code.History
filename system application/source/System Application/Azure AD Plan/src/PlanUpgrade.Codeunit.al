@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
-using System.Upgrade;
-
 /// <summary>
 /// Codeunit to upgrade the Plan table.
 /// </summary>
@@ -29,7 +25,6 @@ codeunit 9057 "Plan Upgrade"
         AddPremiumPartnerSandbox();
         AddMicrosoft365();
         AddEssentialAttach();
-        AddD365Admin();
         AddBCAdmin();
 
         AddDefaultPlanConfigurations();
@@ -38,7 +33,7 @@ codeunit 9057 "Plan Upgrade"
     [NonDebuggable]
     local procedure UpdateSubscriptionPlan()
     var
-        Plan: Record Plan;
+        Plan: Record "Plan";
         UpgradeTag: Codeunit "Upgrade Tag";
         PlanUpgradeTag: Codeunit "Plan Upgrade Tag";
         PlanIds: Codeunit "Plan Ids";
@@ -53,7 +48,7 @@ codeunit 9057 "Plan Upgrade"
         PlanName := 'Dynamics 365 Business Central Device - Embedded';
         RoleCenterId := 9022; // PAGE::"Business Manager Role Center"
 
-        if Plan.Get(PlanId) then
+        if Plan.get(PlanId) then
             exit;
 
         CreatePlan(PlanId, PlanName, RoleCenterId);
@@ -133,7 +128,7 @@ codeunit 9057 "Plan Upgrade"
     [NonDebuggable]
     local procedure AddPremiumPartnerSandbox()
     var
-        Plan: Record Plan;
+        Plan: Record "Plan";
         UpgradeTag: Codeunit "Upgrade Tag";
         PlanUpgradeTag: Codeunit "Plan Upgrade Tag";
         PlanIds: Codeunit "Plan Ids";
@@ -159,7 +154,7 @@ codeunit 9057 "Plan Upgrade"
     [NonDebuggable]
     local procedure AddEssentialAttach()
     var
-        Plan: Record Plan;
+        Plan: Record "Plan";
         UpgradeTag: Codeunit "Upgrade Tag";
         PlanUpgradeTag: Codeunit "Plan Upgrade Tag";
         PlanIds: Codeunit "Plan Ids";
@@ -185,7 +180,7 @@ codeunit 9057 "Plan Upgrade"
     [NonDebuggable]
     local procedure AddMicrosoft365()
     var
-        Plan: Record Plan;
+        Plan: Record "Plan";
         UpgradeTag: Codeunit "Upgrade Tag";
         PlanUpgradeTag: Codeunit "Plan Upgrade Tag";
         PlanIds: Codeunit "Plan Ids";
@@ -241,32 +236,6 @@ codeunit 9057 "Plan Upgrade"
         UpgradeTag.SetUpgradeTag(PlanUpgradeTag.GetBCAdminUpgradeTag());
     end;
 
-    [NonDebuggable]
-    local procedure AddD365Admin()
-    var
-        Plan: Record Plan;
-        UpgradeTag: Codeunit "Upgrade Tag";
-        PlanUpgradeTag: Codeunit "Plan Upgrade Tag";
-        PlanIds: Codeunit "Plan Ids";
-        PlanId: Guid;
-        PlanName: Text[50];
-        RoleCenterId: Integer;
-    begin
-        if UpgradeTag.HasUpgradeTag(PlanUpgradeTag.GetMD365AdminUpgradeTag()) then
-            exit;
-
-        PlanId := PlanIds.GetD365AdminPlanId();
-        PlanName := 'Dynamics 365 Administrator';
-        RoleCenterId := 9022;
-
-        if Plan.Get(PlanId) then
-            exit;
-
-        CreatePlan(PlanId, PlanName, RoleCenterId);
-
-        UpgradeTag.SetUpgradeTag(PlanUpgradeTag.GetMD365AdminUpgradeTag());
-    end;
-
     local procedure AddDefaultPlanConfigurations()
     var
         PlanConfigurationImpl: Codeunit "Plan Configuration Impl.";
@@ -282,18 +251,18 @@ codeunit 9057 "Plan Upgrade"
     end;
 
     [NonDebuggable]
-    local procedure DeletePlan(PlanId: Guid)
+    local procedure DeletePlan(PlanId: guid)
     var
-        Plan: Record Plan;
+        Plan: Record "Plan";
     begin
         if Plan.Get(PlanId) then
             Plan.Delete();
     end;
 
     [NonDebuggable]
-    local procedure RenameOrCreatePlan(PlanId: Guid; NewName: Text)
+    local procedure RenameOrCreatePlan(PlanId: guid; NewName: Text)
     var
-        Plan: Record Plan;
+        Plan: Record "Plan";
     begin
         if Plan.Get(PlanId) then begin
             Plan.Name := CopyStr(NewName, 1, 50);

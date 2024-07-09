@@ -1,12 +1,3 @@
-namespace Microsoft.Bank.PayPal;
-
-using System.Integration;
-using System.Privacy;
-using Microsoft.Sales.Document;
-using Microsoft.CRM.Setup;
-using Microsoft.Bank.Payment;
-using System.Telemetry;
-
 table 1070 "MS - PayPal Standard Account"
 {
     Caption = 'PayPal Payments Standard Account';
@@ -14,7 +5,6 @@ table 1070 "MS - PayPal Standard Account"
     LookupPageID = 1070;
     Permissions = TableData "Webhook Subscription" = rimd;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -36,16 +26,12 @@ table 1070 "MS - PayPal Standard Account"
             trigger OnValidate();
             var
                 CustomerConsentMgt: Codeunit "Customer Consent Mgt.";
-                MSPayPalStandardMgt: Codeunit "MS - PayPal Standard Mgt.";
-                FeatureTelemetry: Codeunit "Feature Telemetry";
             begin
                 if not xRec."Enabled" and Rec."Enabled" then
                     Rec."Enabled" := CustomerConsentMgt.ConfirmUserConsent();
 
-                if Rec.Enabled then begin
+                if Rec.Enabled then
                     VerifyAccountID();
-                    FeatureTelemetry.LogUptake('0000LHR', MSPayPalStandardMgt.GetFeatureTelemetryName(), Enum::"Feature Uptake Status"::"Set up");
-                end;
             end;
         }
         field(5; "Always Include on Documents"; Boolean)
@@ -56,22 +42,22 @@ table 1070 "MS - PayPal Standard Account"
                 MSPayPalStandardAccount: Record "MS - PayPal Standard Account";
                 SalesHeader: Record "Sales Header";
             begin
-                if not "Always Include on Documents" then
-                    exit;
+                IF NOT "Always Include on Documents" THEN
+                    EXIT;
 
-                MSPayPalStandardAccount.SETRANGE("Always Include on Documents", true);
+                MSPayPalStandardAccount.SETRANGE("Always Include on Documents", TRUE);
                 MSPayPalStandardAccount.SETFILTER("Primary Key", '<>%1', "Primary Key");
-                MSPayPalStandardAccount.MODIFYALL("Always Include on Documents", false, true);
+                MSPayPalStandardAccount.MODIFYALL("Always Include on Documents", FALSE, TRUE);
 
-                if not GUIALLOWED() then
-                    exit;
+                IF NOT GUIALLOWED() THEN
+                    EXIT;
 
                 SalesHeader.SETFILTER("Document Type", StrSubstNo(SalesHeaderFilterLbl,
                     SalesHeader."Document Type"::Invoice,
                     SalesHeader."Document Type"::Order,
                     SalesHeader."Document Type"::Quote));
 
-                if not SalesHeader.IsEmpty() and not HideDialogs then
+                IF not SalesHeader.IsEmpty() AND NOT HideDialogs THEN
                     MESSAGE(UpdateOpenInvoicesManuallyMsg);
             end;
         }
@@ -142,11 +128,11 @@ table 1070 "MS - PayPal Standard Account"
     begin
         TargetURL := '';
         CALCFIELDS("Target URL");
-        if "Target URL".HASVALUE() then begin
+        IF "Target URL".HASVALUE() THEN BEGIN
             "Target URL".CREATEINSTREAM(InStream);
             InStream.READ(TargetURL);
-        end;
-        exit(TargetURL);
+        END;
+        EXIT(TargetURL);
     end;
 
     procedure SetTargetURL(TargetURL: Text);
@@ -164,17 +150,17 @@ table 1070 "MS - PayPal Standard Account"
 
     local procedure VerifyAccountID();
     begin
-        if Enabled then
-            if "Account ID" = '' then
-                if HideDialogs then
+        IF Enabled THEN
+            IF "Account ID" = '' THEN
+                IF HideDialogs THEN
                     "Account ID" := ''
-                else
+                ELSE
                     ERROR(AccountIDCannotBeBlankErr);
     end;
 
     procedure HideAllDialogs();
     begin
-        HideDialogs := true;
+        HideDialogs := TRUE;
     end;
 
     local procedure UpdateWebhookOnModify();
@@ -183,13 +169,13 @@ table 1070 "MS - PayPal Standard Account"
     begin
         PrevMSPayPalStandardAccount.GET("Primary Key");
 
-        if PrevMSPayPalStandardAccount."Account ID" <> "Account ID" then
+        IF PrevMSPayPalStandardAccount."Account ID" <> "Account ID" THEN
             DeleteWebhookSubscription(PrevMSPayPalStandardAccount."Account ID");
 
-        if "Account ID" <> '' then
-            if Enabled then
+        IF "Account ID" <> '' THEN
+            IF Enabled THEN
                 RegisterWebhookListenerForRec()
-            else
+            ELSE
                 DeleteWebhookSubscription("Account ID");
 
         CreatePaymentRegistrationSetupForCurrentUser();
@@ -203,10 +189,10 @@ table 1070 "MS - PayPal Standard Account"
         WebhooksAdapterUri: Text[250];
         SubscriptionId: Text[150];
     begin
-        if not WebhookManagement.IsCurrentClientTypeAllowed() then begin
+        IF NOT WebhookManagement.IsCurrentClientTypeAllowed() THEN BEGIN
             Session.LogMessage('00008H5', WebhooksNotAllowedForCurrentClientTypeTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-            exit;
-        end;
+            EXIT;
+        END;
 
         if StrLen("Account ID") > MaxStrLen(SubscriptionId) then begin
             Session.LogMessage('00006TI', STRSUBSTNO(AccountIDTooLongForWebhooksErr, MaxStrLen(SubscriptionId)), Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
@@ -229,9 +215,9 @@ table 1070 "MS - PayPal Standard Account"
         WebhookSubscription."Created By" := GetBaseURL();
         WebhookSubscription."Company Name" := CopyStr(COMPANYNAME(), 1, MaxStrLen(WebhookSubscription."Company Name"));
         WebhookSubscription."Run Notification As" := MarketingSetup.TrySetWebhookSubscriptionUserAsCurrentUser();
-        if not WebhookSubscription.INSERT() then
+        IF NOT WebhookSubscription.INSERT() THEN
             Session.LogMessage('00008H6', WebhookSubscriptionNotCreatedTxt, Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok)
-        else
+        ELSE
             Session.LogMessage('00008H7', WebhookSubscriptionCreatedTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
     end;
 
@@ -243,10 +229,10 @@ table 1070 "MS - PayPal Standard Account"
         SubscriptionId := CopyStr(LowerCase(AccountId), 1, MaxStrLen(SubscriptionId));
         WebhookSubscription.SETRANGE("Subscription ID", SubscriptionId);
         WebhookSubscription.SetFilter("Created By", MSPayPalWebhookManagement.GetCreatedByFilterForWebhooks());
-        if not WebhookSubscription.IsEmpty() then begin
+        IF NOT WebhookSubscription.IsEmpty() THEN BEGIN
             WebhookSubscription.DeleteAll(true);
             Session.LogMessage('00008H8', WebhookSubscriptionDeletedTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-        end;
+        END;
 
         Session.LogMessage('00008H9', WebhookSubscriptionDoesNotExistTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
     end;
@@ -264,27 +250,27 @@ table 1070 "MS - PayPal Standard Account"
         ParametersStartPosition: Integer;
     begin
         ParametersStartPosition := STRPOS(URL, '?');
-        if ParametersStartPosition > 0 then
+        IF ParametersStartPosition > 0 THEN
             BaseURL := COPYSTR(DELSTR(URL, ParametersStartPosition), 1, MAXSTRLEN(BaseURL))
-        else
+        ELSE
             BaseURL := COPYSTR(URL, 1, MAXSTRLEN(BaseURL));
     end;
 
-    local procedure CreatePaymentRegistrationSetupForCurrentUser();
-    var
+    LOCAL PROCEDURE CreatePaymentRegistrationSetupForCurrentUser();
+    VAR
         PaymentRegistrationSetup: Record "Payment Registration Setup";
-    begin
-        if PaymentRegistrationSetup.GET(USERID()) then begin
+    BEGIN
+        IF PaymentRegistrationSetup.GET(USERID()) THEN BEGIN
             Session.LogMessage('00008HA', PaymentRegistrationSetupAlreadyExistsTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-            exit;
-        end;
-        if PaymentRegistrationSetup.GET() then begin
+            EXIT;
+        END;
+        IF PaymentRegistrationSetup.GET() THEN BEGIN
             PaymentRegistrationSetup."User ID" := CopyStr(USERID(), 1, MaxStrLen(PaymentRegistrationSetup."User ID"));
-            if PaymentRegistrationSetup.INSERT(true) then begin
+            IF PaymentRegistrationSetup.INSERT(TRUE) THEN BEGIN
                 Session.LogMessage('00008HB', PaymentRegistrationSetupCreatedTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-                exit;
-            end;
-        end;
+                EXIT;
+            END;
+        END;
         Session.LogMessage('00008HC', PaymentRegistrationSetupNotCreatedTxt, Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PayPalTelemetryCategoryTok);
-    end;
+    END;
 }

@@ -44,11 +44,10 @@ codeunit 136208 "Marketing Interaction"
         NoAttachmentErr: Label 'No attachment found. You must either add an attachment or choose a template in the Word Template Code field on the Interaction Template page.';
         TitleFromLbl: Label '%1 - from %2', Comment = '%1 - document description, %2 - name';
         TitleByLbl: Label '%1 - by %2', Comment = '%1 - document description, %2 - name';
+        FileLbl: Label '%1.%2', Comment = '%1 - Filename, 2% - Extension', Locked = true;
         SegmentSendContactEmailFaxMissingErr: Label 'Make sure that the %1 field is specified for either contact no. %2 or the contact alternative address.', Comment = '%1 - Email or Fax No. field caption, %2 - Contact No.';
         NoOfInteractionEntriesMustMatchErr: Label 'No. of Interaction Entries must match.';
         LoggedSegemntEntriesCreateMsg: Label 'Logged Segment entry was created';
-        AttachmentFileShouldNotBeBlankErr: Label 'Attachment File should not be blank.';
-        TxtFileExt: Label 'txt';
         EvaluationErr: Label '%1 must be %2 in %3', Comment = '%1 = Evaluation, %2 = Positive, %3 = Interaction Log Entry';
 
     [Test]
@@ -513,6 +512,7 @@ codeunit 136208 "Marketing Interaction"
     var
         DummyAttachment: Record Attachment;
         InteractionTmplLanguage: Record "Interaction Tmpl. Language";
+        CustomReportLayout: Record "Custom Report Layout";
         InteractTmplLanguages: TestPage "Interact. Tmpl. Languages";
     begin
         // [FEATURE] [UT] [UI] [Interaction Template] [Email Merge]
@@ -522,7 +522,8 @@ codeunit 136208 "Marketing Interaction"
 
         InteractTmplLanguages.OpenView;
         InteractTmplLanguages.GotoRecord(InteractionTmplLanguage);
-        InteractTmplLanguages.ReportLayoutName.SetValue(LibraryMarketing.FindEmailMergeCustomLayoutName());
+        CustomReportLayout.Get(LibraryMarketing.FindEmailMergeCustomLayoutNo);
+        InteractTmplLanguages.CustLayoutDescription.SetValue(CustomReportLayout.Description);
         InteractTmplLanguages.Close();
 
         InteractionTmplLanguage.Find();
@@ -537,6 +538,7 @@ codeunit 136208 "Marketing Interaction"
     var
         DummyAttachment: Record Attachment;
         InteractionTmplLanguage: Record "Interaction Tmpl. Language";
+        CustomReportLayout: Record "Custom Report Layout";
         InteractTmplLanguages: TestPage "Interact. Tmpl. Languages";
         AttachmentNo: array[2] of Integer;
     begin
@@ -548,11 +550,13 @@ codeunit 136208 "Marketing Interaction"
         InteractTmplLanguages.OpenView;
         InteractTmplLanguages.GotoRecord(InteractionTmplLanguage);
 
-        InteractTmplLanguages.ReportLayoutName.SetValue(LibraryMarketing.FindEmailMergeCustomLayoutName());
+        CustomReportLayout.Get(LibraryMarketing.FindEmailMergeCustomLayoutNo);
+        InteractTmplLanguages.CustLayoutDescription.SetValue(CustomReportLayout.Description);
         InteractionTmplLanguage.Find();
         AttachmentNo[1] := InteractionTmplLanguage."Attachment No.";
 
-        InteractTmplLanguages.ReportLayoutName.SetValue(LibraryMarketing.FindEmailMergeCustomLayoutName());
+        CustomReportLayout.Get(LibraryMarketing.FindEmailMergeCustomLayoutNo);
+        InteractTmplLanguages.CustLayoutDescription.SetValue(CustomReportLayout.Description);
         InteractionTmplLanguage.Find();
         AttachmentNo[2] := InteractionTmplLanguage."Attachment No.";
 
@@ -571,6 +575,7 @@ codeunit 136208 "Marketing Interaction"
     var
         DummyAttachment: Record Attachment;
         InteractionTmplLanguage: Record "Interaction Tmpl. Language";
+        CustomReportLayout: Record "Custom Report Layout";
         InteractTmplLanguages: TestPage "Interact. Tmpl. Languages";
         "Count": Integer;
     begin
@@ -582,8 +587,9 @@ codeunit 136208 "Marketing Interaction"
 
         InteractTmplLanguages.OpenView;
         InteractTmplLanguages.GotoRecord(InteractionTmplLanguage);
-        InteractTmplLanguages.ReportLayoutName.SetValue(LibraryMarketing.FindEmailMergeCustomLayoutName());
-        InteractTmplLanguages.ReportLayoutName.SetValue('');
+        CustomReportLayout.Get(LibraryMarketing.FindEmailMergeCustomLayoutNo);
+        InteractTmplLanguages.CustLayoutDescription.SetValue(CustomReportLayout.Description);
+        InteractTmplLanguages.CustLayoutDescription.SetValue('');
         InteractTmplLanguages.Close();
 
         InteractionTmplLanguage.Find();
@@ -1150,7 +1156,7 @@ codeunit 136208 "Marketing Interaction"
     end;
 
     [Test]
-    [HandlerFunctions('ModalReportHandler,MessageHandler')]
+    [HandlerFunctions('ModalReportHandler,MessageHandler,EmailEditorHandler,CloseEmailEditorHandler')]
     [Scope('OnPrem')]
     procedure LogSegmentWithEmailWordAttachment()
     begin
@@ -1159,38 +1165,26 @@ codeunit 136208 "Marketing Interaction"
 
     procedure LogSegmentWithEmailWordAttachmentInternal()
     var
-        InteractionLogEntry: Record "Interaction Log Entry";
         SegmentHeader: Record "Segment Header";
         TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
         Segment: TestPage Segment;
         FileExtension: Text[250];
-        ExpectedCount: Integer;
     begin
         // [SCENARIO 178203] User sends email with Word document as attachment in Web client
         Initialize();
         LibraryWorkflow.SetUpEmailAccount();
-        ExpectedCount := InteractionLogEntry.Count() + 1;
-        Clear(InteractionLogEntry);
-
         // [GIVEN] Interaction Template with Word attachment
         FileExtension := 'DOC';
-
         // [GIVEN] Segment for email
         PrepareSegmentForEmail(SegmentHeader, FileExtension);
-
         // [GIVEN] Emulate Web client
         BindSubscription(TestClientTypeSubscriber);
         TestClientTypeSubscriber.SetClientType(CLIENTTYPE::Web);
-
         // [WHEN] Log Segment
-        Segment.OpenView();
+        Segment.OpenView;
         Segment.GotoRecord(SegmentHeader);
-        Segment.LogSegment.Invoke();
-
-        // [THEN] Verify that a new log entry was added.
-        InteractionLogEntry.FindLast();
-        Assert.AreEqual(ExpectedCount, InteractionLogEntry.Count(), 'One new interaction log entry should have been added.');
-        ClearVariables(SegmentHeader);
+        Segment.LogSegment.Invoke;
+        // [THEN] Email dialog launched (verification in handler)
     end;
 
     [Test]
@@ -1219,9 +1213,9 @@ codeunit 136208 "Marketing Interaction"
         BindSubscription(TestClientTypeSubscriber);
         TestClientTypeSubscriber.SetClientType(CLIENTTYPE::Web);
         // [WHEN] Log Segment
-        Segment.OpenView();
+        Segment.OpenView;
         Segment.GotoRecord(SegmentHeader);
-        Segment.LogSegment.Invoke();
+        Segment.LogSegment.Invoke;
         // [THEN] Email dialog launched (verification in handler)
     end;
 
@@ -2593,40 +2587,30 @@ codeunit 136208 "Marketing Interaction"
     end;
 
     [Test]
-    [HandlerFunctions('ModalReportHandler,MessageHandler')]
+    [HandlerFunctions('ModalReportHandler,MessageHandler,EmailEditorHandlerVerifyAttachment,CloseEmailEditorHandler')]
     procedure LogSegmentWithWordTemplateAndSendAsAttachmentToggle()
     var
-        InteractionLogEntry: Record "Interaction Log Entry";
         SegmentHeader: Record "Segment Header";
         Segment: TestPage Segment;
-        ExpectedCount: Integer;
     begin
         // [SCENARIO] Log a segment with a Word template using Send As Attachment toggle, will attach document to email and not insert in body.
         Initialize();
         LibraryWorkflow.SetUpEmailAccount();
-        ExpectedCount := InteractionLogEntry.Count() + 1;
-        Clear(InteractionLogEntry);
-
         // [GIVEN] Segment for email and Interaction Template with Word template and given wizard action
         PrepareSegmentForEmail(SegmentHeader, WizardAction::Open);
         SegmentHeader.Validate("Send Word Docs. as Attmt.", true);
         SegmentHeader.Modify();
         Commit(); // Commit as LogSegment is run as modal
-
         // [WHEN] Log Segment
         Segment.OpenView();
         Segment.GotoRecord(SegmentHeader);
         Segment.LogSegment.Invoke();
-        ClearVariables(SegmentHeader);
-
-        // [THEN] Verify that a new log entry was added.
-        InteractionLogEntry.FindLast();
-        Assert.AreEqual(ExpectedCount, InteractionLogEntry.Count(), 'One new interaction log entry should have been added.');
+        // [THEN] Email dialog launched (verification in handler) and verify that a new log entry was added.
         ClearVariables(SegmentHeader);
     end;
 
     [Test]
-    [HandlerFunctions('ModalReportHandler,MessageHandler')]
+    [HandlerFunctions('ModalReportHandler,MessageHandler,EmailEditorHandlerVerifyBody,CloseEmailEditorHandler')]
     procedure LogSegmentWithWordTemplateAndWizardActionOpen()
     begin
         LogSegmentWithWordTemplateAndWizardAction(WizardAction::Open);
@@ -2669,7 +2653,7 @@ codeunit 136208 "Marketing Interaction"
         Segment.GotoRecord(SegmentHeader);
         Segment.LogSegment.Invoke();
 
-        // [THEN] Verify that a new log entry was added.
+        // [THEN] Email dialog launched (verification in handler) and verify that a new log entry was added.
         InteractionLogEntry.FindLast();
         Assert.AreEqual(ExpectedCount, InteractionLogEntry.Count(), 'One new interaction log entry should have been added.');
         ClearVariables(SegmentHeader);
@@ -2974,46 +2958,6 @@ codeunit 136208 "Marketing Interaction"
 
     [Test]
     [Scope('OnPrem')]
-    [HandlerFunctions('CreateInteractionModalPageHandler')]
-    procedure AttachmentShouldNotBeEmptyWhenCreateInteractionFromContact()
-    var
-        Contact: Record Contact;
-        MarketingSetup: Record "Marketing Setup";
-        ContactCard: TestPage "Contact Card";
-        NewDirName: Text;
-        InteractionTemplateCode: Code[10];
-        AttachmentNo: Integer;
-    begin
-        // [SCENARIO 492204] Attachment from Interaction Log entries are empty
-        Initialize();
-
-        // [GIVEN] Create Contact
-        LibraryMarketing.CreateCompanyContact(Contact);
-
-        // [GIVEN] Change the Attachment Storage Type to "Disk File" and attachment address
-        RelocateAttachments(MarketingSetup."Attachment Storage Type"::"Disk File", CreateOrClearTempDirectory(NewDirName));
-        MarketingSetup.Get();
-
-        // [GIVEN] Create Attachment
-        AttachmentNo := CreateAttachmentFileOnDirectory(MarketingSetup."Attachment Storage Location", TxtFileExt);
-
-        // [GIVEN] Create Interaction Template
-        InteractionTemplateCode := CreateInteractionTemplateWithLanguageAndAttachment('', AttachmentNo);
-
-        // [GIVEN] Enqueue Interaction Template Code
-        LibraryVariableStorage.Enqueue(InteractionTemplateCode);
-
-        // [WHEN] Open Contact Card and create Interaction.
-        ContactCard.OpenEdit();
-        ContactCard.GoToRecord(Contact);
-        ContactCard."Create &Interaction".Invoke();
-
-        // [VERIFY] Verify Attachment File is not blank on created Interaction.
-        VerifyAttachmentFileIsNotBlankOnInteractionLogEntry(Contact."No.");
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
     [HandlerFunctions('CreateInteractionFromContactPageHandler')]
     procedure PopulateEvaluationFieldInInteractionLogEntry()
     var
@@ -3054,101 +2998,6 @@ codeunit 136208 "Marketing Interaction"
                 InteractionLogEntry.FieldCaption(Evaluation),
                 InteractionEvaluation::Positive,
                 InteractionLogEntry.TableCaption));
-    end;
-
-    [Test]
-    [HandlerFunctions('ModalPageHandlerCreateInteraction,ModalPageHandlerCreateInteractionComments')]
-    [Scope('OnPrem')]
-    procedure CreateInteractionFromInteractionLogEntriesPageWithComments()
-    var
-        Contact: Record Contact;
-        InteractionGroup: Record "Interaction Group";
-        InteractionLogEntry: Record "Interaction Log Entry";
-        InteractionLogEntries: TestPage "Interaction Log Entries";
-    begin
-        // [SCENARIO 492286] When Adding comments to Interaction, all of the comments are displayed/saved
-        Initialize();
-
-        // [GIVEN] Create Interaction Group and Contact
-        LibraryMarketing.CreateInteractionGroup(InteractionGroup);
-        LibraryMarketing.CreateCompanyContact(Contact);
-        LibraryVariableStorage.Enqueue(Contact."No.");
-
-        // [GIVEN] Open Interaction Log Entries page and Invoke Create Interaction Action
-        InteractionLogEntries.OpenNew();
-        InteractionLogEntries."Create &Interaction".Invoke();
-
-        // [WHEN] Interaction log entry is created
-        InteractionLogEntry.SetFilter("Contact No.", Contact."No.");
-        InteractionLogEntry.FindFirst();
-        Assert.RecordIsNotEmpty(InteractionLogEntry);
-
-        // [THEN] Three comments created for Interaction Log Entry
-        VerifyInterLogEntryCommentCount(InteractionLogEntry."Entry No.");
-    end;
-
-    [Test]
-    [HandlerFunctions('ModalPageHandlerCreateInteraction,ModalPageHandlerCreateInteractionComments')]
-    [Scope('OnPrem')]
-    procedure CreateInteractionLogWithCommentsForOpportunity()
-    var
-        Contact: Record Contact;
-        InteractionLogEntry: Record "Interaction Log Entry";
-        Opportunity: Record Opportunity;
-        OpportunityCard: TestPage "Opportunity Card";
-    begin
-        // [SCENARIO 492286] When Adding comments to an Interaction of opportunity, all of the comments are displayed/saved
-        Initialize();
-
-        // [GIVEN] Create opportunity XXX
-        LibraryMarketing.CreateCompanyContact(Contact);
-        LibraryMarketing.CreateOpportunity(Opportunity, Contact."No.");
-        LibraryVariableStorage.Enqueue(Contact."No.");
-
-        // [GIVEN] Open opportunity card page and Invoke Create Interaction Action
-        OpportunityCard.OpenEdit();
-        OpportunityCard.GotoRecord(Opportunity);
-        OpportunityCard."Create &Interaction".Invoke();
-
-        // [WHEN] Interaction log entry is created
-        InteractionLogEntry.SetFilter("Contact No.", Contact."No.");
-        InteractionLogEntry.FindFirst();
-        Assert.RecordIsNotEmpty(InteractionLogEntry);
-
-        // [THEN] Verify: 3 comments created for Interaction Log Entry
-        VerifyInterLogEntryCommentCount(InteractionLogEntry."Entry No.");
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandler,ModalPageHandlerCreateInteraction,ModalPageHandlerCreateInteractionComments')]
-    [Scope('OnPrem')]
-    procedure CreateInteractionLogWithCommentsForTask()
-    var
-        InteractionLogEntry: Record "Interaction Log Entry";
-        Task: Record "To-do";
-        TaskCard: TestPage "Task Card";
-    begin
-        // [SCENARIO 492286] When Adding comments to an Interction of Task, all of the comments are displayed/saved
-        Initialize();
-
-        // [GIVEN] Task with Type 'Meeting'
-        LibraryMarketing.CreateCompanyContactTask(Task, Task.Type::Meeting.AsInteger());
-
-        // [GIVEN] Task Card page opened
-        TaskCard.OpenEdit();
-        TaskCard.FILTER.SetFilter("No.", Task."No.");
-        LibraryVariableStorage.Enqueue(Task."Contact No.");
-
-        // [WHEN] Task Status is set to Complete
-        TaskCard.Status.SetValue(Task.Status::Completed);
-
-        // [WHEN] Interaction log entry is created
-        InteractionLogEntry.SetFilter("Contact No.", Task."Contact No.");
-        InteractionLogEntry.FindFirst();
-        Assert.RecordIsNotEmpty(InteractionLogEntry);
-
-        // [THEN] Verify: 3 comments created for Interaction Log Entry
-        VerifyInterLogEntryCommentCount(InteractionLogEntry."Entry No.");
     end;
 
     local procedure Initialize()
@@ -3306,19 +3155,19 @@ codeunit 136208 "Marketing Interaction"
     begin
         LanguageCode := CreateInteractionTmplLanguage(
             InteractionTmplLanguage, InteractionTemplateCode, FindLanguageCode(LanguageFilter),
-            LibraryMarketing.FindEmailMergeCustomLayoutName());
+            LibraryMarketing.FindEmailMergeCustomLayoutNo);
         InteractionTmplLanguage.CreateAttachment();
         exit(LanguageCode);
     end;
 
-    local procedure CreateInteractionTmplLanguage(var InteractionTmplLanguage: Record "Interaction Tmpl. Language"; InteractionTemplateCode: Code[10]; LanguageCode: Code[10]; ReportLayoutName: Text[250]): Code[10]
+    local procedure CreateInteractionTmplLanguage(var InteractionTmplLanguage: Record "Interaction Tmpl. Language"; InteractionTemplateCode: Code[10]; LanguageCode: Code[10]; CustomLayoutCode: Code[20]): Code[10]
     begin
         with InteractionTmplLanguage do begin
             Init();
             Validate("Interaction Template Code", InteractionTemplateCode);
             Validate("Language Code", LanguageCode);
-            Validate("Report Layout Name", ReportLayoutName);
-            Insert();
+            Validate("Custom Layout Code", CustomLayoutCode);
+            Insert(true);
             exit("Language Code");
         end;
     end;
@@ -4154,6 +4003,57 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         // Assert.IsSubstring(EmailEditor.Attachments.FileName.Value, LibraryVariableStorage.DequeueText); // bug 397659
     end;
 
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure EmailEditorHandlerVerifyBody(var EmailEditor: TestPage "Email Editor")
+    var
+        Body: Text;
+        ContactEmail: Text;
+        ContactPhoneNo: Text;
+        SalespersonEmail: Text;
+        SalespersonPhoneNo: Text;
+    begin
+        ContactEmail := LibraryVariableStorage.DequeueText();
+        ContactPhoneNo := LibraryVariableStorage.DequeueText();
+        SalespersonEmail := LibraryVariableStorage.DequeueText();
+        SalespersonPhoneNo := LibraryVariableStorage.DequeueText();
+        Body := EmailEditor."Email Editor".Value();
+
+        EmailEditor.ToField.AssertEquals(ContactEmail);
+        Assert.IsTrue(Body.Contains(ContactEmail), 'Body should contain contact email.');
+        Assert.IsTrue(Body.Contains(ContactPhoneNo), 'Body should contain contact phone no.');
+        Assert.IsTrue(Body.Contains(SalespersonEmail), 'Body should contain salesperson email.');
+        Assert.IsTrue(Body.Contains(SalespersonPhoneNo), 'Body should contain salesperson phone no.');
+        EmailEditor.SubjectField.AssertEquals(LibraryVariableStorage.DequeueText());
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure EmailEditorHandlerVerifyAttachment(var EmailEditor: TestPage "Email Editor")
+    var
+        Body: Text;
+        ContactEmail: Text;
+        ContactPhoneNo: Text;
+        SalespersonEmail: Text;
+        SalespersonPhoneNo: Text;
+        Subject: Text;
+    begin
+        ContactEmail := LibraryVariableStorage.DequeueText();
+        ContactPhoneNo := LibraryVariableStorage.DequeueText();
+        SalespersonEmail := LibraryVariableStorage.DequeueText();
+        SalespersonPhoneNo := LibraryVariableStorage.DequeueText();
+        Subject := LibraryVariableStorage.DequeueText();
+        Body := EmailEditor."Email Editor".Value();
+
+        EmailEditor.ToField.AssertEquals(ContactEmail);
+        EmailEditor.SubjectField.AssertEquals(Subject);
+        Assert.IsFalse(Body.Contains(ContactEmail), 'Body should not contain contact email.');
+        Assert.IsFalse(Body.Contains(ContactPhoneNo), 'Body should not contain contact phone no.');
+        Assert.IsFalse(Body.Contains(SalespersonEmail), 'Body should not contain salesperson email.');
+        Assert.IsFalse(Body.Contains(SalespersonPhoneNo), 'Body should not contain salesperson phone no.');
+        Assert.AreEqual(StrSubstNo(FileLbl, Subject, 'docx'), EmailEditor.Attachments.FileName.Value(), 'Email should have an attachment named by description');
+    end;
+
     [StrMenuHandler]
     [Scope('OnPrem')]
     procedure CloseEmailEditorHandler(Options: Text[1024]; var Choice: Integer; Instruction: Text[1024])
@@ -4355,130 +4255,6 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         until InteractionLogEntry.Next() = 0;
     end;
 
-    local procedure RelocateAttachments(StorageType: Enum "Setup Attachment Storage Type"; Path: Text)
-    var
-        MarketingSetup: Record "Marketing Setup";
-    begin
-        MarketingSetup.Get();
-        MarketingSetup.Validate("Attachment Storage Type", StorageType);
-        MarketingSetup.Validate("Attachment Storage Location", CopyStr(Path, 1, 250) + '\');
-        MarketingSetup.Modify(true);
-    end;
-
-    local procedure CreateInteractionTemplateWithLanguageAndAttachment(LanguageCode: Code[10]; AttachmentNo: Integer): Code[10]
-    var
-        InteractionTemplate: Record "Interaction Template";
-        InteractionTmplLanguage: Record "Interaction Tmpl. Language";
-    begin
-        LibraryMarketing.CreateInteractionTemplate(InteractionTemplate);
-
-        InteractionTmplLanguage.Init();
-        InteractionTmplLanguage.Validate("Interaction Template Code", InteractionTemplate.Code);
-        InteractionTmplLanguage.Validate("Language Code", LanguageCode);
-        InteractionTmplLanguage.Validate("Attachment No.", AttachmentNo);
-        InteractionTmplLanguage.Insert(true);
-
-        InteractionTemplate.Validate("Language Code (Default)", InteractionTmplLanguage."Language Code");
-        InteractionTemplate.Modify(true);
-
-        exit(InteractionTemplate.Code);
-    end;
-
-    local procedure CreateOrClearTempDirectory(var NewDirName: Text): Text
-    var
-        Directory: DotNet Directory;
-    begin
-        if NewDirName = '' then
-            NewDirName := TemporaryPath + LibraryUtility.GenerateGUID();
-
-        if Directory.Exists(NewDirName) then begin
-            Directory.Delete(NewDirName, true);
-            Directory.CreateDirectory(NewDirName);
-        end else
-            Directory.CreateDirectory(NewDirName);
-
-        exit(NewDirName);
-    end;
-
-    local procedure CreateAttachmentFileOnDirectory(ServerFileAdd: Text; FileExtension: Text[250]): Integer
-    var
-        Attachment: Record Attachment;
-        ExportFile: File;
-        OStream: OutStream;
-        FileAddress: Text;
-    begin
-        LibraryMarketing.CreateAttachment(Attachment);
-        Attachment.Validate("File Extension", FileExtension);
-        Attachment."Attachment File".CreateOutStream(OStream);
-        OStream.WriteText(LibraryUtility.GenerateRandomText(10));
-        Attachment.Modify();
-
-        FileAddress := ServerFileAdd + Format(Attachment."No.") + '.' + Attachment."File Extension";
-
-        ExportFile.WriteMode := true;
-        ExportFile.TextMode := true;
-        ExportFile.Create(FileAddress);
-        ExportFile.CreateOutStream(OStream);
-        ExportFile.Close();
-
-        exit(Attachment."No.");
-    end;
-
-    local procedure VerifyAttachmentFileIsNotBlankOnInteractionLogEntry(ContactNo: Code[20])
-    var
-        Attachment: Record Attachment;
-        InteractionLogEntry: Record "Interaction Log Entry";
-    begin
-        InteractionLogEntry.SetRange("Contact No.", ContactNo);
-        InteractionLogEntry.FindFirst();
-
-        Attachment.Get(InteractionLogEntry."Attachment No.");
-        Assert.AreNotEqual('', Format(Attachment."Attachment File"), AttachmentFileShouldNotBeBlankErr);
-    end;
-
-    local procedure VerifyInterLogEntryCommentCount(InteractionLogEntryNo: Integer)
-    var
-        InterLogEntryCommentLine: Record "Inter. Log Entry Comment Line";
-    begin
-        InterLogEntryCommentLine.SetRange("Entry No.", InteractionLogEntryNo);
-        Assert.IsTrue(InterLogEntryCommentLine.Count() = 3, '');
-    end;
-
-    [ModalPageHandler]
-    [Scope('OnPrem')]
-    procedure ModalPageHandlerCreateInteraction(var CreateInteraction: TestPage "Create Interaction")
-    var
-        InteractionTemplate: Record "Interaction Template";
-        InterLogEntryCommentSheet: TestPage "Inter. Log Entry Comment Sheet";
-        ContactNo: Code[20];
-    begin
-        InterLogEntryCommentSheet.Trap();
-        LibraryMarketing.CreateInteractionTemplate(InteractionTemplate);
-        ContactNo := LibraryVariableStorage.DequeueText();
-        CreateInteraction."Wizard Contact Name".SetValue(ContactNo);
-        CreateInteraction."Interaction Template Code".SetValue(InteractionTemplate.Code);
-        CreateInteraction.Description.SetValue(InteractionTemplate.Code);
-
-        // Invoke Comments on each step
-        CreateInteraction."Co&mments".Invoke();
-        CreateInteraction.NextInteraction.Invoke();
-        CreateInteraction."Co&mments".Invoke();
-        CreateInteraction.NextInteraction.Invoke();
-        CreateInteraction."Co&mments".Invoke();
-        CreateInteraction.FinishInteraction.Invoke();
-    end;
-
-    [ModalPageHandler]
-    [Scope('OnPrem')]
-    procedure ModalPageHandlerCreateInteractionComments(var InterLogEntryCommentSheet: TestPage "Inter. Log Entry Comment Sheet")
-    begin
-        InterLogEntryCommentSheet.Last();
-        InterLogEntryCommentSheet.Next();
-        InterLogEntryCommentSheet.Date.SetValue(WorkDate());
-        InterLogEntryCommentSheet.Comment.SetValue(LibraryRandom.RandText(20));
-    end;
-
-
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"File Management", 'OnBeforeDownloadHandler', '', false, false)]
     local procedure OnBeforeDownloadHandler(var ToFolder: Text; ToFileName: Text; FromFileName: Text; var IsHandled: Boolean)
     var
@@ -4495,16 +4271,6 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     [Scope('OnPrem')]
     procedure SendNotificationHandler(var Notification: Notification): Boolean
     begin
-    end;
-
-    [ModalPageHandler]
-    [Scope('OnPrem')]
-    procedure CreateInteractionModalPageHandler(var CreateInteraction: TestPage "Create Interaction")
-    begin
-        CreateInteraction."Interaction Template Code".SetValue(LibraryVariableStorage.DequeueText());
-        CreateInteraction.NextInteraction.Invoke();
-        CreateInteraction.NextInteraction.Invoke();
-        CreateInteraction.Finish.Invoke();
     end;
 
     [ModalPageHandler]

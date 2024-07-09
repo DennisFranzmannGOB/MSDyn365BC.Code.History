@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Finance.VAT.RateChange;
-
 permissionset 2543 "VAT Rate Change Log - Edit"
 {
     Access = Public;

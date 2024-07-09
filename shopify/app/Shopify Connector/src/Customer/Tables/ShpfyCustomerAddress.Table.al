@@ -1,8 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Customer;
-using System.Utilities;
-
 /// <summary>
 /// Table Shpfy Customer Address (ID 30106).
 /// </summary>

@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Email;
-
-using System.Telemetry;
-
 /// <summary>
 /// Page is used to display email scenarios usage by email accounts.
 /// </summary>

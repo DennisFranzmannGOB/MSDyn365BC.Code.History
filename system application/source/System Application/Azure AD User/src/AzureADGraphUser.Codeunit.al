@@ -3,13 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
-using System;
-using System.Security.AccessControl;
-
 /// <summary>
-/// Exposes functionality to retrieve and update Microsoft Entra users.
+/// Exposes functionality to retrieve and update Azure AD users.
 /// </summary>
 codeunit 9024 "Azure AD Graph User"
 {
@@ -17,16 +12,19 @@ codeunit 9024 "Azure AD Graph User"
     InherentEntitlements = X;
     InherentPermissions = X;
 
+    trigger OnRun()
+    begin
+    end;
 
     var
         [NonDebuggable]
         AzureADGraphUserImpl: Codeunit "Azure AD Graph User Impl.";
 
-    /// <summary>
-    /// Gets the Microsoft Entra user with the given security ID.
+    /// <summary>    
+    /// Gets the Azure AD user with the given security ID.
     /// </summary>
     /// <param name="UserSecurityId">The user's security ID.</param>
-    /// <param name="User">The Microsoft Entra user.</param>
+    /// <param name="User">The Azure AD user.</param>
     [Scope('OnPrem')]
     [TryFunction]
     [NonDebuggable]
@@ -35,12 +33,12 @@ codeunit 9024 "Azure AD Graph User"
         AzureADGraphUserImpl.GetGraphUser(UserSecurityId, false, User);
     end;
 
-    /// <summary>
-    /// Gets the Microsoft Entra user with the given security ID.
+    /// <summary>    
+    /// Gets the Azure AD user with the given security ID.
     /// </summary>
     /// <param name="UserSecurityId">The user's security ID.</param>
     /// <param name="ForceFetchFromGraph">Forces a graph call to get the latest details for the user.</param>
-    /// <param name="User">The Microsoft Entra user.</param>
+    /// <param name="User">The Azure AD user.</param>
     [Scope('OnPrem')]
     [TryFunction]
     [NonDebuggable]
@@ -50,11 +48,11 @@ codeunit 9024 "Azure AD Graph User"
     end;
 
     /// <summary>
-    /// Retrieves the user’s unique identifier, which is its object ID, from Microsoft Entra.
+    /// Retrieves the user’s unique identifier, which is its object ID, from Azure AD.
     /// </summary>
     /// <param name="UserSecurityId">The user's security ID.</param>
     /// <returns>
-    /// The object ID of the Microsoft Entra user, or an empty string if the user cannot be found.
+    /// The object ID of the Azure AD user, or an empty string if the user cannot be found.
     /// </returns>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -63,7 +61,7 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.GetObjectId(UserSecurityId));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Gets the user's authentication object ID.
     /// </summary>
     /// <param name="UserSecurityId">The user's security ID.</param>
@@ -76,7 +74,7 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.GetUserAuthenticationObjectId(UserSecurityId));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Tries to get the user's authentication object ID.
     /// </summary>
     /// <param name="UserSecurityId">The user's security ID.</param>
@@ -89,7 +87,7 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.TryGetUserAuthenticationObjectId(UserSecurityId, AuthenticationObjectId));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Gets the user from a given Authentication object ID.
     /// </summary>
     /// <param name="AuthenticationObjectID">The user's Authentication object ID.</param>
@@ -102,31 +100,33 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.GetUser(AuthenticationObjectID, User));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Returns whether the current user is Delegated Admin.
     /// </summary>
     /// <returns>True if the current user is Delegated Admin, false otherwise.</returns>
+    [Scope('OnPrem')]
     [NonDebuggable]
     procedure IsUserDelegatedAdmin(): Boolean
     begin
         exit(AzureADGraphUserImpl.IsUserDelegatedAdmin());
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Returns whether the current user is Delegated Helpdesk.
     /// </summary>
     /// <returns>True if the current user is Delegated Helpdesk, false otherwise.</returns>
+    [Scope('OnPrem')]
     [NonDebuggable]
     procedure IsUserDelegatedHelpdesk(): Boolean
     begin
         exit(AzureADGraphUserImpl.IsUserDelegatedHelpdesk());
     end;
 
-    /// <summary>
-    /// Updates the user record with information from Microsoft Entra.
+    /// <summary>    
+    /// Updates the user record with information from Azure AD.
     /// </summary>
     /// <param name="User">The user record to update.</param>
-    /// <param name="AzureADUser">The Microsoft Entra user.</param>
+    /// <param name="AzureADUser">The Azure AD user.</param>
     /// <returns>True if the user record has been updated. Otherwise, false.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -135,11 +135,11 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.UpdateUserFromAzureGraph(User, AzureADUser));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Gets the authentication email of the provided Graph user.
     /// </summary>
     /// <remarks>Authentication email corresponds to userPrincipalName property on the Graph user.</remarks>
-    /// <param name="GraphUserInfo">The Microsoft Entra user.</param>
+    /// <param name="GraphUserInfo">The Azure AD user.</param>
     /// <returns>The authentication email of the provided Graph user. Can be used to assign to "Authentication Email" field on the User table.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -148,11 +148,11 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.GetAuthenticationEmail(GraphUserInfo));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Gets the display name of the provided Graph user.
     /// </summary>
     /// <remarks>Display name corresponds to displayName property on the Graph user.</remarks>
-    /// <param name="GraphUserInfo">The Microsoft Entra user.</param>
+    /// <param name="GraphUserInfo">The Azure AD user.</param>
     /// <returns>The display name of the provided Graph user. Can be used to assign to "User Name" field on the User table.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -161,11 +161,11 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.GetDisplayName(GraphUserInfo));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Gets the contact email of the provided Graph user.
     /// </summary>
     /// <remarks>Contact email corresponds to Mail property on the Graph user.</remarks>
-    /// <param name="GraphUserInfo">The Microsoft Entra user.</param>
+    /// <param name="GraphUserInfo">The Azure AD user.</param>
     /// <returns>The contact email of the provided Graph user. Can be used to assign to "Contact Email" field on the User table.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -174,11 +174,11 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.GetContactEmail(GraphUserInfo));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Gets the full name of the provided Graph user.
     /// </summary>
     /// <remarks>Full name is composed from the combination of givenName and surname properties on the Graph user.</remarks>
-    /// <param name="GraphUserInfo">The Microsoft Entra user.</param>
+    /// <param name="GraphUserInfo">The Azure AD user.</param>
     /// <returns>The full name of the provided Graph user. Can be used to assign to "Full Name" field on the User table.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -187,14 +187,14 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.GetFullName(GraphUserInfo));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Gets the preferred language ID of the provided Graph user.
     /// </summary>
     /// <remarks>
-    /// Preferred language ID is derived from preferredLanguage property on the Graph user.
+    /// Preferred language ID is derived from preferredLanguage property on the Graph user. 
     /// If the preferred language is not set or it is set to a language that is not supported in Business Central, the function returns 0.
     /// </remarks>
-    /// <param name="GraphUserInfo">The Microsoft Entra user.</param>
+    /// <param name="GraphUserInfo">The Azure AD user.</param>
     /// <returns>The preferred language ID of the provided Graph user. Can be used to set the preferred language using the Language module.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -203,10 +203,10 @@ codeunit 9024 "Azure AD Graph User"
         exit(AzureADGraphUserImpl.GetPreferredLanguageID(GraphUserInfo));
     end;
 
-    /// <summary>
+    /// <summary>    
     /// Ensures that an email address specified for authorization is not already in use by another database user.
-    /// If it is, all the database users with this authentication email address are updated and their email
-    /// addresses are updated the ones that are specified in Microsoft Entra.
+    /// If it is, all the database users with this authentication email address are updated and their email 
+    /// addresses are updated the ones that are specified in Azure AD.
     /// </summary>
     /// <param name="AuthenticationEmail">The authentication email address.</param>
     [Scope('OnPrem')]

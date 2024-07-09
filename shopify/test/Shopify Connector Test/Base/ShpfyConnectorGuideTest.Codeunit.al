@@ -82,6 +82,7 @@ codeunit 139588 "Shpfy Connector Guide Test"
     begin
         LibraryAssert.AreEqual('The setup is not complete.\\Are you sure you want to exit?', Question, 'Wrong confirmation dialog.');
         Reply := true;
+
     end;
 
     local procedure Initialize()

@@ -1,12 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using System.IO;
-using Microsoft.Sales.Customer;
-using Microsoft.Sales.Document;
-using Microsoft.Bank.BankAccount;
-using Microsoft.Foundation.Shipping;
-using System.Reflection;
-
 /// <summary>
 /// Table Shpfy Order Header (ID 30118).
 /// </summary>
@@ -554,12 +545,6 @@ table 30118 "Shpfy Order Header"
             Caption = 'Edited';
             DataClassification = SystemMetadata;
         }
-        field(116; "Return Status"; Enum "Shpfy Order Return Status")
-        {
-            Caption = 'Return Status';
-            DataClassification = SystemMetadata;
-        }
-
         field(500; "Shop Code"; Code[20])
         {
             Caption = 'Shop Code';
@@ -733,7 +718,6 @@ table 30118 "Shpfy Order Header"
         ShopifyRefundHeader: Record "Shpfy Refund Header";
         DataCapture: Record "Shpfy Data Capture";
         FulfillmentOrderHeader: Record "Shpfy FulFillment Order Header";
-        OrderFulfillment: Record "Shpfy Order Fulfillment";
     begin
         ShopifyOrderLine.SetRange("Shopify Order Id", "Shopify Order Id");
         if not ShopifyOrderLine.IsEmpty then
@@ -743,7 +727,7 @@ table 30118 "Shpfy Order Header"
             ShopifyReturnHeader.DeleteAll(true);
         ShopifyRefundHeader.SetRange("Order Id", "Shopify Order Id");
         if not ShopifyRefundHeader.IsEmpty then
-            ShopifyRefundHeader.DeleteAll(true);
+            ShopifyRefundHeader.DeleteAll();
         DataCapture.SetCurrentKey("Linked To Table", "Linked To Id");
         DataCapture.SetRange("Linked To Table", Database::"Shpfy Order Header");
         DataCapture.SetRange("Linked To Id", Rec.SystemId);
@@ -753,10 +737,6 @@ table 30118 "Shpfy Order Header"
         FulfillmentOrderHeader.SetRange("Shopify Order Id", Rec."Shopify Order Id");
         if not FulfillmentOrderHeader.IsEmpty then
             FulfillmentOrderHeader.DeleteAll(true);
-
-        OrderFulfillment.SetRange("Shopify Order Id", Rec."Shopify Order Id");
-        if not OrderFulfillment.IsEmpty then
-            OrderFulfillment.DeleteAll(true);
     end;
 
     /// <summary> 

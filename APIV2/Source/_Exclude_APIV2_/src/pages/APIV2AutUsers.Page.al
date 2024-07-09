@@ -1,9 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.Security.AccessControl;
-using System.Environment;
-using System.Threading;
-
 page 30004 "APIV2 - Aut. Users"
 {
     APIGroup = 'automation';
@@ -27,26 +21,26 @@ page 30004 "APIV2 - Aut. Users"
         {
             repeater(Group)
             {
-                field(userSecurityId; Rec."User Security ID")
+                field(userSecurityId; "User Security ID")
                 {
                     Caption = 'User Security Id';
                     Editable = false;
                 }
-                field(userName; Rec."User Name")
+                field(userName; "User Name")
                 {
                     Caption = 'User Name';
                     Editable = false;
                 }
-                field(displayName; Rec."Full Name")
+                field(displayName; "Full Name")
                 {
                     Caption = 'Display Name';
                     Editable = false;
                 }
-                field(state; Rec.State)
+                field(state; State)
                 {
                     Caption = 'State';
                 }
-                field(expiryDate; Rec."Expiry Date")
+                field(expiryDate; "Expiry Date")
                 {
                     Caption = 'Expiry Date';
                 }
@@ -56,7 +50,7 @@ page 30004 "APIV2 - Aut. Users"
                     Caption = 'User Group Member';
                     EntityName = 'userGroupMember';
                     EntitySetName = 'userGroupMembers';
-                    SubPageLink = "User Security ID" = field("User Security ID");
+                    SubPageLink = "User Security ID" = Field("User Security ID");
                     Visible = LegacyUserGroupsVisible;
                     ObsoleteState = Pending;
                     ObsoleteReason = 'The user groups functionality is deprecated.';
@@ -68,14 +62,14 @@ page 30004 "APIV2 - Aut. Users"
                     Caption = 'User Group Member';
                     EntityName = 'securityGroupMember';
                     EntitySetName = 'securityGroupMembers';
-                    SubPageLink = "User Security ID" = field("User Security ID");
+                    SubPageLink = "User Security ID" = Field("User Security ID");
                 }
                 part(userPermission; "APIV2 - Aut. User Permissions")
                 {
                     Caption = 'User Permission';
                     EntityName = 'userPermission';
                     EntitySetName = 'userPermissions';
-                    SubPageLink = "User Security ID" = field("User Security ID");
+                    SubPageLink = "User Security ID" = Field("User Security ID");
                 }
                 part(scheduledJobs; "APIV2 - Aut. Scheduled Jobs")
                 {
@@ -95,9 +89,7 @@ page 30004 "APIV2 - Aut. Users"
     trigger OnOpenPage()
     var
 #if not CLEAN22
-#pragma warning disable AL0432
         LegacyUserGroups: Codeunit "Legacy User Groups";
-#pragma warning restore AL0432
 #endif
         EnvironmentInformation: Codeunit "Environment Information";
     begin
@@ -106,7 +98,7 @@ page 30004 "APIV2 - Aut. Users"
 #endif
         BindSubscription(AutomationAPIManagement);
         if EnvironmentInformation.IsSaaS() then
-            Rec.SetFilter("License Type", '<>%1', Rec."License Type"::"External User");
+            SetFilter("License Type", '<>%1', "License Type"::"External User");
     end;
 
     var
@@ -146,7 +138,7 @@ page 30004 "APIV2 - Aut. Users"
 
         ActionContext.SetObjectType(ObjectType::Page);
         ActionContext.SetObjectId(Page::"APIV2 - Aut. Users");
-        ActionContext.AddEntityKey(Rec.FieldNo(SystemId), Rec.SystemId);
+        ActionContext.AddEntityKey(FieldNo(SystemId), SystemId);
         ActionContext.SetResultCode(WebServiceActionResultCode::Updated);
     end;
 

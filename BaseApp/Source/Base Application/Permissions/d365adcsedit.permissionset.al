@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Warehouse.ADCS;
-
 permissionset 1778 "D365 ADCS, EDIT"
 {
     Assignable = true;

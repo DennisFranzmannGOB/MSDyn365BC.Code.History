@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 page 30149 "Shpfy Return Lines"
 {
     Caption = 'Return Lines';
@@ -102,7 +100,6 @@ page 30149 "Shpfy Return Lines"
                 Caption = 'Retrieved Shopify Data';
                 Image = Entry;
                 ToolTip = 'View the data retrieved from Shopify.';
-
                 trigger OnAction();
                 var
                     DataCapture: Record "Shpfy Data Capture";

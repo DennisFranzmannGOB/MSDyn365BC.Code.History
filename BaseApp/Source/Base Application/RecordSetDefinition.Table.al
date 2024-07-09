@@ -1,5 +1,3 @@
-namespace System.IO;
-
 table 8400 "Record Set Definition"
 {
     Caption = 'Record Set Definition';
@@ -22,8 +20,8 @@ table 8400 "Record Set Definition"
         }
         field(10; Value; RecordID)
         {
-            CalcFormula = Lookup ("Record Set Tree".Value where("Table No." = field("Table No."),
-                                                                "Node ID" = field("Node ID")));
+            CalcFormula = Lookup ("Record Set Tree".Value WHERE("Table No." = FIELD("Table No."),
+                                                                "Node ID" = FIELD("Node ID")));
             Caption = 'Value';
             FieldClass = FlowField;
         }

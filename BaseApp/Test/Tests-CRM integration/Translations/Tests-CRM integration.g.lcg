@@ -104,6 +104,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Connection Setup Test - NamedType URLNeededErr)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 3938608753 - NamedType 2486151120" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[The connection string must include the password placeholder {PASSWORD}.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Connection String - NamedType ConnStringMustInclPasswordErr)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 3938608753 - NamedType 2919002409" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[is not found on the page]]></Val>
@@ -131,13 +140,22 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Connection String - NamedType UserNameMustInclDomainErr)]]></Cmt>
     </Cmts>
   </Item>
-  <Item ItemId=";Codeunit 3289059696 - NamedType 3220810991" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+  <Item ItemId=";Codeunit 3289059696 - NamedType 3957312458" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[You must register an Microsoft Entra application that will be used to connect to the Dataverse environment and specify the application id, secret and redirect URL in the Dataverse Connection Setup page.]]></Val>
+      <Val><![CDATA[Button]]></Val>
     </Str>
     <Disp Icon="Str" Expand="true" />
     <Cmts>
-      <Cmt Name="Dev"><![CDATA[Dataverse and Microsoft Entra are names of a Microsoft service and a Microsoft Azure resource and should not be translated.]D;]A;(LookupHint=Codeunit CDS Connection Wizard Tests - NamedType MissingClientIdOrSecretOnPremErr)]]></Cmt>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Connection Wizard Tests - NamedType ButtonTxt)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 3289059696 - NamedType 3220810991" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[You must register an Azure Active Directory application that will be used to connect to the Dataverse environment and specify the application id, secret and redirect URL in the Dataverse Connection Setup page.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[Dataverse and Azure Active Directory are names of a Microsoft service and a Microsoft Azure resource and should not be translated.]D;]A;(LookupHint=Codeunit CDS Connection Wizard Tests - NamedType MissingClientIdOrSecretOnPremErr)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 3289059696 - NamedType 1090853174" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
@@ -194,6 +212,24 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Connection Wizard Tests - NamedType WrongConnectionStringErr)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 3289059696 - NamedType 2726524266" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[A URL, user name and password are required.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Connection Wizard Tests - NamedType WrongCredentialsErr)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 3339774646 - NamedType 715417857" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Enter valid administrator credentials.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Integration Mgt Test - NamedType AdminUserPasswordWrongErr)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 3339774646 - NamedType 2732383653" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[A URL is required.]]></Val>
@@ -201,6 +237,33 @@
     <Disp Icon="Str" Expand="true" />
     <Cmts>
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Integration Mgt Test - NamedType ConnectionRequiredFieldsErr)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 3339774646 - NamedType 2089440393" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Enter password.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Integration Mgt Test - NamedType EmptyPasswordErr)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 3339774646 - NamedType 2220463706" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Enter user name.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CDS Integration Mgt Test - NamedType EmptyUserNameErr)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 3339774646 - NamedType 3974808153" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[There is no user with ID %1 in Dataverse.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[%1 = system user ID]D;]A;(LookupHint=Codeunit CDS Integration Mgt Test - NamedType UserNotFoundErr)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 3981235901 - NamedType 1846235690" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
@@ -311,6 +374,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Bus. Logic Simulator Test - NamedType SalesOrderIsNotEditableErr)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 782049705 - NamedType 2486151120" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[The connection string must include the password placeholder {PASSWORD}.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Connection String - NamedType ConnStringMustInclPasswordErr)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 782049705 - NamedType 2919002409" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[is not found on the page]]></Val>
@@ -354,6 +426,24 @@
     <Disp Icon="Str" Expand="true" />
     <Cmts>
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Connection Wizard Tests - NamedType ButtonTxt)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 2039337448 - NamedType 3919124041" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Checked]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Connection Wizard Tests - NamedType CheckedTxt)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 2039337448 - NamedType 261982904" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[The administrator user account and the integration user account appear to be from different domains. Are you sure that the credentials are correct?]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Connection Wizard Tests - NamedType ConfirmCredentialsDomainQst)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 2039337448 - NamedType 3451898239" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
@@ -435,6 +525,33 @@
     <Disp Icon="Str" Expand="true" />
     <Cmts>
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Connection Wizard Tests - NamedType VisibleTxt)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 2039337448 - NamedType 2942523177" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Wizard should not be closed]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Connection Wizard Tests - NamedType WizardShouldNotBeClosedErr)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 2039337448 - NamedType 3024906419" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Enter valid %1 administrator credentials.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Connection Wizard Tests - NamedType WrongAdminCredentialsErr)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 2039337448 - NamedType 643595683" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Wrong confirmation dialog text]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Connection Wizard Tests - NamedType WrongConfirmationErr)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 2039337448 - NamedType 2297032887" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
@@ -734,87 +851,6 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Integration Mgt Test - NamedType SyncNowSkippedMsg)]]></Cmt>
     </Cmts>
   </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 2530351393" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The Currency does not exist.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType CurrencyNotExistsErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 3896440170" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The empty CRM integration record for CRM Quote %1 doesn't exist]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType EmptyCRMIntegrationRecErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 1305559362" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[Error message expected.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType ErrorMessageErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 2946943764" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[%1 must have a value in %2]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType FieldMustHaveAValueErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 3853844891" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[%1 %2 %3 contains a write-in product. You must choose the default write-in product in Sales & Receivables Setup window.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[%1 - Dataverse service name,%2 - document type (order or quote), %3 - document number]D;]A;(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType MissingWriteInProductNoErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 1841495612" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The sales quote %1 was nor properly archived]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType SalesHeaderArchiveErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 2399962409" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The Sales Header corresponding to the CRM Quote %1 was not created]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType SalesHeaderNotCreatedErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 3981752937" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The Sales Order corresponding to the won processed CRM QUote %1 was not created]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType SalesOrderCreateErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 669819362 - NamedType 1550109762" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The Sales Header corresponding to the CRM Quote %1 was not deleted succesfully]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Quotes Integr.Test - NamedType SalesQuoteDeleteErr)]]></Cmt>
-    </Cmts>
-  </Item>
   <Item ItemId=";Codeunit 3728609003 - NamedType 2530351393" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[The Currency does not exist.]]></Val>
@@ -939,6 +975,15 @@
     <Disp Icon="Str" Expand="true" />
     <Cmts>
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit CRM Setup Test - NamedType CRMSOIntegrationDisabledMsg)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 775477311 - NamedType 3040396559" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[the authentication email must match the primary email of a %1 user.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[%1 = Current User ID]D;]A;(LookupHint=Codeunit CRM Setup Test - NamedType CurrentuserIsNotMappedToCRMUserMsg)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 775477311 - NamedType 977020358" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">

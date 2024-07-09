@@ -1,5 +1,3 @@
-namespace System.TestTools;
-
 table 130416 "Semi-Manual Execution Log"
 {
     Caption = 'Semi-Manual Execution Log';

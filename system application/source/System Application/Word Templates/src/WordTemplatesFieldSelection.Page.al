@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Word;
-
-using System.Reflection;
-
 /// <summary>
 /// A list page to view and edit fields included in the Word Template for a specific Word Template
 /// </summary>
@@ -20,12 +16,10 @@ page 9992 "Word Templates Field Selection"
     SourceTableView = sorting("Field No.") order(ascending);
     DeleteAllowed = false;
     InsertAllowed = false;
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Tables)
             {
@@ -33,7 +27,7 @@ page 9992 "Word Templates Field Selection"
                 {
                     ApplicationArea = All;
                     Caption = 'Field Number';
-                    ToolTip = 'Specifies the number of the field that will be included in the Word Template.';
+                    ToolTip = 'Number of the field that will be included in the Word Template.';
                     Editable = false;
                     BlankZero = true;
                 }
@@ -41,14 +35,14 @@ page 9992 "Word Templates Field Selection"
                 {
                     ApplicationArea = All;
                     Caption = 'Field Name';
-                    ToolTip = 'Specifies the name of the field that will be included in the Word Template.';
+                    ToolTip = 'Name of the field that will be included in the Word Template.';
                     Editable = false;
                 }
                 field(FieldTypeField; FieldType)
                 {
                     ApplicationArea = All;
                     Caption = 'Field Type';
-                    ToolTip = 'Specifies the type of the field that will be included in the Word Template.';
+                    ToolTip = 'Type of the field that will be included in the Word Template.';
                     Editable = false;
                 }
                 field(Included; Included)
@@ -146,7 +140,9 @@ page 9992 "Word Templates Field Selection"
 
     var
         WordTemplateFieldSelection: Codeunit "Word Template Field Selection";
+        [InDataSet]
         Included: Boolean;
+        [InDataSet]
         FieldType: Text;
         CustomFieldTypeTxt: Label 'Calculated';
 }

@@ -1,12 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Finance.FinancialReports;
-using Microsoft.Finance.Analysis;
-using Microsoft.Finance.Consolidation;
-using Microsoft.Finance.Dimension;
-using Microsoft.Finance.GeneralLedger.Account;
-using Microsoft.Finance.GeneralLedger.Budget;
-
 permissionset 3632 "Account Schedules - Edit"
 {
     Access = Public;
@@ -27,7 +18,6 @@ permissionset 3632 "Account Schedules - Edit"
                   tabledata "Business Unit Setup" = R,
                   tabledata "Column Layout" = RIMD,
                   tabledata "Column Layout Name" = RIMD,
-                  tabledata "Consolidation Account" = R,
                   tabledata Dimension = R,
                   tabledata "Dimension Value" = R,
                   tabledata "G/L Account Category" = RIMD,

@@ -1,7 +1,3 @@
-namespace Microsoft.Finance.Latepayment;
-
-using Microsoft.Sales.Receivables;
-using Microsoft.Sales.Customer;
 page 1951 "LP Prediction FactBox"
 {
     PageType = CardPart;

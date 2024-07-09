@@ -1,7 +1,3 @@
-namespace Microsoft.Finance.Analysis.StatisticalAccount;
-
-using Microsoft.Finance.Dimension;
-
 page 2633 "Statistical Accounts Journal"
 {
     Caption = 'Statistical Account Journal';
@@ -11,8 +7,6 @@ page 2633 "Statistical Accounts Journal"
     ApplicationArea = All;
     UsageCategory = Tasks;
     AutoSplitKey = true;
-    DelayedInsert = true;
-    SaveValues = true;
 
     layout
     {
@@ -65,11 +59,6 @@ page 2633 "Statistical Accounts Journal"
                     ApplicationArea = All;
                     Caption = 'Statistical Account No.';
                     ToolTip = 'Specifies the account number that the entry on the journal line will be posted to.';
-
-                    trigger OnValidate()
-                    begin
-                        Rec.ShowShortcutDimCode(ShortcutDimCode);
-                    end;
                 }
                 field(Description; Rec.Description)
                 {
@@ -350,16 +339,12 @@ page 2633 "Statistical Accounts Journal"
     begin
         StatAccTelemetry.LogSetup();
         Rec.SetUpNewLine(xRec, CurrentJnlBatchName);
-        if Rec."Statistical Account No." <> '' then
-            Rec.ShowShortcutDimCode(ShortcutDimCode);
-        Clear(ShortcutDimCode);
     end;
 
     trigger OnAfterGetCurrRecord()
     begin
         NumberOfRecords := Rec.Count();
         Rec.GetBalance(Rec, BalanceAfterPosting, Balance);
-        Rec.ShowShortcutDimCode(ShortcutDimCode);
     end;
 
     trigger OnAfterGetRecord()

@@ -1,9 +1,7 @@
-namespace System.Threading;
-
 page 682 "Schedule a Report"
 {
     Caption = 'Schedule a Report';
-    DataCaptionExpression = Rec.Description;
+    DataCaptionExpression = Description;
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = StandardDialog;
@@ -25,7 +23,7 @@ page 682 "Schedule a Report"
                 var
                     NewObjectID: Integer;
                 begin
-                    if Rec.LookupObjectID(NewObjectID) then begin
+                    if LookupObjectID(NewObjectID) then begin
                         Text := Format(NewObjectID);
                         exit(true);
                     end;
@@ -34,9 +32,9 @@ page 682 "Schedule a Report"
 
                 trigger OnValidate()
                 begin
-                    if Rec."Object ID to Run" <> 0 then
-                        Rec.RunReportRequestPage();
-                    OutPutEditable := REPORT.DefaultLayout(Rec."Object ID to Run") <> DEFAULTLAYOUT::None; // Processing Only
+                    if "Object ID to Run" <> 0 then
+                        RunReportRequestPage();
+                    OutPutEditable := REPORT.DefaultLayout("Object ID to Run") <> DEFAULTLAYOUT::None; // Processing Only
                 end;
             }
             field("Object Caption to Run"; Rec."Object Caption to Run")
@@ -66,7 +64,7 @@ page 682 "Schedule a Report"
             field("Printer Name"; Rec."Printer Name")
             {
                 ApplicationArea = Basic, Suite;
-                Enabled = Rec."Report Output Type" = Rec."Report Output Type"::Print;
+                Enabled = "Report Output Type" = "Report Output Type"::Print;
                 Importance = Additional;
                 ToolTip = 'Specifies the printer to use to print the scheduled report.';
             }
@@ -97,15 +95,15 @@ page 682 "Schedule a Report"
 
     trigger OnOpenPage()
     begin
-        if not Rec.FindFirst() then begin
-            Rec.Init();
+        if not FindFirst() then begin
+            Init();
             ReportEditable := true;
             OutPutEditable := true;
-            Rec.Status := Rec.Status::"On Hold";
-            Rec.Validate("Object Type to Run", Rec."Object Type to Run"::Report);
-            Rec.Insert(true);
+            Status := Status::"On Hold";
+            Validate("Object Type to Run", "Object Type to Run"::Report);
+            Insert(true);
         end else
-            OutPutEditable := REPORT.DefaultLayout(Rec."Object ID to Run") <> DEFAULTLAYOUT::None; // Processing Only
+            OutPutEditable := REPORT.DefaultLayout("Object ID to Run") <> DEFAULTLAYOUT::None; // Processing Only
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -115,17 +113,17 @@ page 682 "Schedule a Report"
         if CloseAction <> ACTION::OK then
             exit(true);
 
-        if Rec."Object ID to Run" = 0 then begin
+        if "Object ID to Run" = 0 then begin
             Message(NoIdMsg);
             exit(false);
         end;
 
-        Rec.CalcFields(XML);
+        CalcFields(XML);
         JobQueueEntry := Rec;
         Clear(JobQueueEntry.ID); // "Job Queue - Enqueue" defines it on the real record insert
         JobQueueEntry."Run in User Session" := not JobQueueEntry.IsNextRunDateFormulaSet();
         if JobQueueEntry.Description = '' then
-            JobQueueEntry.Description := CopyStr(Rec."Object Caption to Run", 1, MaxStrLen(JobQueueEntry.Description));
+            JobQueueEntry.Description := CopyStr("Object Caption to Run", 1, MaxStrLen(JobQueueEntry.Description));
         OnOnQueryClosePageOnBeforeJobQueueEnqueue(Rec, JobQueueEntry);
         CODEUNIT.Run(CODEUNIT::"Job Queue - Enqueue", JobQueueEntry);
         if JobQueueEntry.IsToReportInbox() then

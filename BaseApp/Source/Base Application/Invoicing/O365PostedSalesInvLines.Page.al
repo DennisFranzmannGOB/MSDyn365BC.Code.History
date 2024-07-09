@@ -88,7 +88,7 @@ page 2114 "O365 Posted Sales Inv. Lines"
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                 }
-                field(LineAmountExclVAT; Rec.GetLineAmountExclVAT())
+                field(LineAmountExclVAT; GetLineAmountExclVAT())
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     AutoFormatExpression = CurrencyFormat;
@@ -105,7 +105,7 @@ page 2114 "O365 Posted Sales Inv. Lines"
                     ToolTip = 'Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.';
                     Visible = ShowOnlyOnBrick;
                 }
-                field(LineAmountInclVAT; Rec.GetLineAmountInclVAT())
+                field(LineAmountInclVAT; GetLineAmountInclVAT())
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     AutoFormatExpression = CurrencyFormat;
@@ -130,11 +130,11 @@ page 2114 "O365 Posted Sales Inv. Lines"
     var
         VATProductPostingGroup: Record "VAT Product Posting Group";
     begin
-        if VATProductPostingGroup.Get(Rec."VAT Prod. Posting Group") then
+        if VATProductPostingGroup.Get("VAT Prod. Posting Group") then
             VATProductPostingGroupDescription := VATProductPostingGroup.Description
         else
             Clear(VATProductPostingGroup);
-        LineQuantity := Rec.Quantity;
+        LineQuantity := Quantity;
     end;
 
     trigger OnAfterGetRecord()
@@ -143,8 +143,8 @@ page 2114 "O365 Posted Sales Inv. Lines"
         SalesInvoiceHeader: Record "Sales Invoice Header";
         CurrencySymbol: Text[10];
     begin
-        Rec.UpdatePriceDescription();
-        SalesInvoiceHeader.Get(Rec."Document No.");
+        UpdatePriceDescription();
+        SalesInvoiceHeader.Get("Document No.");
 
         if SalesInvoiceHeader."Currency Code" = '' then
             CurrencySymbol := GLSetup.GetCurrencySymbol()

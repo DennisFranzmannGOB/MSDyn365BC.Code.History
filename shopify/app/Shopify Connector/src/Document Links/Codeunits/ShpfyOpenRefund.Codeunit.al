@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 codeunit 30266 "Shpfy Open Refund" implements "Shpfy IOpenShopifyDocument"
 {
 

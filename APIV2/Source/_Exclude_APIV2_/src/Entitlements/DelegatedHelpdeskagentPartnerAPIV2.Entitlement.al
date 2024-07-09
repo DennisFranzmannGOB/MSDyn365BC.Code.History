@@ -1,5 +1,3 @@
-namespace Microsoft.API.V2;
-
 entitlement "Delegated Helpdesk agent - Partner APIV2"
 {
     Type = Role;

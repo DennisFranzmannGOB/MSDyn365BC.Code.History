@@ -424,8 +424,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and "Country/Region"."Address Format" = "Post Code+City"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "Post Code+City"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"Post Code+City");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "Post Code+City"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"Post Code+City";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = '123456'
         PostCode := LibraryUtility.GenerateGUID();
@@ -442,8 +444,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = '123456 Moscow'
         Assert.AreEqual(PostCode + ' ' + City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     [Test]
@@ -461,8 +463,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and PostCode is blank, and "Country/Region"."Address Format" = "Post Code+City"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "Post Code+City"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"Post Code+City");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "Post Code+City"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"Post Code+City";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = ''
 
@@ -478,8 +482,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = 'Moscow'
         Assert.AreEqual(City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     [Test]
@@ -498,8 +502,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and "Country/Region"."Address Format" = "City+County+Post Code"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "City+County+Post Code"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"City+County+Post Code");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "City+County+Post Code"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"City+County+Post Code";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = '123456'
         PostCode := LibraryUtility.GenerateGUID();
@@ -537,8 +543,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and PostCode is blank, and "Country/Region"."Address Format" = "City+County+Post Code"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "City+County+Post Code"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"City+County+Post Code");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "City+County+Post Code"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"City+County+Post Code";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = ''
 
@@ -573,8 +581,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and County is blank, and "Country/Region"."Address Format" = "City+County+Post Code"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "City+County+Post Code"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"City+County+Post Code");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "City+County+Post Code"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"City+County+Post Code";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = '123456'
         PostCode := LibraryUtility.GenerateGUID();
@@ -609,8 +619,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and PostCode and County are blank, and "Country/Region"."Address Format" = "City+County+Post Code"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "City+County+Post Code"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"City+County+Post Code");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "City+County+Post Code"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"City+County+Post Code";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = ''
 
@@ -645,8 +657,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and "Country/Region"."Address Format" = "City+Post Code"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "City+Post Code"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"City+Post Code");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "City+Post Code"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"City+Post Code";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = '123456'
         PostCode := LibraryUtility.GenerateGUID();
@@ -663,8 +677,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = 'Moscow, 123456'
         Assert.AreEqual(City + ', ' + PostCode, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     [Test]
@@ -682,8 +696,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and PostCode = '', and "Country/Region"."Address Format" = "City+Post Code"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "City+Post Code"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"City+Post Code");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "City+Post Code"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"City+Post Code";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = ''
 
@@ -699,8 +715,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = 'Moscow'
         Assert.AreEqual(City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     [Test]
@@ -719,8 +735,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and "Country/Region"."Address Format" = "Blank Line+Post Code+City"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "Blank Line+Post Code+City"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"Blank Line+Post Code+City");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "Blank Line+Post Code+City"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"Blank Line+Post Code+City";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = '123456'
         PostCode := LibraryUtility.GenerateGUID();
@@ -737,8 +755,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = '123456 Moscow'
         Assert.AreEqual(PostCode + ' ' + City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     [Test]
@@ -756,8 +774,10 @@ codeunit 136903 "Employee Reports"
         // [SCENARIO 212227] FormatPostCodeCity returns correct Address if Country <> '', and PostCode = '', and "Country/Region"."Address Format" = "Blank Line+Post Code+City"
         Initialize();
 
-        // [GIVEN] Record "Country/Region" with Code = "CR1" and "Address Format" = "Blank Line+Post Code+City"
-        CreateCountryRegionWithAddressFormat(CountryRegion, CountryRegion."Address Format"::"Blank Line+Post Code+City");
+        // [GIVEN] Record "Country/Region" with Code = "AT" and "Address Format" = "Blank Line+Post Code+City"
+        CountryRegion.Get('AT'); // Country code must be from the DACH region - 'AT','CH','DE'
+        CountryRegion."Address Format" := CountryRegion."Address Format"::"Blank Line+Post Code+City";
+        CountryRegion.Modify();
 
         // [GIVEN] "Post Code" = ''
 
@@ -773,8 +793,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = 'Moscow'
         Assert.AreEqual(City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     // [Test]
@@ -811,8 +831,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = '123456 Moscow'
         Assert.AreEqual(PostCode + ' ' + City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     // [Test]
@@ -847,8 +867,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = 'Moscow'
         Assert.AreEqual(City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     [Test]
@@ -1032,8 +1052,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = 'Moscow, 123456'
         Assert.AreEqual(City + ', ' + PostCode, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     // [Test]
@@ -1068,8 +1088,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = 'Moscow'
         Assert.AreEqual(City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     // [Test]
@@ -1106,8 +1126,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = '123456 Moscow'
         Assert.AreEqual(PostCode + ' ' + City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     // [Test]
@@ -1142,8 +1162,8 @@ codeunit 136903 "Employee Reports"
         // [THEN] PostCodeCityText = 'Moscow'
         Assert.AreEqual(City, PostCodeCityText, PostCodeCityTextErr);
 
-        // [THEN] CountyText = 'Moscowia'
-        Assert.AreEqual(County, CountyText, CountyTextErr);
+        // [THEN] CountyText = ''
+        Assert.AreEqual('', CountyText, CountyTextErr);
     end;
 
     [Test]
@@ -1319,14 +1339,6 @@ codeunit 136903 "Employee Reports"
         Employee.Modify(true);
     end;
 
-    local procedure CreateCountryRegionWithAddressFormat(var CountryRegion: Record "Country/Region"; AddressFormat: Option)
-    begin
-        CountryRegion.Init();
-        CountryRegion.Code := LibraryUtility.GenerateRandomCode(CountryRegion.FieldNo(Code), DATABASE::"Country/Region");
-        CountryRegion."Address Format" := AddressFormat;
-        CountryRegion.Insert();
-    end;
-
     local procedure UpdateGLSetupAddressFormat(AddressFormat: Option)
     var
         GeneralLedgerSetup: Record "General Ledger Setup";
@@ -1339,45 +1351,70 @@ codeunit 136903 "Employee Reports"
     local procedure FindRelative(): Code[10]
     var
         Relative: Record Relative;
+        RecRef: RecordRef;
     begin
-        LibraryHumanResource.CreateRelative(Relative);
+        Relative.Init();
+        RecRef.GetTable(Relative);
+        LibraryUtility.FindRecord(RecRef);
+        RecRef.SetTable(Relative);
         exit(Relative.Code);
     end;
 
     local procedure FindMiscellaneousArticle(): Code[10]
     var
         MiscArticle: Record "Misc. Article";
+        RecRef: RecordRef;
     begin
-        LibraryHumanResource.CreateMiscArticle(MiscArticle);
+        MiscArticle.Init();
+        RecRef.GetTable(MiscArticle);
+        LibraryUtility.FindRecord(RecRef);
+        RecRef.SetTable(MiscArticle);
         exit(MiscArticle.Code);
     end;
 
     local procedure FindConfidential(): Code[10]
     var
         Confidential: Record Confidential;
+        RecRef: RecordRef;
     begin
-        LibraryHumanResource.CreateConfidential(Confidential);
+        Confidential.Init();
+        RecRef.GetTable(Confidential);
+        LibraryUtility.FindRecord(RecRef);
+        RecRef.SetTable(Confidential);
         exit(Confidential.Code);
     end;
 
     local procedure FindEmploymentContract(var EmploymentContract: Record "Employment Contract")
+    var
+        RecRef: RecordRef;
     begin
-        LibraryHumanResource.CreateEmploymentContract(EmploymentContract);
+        EmploymentContract.Init();
+        RecRef.GetTable(EmploymentContract);
+        LibraryUtility.FindRecord(RecRef);
+        RecRef.SetTable(EmploymentContract);
     end;
 
     local procedure FindEmployeeStatisticsGroup(): Code[10]
     var
         EmployeeStatisticsGroup: Record "Employee Statistics Group";
+        RecRef: RecordRef;
     begin
-        LibraryHumanResource.CreateEmployeeStatGroup(EmployeeStatisticsGroup);
+        EmployeeStatisticsGroup.Init();
+        RecRef.GetTable(EmployeeStatisticsGroup);
+        LibraryUtility.FindRecord(RecRef);
+        RecRef.SetTable(EmployeeStatisticsGroup);
         exit(EmployeeStatisticsGroup.Code);
     end;
 
     local procedure FindQualification(): Code[10]
     var
         Qualification: Record Qualification;
+        RecRef: RecordRef;
     begin
-        LibraryHumanResource.CreateQualification(Qualification);
+        Qualification.Init();
+        RecRef.GetTable(Qualification);
+        LibraryUtility.FindRecord(RecRef);
+        RecRef.SetTable(Qualification);
         exit(Qualification.Code);
     end;
 

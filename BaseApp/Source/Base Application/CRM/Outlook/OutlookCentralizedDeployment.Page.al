@@ -1,10 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using System.Environment;
-using System.Environment.Configuration;
-using System.Integration;
-using System.Utilities;
-
 page 1831 "Outlook Centralized Deployment"
 {
     Caption = 'Outlook Add-in Centralized Deployment';

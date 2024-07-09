@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.Authentication;
-
-using System;
-using System.Environment;
-using System.Utilities;
-
 codeunit 502 OAuth2Impl
 {
     Access = Internal;
@@ -510,12 +504,23 @@ codeunit 502 OAuth2Impl
         IdToken := CompoundToken.IdToken;
     end;
 
+#if not CLEAN17
+    [NonDebuggable]
+    [Obsolete('Added OAuthority parameter', '17.0')]
+    [TryFunction]
+    procedure AcquireTokenFromCache(RedirectURL: Text; ClientId: Text; ClientSecret: Text; ResourceURL: Text; var AccessToken: Text)
+    begin
+        Initialize(RedirectURL);
+        AccessToken := AuthFlow.ALAcquireTokenFromCacheWithCredentials(ClientID, ClientSecret, ResourceURL);
+    end;
+#endif
+
     [NonDebuggable]
     [TryFunction]
     procedure AcquireTokenFromCache(RedirectURL: Text; ClientId: Text; ClientSecret: Text; OAuthAuthorityUrl: Text; ResourceURL: Text; var AccessToken: Text)
     begin
         Initialize(OAuthAuthorityUrl, RedirectURL);
-        AccessToken := AuthFlow.ALAcquireTokenFromCacheWithCredentials(ClientId, ClientSecret, ResourceURL);
+        AccessToken := AuthFlow.ALAcquireTokenFromCacheWithCredentials(ClientID, ClientSecret, ResourceURL);
     end;
 
     [NonDebuggable]
@@ -523,7 +528,7 @@ codeunit 502 OAuth2Impl
     procedure AcquireTokenFromCacheWithCertificate(RedirectURL: Text; ClientId: Text; Certificate: Text; OAuthAuthorityUrl: Text; ResourceURL: Text; var AccessToken: Text)
     begin
         Initialize(OAuthAuthorityUrl, RedirectURL);
-        AccessToken := AuthFlow.ALAcquireTokenFromCacheWithCertificate(ClientId, Certificate, ResourceURL);
+        AccessToken := AuthFlow.ALAcquireTokenFromCacheWithCertificate(ClientID, Certificate, ResourceURL);
     end;
 
     [NonDebuggable]
@@ -534,7 +539,7 @@ codeunit 502 OAuth2Impl
     begin
         FillScopesArray(Scopes, ScopesArray);
         Initialize(OAuthAuthorityUrl, RedirectURL);
-        AccessToken := AuthFlow.ALAcquireTokenFromCacheWithCredentials(ClientId, ClientSecret, ScopesArray);
+        AccessToken := AuthFlow.ALAcquireTokenFromCacheWithCredentials(ClientID, ClientSecret, ScopesArray);
     end;
 
     [NonDebuggable]
@@ -557,7 +562,7 @@ codeunit 502 OAuth2Impl
     begin
         FillScopesArray(Scopes, ScopesArray);
         Initialize(OAuthAuthorityUrl, RedirectURL);
-        CompoundToken := AuthFlow.ALAcquireTokensFromCacheWithCredentials(ClientId, ClientSecret, ScopesArray);
+        CompoundToken := AuthFlow.ALAcquireTokensFromCacheWithCredentials(ClientID, ClientSecret, ScopesArray);
         AccessToken := CompoundToken.AccessToken;
         IdToken := CompoundToken.IdToken;
     end;
@@ -571,7 +576,7 @@ codeunit 502 OAuth2Impl
     begin
         FillScopesArray(Scopes, ScopesArray);
         Initialize(OAuthAuthorityUrl, RedirectURL);
-        CompoundToken := AuthFlow.ALAcquireTokensFromCacheWithCertificate(ClientId, Certificate, ScopesArray);
+        CompoundToken := AuthFlow.ALAcquireTokensFromCacheWithCertificate(ClientID, Certificate, ScopesArray);
         AccessToken := CompoundToken.AccessToken;
         IdToken := CompoundToken.IdToken;
     end;
@@ -585,7 +590,7 @@ codeunit 502 OAuth2Impl
     begin
         FillScopesArray(Scopes, ScopesArray);
         Initialize(OAuthAuthorityUrl, RedirectURL);
-        CompoundToken := AuthFlow.ALAcquireApplicationTokensWithCertificate(ClientId, Certificate, OAuthAuthorityUrl, ScopesArray);
+        CompoundToken := AuthFlow.ALAcquireApplicationTokensWithCertificate(ClientID, Certificate, OAuthAuthorityUrl, ScopesArray);
         AccessToken := CompoundToken.AccessToken;
         IdToken := CompoundToken.IdToken;
     end;
@@ -595,7 +600,7 @@ codeunit 502 OAuth2Impl
     procedure AcquireTokenWithClientCredentials(ClientId: Text; ClientSecret: Text; OAuthAuthorityUrl: Text; RedirectURL: Text; ResourceURL: Text; var AccessToken: Text)
     begin
         Initialize(OAuthAuthorityUrl, RedirectURL);
-        AccessToken := AuthFlow.ALAcquireApplicationToken(ClientId, ClientSecret, OAuthAuthorityUrl, ResourceURL);
+        AccessToken := AuthFlow.ALAcquireApplicationToken(ClientID, ClientSecret, OAuthAuthorityUrl, ResourceURL);
         if AccessToken = '' then
             Session.LogMessage('0000C23', EmptyAccessTokenClientCredsErr, Verbosity::Error, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', Oauth2CategoryLbl);
     end;
@@ -608,7 +613,7 @@ codeunit 502 OAuth2Impl
     begin
         FillScopesArray(Scopes, ScopesArray);
         Initialize(OAuthAuthorityUrl, RedirectURL);
-        AccessToken := AuthFlow.ALAcquireApplicationToken(ClientId, ClientSecret, OAuthAuthorityUrl, ScopesArray);
+        AccessToken := AuthFlow.ALAcquireApplicationToken(ClientID, ClientSecret, OAuthAuthorityUrl, ScopesArray);
         if AccessToken = '' then
             Session.LogMessage('0000D1L', EmptyAccessTokenClientCredsErr, Verbosity::Error, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', Oauth2CategoryLbl);
     end;
@@ -762,7 +767,7 @@ codeunit 502 OAuth2Impl
         if RedirectURL = '' then
             RedirectURL := GetDefaultRedirectUrl()
         else
-            Session.LogMessage('0000C24', StrSubstNo(RedirectUrlTxt, RedirectURL), Verbosity::Normal, DataClassification::AccountData, TelemetryScope::ExtensionPublisher, 'Category', Oauth2CategoryLbl);
+            Session.LogMessage('0000C24', StrSubstNo(RedirectUrlTxt, RedirectUrl), Verbosity::Normal, DataClassification::AccountData, TelemetryScope::ExtensionPublisher, 'Category', Oauth2CategoryLbl);
 
         AuthFlow := AuthFlow.ALAzureAdCodeGrantFlow(Uri.Uri(RedirectURL));
     end;
@@ -775,7 +780,7 @@ codeunit 502 OAuth2Impl
         if RedirectURL = '' then
             RedirectURL := GetDefaultRedirectUrl()
         else
-            Session.LogMessage('0000CXW', StrSubstNo(RedirectUrlTxt, RedirectURL), Verbosity::Normal, DataClassification::AccountData, TelemetryScope::ExtensionPublisher, 'Category', Oauth2CategoryLbl);
+            Session.LogMessage('0000CXW', StrSubstNo(RedirectUrlTxt, RedirectUrl), Verbosity::Normal, DataClassification::AccountData, TelemetryScope::ExtensionPublisher, 'Category', Oauth2CategoryLbl);
 
         AuthFlow := AuthFlow.ALAzureAdCodeGrantFlow(Uri.Uri(RedirectURL), Uri.Uri(OAuthAuthorityUrl));
     end;
@@ -812,7 +817,7 @@ codeunit 502 OAuth2Impl
         PosProperty := StrPos(CodeTxt, Property);
         if PosProperty = 0 then
             exit('');
-        PosValue := PosProperty + StrPos(CopyStr(CodeTxt, PosProperty), '=');
+        PosValue := PosProperty + StrPos(CopyStr(Codetxt, PosProperty), '=');
         PosEnd := PosValue + StrPos(CopyStr(CodeTxt, PosValue), '&');
 
         if PosEnd = PosValue then

@@ -1,11 +1,3 @@
-﻿namespace Microsoft.CRM.Outlook;
-
-using System.Environment;
-using System.Integration;
-using System.Privacy;
-using System.Security.AccessControl;
-using System.Utilities;
-
 page 1832 "Outlook Individual Deployment"
 {
     Caption = 'Get the Outlook Add-in';

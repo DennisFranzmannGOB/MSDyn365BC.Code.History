@@ -3,17 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
-using System.Security.AccessControl;
-
 page 1564 "Privacy Notice Approvals"
 {
     PageType = List;
     SourceTable = "Privacy Notice Approval";
     InsertAllowed = false;
     ModifyAllowed = false;
-
+    
     layout
     {
         area(Content)

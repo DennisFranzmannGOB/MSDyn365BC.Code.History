@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy GQL Customer (ID 30127) implements Interface Shpfy IGarphQL.
 /// </summary>

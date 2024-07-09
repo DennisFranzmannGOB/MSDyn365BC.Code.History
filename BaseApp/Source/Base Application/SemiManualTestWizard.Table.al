@@ -1,7 +1,3 @@
-namespace System.TestTools;
-
-using System.Utilities;
-
 table 130415 "Semi-Manual Test Wizard"
 {
     Caption = 'Semi-Manual Test Wizard';

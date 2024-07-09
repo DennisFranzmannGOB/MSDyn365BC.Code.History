@@ -180,7 +180,6 @@ codeunit 139607 "Shpfy Order Handling Helper"
         Item: Record Item;
         Location: Record Location;
         ShopLocation: Record "Shpfy Shop Location";
-        ShopifyVariant: Record "Shpfy Variant";
         TempShopifyProduct: Record "Shpfy Product" temporary;
         TempShopifyVariant: Record "Shpfy Variant" temporary;
         TempTag: Record "Shpfy Tag" temporary;
@@ -199,9 +198,6 @@ codeunit 139607 "Shpfy Order Handling Helper"
         Item := ProductInitTest.CreateItem();
         Item.SetRecFilter();
         CreateProduct.CreateTempProduct(Item, TempShopifyProduct, TempShopifyVariant, TempTag);
-        ShopifyVariant := TempShopifyVariant;
-        ShopifyVariant.Id := ProductInitTest.GetShopifyVariantId();
-        ShopifyVariant.Insert();
 
         ShopLocation.Init();
         ShopLocation."Shop Code" := Shop.Code;
@@ -215,7 +211,7 @@ codeunit 139607 "Shpfy Order Handling Helper"
         Id := Any.IntegerInRange(10000, 99999);
         JProduct.Add('legacyResourceId', TempShopifyProduct.Id);
         JProduct.Add('isGiftCard', false);
-        JVariant.Add('legacyResourceId', ShopifyVariant.Id);
+        JVariant.Add('legacyResourceId', TempShopifyVariant.Id);
         JLocation.Add('legacyResourceId', ShopLocation.Id);
         JLocation.Add('name', ShopLocation.Name);
         JFulfillmentService.Add('location', JLocation);
@@ -282,7 +278,7 @@ codeunit 139607 "Shpfy Order Handling Helper"
 
     local procedure GetCustomer(): Record Customer
     var
-        InitializeTest: Codeunit "Shpfy Initialize Test";
+        InitializeTest: codeunit "Shpfy Initialize Test";
     begin
         exit(InitializeTest.GetDummyCustomer());
     end;

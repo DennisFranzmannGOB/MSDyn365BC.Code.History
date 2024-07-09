@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Word;
-
 /// <summary>
 /// A list part factbox to view related entities for Word templates.
 /// </summary>
@@ -21,12 +19,10 @@ page 9982 "Word Templates Related FactBox"
     DeleteAllowed = false;
     Permissions = tabledata "Word Templates Related Table" = r;
     Extensible = false;
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Tables)
             {

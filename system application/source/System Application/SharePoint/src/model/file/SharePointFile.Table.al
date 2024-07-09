@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Sharepoint;
-
 /// <summary>
 /// Holds information about file entity.
 /// </summary>
@@ -68,11 +66,6 @@ table 9100 "SharePoint File"
         field(10; OdataEditLink; Text[2048])
         {
             Caption = 'Odata.EditLink';
-        }
-
-        field(11; Id; Integer)
-        {
-            Caption = 'Id';
         }
     }
 

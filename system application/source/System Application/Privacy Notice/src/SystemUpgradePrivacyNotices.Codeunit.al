@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
-using System.Upgrade;
-
 codeunit 1567 "System Upgrade Privacy Notices"
 {
     Subtype = Upgrade;

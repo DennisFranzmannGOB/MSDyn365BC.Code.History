@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
 /// <summary>
 /// Lists the roles that a checklist item should be displayed to.
 /// </summary>
@@ -18,11 +16,11 @@ page 1994 "Checklist Item Roles"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Control1)
             {
-                field("Role ID"; Rec."Role ID")
+                field("Role ID"; "Role ID")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the ID of the role.';

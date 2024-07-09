@@ -2,7 +2,7 @@
 page 2198 "O365 Unit Of Measure Card"
 {
     Caption = 'Price per';
-    DataCaptionExpression = Rec.Description;
+    DataCaptionExpression = Description;
     SourceTable = "Unit of Measure";
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
     ObsoleteState = Pending;
@@ -12,7 +12,7 @@ page 2198 "O365 Unit Of Measure Card"
     {
         area(content)
         {
-            field("Code"; Rec.Code)
+            field("Code"; Code)
             {
                 ApplicationArea = Invoicing, Basic, Suite;
                 ToolTip = 'Specifies a code for the unit of measure that is shown on the item and resource cards where it is used.';
@@ -27,7 +27,7 @@ page 2198 "O365 Unit Of Measure Card"
                 trigger OnValidate()
                 begin
                     if DescriptionInCurrentLanguage = '' then
-                        DescriptionInCurrentLanguage := CopyStr(Rec.GetDescriptionInCurrentLanguage(), 1, MaxStrLen(DescriptionInCurrentLanguage));
+                        DescriptionInCurrentLanguage := CopyStr(GetDescriptionInCurrentLanguage(), 1, MaxStrLen(DescriptionInCurrentLanguage));
                 end;
             }
         }
@@ -42,7 +42,7 @@ page 2198 "O365 Unit Of Measure Card"
 
     trigger OnAfterGetCurrRecord()
     begin
-        DescriptionInCurrentLanguage := CopyStr(Rec.GetDescriptionInCurrentLanguage(), 1, MaxStrLen(DescriptionInCurrentLanguage));
+        DescriptionInCurrentLanguage := CopyStr(GetDescriptionInCurrentLanguage(), 1, MaxStrLen(DescriptionInCurrentLanguage));
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -52,17 +52,17 @@ page 2198 "O365 Unit Of Measure Card"
         if not (CloseAction in [ACTION::OK, ACTION::LookupOK]) then
             exit(true);
 
-        if DescriptionInCurrentLanguage = CopyStr(Rec.GetDescriptionInCurrentLanguage(), 1, MaxStrLen(DescriptionInCurrentLanguage)) then
+        if DescriptionInCurrentLanguage = CopyStr(GetDescriptionInCurrentLanguage(), 1, MaxStrLen(DescriptionInCurrentLanguage)) then
             exit(true);
 
         // Do not insert a new empty record
-        if (Rec.Code = '') and (DescriptionInCurrentLanguage = '') then
+        if (Code = '') and (DescriptionInCurrentLanguage = '') then
             exit(true);
 
-        if UnitOfMeasure.Get(UpperCase(CopyStr(DescriptionInCurrentLanguage, 1, MaxStrLen(Rec.Code)))) then
+        if UnitOfMeasure.Get(UpperCase(CopyStr(DescriptionInCurrentLanguage, 1, MaxStrLen(Code)))) then
             Error(UnitOfMeasureAlredyExistsErr, DescriptionInCurrentLanguage);
 
-        if Rec.Code = '' then
+        if Code = '' then
             InsertNewUnitOfMeasure()
         else
             RenameUnitOfMeasureRemoveTranslations();
@@ -76,22 +76,22 @@ page 2198 "O365 Unit Of Measure Card"
     var
         UnitOfMeasureTranslation: Record "Unit of Measure Translation";
     begin
-        if Rec.Code <> '' then begin
-            UnitOfMeasureTranslation.SetRange(Code, Rec.Code);
+        if Code <> '' then begin
+            UnitOfMeasureTranslation.SetRange(Code, Code);
             UnitOfMeasureTranslation.DeleteAll(true);
         end;
 
-        Rec.Validate(Description, DescriptionInCurrentLanguage);
-        Rec.Modify(true);
-        Rec.Rename(CopyStr(DescriptionInCurrentLanguage, 1, MaxStrLen(Rec.Code)));
+        Validate(Description, DescriptionInCurrentLanguage);
+        Modify(true);
+        Rename(CopyStr(DescriptionInCurrentLanguage, 1, MaxStrLen(Code)));
     end;
 
     local procedure InsertNewUnitOfMeasure()
     begin
-        Rec.Validate(Code, CopyStr(DescriptionInCurrentLanguage, 1, MaxStrLen(Rec.Code)));
-        Rec.Validate(Description, DescriptionInCurrentLanguage);
+        Validate(Code, CopyStr(DescriptionInCurrentLanguage, 1, MaxStrLen(Code)));
+        Validate(Description, DescriptionInCurrentLanguage);
 
-        Rec.Insert(true);
+        Insert(true);
     end;
 }
 #endif

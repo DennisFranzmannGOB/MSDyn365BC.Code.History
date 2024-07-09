@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 codeunit 30253 "Shpfy OpenDoc NotSupported" implements "Shpfy IOpenShopifyDocument"
 {
 

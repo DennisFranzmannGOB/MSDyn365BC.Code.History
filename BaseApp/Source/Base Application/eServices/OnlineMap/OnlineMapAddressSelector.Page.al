@@ -1,18 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.eServices.OnlineMap;
-
-using Microsoft.Bank.BankAccount;
-using Microsoft.CRM.Contact;
-using Microsoft.HumanResources.Employee;
-using Microsoft.Inventory.Location;
-using Microsoft.Projects.Project.Job;
-using Microsoft.Projects.Resources.Resource;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-
 page 802 "Online Map Address Selector"
 {
     Caption = 'Online Map Address Selector';
@@ -109,31 +94,31 @@ page 802 "Online Map Address Selector"
             LookupSelection::" ":
                 SelectedTableNo := 0;
             LookupSelection::Bank:
-                SelectedTableNo := Database::"Bank Account";
+                SelectedTableNo := DATABASE::"Bank Account";
             LookupSelection::Contact:
-                SelectedTableNo := Database::Contact;
+                SelectedTableNo := DATABASE::Contact;
             LookupSelection::Customer:
-                SelectedTableNo := Database::Customer;
+                SelectedTableNo := DATABASE::Customer;
             LookupSelection::Employee:
-                SelectedTableNo := Database::Employee;
+                SelectedTableNo := DATABASE::Employee;
             LookupSelection::Job:
-                SelectedTableNo := Database::Job;
+                SelectedTableNo := DATABASE::Job;
             LookupSelection::Location:
-                SelectedTableNo := Database::Location;
+                SelectedTableNo := DATABASE::Location;
             LookupSelection::Resource:
-                SelectedTableNo := Database::Resource;
+                SelectedTableNo := DATABASE::Resource;
             LookupSelection::Vendor:
-                SelectedTableNo := Database::Vendor;
+                SelectedTableNo := DATABASE::Vendor;
             LookupSelection::"Ship-to Address":
-                SelectedTableNo := Database::"Ship-to Address";
+                SelectedTableNo := DATABASE::"Ship-to Address";
             LookupSelection::"Order Address":
-                SelectedTableNo := Database::"Order Address";
+                SelectedTableNo := DATABASE::"Order Address";
             else begin
-                IsHandled := false;
-                OnSetTableNoElseCase(LookupSelection.AsInteger(), SelectedTableNo, IsHandled);
-                if not IsHandled then
-                    Error(Text001);
-            end;
+                    IsHandled := false;
+                    OnSetTableNoElseCase(LookupSelection.AsInteger(), SelectedTableNo, IsHandled);
+                    if not IsHandled then
+                        Error(Text001);
+                end;
         end;
 
         OnAfterSetTableNo(LookupSelection, SelectedTableNo);
@@ -145,33 +130,33 @@ page 802 "Online Map Address Selector"
         IsHandled: Boolean;
     begin
         case LoadTableNo of
-            Database::"Bank Account":
+            DATABASE::"Bank Account":
                 exit(LoadBankAccount(LookupCode, Lookup));
-            Database::Contact:
+            DATABASE::Contact:
                 exit(LoadContact(LookupCode, Lookup));
-            Database::Customer:
+            DATABASE::Customer:
                 exit(LoadCustomer(LookupCode, Lookup));
-            Database::Employee:
+            DATABASE::Employee:
                 exit(LoadEmployee(LookupCode, Lookup));
-            Database::Job:
+            DATABASE::Job:
                 exit(LoadJob(LookupCode, Lookup));
-            Database::Location:
+            DATABASE::Location:
                 exit(LoadLocation(LookupCode, Lookup));
-            Database::Resource:
+            DATABASE::Resource:
                 exit(LoadResource(LookupCode, Lookup));
-            Database::Vendor:
+            DATABASE::Vendor:
                 exit(LoadVendor(LookupCode, Lookup));
-            Database::"Ship-to Address":
+            DATABASE::"Ship-to Address":
                 exit(LoadShipTo(LookupCode, Lookup));
-            Database::"Order Address":
+            DATABASE::"Order Address":
                 exit(LoadOrderAddress(LookupCode, Lookup));
             else begin
-                OnLoadLocationLookupElseCase(LoadTableNo, LookupCode, Lookup, SelectedRecPosition, IsHandled);
-                if IsHandled then
-                    exit(SelectedRecPosition);
+                    OnLoadLocationLookupElseCase(LoadTableNo, LookupCode, Lookup, SelectedRecPosition, IsHandled);
+                    if IsHandled then
+                        exit(SelectedRecPosition);
 
-                Error(Text004, Format(LoadTableNo));
-            end;
+                    Error(Text004, Format(LoadTableNo));
+                end;
         end;
     end;
 
@@ -189,7 +174,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := BankAccount."No.";
             exit(BankAccount.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::"Bank Account");
+        Error(Text003, LookUpCode, DATABASE::"Bank Account");
     end;
 
     local procedure LoadContact(var LookUpCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -206,7 +191,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := Contact."No.";
             exit(Contact.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::Contact);
+        Error(Text003, LookUpCode, DATABASE::Contact);
     end;
 
     local procedure LoadCustomer(var LookUpCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -223,7 +208,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := Customer."No.";
             exit(Customer.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::Customer);
+        Error(Text003, LookUpCode, DATABASE::Customer);
     end;
 
     local procedure LoadEmployee(var LookUpCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -240,7 +225,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := Employee."No.";
             exit(Employee.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::Employee);
+        Error(Text003, LookUpCode, DATABASE::Employee);
     end;
 
     local procedure LoadJob(var LookUpCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -257,7 +242,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := Job."No.";
             exit(Job.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::Job);
+        Error(Text003, LookUpCode, DATABASE::Job);
     end;
 
     local procedure LoadLocation(var LookUpCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -274,7 +259,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := Location.Code;
             exit(Location.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::Location);
+        Error(Text003, LookUpCode, DATABASE::Location);
     end;
 
     local procedure LoadResource(var LookUpCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -291,7 +276,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := Resource."No.";
             exit(Resource.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::Resource);
+        Error(Text003, LookUpCode, DATABASE::Resource);
     end;
 
     local procedure LoadVendor(var LookUpCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -308,7 +293,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := Vendor."No.";
             exit(Vendor.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::Vendor);
+        Error(Text003, LookUpCode, DATABASE::Vendor);
     end;
 
     local procedure LoadShipTo(var LookUpCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -325,7 +310,7 @@ page 802 "Online Map Address Selector"
             LookUpCode := ShipToAddress.Code;
             exit(ShipToAddress.GetPosition());
         end;
-        Error(Text003, LookUpCode, Database::"Ship-to Address");
+        Error(Text003, LookUpCode, DATABASE::"Ship-to Address");
     end;
 
     local procedure LoadOrderAddress(var LookupCode: Code[20]; LookUp: Boolean): Text[1000]
@@ -342,7 +327,7 @@ page 802 "Online Map Address Selector"
             LookupCode := OrderAddress.Code;
             exit(OrderAddress.GetPosition());
         end;
-        Error(Text003, LookupCode, Database::"Order Address");
+        Error(Text003, LookupCode, DATABASE::"Order Address");
     end;
 
     procedure Getdefaults(var ActualDistance: Option Miles,Kilometers; var ActualRoute: Option Quickest,Shortest)

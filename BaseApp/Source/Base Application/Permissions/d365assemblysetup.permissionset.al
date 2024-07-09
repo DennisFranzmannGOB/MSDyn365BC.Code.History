@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Assembly.Setup;
-
 permissionset 9931 "D365 ASSEMBLY, SETUP"
 {
     Assignable = true;

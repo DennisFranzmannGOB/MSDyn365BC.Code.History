@@ -1,6 +1,3 @@
-namespace Microsoft.Finance.Latepayment;
-
-using Microsoft.Sales.Receivables;
 pageextension 1958 "LPP Customer Ledger Entries" extends "Customer Ledger Entries"
 {
     ContextSensitiveHelpPage = 'ui-extensions-late-payment-prediction';

@@ -1,14 +1,10 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
-using System;
-
 /// <summary>
-/// Exposes functionality to query Microsoft Entra.
+/// Exposes functionality to query Azure AD.
 /// </summary>
 #pragma warning disable AS0018
 codeunit 9012 "Azure AD Graph"
@@ -22,7 +18,7 @@ codeunit 9012 "Azure AD Graph"
         AzureADGraphImpl: Codeunit "Azure AD Graph Impl.";
 
     /// <summary>
-    /// Gets the user with the specified user principal name from Microsoft Entra.
+    /// Gets the user with the specified user principal name from Azure AD.
     /// </summary>
     /// <param name="UserPrincipalName">The user principal name.</param>
     /// <param name="UserInfo">The user to return.</param>
@@ -34,7 +30,7 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets the current user from Microsoft Entra.
+    /// Gets the current user from Azure AD.
     /// </summary>
     /// <param name="UserInfo">The user to return.</param>
     [Scope('OnPrem')]
@@ -45,7 +41,7 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets the user with the specified authorization email from Microsoft Entra.
+    /// Gets the user with the specified authorization email from Azure AD.
     /// </summary>
     /// <param name="AuthorizationEmail">The user's authorization email.</param>
     /// <param name="UserInfo">The user to return.</param>
@@ -57,7 +53,7 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets the user with the specified object ID from Microsoft Entra.
+    /// Gets the user with the specified object ID from Azure AD.
     /// </summary>
     /// <param name="ObjectId">The object ID assigned to the user.</param>
     /// <param name="UserInfo">The user to return.</param>
@@ -69,7 +65,7 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Tries to return the user with the specified object ID from Microsoft Entra.
+    /// Tries to return the user with the specified object ID from Azure AD.
     /// </summary>
     /// <param name="ObjectId">The object ID assigned to the user.</param>
     /// <param name="UserInfo">The user to return.</param>
@@ -82,11 +78,11 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets the assigned plans for the specified user from Microsoft Entra.
+    /// Gets the assigned plans for the specified user from Azure AD.
     /// </summary>
     /// <param name="UserInfo">The user.</param>
     /// <param name="UserAssignedPlans">The assigned plans for the user.</param>
-    /// <remarks>If the provided user is null, the output parameter holding the assigned plans remains unchanged.</remarks>
+    /// <remarks>If the provided user is null, the output parameter holding the assigned plans remains unchanged.</remarks> 
     [Scope('OnPrem')]
     [NonDebuggable]
     procedure GetUserAssignedPlans(UserInfo: DotNet UserInfo; var UserAssignedPlans: DotNet GenericList1)
@@ -95,7 +91,7 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets the roles assigned to the user from Microsoft Entra.
+    /// Gets the roles assigned to the user from Azure AD.
     /// </summary>
     /// <param name="UserInfo">The user for whom to retrieve the roles.</param>
     /// <param name="UserRoles">The user's roles.</param>
@@ -119,7 +115,7 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets the directory roles from Microsoft Entra.
+    /// Gets the directory roles from Azure AD.
     /// </summary>
     /// <param name="DirectoryRoles">The directory roles to return.</param>
     [Scope('OnPrem')]
@@ -130,7 +126,7 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets details about the tenant from Microsoft Entra.
+    /// Gets details about the tenant from Azure AD.
     /// </summary>
     /// <param name="TenantInfo">The tenant details to return.</param>
     [Scope('OnPrem')]
@@ -153,10 +149,10 @@ codeunit 9012 "Azure AD Graph"
 
 #if not CLEAN22
     /// <summary>
-    /// Gets the name of the Microsoft Entra security group defined in tenant admin center.
+    /// Gets the name of the AAD security group defined in tenant admin center.
     /// For more info, see https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-environments#manage-access-using-azure-active-directory-groups
     /// </summary>
-    /// <returns>The name of the Microsoft Entra security group defined in tenant admin center.</returns>
+    /// <returns>The name of the AAD security group defined in tenant admin center.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
     [Obsolete('Renamed to GetEnvironmentSecurityGroupId()', '22.0')]
@@ -167,10 +163,10 @@ codeunit 9012 "Azure AD Graph"
 #endif
 
     /// <summary>
-    /// Gets the name of the Microsoft Entra security group defined in tenant admin center.
+    /// Gets the name of the AAD security group defined in tenant admin center.
     /// For more info, see https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-environments#manage-access-using-azure-active-directory-groups
     /// </summary>
-    /// <returns>The name of the Microsoft Entra security group defined in tenant admin center.</returns>
+    /// <returns>The name of the AAD security group defined in tenant admin center.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
     procedure GetEnvironmentSecurityGroupId(): Text
@@ -179,7 +175,7 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Returns if the Microsoft Entra security group is defined in tenant admin center.
+    /// Returns if the AAD security group is defined in tenant admin center.
     /// </summary>
     /// <returns>True if defined.</returns>
     [Scope('OnPrem')]
@@ -215,9 +211,9 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets a list of users who are members of the specified Microsoft Entra group.
+    /// Gets a list of users who are members of the specified AAD group.
     /// </summary>
-    /// <param name="GroupDisplayName">The name of the Microsoft Entra group.</param>
+    /// <param name="GroupDisplayName">The name of the AAD group.</param>
     /// <param name="GroupMembers">A list of UserInfo objects identifying users that are members of the specified group.</param>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -227,9 +223,9 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets a list of users who are members of the specified Microsoft Entra group.
+    /// Gets a list of users who are members of the specified AAD group.
     /// </summary>
-    /// <param name="GroupId">The object ID of the Microsoft Entra security group.</param>
+    /// <param name="GroupId">The AAD object ID of the AAD security group.</param>
     /// <param name="NumberOfUsers">The number of users per page to return.</param>
     /// <param name="UserInfoPage">A list of UserInfo objects identifying users that are members of the specified group.</param>
     [Scope('OnPrem')]
@@ -240,24 +236,11 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets a list of user IDs of users who are members of the specified Microsoft Entra group.
+    /// Checks if a given user is a member of an AAD security group.
     /// </summary>
-    /// <param name="GroupId">The object ID of the Microsoft Entra security group.</param>
-    /// <param name="NumberOfUsers">The number of user IDs per page to return.</param>
-    /// <param name="UserInfoPage">A list of User ID objects identifying users that are members of the specified group.</param>
-    [Scope('OnPrem')]
-    [NonDebuggable]
-    procedure GetMemberIdsPageForGroupId(GroupId: Text; NumberOfUsers: Integer; var UserIdsPage: DotNet UserIdsPage)
-    begin
-        AzureADGraphImpl.GetMemberIdsPageForGroupId(GroupId, NumberOfUsers, UserIdsPage);
-    end;
-
-    /// <summary>
-    /// Checks if a given user is a member of a Microsoft Entra security group.
-    /// </summary>
-    /// <param name="GroupDisplayName">The name of the Microsoft Entra security group.</param>
+    /// <param name="GroupDisplayName">The name of the AAD security group.</param>
     /// <param name="GraphUserInfo">The user.</param>
-    /// <returns>True if the user is member of the Microsoft Entra security group; otherwise - false.</returns>
+    /// <returns>True if the user is member of the AAD security group; otherwise - false.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
     procedure IsGroupMember(GroupDisplayName: Text; GraphUserInfo: DotNet UserInfo): Boolean
@@ -266,9 +249,9 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Checks if a given user is a member of a Microsoft Entra security group.
+    /// Checks if a given user is a member of an AAD security group.
     /// </summary>
-    /// <param name="GroupId">The object ID of the Microsoft Entra security group.</param>
+    /// <param name="GroupId">The AAD object ID of the AAD security group.</param>
     /// <param name="GraphUserInfo">The user.</param>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -278,33 +261,9 @@ codeunit 9012 "Azure AD Graph"
     end;
 
     /// <summary>
-    /// Gets the group's display name
+    /// Gets all of the AAD security groups.
     /// </summary>
-    /// <param name="GroupId">The object ID of the Microsoft Entra security group.</param>
-    /// <returns>The display name of the group.</returns>
-    [Scope('OnPrem')]
-    [NonDebuggable]
-    procedure GetGroupName(GroupId: Text): Text
-    begin
-        exit(AzureADGraphImpl.GetGroupName(GroupId));
-    end;
-
-    /// <summary>
-    /// Gets the first Microsoft Entra group object ID that matches the provided display name.
-    /// </summary>
-    /// <param name="GroupName">The display name of the group.</param>
-    /// <returns>The object ID of the Microsoft Entra security group.</returns>
-    [Scope('OnPrem')]
-    [NonDebuggable]
-    procedure GetFirstGroupIdWithName(GroupName: Text): Text
-    begin
-        exit(AzureADGraphImpl.GetFirstGroupIdWithName(GroupName));
-    end;
-
-    /// <summary>
-    /// Gets all of the Microsoft Entra security groups.
-    /// </summary>
-    /// <returns>A dictionary of group object ID and group display name.</returns>
+    /// <returns>A dictionary of group AAD object ID and group display name.</returns>
     [Scope('OnPrem')]
     [NonDebuggable]
     procedure GetGroups(): Dictionary of [Text, Text];

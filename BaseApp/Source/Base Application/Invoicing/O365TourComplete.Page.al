@@ -54,8 +54,8 @@ page 1306 "O365 Tour Complete"
                 begin
                     ShowToursWizard := true;
                     CurrPage.Close();
-                    Rec."Current Page" := DummyO365GettingStarted.GetNextPageID(1, Rec."Current Page");
-                    Rec.Modify();
+                    "Current Page" := DummyO365GettingStarted.GetNextPageID(1, "Current Page");
+                    Modify();
 
                     PAGE.Run(PAGE::"O365 Getting Started");
                 end;
@@ -70,7 +70,7 @@ page 1306 "O365 Tour Complete"
 
     trigger OnInit()
     begin
-        Rec.SetRange("User ID", UserId);
+        SetRange("User ID", UserId);
     end;
 
     trigger OnOpenPage()
@@ -87,9 +87,9 @@ page 1306 "O365 Tour Complete"
         if ShowToursWizard then
             exit(true);
 
-        if Rec."Tour Completed" then begin
-            Rec."Tour in Progress" := false;
-            Rec.Modify();
+        if "Tour Completed" then begin
+            "Tour in Progress" := false;
+            Modify();
             exit(true);
         end;
 
@@ -112,9 +112,9 @@ page 1306 "O365 Tour Complete"
 
     local procedure MarkWizardAsDone()
     begin
-        Rec."Tour in Progress" := false;
-        Rec."Tour Completed" := true;
-        Rec.Modify();
+        "Tour in Progress" := false;
+        "Tour Completed" := true;
+        Modify();
 
         if UserTours.IsAvailable() and O365GettingStartedMgt.AreUserToursEnabled() then begin
             UserTours := UserTours.Create();

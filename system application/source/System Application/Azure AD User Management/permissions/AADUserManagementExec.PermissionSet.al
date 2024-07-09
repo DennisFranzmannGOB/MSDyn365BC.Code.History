@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
-using System.Globalization;
-using System.Security.AccessControl;
-using System.Environment.Configuration;
-
 permissionset 9515 "AAD User Management - Exec"
 {
     Access = Public;
@@ -17,7 +11,8 @@ permissionset 9515 "AAD User Management - Exec"
     IncludedPermissionSets = "AAD User Management - Objects",
                              "Azure AD User - View",
                              "Azure AD Plan - View",
-                             "Language - View";
+                             "Language - View",
+                             "Telemetry - Exec";
 
     Permissions = tabledata User = rm,
                   tabledata "User Personalization" = r,

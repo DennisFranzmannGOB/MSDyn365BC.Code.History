@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Enum Shpfy Inventory Policy (ID 30135).
 /// </summary>
@@ -11,7 +9,7 @@ enum 30135 "Shpfy Stock Calculation" implements "Shpfy Stock Calculation", "Shpf
                             "Shpfy IStock Available" = "Shpfy Can Not Have Stock";
     value(0; Disabled)
     {
-        Caption = 'Off';
+        Caption = 'Disabled';
         Implementation = "Shpfy Stock Calculation" = "Shpfy Disabled Value",
                          "Shpfy IStock Available" = "Shpfy Can Not Have Stock";
     }

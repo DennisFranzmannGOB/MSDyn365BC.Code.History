@@ -15,7 +15,7 @@ page 2166 "O365 Coupon List"
         {
             repeater(Group)
             {
-                field("Code"; Rec.Code)
+                field("Code"; Code)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     StyleExpr = CodeStyleExpr;
@@ -30,7 +30,7 @@ page 2166 "O365 Coupon List"
                     ApplicationArea = Invoicing, Basic, Suite;
                     ToolTip = 'Specifies the coupon amount in letters.';
                 }
-                field(Offer; Rec.Offer)
+                field(Offer; Offer)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                 }
@@ -55,10 +55,10 @@ page 2166 "O365 Coupon List"
                 var
                     IsAppliedBeforeOpening: Boolean;
                 begin
-                    IsAppliedBeforeOpening := Rec."Is applied";
+                    IsAppliedBeforeOpening := "Is applied";
                     PAGE.RunModal(PAGE::"O365 Coupon", Rec);
-                    Rec.CalcFields("Is applied");
-                    if (not IsAppliedBeforeOpening) and Rec."Is applied" then
+                    CalcFields("Is applied");
+                    if (not IsAppliedBeforeOpening) and "Is applied" then
                         CurrPage.Close();
                 end;
             }
@@ -72,7 +72,7 @@ page 2166 "O365 Coupon List"
 
                 trigger OnAction()
                 begin
-                    Rec.Apply();
+                    Apply();
                 end;
             }
             action(DoNotUseCoupon)
@@ -85,7 +85,7 @@ page 2166 "O365 Coupon List"
 
                 trigger OnAction()
                 begin
-                    Rec.Unapply();
+                    Unapply();
                 end;
             }
         }
@@ -107,8 +107,8 @@ page 2166 "O365 Coupon List"
 
     trigger OnAfterGetRecord()
     begin
-        Rec.UpdateStatusText();
-        if Rec."Is applied" then begin
+        UpdateStatusText();
+        if "Is applied" then begin
             StatusTextStyleExpr := 'Favorable';
             CodeStyleExpr := 'Subordinate';
         end else begin

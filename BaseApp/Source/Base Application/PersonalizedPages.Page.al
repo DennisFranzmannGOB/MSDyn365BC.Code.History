@@ -1,11 +1,3 @@
-﻿namespace System.Environment.Configuration;
-
-using System;
-using System.Reflection;
-using System.Security.AccessControl;
-using System.Security.User;
-using System.Tooling;
-
 page 9200 "Personalized Pages"
 {
     ApplicationArea = Basic, Suite;
@@ -110,7 +102,7 @@ page 9200 "Personalized Pages"
                 begin
                     ShowingOnlyErrors := true;
                     TempDesignerDiagnostics.Reset();
-                    TempDesignerDiagnostics.SetRange(Severity, Enum::Severity::Error);
+                    TempDesignerDiagnostics.SetRange(Severity, Severity::Error);
 
                     if Rec.FindSet() then
                         repeat
@@ -134,10 +126,10 @@ page 9200 "Personalized Pages"
 
                 trigger OnAction()
                 begin
-                    Rec.ClearMarks();
-                    Rec.MarkedOnly(false);
+                    ClearMarks();
+                    MarkedOnly(false);
                     ShowingOnlyErrors := false;
-                    if Rec.FindFirst() then;
+                    if FindFirst() then;
                     UpdateUserDiagnosticsListPart();
                 end;
             }
@@ -165,7 +157,7 @@ page 9200 "Personalized Pages"
     var
         PageMetadata: Record "Page Metadata";
     begin
-        if PageMetadata.Get(Rec."Page ID") then
+        if PageMetadata.Get("Page ID") then
             PageName := PageMetadata.Caption
         else
             PageName := '';
@@ -179,26 +171,10 @@ page 9200 "Personalized Pages"
     begin
         Rec.Reset();
 
-        PrivacyFilterUserPersonalizations();
         if not IsNullGuid(FilterUserID) then
             Rec.SetRange("User SID", FilterUserID)
         else
             Rec.SetFilter("User SID", GenerateUserSidFilter());
-    end;
-
-    /// <summary>
-    /// Ensure that users can only see their own personalizations, unless they have the permission to manage users on the tenant.
-    /// </summary>
-    local procedure PrivacyFilterUserPersonalizations()
-    var
-        UserPermissions: Codeunit "User Permissions";
-    begin
-        if UserPermissions.CanManageUsersOnTenant(UserSecurityId()) then
-            exit; // No need for additional user filters
-
-        Rec.FilterGroup(2);
-        Rec.SetRange("User SID", UserSecurityId());
-        Rec.FilterGroup(0);
     end;
 
     trigger OnAfterGetCurrRecord()
@@ -211,7 +187,7 @@ page 9200 "Personalized Pages"
         Errors: Integer;
     begin
         TempDesignerDiagnostics.Reset();
-        TempDesignerDiagnostics.SetRange(Severity, Enum::Severity::Error);
+        TempDesignerDiagnostics.SetRange(Severity, Severity::Error);
         Errors := TempDesignerDiagnostics.Count();
 
         if Errors > 0 then
@@ -309,22 +285,22 @@ page 9200 "Personalized Pages"
     begin
         HealthStatusStyleExpr := 'Favorable';
 
-        if not UserSidToOperationId.Get(Format(Rec."User SID") + Format(Rec."Page ID"), OperationId) then
+        if not UserSidToOperationId.Get(Format("User SID") + Format("Page ID"), OperationId) then
             exit;
 
         TempDesignerDiagnostics.Reset();
         TempDesignerDiagnostics.SetRange("Operation ID", OperationId);
-        TempDesignerDiagnostics.SetRange(Severity, Enum::Severity::Error);
+        TempDesignerDiagnostics.SetRange(Severity, Severity::Error);
         if TempDesignerDiagnostics.Count() > 0 then begin
             HealthStatusStyleExpr := 'Unfavorable';
             exit(StrSubstNo(PageValidationFailedWithErrorsTxt, TempDesignerDiagnostics.Count()));
         end;
-        TempDesignerDiagnostics.SetRange(Severity, Enum::Severity::Warning);
+        TempDesignerDiagnostics.SetRange(Severity, Severity::Warning);
         if TempDesignerDiagnostics.Count() > 0 then begin
             HealthStatusStyleExpr := 'Ambiguous';
             exit(StrSubstNo(PageSuccessfullyValidatedWithWarningsTxt, TempDesignerDiagnostics.Count()));
         end;
-        TempDesignerDiagnostics.SetRange(Severity, Enum::Severity::Information);
+        TempDesignerDiagnostics.SetRange(Severity, Severity::Information);
         if TempDesignerDiagnostics.Count() > 0 then begin
             HealthStatusStyleExpr := 'Favorable';
             exit(StrSubstNo(PageSuccessfullyValidatedWithInformationalMessagesTxt, TempDesignerDiagnostics.Count()));
@@ -350,7 +326,7 @@ page 9200 "Personalized Pages"
     var
         OperationId: Guid;
     begin
-        if UserSidToOperationId.Get(Format(Rec."User SID") + Format(Rec."Page ID"), OperationId) then;
+        if UserSidToOperationId.Get(Format("User SID") + Format("Page ID"), OperationId) then;
         TempDesignerDiagnostics.Reset();
         TempDesignerDiagnostics.SetRange("Operation ID", OperationId);
         CurrPage.UserDiagnosticsListPart.Page.SetRecords(TempDesignerDiagnostics);

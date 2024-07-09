@@ -1,14 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.D365Sales;
-
-using Microsoft.Foundation.UOM;
-using Microsoft.Integration.Dataverse;
-using Microsoft.Inventory.Item;
-using Microsoft.Projects.Resources.Resource;
-
 page 5364 "CRM Unit List"
 {
     ApplicationArea = Suite;
@@ -16,7 +5,7 @@ page 5364 "CRM Unit List"
     Editable = false;
     PageType = List;
     SourceTable = "CRM Uom";
-    SourceTableView = sorting(Name);
+    SourceTableView = SORTING(Name);
     UsageCategory = Lists;
 
     layout
@@ -33,7 +22,7 @@ page 5364 "CRM Unit List"
                     StyleExpr = FirstColumnStyle;
                     ToolTip = 'Specifies the name of the record.';
                 }
-                field(BaseUoMName; Rec.BaseUoMName)
+                field(BaseUoMName; BaseUoMName)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Base Unit Name';
@@ -68,7 +57,7 @@ page 5364 "CRM Unit List"
 
                 trigger OnAction()
                 begin
-                    Rec.MarkedOnly(true);
+                    MarkedOnly(true);
                 end;
             }
             action(ShowAll)
@@ -80,7 +69,7 @@ page 5364 "CRM Unit List"
 
                 trigger OnAction()
                 begin
-                    Rec.MarkedOnly(false);
+                    MarkedOnly(false);
                 end;
             }
         }
@@ -103,33 +92,40 @@ page 5364 "CRM Unit List"
     trigger OnAfterGetRecord()
     var
         CRMIntegrationRecord: Record "CRM Integration Record";
+        CRMIntegrationManagement: Codeunit "CRM Integration Management";
         RecordID: RecordID;
+        MappedTableId: Integer;
     begin
-        if CRMIntegrationRecord.FindRecordIDFromID(Rec.UoMId, Database::"Item Unit of Measure", RecordID) then
-            if CurrentlyCoupledCRMUom.UoMId = Rec.UoMScheduleId then begin
+        if CRMIntegrationManagement.IsUnitGroupMappingEnabled() then
+            MappedTableId := Database::"Unit Group"
+        else
+            MappedTableId := Database::"Unit of Measure";
+
+        if CRMIntegrationRecord.FindRecordIDFromID(UoMId, Database::"Item Unit of Measure", RecordID) then
+            if CurrentlyCoupledCRMUom.UoMId = UoMScheduleId then begin
                 Coupled := 'Current';
                 FirstColumnStyle := 'Strong';
-                Rec.Mark(true);
+                Mark(true);
             end else begin
                 Coupled := 'Yes';
                 FirstColumnStyle := 'Subordinate';
-                Rec.Mark(false);
+                Mark(false);
             end
         else
-            if CRMIntegrationRecord.FindRecordIDFromID(Rec.UoMId, Database::"Resource Unit of Measure", RecordID) then
-                if CurrentlyCoupledCRMUom.UoMId = Rec.UoMScheduleId then begin
+            if CRMIntegrationRecord.FindRecordIDFromID(UoMId, Database::"Resource Unit of Measure", RecordID) then
+                if CurrentlyCoupledCRMUom.UoMId = UoMScheduleId then begin
                     Coupled := 'Current';
                     FirstColumnStyle := 'Strong';
-                    Rec.Mark(true);
+                    Mark(true);
                 end else begin
                     Coupled := 'Yes';
                     FirstColumnStyle := 'Subordinate';
-                    Rec.Mark(false);
+                    Mark(false);
                 end
             else begin
                 Coupled := 'No';
                 FirstColumnStyle := 'None';
-                Rec.Mark(true);
+                Mark(true);
             end;
     end;
 
@@ -142,9 +138,9 @@ page 5364 "CRM Unit List"
     var
         LookupCRMTables: Codeunit "Lookup CRM Tables";
     begin
-        Rec.FilterGroup(4);
-        Rec.SetView(LookupCRMTables.GetIntegrationTableMappingView(Database::"CRM Uom"));
-        Rec.FilterGroup(0);
+        FilterGroup(4);
+        SetView(LookupCRMTables.GetIntegrationTableMappingView(Database::"CRM Uom"));
+        FilterGroup(0);
     end;
 
     var

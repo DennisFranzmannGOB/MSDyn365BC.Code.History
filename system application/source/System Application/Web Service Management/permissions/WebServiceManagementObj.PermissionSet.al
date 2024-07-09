@@ -3,16 +3,14 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration;
-
 permissionset 810 "Web Service Management - Obj."
 {
     Access = Internal;
     Assignable = false;
 
-    Permissions = codeunit "Web Service Management" = X,
-                  table "Tenant Web Service Columns" = X,
-                  table "Tenant Web Service Filter" = X,
-                  table "Tenant Web Service OData" = X,
-                  table "Web Service Aggregate" = X;
+    Permissions = Codeunit "Web Service Management" = X,
+                  Table "Tenant Web Service Columns" = X,
+                  Table "Tenant Web Service Filter" = X,
+                  Table "Tenant Web Service OData" = X,
+                  Table "Web Service Aggregate" = X;
 }

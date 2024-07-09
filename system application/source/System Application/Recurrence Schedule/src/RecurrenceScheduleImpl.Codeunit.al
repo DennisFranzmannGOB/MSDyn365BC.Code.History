@@ -2,18 +2,13 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.DateTime;
-
-using System.Utilities;
-
 codeunit 4691 "Recurrence Schedule Impl."
 {
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
     Permissions = tabledata Date = r,
-                  tabledata "Recurrence Schedule" = rim;
+                  tabledata "Recurrence Schedule" = ri;
 
     var
         MinDateTime: DateTime;
@@ -70,7 +65,7 @@ codeunit 4691 "Recurrence Schedule Impl."
         if NextDate = 0D then
             exit(0DT);
 
-        exit(CheckForEndDateTime(RecurrenceSchedule, CreateDateTime(NextDate, RecurrenceSchedule."Start Time")));
+        exit(CheckForEndDateTime(RecurrenceSchedule, CREATEDATETIME(NextDate, RecurrenceSchedule."Start Time")));
     end;
 
     local procedure CalculateDaily(RecurrenceSchedule: Record "Recurrence Schedule"; LastOccurrence: Date): Date
@@ -97,9 +92,9 @@ codeunit 4691 "Recurrence Schedule Impl."
 
         if LastOccurrence = 0D then begin
             LastOccurrence := RecurrenceSchedule."Start Date";
-            NextWeekDay := GetNextWeekDay(RecurrenceSchedule, Date2DWY(LastOccurrence, 1) - 1)
+            NextWeekDay := GetNextWeekDay(RecurrenceSchedule, DATE2DWY(LastOccurrence, 1) - 1)
         end else
-            NextWeekDay := GetNextWeekDay(RecurrenceSchedule, Date2DWY(LastOccurrence, 1));
+            NextWeekDay := GetNextWeekDay(RecurrenceSchedule, DATE2DWY(LastOccurrence, 1));
 
         if NextWeekDay > 0 then
             NextDate := CalcDate(StrSubstNo(NextWeekDayDateFormulaLbl, NextWeekDay - 1), LastOccurrence)
@@ -111,14 +106,15 @@ codeunit 4691 "Recurrence Schedule Impl."
 
     local procedure AnyWeekDaysSelected(RecurrenceSchedule: Record "Recurrence Schedule"): Boolean
     begin
-        exit(
-              RecurrenceSchedule."Recurs on Monday" or
-              RecurrenceSchedule."Recurs on Tuesday" or
-              RecurrenceSchedule."Recurs on Wednesday" or
-              RecurrenceSchedule."Recurs on Thursday" or
-              RecurrenceSchedule."Recurs on Friday" or
-              RecurrenceSchedule."Recurs on Saturday" or
-              RecurrenceSchedule."Recurs on Sunday");
+        with RecurrenceSchedule do
+            exit(
+              "Recurs on Monday" or
+              "Recurs on Tuesday" or
+              "Recurs on Wednesday" or
+              "Recurs on Thursday" or
+              "Recurs on Friday" or
+              "Recurs on Saturday" or
+              "Recurs on Sunday");
     end;
 
     local procedure GetNextWeekDay(RecurrenceSchedule: Record "Recurrence Schedule"; CurrentWeekDay: Integer): Integer
@@ -126,7 +122,7 @@ codeunit 4691 "Recurrence Schedule Impl."
         if CurrentWeekDay < 0 then
             CurrentWeekDay := 0;
 
-        repeat
+        REPEAT
             case CurrentWeekDay of
                 0:
                     if RecurrenceSchedule."Recurs on Monday" then
@@ -192,7 +188,7 @@ codeunit 4691 "Recurrence Schedule Impl."
                 exit(FindDayInMonth(LastOccurrence, RecurrenceSchedule."Ordinal Recurrence No.", DayOfWeek::Monday.AsInteger(), DayOfWeek::Sunday.AsInteger()));
             DayOfWeek::Weekday:
                 exit(FindDayInMonth(LastOccurrence, RecurrenceSchedule."Ordinal Recurrence No.", DayOfWeek::Monday.AsInteger(), DayOfWeek::Friday.AsInteger()));
-            DayOfWeek::"Weekend Day":
+            DayOfWeek::"Weekend day":
                 exit(FindDayInMonth(LastOccurrence, RecurrenceSchedule."Ordinal Recurrence No.", DayOfWeek::Saturday.AsInteger(), DayOfWeek::Sunday.AsInteger()))
             else
                 exit(FindDayInMonth(LastOccurrence, RecurrenceSchedule."Ordinal Recurrence No.",
@@ -227,15 +223,15 @@ codeunit 4691 "Recurrence Schedule Impl."
     local procedure CalculateYearly(RecurrenceSchedule: Record "Recurrence Schedule"; LastOccurrence: Date): Date
     var
         MonthlyPattern: Enum "Recurrence - Monthly Pattern";
-        WeekdayDateFormulaTxt: Label '<-CM+%1Y>', Comment = '%1 - Number of years', Locked = true;
+        WeekdayDateFormulaTxt: Label '<-CM+%1Y>', comment = '%1 - Number of years', Locked = true;
         SpecificDateDateFormulaTxt: Label '<-CM+%1Y+%2D>', Comment = '%1 - Number of years, %2 - Number of days', Locked = true;
     begin
         if LastOccurrence = 0D then
             case RecurrenceSchedule."Monthly Pattern" of
                 MonthlyPattern::"By Weekday":
-                    exit(CalculateMonthlyByWeekDay(RecurrenceSchedule, DMY2Date(1, RecurrenceSchedule.Month.AsInteger(), Date2DMY(RecurrenceSchedule."Start Date", 3))));
+                    exit(CalculateMonthlyByWeekDay(RecurrenceSchedule, DMY2DATE(1, RecurrenceSchedule.Month.AsInteger(), Date2DMY(RecurrenceSchedule."Start Date", 3))));
                 MonthlyPattern::"Specific Day":
-                    exit(DMY2Date(RecurrenceSchedule."Recurs on Day", RecurrenceSchedule.Month.AsInteger(), Date2DMY(RecurrenceSchedule."Start Date", 3)));
+                    exit(DMY2DATE(RecurrenceSchedule."Recurs on Day", RecurrenceSchedule.Month.AsInteger(), Date2DMY(RecurrenceSchedule."Start Date", 3)));
             end;
 
         case RecurrenceSchedule."Monthly Pattern" of
@@ -249,7 +245,7 @@ codeunit 4691 "Recurrence Schedule Impl."
     local procedure CheckForEndDateTime(RecurrenceSchedule: Record "Recurrence Schedule"; PlannedDateTime: DateTime): DateTime
     begin
         if RecurrenceSchedule."End Date" <> 0D then
-            if PlannedDateTime > CreateDateTime(RecurrenceSchedule."End Date", RecurrenceSchedule."Start Time") then
+            if PlannedDateTime > CREATEDATETIME(RecurrenceSchedule."End Date", RecurrenceSchedule."Start Time") then
                 exit(0DT);
 
         exit(PlannedDateTime);
@@ -383,7 +379,7 @@ codeunit 4691 "Recurrence Schedule Impl."
             else
 #pragma warning disable AA0214
                 RecurrenceSchedule.Modify(true);
-#pragma warning restore
+#pragma warning restore            
             RecurrenceID := RecurrenceSchedule.ID;
             exit;
         end;

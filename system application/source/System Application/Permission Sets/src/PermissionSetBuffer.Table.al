@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System.Apps;
-
 /// <summary>
 /// Buffer table for a permission set.
 /// </summary>
@@ -40,13 +36,13 @@ table 9862 "PermissionSet Buffer"
         field(4; Name; Text[30])
         {
             Caption = 'Name';
-            DataClassification = SystemMetadata;
+            CalcFormula = Lookup("Aggregate Permission Set".Name Where("Role ID" = Field("Role ID")));
+            FieldClass = FlowField;
         }
         field(5; "App Name"; Text[250])
         {
             Caption = 'App Name';
-            CalcFormula = lookup("Published Application".Name where(ID = field("App ID"), "Tenant Visible" = const(true)));
-            FieldClass = FlowField;
+            DataClassification = SystemMetadata;
         }
         field(6; Type; Option)
         {

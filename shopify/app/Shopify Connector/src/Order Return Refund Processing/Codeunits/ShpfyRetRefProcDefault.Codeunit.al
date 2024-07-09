@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.Document;
-
 codeunit 30244 "Shpfy RetRefProc Default" implements "Shpfy IReturnRefund Process"
 {
 

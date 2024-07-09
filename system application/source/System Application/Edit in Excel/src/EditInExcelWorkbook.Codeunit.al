@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Excel;
-
 /// <summary>
 /// This codeunit provides an interface to create workbooks using the Excel Add-in.
 /// </summary>

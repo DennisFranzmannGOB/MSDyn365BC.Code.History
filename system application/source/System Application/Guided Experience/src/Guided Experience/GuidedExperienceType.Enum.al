@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
 enum 1990 "Guided Experience Type"
 {
     Caption = 'Guided Experience Type';
@@ -18,7 +16,7 @@ enum 1990 "Guided Experience Type"
     {
         Caption = 'Manual Setup', Locked = true;
     }
-    value(2; Learn)
+    value(2; "Learn")
     {
         Caption = 'Learn', Locked = true;
     }

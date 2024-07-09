@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
-using System.Security.AccessControl;
-
 codeunit 1758 "Data Privacy Entities Mgt."
 {
     Access = Internal;
@@ -27,7 +23,7 @@ codeunit 1758 "Data Privacy Entities Mgt."
         if TempDataPrivacyEntities.FindSet() then
             repeat
                 RecordRef.Open(TempDataPrivacyEntities."Table No.");
-                if (not RecordRef.IsEmpty()) and (TempDataPrivacyEntities."Table No." <> Database::User) then
+                if (not RecordRef.IsEmpty()) and (TempDataPrivacyEntities."Table No." <> DATABASE::User) then
                     exit(true);
                 RecordRef.Close();
             until TempDataPrivacyEntities.Next() = 0;
@@ -38,7 +34,7 @@ codeunit 1758 "Data Privacy Entities Mgt."
         DataClassificationMgt: Codeunit "Data Classification Mgt.";
     begin
         if not DataPrivacyEntities.IsTemporary() then
-            Error('Please call this function with a temporary record.');
+            error('Please call this function with a temporary record.');
 
         DataClassificationMgt.OnGetDataPrivacyEntities(DataPrivacyEntities);
     end;

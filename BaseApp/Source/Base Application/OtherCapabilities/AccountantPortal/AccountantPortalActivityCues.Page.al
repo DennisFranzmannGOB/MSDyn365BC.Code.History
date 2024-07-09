@@ -1,12 +1,3 @@
-namespace Microsoft.AccountantPortal;
-
-using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Foundation.Company;
-using Microsoft.RoleCenters;
-using System.Visualization;
-using System.Automation;
-using System.Text;
-
 page 1314 "AccountantPortal Activity Cues"
 {
     Caption = 'AccountantPortal Activity Cues';
@@ -339,15 +330,15 @@ page 1314 "AccountantPortal Activity Cues"
 
     trigger OnOpenPage()
     begin
-        Rec.Reset();
-        if not Rec.Get() then begin
-            Rec.Init();
-            Rec.Insert();
+        Reset();
+        if not Get() then begin
+            Init();
+            Insert();
             Commit();
         end;
-        Rec.SetFilter("Due Date Filter", '>=%1', Today);
-        Rec.SetFilter("Due Next Week Filter", '%1..%2', CalcDate('<1D>', Today), CalcDate('<1W>', Today));
-        Rec.SetFilter("Overdue Date Filter", '<%1', Today);
+        SetFilter("Due Date Filter", '>=%1', Today);
+        SetFilter("Due Next Week Filter", '%1..%2', CalcDate('<1D>', Today), CalcDate('<1W>', Today));
+        SetFilter("Overdue Date Filter", '<%1', Today);
     end;
 
     var
@@ -412,94 +403,94 @@ page 1314 "AccountantPortal Activity Cues"
         if GeneralLedgerSetup.Get() then
             CurrencySymbol := GeneralLedgerSetup.GetCurrencySymbol();
 
-        Rec."Overdue Purch. Invoice Amount" := ActivitiesMgt.CalcOverduePurchaseInvoiceAmount(true);
-        OverduePurchInvoiceAmountDecimal := Rec."Overdue Purch. Invoice Amount";
-        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString(Rec."Overdue Purch. Invoice Amount");
+        "Overdue Purch. Invoice Amount" := ActivitiesMgt.CalcOverduePurchaseInvoiceAmount(true);
+        OverduePurchInvoiceAmountDecimal := "Overdue Purch. Invoice Amount";
+        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString("Overdue Purch. Invoice Amount");
         TempString := CopyStr(UnlimitedTempString, 1, 250);
         OverduePurchInvoiceAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Overdue Purch. Invoice Amount"), Rec."Overdue Purch. Invoice Amount", OverduePurchInvoiceStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Overdue Purch. Invoice Amount"), "Overdue Purch. Invoice Amount", OverduePurchInvoiceStyle);
 
-        Rec."Overdue Sales Invoice Amount" := ActivitiesMgt.CalcOverdueSalesInvoiceAmount(true);
-        OverdueSalesInvoiceAmountDecimal := Rec."Overdue Sales Invoice Amount";
-        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString(Rec."Overdue Sales Invoice Amount");
+        "Overdue Sales Invoice Amount" := ActivitiesMgt.CalcOverdueSalesInvoiceAmount(true);
+        OverdueSalesInvoiceAmountDecimal := "Overdue Sales Invoice Amount";
+        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString("Overdue Sales Invoice Amount");
         TempString := CopyStr(UnlimitedTempString, 1, 250);
         OverdueSalesInvoiceAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Overdue Sales Invoice Amount"), Rec."Overdue Sales Invoice Amount", OverdueSalesInvoiceStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Overdue Sales Invoice Amount"), "Overdue Sales Invoice Amount", OverdueSalesInvoiceStyle);
 
-        Rec.CalcFields("Non-Applied Payments");
-        TempString := Format(Rec."Non-Applied Payments");
+        CalcFields("Non-Applied Payments");
+        TempString := Format("Non-Applied Payments");
         NonAppliedPaymentsAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Non-Applied Payments"), Rec."Non-Applied Payments", NonAppliedPaymentsStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Non-Applied Payments"), "Non-Applied Payments", NonAppliedPaymentsStyle);
 
-        Rec.CalcFields("Purch. Invoices Due Next Week");
-        TempString := Format(Rec."Purch. Invoices Due Next Week");
+        CalcFields("Purch. Invoices Due Next Week");
+        TempString := Format("Purch. Invoices Due Next Week");
         PurchInvoicesDueNextWeekAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Purch. Invoices Due Next Week"), Rec."Purch. Invoices Due Next Week", PurchInvoicesDueNextWeekStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Purch. Invoices Due Next Week"), "Purch. Invoices Due Next Week", PurchInvoicesDueNextWeekStyle);
 
-        Rec.CalcFields("Sales Invoices Due Next Week");
-        TempString := Format(Rec."Sales Invoices Due Next Week");
+        CalcFields("Sales Invoices Due Next Week");
+        TempString := Format("Sales Invoices Due Next Week");
         SalesInvoicesDueNextWeekAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Sales Invoices Due Next Week"), Rec."Sales Invoices Due Next Week", SalesInvoicesDueNextWeekStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Sales Invoices Due Next Week"), "Sales Invoices Due Next Week", SalesInvoicesDueNextWeekStyle);
 
-        Rec.CalcFields("Ongoing Purchase Invoices");
-        TempString := Format(Rec."Ongoing Purchase Invoices");
+        CalcFields("Ongoing Purchase Invoices");
+        TempString := Format("Ongoing Purchase Invoices");
         OngoingPurchaseInvoicesAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Ongoing Purchase Invoices"), Rec."Ongoing Purchase Invoices", OngoingPurchaseInvoicesStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Ongoing Purchase Invoices"), "Ongoing Purchase Invoices", OngoingPurchaseInvoicesStyle);
 
-        Rec.CalcFields("Ongoing Sales Invoices");
-        TempString := Format(Rec."Ongoing Sales Invoices");
+        CalcFields("Ongoing Sales Invoices");
+        TempString := Format("Ongoing Sales Invoices");
         OngoingSalesInvoicesAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Ongoing Sales Invoices"), Rec."Ongoing Sales Invoices", OngoingSalesInvoicesStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Ongoing Sales Invoices"), "Ongoing Sales Invoices", OngoingSalesInvoicesStyle);
 
-        Rec."Sales This Month" := ActivitiesMgt.CalcSalesThisMonthAmount(true);
-        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString(Rec."Sales This Month");
+        "Sales This Month" := ActivitiesMgt.CalcSalesThisMonthAmount(true);
+        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString("Sales This Month");
         TempString := CopyStr(UnlimitedTempString, 1, 250);
         SalesThisMonthAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Sales This Month"), Rec."Sales This Month", SalesThisMonthStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Sales This Month"), "Sales This Month", SalesThisMonthStyle);
 
-        Rec."Top 10 Customer Sales YTD" := ActivitiesMgt.CalcTop10CustomerSalesYTD();
-        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString(Rec."Top 10 Customer Sales YTD");
+        "Top 10 Customer Sales YTD" := ActivitiesMgt.CalcTop10CustomerSalesYTD();
+        UnlimitedTempString := AcctWebServicesMgt.FormatAmountString("Top 10 Customer Sales YTD");
         TempString := CopyStr(UnlimitedTempString, 1, 250);
         Top10CustomerSalesYTDAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Top 10 Customer Sales YTD"), Rec."Top 10 Customer Sales YTD", Top10CustomerSalesYTDStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Top 10 Customer Sales YTD"), "Top 10 Customer Sales YTD", Top10CustomerSalesYTDStyle);
 
-        Rec."Average Collection Days" := ActivitiesMgt.CalcAverageCollectionDays();
-        TempString := Format(Rec."Average Collection Days");
+        "Average Collection Days" := ActivitiesMgt.CalcAverageCollectionDays();
+        TempString := Format("Average Collection Days");
         AverageCollectionDaysAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Average Collection Days"), Rec."Average Collection Days", AverageCollectionDaysStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Average Collection Days"), "Average Collection Days", AverageCollectionDaysStyle);
 
-        Rec.CalcFields("Ongoing Sales Quotes");
-        TempString := Format(Rec."Ongoing Sales Quotes");
+        CalcFields("Ongoing Sales Quotes");
+        TempString := Format("Ongoing Sales Quotes");
         OngoingSalesQuotesAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Ongoing Sales Quotes"), Rec."Ongoing Sales Quotes", OngoingSalesQuotesStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Ongoing Sales Quotes"), "Ongoing Sales Quotes", OngoingSalesQuotesStyle);
 
-        Rec.CalcFields("Ongoing Sales Orders");
-        TempString := Format(Rec."Ongoing Sales Orders");
+        CalcFields("Ongoing Sales Orders");
+        TempString := Format("Ongoing Sales Orders");
         OngoingSalesOrdersAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Ongoing Sales Orders"), Rec."Ongoing Sales Orders", OngoingSalesOrdersStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Ongoing Sales Orders"), "Ongoing Sales Orders", OngoingSalesOrdersStyle);
 
-        Rec.CalcFields("Purchase Orders");
-        TempString := Format(Rec."Purchase Orders");
+        CalcFields("Purchase Orders");
+        TempString := Format("Purchase Orders");
         PurchaseOrdersAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Purchase Orders"), Rec."Purchase Orders", PurchaseOrdersStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Purchase Orders"), "Purchase Orders", PurchaseOrdersStyle);
 
-        Rec.CalcFields("Sales Inv. - Pending Doc.Exch.");
-        TempString := Format(Rec."Sales Inv. - Pending Doc.Exch.");
+        CalcFields("Sales Inv. - Pending Doc.Exch.");
+        TempString := Format("Sales Inv. - Pending Doc.Exch.");
         SalesInvPendDocExchangeAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Sales Inv. - Pending Doc.Exch."), Rec."Sales Inv. - Pending Doc.Exch.", SalesInvPendDocExchangeStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Sales Inv. - Pending Doc.Exch."), "Sales Inv. - Pending Doc.Exch.", SalesInvPendDocExchangeStyle);
 
-        Rec.CalcFields("Sales CrM. - Pending Doc.Exch.");
-        TempString := Format(Rec."Sales CrM. - Pending Doc.Exch.");
+        CalcFields("Sales CrM. - Pending Doc.Exch.");
+        TempString := Format("Sales CrM. - Pending Doc.Exch.");
         SalesCrMPendDocExchangeAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Sales CrM. - Pending Doc.Exch."), Rec."Sales CrM. - Pending Doc.Exch.", SalesCrMPendDocExchangeStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Sales CrM. - Pending Doc.Exch."), "Sales CrM. - Pending Doc.Exch.", SalesCrMPendDocExchangeStyle);
 
-        Rec.CalcFields("My Incoming Documents");
-        TempString := Format(Rec."My Incoming Documents");
+        CalcFields("My Incoming Documents");
+        TempString := Format("My Incoming Documents");
         MyIncomingDocumentsAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
-        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("My Incoming Documents"), Rec."My Incoming Documents", MyIncomingDocumentsStyle);
+        CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("My Incoming Documents"), "My Incoming Documents", MyIncomingDocumentsStyle);
 
-        Rec.CalcFields("Inc. Doc. Awaiting Verfication");
-        TempString := Format(Rec."Inc. Doc. Awaiting Verfication");
+        CalcFields("Inc. Doc. Awaiting Verfication");
+        TempString := Format("Inc. Doc. Awaiting Verfication");
         IncDocAwaitingVerifAmount := StringConversionManagement.GetPaddedString(TempString, 30, ' ', Justification::Right);
         CuesAndKpis.SetCueStyle(Database::"Activities Cue", ActivitiesCue.FieldNo("Inc. Doc. Awaiting Verfication"), Rec."Inc. Doc. Awaiting Verfication", IncDocAwaitingVerifStyle);
 

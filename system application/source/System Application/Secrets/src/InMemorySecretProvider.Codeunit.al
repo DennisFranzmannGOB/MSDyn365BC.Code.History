@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security;
-
 /// <summary>
 /// An in-memory secret provider that can be populated with secrets from any source.
 /// </summary>

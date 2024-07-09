@@ -1785,13 +1785,6 @@ codeunit 137104 "SCM Kitting ATS in Whse/IT BM"
             Reply := true;
     end;
 
-    [ConfirmHandler]
-    [Scope('OnPrem')]
-    procedure ConfirmCloseWithQtyZero(Question: Text[1024]; var Reply: Boolean)
-    begin
-        Reply := true;
-    end;
-
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure PostBatchHandler(var PostBatchForm: TestRequestPage "Batch Post Assembly Orders")
@@ -2039,7 +2032,7 @@ codeunit 137104 "SCM Kitting ATS in Whse/IT BM"
     end;
 
     [Test]
-    [HandlerFunctions('HNDL_ITPage,HNDL_EnterQty,HNLD_ItemTrackingSummary,ConfirmCloseWithQtyZero')]
+    [HandlerFunctions('HNDL_ITPage,HNDL_EnterQty,HNLD_ItemTrackingSummary')]
     [Scope('OnPrem')]
     procedure ITPostFullPartITS()
     begin
@@ -2246,7 +2239,7 @@ codeunit 137104 "SCM Kitting ATS in Whse/IT BM"
     end;
 
     [Test]
-    [HandlerFunctions('HNDL_ITPage,HNDL_EnterQty,HNLD_ItemTrackingSummary,ConfirmCloseWithQtyZero')]
+    [HandlerFunctions('HNDL_ITPage,HNDL_EnterQty,HNLD_ItemTrackingSummary')]
     [Scope('OnPrem')]
     procedure ITPostFullPartITLS()
     begin

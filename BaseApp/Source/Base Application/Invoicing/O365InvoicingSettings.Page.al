@@ -21,7 +21,7 @@ page 2191 "O365 Invoicing Settings"
             repeater(Control2)
             {
                 ShowCaption = false;
-                field(Title; Rec.Title)
+                field(Title; Title)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                 }
@@ -50,7 +50,7 @@ page 2191 "O365 Invoicing Settings"
 
                 trigger OnAction()
                 begin
-                    Rec.OpenPage();
+                    OpenPage();
                 end;
             }
         }
@@ -77,27 +77,27 @@ page 2191 "O365 Invoicing Settings"
 
     local procedure InsertMenuItems()
     begin
-        Rec.InsertPageMenuItem(
+        InsertPageMenuItem(
           PAGE::"O365 Business Info Settings",
           BusinessInformationTitleTxt,
           BusinessInformationDescriptionTxt);
-        Rec.InsertPageMenuItem(
+        InsertPageMenuItem(
           PAGE::"O365 Invoice Send Settings",
           InvoiceSendOptionsTitleTxt,
           InvoiceSendOptionsDescriptionTxt);
-        Rec.InsertPageMenuItem(
+        InsertPageMenuItem(
           PAGE::"O365 Tax Payments Settings",
           TaxPaymentsSettingsTitleTxt,
           TaxPaymentsSettingsDescriptionTxt);
-        Rec.InsertPageMenuItem(
+        InsertPageMenuItem(
           PAGE::"VAT Registration Config",
           ServicesTitleTxt,
           ServicesDescriptionTxt);
-        Rec.InsertPageMenuItem(
+        InsertPageMenuItem(
           PAGE::"O365 Import Export Settings",
           ImportExportTitleTxt,
           ImportExportDescriptionTxt);
-        Rec.InsertPageMenuItem(
+        InsertPageMenuItem(
           PAGE::"O365 Help Feedback Settings",
           HelpAndFeedbackTitleTxt,
           HelpAndFeedbackDesriptionTxt);

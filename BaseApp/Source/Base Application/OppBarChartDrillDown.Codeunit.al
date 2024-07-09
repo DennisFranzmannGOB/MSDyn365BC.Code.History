@@ -4,9 +4,9 @@ codeunit 5050 "Opp. Bar Chart DrillDown"
 
     trigger OnRun()
     begin
-        if Rec.Tag = '' then
+        if Tag = '' then
             Error(Text000);
-        OpportunityEntry.SetView(Rec.Tag);
+        OpportunityEntry.SetView(Tag);
         OpportunityEntry.SetRange(Active, true);
         if OpportunityEntry.Find('-') then
             repeat

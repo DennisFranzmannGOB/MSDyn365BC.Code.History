@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Storage;
-
-using System;
-using System.Utilities;
-using System.Text;
-
 codeunit 9044 "ABS Format Helper"
 {
     Access = Internal;
@@ -63,14 +57,14 @@ codeunit 9044 "ABS Format Helper"
         "Value": Text;
     begin
         "Value" := 'Committed';
-        if OverwriteValueToLatest then
+        If OverwriteValueToLatest then
             "Value" := 'Latest';
         Keys := CommitedBlocks.Keys;
         foreach "Key" in Keys do
             BlockList.Add("Key", "Value");
 
         "Value" := 'Uncommitted';
-        if OverwriteValueToLatest then
+        If OverwriteValueToLatest then
             "Value" := 'Latest';
         Keys := UncommitedBlocks.Keys;
         foreach "Key" in Keys do
@@ -161,7 +155,7 @@ codeunit 9044 "ABS Format Helper"
     [NonDebuggable]
     procedure TagsDictionaryToSearchExpression(Tags: Dictionary of [Text, Text]): Text
     var
-        UriHelper: Codeunit Uri;
+        UriHelper: Codeunit "Uri";
         Keys: List of [Text];
         "Key": Text;
         SingleQuoteChar: Char;

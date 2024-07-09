@@ -1,5 +1,3 @@
-namespace Microsoft.Finance.Analysis.StatisticalAccount;
-
 codeunit 2626 "Stat. Acc. Post. Batch"
 {
     TableNo = "Statistical Acc. Journal Line";

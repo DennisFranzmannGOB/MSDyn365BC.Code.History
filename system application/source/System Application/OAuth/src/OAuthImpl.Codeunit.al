@@ -2,11 +2,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Security.Authentication;
-
-using System;
-
 codeunit 1289 "OAuth Impl."
 {
     Access = Internal;

@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.Encryption;
-
 codeunit 1468 "TripleDESCryptoSvcProv. Impl." implements SymmetricAlgorithm
 {
     Access = Internal;
@@ -12,7 +10,7 @@ codeunit 1468 "TripleDESCryptoSvcProv. Impl." implements SymmetricAlgorithm
     InherentPermissions = X;
 
     var
-        DotNetTripleDESCryptoServiceProvider: DotNet "Cryptography.TripleDESCryptoServiceProvider";
+        DotNetTripleDESCryptoServiceProvider: Dotnet "Cryptography.TripleDESCryptoServiceProvider";
         XmlEncrypmentMethodUrlTok: Label 'http://www.w3.org/2001/04/xmlenc#tripledes-cbc', Locked = true;
 
     [NonDebuggable]

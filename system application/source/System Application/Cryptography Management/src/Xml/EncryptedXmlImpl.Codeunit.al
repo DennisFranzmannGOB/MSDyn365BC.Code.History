@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.Encryption;
-
-using System;
-
 codeunit 1466 "EncryptedXml Impl."
 {
     Access = Internal;
@@ -69,7 +65,7 @@ codeunit 1466 "EncryptedXml Impl."
         DotNetSymmetricAlgorithm: DotNet "Cryptography.SymmetricAlgorithm";
         DotNetX509Certificate2: DotNet X509Certificate2;
         DotNetCipherData: DotNet CipherData;
-        DotNetRSA: DotNet RSA;
+        DotNetRSA: Dotnet RSA;
         DotNetKeyInfo: DotNet KeyInfo;
         DotNetKeyInfoX509Data: DotNet KeyInfoX509Data;
         DotNetKeyInfoEncryptedKey: DotNet KeyInfoEncryptedKey;
@@ -210,14 +206,14 @@ codeunit 1466 "EncryptedXml Impl."
     end;
 
     [NonDebuggable]
-    procedure DecryptKey(EncryptedKey: XmlElement; EncryptionKey: Text; UseOAEP: Boolean; var KeyBase64Value: Text; SignatureAlgorithm: Enum SignatureAlgorithm): Boolean
+    procedure DecryptKey(EncryptedKey: XmlElement; EncryptionKey: Text; UseOAEP: Boolean; var KeyBase64Value: Text; SignatureAlgorithm: ENum SignatureAlgorithm): Boolean
     var
         XmlDocument: XmlDocument;
         XmlNamespaceManager: XmlNamespaceManager;
         CipherValue: XmlNode;
         DotNetEncryptedXml: DotNet EncryptedXml;
         DotNetCipherBytes, DotNetKeyBytes : DotNet Array;
-        DotNetConvert: DotNet Convert;
+        DotNetConvert: Dotnet Convert;
         DotNetAsymmetricAlgorithm: DotNet AsymmetricAlgorithm;
         SignatureAlgorithmInterface: Interface SignatureAlgorithm;
     begin

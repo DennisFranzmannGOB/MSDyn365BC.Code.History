@@ -6,9 +6,6 @@
 /// <summary>
 /// Shows the tables belonging to an archive
 /// </summary>
-
-namespace System.DataAdministration;
-
 page 632 "Data Archive Table ListPart"
 {
     ApplicationArea = All;

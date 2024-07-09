@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Identity;
-
-using System.Environment;
-
 /// <summary>
 /// Card page to show the permissions for a plan configuration.
 /// </summary>
@@ -24,7 +20,7 @@ page 9069 "Plan Configuration Card"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             grid(GeneralGrid)
             {

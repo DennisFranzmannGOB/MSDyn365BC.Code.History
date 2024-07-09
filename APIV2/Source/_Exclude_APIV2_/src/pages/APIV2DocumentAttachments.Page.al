@@ -1,11 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Foundation.Attachment;
-using Microsoft.Integration.Graph;
-using System.IO;
-using System.Utilities;
-using System.Reflection;
-
 page 30080 "APIV2 - Document Attachments"
 {
     APIVersion = 'v2.0';

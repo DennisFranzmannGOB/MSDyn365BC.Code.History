@@ -4,12 +4,15 @@ codeunit 132225 "Library - Item Reference"
     // 
     // Contains all utility functions related to Item Reference.
 
+    EventSubscriberInstance = Manual;
+
     trigger OnRun()
     begin
     end;
 
     var
         LibraryUtility: Codeunit "Library - Utility";
+        LibraryItemReference: Codeunit "Library - Item Reference";
 
     procedure CreateItemReference(var ItemReference: Record "Item Reference"; ItemNo: Code[20]; ReferenceType: Enum "Item Reference Type"; ReferenceTypeNo: Code[20])
     begin
@@ -30,6 +33,7 @@ codeunit 132225 "Library - Item Reference"
         ItemReference.Insert(true);
     end;
 
+    [Scope('OnPrem')]
     procedure CreateItemReferenceWithNo(var ItemReference: Record "Item Reference"; ItemRefNo: Code[50]; ItemNo: Code[20]; ItemRefType: Enum "Item Reference Type"; ItemRefTypeNo: Code[20])
     begin
         ItemReference.Init();
@@ -40,21 +44,17 @@ codeunit 132225 "Library - Item Reference"
         ItemReference.Insert(true);
     end;
 
-    procedure CreateItemReferenceWithNoAndDates(var ItemReference: Record "Item Reference"; ItemRefNo: Code[50]; ItemNo: Code[20]; ItemRefType: Enum "Item Reference Type"; ItemRefTypeNo: Code[20]; StartingDate: Date; EndingDate: Date)
-    begin
-        CreateItemReferenceWithNo(ItemReference, ItemRefNo, ItemNo, ItemRefType, ItemRefTypeNo);
-        ItemReference.Validate("Starting Date", StartingDate);
-        ItemReference.Validate("Ending Date", EndingDate);
-        ItemReference.Modify(true);
-    end;
-
-    [Obsolete('Functionality is enabled permanently.', '23.0')]
     procedure EnableFeature(Bind: Boolean)
     begin
+        // turn on ItemReferenceMgt.IsEnable()
+        UnbindSubscription(LibraryItemReference);
+        if Bind then
+            BindSubscription(LibraryItemReference);
     end;
 
-    [Obsolete('Functionality is enabled permanently.', '23.0')]
     procedure DisableFeature()
     begin
+        // turn off ItemReferenceMgt.IsEnable()
+        UnbindSubscription(LibraryItemReference);
     end;
 }

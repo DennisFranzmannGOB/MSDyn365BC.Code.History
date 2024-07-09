@@ -3,15 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Visualization;
-
-using System.Reflection;
-using System.Environment;
-
 codeunit 9702 "Cues And KPIs Impl."
 {
-    Permissions = tabledata "Cue Setup" = rimd,
-                  tabledata Field = r;
+    Permissions = tabledata Field = r,
+                  tabledata "Cue Setup" = rimd;
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
@@ -30,7 +25,7 @@ codeunit 9702 "Cues And KPIs Impl."
         TempCueSetupRecord.FilterGroup(2);
         TempCueSetupRecord.SetRange("Table ID", TableId);
         TempCueSetupRecord.FilterGroup(0);
-        Page.RunModal(Page::"Cue Setup End User", TempCueSetupRecord);
+        PAGE.RunModal(PAGE::"Cue Setup End User", TempCueSetupRecord);
     end;
 
     procedure PopulateTempCueSetupRecords(var TempCueSetupPageSourceRec: Record "Cue Setup" temporary)
@@ -132,7 +127,7 @@ codeunit 9702 "Cues And KPIs Impl."
         CueStyle: Enum "Cues And KPIs Style";
         Resolved: Boolean;
     begin
-        CuesAndKPIs.OnBeforeGetCustomizedCueStyleOption(TableId, FieldNo, CueValue, CueStyle, Resolved);
+        CuesAndKPIs.OnBeforeGetCustomizedCueStyleOption(TableID, FieldNo, CueValue, CueStyle, Resolved);
 
         if Resolved then
             exit(CueStyle.AsInteger());

@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.Threading;
-
 page 30068 "APIV2 - Aut. Scheduled Jobs"
 {
     APIGroup = 'automation';
@@ -26,15 +22,15 @@ page 30068 "APIV2 - Aut. Scheduled Jobs"
         {
             repeater(GroupName)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                 }
-                field(category; Rec."Job Queue Category Code")
+                field(category; "Job Queue Category Code")
                 {
                     Caption = 'Category';
                 }
-                field(startDateTime; Rec."Start Date/Time")
+                field(startDateTime; "Start Date/Time")
                 {
                     Caption = 'Start Date/Time';
                 }
@@ -42,7 +38,7 @@ page 30068 "APIV2 - Aut. Scheduled Jobs"
                 {
                     Caption = 'Status';
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     Caption = 'Description';
                 }
@@ -59,8 +55,8 @@ page 30068 "APIV2 - Aut. Scheduled Jobs"
         JobQueueCategoryCodeFilter: Text;
         SystemIdFilter: Text;
     begin
-        JobQueueCategoryCodeFilter := Rec.GetFilter("Job Queue Category Code");
-        SystemIdFilter := Rec.GetFilter(SystemId);
+        JobQueueCategoryCodeFilter := GetFilter("Job Queue Category Code");
+        SystemIdFilter := GetFilter(SystemId);
         if (JobQueueCategoryCodeFilter = '') and (SystemIdFilter = '') then
             Error(FiltersNotSpecifiedErr);
 

@@ -1,7 +1,3 @@
-namespace System.Email;
-
-using Microsoft.Foundation.Reporting;
-
 codeunit 8891 "Email Scenario Mapping"
 {
     Access = Public;
@@ -43,10 +39,10 @@ codeunit 8891 "Email Scenario Mapping"
             ReportSelectionUsage::"C.Statement":
                 exit(EmailScenario::"Customer Statement");
             else begin
-                EmailScenario := EmailScenario::Default;
-                OnAfterFromReportSelectionUsage(ReportSelectionUsage, EmailScenario);
-                exit(EmailScenario);
-            end;
+                    EmailScenario := EmailScenario::Default;
+                    OnAfterFromReportSelectionUsage(ReportSelectionUsage, EmailScenario);
+                    exit(EmailScenario);
+                end;
         end;
     end;
 

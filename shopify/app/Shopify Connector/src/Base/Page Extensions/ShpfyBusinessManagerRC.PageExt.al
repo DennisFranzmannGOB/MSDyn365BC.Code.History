@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Finance.RoleCenters;
-
 /// <summary>
 /// PageExtension Shpfy Business Manager RC (ID 30101) extends Record Business Manager Role Center.
 /// </summary>

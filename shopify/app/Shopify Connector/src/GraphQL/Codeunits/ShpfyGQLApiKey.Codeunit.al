@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy GQL ApiKey (ID 30126) implements Interface Shpfy IGarphQL.
 /// </summary>

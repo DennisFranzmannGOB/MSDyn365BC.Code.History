@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestTools.TestRunner;
-
 table 130451 "AL Test Suite"
 {
     DataCaptionFields = Name, Description;
@@ -25,27 +23,27 @@ table 130451 "AL Test Suite"
         }
         field(3; "Tests to Execute"; Integer)
         {
-            CalcFormula = count("Test Method Line" where("Test Suite" = field(Name),
-                                                          "Line Type" = const(Function),
-                                                          Run = const(true)));
+            CalcFormula = Count("Test Method Line" WHERE("Test Suite" = FIELD(Name),
+                                                          "Line Type" = CONST(Function),
+                                                          Run = CONST(true)));
             Editable = false;
             FieldClass = FlowField;
         }
         field(4; "Tests not Executed"; Integer)
         {
-            CalcFormula = count("Test Method Line" where("Test Suite" = field(Name),
-                                                          "Line Type" = const(Function),
-                                                          Run = const(true),
-                                                          Result = const(" ")));
+            CalcFormula = Count("Test Method Line" WHERE("Test Suite" = FIELD(Name),
+                                                          "Line Type" = CONST(Function),
+                                                          Run = CONST(true),
+                                                          Result = CONST(" ")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(5; Failures; Integer)
         {
-            CalcFormula = count("Test Method Line" where("Test Suite" = field(Name),
-                                                          "Line Type" = const(Function),
-                                                          Run = const(true),
-                                                          Result = const(Failure)));
+            CalcFormula = Count("Test Method Line" WHERE("Test Suite" = FIELD(Name),
+                                                          "Line Type" = CONST(Function),
+                                                          Run = CONST(true),
+                                                          Result = CONST(Failure)));
             Editable = false;
             FieldClass = FlowField;
         }

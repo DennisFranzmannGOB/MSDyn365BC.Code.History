@@ -1,8 +1,3 @@
-namespace System.Environment;
-
-using System;
-using System.Visualization;
-
 page 1392 "Help And Chart Wrapper"
 {
     Caption = 'Business Performance';
@@ -20,7 +15,7 @@ page 1392 "Help And Chart Wrapper"
                 Editable = false;
                 ShowCaption = false;
                 Style = StrongAccent;
-                StyleExpr = true;
+                StyleExpr = TRUE;
                 ToolTip = 'Specifies the status of the resource, such as Completed.';
             }
             usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
@@ -220,8 +215,9 @@ page 1392 "Help And Chart Wrapper"
     trigger OnOpenPage()
     var
         LastUsedChart: Record "Last Used Chart";
+        EnvironmentInfo: Codeunit "Environment Information";
     begin
-        BusinessChartBuffer.Initialize();
+        IsSaaS := EnvironmentInfo.IsSaaS();
         if LastUsedChart.Get(UserId) then
             if SelectedChartDefinition.Get(LastUsedChart."Code Unit ID", LastUsedChart."Chart Name") then;
 
@@ -234,23 +230,17 @@ page 1392 "Help And Chart Wrapper"
         ChartManagement: Codeunit "Chart Management";
         StatusText: Text;
         Period: Option " ",Next,Previous;
+        [InDataSet]
         PreviousNextActionEnabled: Boolean;
         NoDescriptionMsg: Label 'A description was not specified for this chart.';
         IsChartAddInReady: Boolean;
+        IsSaaS: Boolean;
 
     local procedure InitializeSelectedChart()
-    var
-        ErrorText: Text;
     begin
         OnBeforeInitializeSelectedChart(SelectedChartDefinition);
         ChartManagement.SetDefaultPeriodLength(SelectedChartDefinition, BusinessChartBuffer);
-        BindSubscription(ChartManagement);
-        if not ChartManagement.UpdateChartSafe(SelectedChartDefinition, BusinessChartBuffer, Period::" ", ErrorText) then begin
-            UnbindSubscription(ChartManagement);
-            StatusText := ErrorText;
-            exit;
-        end;
-        UnbindSubscription(ChartManagement);
+        ChartManagement.UpdateChart(SelectedChartDefinition, BusinessChartBuffer, Period::" ");
         PreviousNextActionEnabled := ChartManagement.UpdateNextPrevious(SelectedChartDefinition);
         ChartManagement.UpdateStatusText(SelectedChartDefinition, BusinessChartBuffer, StatusText);
         UpdateChart();

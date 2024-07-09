@@ -70,6 +70,7 @@ page 130011 "Tainted Tables"
 
     var
         SnapshotMgt: Codeunit "Snapshot Management";
+        [InDataSet]
         Modified: Boolean;
 
     [Scope('OnPrem')]

@@ -10,8 +10,8 @@ codeunit 2162 "O365 Sales Invoice Events"
     trigger OnRun()
     begin
         if not IsInvoicing() then begin
-            Rec.Result := NotInvoicingErr;
-            Rec.State := Rec.State::Failed;
+            Result := NotInvoicingErr;
+            State := State::Failed;
             exit;
         end;
 

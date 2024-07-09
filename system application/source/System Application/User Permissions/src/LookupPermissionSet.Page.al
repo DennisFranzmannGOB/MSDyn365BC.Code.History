@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 /// <summary>
 /// Look up page for selecting a permission set.
 /// </summary>
@@ -18,11 +16,11 @@ page 9854 "Lookup Permission Set"
     PageType = List;
     SourceTable = "Aggregate Permission Set";
     SourceTableView = sorting(Scope, "Role ID", "App ID")
-                      order(ascending);
+                      order(Ascending);
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
@@ -32,7 +30,7 @@ page 9854 "Lookup Permission Set"
                     ApplicationArea = All;
                     ToolTip = 'Specifies a permission set that defines the role.';
                 }
-                field(Name; Rec.Name)
+                field(Name; Name)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the name of the permission set.';
@@ -78,5 +76,4 @@ page 9854 "Lookup Permission Set"
     var
         SelectedRecord: Record "Aggregate Permission Set";
 }
-
 

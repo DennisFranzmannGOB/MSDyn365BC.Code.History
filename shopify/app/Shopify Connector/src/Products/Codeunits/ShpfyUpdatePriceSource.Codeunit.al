@@ -1,8 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Pricing.Source;
-using Microsoft.Sales.Customer;
-
 codeunit 30272 "Shpfy Update Price Source"
 {
     Access = Internal;

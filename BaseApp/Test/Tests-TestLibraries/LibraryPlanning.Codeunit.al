@@ -41,10 +41,10 @@ codeunit 132203 "Library - Planning"
 
     procedure CalculateLowLevelCode()
     var
-        LowLevelCodeCalculator: Codeunit "Low-Level Code Calculator";
+        CalcLowLevelCode: Codeunit "Calc. Low-level code";
     begin
-        Clear(LowLevelCodeCalculator);
-        LowLevelCodeCalculator.Run();
+        Clear(CalcLowLevelCode);
+        CalcLowLevelCode.Run();
     end;
 
     procedure CalculateOrderPlanProduction(var RequisitionLine: Record "Requisition Line")

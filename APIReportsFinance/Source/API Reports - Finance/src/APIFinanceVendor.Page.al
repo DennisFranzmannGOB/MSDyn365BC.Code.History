@@ -1,7 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using Microsoft.Purchases.Vendor;
-
 #pragma implicitwith disable
 page 30308 "API Finance - Vendor"
 {

@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Page Shpfy Gift Cards (ID 30110).
 /// </summary>
@@ -10,7 +8,7 @@ page 30110 "Shpfy Gift Cards"
     Caption = 'Shopify Gift Cards';
     PageType = List;
     SourceTable = "Shpfy Gift Card";
-    UsageCategory = Lists;
+    UsageCategory = Documents;
     InsertAllowed = false;
     ModifyAllowed = false;
 

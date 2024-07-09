@@ -4,8 +4,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Text;
-
 permissionset 4110 "Base64 Convert - Objects"
 {
     Assignable = false;

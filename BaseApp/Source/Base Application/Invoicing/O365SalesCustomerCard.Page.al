@@ -2,7 +2,7 @@
 page 2107 "O365 Sales Customer Card"
 {
     Caption = 'Customer';
-    DataCaptionExpression = Rec.Name;
+    DataCaptionExpression = Name;
     PageType = Card;
     SourceTable = Customer;
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
@@ -30,7 +30,7 @@ page 2107 "O365 Sales Customer Card"
 
                     trigger OnValidate()
                     begin
-                        Rec.Validate("Prices Including VAT", Rec."Contact Type" = "Contact Type"::Person);
+                        Validate("Prices Including VAT", "Contact Type" = "Contact Type"::Person);
                     end;
                 }
                 field("E-Mail"; Rec."E-Mail")
@@ -46,7 +46,7 @@ page 2107 "O365 Sales Customer Card"
                     var
                         MailManagement: Codeunit "Mail Management";
                     begin
-                        MailManagement.ValidateEmailAddressField(Rec."E-Mail");
+                        MailManagement.ValidateEmailAddressField("E-Mail");
                     end;
                 }
                 field("Phone No."; Rec."Phone No.")
@@ -59,7 +59,7 @@ page 2107 "O365 Sales Customer Card"
                 group(Control17)
                 {
                     ShowCaption = false;
-                    Visible = Rec."Balance (LCY)" <> 0;
+                    Visible = "Balance (LCY)" <> 0;
                     field("Balance (LCY)"; Rec."Balance (LCY)")
                     {
                         ApplicationArea = Invoicing, Basic, Suite;
@@ -112,7 +112,7 @@ page 2107 "O365 Sales Customer Card"
                     group(Control13)
                     {
                         ShowCaption = false;
-                        Visible = (Rec."Contact Type" = Rec."Contact Type"::Company) AND IsUsingVAT;
+                        Visible = ("Contact Type" = "Contact Type"::Company) AND IsUsingVAT;
                         field("VAT Registration No."; Rec."VAT Registration No.")
                         {
                             ApplicationArea = Invoicing, Basic, Suite;
@@ -121,7 +121,7 @@ page 2107 "O365 Sales Customer Card"
                     group(Control23)
                     {
                         ShowCaption = false;
-                        Visible = (Rec."Contact Type" = Rec."Contact Type"::Person) AND IsAddressLookupAvailable AND CurrPageEditable;
+                        Visible = ("Contact Type" = "Contact Type"::Person) AND IsAddressLookupAvailable AND CurrPageEditable;
                         field(AddressLookup; AddressLookupLbl)
                         {
                             ApplicationArea = Invoicing, Basic, Suite;
@@ -144,7 +144,7 @@ page 2107 "O365 Sales Customer Card"
                             Commit();
                             TempStandardAddress.CopyFromCustomer(Rec);
                             if PAGE.RunModal(PAGE::"O365 Address", TempStandardAddress) = ACTION::LookupOK then begin
-                                Rec.Get(Rec."No.");
+                                Get("No.");
                                 FullAddress := TempStandardAddress.ToString();
                             end;
                         end;
@@ -174,7 +174,7 @@ page 2107 "O365 Sales Customer Card"
                         TaxArea: Record "Tax Area";
                     begin
                         if PAGE.RunModal(PAGE::"O365 Tax Area List", TaxArea) = ACTION::LookupOK then begin
-                            Rec.Validate("Tax Area Code", TaxArea.Code);
+                            Validate("Tax Area Code", TaxArea.Code);
                             TaxAreaDescription := TaxArea.GetDescriptionInCurrentLanguageFullLength();
                         end;
                     end;
@@ -195,7 +195,7 @@ page 2107 "O365 Sales Customer Card"
                         O365SalesDocument: Record "O365 Sales Document";
                     begin
                         O365SalesDocument.SetRange("Document Type", O365SalesDocument."Document Type"::Invoice);
-                        O365SalesDocument.SetRange("Sell-to Customer No.", Rec."No.");
+                        O365SalesDocument.SetRange("Sell-to Customer No.", "No.");
                         PAGE.Run(PAGE::"O365 Customer Sales Documents", O365SalesDocument);
                     end;
                 }
@@ -211,7 +211,7 @@ page 2107 "O365 Sales Customer Card"
                         O365SalesDocument: Record "O365 Sales Document";
                     begin
                         O365SalesDocument.SetRange("Document Type", O365SalesDocument."Document Type"::Quote);
-                        O365SalesDocument.SetRange("Sell-to Customer No.", Rec."No.");
+                        O365SalesDocument.SetRange("Sell-to Customer No.", "No.");
                         O365SalesDocument.SetRange(Posted, false);
                         PAGE.Run(PAGE::"O365 Customer Sales Documents", O365SalesDocument);
                     end;
@@ -236,7 +236,7 @@ page 2107 "O365 Sales Customer Card"
                 var
                     O365CustInvoiceDiscount: Page "O365 Cust. Invoice Discount";
                 begin
-                    O365CustInvoiceDiscount.FillO365CustInvDiscount(Rec."No.");
+                    O365CustInvoiceDiscount.FillO365CustInvDiscount("No.");
                     O365CustInvoiceDiscount.Run();
                 end;
             }
@@ -290,12 +290,12 @@ page 2107 "O365 Sales Customer Card"
         CreateCustomerFromTemplate();
         CurrPageEditable := CurrPage.Editable;
 
-        OverdueAmount := Rec.CalcOverdueBalance();
+        OverdueAmount := CalcOverdueBalance();
 
         TempStandardAddress.CopyFromCustomer(Rec);
         FullAddress := TempStandardAddress.ToString();
 
-        if TaxArea.Get(Rec."Tax Area Code") then
+        if TaxArea.Get("Tax Area Code") then
             TaxAreaDescription := TaxArea.GetDescriptionInCurrentLanguageFullLength();
 
         UpdateInvoicesLbl();
@@ -319,7 +319,7 @@ page 2107 "O365 Sales Customer Card"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        if Rec.Name = '' then
+        if Name = '' then
             CustomerCardState := CustomerCardState::Prompt
         else
             CustomerCardState := CustomerCardState::Keep;
@@ -329,7 +329,7 @@ page 2107 "O365 Sales Customer Card"
 
     trigger OnModifyRecord(): Boolean
     begin
-        if Rec.Name = '' then
+        if Name = '' then
             CustomerCardState := CustomerCardState::Prompt
         else
             CustomerCardState := CustomerCardState::Keep;
@@ -344,8 +344,8 @@ page 2107 "O365 Sales Customer Card"
 
     trigger OnOpenPage()
     begin
-        CurrPage.Editable := Rec.Blocked = Rec.Blocked::" ";
-        Rec.SetRange("Date Filter", 0D, WorkDate());
+        CurrPage.Editable := Blocked = Blocked::" ";
+        SetRange("Date Filter", 0D, WorkDate());
         DeviceContactProviderIsAvailable := DeviceContactProvider.IsAvailable();
     end;
 
@@ -381,13 +381,13 @@ page 2107 "O365 Sales Customer Card"
     var
         Response: Option ,KeepEditing,Discard;
     begin
-        if Rec."No." = '' then
+        if "No." = '' then
             exit(true);
 
         if CustomerCardState = CustomerCardState::Delete then
             exit(DeleteCustomerRelatedData());
 
-        if GuiAllowed and (CustomerCardState = CustomerCardState::Prompt) and (Rec.Blocked = Rec.Blocked::" ") then
+        if GuiAllowed and (CustomerCardState = CustomerCardState::Prompt) and (Blocked = Blocked::" ") then
             case StrMenu(ProcessNewCustomerOptionQst, Response::KeepEditing, ProcessNewCustomerInstructionTxt) of
                 Response::Discard:
                     exit(DeleteCustomerRelatedData());
@@ -403,7 +403,7 @@ page 2107 "O365 Sales Customer Card"
         CustContUpdate.DeleteCustomerContacts(Rec);
 
         // workaround for bug: delete for new empty record returns false
-        if Rec.Delete(true) then;
+        if Delete(true) then;
         exit(true);
     end;
 
@@ -422,7 +422,7 @@ page 2107 "O365 Sales Customer Card"
     begin
         if NewMode then begin
             if CustomerTemplMgt.InsertCustomerFromTemplate(Customer) then begin
-                Rec.Copy(Customer);
+                Copy(Customer);
                 CurrPage.Update();
             end;
             CustomerCardState := CustomerCardState::Delete;
@@ -436,11 +436,11 @@ page 2107 "O365 Sales Customer Card"
         SalesHeader: Record "Sales Header";
         NumberOfInvoices: Integer;
     begin
-        SalesHeader.SetRange("Sell-to Customer No.", Rec."No.");
+        SalesHeader.SetRange("Sell-to Customer No.", "No.");
         SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Invoice);
         NumberOfInvoices := SalesHeader.Count();
 
-        SalesInvoiceHeader.SetRange("Sell-to Customer No.", Rec."No.");
+        SalesInvoiceHeader.SetRange("Sell-to Customer No.", "No.");
         NumberOfInvoices := NumberOfInvoices + SalesInvoiceHeader.Count();
 
         InvoicesLabelText := StrSubstNo(InvoicesForCustomerLbl, NumberOfInvoices);
@@ -451,7 +451,7 @@ page 2107 "O365 Sales Customer Card"
         SalesHeader: Record "Sales Header";
         NumberOfEstimates: Integer;
     begin
-        SalesHeader.SetRange("Sell-to Customer No.", Rec."No.");
+        SalesHeader.SetRange("Sell-to Customer No.", "No.");
         SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Quote);
         NumberOfEstimates := SalesHeader.Count();
 
@@ -465,12 +465,12 @@ page 2107 "O365 Sales Customer Card"
 
         CreateCustomerFromTemplate();
 
-        Rec.Name := CopyStr(deviceContact.PreferredName, 1, MaxStrLen(Rec.Name));
-        Rec."E-Mail" := CopyStr(deviceContact.PreferredEmail, 1, MaxStrLen(Rec."E-Mail"));
-        Rec."Phone No." := CopyStr(deviceContact.PreferredPhoneNumber, 1, MaxStrLen(Rec."Phone No."));
-        Rec.Address := CopyStr(deviceContact.PreferredAddress.StreetAddress, 1, MaxStrLen(Rec.Address));
-        Rec.City := CopyStr(deviceContact.PreferredAddress.Locality, 1, MaxStrLen(Rec.City));
-        Rec.County := CopyStr(deviceContact.PreferredAddress.Region, 1, MaxStrLen(Rec.County));
+        Name := CopyStr(deviceContact.PreferredName, 1, MaxStrLen(Name));
+        "E-Mail" := CopyStr(deviceContact.PreferredEmail, 1, MaxStrLen("E-Mail"));
+        "Phone No." := CopyStr(deviceContact.PreferredPhoneNumber, 1, MaxStrLen("Phone No."));
+        Address := CopyStr(deviceContact.PreferredAddress.StreetAddress, 1, MaxStrLen(Address));
+        City := CopyStr(deviceContact.PreferredAddress.Locality, 1, MaxStrLen(City));
+        County := CopyStr(deviceContact.PreferredAddress.Region, 1, MaxStrLen(County));
 
         CurrPage.Update();
     end;

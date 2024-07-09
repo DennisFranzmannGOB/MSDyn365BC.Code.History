@@ -1,5 +1,3 @@
-namespace System.Security.Encryption;
-
 codeunit 3750 DotNetHelper_SecureString
 {
 

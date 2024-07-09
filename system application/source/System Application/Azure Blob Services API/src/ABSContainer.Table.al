@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Azure.Storage;
-
 /// <summary>
 /// Holds information about containers in a storage account.
 /// </summary>
@@ -83,7 +81,7 @@ table 9044 "ABS Container"
 
     keys
     {
-        key(PK; Name)
+        key(PK; "Name")
         {
             Clustered = true;
         }

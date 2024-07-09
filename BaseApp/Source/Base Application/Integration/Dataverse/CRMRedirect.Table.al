@@ -1,11 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.Sales.Customer;
-
 table 5329 "CRM Redirect"
 {
     Caption = 'CRM Redirect';
@@ -18,7 +10,7 @@ table 5329 "CRM Redirect"
         }
         field(2; "Filter"; Text[128])
         {
-            CalcFormula = lookup(Customer.Name);
+            CalcFormula = Lookup (Customer.Name);
             Caption = 'Filter';
             Description = 'Only to be used for passthrough of URL parameters';
             FieldClass = FlowField;

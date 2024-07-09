@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Privacy;
 
 table 1750 "Fields Sync Status"
 {
@@ -31,5 +29,8 @@ table 1750 "Fields Sync Status"
         }
     }
 
+    fieldgroups
+    {
+    }
 }
 

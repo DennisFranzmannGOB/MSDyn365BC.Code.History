@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 page 30144 "Shpfy Add Item Confirm"
 {
     Caption = 'Add to Shopify shop';

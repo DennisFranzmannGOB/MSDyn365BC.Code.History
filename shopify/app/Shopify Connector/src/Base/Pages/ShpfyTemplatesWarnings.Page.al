@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 #if not CLEAN22
 page 30138 "Shpfy Templates Warnings"
 {

@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 table 1155 "COHUB Group"
 {
     LookupPageId = "COHUB Group List";

@@ -1,8 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.Sales.Posting;
-using System.Email;
-
 codeunit 1629 "Office Attachment Manager"
 {
     SingleInstance = true;

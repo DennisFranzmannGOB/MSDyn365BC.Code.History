@@ -1,7 +1,3 @@
-namespace System.Test.Tooling;
-
-using Microsoft.Finance.GeneralLedger.Setup;
-
 codeunit 149117 "BCPT SQL Ping"
 {
     trigger OnRun();

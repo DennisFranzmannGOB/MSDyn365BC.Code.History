@@ -152,7 +152,9 @@ page 7900 "Error Messages Card Part"
 
     procedure SetRecords(var TempErrorMessage: Record "Error Message" temporary)
     begin
-        Rec.Copy(TempErrorMessage, true);
+        Rec.Reset();
+        Rec.DeleteAll();
+        Rec.Copy(TempErrorMessage);
     end;
 }
 

@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 profile "CompanyHub"
 {
     Caption = 'Company Hub';

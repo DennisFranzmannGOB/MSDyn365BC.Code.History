@@ -1,7 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Integration.Entity;
-
 page 20036 "APIV1 - Tax Areas"
 {
     APIVersion = 'v1.0';
@@ -20,25 +16,25 @@ page 20036 "APIV1 - Tax Areas"
         {
             repeater(Group)
             {
-                field(id; Rec.Id)
+                field(id; Id)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'code', Locked = true;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'displayName', Locked = true;
                 }
-                field(taxType; Rec.Type)
+                field(taxType; Type)
                 {
                     Caption = 'taxType', Locked = true;
                     Editable = false;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                     Editable = false;
@@ -53,23 +49,22 @@ page 20036 "APIV1 - Tax Areas"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        Rec.PropagateDelete();
+        PropagateDelete();
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Rec.PropagateInsert();
+        PropagateInsert();
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        Rec.PropagateModify();
+        PropagateModify();
     end;
 
     trigger OnOpenPage()
     begin
-        Rec.LoadRecords();
+        LoadRecords();
     end;
 }
-
 

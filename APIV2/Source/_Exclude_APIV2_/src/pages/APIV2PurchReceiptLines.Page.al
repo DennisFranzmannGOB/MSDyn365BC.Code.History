@@ -1,9 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Purchases.History;
-using Microsoft.Upgrade;
-using System.Upgrade;
-
 page 30065 "APIV2 - Purch Receipt Lines"
 {
     DelayedInsert = true;
@@ -26,28 +20,28 @@ page 30065 "APIV2 - Purch Receipt Lines"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(documentId; Rec."Document Id")
+                field(documentId; "Document Id")
                 {
                     Caption = 'Document Id';
                 }
-                field(sequence; Rec."Line No.")
+                field(sequence; "Line No.")
                 {
                     Caption = 'Sequence';
                 }
-                field(lineType; Rec.Type)
+                field(lineType; Type)
                 {
                     Caption = 'Line Type';
                 }
-                field(lineObjectNumber; Rec."No.")
+                field(lineObjectNumber; "No.")
                 {
                     Caption = 'Line Object No.';
                 }
-                field(description; Rec.Description)
+                field(description; Description)
                 {
                     Caption = 'Description';
                 }
@@ -55,27 +49,27 @@ page 30065 "APIV2 - Purch Receipt Lines"
                 {
                     Caption = 'Description 2';
                 }
-                field(unitOfMeasureCode; Rec."Unit of Measure Code")
+                field(unitOfMeasureCode; "Unit of Measure Code")
                 {
                     Caption = 'Unit Of Measure Code';
                 }
-                field(unitCost; Rec."Direct Unit Cost")
+                field(unitCost; "Direct Unit Cost")
                 {
                     Caption = 'Direct Unit Cost';
                 }
-                field(quantity; Rec.Quantity)
+                field(quantity; Quantity)
                 {
                     Caption = 'Quantity';
                 }
-                field(discountPercent; Rec."Line Discount %")
+                field(discountPercent; "Line Discount %")
                 {
                     Caption = 'Discount Percent';
                 }
-                field(taxPercent; Rec."VAT %")
+                field(taxPercent; "VAT %")
                 {
                     Caption = 'Tax Percent';
                 }
-                field(expectedReceiptDate; Rec."Expected Receipt Date")
+                field(expectedReceiptDate; "Expected Receipt Date")
                 {
                     Caption = 'Expected Receipt Date';
                 }
@@ -84,7 +78,7 @@ page 30065 "APIV2 - Purch Receipt Lines"
                     Caption = 'Dimension Set Lines';
                     EntityName = 'dimensionSetLine';
                     EntitySetName = 'dimensionSetLines';
-                    SubPageLink = "Parent Id" = field(SystemId), "Parent Type" = const("Purchase Receipt Line");
+                    SubPageLink = "Parent Id" = Field(SystemId), "Parent Type" = const("Purchase Receipt Line");
                 }
             }
         }

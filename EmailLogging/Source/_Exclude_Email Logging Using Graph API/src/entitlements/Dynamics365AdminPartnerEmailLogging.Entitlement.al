@@ -1,5 +1,3 @@
-namespace Microsoft.CRM.EmailLoggin;
-
 entitlement "Dynamics 365 Admin - Partner Email Logging"
 {
     Type = Role;

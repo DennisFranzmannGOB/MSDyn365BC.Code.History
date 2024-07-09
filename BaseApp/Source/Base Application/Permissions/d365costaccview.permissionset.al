@@ -1,12 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.CostAccounting.Allocation;
-using Microsoft.CostAccounting.Budget;
-using Microsoft.CostAccounting.Account;
-using Microsoft.CostAccounting.Ledger;
-using Microsoft.CostAccounting.Journal;
-using Microsoft.Finance.GeneralLedger.Account;
-
 permissionset 5269 "D365 COSTACC, VIEW"
 {
     Assignable = true;

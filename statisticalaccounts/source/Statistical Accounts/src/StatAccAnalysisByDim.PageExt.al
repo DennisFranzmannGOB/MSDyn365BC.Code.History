@@ -1,7 +1,3 @@
-namespace Microsoft.Finance.Analysis.StatisticalAccount;
-
-using Microsoft.Finance.Analysis;
-
 pageextension 2626 "Stat. Acc. Analysis By Dim." extends "Analysis by Dimensions"
 {
     actions

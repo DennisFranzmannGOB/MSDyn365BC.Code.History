@@ -3,14 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Globalization;
-
-permissionset 3711 "Translation - Read"
+PermissionSet 3711 "Translation - Read"
 {
     Access = Public;
     Assignable = false;
 
-    IncludedPermissionSets = "Translation - Objects";
+    IncludedPermissionSets = "Translation - Objects",
+                             "Language - Read";
 
     Permissions = tabledata Translation = r;
 }

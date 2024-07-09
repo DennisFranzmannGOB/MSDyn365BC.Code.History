@@ -1,8 +1,3 @@
-﻿namespace System.Environment.Configuration;
-
-using System.Apps;
-using System.Reflection;
-
 page 9880 "Database Access Intent List"
 {
     PageType = List;
@@ -20,28 +15,28 @@ page 9880 "Database Access Intent List"
         {
             repeater(Group)
             {
-                field(ObjType; Rec."Object Type")
+                field(ObjType; "Object Type")
                 {
                     ApplicationArea = All;
                     Caption = 'Object Type';
                     Tooltip = 'Specifies the object type.';
                     Editable = false;
                 }
-                field(ObjID; Rec."Object ID")
+                field(ObjID; "Object ID")
                 {
                     ApplicationArea = All;
                     Caption = 'Object ID';
                     Tooltip = 'Specifies the object number.';
                     Editable = false;
                 }
-                field(ObjName; Rec."Object Name")
+                field(ObjName; "Object Name")
                 {
                     ApplicationArea = All;
                     Caption = 'Object Name';
                     Tooltip = 'Specifies the object name.';
                     Editable = false;
                 }
-                field(ObjCaption; Rec."Object Caption")
+                field(ObjCaption; "Object Caption")
                 {
                     ApplicationArea = All;
                     Caption = 'Object Caption';
@@ -100,13 +95,13 @@ page 9880 "Database Access Intent List"
 
                 trigger OnAction()
                 begin
-                    case Rec."Object Type" of
-                        Rec."Object Type"::Report:
-                            Report.RunModal(Rec."Object ID");
-                        Rec."Object Type"::Page:
-                            Page.RunModal(Rec."Object ID");
+                    case "Object Type" of
+                        "Object Type"::Report:
+                            Report.RunModal("Object ID");
+                        "Object Type"::Page:
+                            Page.RunModal("Object ID");
                         else
-                            message(NotSupportedTypeMsg, Rec."Object Type");
+                            message(NotSupportedTypeMsg, "Object Type");
                     end;
                 end;
             }
@@ -123,9 +118,9 @@ page 9880 "Database Access Intent List"
     var
         PublishedApplication: Record "Published Application";
     begin
-        Rec.FilterGroup(2);
-        Rec.SetFilter("Object Type", '%1|%2|%3', Rec."Object Type"::Page, Rec."Object Type"::Report, Rec."Object Type"::Query);
-        Rec.FilterGroup(0);
+        FilterGroup(2);
+        SetFilter("Object Type", '%1|%2|%3', "Object Type"::Page, "Object Type"::Report, "Object Type"::Query);
+        FilterGroup(0);
 
         if ObjectAccessIntentOverride.FindSet() then
             repeat
@@ -142,14 +137,14 @@ page 9880 "Database Access Intent List"
 
     trigger OnAfterGetRecord()
     begin
-        if not TempObjectAccessIntentOverride.Get(Rec."Object Type", Rec."Object ID") then begin
+        if not TempObjectAccessIntentOverride.Get("Object Type", "Object ID") then begin
             Clear(TempObjectAccessIntentOverride);
-            TempObjectAccessIntentOverride."Object Type" := Rec."Object Type";
-            TempObjectAccessIntentOverride."Object ID" := Rec."Object ID";
+            TempObjectAccessIntentOverride."Object Type" := "Object Type";
+            TempObjectAccessIntentOverride."Object ID" := "Object ID";
         end;
 
-        if Rec."App Package ID" <> TempPublishedApplication."Package ID" then begin
-            TempPublishedApplication.SetRange("Package ID", Rec."App Package ID");
+        if "App Package ID" <> TempPublishedApplication."Package ID" then begin
+            TempPublishedApplication.SetRange("Package ID", "App Package ID");
             TempPublishedApplication.SetRange("Tenant Visible", true);
             if not TempPublishedApplication.FindFirst() then
                 TempPublishedApplication.Init();

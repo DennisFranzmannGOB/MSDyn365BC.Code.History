@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 codeunit 1165 "COHUB Format Amount"
 {
     Access = Internal;

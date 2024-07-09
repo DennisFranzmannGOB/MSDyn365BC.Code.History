@@ -72,7 +72,6 @@ codeunit 137096 "SCM Kitting - ATO"
         AssertOption: Option Orders,Reservation,"Hard link";
         ChangeOption: Option Quantity,"Quantity to Assemble","Location Code","Variant Code",UOM,"Due Date";
         DeleteOption: Option "Zero Quantity on SOL","Delete SOL","Delete SO";
-        FieldMustBeEmptyErr: Label '%1 must be empty', Comment = '%1 - Field Caption';
 
     local procedure Initialize()
     var
@@ -4817,10 +4816,6 @@ codeunit 137096 "SCM Kitting - ATO"
             Validate("Require Shipment", true);
             Validate("Require Put-away", true);
             Validate("Require Pick", true);
-            Validate("Prod. Consump. Whse. Handling", "Prod. Consump. Whse. Handling"::"Warehouse Pick (mandatory)");
-            Validate("Prod. Output Whse. Handling", "Prod. Output Whse. Handling"::"Inventory Put-away");
-            Validate("Job Consump. Whse. Handling", "Job Consump. Whse. Handling"::"Warehouse Pick (mandatory)");
-            Validate("Asm. Consump. Whse. Handling", "Asm. Consump. Whse. Handling"::"Warehouse Pick (mandatory)");
             Modify();
         end;
     end;
@@ -5373,41 +5368,6 @@ codeunit 137096 "SCM Kitting - ATO"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,MsgHandler,AssemblyAvailabilityFormHandler')]
-    [Scope('OnPrem')]
-    procedure VerifyVariantCodeClearedWhenSelectingNewItemOnAssemblyOrder()
-    var
-        Item: Record Item;
-        Item2: Record Item;
-        ItemVariant: Record "Item Variant";
-        AssemblyHeader: Record "Assembly Header";
-        AssemblyOrder: TestPage "Assembly Order";
-        AssemblyOrderNo: Code[20];
-    begin
-        // [SCENARIO 479957] When user select item, previously selected variant code is no cleared: assembly header, prod order header
-        Initialize();
-
-        // [GIVEN] Create Items I1 with Item Variant and I2
-        CreateAssembledItem(Item, "Assembly Policy"::"Assemble-to-Stock", 1, 0, 0, 1, Item."Costing Method"::Standard);
-        LibraryInventory.CreateItem(Item2);
-        LibraryInventory.CreateItemVariant(ItemVariant, Item."No.");
-
-        // [THEN] Create assembly order for item "I1"
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, WorkDate(), Item."No.", '', LibraryRandom.RandDec(100, 2), ItemVariant.Code);
-
-        // [WHEN] Open Assembly Order Page and change Item to I2
-        AssemblyOrder.OpenEdit();
-        AssemblyOrder.GotoRecord(AssemblyHeader);
-        AssemblyOrder."Item No.".SetValue(Item2."No.");
-        AssemblyOrderNo := Format(AssemblyOrder."No.");
-        AssemblyOrder.Close();
-
-        // [VERIFY] Verify: Changing Item No. on Assembly Order Page cleared the existing Variant Code
-        AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, AssemblyOrderNo);
-        Assert.AreEqual('', AssemblyHeader."Variant Code", StrSubstNo(FieldMustBeEmptyErr, AssemblyHeader.FieldCaption("Variant Code")));
-    end;
-
-    [Test]
     [HandlerFunctions('ATOLinesPageHandler')]
     [Scope('OnPrem')]
     procedure AssembleToOrderLinesPageShouldOpenForNewlyCopiedSalesQuoteFromArchiveQuote()
@@ -5454,6 +5414,7 @@ codeunit 137096 "SCM Kitting - ATO"
         // [GIVEN] Prepare New Sales Quote
         ToSalesHeader.Init();
         ToSalesHeader.Validate("Document Type", ToSalesHeader."Document Type"::Quote);
+        TOSalesHeader.Validate("Sell-to Customer No.", SalesHeader."Sell-to Customer No.");
         ToSalesHeader.Insert(true);
 
         // [WHEN] Copy Sales Archive Quote to Sales Quote
@@ -5496,13 +5457,11 @@ codeunit 137096 "SCM Kitting - ATO"
         DocumentNo: Code[20]; NewSalesHeader: Record "Sales Header"; DocType: Enum "Sales Document Type From";
         FromDocNoOccurrence: Integer; FromDocVersionNo: Integer; IncludeHeader: Boolean; RecalculateLines: Boolean; UseRequestPage: Boolean)
     var
-        CopySalesDoc: Report "Copy Sales Document";
+        CopyDocumentMgt: Codeunit "Copy Document Mgt.";
     begin
-        Clear(CopySalesDoc);
-        CopySalesDoc.SetParameters(DocType, DocumentNo, FromDocNoOccurrence, FromDocVersionNo, IncludeHeader, RecalculateLines);
-        CopySalesDoc.SetSalesHeader(NewSalesHeader);
-        CopySalesDoc.UseRequestPage(UseRequestPage);
-        CopySalesDoc.RunModal();
+        CopyDocumentMgt.SetProperties(IncludeHeader, RecalculateLines, false, false, false, false, false);
+        CopyDocumentMgt.SetArchDocVal(FromDocNoOccurrence, FromDocVersionNo);
+        CopyDocumentMgt.CopySalesDoc("Sales Document Type From"::"Arch. Quote", DocumentNo, NewSalesHeader);
     end;
 
     [ModalPageHandler]

@@ -1,12 +1,10 @@
-namespace Microsoft.Integration.Shopify;
-
 page 30147 "Shpfy Refunds"
 {
     ApplicationArea = All;
     Caption = 'Shopify Refunds';
     PageType = List;
     SourceTable = "Shpfy Refund Header";
-    UsageCategory = Lists;
+    UsageCategory = Documents;
     Editable = false;
     CardPageId = "Shpfy Refund";
     SourceTableView = sorting("Created At") order(descending);

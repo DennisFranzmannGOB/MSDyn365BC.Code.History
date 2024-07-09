@@ -2,7 +2,7 @@
 page 2125 "O365 Payment History Card"
 {
     Caption = 'Payment History';
-    DataCaptionExpression = Format(Rec.Type);
+    DataCaptionExpression = Format(Type);
     DeleteAllowed = false;
     Editable = false;
     InsertAllowed = false;
@@ -76,7 +76,7 @@ page 2125 "O365 Payment History Card"
 
     local procedure MarkPaymentAsUnpaid()
     begin
-        if Rec.CancelPayment() then
+        if CancelPayment() then
             CurrPage.Close();
     end;
 }

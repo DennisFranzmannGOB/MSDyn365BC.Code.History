@@ -1,4 +1,4 @@
-﻿codeunit 134387 "ERM Sales Documents III"
+codeunit 134387 "ERM Sales Documents III"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -69,7 +69,7 @@
         UpdateManuallyMsg: Label 'You must update the existing sales lines manually.';
         ReviewLinesManuallyMsg: Label ' You should review the lines and manually update prices and discounts if needed.';
         AffectExchangeRateMsg: Label 'The change may affect the exchange rate that is used for price calculation on the sales lines.';
-        SplitMessageTxt: Label '%1\%2', Comment = 'Some message text 1.\Some message text 2.', Locked = true;
+        SplitMessageTxt: Label '%1\%2', Comment = 'Some message text 1.\Some message text 2.';
         TaxAreaCodeInvalidErr: Label 'The Tax Area does not exist. Identification fields and values: Code=''%1''';
         ConfirmZeroQuantityPostingMsg: Label 'One or more document lines with a value in the No. field do not have a quantity specified. \Do you want to continue?';
         InternetURLTxt: Label 'www.microsoft.com', Locked = true;
@@ -78,8 +78,6 @@
         PackageTrackingNoErr: Label 'Package Tracking No does not exist.';
         CannotAllowInvDiscountErr: Label 'The value of the Allow Invoice Disc. field is not valid when the VAT Calculation Type field is set to "Full VAT".';
         PostingPreviewNoTok: Label '***', Locked = true;
-        ReturnQtyToReceiveMustBeZeroErr: Label ' Return Qty. to Receive must be zero.';
-        QtyToAssignErr: Label '%1 must be %2 in %3', Comment = '%1 = Qty. to Assign, %2 = Quantity, %3 = Sales Return Order Subform';
 
     [Test]
     [Scope('OnPrem')]
@@ -358,6 +356,43 @@
 
         // Verify: Verify Amount on GL Entry.
         VerifyGLEntry(DocumentNo, GeneralPostingSetup."Sales Account", -SalesLine."Line Amount");
+    end;
+
+    [Test]
+    [HandlerFunctions('GetShipmentLinesHandler,ConfirmHandlerFalse')]
+    [Scope('OnPrem')]
+    procedure TotalsShouldBeRecalculatedByPriceInclVAT()
+    var
+        GeneralPostingSetup: Record "General Posting Setup";
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        SalesInvoice: TestPage "Sales Invoice";
+        Price: Decimal;
+        AmountIncVAT: Decimal;
+    begin
+        // [FEATURE] [Totals] [UI]
+        // [SCENARIO 401966] Changing "Price Incl VAT" forces the totals calculation.
+        Initialize();
+
+        // [GIVEN] Create and Receive Sales Order 'SO', where "Price Incl VAT" is 'No'
+        // [GIVEN] Create Sales Invoice 'SI' and do "Get Shipment Lines" to get line from 'SO'.
+        CreateShipmentsAndSalesInvoice(SalesHeader, SalesLine);
+        LibrarySales.GetShipmentLines(SalesLine);
+        FindSalesLine(SalesLine, SalesHeader."Document Type", SalesHeader."No.", SalesLine.Type::Item);
+        Price := SalesLine."Unit Price";
+
+        SalesInvoice.OpenEdit;
+        SalesInvoice.FILTER.SetFilter("No.", SalesHeader."No.");
+        Evaluate(AmountIncVAT, SalesInvoice.SalesLines."Total Amount Incl. VAT".Value());
+
+        // [WHEN] In 'SI' Change "Price Incl VAT" to Yes, but do not confirm recalculation of prices
+        SalesInvoice."Prices Including VAT".SetValue(true);
+
+        // [THEN] Price on the line is not changed, totals are updated on the page.
+        SalesLine.Find();
+        SalesLine.TestField("Unit Price", Price);
+        Assert.AreNotEqual(AmountIncVAT, SalesLine."Amount Including VAT", 'total is not changed.');
+        SalesInvoice.SalesLines."Total Amount Incl. VAT".AssertEquals(SalesLine."Amount Including VAT");
     end;
 
     [Test]
@@ -3109,12 +3144,18 @@
     [Scope('OnPrem')]
     procedure PrintSalesQuoteCardWithBlankQuantityIsFoundationFALSE()
     var
+        CompanyInformation: Record "Company Information";
         SalesHeader: Record "Sales Header";
         SalesQuote: TestPage "Sales Quote";
     begin
         // [FEATURE] [Quote] [UI]
         // [SCENARIO 266493] Stan can print sales quote having line with zero quantity from card page when foundation setup is disabled
         Initialize();
+
+        // [GIVEN] Company Information with "Allow Blank Payment Info."
+        CompanyInformation.Get();
+        CompanyInformation.Validate("Allow Blank Payment Info.", true);
+        CompanyInformation.Modify();
 
         CreateSalesDocumentWithTwoLinesSecondLineQuantityZero(SalesHeader, SalesHeader."Document Type"::Quote);
         Commit();
@@ -3137,12 +3178,18 @@
     [Scope('OnPrem')]
     procedure PrintSalesQuoteListWithBlankQuantityIsFoundationFALSE()
     var
+        CompanyInformation: Record "Company Information";
         SalesHeader: Record "Sales Header";
         SalesQuotes: TestPage "Sales Quotes";
     begin
         // [FEATURE] [Quote] [UI]
         // [SCENARIO 266493] Stan can print sales quote having line with zero quantity from list page when foundation setup is disabled
         Initialize();
+
+        // [GIVEN] Company Information with "Allow Blank Payment Info."
+        CompanyInformation.Get();
+        CompanyInformation.Validate("Allow Blank Payment Info.", true);
+        CompanyInformation.Modify();
 
         CreateSalesDocumentWithTwoLinesSecondLineQuantityZero(SalesHeader, SalesHeader."Document Type"::Quote);
         Commit();
@@ -3753,19 +3800,53 @@
     [Test]
     [Scope('OnPrem')]
     procedure SalesInvoiceChangePricesInclVATRefreshesPage()
+    var
+        SalesHeader: Record "Sales Header";
+        DocumentTotals: Codeunit "Document Totals";
+        SalesInvoicePage: TestPage "Sales Invoice";
     begin
         // [FEATURE] [Invoice] [UI]
         // [SCENARIO 277993] User changes Prices including VAT, page refreshes and shows appropriate captions
-        // This Country doesn't have this field on the page.
+        Initialize();
+
+        // [GIVEN] Page with Prices including VAT disabled was open
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, '');
+        SalesInvoicePage.OpenEdit;
+        SalesInvoicePage.GotoRecord(SalesHeader);
+
+        // [WHEN] User checks Prices including VAT
+        SalesInvoicePage."Prices Including VAT".SetValue(true);
+
+        // [THEN] Caption for TotalSalesLine."Line Amount" field is updated
+        Assert.AreEqual(DocumentTotals.GetTotalLineAmountWithVATAndCurrencyCaption(SalesHeader."Currency Code", true),
+          SalesInvoicePage.SalesLines."TotalSalesLine.""Line Amount""".Caption,
+          'The caption for SalesInvoicePage.SalesLines.Control7 is incorrect');
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure SalesOrderChangePricesInclVATRefreshesPage()
+    var
+        SalesHeader: Record "Sales Header";
+        DocumentTotals: Codeunit "Document Totals";
+        SalesOrderPage: TestPage "Sales Order";
     begin
         // [FEATURE] [Order] [UI]
         // [SCENARIO 277993] User changes Prices including VAT, page refreshes and shows appropriate captions
-        // This Country doesn't have this field on the page.
+        Initialize();
+
+        // [GIVEN] Page with Prices including VAT disabled was open
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, '');
+        SalesOrderPage.OpenEdit;
+        SalesOrderPage.GotoRecord(SalesHeader);
+
+        // [WHEN] User checks Prices including VAT
+        SalesOrderPage."Prices Including VAT".SetValue(true);
+
+        // [THEN] Caption for TotalSalesLine."Line Amount" field is updated
+        Assert.AreEqual(DocumentTotals.GetTotalLineAmountWithVATAndCurrencyCaption(SalesHeader."Currency Code", true),
+          SalesOrderPage.SalesLines."TotalSalesLine.""Line Amount""".Caption,
+          'The caption for SalesOrderPage.SalesLines.Control35 is incorrect');
     end;
 
     [Test]
@@ -3813,37 +3894,103 @@
     [Test]
     [Scope('OnPrem')]
     procedure SalesQuoteChangePricesInclVATRefreshesPage()
+    var
+        SalesHeader: Record "Sales Header";
+        DocumentTotals: Codeunit "Document Totals";
+        SalesQuotePage: TestPage "Sales Quote";
     begin
         // [FEATURE] [Quote] [UI]
         // [SCENARIO 277993] User changes Prices including VAT, page refreshes and shows appropriate captions
-        // This Country doesn't have this field on the page.
+        Initialize();
+
+        // [GIVEN] Page with Prices including VAT disabled was open
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Quote, '');
+        SalesQuotePage.OpenEdit;
+        SalesQuotePage.GotoRecord(SalesHeader);
+
+        // [WHEN] User checks Prices including VAT
+        SalesQuotePage."Prices Including VAT".SetValue(true);
+
+        // [THEN] Caption for TotalSalesLine."Line Amount" field is updated
+        Assert.AreEqual(DocumentTotals.GetTotalLineAmountWithVATAndCurrencyCaption(SalesHeader."Currency Code", true),
+          SalesQuotePage.SalesLines."Subtotal Excl. VAT".Caption,
+          'The caption for SalesQuotePage.SalesLines."Subtotal Excl. VAT" is incorrect');
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure SalesCreditMemoChangePricesInclVATRefreshesPage()
+    var
+        SalesHeader: Record "Sales Header";
+        DocumentTotals: Codeunit "Document Totals";
+        SalesCreditMemoPage: TestPage "Sales Credit Memo";
     begin
         // [FEATURE] [Credit Memo] [UI]
         // [SCENARIO 277993] User changes Prices including VAT, page refreshes and shows appropriate captions
-        // This Country doesn't have this field on the page.
+        Initialize();
+
+        // [GIVEN] Page with Prices including VAT disabled was open
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::"Credit Memo", '');
+        SalesCreditMemoPage.OpenEdit;
+        SalesCreditMemoPage.GotoRecord(SalesHeader);
+
+        // [WHEN] User checks Prices including VAT
+        SalesCreditMemoPage."Prices Including VAT".SetValue(true);
+
+        // [THEN] Caption for TotalSalesLine."Line Amount" field is updated
+        Assert.AreEqual(DocumentTotals.GetTotalLineAmountWithVATAndCurrencyCaption(SalesHeader."Currency Code", true),
+          SalesCreditMemoPage.SalesLines."TotalSalesLine.""Line Amount""".Caption,
+          'The caption for SalesCreditMemoPage.SalesLines.Control27 is incorrect');
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure SalesReturnOrderChangePricesInclVATRefreshesPage()
+    var
+        SalesHeader: Record "Sales Header";
+        SalesReturnOrderPage: TestPage "Sales Return Order";
     begin
         // [FEATURE] [Return Order] [UI]
         // [SCENARIO 277993] User changes Prices including VAT, page refreshes and shows appropriate captions
-        // This Country doesn't have this field on the page.
+        Initialize();
+
+        // [GIVEN] Page with Prices including VAT disabled was open
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::"Return Order", '');
+        SalesReturnOrderPage.OpenEdit;
+        SalesReturnOrderPage.GotoRecord(SalesHeader);
+
+        // [WHEN] User checks Prices including VAT
+        SalesReturnOrderPage."Prices Including VAT".SetValue(true);
+
+        // [THEN] Caption for TotalSalesLine."Line Amount" field is updated
+        Assert.AreEqual('Unit Price Incl. VAT',
+          SalesReturnOrderPage.SalesLines."Unit Price".Caption,
+          'The caption for SalesReturnOrderPage.SalesLines."Unit Price" is incorrect');
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure SalesBlanketOrderChangePricesInclVATRefreshesPage()
+    var
+        SalesHeader: Record "Sales Header";
+        BlanketSalesOrderPage: TestPage "Blanket Sales Order";
     begin
         // [FEATURE] [Blanket Order] [UI]
         // [SCENARIO 277993] User changes Prices including VAT, page refreshes and shows appropriate captions
-        // This Country doesn't have this field on the page.
+        Initialize();
+
+        // [GIVEN] Page with Prices including VAT disabled was open
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::"Blanket Order", '');
+        BlanketSalesOrderPage.OpenEdit;
+        BlanketSalesOrderPage.GotoRecord(SalesHeader);
+
+        // [WHEN] User checks Prices including VAT
+        BlanketSalesOrderPage."Prices Including VAT".SetValue(true);
+
+        // [THEN] Caption for TotalSalesLine."Line Amount" field is updated
+        Assert.AreEqual('Unit Price Incl. VAT',
+          BlanketSalesOrderPage.SalesLines."Unit Price".Caption,
+          'The caption for BlanketSalesOrderPage.SalesLines."Unit Price" is incorrect');
     end;
 
     [Test]
@@ -5061,7 +5208,7 @@
         SalesOrder: TestPage "Sales Order";
     begin
         // [FEATURE] [UT]
-        // [SCENARIO 372368] Shipping Time should be populated with a value from Customer when Sell-to Customer Name is validated on Sales Order by LookUp.
+        // [SCENARIO 372368] Shipping Time is populated with a value from Customer when Sell-to Customer Name is validated on Sales Order by LookUp.
         Initialize();
 
         // [GIVEN] New customer. "No." = "X", "Shipping Time" = "T".
@@ -5089,7 +5236,7 @@
         ShippingTime: DateFormula;
     begin
         // [FEATURE] [UT]
-        // [SCENARIO 372368] Shipping Time should be populated with a value from Sipping Agent Service when Sell-to Customer No. is validated on Sales Order by LookUp.
+        // [SCENARIO 372368] Shipping Time is populated with a value from Sipping Agent Service when Sell-to Customer No. is validated on Sales Order by LookUp.
         Initialize();
 
         // [GIVEN] Created Shipping Agent and Shipping Agent Service with "Shipping Time" = "T"
@@ -5559,149 +5706,6 @@
         LibraryVariableStorage.AssertEmpty();
     end;
 
-
-    [Test]
-    procedure CreateSalesLineFromSalesShipmentLineExtendedTextLineContainsShipmentDate()
-    var
-        SalesShipmentLine: Record "Sales Shipment Line";
-        SalesLine: Record "Sales Line";
-        SalesHeader: Record "Sales Header";
-    begin
-        // [SCENARIO 460309] When generating invoice lines from shipment lines, Shipment Date is added to the comment line
-        Initialize();
-
-        // [GIVEN] Create sales order with a line
-        CreateSalesOrderWithSingleLine(SalesHeader);
-
-        // [GIVEN] Ship Sales Order at Date = "X"
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
-        SalesShipmentLine.SetRange("Order No.", SalesHeader."No.");
-        SalesShipmentLine.FindFirst();
-
-        // [GIVEN] Create Sales Invoice for same Customer
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, SalesShipmentLine."Bill-to Customer No.");
-        LibrarySales.CreateSimpleItemSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item);
-
-        // [WHEN] Run InsertInvLineFromShptLine on Invoice for the Shipment
-        SalesShipmentLine.InsertInvLineFromShptLine(SalesLine);
-
-        // [THEN] Created Sales Line in Invoice has Date "X" in the comment
-        VerifyCommentLineDescriptionHasDate(SalesHeader."Document Type", SalesHeader."No.", SalesShipmentLine."Shipment Date")
-    end;
-
-    [Test]
-    procedure UpdateDirectDebitMandateIdFromPaymentDueDateOnSalesInvoice()
-    var
-        Customer: Record Customer;
-        CustomerBankAccount: Record "Customer Bank Account";
-        SEPADirectDebitMandate: Record "SEPA Direct Debit Mandate";
-        PaymentMethod: Record "Payment Method";
-        PaymentTerms: Record "Payment Terms";
-        PaymentLines: Record "Payment Lines";
-        SalesInvoice: TestPage "Sales Invoice";
-    begin
-        // [SCENARIO 464910] Direct Debit Mandate ID must be set even if Due Date is unkknown on Sales Invoice
-        // [GIVEN]
-        Initialize();
-
-        // [GIVEN] Customer with bank account and payment terms
-        LibrarySales.CreateCustomer(Customer);
-        LibrarySales.CreateCustomerBankAccount(CustomerBankAccount, Customer."No.");
-
-        // [GIVEN] SEPA Recurring Direct Debit Mandate with epxected number of debits
-        CreateRecurrentDirectDebitMandate(SEPADirectDebitMandate, CustomerBankAccount."Customer No.", CustomerBankAccount.Code);
-
-        // [GIVEN] Direct Debit Payment Method
-        LibraryERM.CreatePaymentMethod(PaymentMethod);
-        PaymentMethod."Direct Debit" := true;
-        PaymentMethod.Modify();
-
-        // [GIVEN] Update Customer
-        Customer."Preferred Bank Account Code" := CustomerBankAccount.Code;
-        Customer."Payment Method Code" := PaymentMethod.Code;
-        Customer.Modify();
-
-        // [GIVEN] Payment Line Terms
-        PaymentTerms.Get(Customer."Payment Terms Code");
-        LibraryERM.CreatePaymentLines(PaymentLines, PaymentLines."Sales/Purchase"::" ", PaymentLines.Type::"Payment Terms", PaymentTerms.Code, '', 0);
-
-        // [GIVEN] Sales Invoice with unknown Due Date 
-        SalesInvoice.OpenNew();
-        SalesInvoice."Due Date".SetValue('');
-
-        // [WHEN] Assign customer to sales invoice
-        SalesInvoice."Sell-to Customer No.".SetValue(Customer."No.");
-
-        // [THEN] Verify Direct Debit Mandate ID is set
-        Assert.AreNotEqual('', SalesInvoice."Direct Debit Mandate ID".Value, 'Direct Debit ID should be set');
-        Assert.AreEqual(SEPADirectDebitMandate.ID, SalesInvoice."Direct Debit Mandate ID".Value, 'Wrong Direct Debit ID assigned to Sales Invoice');
-    end;
-
-    [Test]
-    procedure EditDescriptionCustLedgerEntryLoggedInChangeLog()
-    var
-        CustLedgerEntry: Record "Cust. Ledger Entry";
-        CustomerLedgerEntries: TestPage "Customer Ledger Entries";
-        RecordRef: RecordRef;
-        NewDescription, OldDescription : Text;
-    begin
-        Initialize();
-
-        // [GIVEN] Create Customer Ledger Entry
-        LibrarySales.MockCustLedgerEntry(CustLedgerEntry, LibrarySales.CreateCustomerNo());
-        OldDescription := LibraryRandom.RandText(MaxStrLen(CustLedgerEntry.Description));
-        CustLedgerEntry.Description := OldDescription;
-        CustLedgerEntry.Modify();
-
-        // [WHEN] Description is modified in customer ledger entries
-        NewDescription := LibraryRandom.RandText(MaxStrLen(CustLedgerEntry.Description));
-        CustomerLedgerEntries.OpenEdit();
-        CustomerLedgerEntries.GoToRecord(CustLedgerEntry);
-        CustomerLedgerEntries.Description.Value(NewDescription);
-        CustomerLedgerEntries.Close();
-
-        // [THEN] Description is changed & the change is logged in change log entry
-        CustLedgerEntry.Get(CustLedgerEntry."Entry No.");
-        Assert.AreEqual(NewDescription, CustLedgerEntry.Description, CustLedgerEntry.FieldCaption(Description));
-        RecordRef.GetTable(CustLedgerEntry);
-        VerifyChangeLogFieldValue(RecordRef, CustLedgerEntry.FieldNo(Description), OldDescription, NewDescription);
-    end;
-
-    [Test]
-    [HandlerFunctions('ChangeLogEntriesModalPageHandler')]
-    procedure ShowLoggedDescriptionChangesInCustLedgerEntries()
-    var
-        CustLedgerEntry: Record "Cust. Ledger Entry";
-        CustomerLedgerEntries: TestPage "Customer Ledger Entries";
-        RecordRef: RecordRef;
-        NewDescription, OldDescription : Text;
-    begin
-        Initialize();
-
-        // [GIVEN] Create Customer Ledger Entry
-        LibrarySales.MockCustLedgerEntry(CustLedgerEntry, LibrarySales.CreateCustomerNo());
-        OldDescription := LibraryRandom.RandText(MaxStrLen(CustLedgerEntry.Description));
-        CustLedgerEntry.Description := OldDescription;
-        CustLedgerEntry.Modify();
-
-        // [GIVEN] Description is modified
-        NewDescription := LibraryRandom.RandText(MaxStrLen(CustLedgerEntry.Description));
-        CustomerLedgerEntries.OpenEdit();
-        CustomerLedgerEntries.GoToRecord(CustLedgerEntry);
-        CustomerLedgerEntries.Description.Value(NewDescription);
-        CustomerLedgerEntries.Close();
-
-        LibraryVariableStorage.Enqueue(OldDescription);
-        LibraryVariableStorage.Enqueue(NewDescription);
-
-        // [WHEN] Show change log action is run
-        CustomerLedgerEntries.OpenView();
-        CustomerLedgerEntries.GoToRecord(CustLedgerEntry);
-        CustomerLedgerEntries.ShowChangeHistory.Invoke();
-
-        // [THEN] Modal page Change Log Entries with logged changed is open
-    end;
-
     [Test]
     [Scope('OnPrem')]
     procedure VerifyReceivedFromCountryIsSetOnSalesCreditMemo()
@@ -5884,83 +5888,6 @@
         SalesHeader.Get(SalesHeader."Document TYpe"::"Blanket Order", BlanketSalesOrder."No.".Value);
         BlanketSalesOrder.Close();
         Assert.AreNotEqual(Customer."Country/Region Code", SalesHeader."Rcvd.-from Count./Region Code", 'Received-from Country Code is set just as it is on customer');
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
-    [HandlerFunctions('SuggestItemChargeAssignmentPageHandler,PostedSalesDocumentLinesPageHandler')]
-    procedure GetPostedDocumentLinesToReverseCopiesLinesWhenDefaultQtyToShipIsBlankInSalesReceiSetup()
-    var
-        Item: Record Item;
-        ItemCharge: Record "Item Charge";
-        SalesReceivablesSetup: Record "Sales & Receivables Setup";
-        SalesHeader: Record "Sales Header";
-        SalesHeader2: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        Quantity: Decimal;
-        SalesReturnOrder: TestPage "Sales Return Order";
-        SalesReturnOrderSubform: TestPage "Sales Return Order Subform";
-    begin
-        // [SCENARIO 500596] Get Posted Document Lines to Reverse action on Sales Return Order copies Sales Invoice Lines of Type Item Charge Even when Default Qty to Ship on Sales & Receivables Setup is set to Blank.
-        Initialize();
-
-        // [GIVEN] Validate Default Quantity to Ship in Sales & Receivables Setup.
-        SalesReceivablesSetup.Get();
-        SalesReceivablesSetup.Validate("Default Quantity to Ship", SalesReceivablesSetup."Default Quantity to Ship"::Blank);
-        SalesReceivablesSetup.Modify(true);
-
-        // [GIVEN] Create an Item.
-        LibraryInventory.CreateItem(Item);
-
-        // [GIVEN] Create an Item Charge.
-        LibraryInventory.CreateItemCharge(ItemCharge);
-
-        // [GIVEN] Generate and Save Quantity in a Variable.
-        Quantity := LibraryRandom.RandIntInRange(25, 25);
-
-        // [GIVEN] Create a Sales Order with Item Charge.
-        CreateSalesOrderWithItemCharge(SalesHeader, ItemCharge."No.", Item."No.", Quantity);
-
-        // [GIVEN] Set Sales Order Lines Qty. to Ship.
-        SetSalesLinesQtyToShip(SalesHeader, Quantity);
-
-        // [GIVEN] Update Qty. to Assign on Item Charge Assignment.
-        UpdateQtyToAssignOnItemChargeAssignment(SalesHeader);
-
-        // [GIVEN] Post Sales Order.
-        LibrarySales.PostSalesDocument(SalesHeader, true, true);
-
-        // [GIVEN] Create a Sales Return Order.
-        LibrarySales.CreateSalesHeader(SalesHeader2, SalesHeader2."Document Type"::"Return Order", SalesHeader."Sell-to Customer No.");
-
-        // [GIVEN] Open Sales Return Order page and run Get Posted Document Lines to Reverse action.
-        SalesReturnOrder.OpenEdit();
-        SalesReturnOrder.GoToRecord(SalesHeader2);
-        LibraryVariableStorage.Enqueue(ItemCharge."No.");
-        SalesReturnOrder.GetPostedDocumentLinesToReverse.Invoke();
-
-        // [WHEN] Find Sales Line of Sales Return Order.
-        SalesLine.SetRange("Document Type", SalesLine."Document Type"::"Return Order");
-        SalesLine.SetRange("Document No.", SalesHeader2."No.");
-        SalesLine.SetRange(Type, SalesLine.Type::"Charge (Item)");
-        SalesLine.FindFirst();
-
-        // [VERIFY] Return Qty. to Receive in Sales Line is 0.
-        Assert.AreEqual(0, SalesLine."Return Qty. to Receive", ReturnQtyToReceiveMustBeZeroErr);
-
-        // [WHEN] Open Sales Return Order Subform page.
-        SalesReturnOrderSubform.OpenEdit();
-        SalesReturnOrderSubform.GoToRecord(SalesLine);
-
-        // [VERIFY] Quantity and Qty. to Assign in Sales Line are same.
-        Assert.AreEqual(
-            Quantity,
-            SalesReturnOrderSubform."Qty. to Assign".AsDecimal(),
-            StrSubstNo(
-                QtyToAssignErr,
-                SalesReturnOrderSubform."Qty. to Assign".Caption(),
-                Quantity,
-                SalesReturnOrderSubform.Caption()));
     end;
 
     local procedure Initialize()
@@ -6354,14 +6281,6 @@
     begin
         LibraryInventory.CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode, '', CreateItemTrackingCode);
         exit(Item."No.");
-    end;
-
-    local procedure CreateSalesOrderWithSingleLine(var SalesHeader: Record "Sales Header")
-    var
-        SalesLine: Record "Sales Line";
-    begin
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
-        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandDec(100, 2));
     end;
 
     local procedure CreateVATPostingSetupWithCertificateOfSupply(var VATPostingSetup: Record "VAT Posting Setup")
@@ -6883,18 +6802,6 @@
         ItemLedgerEntry.TestField("Return Reason Code", ReturnReasonCode);
     end;
 
-    local procedure VerifyCommentLineDescriptionHasDate(DocType: Enum "Sales Document Type"; DocNo: Code[20]; ExpectedDate: Date)
-    var
-        SalesLine: Record "Sales Line";
-    begin
-        SalesLine.SetRange("Document No.", DocNo);
-        SalesLine.SetRange("Document Type", DocType);
-        SalesLine.SetRange(Type, SalesLine.Type::" ");
-        SalesLine.SetRange("No.", '');
-        SalesLine.FindFirst();
-        Assert.IsSubstring(SalesLine.Description, Format(ExpectedDate));
-    end;
-
     local procedure VerifyGLEntry(DocumentNo: Code[20]; GLAccountNo: Code[20]; Amount: Decimal)
     var
         GLEntry: Record "G/L Entry";
@@ -7190,19 +7097,6 @@
         SalesLine.Modify(true);
     end;
 
-    local procedure VerifyChangeLogFieldValue(RecordRef: RecordRef; FieldNo: Integer; OldValue: Text; NewValue: Text)
-    var
-        ChangeLogEntry: Record "Change Log Entry";
-    begin
-        ChangeLogEntry.SetRange("Table No.", RecordRef.Number);
-        ChangeLogEntry.SetRange("User ID", UserId);
-        ChangeLogEntry.SetRange("Primary Key", RecordRef.GetPosition(false));
-        ChangeLogEntry.SetRange("Field No.", FieldNo);
-        ChangeLogEntry.FindLast();
-        Assert.AreEqual(ChangeLogEntry."Old Value", OldValue, 'Change Log Entry (old value) for field ' + Format(FieldNo));
-        Assert.AreEqual(ChangeLogEntry."New Value", NewValue, 'Change Log Entry (new value) for field ' + Format(FieldNo));
-    end;
-
     local procedure SetSalesAllowMultiplePostingGroups(AllowMultiplePostingGroups: Boolean)
     var
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
@@ -7211,77 +7105,6 @@
         SalesReceivablesSetup."Allow Multiple Posting Groups" := AllowMultiplePostingGroups;
         SalesReceivablesSetup."Check Multiple Posting Groups" := "Posting Group Change Method"::"Alternative Groups";
         SalesReceivablesSetup.Modify();
-    end;
-
-    local procedure CreateRecurrentDirectDebitMandate(var SEPADirectDebitMandate: Record "SEPA Direct Debit Mandate"; CustomerNo: Code[20]; CustomerBankAccountCode: Code[20])
-    begin
-        SEPADirectDebitMandate.Init();
-        SEPADirectDebitMandate."Customer No." := CustomerNo;
-        SEPADirectDebitMandate."Customer Bank Account Code" := CustomerBankAccountCode;
-        SEPADirectDebitMandate."Valid From" := WorkDate();
-        SEPADirectDebitMandate."Valid To" := WorkDate + LibraryRandom.RandIntInRange(300, 600);
-        SEPADirectDebitMandate."Date of Signature" := WorkDate();
-        SEPADirectDebitMandate."Type of Payment" := SEPADirectDebitMandate."Type of Payment"::Recurrent;
-        SEPADirectDebitMandate."Expected Number of Debits" := LibraryRandom.RandIntInRange(10, 20);
-        SEPADirectDebitMandate.Insert(true);
-    end;
-
-    local procedure CreateSalesOrderWithItemCharge(
-        var SalesHeader: Record "Sales Header";
-        ItemChargeNo: Code[20];
-        ItemNo: Code[20];
-        Quantity: Decimal)
-    var
-        SalesLineItemCharge: Record "Sales Line";
-        SalesLineItem: Record "Sales Line";
-        Customer: Record Customer;
-    begin
-        LibrarySales.CreateCustomer(Customer);
-
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, Customer."No.");
-        LibrarySales.CreateSalesLine(
-            SalesLineItem,
-            SalesHeader,
-            SalesLineItem.Type::Item,
-            ItemNo,
-            Quantity);
-
-        SalesLineItem.Validate("Unit Price", LibraryRandom.RandDec(100, 2));
-        SalesLineItem.Modify(true);
-
-        LibrarySales.CreateSalesLine(
-            SalesLineItemCharge,
-            SalesHeader,
-            SalesLineItemCharge.Type::"Charge (Item)",
-            ItemChargeNo,
-            Quantity);
-
-        SalesLineItemCharge.Validate("Unit Price", LibraryRandom.RandDec(100, 2));
-        SalesLineItemCharge.Modify(true);
-    end;
-
-    local procedure SetSalesLinesQtyToShip(var SalesHeader: Record "Sales Header"; Quantity: Decimal)
-    var
-        SalesLine: Record "Sales Line";
-    begin
-        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
-        SalesLine.SetRange("Document No.", SalesHeader."No.");
-        SalesLine.FindSet();
-        repeat
-            SalesLine.Validate("Qty. to Ship", Quantity);
-            SalesLine.Modify(true);
-        until SalesLine.Next() = 0;
-    end;
-
-    local procedure UpdateQtyToAssignOnItemChargeAssignment(SalesHeader: Record "Sales Header")
-    var
-        SalesLine: Record "Sales Line";
-    begin
-        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
-        SalesLine.SetRange("Document No.", SalesHeader."No.");
-        SalesLine.SetRange(Type, SalesLine.Type::"Charge (Item)");
-        SalesLine.FindFirst();
-        SalesLine.ShowItemChargeAssgnt();
     end;
 
     [ConfirmHandler]
@@ -7315,6 +7138,13 @@
     procedure PostCodesCancelHandler(var PostCodes: TestPage "Post Codes")
     begin
         PostCodes.Cancel.Invoke;
+    end;
+
+    [ConfirmHandler]
+    [Scope('OnPrem')]
+    procedure ConfirmHandlerFalse(Message: Text[1024]; var Response: Boolean)
+    begin
+        Response := false;
     end;
 
     [ConfirmHandler]
@@ -7546,29 +7376,6 @@
     [Scope('OnPrem')]
     procedure SalespersonCommissionRequestPageHandler(var SalespersonCommission: TestRequestPage "Salesperson - Commission")
     begin
-    end;
-
-    [ModalPageHandler]
-    procedure ChangeLogEntriesModalPageHandler(var ChangeLogEntries: TestPage "Change Log Entries");
-    begin
-        Assert.AreEqual(LibraryVariableStorage.DequeueText(), ChangeLogEntries."Old Value".Value(), ChangeLogEntries."Old Value".Caption());
-        Assert.AreEqual(LibraryVariableStorage.DequeueText(), ChangeLogEntries."New Value".Value(), ChangeLogEntries."New Value".Caption());
-        ChangeLogEntries.OK().Invoke();
-    end;
-
-    [ModalPageHandler]
-    [Scope('OnPrem')]
-    procedure PostedSalesDocumentLinesPageHandler(var PostedSalesDocumentLines: TestPage "Posted Sales Document Lines")
-    begin
-        PostedSalesDocumentLines.PostedInvoices.Filter.SetFilter("No.", LibraryVariableStorage.DequeueText());
-        PostedSalesDocumentLines.OK().Invoke();
-    end;
-
-    [ModalPageHandler]
-    [Scope('OnPrem')]
-    procedure SuggestItemChargeAssignmentPageHandler(var ItemChargeAssignmentSales: TestPage "Item Charge Assignment (Sales)")
-    begin
-        ItemChargeAssignmentSales.SuggestItemChargeAssignment.Invoke();
     end;
 }
 

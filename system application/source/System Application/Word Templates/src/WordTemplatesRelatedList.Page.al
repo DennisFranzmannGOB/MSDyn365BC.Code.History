@@ -4,8 +4,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Word;
-
 /// <summary>
 /// A list page to view and edit related entities for Word templates.
 /// </summary>
@@ -20,12 +18,10 @@ page 9985 "Word Templates Related List"
     ObsoleteState = Pending;
     ObsoleteTag = '22.0';
     ObsoleteReason = 'No longer used. Use page 9987 Word Templates Related Part instead.';
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Tables)
             {

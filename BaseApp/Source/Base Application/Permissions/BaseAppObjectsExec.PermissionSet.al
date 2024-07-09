@@ -1,5 +1,3 @@
-namespace System.Security.AccessControl;
-
 permissionset 444 "BaseApp Objects - Exec"
 {
     Access = Internal;

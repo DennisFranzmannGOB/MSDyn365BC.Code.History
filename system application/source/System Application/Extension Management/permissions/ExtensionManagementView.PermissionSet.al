@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Apps;
-
-using System.Environment.Configuration;
-
 permissionset 2501 "Extension Management - View"
 {
     Access = Public;

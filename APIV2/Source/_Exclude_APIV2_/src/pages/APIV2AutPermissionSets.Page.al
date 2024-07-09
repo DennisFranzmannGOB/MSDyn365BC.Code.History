@@ -1,8 +1,3 @@
-namespace Microsoft.API.V2;
-
-using System.Environment;
-using System.Security.AccessControl;
-
 page 30005 "APIV2 - Aut. Permission Sets"
 {
     APIGroup = 'automation';
@@ -26,23 +21,23 @@ page 30005 "APIV2 - Aut. Permission Sets"
         {
             repeater(Group)
             {
-                field(id; Rec."Role ID")
+                field(id; "Role ID")
                 {
                     Caption = 'Id';
                 }
-                field(displayName; Rec.Name)
+                field(displayName; Name)
                 {
                     Caption = 'Display Name';
                 }
-                field(appId; Rec."App ID")
+                field(appId; "App ID")
                 {
                     Caption = 'App Id';
                 }
-                field(extensionName; Rec."App Name")
+                field(extensionName; "App Name")
                 {
                     Caption = 'Extension Name';
                 }
-                field(scope; Rec.Scope)
+                field(scope; Scope)
                 {
                     Caption = 'Scope';
                 }

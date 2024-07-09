@@ -1,9 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Service.Reports;
-
 page 5010 "Service Declaration Setup"
 {
     DataCaptionExpression = '';
@@ -93,4 +87,14 @@ page 5010 "Service Declaration Setup"
             }
         }
     }
+
+    trigger OnOpenPage()
+    var
+        ServiceDeclarationMgt: Codeunit "Service Declaration Mgt.";
+    begin
+        if not ServiceDeclarationMgt.IsFeatureEnabledWithoutSetup() then begin
+            ServiceDeclarationMgt.ShowNotEnabledMessage(CurrPage.Caption());
+            Error('');
+        end;
+    end;
 }

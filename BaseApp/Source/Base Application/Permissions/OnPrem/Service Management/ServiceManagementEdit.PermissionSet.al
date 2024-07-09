@@ -1,10 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Service.Maintenance;
-using Microsoft.Service.Document;
-using Microsoft.Service.Email;
-using Microsoft.Service.Item;
-
 permissionset 4842 "Service Management - Edit"
 {
     Access = Public;

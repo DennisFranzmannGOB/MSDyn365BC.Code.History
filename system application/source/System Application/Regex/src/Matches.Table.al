@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Utilities;
-
 /// <summary>
 /// Provides a representation of Regex Matches that models Match objects in .Net
 /// </summary>
@@ -57,7 +55,7 @@ table 3965 Matches
     }
 
     /// <summary>
-    /// Reads the value of the match
+    /// Reads the value of the match 
     /// </summary>
     /// <returns>The value of the match.</returns>
     procedure ReadValue() TextValue: Text

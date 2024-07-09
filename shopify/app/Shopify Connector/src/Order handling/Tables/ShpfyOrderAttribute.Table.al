@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Table Shpfy Order Attribute (ID 30116).
 /// </summary>

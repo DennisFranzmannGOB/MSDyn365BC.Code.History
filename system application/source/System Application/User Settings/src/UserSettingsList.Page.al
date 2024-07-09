@@ -3,15 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
 /// <summary>
 /// List page that shows the settings of all users.
 /// </summary>
 page 9206 "User Settings List"
 {
     Caption = 'User Settings';
-    CardPageId = "User Personalization";
+    CardPageID = "User Personalization";
     AdditionalSearchTerms = 'User Personalization,User Preferences';
     UsageCategory = Administration;
     ApplicationArea = All;
@@ -25,7 +23,7 @@ page 9206 "User Settings List"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Control1)
             {
@@ -51,7 +49,7 @@ page 9206 "User Settings List"
                     Caption = 'Role';
                     ToolTip = 'Specifies the user role that defines the user’s default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.';
                 }
-                field(Language; Rec."Language Name")
+                field("Language"; Rec."Language Name")
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Language';
@@ -86,8 +84,6 @@ page 9206 "User Settings List"
     var
         UserSettingsImpl: Codeunit "User Settings Impl.";
     begin
-        UserSettingsImpl.HideUsersDependingOnPermissions(Rec);
         UserSettingsImpl.HideExternalUsers(Rec);
     end;
-
 }

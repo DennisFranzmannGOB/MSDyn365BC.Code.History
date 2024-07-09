@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Finance.FinancialReports;
-using Microsoft.Integration.Graph;
-
 page 20034 "APIV1 - Trial Balance"
 {
     APIVersion = 'v1.0';
@@ -25,39 +20,39 @@ page 20034 "APIV1 - Trial Balance"
         {
             repeater(Group)
             {
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'number', Locked = true;
                 }
-                field(accountId; Rec."Account Id")
+                field(accountId; "Account Id")
                 {
                     Caption = 'accountId', Locked = true;
                 }
-                field(accountType; Rec."Account Type")
+                field(accountType; "Account Type")
                 {
                     Caption = 'accountType', Locked = true;
                 }
-                field(display; Rec.Name)
+                field(display; Name)
                 {
                     Caption = 'name', Locked = true;
                 }
-                field(totalDebit; Rec."Total Debit")
+                field(totalDebit; "Total Debit")
                 {
                     Caption = 'totalDebit', Locked = true;
                 }
-                field(totalCredit; Rec."Total Credit")
+                field(totalCredit; "Total Credit")
                 {
                     Caption = 'totalCredit', Locked = true;
                 }
-                field(balanceAtDateDebit; Rec."Balance at Date Debit")
+                field(balanceAtDateDebit; "Balance at Date Debit")
                 {
                     Caption = 'balanceAtDateDebit', Locked = true;
                 }
-                field(balanceAtDateCredit; Rec."Balance at Date Credit")
+                field(balanceAtDateCredit; "Balance at Date Credit")
                 {
                     Caption = 'balanceAtDateCredit', Locked = true;
                 }
-                field(dateFilter; Rec."Date Filter")
+                field(dateFilter; "Date Filter")
                 {
                     Caption = 'dateFilter', Locked = true;
                 }
@@ -78,6 +73,5 @@ page 20034 "APIV1 - Trial Balance"
         GraphMgtReports.SetUpTrialBalanceAPIData(RecVariant);
     end;
 }
-
 
 

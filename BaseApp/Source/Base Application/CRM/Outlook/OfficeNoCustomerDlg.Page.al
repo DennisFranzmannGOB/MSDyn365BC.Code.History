@@ -1,8 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using Microsoft.CRM.Contact;
-using Microsoft.Sales.Customer;
-
 page 1627 "Office No Customer Dlg"
 {
     Caption = 'Create customer record?';
@@ -15,7 +10,7 @@ page 1627 "Office No Customer Dlg"
     {
         area(content)
         {
-            field("STRSUBSTNO(CustDialogLbl,Name)"; StrSubstNo(CustDialogLbl, Rec.Name))
+            field("STRSUBSTNO(CustDialogLbl,Name)"; StrSubstNo(CustDialogLbl, Name))
             {
                 ApplicationArea = All;
                 ShowCaption = false;
@@ -23,7 +18,7 @@ page 1627 "Office No Customer Dlg"
             group(Control2)
             {
                 ShowCaption = false;
-                field(CreateCust; StrSubstNo(CreateCustLbl, Rec.Name))
+                field(CreateCust; StrSubstNo(CreateCustLbl, Name))
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -32,7 +27,7 @@ page 1627 "Office No Customer Dlg"
 
                     trigger OnDrillDown()
                     begin
-                        Rec.CreateCustomerFromTemplate(Rec.ChooseNewCustomerTemplate());
+                        CreateCustomerFromTemplate(ChooseNewCustomerTemplate());
                         CurrPage.Close();
                     end;
                 }

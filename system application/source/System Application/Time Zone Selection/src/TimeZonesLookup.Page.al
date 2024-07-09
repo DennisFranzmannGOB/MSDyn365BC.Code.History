@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DateTime;
-
 /// <summary>
 /// List page that contains all Time zones.
 /// </summary>
@@ -19,7 +17,7 @@ page 9216 "Time Zones Lookup"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Group)
             {
@@ -37,5 +35,8 @@ page 9216 "Time Zones Lookup"
         }
     }
 
+    actions
+    {
+    }
 }
 

@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Device;
-
-using System;
-
 codeunit 7569 "Geolocation Impl."
 {
     Access = Internal;
@@ -16,7 +12,7 @@ codeunit 7569 "Geolocation Impl."
     var
         GeolocationPage: Page Geolocation;
         LocationNotRetrievedErrorMsg: Label 'The geographical location data was not retrieved.';
-        CachedLocation: DotNet Location;
+        CachedLocation: Dotnet Location;
         LocationProvider: DotNet LocationProvider;
         LocationOptions: DotNet LocationOptions;
         LocationOptionsEnabled: Boolean;
@@ -32,7 +28,7 @@ codeunit 7569 "Geolocation Impl."
         exit(false);
     end;
 
-    procedure LocationInteractionOnOpenPage(var LocationProvdr: DotNet LocationProvider; var LocationAvailable: Boolean)
+    procedure LocationInteractionOnOpenPage(var LocationProvdr: Dotnet LocationProvider; var LocationAvailable: Boolean)
     var
         Location: DotNet Location;
         HandledByTest: Boolean;
@@ -53,7 +49,7 @@ codeunit 7569 "Geolocation Impl."
         LocationProvider := LocationProvdr;
     end;
 
-    procedure LocationInteractionOnLocationAvailable(Location: DotNet Location)
+    procedure LocationInteractionOnLocationAvailable(Location: Dotnet Location)
     begin
         CachedLocation := Location;
     end;

@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Inventory.Analysis;
-
 permissionset 6867 "Item Budget - Edit"
 {
     Access = Public;

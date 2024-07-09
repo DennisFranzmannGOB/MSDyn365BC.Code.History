@@ -1,5 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
 page 1153 "COHUB Company Short Summary"
 {
     Caption = 'Company Hub';
@@ -26,8 +24,8 @@ page 1153 "COHUB Company Short Summary"
                     ToolTip = 'Specifies the name of the company.';
                     Visible = true;
                     StyleExpr = DisplayNameStyle;
-                    Enabled = not IsGroup;
-                    Editable = not IsGroup;
+                    Enabled = Not IsGroup;
+                    Editable = Not IsGroup;
 
                     trigger OnDrillDown();
                     var
@@ -46,8 +44,8 @@ page 1153 "COHUB Company Short Summary"
                     Caption = 'Enviroment Name';
                     ToolTip = 'Specifies the name of the environment. Specify your own name for the environment, or use the original name that has been defined in this environment.';
                     Visible = true;
-                    Enabled = not IsGroup;
-                    Editable = not IsGroup;
+                    Enabled = Not IsGroup;
+                    Editable = Not IsGroup;
 
                     trigger OnDrillDown();
                     begin
@@ -503,7 +501,7 @@ page 1153 "COHUB Company Short Summary"
         Indentation := Rec.Indent;
         SetStyleDescriptions();
         SetUserTasksKPI();
-        Rec.CalcFields("Currency Symbol");
+        CalcFields("Currency Symbol");
         if not IsGroupEntry(Rec) then
             if not COHUBEnviroment.Get(Rec."Enviroment No.") then
                 Rec.Delete()

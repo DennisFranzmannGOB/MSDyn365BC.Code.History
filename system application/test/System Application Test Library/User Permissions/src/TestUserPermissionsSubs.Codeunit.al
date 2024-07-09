@@ -1,11 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.TestLibraries.Security.AccessControl;
-
-using System.Security.User;
 
 codeunit 130019 "Test User Permissions Subs."
 {
@@ -35,16 +31,6 @@ codeunit 130019 "Test User Permissions Subs."
     begin
         if CanManageUserSecIDs.Contains(UserSID) then
             Result := true;
-    end;
-
-    /// <summary>
-    /// Skip calls to NavUserAccountHelper.IsPermissionSetAssigned, as it may fail in tests.
-    /// </summary>
-    /// <param name="Skip">Skip calls NavUserAccountHelper.IsPermissionSetAssigned.</param>
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"User Permissions Impl.", 'OnHasUserPermissionSetAssigned', '', false, false)]
-    local procedure OnHasUserPermissionSetAssigned(var Skip: Boolean)
-    begin
-        Skip := true;
     end;
 }
 

@@ -1,18 +1,3 @@
-﻿namespace System.Privacy;
-
-using Microsoft.CRM.Contact;
-using Microsoft.CRM.Team;
-using Microsoft.HumanResources.Employee;
-using Microsoft.Projects.Resources.Resource;
-using Microsoft.Purchases.Vendor;
-using Microsoft.Sales.Customer;
-using Microsoft.Utilities;
-using System.Environment;
-using System.IO;
-using System.Security.AccessControl;
-using System.Security.User;
-using System.Utilities;
-
 page 1180 "Data Privacy Wizard"
 {
     Caption = 'Data Privacy Utility';
@@ -122,11 +107,11 @@ page 1180 "Data Privacy Wizard"
 
                         trigger OnLookup(var Text: Text): Boolean
                         begin
-                            Rec.Reset();
-                            Rec.DeleteAll();
+                            Reset();
+                            DeleteAll();
                             if PAGE.RunModal(PAGE::"Data Subject", Rec) = ACTION::LookupOK then begin
-                                EntityType := Rec."Table Caption";
-                                EntityTypeTableNo := Rec."Table No.";
+                                EntityType := "Table Caption";
+                                EntityTypeTableNo := "Table No.";
                                 if EntityType <> EntityTypeGlobal then
                                     EntityNo := '';
                                 EntityTypeGlobal := EntityType;
@@ -489,7 +474,6 @@ page 1180 "Data Privacy Wizard"
                     ConfigPackageTable: Record "Config. Package Table";
                     ConfigPackage: Record "Config. Package";
                     SessionId: Integer;
-                    IsHandled: Boolean;
                 begin
                     NextActionEnabled := true;
                     PreviewActionEnabled := true;
@@ -536,17 +520,14 @@ page 1180 "Data Privacy Wizard"
                             if ConfigPackage.Get(PackageCode) then begin
                                 DataPrivacyMgmt.SetPrivacyBlocked(EntityTypeTableNo, EntityNo);
                                 ConfigPackageTable.SetRange("Package Code", PackageCode);
-                                IsHandled := false;
-                                OnNextActionOnBeforeStartSession(IsHandled, ConfigPackageTable, SessionId, DataSensitivity, EntityType, EntityNo);
-                                if not IsHandled then
-                                    if StartSession(SessionId, CODEUNIT::"Prvacy Data Mgmt Excel", CompanyName, ConfigPackageTable) then
-                                        ActivityLog.LogActivity(
-                                          Company.RecordId, ActivityLog.Status::Success, ActivityContextTxt, ActivityDescriptionExportTxt,
-                                          StrSubstNo(ActivityMessageExportTxt, LowerCase(Format(DataSensitivity)), EntityType, EntityNo))
-                                    else
-                                        ActivityLog.LogActivity(
-                                          Company.RecordId, ActivityLog.Status::Failed, ActivityContextTxt, ActivityDescriptionExportTxt,
-                                          StrSubstNo(ActivityMessageExportTxt, LowerCase(Format(DataSensitivity)), EntityType, EntityNo));
+                                if StartSession(SessionId, CODEUNIT::"Prvacy Data Mgmt Excel", CompanyName, ConfigPackageTable) then
+                                    ActivityLog.LogActivity(
+                                      Company.RecordId, ActivityLog.Status::Success, ActivityContextTxt, ActivityDescriptionExportTxt,
+                                      StrSubstNo(ActivityMessageExportTxt, LowerCase(Format(DataSensitivity)), EntityType, EntityNo))
+                                else
+                                    ActivityLog.LogActivity(
+                                      Company.RecordId, ActivityLog.Status::Failed, ActivityContextTxt, ActivityDescriptionExportTxt,
+                                      StrSubstNo(ActivityMessageExportTxt, LowerCase(Format(DataSensitivity)), EntityType, EntityNo));
                             end else begin // No data generated, so no config package created.
                                 CurrentPage := 6; // Move to the end
                                 ActivityLog.LogActivity(
@@ -734,11 +715,6 @@ page 1180 "Data Privacy Wizard"
     [IntegrationEvent(false, false)]
     [Scope('OnPrem')]
     internal procedure OnEntityNoValidate(EntityTypeTableNo: Integer; var EntityNo: Code[50])
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnNextActionOnBeforeStartSession(var IsHandled: Boolean; var ConfigPackageTable: Record "Config. Package Table"; var SessionId: Integer; var DataSensitivity: Option Sensitive,Personal,"Company Confidential",Normal,Unclassified; var EntityType: Text[80]; var EntityNo: Code[50])
     begin
     end;
 }

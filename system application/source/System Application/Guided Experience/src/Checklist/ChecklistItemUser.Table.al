@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Security.AccessControl;
-
 table 1993 "Checklist Item User"
 {
     Access = Internal;
@@ -66,4 +62,7 @@ table 1993 "Checklist Item User"
         }
     }
 
+    fieldgroups
+    {
+    }
 }

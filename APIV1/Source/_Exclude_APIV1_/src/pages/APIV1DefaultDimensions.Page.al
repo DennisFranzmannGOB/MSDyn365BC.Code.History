@@ -1,7 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Finance.Dimension;
-
 page 20056 "APIV1 - Default Dimensions"
 {
     Caption = 'defaultDimension', Locked = true;
@@ -17,39 +13,39 @@ page 20056 "APIV1 - Default Dimensions"
         {
             repeater(Group)
             {
-                field(parentId; Rec.ParentId)
+                field(parentId; ParentId)
                 {
                     ApplicationArea = All;
                     Caption = 'parentId';
                     ToolTip = 'Specifies the parent id.';
                 }
-                field(dimensionId; Rec.DimensionId)
+                field(dimensionId; DimensionId)
                 {
                     ApplicationArea = All;
                     Caption = 'dimensionId';
                     ToolTip = 'Specifies the dimension id.';
                 }
-                field(dimensionCode; Rec."Dimension Code")
+                field(dimensionCode; "Dimension Code")
                 {
                     ApplicationArea = All;
                     Caption = 'dimensionCode';
                     ToolTip = 'Specifies the dimension code.';
                     Editable = false;
                 }
-                field(dimensionValueId; Rec.DimensionValueId)
+                field(dimensionValueId; DimensionValueId)
                 {
                     ApplicationArea = All;
                     Caption = 'dimensionValueId';
                     ToolTip = 'Specifies the dimension value id.';
                 }
-                field(dimensionValueCode; Rec."Dimension Value Code")
+                field(dimensionValueCode; "Dimension Value Code")
                 {
                     ApplicationArea = All;
                     Caption = 'dimensionValueCode';
                     ToolTip = 'Specifies the dimension value code.';
                     Editable = false;
                 }
-                field(postingValidation; Rec."Value Posting")
+                field(postingValidation; "Value Posting")
                 {
                     ApplicationArea = All;
                     Caption = 'postingValidation';
@@ -69,12 +65,12 @@ page 20056 "APIV1 - Default Dimensions"
         FilterView: Text;
     begin
         if not ParentIdSpecifiedInGetRequest then begin
-            FilterView := Rec.GetView();
-            ParentIdFilter := Rec.GetFilter(ParentId);
+            FilterView := GetView();
+            ParentIdFilter := GetFilter(ParentId);
             if ParentIdFilter = '' then
                 Error(MissingParentIdErr);
             ParentIdSpecifiedInGetRequest := true;
-            Rec.SetView(FilterView);
+            SetView(FilterView);
         end;
     end;
 
@@ -83,20 +79,20 @@ page 20056 "APIV1 - Default Dimensions"
         FilterView: Text;
         ParentIdFilter: Text;
     begin
-        if IsNullGuid(Rec.ParentId) then begin
-            FilterView := Rec.GetView();
-            ParentIdFilter := Rec.GetFilter(ParentId);
-            Rec.Validate(ParentId, ParentIdFilter);
-            Rec.SetView(FilterView);
+        if IsNullGuid(ParentId) then begin
+            FilterView := GetView();
+            ParentIdFilter := GetFilter(ParentId);
+            Validate(ParentId, ParentIdFilter);
+            SetView(FilterView);
         end;
         exit(true);
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        if xRec.DimensionId <> Rec.DimensionId then
+        if xRec.DimensionId <> DimensionId then
             Error(CannotModifyKeyFieldErr, 'dimensionId');
-        if xRec.ParentId <> Rec.ParentId then
+        if xRec.ParentId <> ParentId then
             Error(CannotModifyKeyFieldErr, 'parentId');
     end;
 
@@ -105,5 +101,4 @@ page 20056 "APIV1 - Default Dimensions"
         CannotModifyKeyFieldErr: Label 'You cannot change the value of the key field %1.', Locked = true;
         ParentIdSpecifiedInGetRequest: Boolean;
 }
-
 

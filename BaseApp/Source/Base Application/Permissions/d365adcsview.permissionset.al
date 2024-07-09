@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Warehouse.ADCS;
-
 permissionset 6585 "D365 ADCS, VIEW"
 {
     Assignable = true;

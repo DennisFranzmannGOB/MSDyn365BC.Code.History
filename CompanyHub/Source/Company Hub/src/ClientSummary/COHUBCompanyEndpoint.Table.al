@@ -1,7 +1,3 @@
-namespace Mirosoft.Integration.CompanyHub;
-
-using System.Security.AccessControl;
-
 table 1153 "COHUB Company Endpoint"
 {
     ReplicateData = false;

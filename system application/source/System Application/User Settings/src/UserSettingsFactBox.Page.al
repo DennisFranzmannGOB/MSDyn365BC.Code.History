@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System.Globalization;
-
 /// <summary>
 /// A Factbox that shows the settings of a given user.
 /// </summary>
@@ -20,7 +16,7 @@ page 9208 "User Settings FactBox"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             field(UserRoleCenter; UserSettingsImpl.GetProfileName(Rec.Scope, Rec."App ID", Rec."Profile ID"))
             {
@@ -34,7 +30,7 @@ page 9208 "User Settings FactBox"
                 Caption = 'Company';
                 ToolTip = 'Specifies the company that is associated with the user.';
             }
-            field(Language; Language.GetWindowsLanguageName(Rec."Language ID"))
+            field("Language"; Language.GetWindowsLanguageName(Rec."Language ID"))
             {
                 ApplicationArea = All;
                 Caption = 'Language';

@@ -16,33 +16,21 @@ codeunit 2752 "Universal Print Graph Helper"
     var
         PrintShareJsonObject: JsonObject;
         PrintShareJsonArrayToken: JsonToken;
-        NextLinkJsonToken: JsonToken;
-        JArrayElement: JsonToken;
         ResponseContent: Text;
-        RequestURL: Text;
-        MorePrintSharesExist: Boolean;
     begin
-        RequestURL := GetGraphPrintSharesUrl();
-        repeat
-            if not InvokeRequest(RequestURL, 'GET', '', ResponseContent, ErrorMessage) then
-                exit(false);
+        if not InvokeRequest(GetGraphPrintSharesUrl(), 'GET', '', ResponseContent, ErrorMessage) then
+            exit(false);
 
-            if not PrintShareJsonObject.ReadFrom(ResponseContent) then
-                exit(false);
+        if not PrintShareJsonObject.ReadFrom(ResponseContent) then
+            exit(false);
 
-            if not PrintShareJsonObject.SelectToken('value', PrintShareJsonArrayToken) then
-                exit(false);
+        if not PrintShareJsonObject.SelectToken('value', PrintShareJsonArrayToken) then
+            exit(false);
 
-            if not PrintShareJsonArrayToken.IsArray() then
-                exit(false);
+        if not PrintShareJsonArrayToken.IsArray() then
+            exit(false);
 
-            foreach JArrayElement in PrintShareJsonArrayToken.AsArray() do
-                PrintShares.add(JArrayElement);
-
-            MorePrintSharesExist := PrintShareJsonObject.Get('@odata.nextLink', NextLinkJsonToken);
-            if MorePrintSharesExist then
-                RequestURL := NextLinkJsonToken.AsValue().AsText();
-        until not MorePrintSharesExist;
+        PrintShares := PrintShareJsonArrayToken.AsArray();
         exit(true);
     end;
 
@@ -237,18 +225,14 @@ codeunit 2752 "Universal Print Graph Helper"
         ResponseHeaders: DotNet NameValueCollection;
         ResponseErrorMessage: Text;
         ResponseErrorDetails: Text;
-        RequestId: Text;
     begin
         if HttpWebRequestMgt.SendRequestAndReadTextResponse(ResponseContent, ResponseErrorMessage, ResponseErrorDetails, StatusCode, ResponseHeaders) then
             exit(true);
 
-        if not TryGetRequestIdfromHeaders(ResponseHeaders, RequestId) then
-            RequestId := NotFoundTelemetryTxt;
-
-        Session.LogMessage('0000EG1', StrSubstNo(InvokeWebRequestFailedTelemetryTxt, StatusCode, ResponseErrorMessage, RequestId),
+        Session.LogMessage('0000EG1', StrSubstNo(InvokeWebRequestFailedTelemetryTxt, StatusCode, ResponseErrorMessage),
         Verbosity::Error, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', UniversalPrintTelemetryCategoryTxt);
-
         Clear(ErrorMessage);
+
         if not IsNull(StatusCode) then
             if StatusCode in [401, 403, 404] then begin
                 ErrorMessage := NoAccessTxt;
@@ -262,12 +246,6 @@ codeunit 2752 "Universal Print Graph Helper"
             ErrorMessage := ResponseErrorMessage;
 
         exit(false);
-    end;
-
-    [TryFunction]
-    local procedure TryGetRequestIdfromHeaders(ResponseHeaders: DotNet NameValueCollection; var RequestId: Text)
-    begin
-        RequestId := ResponseHeaders.Get('Request-Id');
     end;
 
     local procedure GetMessageFromErrorJSON(ErrorResponseContent: Text): Text
@@ -347,21 +325,20 @@ codeunit 2752 "Universal Print Graph Helper"
 
     local procedure GetGraphPrintSharesUrl(): Text
     begin
-        // https://graph.microsoft.com/v1.0/print/shares/?$top=1000
-        // NOTE: by default universal print returns 10 records only, which is too low for some customers.
-        exit(GetGraphDomain() + GetGraphAPIVersion() + '/print/shares/?$top=1000');
+        // https://graph.microsoft.com/v1.0/print/shares/
+        exit(GetGraphDomain() + GetGraphAPIVersion() + '/print/shares');
     end;
 
     local procedure GetGraphPrintShareSelectUrl(PrintShareID: Text): Text
     begin
         // https://graph.microsoft.com/v1.0/print/shares/{PrintShareID}?$select=id,displayName,defaults,capabilities
-        exit(GetGraphDomain() + GetGraphAPIVersion() + '/print/shares/' + GetGuidAsString(PrintShareID) + '?$select=id,displayName,defaults,capabilities');
+        exit(GetGraphPrintSharesUrl() + '/' + GetGuidAsString(PrintShareID) + '?$select=id,displayName,defaults,capabilities');
     end;
 
     local procedure GetGraphPrintShareUrl(PrintShareID: Text): Text
     begin
         // https://graph.microsoft.com/v1.0/print/shares/{PrintShareID}
-        exit(GetGraphDomain() + GetGraphAPIVersion() + '/print/shares/' + GetGuidAsString(PrintShareID));
+        exit(GetGraphPrintSharesUrl() + '/' + GetGuidAsString(PrintShareID));
     end;
 
     local procedure GetGraphPrintShareJobsUrl(PrintShareID: Text): Text
@@ -383,13 +360,12 @@ codeunit 2752 "Universal Print Graph Helper"
     end;
 
     var
-        UserNotAuthenticatedTxt: Label 'User cannot be authenticated with Microsoft Entra.';
+        UserNotAuthenticatedTxt: Label 'User cannot be authenticated with Azure AD.';
         NoAccessTxt: Label 'You don''t have access to the data. Make sure your account has been assigned a Universal Print license and you have the required permissions.';
         UniversalPrintTelemetryCategoryTxt: Label 'Universal Print AL', Locked = true;
         UniversalPrintFeatureTelemetryNameTxt: Label 'Universal Print', Locked = true;
         NoTokenTelemetryTxt: Label 'Access token could not be retrieved.', Locked = true;
-        InvokeWebRequestFailedTelemetryTxt: Label 'Invoking web request has failed. Status %1, Message %2, RequestId %3', Locked = true;
-        NotFoundTelemetryTxt: Label 'Not Found.', Locked = true;
+        InvokeWebRequestFailedTelemetryTxt: Label 'Invoking web request has failed. Status %1, Message %2', Locked = true;
         UniversalPrintPortalUrlTxt: Label 'https://go.microsoft.com/fwlink/?linkid=2153618', Locked = true;
 }
 

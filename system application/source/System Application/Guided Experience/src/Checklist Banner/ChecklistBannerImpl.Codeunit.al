@@ -3,16 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Environment.Configuration;
-
-using System;
-using System.Telemetry;
-using System.Media;
-using System.Globalization;
-using System.Security.AccessControl;
-using System.Reflection;
-using System.Environment;
-
 codeunit 1996 "Checklist Banner Impl."
 {
     Access = Internal;
@@ -191,7 +181,7 @@ codeunit 1996 "Checklist Banner Impl."
                 end else
                     IsChecklistItemComplete := RunObject(GuidedExperienceItem, ChecklistItemBuffer);
             "Guided Experience Type"::Video:
-                IsChecklistItemComplete := RunVideo(ChecklistItemBuffer, GuidedExperienceItem."Video Url");
+                RunVideo(GuidedExperienceItem."Video Url");
         end;
 
         exit(IsChecklistItemComplete);
@@ -296,11 +286,15 @@ codeunit 1996 "Checklist Banner Impl."
     var
         GuidedExperienceItem: Record "Guided Experience Item";
         ChecklistItem: Record "Checklist Item";
+        EntityText: Codeunit "Entity Text";
     begin
         GuidedExperienceItem.SetCurrentKey(Code, Version);
         GuidedExperienceItem.SetRange(Code, Code);
         if Version <> 0 then
             GuidedExperienceItem.SetRange(Version, Version);
+
+        if (not EntityText.CanSuggest()) or IsThereThirdPartyGuidedExperienceItem(Version) then
+            GuidedExperienceItem.SetFilter("Spotlight Tour Type", '<>%1', GuidedExperienceItem."Spotlight Tour Type"::Copilot);
 
         if GuidedExperienceItem.FindLast() then begin
             if CheckForDuplicate then
@@ -316,6 +310,16 @@ codeunit 1996 "Checklist Banner Impl."
 
             InsertChecklistItemInBuffer(ChecklistItemBuffer, GuidedExperienceItem, Status, ChecklistItem, RoleID);
         end;
+    end;
+
+    local procedure IsThereThirdPartyGuidedExperienceItem(Version: Integer): Boolean
+    var
+        GuidedExperienceItem: Record "Guided Experience Item";
+    begin
+        GuidedExperienceItem.ReadIsolation := IsolationLevel::ReadUncommitted;
+        GuidedExperienceItem.SetRange(Version, Version);
+        GuidedExperienceItem.SetFilter("Extension Publisher", '<>%1', 'Microsoft');
+        exit(not GuidedExperienceItem.IsEmpty());
     end;
 
     local procedure HasTheItemBeenCompleted(GuidedExperienceItem: Record "Guided Experience Item"; ChecklistItem: Record "Checklist Item"): Boolean
@@ -391,7 +395,7 @@ codeunit 1996 "Checklist Banner Impl."
     var
         AllProfile: Record "All Profile";
     begin
-        // if the tour is running on the same page as the checklist we don't want to refresh the page,
+        // if the tour is running on the same page as the checklist we don't want to refresh the page, 
         // as the checklist will appear in a wrong state afterwards, so we need to run the tour for object ID 0
 
         AllProfile.SetRange("Role Center ID", ObjectIDToRun);
@@ -548,14 +552,15 @@ codeunit 1996 "Checklist Banner Impl."
         if not GuidedExperienceImpl.IsObjectToRunValid(GuidedExperienceItem."Object Type to Run", GuidedExperienceItem."Object ID to Run") then
             exit;
 
-        if GuidedExperienceItem."Guided Experience Type" in [GuidedExperienceItem."Guided Experience Type"::"Manual Setup", GuidedExperienceItem."Guided Experience Type"::"Application Feature"]
+        if GuidedExperienceItem."Guided Experience Type" in
+            [GuidedExperienceItem."Guided Experience Type"::"Manual Setup",
+            GuidedExperienceItem."Guided Experience Type"::"Application Feature"]
         then begin
             RunObject(GuidedExperienceItem);
             UpdateChecklistItemUserStatus(ChecklistItemBuffer, UserId(), ChecklistItemStatus::Started);
         end else
             if GuidedExperienceItem."Guided Experience Type" = GuidedExperienceItem."Guided Experience Type"::"Assisted Setup" then begin
                 GuidedExperienceImpl.RunAndRefreshAssistedSetup(GuidedExperienceItem);
-
                 if IsAssistedSetupComplete(GuidedExperienceItem) then
                     UpdateChecklistItemUserStatus(ChecklistItemBuffer, UserId(), ChecklistItemStatus::Completed)
                 else
@@ -587,14 +592,11 @@ codeunit 1996 "Checklist Banner Impl."
         Tour.StartTour(ChecklistItemBuffer."Object ID to Run", ChecklistItemBuffer.Code);
     end;
 
-    local procedure RunVideo(var ChecklistItemBuffer: Record "Checklist Item Buffer"; VideoUrl: Text[250]): Boolean
+    local procedure RunVideo(VideoUrl: Text[250])
     var
         Video: Codeunit Video;
-        ChecklistItemStatus: Enum "Checklist Item Status";
     begin
         Video.Play(VideoUrl);
-        UpdateChecklistItemUserStatus(ChecklistItemBuffer, UserId(), ChecklistItemStatus::Completed);
-        exit(true);
     end;
 
     local procedure RunObject(GuidedExperienceItem: Record "Guided Experience Item")
@@ -607,7 +609,7 @@ codeunit 1996 "Checklist Banner Impl."
         ObjectID := GuidedExperienceItem."Object ID to Run";
         case ObjectType of
             ObjectType::Page:
-                if GuidedExperienceItem."Guided Experience Type" = GuidedExperienceItem."Guided Experience Type"::"Application Feature" then
+                If GuidedExperienceItem."Guided Experience Type" = GuidedExperienceItem."Guided Experience Type"::"Application Feature" then
                     Page.Run(ObjectID)
                 else
                     Page.RunModal(ObjectID);

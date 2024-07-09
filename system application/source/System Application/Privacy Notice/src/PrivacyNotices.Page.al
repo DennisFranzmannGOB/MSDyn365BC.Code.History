@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Privacy;
-
 page 1565 "Privacy Notices"
 {
     Caption = 'Privacy Notices Status';
@@ -12,8 +10,8 @@ page 1565 "Privacy Notices"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "Privacy Notice";
-    SourceTableView = sorting("Integration Service Name")
-                      where("User SID Filter" = filter('00000000-0000-0000-0000-000000000000'));
+    SourceTableView = Sorting("Integration Service Name")
+                      Where("User SID Filter" = filter('00000000-0000-0000-0000-000000000000'));
     Extensible = true;
     AccessByPermission = tabledata "Privacy Notice" = IM; // Only admin can see this page
     RefreshOnActivate = true;
@@ -92,7 +90,7 @@ page 1565 "Privacy Notices"
                         SetRecordApprovalState();
                     end;
                 }
-#pragma warning disable AA0218
+#pragma warning disable AA0218                
                 field(Accepted2; Rec.Enabled)
                 {
                     ApplicationArea = All;
@@ -103,7 +101,7 @@ page 1565 "Privacy Notices"
                     ApplicationArea = All;
                     Visible = false; // This field ensures Disabled field is auto-calculated
                 }
-#pragma warning restore AA0218
+#pragma warning restore AA0218                
             }
         }
     }

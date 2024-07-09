@@ -18,7 +18,6 @@ codeunit 134924 "ERM Cues"
         LibraryUtility: Codeunit "Library - Utility";
         LibraryRandom: Codeunit "Library - Random";
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
-        LibraryInventory: Codeunit "Library - Inventory";
         LibraryWarehouse: Codeunit "Library - Warehouse";
         LibrarySales: Codeunit "Library - Sales";
         ShipStatus: Option Full,Partial,"Not Shipped";
@@ -333,7 +332,7 @@ codeunit 134924 "ERM Cues"
         AverageDelayActual := SalesCue.CalculateAverageDaysDelayed;
 
         // [THEN] "Average Days Delayed" is equal to average delay of "X1" and "Y1"
-        // [THEN] (In the example, average delay of "X1" = max(3, 8) = 8, "X2" = max(10, 20) = 20. "Average Days Delayed" = (8 + 20) / 2 = 14 days).
+        // [THEN] (In the example, average delay of "X1" = Max(3, 8) = 8, "X2" = Max(10, 20) = 20. "Average Days Delayed" = (8 + 20) / 2 = 14 days).
         AverageDelayExpected := (Maximum(FirstDelays[1], FirstDelays[2]) + Maximum(SecondDelays[1], SecondDelays[2])) / 2;
         Assert.AreEqual(AverageDelayExpected, AverageDelayActual, AverageDaysDelayedErr);
     end;
@@ -634,84 +633,6 @@ codeunit 134924 "ERM Cues"
         SalesOrderList.Next();
         SalesOrderList."No.".AssertEquals(DocumentNos.Get(2));
         Assert.IsFalse(SalesOrderList.Next(), '');
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerNo')]
-    procedure CompletelyReservedFromStockSalesCue()
-    var
-        Item: Record Item;
-        ItemJournalLine: Record "Item Journal Line";
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        SOProcessorActivities: TestPage "SO Processor Activities";
-        SalesOrderList: TestPage "Sales Order List";
-        SalesHeaderNo: Code[20];
-    begin
-        // [SCENARIO 481603] Sales Cue "Completely Reserved from Stock" number corresponds to completely reserved sales orders.
-        Initialize();
-
-        LibraryInventory.CreateItem(Item);
-        LibraryInventory.CreateItemJournalLineInItemTemplate(ItemJournalLine, Item."No.", '', '', 15);
-        LibraryInventory.PostItemJournalLine(ItemJournalLine."Journal Template Name", ItemJournalLine."Journal Batch Name");
-
-        LibrarySales.CreateSalesDocumentWithItem(SalesHeader, SalesLine, SalesHeader."Document Type"::Order, '', Item."No.", 10, '', WorkDate());
-        SalesHeaderNo := SalesHeader."No.";
-        LibrarySales.AutoReserveSalesLine(SalesLine);
-        LibrarySales.CreateSalesDocumentWithItem(SalesHeader, SalesLine, SalesHeader."Document Type"::Order, '', Item."No.", 10, '', WorkDate());
-        LibrarySales.AutoReserveSalesLine(SalesLine);
-        LibrarySales.CreateSalesDocumentWithItem(SalesHeader, SalesLine, SalesHeader."Document Type"::Order, '', Item."No.", 10, '', WorkDate());
-
-        SOProcessorActivities.OpenView();
-        SOProcessorActivities.SalesOrdersReservedFromStock.AssertEquals(1);
-
-        SalesOrderList.Trap();
-        SOProcessorActivities.SalesOrdersReservedFromStock.Drilldown();
-        SalesOrderList.Last();
-        SalesOrderList."No.".AssertEquals(SalesHeaderNo);
-        Assert.IsFalse(SalesOrderList.Previous(), '');
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerNo')]
-    procedure CompletelyReservedFromStockActivitiesCue()
-    var
-        Item: Record Item;
-        ItemJournalLine: Record "Item Journal Line";
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        ActivitiesCue: Record "Activities Cue";
-        O365Activities: TestPage "O365 Activities";
-        SalesOrderList: TestPage "Sales Order List";
-        SalesHeaderNo: Code[20];
-    begin
-        //avd
-        // [SCENARIO 481603] Activities Cue "Completely Reserved from Stock" number corresponds to completely reserved sales orders.
-        Initialize();
-        if not ActivitiesCue.Get() then begin
-            ActivitiesCue.Init();
-            ActivitiesCue.Insert();
-        end;
-
-        LibraryInventory.CreateItem(Item);
-        LibraryInventory.CreateItemJournalLineInItemTemplate(ItemJournalLine, Item."No.", '', '', 15);
-        LibraryInventory.PostItemJournalLine(ItemJournalLine."Journal Template Name", ItemJournalLine."Journal Batch Name");
-
-        LibrarySales.CreateSalesDocumentWithItem(SalesHeader, SalesLine, SalesHeader."Document Type"::Order, '', Item."No.", 10, '', WorkDate());
-        SalesHeaderNo := SalesHeader."No.";
-        LibrarySales.AutoReserveSalesLine(SalesLine);
-        LibrarySales.CreateSalesDocumentWithItem(SalesHeader, SalesLine, SalesHeader."Document Type"::Order, '', Item."No.", 10, '', WorkDate());
-        LibrarySales.AutoReserveSalesLine(SalesLine);
-        LibrarySales.CreateSalesDocumentWithItem(SalesHeader, SalesLine, SalesHeader."Document Type"::Order, '', Item."No.", 10, '', WorkDate());
-
-        O365Activities.OpenView();
-        O365Activities."S. Ord. - Reserved From Stock".AssertEquals(1);
-
-        SalesOrderList.Trap();
-        O365Activities."S. Ord. - Reserved From Stock".Drilldown();
-        SalesOrderList.Last();
-        SalesOrderList."No.".AssertEquals(SalesHeaderNo);
-        Assert.IsFalse(SalesOrderList.Previous(), '');
     end;
 
     local procedure Initialize()
@@ -1118,12 +1039,6 @@ codeunit 134924 "ERM Cues"
     procedure ConfirmHandler(Question: Text; var Reply: Boolean)
     begin
         Reply := true;
-    end;
-
-    [ConfirmHandler]
-    procedure ConfirmHandlerNo(Question: Text; var Reply: Boolean)
-    begin
-        Reply := false;
     end;
 
     [MessageHandler]

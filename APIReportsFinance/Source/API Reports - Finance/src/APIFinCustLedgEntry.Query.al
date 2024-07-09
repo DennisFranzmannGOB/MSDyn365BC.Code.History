@@ -1,7 +1,3 @@
-namespace Microsoft.API.FinancialManagement;
-
-using Microsoft.Sales.Receivables;
-
 query 30302 "API Fin - Cust Ledg Entry"
 {
     QueryType = API;

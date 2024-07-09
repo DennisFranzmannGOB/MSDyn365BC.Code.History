@@ -1,11 +1,3 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft;
-
-using Microsoft.Integration.Graph;
-
 page 9166 "Support Contact Info. Entity"
 {
     APIGroup = 'admin';
@@ -28,7 +20,7 @@ page 9166 "Support Contact Info. Entity"
         {
             repeater(Group)
             {
-                field(id; Rec.ID)
+                field(id; ID)
                 {
                     ApplicationArea = All;
                     Caption = 'id', Locked = true;
@@ -37,21 +29,21 @@ page 9166 "Support Contact Info. Entity"
                     var
                         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
                     begin
-                        if xRec.ID <> Rec.ID then
+                        if xRec.ID <> ID then
                             GraphMgtGeneralTools.ErrorIdImmutable();
                     end;
                 }
-                field(name; Rec.Name)
+                field(name; Name)
                 {
                     ApplicationArea = All;
                     Caption = 'name', Locked = true;
                 }
-                field(email; Rec.Email)
+                field(email; Email)
                 {
                     ApplicationArea = All;
                     Caption = 'email', Locked = true;
                 }
-                field(url; Rec.URL)
+                field(url; URL)
                 {
                     ApplicationArea = All;
                     Caption = 'url', Locked = true;

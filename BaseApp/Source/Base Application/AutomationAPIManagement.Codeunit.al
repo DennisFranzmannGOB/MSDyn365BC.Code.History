@@ -1,10 +1,6 @@
-namespace System.Environment;
-
 codeunit 5435 "Automation - API Management"
 {
     EventSubscriberInstance = Manual;
-    InherentEntitlements = X;
-    InherentPermissions = X;
 
     trigger OnRun()
     begin

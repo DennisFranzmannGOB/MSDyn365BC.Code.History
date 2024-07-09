@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Email;
-
-using System.Email;
-
 /// <summary>
 /// Used to mock selected email accounts on Email Accounts page.
 /// </summary>

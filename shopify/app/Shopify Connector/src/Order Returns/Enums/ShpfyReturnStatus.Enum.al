@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 enum 30136 "Shpfy Return Status"
 {
     value(0; Canceled)

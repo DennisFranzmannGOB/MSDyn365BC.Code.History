@@ -1,8 +1,4 @@
 #if not CLEAN22
-namespace System.Security.AccessControl;
-
-using System.Tooling;
-
 permissionset 7243 "User Groups - Admin"
 {
     Access = Public;

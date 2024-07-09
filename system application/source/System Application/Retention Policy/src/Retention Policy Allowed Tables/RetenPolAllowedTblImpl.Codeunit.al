@@ -3,12 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.DataAdministration;
-
-using System.Environment;
-using System.Reflection;
-using System.Apps;
-
 codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
 {
     Access = Internal;
@@ -79,7 +73,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         if UpdateAllowedTables then begin
             BindSubscription(RetenPolAllowedTblImpl);
             TableAllowed := RetentionPolicyAllowedTable.Modify(true);
-            UnbindSubscription(RetenPolAllowedTblImpl);
+            UnBindSubscription(RetenPolAllowedTblImpl);
 
             if TableAllowed then
                 RetentionPolicyLog.LogInfo(LogCategory(), StrSubstNo(AllowedTablesModifiedLbl, RetentionPolicyAllowedTable."Table Id", AllObj."Object Name", RetentionPolicyAllowedTable."Default Date Field No."))
@@ -91,7 +85,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
 
         BindSubscription(RetenPolAllowedTblImpl);
         TableAllowed := RetentionPolicyAllowedTable.Insert();
-        UnbindSubscription(RetenPolAllowedTblImpl);
+        UnBindSubscription(RetenPolAllowedTblImpl);
 
         if TableAllowed then
             RetentionPolicyLog.LogInfo(LogCategory(), StrSubstNo(AddTableToAllowedTablesLbl, RetentionPolicyAllowedTable."Table Id", AllObj."Object Name", RetentionPolicyAllowedTable."Default Date Field No."))
@@ -160,7 +154,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         RetentionPolicyAllowedTable: Record "Retention Policy Allowed Table";
         AllObjWithCaption: Record AllObjWithCaption;
     begin
-        if RetentionPolicyAllowedTable.FindSet(false) then
+        if RetentionPolicyAllowedTable.findset(false, false) then
             repeat
                 if AllObjWithCaption.Get(AllObjWithCaption."Object Type"::Table, RetentionPolicyAllowedTable."Table Id") then
                     AllowedList.Add(RetentionPolicyAllowedTable."Table Id");
@@ -271,7 +265,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         JsonObject.Add('Locked', Locked);
         JsonObject.Add('Table Filter', RecordRef.GetView(false));
 
-        TableFilters.Add(JsonObject.AsToken())
+        TableFilters.add(JsonObject.AsToken())
     end;
 
     procedure GetTableFilters(TableId: Integer) TableFilters: JsonArray
@@ -290,7 +284,8 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         exit(TableFilters);
     end;
 
-    procedure ParseTableFilter(JsonObject: JsonObject; var TableId: Integer; var RetentionPeriodEnum: Enum "Retention Period Enum"; var RetPeriodCalc: DateFormula; var DateFieldNo: Integer; var Enabled: Boolean; var Locked: Boolean; var TableFilter: Text)
+    procedure ParseTableFilter(JsonObject: JsonObject; var TableId: Integer; var RetentionPeriodEnum: enum "Retention Period Enum"; var RetPeriodCalc: DateFormula; var DateFieldNo: Integer; var Enabled: Boolean; var Locked: Boolean; var TableFilter: Text)
+    var
     begin
         TableId := GetTableId(JsonObject);
         RetentionPeriodEnum := GetRetentionPeriodEnum(JsonObject);
@@ -306,7 +301,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         JsonToken: JsonToken;
     begin
         JsonObject.Get('Table Id', JsonToken);
-        exit(JsonToken.AsValue().AsInteger())
+        exit(jsonToken.AsValue().AsInteger())
     end;
 
     local procedure GetRetentionPeriodEnum(JsonObject: JsonObject) RetentionPeriodEnum: Enum "Retention Period Enum"
@@ -314,7 +309,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         JsonToken: JsonToken;
     begin
         JsonObject.Get('Retention Period', JsonToken);
-        Evaluate(RetentionPeriodEnum, JsonToken.AsValue().AsText(), 9);
+        Evaluate(RetentionPeriodEnum, jsonToken.AsValue().AsText(), 9);
     end;
 
     local procedure GetRetPeriodCalc(JsonObject: JsonObject): Text
@@ -330,7 +325,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         JsonToken: JsonToken;
     begin
         JsonObject.Get('Date Field No.', JsonToken);
-        exit(JsonToken.AsValue().AsInteger())
+        exit(jsonToken.AsValue().AsInteger())
     end;
 
     local procedure GetEnabled(JsonObject: JsonObject): Boolean
@@ -338,7 +333,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         JsonToken: JsonToken;
     begin
         JsonObject.Get('Enabled', JsonToken);
-        exit(JsonToken.AsValue().AsBoolean())
+        exit(jsonToken.AsValue().AsBoolean())
     end;
 
     local procedure GetLocked(JsonObject: JsonObject): Boolean
@@ -346,7 +341,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         JsonToken: JsonToken;
     begin
         JsonObject.Get('Locked', JsonToken);
-        exit(JsonToken.AsValue().AsBoolean())
+        exit(jsonToken.AsValue().AsBoolean())
     end;
 
     local procedure GetTableFilter(JsonObject: JsonObject): Text
@@ -354,7 +349,7 @@ codeunit 3906 "Reten. Pol. Allowed Tbl. Impl."
         JsonToken: JsonToken;
     begin
         JsonObject.Get('Table Filter', JsonToken);
-        exit(JsonToken.AsValue().AsText())
+        exit(jsonToken.AsValue().AsText())
     end;
 
     local procedure LogCategory(): Enum "Retention Policy Log Category"

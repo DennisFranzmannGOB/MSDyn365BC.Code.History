@@ -3,7 +3,8 @@
 /// </summary>
 codeunit 139561 "Shpfy Initialize Test"
 {
-    EventSubscriberInstance = Manual;
+    //EventSubscriberInstance = Manual;
+    SingleInstance = true;
 
     var
         DummyCustomer: Record Customer;
@@ -12,11 +13,7 @@ codeunit 139561 "Shpfy Initialize Test"
         Any: Codeunit Any;
         LibraryAssert: Codeunit "Library Assert";
         CommunicationMgt: Codeunit "Shpfy Communication Mgt.";
-        LibraryERM: Codeunit "Library - ERM";
-        LibraryRandom: Codeunit "Library - Random";
-        ShopifyAccessToken: Text;
-        DummyCustomerEmailLbl: Label 'dummy@customer.com';
-        DummyItemDescriptionLbl: Label 'Dummy Item Description';
+        _AccessToken: Text;
 
     trigger OnRun()
     begin
@@ -26,21 +23,15 @@ codeunit 139561 "Shpfy Initialize Test"
     internal procedure CreateShop(): Record "Shpfy Shop"
     var
         GLAccount: Record "G/L Account";
-        RefundGLAccount: Record "G/L Account";
         Shop: Record "Shpfy Shop";
-        VATPostingSetup: Record "VAT Posting Setup";
 #if not CLEAN22
         ShpfyTemplates: Codeunit "Shpfy Templates";
 #endif
-        ShpfyInitializeTest: Codeunit "Shpfy Initialize Test";
         Code: Code[10];
         CustomerTemplateCode: Code[20];
         ItemTemplateCode: Code[20];
-        PostingGroupCode: Code[20];
-        GenPostingType: Enum "General Posting Type";
         UrlTxt: Label 'https://%1.myshopify.com', Comment = '%1 = Shop name', Locked = true;
     begin
-        BindSubscription(ShpfyInitializeTest);
         if not TempShop.IsEmpty() then
             if Shop.Get(TempShop.Code) then
                 exit(Shop);
@@ -49,20 +40,12 @@ codeunit 139561 "Shpfy Initialize Test"
         GLAccount.SetRange("Direct Posting", true);
         GLAccount.FindLast();
 
-        LibraryERM.CreateVATPostingSetupWithAccounts(VATPostingSetup,
-           VATPostingSetup."VAT Calculation Type"::"Normal VAT", LibraryRandom.RandDecInDecimalRange(10, 25, 0));
-
-        RefundGLAccount.Get(LibraryERM.CreateGLAccountWithVATPostingSetup(VATPostingSetup, GenPostingType::Sale));
-        RefundGLAccount."Direct Posting" := true;
-        RefundGLAccount.Modify();
-
         Shop.Init();
         Shop.Code := Code;
         Shop."Shopify URL" := StrSubstNo(UrlTxt, Any.AlphabeticText(20));
         Shop.Enabled := true;
-        PostingGroupCode := Any.AlphabeticText(10);
-        CustomerTemplateCode := CreateCustomerTemplate(PostingGroupCode);
-        ItemTemplateCode := CreateItemTemplate(PostingGroupCode);
+        CustomerTemplateCode := CreateCustomerTemplate();
+        ItemTemplateCode := CreateItemTemplate();
 #if not CLEAN22
         if not ShpfyTemplates.NewTemplatesEnabled() then begin
             Shop."Customer Template Code" := CustomerTemplateCode;
@@ -73,20 +56,19 @@ codeunit 139561 "Shpfy Initialize Test"
             Shop."Item Templ. Code" := ItemTemplateCode;
         end;
 #else
-        Shop."Customer Templ. Code" := CreateCustomerTemplate(PostingGroupCode);
-        Shop."Item Templ. Code" := CreateItemTemplate(PostingGroupCode);
+        Shop."Customer Templ. Code" := CreateCustomerTemplate();
+        Shop."Item Templ. Code" := CreateItemTemplate();
 #endif
-        CreateVATPostingSetup(PostingGroupCode, PostingGroupCode);
-        CreateVATPostingSetup(PostingGroupCode, '');
-        CreateVATPostingSetup(PostingGroupCode, RefundGLAccount."VAT Prod. Posting Group");
+        CreateVATPostingSetup(CustomerTemplateCode, ItemTemplateCode);
+        CreateVATPostingSetup(CustomerTemplateCode, '');
         Shop."Shipping Charges Account" := GLAccount."No.";
-        Shop."Customer Posting Group" := PostingGroupCode;
-        Shop."Gen. Bus. Posting Group" := PostingGroupCode;
-        Shop."VAT Bus. Posting Group" := PostingGroupCode;
+        Shop."Customer Posting Group" := CustomerTemplateCode;
+        Shop."Gen. Bus. Posting Group" := CustomerTemplateCode;
+        Shop."VAT Bus. Posting Group" := CustomerTemplateCode;
         CreateCountryRegionCode(CustomerTemplateCode);
         Shop."VAT Country/Region Code" := CustomerTemplateCode;
-        Shop."Refund Account" := RefundGLAccount."No.";
-        if Shop.Insert() then;
+
+        Shop.Insert();
         Commit();
         CommunicationMgt.SetShop(Shop);
         CommunicationMgt.SetTestInProgress(true);
@@ -97,7 +79,6 @@ codeunit 139561 "Shpfy Initialize Test"
             TempShop.Insert();
             Commit();
         end;
-        UnbindSubscription(ShpfyInitializeTest);
         exit(Shop);
     end;
 
@@ -122,11 +103,7 @@ codeunit 139561 "Shpfy Initialize Test"
                 ConfigConfigTemplateLine.SetRange("Table ID", Database::Customer);
                 ConfigConfigTemplateLine.SetRange("Field ID", DummyCustomer.FieldNo("No. Series"));
                 if ConfigConfigTemplateLine.FindFirst() and (ConfigConfigTemplateLine."Default Value" <> '') then
-                    NoSeriesManagement.InitSeries(CopyStr(ConfigConfigTemplateLine."Default Value", 1, 20), CopyStr(ConfigConfigTemplateLine."Default Value", 1, 20), 0D, DummyCustomer."No.", DummyCustomer."No. Series")
-                else
-                    Evaluate(DummyCustomer."No.", Any.AlphanumericText(MaxStrLen(DummyCustomer."No.")));
-                DummyCustomer.Name := 'Dummy Customer Name';
-                DummyCustomer."E-Mail" := DummyCustomerEmailLbl;
+                    NoSeriesManagement.InitSeries(CopyStr(ConfigConfigTemplateLine."Default Value", 1, 20), CopyStr(ConfigConfigTemplateLine."Default Value", 1, 20), 0D, DummyCustomer."No.", DummyCustomer."No. Series");
                 DummyCustomer.Insert(true);
                 RecordRef.GetTable(DummyCustomer);
                 ConfigTemplateManagement.UpdateRecord(ConfigTemplateHeader, RecordRef);
@@ -134,18 +111,14 @@ codeunit 139561 "Shpfy Initialize Test"
                 RecordRef.SetTable(DummyCustomer);
             end;
         end
-        else begin
+        else
             CreateDummyCustomerFromCustomerTempl(CurrentTemplateCode);
-            DummyCustomer.Name := 'Dummy Customer Name';
-            DummyCustomer."E-Mail" := DummyCustomerEmailLbl;
-            DummyCustomer.Modify();
-        end;
 #else
         CreateDummyCustomerFromCustomerTempl(CurrentTemplateCode);
-        DummyCustomer.Name := 'Dummy Customer Name';
-        DummyCustomer."E-Mail" := DummyCustomerEmailLbl;
-        DummyCustomer.Modify();
 #endif
+        DummyCustomer.Name := 'Dummy Customer Name';
+        DummyCustomer."E-Mail" := 'dummy@customer.com';
+        DummyCustomer.Modify();
         DummyCustomer.SetRecFilter();
     end;
 
@@ -203,6 +176,7 @@ codeunit 139561 "Shpfy Initialize Test"
 
     local procedure CreateDummyItemFromTempl(ItemTemplCode: Code[20])
     var
+        Item: Record Item;
         ItemTempl: Record "Item Templ.";
         ItemTemplMgt: Codeunit "Item Templ. Mgt.";
         IsHandled: Boolean;
@@ -211,25 +185,21 @@ codeunit 139561 "Shpfy Initialize Test"
             exit;
         if not ItemTempl.Get(ItemTemplCode) then
             exit;
-        ItemTemplMgt.CreateItemFromTemplate(DummyItem, IsHandled, ItemTemplCode);
+        ItemTemplMgt.CreateItemFromTemplate(Item, IsHandled, ItemTemplCode);
     end;
 
     internal procedure GetDummyCustomer() Customer: Record Customer;
     begin
-        Customer.SetRange("E-Mail", DummyCustomerEmailLbl);
-        Customer.FindFirst();
+        Customer := DummyCustomer;
     end;
 
     internal procedure GetDummyItem() Item: Record Item;
     begin
-        Item.SetRange(Description, DummyItemDescriptionLbl);
-        Item.FindFirst();
+        Item := DummyItem;
     end;
 
-    local procedure CreateItemTemplate(PostingGroupCode: Code[20]) Code: Code[20]
+    local procedure CreateItemTemplate() Code: Code[20]
     var
-        VATPostingSetup: Record "VAT Posting Setup";
-        GeneralPostingSetup: Record "General Posting Setup";
 #if not CLEAN22
         ConfigTemplateHeader: Record "Config. Template Header";
 #endif
@@ -245,41 +215,28 @@ codeunit 139561 "Shpfy Initialize Test"
 #endif
     begin
         Code := Any.AlphabeticText(10);
-        InventoryPostingGroup := CreateInventoryPostingGroup(PostingGroupCode);
-        GenProductPostingGroup := CreateGenProdPostingGroup(PostingGroupCode);
-        VatProductPostingGroup := CreateVatProdPostingGroup(PostingGroupCode);
+        InventoryPostingGroup := CreateInventoryPostingGroup(Code);
+        GenProductPostingGroup := CreateGenProdPostingGroup(Code);
+        VatProductPostingGroup := CreateVatProdPostingGroup(Code);
         NoSeries := CreateNoSeries('SHPFY');
 #if not CLEAN22
         if not ShpfyTemplates.NewTemplatesEnabled() then begin
             ConfigTemplateHeader.Init();
             ConfigTemplateHeader.Code := Code;
-            ConfigTemplateHeader."Table ID" := Database::Item;
+            ConfigTemplateHeader.Validate("Table ID", Database::Item);
             ConfigTemplateHeader.Enabled := true;
-            if ConfigTemplateHeader.Insert() then begin
-                AddFieldTemplate(ConfigTemplateHeader.Code, 10000, Database::Item, Item.FieldNo("Inventory Posting Group"), InventoryPostingGroup.Code);
-                AddFieldTemplate(ConfigTemplateHeader.Code, 20000, Database::Item, Item.FieldNo("Gen. Prod. Posting Group"), GenProductPostingGroup.Code);
-                AddFieldTemplate(ConfigTemplateHeader.Code, 30000, Database::Item, Item.FieldNo("VAT Prod. Posting Group"), VatProductPostingGroup.Code);
-                AddFieldTemplate(ConfigTemplateHeader.Code, 40000, Database::Item, Item.FieldNo("No. Series"), NoSeries.Code);
-            end;
+            ConfigTemplateHeader.Insert();
+
+            AddFieldTemplate(ConfigTemplateHeader.Code, 10000, Database::Item, Item.FieldNo("Inventory Posting Group"), InventoryPostingGroup.Code);
+            AddFieldTemplate(ConfigTemplateHeader.Code, 20000, Database::Item, Item.FieldNo("Gen. Prod. Posting Group"), GenProductPostingGroup.Code);
+            AddFieldTemplate(ConfigTemplateHeader.Code, 30000, Database::Item, Item.FieldNo("VAT Prod. Posting Group"), VatProductPostingGroup.Code);
+            AddFieldTemplate(ConfigTemplateHeader.Code, 40000, Database::Item, Item.FieldNo("No. Series"), NoSeries.Code);
         end
         else
             CreateItemTempl(Code, InventoryPostingGroup.Code, GenProductPostingGroup.Code, VatProductPostingGroup.Code, NoSeries.Code);
 #else
         CreateItemTempl(Code, InventoryPostingGroup.Code, GenProductPostingGroup.Code, VatProductPostingGroup.Code, NoSeries.Code);
 #endif
-
-        Clear(VatPostingSetup);
-        VatPostingSetup."VAT Bus. Posting Group" := PostingGroupCode;
-        VatPostingSetup."VAT Prod. Posting Group" := PostingGroupCode;
-        VatPostingSetup."VAT Calculation Type" := "Tax Calculation Type"::"Normal VAT";
-        if not VatPostingSetup.Insert() then
-            VatPostingSetup.Modify();
-
-        Clear(GeneralPostingSetup);
-        GeneralPostingSetup."Gen. Bus. Posting Group" := PostingGroupCode;
-        GeneralPostingSetup."Gen. Prod. Posting Group" := PostingGroupCode;
-        if not GeneralPostingSetup.Insert() then
-            GeneralPostingSetup.Modify();
     end;
 
     local procedure CreateItemTempl(ItemTemplCode: Code[20]; InventoryPostingGroupCode: Code[20]; GenProductPostingGroupCode: Code[20]; VatProductPostingGroupCode: Code[20]; NoSeriesCode: Code[20]): Code[20]
@@ -367,7 +324,7 @@ codeunit 139561 "Shpfy Initialize Test"
         end;
     end;
 
-    local procedure CreateCustomerTemplate(PostingGroupCode: Code[20]) Code: Code[20]
+    local procedure CreateCustomerTemplate() Code: Code[20]
     var
 #if not CLEAN22
         ConfigTemplateHeader: Record "Config. Template Header";
@@ -383,9 +340,9 @@ codeunit 139561 "Shpfy Initialize Test"
 #endif
     begin
         Code := Any.AlphabeticText(10);
-        CustomerPostingGroup := CreateCustomerPostingGroup(PostingGroupCode);
-        GenBusinessPostingGroup := CreateGenBusPostingGroup(PostingGroupCode);
-        VatBusinessPostingGroup := CreateVatBusPostingGroup(PostingGroupCode);
+        CustomerPostingGroup := CreateCustomerPostingGroup(Code);
+        GenBusinessPostingGroup := CreateGenBusPostingGroup(Code);
+        VatBusinessPostingGroup := CreateVatBusPostingGroup(Code);
 
 #if not CLEAN22
         if not ShpfyTemplates.NewTemplatesEnabled() then begin
@@ -393,11 +350,11 @@ codeunit 139561 "Shpfy Initialize Test"
             ConfigTemplateHeader.Code := Code;
             ConfigTemplateHeader."Table ID" := Database::Customer;
             ConfigTemplateHeader.Enabled := true;
-            if ConfigTemplateHeader.Insert() then begin
-                AddFieldTemplate(ConfigTemplateHeader.Code, 10000, Database::CUstomer, Customer.FieldNo("Customer Posting Group"), CustomerPostingGroup.Code);
-                AddFieldTemplate(ConfigTemplateHeader.Code, 20000, Database::CUstomer, Customer.FieldNo("Gen. Bus. Posting Group"), GenBusinessPostingGroup.Code);
-                AddFieldTemplate(ConfigTemplateHeader.Code, 30000, Database::CUstomer, Customer.FieldNo("VAT Bus. Posting Group"), VatBusinessPostingGroup.Code);
-            end;
+            ConfigTemplateHeader.Insert();
+
+            AddFieldTemplate(ConfigTemplateHeader.Code, 10000, Database::CUstomer, Customer.FieldNo("Customer Posting Group"), CustomerPostingGroup.Code);
+            AddFieldTemplate(ConfigTemplateHeader.Code, 20000, Database::CUstomer, Customer.FieldNo("Gen. Bus. Posting Group"), GenBusinessPostingGroup.Code);
+            AddFieldTemplate(ConfigTemplateHeader.Code, 30000, Database::CUstomer, Customer.FieldNo("VAT Bus. Posting Group"), VatBusinessPostingGroup.Code);
         end
         else
             CreateCustomerTempl(Code, CustomerPostingGroup.Code, GenBusinessPostingGroup.Code, VatBusinessPostingGroup.Code);
@@ -406,15 +363,15 @@ codeunit 139561 "Shpfy Initialize Test"
 #endif
 
         Clear(VatPostingSetup);
-        VatPostingSetup."VAT Bus. Posting Group" := PostingGroupCode;
-        VatPostingSetup."VAT Prod. Posting Group" := PostingGroupCode;
+        VatPostingSetup."VAT Bus. Posting Group" := Code;
+        VatPostingSetup."VAT Prod. Posting Group" := Code;
         VatPostingSetup."VAT Calculation Type" := "Tax Calculation Type"::"Normal VAT";
         if not VatPostingSetup.Insert() then
             VatPostingSetup.Modify();
 
         Clear(GeneralPostingSetup);
-        GeneralPostingSetup."Gen. Bus. Posting Group" := PostingGroupCode;
-        GeneralPostingSetup."Gen. Prod. Posting Group" := PostingGroupCode;
+        GeneralPostingSetup."Gen. Bus. Posting Group" := Code;
+        GeneralPostingSetup."Gen. Prod. Posting Group" := Code;
         if not GeneralPostingSetup.Insert() then
             GeneralPostingSetup.Modify();
     end;
@@ -465,9 +422,9 @@ codeunit 139561 "Shpfy Initialize Test"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Shpfy Communication Events", 'OnGetAccessToken', '', true, false)]
     local procedure OnGetAccessToken(var AccessToken: Text)
     begin
-        if ShopifyAccessToken = '' then
-            ShopifyAccessToken := Any.AlphanumericText(50);
-        AccessToken := ShopifyAccessToken;
+        if _AccessToken = '' then
+            _AccessToken := Any.AlphanumericText(50);
+        AccessToken := _AccessToken;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Shpfy Communication Events", 'OnClientSend', '', true, false)]
@@ -485,7 +442,7 @@ codeunit 139561 "Shpfy Initialize Test"
         HttpRequestMessage.GetHeaders(Headers);
         LibraryAssert.IsTrue(Headers.Contains(ShopifyAccessTokenTxt), 'access token doesn''t exist');
         Headers.GetValues(ShopifyAccessTokenTxt, Values);
-        LibraryAssert.IsTrue(Values[1] = ShopifyAccessToken, 'invalid access token');
+        LibraryAssert.IsTrue(Values[1] = _AccessToken, 'invalid access token');
     end;
 
     local procedure CreateVATPostingSetup(BusinessPostingGroup: Code[20]; ProductPostingGroup: Code[20])
@@ -497,7 +454,6 @@ codeunit 139561 "Shpfy Initialize Test"
             Clear(VatPostingSetup);
             VatPostingSetup."VAT Bus. Posting Group" := BusinessPostingGroup;
             VatPostingSetup."VAT Prod. Posting Group" := ProductPostingGroup;
-            VatPostingSetup."VAT Identifier" := Any.AlphabeticText(MaxStrLen(VatPostingSetup."VAT Identifier"));
             VatPostingSetup."VAT Calculation Type" := "Tax Calculation Type"::"Normal VAT";
             VatPostingSetup."VAT %" := 10;
             VatPostingSetup.Insert();

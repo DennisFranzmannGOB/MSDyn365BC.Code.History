@@ -1,11 +1,3 @@
-namespace Microsoft.Bank.StatementImport;
-
-using System.Utilities;
-using System.IO;
-using System.Environment.Configuration;
-using System.Globalization;
-using System.Media;
-
 codeunit 8850 "Bank Statement File Wizard"
 {
     var
@@ -18,10 +10,7 @@ codeunit 8850 "Bank Statement File Wizard"
     procedure RunBankStatementFileWizard(SkippedSyncNotification: Notification)
     var
         BankStatementFileWizard: Page "Bank Statement File Wizard";
-        BankAccountCode: Code[20];
     begin
-        if Evaluate(BankAccountCode, SkippedSyncNotification.GetData('BankAccountCode')) then
-            BankStatementFileWizard.SetBankAccount(BankAccountCode);
         BankStatementFileWizard.Run();
     end;
 

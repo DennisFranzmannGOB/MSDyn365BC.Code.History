@@ -1,16 +1,14 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Utilities;
 
 codeunit 4108 "Persistent Blob Impl."
 {
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
-    Permissions = tabledata "Persistent Blob" = rimd;
+    Permissions = TableData "Persistent Blob" = rimd;
 
     procedure Create() "Key": BigInteger
     var

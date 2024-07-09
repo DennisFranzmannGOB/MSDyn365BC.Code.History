@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
 /// <summary>
 /// ListPart for viewing and including/excluding permission sets.
 /// </summary>
@@ -14,7 +12,7 @@ page 9864 "Permission Set Subform"
     SourceTable = "Permission Set Relation Buffer";
     SourceTableTemporary = true;
     SourceTableView = sorting(Type, "Related Role ID")
-                      order(ascending);
+                      order(Ascending);
     Caption = 'Permission Sets';
     InsertAllowed = true;
     ModifyAllowed = true;
@@ -177,5 +175,6 @@ page 9864 "Permission Set Subform"
         StyleExprRoleID: Text;
         CurrRoleId: Code[30];
         CurrAppId: Guid;
+        [InDataSet]
         CurrScope: Option System,Tenant;
 }

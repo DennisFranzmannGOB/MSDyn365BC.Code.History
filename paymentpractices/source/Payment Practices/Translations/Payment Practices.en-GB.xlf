@@ -370,8 +370,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Periods - Control Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3524294527 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Payment Practice</source>
-          <target state="translated">Payment Practice</target>
+          <source>Payment Practice Card</source>
+          <target state="translated">Payment Practice Card</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - Property Caption</note>
         </trans-unit>
@@ -386,12 +386,6 @@
           <target state="translated">The payment practice generator found no entries corresponding to the header type, starting and ending date.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - NamedType NoEntriesFoundMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 3524294527 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>General</source>
-          <target state="translated">General</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - Control General - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3524294527 - Control 2658469128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the aggregation type of the payment practice.</source>
@@ -446,12 +440,6 @@
           <target state="translated">Specifies the starting date of the payment practice.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - Control Startind Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3524294527 - Control 84074407 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Statistics</source>
-          <target state="translated">Statistics</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - Control Statistics - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3524294527 - Control 4275867806 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the average actual payment period.</source>

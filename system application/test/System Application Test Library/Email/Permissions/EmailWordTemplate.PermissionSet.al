@@ -3,11 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.TestLibraries.Email;
-
-using System.Email;
-using System.Integration.Word;
-
 permissionset 134683 "Email Word Template"
 {
     Assignable = true;
@@ -15,7 +10,7 @@ permissionset 134683 "Email Word Template"
 
     // Include Test Tables
     Permissions =
-        tabledata "Test Email Account" = RIMD, // Needed for the Record to get passed in Library Assert
         tabledata "Test Email Connector Setup" = RIMD,
+        tabledata "Test Email Account" = RIMD, // Needed for the Record to get passed in Library Assert
         tabledata "Word Template" = RIMD;
 }

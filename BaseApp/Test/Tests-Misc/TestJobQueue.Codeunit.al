@@ -560,7 +560,7 @@ codeunit 139026 "Test Job Queue"
         until (i > 300) or ((JobQueueLogEntry."Entry No." <> 0) and (JobQueueLogEntry.Status <> JobQueueLogEntry.Status::"In Process"));
 
         if i > 300 then
-            Error(TimeoutErr, 'JobQueueEntry status remained In Progress');
+            Error(StrSubstNo(TimeoutErr, 'JobQueueEntry status remained In Progress'));
     end;
 
     local procedure DeleteAllJobQueueEntries()

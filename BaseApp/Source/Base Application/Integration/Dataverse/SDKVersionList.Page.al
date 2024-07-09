@@ -1,11 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using System.Utilities;
-
 page 5332 "SDK Version List"
 {
     Caption = 'SDK Version List';
@@ -23,7 +15,7 @@ page 5332 "SDK Version List"
         {
             repeater(Group)
             {
-                field("SDK version"; Rec.StackOrder)
+                field("SDK version"; StackOrder)
                 {
                     ApplicationArea = Suite;
                     Caption = 'SDK Version';

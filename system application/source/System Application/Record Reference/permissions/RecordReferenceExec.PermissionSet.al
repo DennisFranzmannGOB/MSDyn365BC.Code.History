@@ -4,8 +4,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Reflection;
-
 permissionset 3918 "Record Reference - Exec"
 {
     Assignable = false;

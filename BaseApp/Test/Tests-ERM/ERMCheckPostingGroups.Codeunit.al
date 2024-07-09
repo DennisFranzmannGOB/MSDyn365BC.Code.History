@@ -245,7 +245,6 @@ codeunit 134097 "ERM Check Posting Groups"
 
     [Test]
     [Scope('OnPrem')]
-    [HandlerFunctions('MessageHandler')]
     procedure CheckInvtPostingSetupSuggestAccounts()
     var
         Location: Record Location;
@@ -303,7 +302,6 @@ codeunit 134097 "ERM Check Posting Groups"
 
     [Test]
     [Scope('OnPrem')]
-    [HandlerFunctions('MessageHandler')]
     procedure CheckGenPostingSetupSuggestAccounts()
     var
         GenBusinessPostingGroup: Record "Gen. Business Posting Group";
@@ -424,7 +422,6 @@ codeunit 134097 "ERM Check Posting Groups"
 
     [Test]
     [Scope('OnPrem')]
-    [HandlerFunctions('MessageHandler')]
     procedure CheckVATPostingSetupSuggestAccounts()
     var
         VATBusinessPostingGroup: Record "VAT Business Posting Group";
@@ -2024,11 +2021,6 @@ codeunit 134097 "ERM Check Posting Groups"
         GLAccountFilter := GLAccountList.FILTER.GetFilter("Account Category");
         Assert.IsTrue(GLAccountFilter = '', 'Account Category filter set.');
         GLAccountList.Cancel.Invoke;
-    end;
-
-    [MessageHandler]
-    procedure MessageHandler(Message: Text[1024])
-    begin
     end;
 }
 

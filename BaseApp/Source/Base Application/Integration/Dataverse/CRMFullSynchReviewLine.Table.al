@@ -1,13 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.Integration.D365Sales;
-using Microsoft.Integration.SyncEngine;
-using System.Threading;
-
 table 5373 "CRM Full Synch. Review Line"
 {
     Caption = 'CRM Full Synch. Review Line';
@@ -94,22 +84,8 @@ table 5373 "CRM Full Synch. Review Line"
         }
         field(13; "Initial Synch Recommendation"; Option)
         {
-            OptionCaption = 'Full Synchronization,Couple Records,No Records To Synchronize Now,Dependency not satisfied';
+            OptionCaption = 'Full Synchronization,Couple Records,No Records Found,Dependency not satisfied';
             OptionMembers = "Full Synchronization","Couple Records","No Records Found","Dependency not satisfied"; // "Dependency not satisfied" is obsolete option value
-        }
-        field(34; "Multi Company Synch. Enabled"; Boolean)
-        {
-            Caption = 'Multi-Company Synchronization Enabled';
-
-            trigger OnValidate()
-            var
-                IntegrationTableMapping: Record "Integration Table Mapping";
-            begin
-                if not IntegrationTableMapping.Get(Name) then
-                    Error(NoIntegrationMappingErr, Name);
-
-                IntegrationTableMapping.Validate("Multi Company Synch. Enabled", Rec."Multi Company Synch. Enabled");
-            end;
         }
     }
 
@@ -205,7 +181,6 @@ table 5373 "CRM Full Synch. Review Line"
         if (not SkipNotFullSyncReady) or (GetInitialSynchRecommendation(IntegrationTableMapping, InitialSynchRecommendations) in ["Initial Synch Recommendation"::"Full Synchronization", "Initial Synch Recommendation"::"Couple Records"]) then begin
             Init();
             Name := IntegrationTableMapping.Name;
-            "Multi Company Synch. Enabled" := IntegrationTableMapping."Multi Company Synch. Enabled";
             if not Find('=') then begin
                 Validate("Dependency Filter", IntegrationTableMapping."Dependency Filter");
                 Validate("Initial Synch Recommendation", GetInitialSynchRecommendation(IntegrationTableMapping, InitialSynchRecommendations));
@@ -251,7 +226,7 @@ table 5373 "CRM Full Synch. Review Line"
     end;
 
 
-    internal procedure GetInitialSynchRecommendation(IntegrationTableMapping: Record "Integration Table Mapping"; var InitialSynchRecommendations: Dictionary of [Code[20], Integer]): Option
+    local procedure GetInitialSynchRecommendation(IntegrationTableMapping: Record "Integration Table Mapping"; var InitialSynchRecommendations: Dictionary of [Code[20], Integer]): Option
     var
         CRMAccount: Record "CRM Account";
         CRMContact: Record "CRM Contact";
@@ -552,15 +527,13 @@ table 5373 "CRM Full Synch. Review Line"
 
     [Scope('OnPrem')]
     procedure GetInitialSynchRecommendationStyleExpression(IntialSynchRecomeendation: Text): Text
-    var
-        CRMFullSynchReviewLine: Record "CRM Full Synch. Review Line";
     begin
         case IntialSynchRecomeendation of
-            Format(CRMFullSynchReviewLine."Initial Synch Recommendation"::"Dependency not satisfied"):
+            'Dependency not satisfied':
                 exit('Unfavorable');
-            Format(CRMFullSynchReviewLine."Initial Synch Recommendation"::"Full Synchronization"), Format(CRMFullSynchReviewLine."Initial Synch Recommendation"::"No Records Found"):
+            'Full Synchronization', 'No Records Found':
                 exit('Favorable');
-            Format(CRMFullSynchReviewLine."Initial Synch Recommendation"::"Couple Records"):
+            'Couple Records':
                 exit('Ambiguous')
             else
                 exit('Subordinate');
@@ -570,6 +543,5 @@ table 5373 "CRM Full Synch. Review Line"
     var
         CategoryTok: Label 'AL Dataverse Integration', Locked = true;
         SynchRecommDetailsTxt: Label 'The synchronization recommendation for Dataverse entity %1, with the direction %2 is %3', Comment = '%1 = Name of Dataverse entity, %2 = Synchronization Direction of Dataverse entity, %3 = Synchronization Recommendation', Locked = true;
-        NoIntegrationMappingErr: Label 'Integration Table Mapping with the name %1 does not exist.', Comment = '%1 = Name of Integration Table Mapping';
 }
 

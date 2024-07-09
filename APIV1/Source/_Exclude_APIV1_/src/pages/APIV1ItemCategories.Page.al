@@ -1,8 +1,3 @@
-namespace Microsoft.API.V1;
-
-using Microsoft.Inventory.Item;
-using Microsoft.Integration.Graph;
-
 page 20025 "APIV1 - Item Categories"
 {
     APIVersion = 'v1.0';
@@ -21,31 +16,31 @@ page 20025 "APIV1 - Item Categories"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'id', Locked = true;
                     Editable = false;
                 }
-                field("code"; Rec.Code)
+                field("code"; Code)
                 {
                     Caption = 'code', Locked = true;
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Code));
+                        RegisterFieldSet(FIELDNO(Code));
                     end;
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'description', Locked = true;
 
                     trigger OnValidate()
                     begin
-                        RegisterFieldSet(Rec.FieldNo(Description));
+                        RegisterFieldSet(FIELDNO(Description));
                     end;
                 }
-                field(lastModifiedDateTime; Rec."Last Modified Date Time")
+                field(lastModifiedDateTime; "Last Modified Date Time")
                 {
                     Caption = 'lastModifiedDateTime', Locked = true;
                 }
@@ -63,33 +58,33 @@ page 20025 "APIV1 - Item Categories"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         RecordRef: RecordRef;
     begin
-        ItemCategory.SETRANGE(Code, Rec.Code);
-        if not ItemCategory.ISEMPTY() then
-            Rec.insert();
+        ItemCategory.SETRANGE(Code, Code);
+        IF NOT ItemCategory.ISEMPTY() THEN
+            INSERT();
 
-        Rec.insert(true);
+        INSERT(TRUE);
 
-        RecordRef.GetTable(Rec);
+        RecordRef.GETTABLE(Rec);
         GraphMgtGeneralTools.ProcessNewRecordFromAPI(RecordRef, TempFieldSet, CURRENTDATETIME());
-        RecordRef.SetTable(Rec);
+        RecordRef.SETTABLE(Rec);
 
-        Rec.Modify(true);
-        exit(false);
+        MODIFY(TRUE);
+        EXIT(FALSE);
     end;
 
     trigger OnModifyRecord(): Boolean
     var
         ItemCategory: Record "Item Category";
     begin
-        ItemCategory.GetBySystemId(Rec.SystemId);
+        ItemCategory.GetBySystemId(SystemId);
 
-        if Rec.Code = ItemCategory.Code then
-            Rec.Modify(true)
-        else begin
-            ItemCategory.TransferFields(Rec, false);
-            ItemCategory.Rename(Rec.Code);
-            Rec.TransferFields(ItemCategory);
-        end;
+        IF Code = ItemCategory.Code THEN
+            MODIFY(TRUE)
+        ELSE BEGIN
+            ItemCategory.TRANSFERFIELDS(Rec, FALSE);
+            ItemCategory.RENAME(Code);
+            TRANSFERFIELDS(ItemCategory);
+        END;
     end;
 
     var
@@ -97,16 +92,15 @@ page 20025 "APIV1 - Item Categories"
 
     local procedure RegisterFieldSet(FieldNo: Integer)
     begin
-        if TempFieldSet.GET(DATABASE::"Item Category", FieldNo) then
-            exit;
+        IF TempFieldSet.GET(DATABASE::"Item Category", FieldNo) THEN
+            EXIT;
 
         TempFieldSet.INIT();
         TempFieldSet.TableNo := DATABASE::"Item Category";
-        TempFieldSet.Validate("No.", FieldNo);
-        TempFieldSet.insert(true);
+        TempFieldSet.VALIDATE("No.", FieldNo);
+        TempFieldSet.INSERT(TRUE);
     end;
 }
-
 
 
 

@@ -3,11 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Word;
-
-using System.Globalization;
-using System.Reflection;
-
 /// <summary>
 /// Holds information about a Word template.
 /// </summary>
@@ -34,10 +29,12 @@ table 9988 "Word Template"
         {
             DataClassification = CustomerContent;
         }
+#pragma warning disable AL0685
         field(5; "Table Caption"; Text[80])
+#pragma warning restore AL0685
         {
             FieldClass = FlowField;
-            CalcFormula = lookup("Table Metadata".Caption where(ID = field("Table ID")));
+            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table), "Object ID" = field("Table ID")));
         }
         field(6; "Language Code"; Code[10])
         {

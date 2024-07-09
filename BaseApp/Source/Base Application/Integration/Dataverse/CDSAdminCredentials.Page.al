@@ -1,11 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.Dataverse;
-
-using Microsoft.CRM.Outlook;
-
 page 7202 "CDS Admin Credentials"
 {
     Caption = 'Dataverse Administrator Credentials', Comment = 'Dataverse is the name of a Microsoft Service and should not be translated.';
@@ -23,14 +15,14 @@ page 7202 "CDS Admin Credentials"
                 ApplicationArea = Basic, Suite;
                 Caption = 'Specifies the credentials of the user that will be used to import and configure the integration solution.';
             }
-            field(UserName; Rec.Email)
+            field(UserName; Email)
             {
                 ApplicationArea = Basic, Suite;
                 ExtendedDatatype = EMail;
                 Caption = 'User Name';
                 ToolTip = 'Specifies the name of the user that will be used to import and configure the integration solution.';
             }
-            field(Password; Rec.Password)
+            field(Password; Password)
             {
                 ApplicationArea = Basic, Suite;
                 ExtendedDatatype = Masked;
@@ -59,9 +51,9 @@ page 7202 "CDS Admin Credentials"
     [NonDebuggable]
     local procedure CheckEmailPassword()
     begin
-        if Rec.Email.Trim() = '' then
+        if Email.Trim() = '' then
             Error(EmptyUserNameErr);
-        if Rec.Password = '' then
+        if Password = '' then
             Error(EmptyPasswordErr);
     end;
 
@@ -73,11 +65,11 @@ page 7202 "CDS Admin Credentials"
     begin
         TempCDSConnectionSetup."Authentication Type" := TempCDSConnectionSetup."Authentication Type"::Office365;
         TempCDSConnectionSetup."Proxy Version" := CDSIntegrationImpl.GetLastProxyVersionItem();
-        TempCDSConnectionSetup."Server Address" := Rec.Endpoint;
-        TempCDSConnectionSetup."User Name" := Rec.Email;
-        TempCDSConnectionSetup.SetPassword(Rec.Password);
+        TempCDSConnectionSetup."Server Address" := Endpoint;
+        TempCDSConnectionSetup."User Name" := Email;
+        TempCDSConnectionSetup.SetPassword(Password);
         CDSIntegrationImpl.UpdateConnectionString(TempCDSConnectionSetup);
-        CDSIntegrationImpl.CheckAdminUserPrerequisites(TempCDSConnectionSetup, Rec.Email, Rec.Password, '', '');
+        CDSIntegrationImpl.CheckAdminUserPrerequisites(TempCDSConnectionSetup, Email, Password, '', '');
     end;
 }
 

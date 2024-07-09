@@ -1,5 +1,3 @@
-namespace System.AI;
-
 codeunit 4009 "Intelligent Cloud Management"
 {
     // // Intelligent Cloud

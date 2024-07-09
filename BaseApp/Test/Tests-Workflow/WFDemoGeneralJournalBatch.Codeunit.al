@@ -335,6 +335,7 @@ codeunit 134187 "WF Demo General Journal Batch"
         // Exercise
         Commit();
         SendApprovalRequestForGeneralJournal(GenJournalBatch.Name);
+        CheckCommentsForDocumentOnGeneralJournalPage(GenJournalBatch, 0, false);
 
         // Verify
         LibraryDocumentApprovals.GetApprovalEntries(ApprovalEntry, GenJournalBatch.RecordId);
@@ -382,7 +383,7 @@ codeunit 134187 "WF Demo General Journal Batch"
         // Exercise
         Commit();
         SendApprovalRequestForCashReceipt(GenJournalBatch.Name);
-        CheckCommentsForDocumentOnCashReceiptPage(GenJournalBatch, 0, true);
+        CheckCommentsForDocumentOnCashReceiptPage(GenJournalBatch, 0, false);
 
         // Verify
         LibraryDocumentApprovals.GetApprovalEntries(ApprovalEntry, GenJournalBatch.RecordId);
@@ -390,7 +391,7 @@ codeunit 134187 "WF Demo General Journal Batch"
 
         // Setup
         AssignApprovalEntry(ApprovalEntry, RequestorUserSetup);
-        CheckCommentsForDocumentOnCashReceiptPage(GenJournalBatch, 1, true);
+        CheckCommentsForDocumentOnCashReceiptPage(GenJournalBatch, 0, true);
         CheckCommentsForDocumentOnApprovalEntriesPage(ApprovalEntry, 1);
         CheckCommentsForDocumentOnRequestsToApprovePage(ApprovalEntry, 1);
 
@@ -431,7 +432,7 @@ codeunit 134187 "WF Demo General Journal Batch"
         // Exercise
         Commit();
         SendApprovalRequestForPaymentJournal(GenJournalBatch.Name);
-        CheckCommentsForDocumentOnPaymentPage(GenJournalBatch, 0, true);
+        CheckCommentsForDocumentOnPaymentPage(GenJournalBatch, 0, false);
 
         // Verify
         LibraryDocumentApprovals.GetApprovalEntries(ApprovalEntry, GenJournalBatch.RecordId);
@@ -439,7 +440,7 @@ codeunit 134187 "WF Demo General Journal Batch"
 
         // Setup
         AssignApprovalEntry(ApprovalEntry, RequestorUserSetup);
-        CheckCommentsForDocumentOnPaymentPage(GenJournalBatch, 1, true);
+        CheckCommentsForDocumentOnPaymentPage(GenJournalBatch, 0, true);
         CheckCommentsForDocumentOnApprovalEntriesPage(ApprovalEntry, 1);
         CheckCommentsForDocumentOnRequestsToApprovePage(ApprovalEntry, 1);
 
@@ -668,9 +669,9 @@ codeunit 134187 "WF Demo General Journal Batch"
         GeneralJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
 
         // [THEN] Approval actions?
-        Assert.IsFalse(GeneralJournal.SendApprovalRequestJournalBatch.Enabled, 'Send should be disabled');
+        Assert.IsTrue(GeneralJournal.SendApprovalRequestJournalBatch.Enabled, 'Send should be enabled');
         Assert.IsFalse(GeneralJournal.CancelApprovalRequestJournalBatch.Enabled, 'Cancel should be disabled');
-        Assert.IsFalse(GeneralJournal.SendApprovalRequestJournalLine.Enabled, 'SendLine should be disabled');
+        Assert.IsTrue(GeneralJournal.SendApprovalRequestJournalLine.Enabled, 'SendLine should be enabled');
         Assert.IsFalse(GeneralJournal.CancelApprovalRequestJournalLine.Enabled, 'CancelLine should be disabled');
         Assert.IsFalse(GeneralJournal.Approve.Visible, '');
         Assert.IsFalse(GeneralJournal.Reject.Visible, '');

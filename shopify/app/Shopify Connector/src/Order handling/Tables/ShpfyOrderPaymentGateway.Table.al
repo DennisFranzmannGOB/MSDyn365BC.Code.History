@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Table Shpfy Order Payment Gateway (ID 30120).
 /// </summary>

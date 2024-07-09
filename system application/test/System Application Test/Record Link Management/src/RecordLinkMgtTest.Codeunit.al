@@ -3,14 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Utilities;
-
-using System.Environment.Configuration;
-using System.Utilities;
-using System.TestLibraries.Utilities;
-using System.Environment;
-using System.TestLibraries.Security.AccessControl;
-
 codeunit 132508 "Record Link Mgt. Test"
 {
     Subtype = Test;
@@ -127,6 +119,9 @@ codeunit 132508 "Record Link Mgt. Test"
         NewRecordLink.SetRange("Record ID", ToRecordLinkRecordTest.RecordId());
         NewRecordLink.FindFirst();
         Assert.AreEqual('', RecordLinkManagement.ReadNote(NewRecordLink), WrongLinkTestErr);
+
+        // [THEN] The record link on the other instance has Notify set to False
+        Assert.IsFalse(NewRecordLink.Notify, 'Notify should have been unset.');
     end;
 
     [Test]
@@ -197,6 +192,8 @@ codeunit 132508 "Record Link Mgt. Test"
         FromRecordLink.SetRange("Record ID", FromRecordLinkTestCrossCompany.RecordId);
         ToRecordLink.SetRange("Record ID", ToRecordLinkTestCrossCompany.RecordId);
         Assert.RecordCount(ToRecordLink, 5);
+        ToRecordLink.SetRange(Notify, false);
+        Assert.RecordCount(ToRecordLink, 5);
 
         FromRecordLink.FindSet();
         ToRecordLink.FindSet();
@@ -257,6 +254,8 @@ codeunit 132508 "Record Link Mgt. Test"
         FromRecordLink.SetRange(Company, CompanyName());
         ToRecordLink.SetRange("Record ID", ToRecordLinkRecordTest.RecordId);
         ToRecordLink.SetRange(Company, CompanyName());
+        Assert.RecordCount(ToRecordLink, FromRecordLink.Count());
+        ToRecordLink.SetRange(Notify, false);
         Assert.RecordCount(ToRecordLink, FromRecordLink.Count());
 
         FromRecordLink.FindSet();
@@ -381,6 +380,7 @@ codeunit 132508 "Record Link Mgt. Test"
     begin
         RecordLink.SetRange("Record ID", RecordId);
         RecordLink.SetRange(Company, CompanyName);
+        RecordLink.SetRange(Notify, true);
         Assert.RecordCount(RecordLink, ExpectedCount);
     end;
 

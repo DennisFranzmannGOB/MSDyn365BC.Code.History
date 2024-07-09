@@ -1,5 +1,3 @@
-namespace System.Tooling;
-
 enum 9190 Severity
 {
     Extensible = true;

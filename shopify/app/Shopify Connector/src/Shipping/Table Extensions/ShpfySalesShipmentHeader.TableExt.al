@@ -1,7 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
-using Microsoft.Sales.History;
-
 /// <summary>
 /// TableExtensionShpfy Sales Shipment Header (ID 30106) extends Record Sales Shipment Header.
 /// </summary>

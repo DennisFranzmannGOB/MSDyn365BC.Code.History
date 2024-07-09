@@ -1,9 +1,7 @@
-// ------------------------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.Reflection;
 
 codeunit 9807 "Field Selection Impl."
 {
@@ -19,7 +17,7 @@ codeunit 9807 "Field Selection Impl."
         HideInvalidFields(Field);
         FieldsLookup.SetTableView(Field);
         FieldsLookup.LookupMode(true);
-        if FieldsLookup.RunModal() = Action::LookupOK then begin
+        if FieldsLookup.RunModal() = ACTION::LookupOK then begin
             FieldsLookup.GetSelectedFields(Field);
             exit(true);
         end;

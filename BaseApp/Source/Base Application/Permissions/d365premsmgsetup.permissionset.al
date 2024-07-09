@@ -1,12 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Service.Maintenance;
-using Microsoft.Service.Loaner;
-using Microsoft.Service.Resources;
-using Microsoft.Service.Pricing;
-using Microsoft.Service.Setup;
-using Microsoft.Service.Document;
-
 permissionset 6524 "D365PREM SMG, SETUP"
 {
     Assignable = true;

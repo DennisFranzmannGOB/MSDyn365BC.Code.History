@@ -938,7 +938,7 @@ codeunit 137309 "SCM Reports"
         if LibraryReportDataset.GetNextRow then
             LibraryReportDataset.AssertCurrentRowValueEquals('OperationNo_RtngLine', RoutingLine."Operation No.")
         else
-            Error(RoutingLineNotExistErr, RoutingLine."Operation No.");
+            Error(StrSubstNo(RoutingLineNotExistErr, RoutingLine."Operation No."));
     end;
 
     [Test]

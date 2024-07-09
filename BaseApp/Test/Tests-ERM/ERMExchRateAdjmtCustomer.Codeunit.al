@@ -12,7 +12,6 @@
     var
         Assert: Codeunit Assert;
         LibraryERM: Codeunit "Library - ERM";
-        LibraryDimension: Codeunit "Library - Dimension";
         LibraryInventory: Codeunit "Library - Inventory";
         LibrarySales: Codeunit "Library - Sales";
         LibraryPurchase: Codeunit "Library - Purchase";
@@ -23,10 +22,10 @@
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         IsInitialized: Boolean;
         AmountMismatchErr: Label '%1 field must be %2 in %3 table for %4 field %5.';
-        ReversalSuccessfullTxt: Label 'The entries were successfully reversed.';
+        ExchRateWasAdjustedTxt: Label 'One or more currency exchange rates have been adjusted.';
         PostingDate: Date;
         SetHandler: Boolean;
-        DocTypeReversalErr: Label 'You cannot reverse the entry %1 because it''s an %2 Document.';
+        ReversalErr: Label 'You cannot reverse %1 No. %2 because the entry has an associated Realized Gain/Loss entry.';
 
     [Test]
     [Scope('OnPrem')]
@@ -354,7 +353,7 @@
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandlerTrue,ReversalMessageHandler')]
+    [HandlerFunctions('ConfirmHandlerTrue')]
     [Scope('OnPrem')]
     procedure ReversePaymentWithUnrealizedGainLossforVendor()
     var
@@ -377,13 +376,14 @@
         UnapplyVendorEntry(VendorLedgerEntry, VendorLedgerEntry."Document Type"::Payment, GenJournalLine."Document No.");
 
         // [WHEN] Reverse Payment
-        LibraryERM.ReverseTransaction(VendorLedgerEntry."Transaction No.");
+        asserterror LibraryERM.ReverseTransaction(VendorLedgerEntry."Transaction No.");
 
-        // [THEN] Validation of succesful reversal in message handler
+        // [THEN] Error raised that you cannot reverse transaction because the entry has an associated Realized Gain/Loss entry.
+        Assert.ExpectedError(StrSubstNo(ReversalErr, VendorLedgerEntry.TableCaption(), VendorLedgerEntry."Entry No."));
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandlerTrue,ReversalMessageHandler')]
+    [HandlerFunctions('ConfirmHandlerTrue')]
     [Scope('OnPrem')]
     procedure ReversePaymentWithUnrealizedGainLossforCustomer()
     var
@@ -406,13 +406,14 @@
         UnapplyCustomerEntry(CustLedgerEntry, CustLedgerEntry."Document Type"::Payment, GenJournalLine."Document No.");
 
         // [WHEN] Reverse Payment
-        LibraryERM.ReverseTransaction(CustLedgerEntry."Transaction No.");
+        asserterror LibraryERM.ReverseTransaction(CustLedgerEntry."Transaction No.");
 
-        // [THEN] Validation of succesful reversal in message handler
+        // [THEN] Error raised that you cannot reverse transaction because the entry has an associated Realized Gain/Loss entry.
+        Assert.ExpectedError(StrSubstNo(ReversalErr, CustLedgerEntry.TableCaption(), CustLedgerEntry."Entry No."));
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandlerTrue,ReversalMessageHandler')]
+    [HandlerFunctions('ConfirmHandlerTrue')]
     [Scope('OnPrem')]
     procedure ReverseUnappliedLCYPaymentWithGainLossforVendor()
     var
@@ -435,13 +436,14 @@
         UnapplyVendorEntry(VendorLedgerEntry, VendorLedgerEntry."Document Type"::Payment, GenJournalLine."Document No.");
 
         // [WHEN] Reverse Payment
-        LibraryERM.ReverseTransaction(VendorLedgerEntry."Transaction No.");
+        asserterror LibraryERM.ReverseTransaction(VendorLedgerEntry."Transaction No.");
 
-        // [THEN] Validation of succesful reversal in message handler
+        // [THEN] Error raised that you cannot reverse transaction because the entry has an associated Realized Gain/Loss entry.
+        Assert.ExpectedError(StrSubstNo(ReversalErr, VendorLedgerEntry.TableCaption(), VendorLedgerEntry."Entry No."));
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandlerTrue,ReversalMessageHandler')]
+    [HandlerFunctions('ConfirmHandlerTrue')]
     [Scope('OnPrem')]
     procedure ReverseUnappliedLCYPaymentWithGainLossforCustomer()
     var
@@ -464,9 +466,10 @@
         UnapplyCustomerEntry(CustLedgerEntry, CustLedgerEntry."Document Type"::Payment, GenJournalLine."Document No.");
 
         // [WHEN] Reverse Payment
-        LibraryERM.ReverseTransaction(CustLedgerEntry."Transaction No.");
+        asserterror LibraryERM.ReverseTransaction(CustLedgerEntry."Transaction No.");
 
-        // [THEN] Validation of succesful reversal in message handler
+        // [THEN] Error raised that you cannot reverse transaction because the entry has an associated Realized Gain/Loss entry.
+        Assert.ExpectedError(StrSubstNo(ReversalErr, CustLedgerEntry.TableCaption(), CustLedgerEntry."Entry No."));
     end;
 
     [Test]
@@ -504,13 +507,12 @@
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandlerTrue')]
+    [HandlerFunctions('ConfirmHandlerTrue,MessageHandler')]
     [Scope('OnPrem')]
     procedure ReverseUnappliedFCYInvoiceWithGainLossforVendorAppliedFromInvoice()
     var
         GenJournalLine: Record "Gen. Journal Line";
         VendorLedgerEntry: Record "Vendor Ledger Entry";
-        GLEntry: Record "G/L Entry";
         StartingDate: Date;
         StartingDate2: Date;
         CurrencyCode: Code[10];
@@ -530,13 +532,11 @@
         UnapplyVendorEntry(VendorLedgerEntry, VendorLedgerEntry."Document Type"::Invoice, InvoiceNo);
 
         // [WHEN] Reverse Invoice
-        asserterror LibraryERM.ReverseTransaction(VendorLedgerEntry."Transaction No.");
+        LibraryERM.ReverseTransaction(VendorLedgerEntry."Transaction No.");
 
         // [THEN] Invoice Document Balance for Vendor Posting Account and Currency Gain/Loss Account is zero
-        GLEntry.SetRange("Transaction No.", VendorLedgerEntry."Transaction No.");
-        GLEntry.FindFirst();
-        Assert.ExpectedError(
-          StrSubstNo(DocTypeReversalErr, GLEntry."Entry No.", GLEntry."Document Type"));
+        VerifyGLEntryReverseBalance(
+          CurrencyCode, GetVendorPostingAccount(GenJournalLine."Account No."), GenJournalLine."Document Type"::Invoice, InvoiceNo);
     end;
 
     [Test]
@@ -574,13 +574,12 @@
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandlerTrue')]
+    [HandlerFunctions('ConfirmHandlerTrue,MessageHandler')]
     [Scope('OnPrem')]
     procedure ReverseUnappliedFCYInvoiceWithGainLossforCustomerAppliedFromInvoice()
     var
         GenJournalLine: Record "Gen. Journal Line";
         CustLedgerEntry: Record "Cust. Ledger Entry";
-        GLEntry: Record "G/L Entry";
         StartingDate: Date;
         StartingDate2: Date;
         CurrencyCode: Code[10];
@@ -600,13 +599,11 @@
         UnapplyCustomerEntry(CustLedgerEntry, CustLedgerEntry."Document Type"::Invoice, InvoiceNo);
 
         // [WHEN] Reverse Invoice
-        asserterror LibraryERM.ReverseTransaction(CustLedgerEntry."Transaction No.");
+        LibraryERM.ReverseTransaction(CustLedgerEntry."Transaction No.");
 
         // [THEN] Invoice Document Balance for Customer Posting Account and Currency Gain/Loss Account is zero
-        GLEntry.SetRange("Transaction No.", CustLedgerEntry."Transaction No.");
-        GLEntry.FindFirst();
-        Assert.ExpectedError(
-          StrSubstNo(DocTypeReversalErr, GLEntry."Entry No.", GLEntry."Document Type"));
+        VerifyGLEntryReverseBalance(
+          CurrencyCode, GetCustomerPostingAccount(GenJournalLine."Account No."), GenJournalLine."Document Type"::Invoice, InvoiceNo);
     end;
 
     [Test]
@@ -1456,13 +1453,6 @@
     procedure MessageHandler(Message: Text[1024])
     begin
         // To handle the message.
-    end;
-
-    [MessageHandler]
-    [Scope('OnPrem')]
-    procedure ReversalMessageHandler(Message: Text[1024])
-    begin
-        Assert.ExpectedMessage(ReversalSuccessfullTxt, Message);
     end;
 }
 

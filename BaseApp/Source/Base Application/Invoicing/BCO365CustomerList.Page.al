@@ -9,7 +9,7 @@ page 2316 "BC O365 Customer List"
     PageType = List;
     RefreshOnActivate = true;
     SourceTable = Customer;
-    SourceTableView = sorting(Name);
+    SourceTableView = SORTING(Name);
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
     ObsoleteState = Pending;
     ObsoleteTag = '21.0';
@@ -88,13 +88,13 @@ page 2316 "BC O365 Customer List"
 
     trigger OnAfterGetRecord()
     begin
-        OverdueAmount := Rec.CalcOverdueBalance();
+        OverdueAmount := CalcOverdueBalance();
         O365SalesInvoiceMgmt.GetCustomerStatus(Rec, BlockedStatus);
     end;
 
     trigger OnOpenPage()
     begin
-        Rec.SetRange("Date Filter", 0D, WorkDate());
+        SetRange("Date Filter", 0D, WorkDate());
     end;
 
     var

@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Visualization;
-
 table 1439 "Headline Details"
 {
     DataClassification = CustomerContent;

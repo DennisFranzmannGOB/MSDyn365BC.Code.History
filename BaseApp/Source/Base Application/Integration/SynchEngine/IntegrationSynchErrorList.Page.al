@@ -1,13 +1,3 @@
-// ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-// ------------------------------------------------------------------------------------------------
-namespace Microsoft.Integration.SyncEngine;
-
-using Microsoft.Integration.D365Sales;
-using Microsoft.Integration.Dataverse;
-using System.Reflection;
-
 page 5339 "Integration Synch. Error List"
 {
     ApplicationArea = Suite;
@@ -18,8 +8,8 @@ page 5339 "Integration Synch. Error List"
     ModifyAllowed = false;
     PageType = List;
     SourceTable = "Integration Synch. Job Errors";
-    SourceTableView = sorting("Date/Time", "Integration Synch. Job ID")
-                      order(Descending);
+    SourceTableView = SORTING("Date/Time", "Integration Synch. Job ID")
+                      ORDER(Descending);
     UsageCategory = Lists;
 
     layout
@@ -46,20 +36,8 @@ page 5339 "Integration Synch. Error List"
                     Width = 100;
 
                     trigger OnDrillDown()
-                    var
-                        TypeHelper: Codeunit "Type Helper";
-                        CallStackInStream: InStream;
-                        SyncErrorInfo: ErrorInfo;
                     begin
-                        SyncErrorInfo.Message := ErrorMessage;
-                        Rec.CalcFields("Exception Detail");
-                        if Rec."Exception Detail".HasValue() then begin
-                            Rec."Exception Detail".CreateInStream(CallStackInStream, TEXTENCODING::Windows);
-                            SyncErrorInfo.CustomDimensions.Add('Call Stack', TypeHelper.ReadAsTextWithSeparator(CallStackInStream, TypeHelper.LFSeparator()));
-                        end else
-                            SyncErrorInfo.CustomDimensions.Add('Call Stack', NoCallStackMsg);
-
-                        Error(SyncErrorInfo);
+                        Message(ErrorMessage);
                     end;
                 }
                 field(HelpLink; HelpLink)
@@ -134,7 +112,7 @@ page 5339 "Integration Synch. Error List"
 
                 trigger OnAction()
                 begin
-                    Rec.DeleteEntries(7);
+                    DeleteEntries(7);
                 end;
             }
             action(Delete0days)
@@ -148,7 +126,7 @@ page 5339 "Integration Synch. Error List"
 
                 trigger OnAction()
                 begin
-                    Rec.DeleteEntries(0);
+                    DeleteEntries(0);
                 end;
             }
             group(ActionGroupDataIntegration)
@@ -172,7 +150,7 @@ page 5339 "Integration Synch. Error List"
                         RecordIdDictionary: Dictionary of [RecordId, Boolean];
                         RecordIdList: List of [RecordId];
                     begin
-                        if Rec.IsEmpty() then
+                        if IsEmpty() then
                             exit;
 
                         CurrPage.SetSelectionFilter(IntegrationSynchJobErrors);
@@ -180,7 +158,7 @@ page 5339 "Integration Synch. Error List"
 
                         if IntegrationSynchJobErrors.Count() = 1 then begin
                             GetRecordID(IntegrationSynchJobErrors, LocalRecordID);
-                            Rec.ForceSynchronizeDataIntegration(LocalRecordID, SynchronizeHandled);
+                            ForceSynchronizeDataIntegration(LocalRecordID, SynchronizeHandled);
                             exit;
                         end;
 
@@ -194,7 +172,7 @@ page 5339 "Integration Synch. Error List"
                         until IntegrationSynchJobErrors.Next() = 0;
 
                         RecordIdList := RecordIdDictionary.Keys();
-                        Rec.ForceSynchronizeDataIntegration(RecordIdList, SynchronizeHandled);
+                        ForceSynchronizeDataIntegration(RecordIdList, SynchronizeHandled);
                     end;
                 }
                 action(DataIntegrationExceptionDetails)
@@ -241,7 +219,7 @@ page 5339 "Integration Synch. Error List"
                         var
                             LocalRecordID: RecordID;
                         begin
-                            if Rec.IsEmpty() then
+                            if IsEmpty() then
                                 exit;
 
                             GetRecordID(LocalRecordID);
@@ -274,15 +252,9 @@ page 5339 "Integration Synch. Error List"
             {
                 Caption = 'Process';
 
-#if not CLEAN24
                 actionref(DataIntegrationExceptionDetails_Promoted; DataIntegrationExceptionDetails)
                 {
-                    Visible = false;
-                    ObsoleteReason = 'This action is not promoted.';
-                    ObsoleteState = Pending;
-                    ObsoleteTag = '24.0';
                 }
-#endif
                 actionref(Delete0days_Promoted; Delete0days)
                 {
                 }
@@ -317,10 +289,10 @@ page 5339 "Integration Synch. Error List"
     var
         RecID: RecordID;
     begin
-        RecID := Rec."Source Record ID";
+        RecID := "Source Record ID";
         OpenSourcePageTxt := GetPageLink(RecID);
 
-        RecID := Rec."Destination Record ID";
+        RecID := "Destination Record ID";
         OpenDestinationPageTxt := GetPageLink(RecID);
 
         ErrorMessage := GetErrorMessage();
@@ -338,7 +310,7 @@ page 5339 "Integration Synch. Error List"
         CRMIntegrationEnabled: Boolean;
         CDSIntegrationEnabled: Boolean;
     begin
-        Rec.SetDataIntegrationUIElementsVisible(ShowDataIntegrationActions);
+        SetDataIntegrationUIElementsVisible(ShowDataIntegrationActions);
         CDSIntegrationEnabled := CRMIntegrationManagement.IsCDSIntegrationEnabled();
         CRMIntegrationEnabled := CRMIntegrationManagement.IsCRMIntegrationEnabled();
         ShowCDSIntegrationActions := CDSIntegrationEnabled or CRMIntegrationEnabled;
@@ -414,9 +386,9 @@ page 5339 "Integration Synch. Error List"
 
     local procedure GetErrorMessage(): Text
     begin
-        if Rec."Error Message" <> '' then
-            exit(Rec."Error Message");
-        exit(Rec.Message);
+        if "Error Message" <> '' then
+            exit("Error Message");
+        exit(Message);
     end;
 
     [IntegrationEvent(false, false)]

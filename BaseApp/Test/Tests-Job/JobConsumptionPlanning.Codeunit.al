@@ -410,7 +410,7 @@ codeunit 136307 "Job Consumption - Planning"
             LibraryJob.ResourceType:
                 exit(CreateResourceUOM(No));
             else
-                Error('Unsupported consumable type: %1', ConsumableType);
+                Error(StrSubstNo('Unsupported consumable type: %1', ConsumableType));
         end
     end;
 

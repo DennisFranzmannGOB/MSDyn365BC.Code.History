@@ -24,6 +24,8 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         Matrix2: Label 'Matrix 2x';
         Matrix3: Label 'Matrix 3x';
         Matrix4: Label 'Matrix 4x';
+        Matrix5: Label 'Matrix 5';
+        Matrix7: Label 'Matrix 7';
         Matrix9: Label 'Matrix 9';
         TestForEmptyDocDate: Label 'Test for empty Document Date';
         TestForEmptyDiscDateCalc: Label 'Test For Empty Discount Date Calculation Formula';
@@ -33,10 +35,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         MinusOneDayFormula: DateFormula;
         PosNegErrMsg: Label 'Wrong Positive = <%1> for Amount (LCY) = <%2>.';
         NoDefaultCFMsg: Label 'Select the "Show in Chart on Role Center" field in the Cash Flow Forecast window to display the chart on the Role Center.';
-        NotVisible: Label 'Control must not be visible.';
-        NotEditable: Label 'Control must not be editable.';
         UnexpectedValueInField: Label 'Unexpected value in field %1.';
-        CFPaymentTermsNotSupportedInIT: Label 'Cash Flow payment terms are not supported in IT.';
         CustLedgerEntryNotFoundErr: Label 'The field Source No. of table Cash Flow Forecast Entry contains a value (%1) that cannot be found in the related table (Cust. Ledger Entry).';
         VendLedgerEntryNotFoundErr: Label 'The field Source No. of table Cash Flow Forecast Entry contains a value (%1) that cannot be found in the related table (Vendor Ledger Entry).';
         NothingInsideFilterTok: Label 'NothingInsideFilter';
@@ -44,15 +43,108 @@ codeunit 134557 "ERM Cash Flow UnitTests"
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix1a()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError();
+        // 1a Yes Yes Yes Yes Order Yes Jan. 04 96,00: Cash Flow discount date and Cash Flow discount amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix1;
+
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - yes
+        CFForecast."Consider Discount" := true;
+        // Cash Flow Payment Terms with Cash Discount? 2) - yes
+        // Source / Document type 4) - SO
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-3D>', WorkDate());
+        CFForecast.Modify();
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedDate := CalcDate(PaymentTerms."Discount Date Calculation", "Document Date");
+            ExpectedAmount := Round("Amount (LCY)" * (100 - PaymentTerms."Discount %") / 100);
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix1c()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError();
+        // Yes Yes Yes Yes LE: Cr. Memo Yes Yes Jan. 04 -96,00: Cash Flow discount date and Cash Flow discount amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix1;
+
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - yes
+        CFForecast."Consider Discount" := true;
+        // Cash Flow Payment Terms with Cash Discount? 2) - yes
+        // Source / Document type 4) - Cr.Memo
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-3D>', WorkDate());
+        CFForecast.Modify();
+
+        CFWorksheetLine."Document Type" := CFWorksheetLine."Document Type"::"Credit Memo";
+        CFWorksheetLine."Amount (LCY)" := -CFWorksheetLine."Amount (LCY)";
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedAmount := Round("Amount (LCY)" * (100 - PaymentTerms."Discount %") / 100);
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            ExpectedDate := CalcDate(PaymentTerms."Discount Date Calculation", "Document Date");
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
@@ -72,13 +164,13 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         LibrarySales.CreateCustomer(Customer);
         Customer.Address := Matrix1;
 
-        CreateDefaultMatrixCFPT(PaymentTerms);
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
 
         LibraryCF.CreateCashFlowCard(CFForecast);
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
 
         // Setup
-        // CF."Consider CF Payment Terms" := TRUE;
+        CFForecast."Consider CF Payment Terms" := true;
         // Cash Flow payment terms on customer - yes
         CFForecast."Consider Discount" := true;
         // Cash Flow Payment Terms with Cash Discount? 2) - yes
@@ -96,7 +188,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
             Insert();
             ExpectedAmount := "Amount (LCY)";
             ExpectedDate := DocumentDate;
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -114,15 +206,110 @@ codeunit 134557 "ERM Cash Flow UnitTests"
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix2a()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // 1a Yes Yes Yes Yes Order No Jan. 04 96,00: Cash Flow discount date and Cash Flow discount amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix2;
+
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - yes
+        CFForecast."Consider Discount" := true;
+        // Cash Flow Payment Terms with Cash Discount? 2) - yes
+        // Source / Document type 4) - SO
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-5D>', WorkDate());
+        CFForecast.Modify();
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedAmount := "Amount (LCY)";
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix2c()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // Yes Yes Yes Yes LE: Cr. Memo Yes No Jan. 04 -96,00: Cash Flow discount date and Cash Flow discount amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix2;
+
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - yes
+        CFForecast."Consider Discount" := true;
+        // Cash Flow Payment Terms with Cash Discount? 2) - yes
+        // Source / Document type 4) - Cr.Memo
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-5D>', WorkDate());
+        CFForecast.Modify();
+
+        CFWorksheetLine."Document Type" := CFWorksheetLine."Document Type"::"Credit Memo";
+        CFWorksheetLine."Amount (LCY)" := -CFWorksheetLine."Amount (LCY)";
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedAmount := "Amount (LCY)";
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
@@ -142,13 +329,13 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         LibrarySales.CreateCustomer(Customer);
         Customer.Address := Matrix2;
 
-        CreateDefaultMatrixCFPT(PaymentTerms);
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
 
         LibraryCF.CreateCashFlowCard(CFForecast);
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
 
         // Setup
-        // CF."Consider CF Payment Terms" := TRUE;
+        CFForecast."Consider CF Payment Terms" := true;
         // Cash Flow payment terms on customer - yes
         CFForecast."Consider Discount" := true;
         // Cash Flow Payment Terms with Cash Discount? 2) - yes
@@ -167,7 +354,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
             ExpectedAmount := "Amount (LCY)";
             ExpectedDate := "Document Date";
 
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -185,15 +372,114 @@ codeunit 134557 "ERM Cash Flow UnitTests"
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix3a()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // 1a Yes Yes Yes No Order * * Jan. 22 100,00: Cash Flow due date and full amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix3;
+
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - yes
+        CFForecast."Consider Discount" := true;
+        // Cash Flow Payment Terms with Cash Discount? 2) - No
+        PaymentTerms.Validate("Discount %", 0);
+        PaymentTerms.Modify();
+        // Source / Document type 4) - SO
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-5D>', WorkDate());
+        CFForecast.Modify();
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedAmount := "Amount (LCY)";
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix3c()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // Yes Yes Yes No LE: Cr. Memo Yes * Jan. 22 -100,00:Cash Flow due date and full amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix3;
+
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - yes
+        CFForecast."Consider Discount" := true;
+        // Cash Flow Payment Terms with Cash Discount? 2) - No
+        PaymentTerms.Validate("Discount %", 0);
+        PaymentTerms.Modify();
+        // Source / Document type 4) - Cr.Memo
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-5D>', WorkDate());
+        CFForecast.Modify();
+
+        CFWorksheetLine."Document Type" := CFWorksheetLine."Document Type"::"Credit Memo";
+        CFWorksheetLine."Amount (LCY)" := -CFWorksheetLine."Amount (LCY)";
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedAmount := "Amount (LCY)";
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
@@ -213,18 +499,18 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         LibrarySales.CreateCustomer(Customer);
         Customer.Address := Matrix3;
 
-        CreateDefaultMatrixCFPT(PaymentTerms);
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
 
         LibraryCF.CreateCashFlowCard(CFForecast);
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
 
         // Setup
-        // CF."Consider CF Payment Terms" := TRUE;
+        CFForecast."Consider CF Payment Terms" := true;
         // Cash Flow payment terms on customer - yes
         CFForecast."Consider Discount" := true;
         // Cash Flow Payment Terms with Cash Discount? 2) - No
-        SetPaymentTermsDiscountPercentage(PaymentTerms.Code, 0);
-
+        PaymentTerms.Validate("Discount %", 0);
+        PaymentTerms.Modify();
         // Source / Document type 4) - Cr.Memo
         // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
         CFForecast.Modify();
@@ -240,7 +526,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
             ExpectedAmount := "Amount (LCY)";
             ExpectedDate := "Document Date";
 
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -258,15 +544,114 @@ codeunit 134557 "ERM Cash Flow UnitTests"
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix4a()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // 4a Yes Yes No No Order * * Jan. 22 100,00: Cash Flow due date and full amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix4;
+
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - yes
+        CFForecast."Consider Discount" := false;
+        // Cash Flow Payment Terms with Cash Discount? 2) - No
+        PaymentTerms.Validate("Discount %", 0);
+        PaymentTerms.Modify();
+        // Source / Document type 4) - SO
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-5D>', WorkDate());
+        CFForecast.Modify();
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedAmount := "Amount (LCY)";
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix4c()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // Yes Yes No No LE: Cr. Memo Yes * Jan. 22 -100,00:Cash Flow due date and full amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix4;
+
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - yes
+        CFForecast."Consider Discount" := false;
+        // Cash Flow Payment Terms with Cash Discount? 2) - No
+        PaymentTerms.Validate("Discount %", 0);
+        PaymentTerms.Modify();
+        // Source / Document type 4) - Cr.Memo
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-5D>', WorkDate());
+        CFForecast.Modify();
+
+        CFWorksheetLine."Document Type" := CFWorksheetLine."Document Type"::"Credit Memo";
+        CFWorksheetLine."Amount (LCY)" := -CFWorksheetLine."Amount (LCY)";
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedAmount := "Amount (LCY)";
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
@@ -286,17 +671,18 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         LibrarySales.CreateCustomer(Customer);
         Customer.Address := Matrix4;
 
-        CreateDefaultMatrixCFPT(PaymentTerms);
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
 
         LibraryCF.CreateCashFlowCard(CFForecast);
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
 
         // Setup
-        // CF."Consider CF Payment Terms" := TRUE;
+        CFForecast."Consider CF Payment Terms" := true;
         // Cash Flow payment terms on customer - yes
         CFForecast."Consider Discount" := false;
         // Cash Flow Payment Terms with Cash Discount? 2) - No
-        SetPaymentTermsDiscountPercentage(PaymentTerms.Code, 0);
+        PaymentTerms.Validate("Discount %", 0);
+        PaymentTerms.Modify();
         // Source / Document type 4) - Cr.Memo
         // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
         CFForecast.Modify();
@@ -312,7 +698,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
             ExpectedAmount := "Amount (LCY)";
             ExpectedDate := "Document Date";
 
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -330,29 +716,213 @@ codeunit 134557 "ERM Cash Flow UnitTests"
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix5()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // 5 Yes No Yes * Yes * * Yes Jan. 22 100,00: Cash Flow due date and full amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix5;
+
+        PaymentTerms.Get(Customer."Payment Terms Code");
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - No
+        CFForecast."Consider Discount" := true;
+        // Cash Flow Payment Terms with Cash Discount? 2) - *
+        // Source / Document type 4) - SO
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-3D>', WorkDate());
+        CFForecast.Modify();
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedDate := CalcDate(PaymentTerms."Discount Date Calculation", "Document Date");
+            ExpectedAmount := Round("Amount (LCY)" * (100 - PaymentTerms."Discount %") / 100);
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix7()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // Yes No Yes * Yes * * Yes Jan. 22 100,00: Cash Flow due date and full amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix7;
+
+        PaymentTerms.Get(Customer."Payment Terms Code");
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - No
+        CFForecast."Consider Discount" := true;
+        // Cash Flow Payment Terms with Cash Discount? 2) - *
+        // Source / Document type 4) - SO
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-5D>', WorkDate());
+        CFForecast.Modify();
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+            ExpectedAmount := "Amount (LCY)";
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix8_3()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // Yes No No * Yes * * Yes Jan. 22 100,00: Cash Flow due date and full amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix7;
+
+        PaymentTerms.Get(Customer."Payment Terms Code");
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - No
+        CFForecast."Consider Discount" := false;
+        // Cash Flow Payment Terms with Cash Discount? 2) - *
+        // Source / Document type 4) - SO
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-3D>', WorkDate());
+        CFForecast.Modify();
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+            ExpectedAmount := "Amount (LCY)";
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure TestMatrix8_5()
+    var
+        PaymentTerms: Record "Payment Terms";
+        Customer: Record Customer;
+        CFForecast: Record "Cash Flow Forecast";
+        CFWorksheetLine: Record "Cash Flow Worksheet Line";
+        ExpectedAmount: Decimal;
+        DocumentDate: Date;
+        ExpectedDate: Date;
     begin
-        ThrowAndCatchCFPaymentTermsNotSupportedError;
+        // Yes No No * Yes * * Yes Jan. 22 100,00: Cash Flow due date and full amount
+        Initialize();
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Address := Matrix7;
+
+        PaymentTerms.Get(Customer."Payment Terms Code");
+
+        LibraryCF.CreateCashFlowCard(CFForecast);
+        PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
+
+        // Setup
+        CFForecast."Consider CF Payment Terms" := true;
+        // Cash Flow payment terms on customer - No
+        CFForecast."Consider Discount" := false;
+        // Cash Flow Payment Terms with Cash Discount? 2) - *
+        // Source / Document type 4) - SO
+        // Cash Discount Date <= Work Date Y=workdate: Jan. 3 N=workdate: Jan. 9"
+        DocumentDate := CalcDate('<-5D>', WorkDate());
+        CFForecast.Modify();
+
+        with CFWorksheetLine do begin
+            "Document Date" := DocumentDate;
+            Insert();
+            ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
+            ExpectedAmount := "Amount (LCY)";
+
+            CalculateCFAmountAndCFDate();
+            // Modify();
+
+            Assert.AreEqual(
+              "Cash Flow Date", ExpectedDate,
+              StrSubstNo(IncorrectField, FieldCaption("Cash Flow Date"), ExpectedDate, "Cash Flow Date"));
+
+            Assert.AreEqual(
+              "Amount (LCY)", ExpectedAmount,
+              StrSubstNo(IncorrectField, FieldCaption("Amount (LCY)"), ExpectedAmount, "Amount (LCY)"));
+
+            Delete();
+        end;
     end;
 
     [Test]
@@ -372,7 +942,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         LibrarySales.CreateCustomer(Customer);
         Customer.Address := Matrix9;
 
-        CreateDefaultMatrixCFPT(PaymentTerms);
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
 
         PaymentTerms.Get(Customer."Payment Terms Code");
 
@@ -380,7 +950,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
 
         // Setup
-        // CF."Consider CF Payment Terms" := FALSE;
+        CFForecast."Consider CF Payment Terms" := false;
         // Cash Flow payment terms on customer - **
         CFForecast."Consider Discount" := true;
         // Cash Flow Payment Terms with Cash Discount? 2) - *
@@ -393,9 +963,9 @@ codeunit 134557 "ERM Cash Flow UnitTests"
             "Document Date" := DocumentDate;
             Insert();
             ExpectedDate := CalcDate(PaymentTerms."Discount Date Calculation", "Document Date");
-            ExpectedAmount := Round("Amount (LCY)" * (100 - LibraryCFHelper.GetPmtTermsDiscountPercentage(PaymentTerms)) / 100);
+            ExpectedAmount := Round("Amount (LCY)" * (100 - PaymentTerms."Discount %") / 100);
 
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -433,7 +1003,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
 
         // Setup
-        // CF."Consider CF Payment Terms" := FALSE;
+        CFForecast."Consider CF Payment Terms" := false;
         // Cash Flow payment terms on customer - **
         CFForecast."Consider Discount" := true;
         // Cash Flow Payment Terms with Cash Discount? 2) - *
@@ -446,9 +1016,9 @@ codeunit 134557 "ERM Cash Flow UnitTests"
             "Document Date" := DocumentDate;
             Insert();
             ExpectedDate := CalcDate(PaymentTerms."Discount Date Calculation", "Document Date");
-            ExpectedAmount := Round("Amount (LCY)" * (100 - LibraryCFHelper.GetPmtTermsDiscountPercentage(PaymentTerms)) / 100);
+            ExpectedAmount := Round("Amount (LCY)" * (100 - PaymentTerms."Discount %") / 100);
 
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -486,7 +1056,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
 
         // Setup
-        // CF."Consider CF Payment Terms" := FALSE;
+        CFForecast."Consider CF Payment Terms" := false;
         // Cash Flow payment terms on customer - **
         CFForecast."Consider Discount" := false;
         // Cash Flow Payment Terms with Cash Discount? 2) - *
@@ -501,7 +1071,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
             ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
             ExpectedAmount := "Amount (LCY)";
 
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -533,7 +1103,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         LibrarySales.CreateCustomer(Customer);
         Customer.Address := Matrix1;
 
-        CreateDefaultMatrixCFPT(PaymentTerms);
+        CreateDefaultMatrixCFPT(Customer, PaymentTerms);
 
         PaymentTerms.Get(Customer."Payment Terms Code");
 
@@ -541,7 +1111,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
 
         // Setup
-        // CF."Consider CF Payment Terms" := FALSE;
+        CFForecast."Consider CF Payment Terms" := false;
         // Cash Flow payment terms on customer - **
         CFForecast."Consider Discount" := true;
         // Cash Flow Payment Terms with Cash Discount? 2) - *
@@ -556,7 +1126,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
             ExpectedDate := CalcDate(PaymentTerms."Due Date Calculation", "Document Date");
             ExpectedAmount := "Amount (LCY)";
 
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -592,7 +1162,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         with CFWorksheetLine do begin
             "Document Date" := 0D;
             Insert();
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            CalculateCFAmountAndCFDate();
             // Modify();
             Delete();
         end;
@@ -614,13 +1184,18 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         Initialize();
         LibrarySales.CreateCustomer(Customer);
         Customer.Address := TestForEmptyDiscDateCalc;
-
-        CreatePaymentTerms(PaymentTerms, '<1M>', '<0D>', 0);
+        LibraryERM.CreatePaymentTerms(PaymentTerms);
+        Evaluate(PaymentTerms."Due Date Calculation", '<1M>');
+        PaymentTerms.Validate("Discount %", LibraryRandom.RandInt(50));
         PaymentTerms.Validate("Calc. Pmt. Disc. on Cr. Memos", true);
         PaymentTerms.Modify();
 
+        Customer."Cash Flow Payment Terms Code" := PaymentTerms.Code;
+        Customer.Modify();
+
         LibraryCF.CreateCashFlowCard(CFForecast);
         CFForecast."Consider Discount" := true;
+        CFForecast."Consider CF Payment Terms" := true;
         CFForecast.Modify();
 
         PreFillCFWorksheetLine(CFWorksheetLine, CFForecast."No.", Customer.Address, PaymentTerms.Code);
@@ -628,8 +1203,8 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         with CFWorksheetLine do begin
             "Document Date" := WorkDate();
             Insert();
-            Amount := Round("Amount (LCY)" * (100 - LibraryCFHelper.GetPmtTermsDiscountPercentage(PaymentTerms)) / 100);
-            CalculateCFAmountAndCFDate("Amount (LCY)");
+            Amount := Round("Amount (LCY)" * (100 - PaymentTerms."Discount %") / 100);
+            CalculateCFAmountAndCFDate();
             // Modify();
 
             Assert.AreEqual(
@@ -661,13 +1236,19 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         end;
     end;
 
-    local procedure CreateDefaultMatrixCFPT(var PaymentTerms: Record "Payment Terms")
+    local procedure CreateDefaultMatrixCFPT(var Customer: Record Customer; var PaymentTerms: Record "Payment Terms")
     var
         LibraryERM: Codeunit "Library - ERM";
     begin
-        CreatePaymentTerms(PaymentTerms, '<21D>', '<3D>', LibraryRandom.RandDec(90, 2));
+        LibraryERM.CreatePaymentTerms(PaymentTerms);
+        Evaluate(PaymentTerms."Due Date Calculation", '<21D>');
+        Evaluate(PaymentTerms."Discount Date Calculation", '<3D>');
+        PaymentTerms.Validate("Discount %", LibraryRandom.RandInt(90));
         PaymentTerms.Validate("Calc. Pmt. Disc. on Cr. Memos", true);
         PaymentTerms.Modify();
+
+        Customer."Cash Flow Payment Terms Code" := PaymentTerms.Code;
+        Customer.Modify();
     end;
 
     local procedure InsertRndCFLedgEntries(CashFlowNo: Code[20]; SourceType: Enum "Cash Flow Source Type"; CashFlowDate: Date; var TotalAmount: Decimal)
@@ -1791,46 +2372,6 @@ codeunit 134557 "ERM Cash Flow UnitTests"
 
     [Test]
     [Scope('OnPrem')]
-    procedure TestConsiderCFPaymentTermsCheckboxOnCFCardIsNotVisibleAndNotEditable()
-    var
-        CashFlowForecast: Record "Cash Flow Forecast";
-        CashFlowForecastCard: TestPage "Cash Flow Forecast Card";
-    begin
-        // Setup
-        Initialize();
-
-        // Exercise
-        CashFlowForecastCard.OpenView;
-
-        // Verify
-        Assert.IsFalse(LibraryUtility.FindVisible(PAGE::"Cash Flow Forecast Card", CashFlowForecast.FieldNo("Consider CF Payment Terms")), NotVisible);
-        Assert.IsFalse(LibraryUtility.FindEditable(PAGE::"Cash Flow Forecast Card", CashFlowForecast.FieldNo("Consider CF Payment Terms")), NotEditable);
-
-        CashFlowForecastCard.Close();
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
-    procedure TestConsiderCFPaymentTermsCheckboxOnCFListIsNotVisibleAndNotEditable()
-    var
-        CashFlowForecast: Record "Cash Flow Forecast";
-        CashFlowForecastList: TestPage "Cash Flow Forecast List";
-    begin
-        // Setup
-        Initialize();
-
-        // Exercise
-        CashFlowForecastList.OpenView;
-
-        // Verify
-        Assert.IsFalse(LibraryUtility.FindVisible(PAGE::"Cash Flow Forecast List", CashFlowForecast.FieldNo("Consider CF Payment Terms")), NotVisible);
-        Assert.IsFalse(LibraryUtility.FindEditable(PAGE::"Cash Flow Forecast List", CashFlowForecast.FieldNo("Consider CF Payment Terms")), NotEditable);
-
-        CashFlowForecastList.Close();
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
     procedure TestGetChartTypeFunctionForStackedColumn()
     begin
         GetChartTypeFunction(CashFlowChartSetup."Chart Type"::"Stacked Column");
@@ -1894,6 +2435,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         CreateAndUpdateCashFlowChartSetup(CashFlowChartSetup, CashFlowChartSetup."Start Date"::"First Entry Date",
           CashFlowChartSetup."Period Length"::Quarter, CashFlowChartSetup.Show::"Accumulated Cash",
           CashFlowChartSetup."Group By"::"Positive/Negative");
+        CFSetup.Get();
         OldCFNo := SetChartCFNoInSetup(PadStr(CFSetup."CF No. on Chart in Role Center",
               MaxStrLen(CFSetup."CF No. on Chart in Role Center"), 'A'));
         VerifyCashFlowChartSetupCurrentSelectionText;
@@ -1908,7 +2450,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         CFSetup.Get();
         Expected := StrSubstNo('%1 | %2 | %3 | %4 | %5', CFSetup."CF No. on Chart in Role Center", CashFlowChartSetup.Show,
             CashFlowChartSetup."Start Date", CashFlowChartSetup."Period Length", CashFlowChartSetup."Group By");
-        Assert.IsTrue((StrPos(CashFlowChartSetup.GetCurrentSelectionText, Expected) = 1),
+        Assert.IsTrue(StrPos(CashFlowChartSetup.GetCurrentSelectionText, Expected) = 1,
           'Unexpected value returned from function GetCurrentSelectionText');
     end;
 
@@ -2186,37 +2728,6 @@ codeunit 134557 "ERM Cash Flow UnitTests"
         Assert.AreEqual(Recurrence::Yearly, Recurrence, '');
     end;
 
-    local procedure ThrowAndCatchCFPaymentTermsNotSupportedError()
-    begin
-        asserterror Assert.Fail(CFPaymentTermsNotSupportedInIT);
-        Assert.ExpectedError(CFPaymentTermsNotSupportedInIT);
-    end;
-
-    local procedure SetPaymentTermsDiscountPercentage(PaymentTermsCode: Code[20]; DiscountPercentage: Decimal)
-    var
-        PaymentLines: Record "Payment Lines";
-    begin
-        PaymentLines.SetRange(Type, PaymentLines.Type::"Payment Terms");
-        PaymentLines.SetRange(Code, PaymentTermsCode);
-        PaymentLines.FindSet();
-        repeat
-            PaymentLines.Validate("Discount %", DiscountPercentage);
-            PaymentLines.Modify();
-        until PaymentLines.Next() = 0;
-    end;
-
-    local procedure CreatePaymentTerms(var PaymentTerms: Record "Payment Terms"; DueDateFormula: Text; DiscountDateFormula: Text; DiscountPercentage: Decimal)
-    var
-        PaymentLines: Record "Payment Lines";
-    begin
-        LibraryERM.CreatePaymentTerms(PaymentTerms);
-        LibraryERM.GetPaymentLines(PaymentLines, PaymentTerms.Code);
-        Evaluate(PaymentLines."Due Date Calculation", DueDateFormula);
-        Evaluate(PaymentLines."Discount Date Calculation", DiscountDateFormula);
-        PaymentLines.Validate("Discount %", DiscountPercentage);
-        PaymentLines.Modify(true);
-    end;
-
     [Test]
     [Scope('OnPrem')]
     procedure SourceNoTableRelationForReceivablesNegative()
@@ -2326,7 +2837,7 @@ codeunit 134557 "ERM Cash Flow UnitTests"
 
         ConsiderSource["Cash Flow Source Type"::"Liquid Funds".AsInteger()] := true;
 
-        LibraryCFHelper.CreateSpecificCashFlowCard(CashFlowForecast, false);
+        LibraryCFHelper.CreateSpecificCashFlowCard(CashFlowForecast, false, false);
         CashFlowForecast.Validate("Manual Payments To", WorkDate() - 2);
         CashFlowForecast.Modify(true);
 

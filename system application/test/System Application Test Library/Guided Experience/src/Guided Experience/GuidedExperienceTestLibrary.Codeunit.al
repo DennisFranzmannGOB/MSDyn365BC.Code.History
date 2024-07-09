@@ -2,12 +2,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
-
-namespace System.TestLibraries.Environment.Configuration;
-
-using System.Environment.Configuration;
-using System.Media;
-using System.TestLibraries.Utilities;
 codeunit 132607 "Guided Experience Test Library"
 {
     Permissions = tabledata "Guided Experience Item" = rmd,

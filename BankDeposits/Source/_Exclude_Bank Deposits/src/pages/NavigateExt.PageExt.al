@@ -1,7 +1,3 @@
-namespace Microsoft.Bank.Deposit;
-
-using Microsoft.Foundation.Navigate;
-
 pageextension 1708 "Navigate Ext." extends Navigate
 {
     layout

@@ -1,7 +1,3 @@
-namespace Microsoft.CRM.Outlook;
-
-using System.Reflection;
-
 table 5303 "Outlook Synch. Filter"
 {
     Caption = 'Outlook Synch. Filter';
@@ -34,12 +30,12 @@ table 5303 "Outlook Synch. Filter"
         field(4; "Table No."; Integer)
         {
             Caption = 'Table No.';
-            TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const(Table));
+            TableRelation = AllObjWithCaption."Object ID" WHERE("Object Type" = CONST(Table));
         }
         field(5; "Field No."; Integer)
         {
             Caption = 'Field No.';
-            TableRelation = Field."No." where(TableNo = field("Table No."));
+            TableRelation = Field."No." WHERE(TableNo = FIELD("Table No."));
         }
         field(7; Type; Option)
         {
@@ -54,12 +50,12 @@ table 5303 "Outlook Synch. Filter"
         field(9; "Master Table No."; Integer)
         {
             Caption = 'Master Table No.';
-            TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const(Table));
+            TableRelation = AllObjWithCaption."Object ID" WHERE("Object Type" = CONST(Table));
         }
         field(10; "Master Table Field No."; Integer)
         {
             Caption = 'Master Table Field No.';
-            TableRelation = Field."No." where(TableNo = field("Master Table No."));
+            TableRelation = Field."No." WHERE(TableNo = FIELD("Master Table No."));
         }
         field(99; FilterExpression; Text[250])
         {

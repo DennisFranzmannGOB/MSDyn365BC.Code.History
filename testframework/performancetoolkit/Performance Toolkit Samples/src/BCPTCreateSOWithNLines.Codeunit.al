@@ -1,31 +1,22 @@
-namespace System.Test.Tooling;
-
-using Microsoft.Foundation.NoSeries;
-using Microsoft.Inventory.Item;
-using Microsoft.Sales.Customer;
-using Microsoft.Sales.Document;
-using Microsoft.Sales.Setup;
-using System.Tooling;
-
 codeunit 149104 "BCPT Create SO with N Lines" implements "BCPT Test Param. Provider"
 {
     SingleInstance = true;
 
     trigger OnRun();
     begin
-        if not IsInitialized then begin
+        If not IsInitialized then begin
             InitTest();
             IsInitialized := true;
         end;
-        CreateSalesOrder(GlobalBCPTTestContext);
+        CreateSalesOrder(BCPTTestContext);
     end;
 
     var
-        GlobalBCPTTestContext: Codeunit "BCPT Test Context";
+        BCPTTestContext: Codeunit "BCPT Test Context";
         IsInitialized: Boolean;
         NoOfLinesToCreate: Integer;
         NoOfLinesParamLbl: Label 'Lines';
-        ParamValidationErr: Label 'Parameter is not defined in the correct format. The expected format is "%1"', Comment = '%1 = a string';
+        ParamValidationErr: Label 'Parameter is not defined in the correct format. The expected format is "%1"';
 
 
     local procedure InitTest();
@@ -36,7 +27,7 @@ codeunit 149104 "BCPT Create SO with N Lines" implements "BCPT Test Param. Provi
         SalesSetup.Get();
         SalesSetup.TestField("Order Nos.");
         NoSeriesLine.SetRange("Series Code", SalesSetup."Order Nos.");
-        NoSeriesLine.FindSet(true);
+        NoSeriesLine.findset(true, true);
         repeat
             if NoSeriesLine."Ending No." <> '' then begin
                 NoSeriesLine."Ending No." := '';
@@ -46,10 +37,10 @@ codeunit 149104 "BCPT Create SO with N Lines" implements "BCPT Test Param. Provi
         until NoSeriesLine.Next() = 0;
         commit();
 
-        if Evaluate(NoOfLinesToCreate, GlobalBCPTTestContext.GetParameter(NoOfLinesParamLbl)) then;
+        if Evaluate(NoOfLinesToCreate, BCPTTestContext.GetParameter(NoOfLinesParamLbl)) then;
     end;
 
-    local procedure CreateSalesOrder(var BCPTTestContext: Codeunit "BCPT Test Context")
+    local procedure CreateSalesOrder(Var BCPTTestContext: Codeunit "BCPT Test Context")
     var
         Customer: Record Customer;
         Item: Record Item;
@@ -101,9 +92,7 @@ codeunit 149104 "BCPT Create SO with N Lines" implements "BCPT Test Param. Provi
             BCPTTestContext.UserWait();
             if i mod 2 = 0 then
                 if Item.Next() = 0 then
-#pragma warning disable AA0181, AA0175
                     Item.FindSet();
-#pragma warning restore AA0181, AA0175
         end;
     end;
 

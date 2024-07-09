@@ -3,8 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Device;
-
 /// <summary>
 /// Exposes the list of available printers.
 /// </summary>
@@ -26,18 +24,18 @@ page 2616 "Printer Management"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             repeater(Printers)
             {
                 ShowCaption = false;
-                field(ID; Rec.ID)
+                field(ID; ID)
                 {
                     ApplicationArea = All;
                     Caption = 'Printer ID';
                     ToolTip = 'Specifies the ID of the printer.';
                 }
-                field(Description; Rec.Description)
+                field(Description; Description)
                 {
                     ApplicationArea = All;
                     Caption = 'Description';
@@ -49,14 +47,14 @@ page 2616 "Printer Management"
                     Caption = 'Type';
                     ToolTip = 'Specifies the type of the printer.';
                 }
-                field(Device; Rec.Device)
+                field(Device; Device)
                 {
                     ApplicationArea = All;
                     Visible = false;
                     Caption = 'Device';
                     ToolTip = 'Specifies the printer device.';
                 }
-                field(Driver; Rec.Driver)
+                field(Driver; Driver)
                 {
                     ApplicationArea = All;
                     Visible = false;
@@ -68,7 +66,7 @@ page 2616 "Printer Management"
     }
     actions
     {
-        area(Processing)
+        area(processing)
         {
             action(OpenPrinterSelections)
             {
@@ -94,7 +92,7 @@ page 2616 "Printer Management"
                 Caption = 'Edit printer settings';
                 Image = Edit;
                 Scope = Repeater;
-                ShortcutKey = 'Return';
+                ShortCutKey = 'Return';
                 ToolTip = 'View or edit the settings of the selected printer.';
                 Promoted = true;
                 PromotedIsBig = true;
@@ -102,7 +100,7 @@ page 2616 "Printer Management"
                 PromotedCategory = Category4;
                 trigger OnAction()
                 begin
-                    PrinterSetupImpl.OpenPrinterSettings(Rec.ID);
+                    PrinterSetupImpl.OpenPrinterSettings(ID);
                     CurrPage.Update();
                 end;
             }
@@ -120,7 +118,7 @@ page 2616 "Printer Management"
                 PromotedCategory = Category4;
                 trigger OnAction()
                 begin
-                    PrinterSetupImpl.SetDefaultPrinterForCurrentUser(Rec.ID);
+                    PrinterSetupImpl.SetDefaultPrinterForCurrentUser(ID);
                 end;
             }
             action(DefaultPrinterForAllUsers)
@@ -137,7 +135,7 @@ page 2616 "Printer Management"
                 Visible = IsPrinterSelectionsPageAvailable;
                 trigger OnAction()
                 begin
-                    PrinterSetupImpl.SetDefaultPrinterForAllUsers(Rec.ID);
+                    PrinterSetupImpl.SetDefaultPrinterForAllUsers(ID);
                 end;
             }
         }

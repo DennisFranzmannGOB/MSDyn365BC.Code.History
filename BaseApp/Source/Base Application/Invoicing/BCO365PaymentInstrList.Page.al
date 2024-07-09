@@ -25,7 +25,7 @@ page 2342 "BC O365 Payment Instr. List"
                     Caption = 'Short name';
                     Width = 10;
                 }
-                field(GetPaymentInstructionsInCurrentLanguage; Rec.GetPaymentInstructionsInCurrentLanguage())
+                field(GetPaymentInstructionsInCurrentLanguage; GetPaymentInstructionsInCurrentLanguage())
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     Caption = 'Payment instructions';
@@ -64,14 +64,14 @@ page 2342 "BC O365 Payment Instr. List"
                     BCO365PaymentInstrCard: Page "BC O365 Payment Instr. Card";
                     OldDefaultState: Boolean;
                 begin
-                    OldDefaultState := Rec.Default;
+                    OldDefaultState := Default;
                     BCO365PaymentInstrCard.SetPaymentInstructionsOnPage(Rec);
                     BCO365PaymentInstrCard.LookupMode(true);
                     if BCO365PaymentInstrCard.RunModal() = ACTION::OK then;
 
                     // Check if the default was changed, if we are in lookup mode close the page
-                    Rec.Find();
-                    if CurrPage.LookupMode and (Rec.Default <> OldDefaultState) then
+                    Find();
+                    if CurrPage.LookupMode and (Default <> OldDefaultState) then
                         CurrPage.Close();
                 end;
             }
@@ -85,8 +85,8 @@ page 2342 "BC O365 Payment Instr. List"
 
                 trigger OnAction()
                 begin
-                    if Rec.Find() then
-                        Rec.Delete(true);
+                    if Find() then
+                        Delete(true);
                 end;
             }
         }
@@ -115,10 +115,10 @@ page 2342 "BC O365 Payment Instr. List"
 
     trigger OnAfterGetRecord()
     begin
-        if Rec.Default then
-            NameText := StrSubstNo(DefaultTxt, Rec.GetNameInCurrentLanguage())
+        if Default then
+            NameText := StrSubstNo(DefaultTxt, GetNameInCurrentLanguage())
         else
-            NameText := Rec.GetNameInCurrentLanguage();
+            NameText := GetNameInCurrentLanguage();
     end;
 
     var

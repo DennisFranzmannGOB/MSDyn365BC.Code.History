@@ -590,7 +590,6 @@ codeunit 136450 "Attachment Storage Type"
         CustomLayoutCode: Code[20];
         ExpectedLayoutCode: Code[20];
         CustomLayoutCodeLength: Integer;
-        DataText: Text;
     begin
         // [FEATURE] [Email Merge]
         // [SCENARIO] A new Email Merge Attachment is created with correct BLOB
@@ -602,9 +601,10 @@ codeunit 136450 "Attachment Storage Type"
           PadStr('', MaxStrLen(InteractionTmplLanguage."Custom Layout Code") - CustomLayoutCodeLength, '0') +
           InteractionTmplLanguage."Custom Layout Code";
 
-        DataText := Attachment.Read();
-        if DataText[1] <> '<' then  // build-in layout?
-            Assert.AreEqual(ExpectedLayoutCode, DataText, AttachmentErr);
+        Assert.AreEqual(
+          ExpectedLayoutCode,
+          Attachment.Read(),
+          AttachmentErr);
         Assert.IsTrue(Attachment.ReadHTMLCustomLayoutAttachment(ContentBodyText, CustomLayoutCode), AttachmentErr);
 
         // Tear Down
@@ -1147,7 +1147,7 @@ codeunit 136450 "Attachment Storage Type"
     begin
         InteractionTmplLanguage.Init();
         InteractionTmplLanguage."Interaction Template Code" := InteractionTemplateCode;
-        InteractionTmplLanguage."Report Layout Name" := LibraryMarketing.FindEmailMergeCustomLayoutName();
+        InteractionTmplLanguage."Custom Layout Code" := LibraryMarketing.FindEmailMergeCustomLayoutNo();
         InteractionTmplLanguage.CreateAttachment();
         exit(InteractionTmplLanguage."Attachment No.");
     end;

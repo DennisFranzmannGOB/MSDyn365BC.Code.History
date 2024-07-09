@@ -682,6 +682,8 @@ codeunit 139162 "CRM Integration Mgt Test"
         CRMAccount: array[5] of Record "CRM Account";
         Currency: array[5] of Record Currency;
         CRMTransactioncurrency: array[5] of Record "CRM Transactioncurrency";
+        FilteredCustomer: Record Customer;
+        FilteredCurrency: Record Currency;
         CustomerIntegrationTableMapping: Record "Integration Table Mapping";
         CurrencyIntegrationTableMapping: Record "Integration Table Mapping";
         CRMIntegrationRecord: Record "CRM Integration Record";
@@ -771,6 +773,8 @@ codeunit 139162 "CRM Integration Mgt Test"
         CRMAccount: array[5] of Record "CRM Account";
         SalespersonPurchaser: array[5] of Record "Salesperson/Purchaser";
         CRMSystemuser: array[5] of Record "CRM Systemuser";
+        FilteredCustomer: Record Customer;
+        FilteredSalespersonPurchaser: Record "Salesperson/Purchaser";
         CustomerIntegrationTableMapping: Record "Integration Table Mapping";
         SalespersonIntegrationTableMapping: Record "Integration Table Mapping";
         CRMIntegrationRecord: Record "CRM Integration Record";
@@ -1277,7 +1281,7 @@ codeunit 139162 "CRM Integration Mgt Test"
         // [SCENARIO] IsRecordCoupledToCRM() fails if entity is not supported
         LibrarySales.CreateCustomer(Customer);
         LibrarySales.CreateCustomerBankAccount(CustomerBankAccount, Customer."No.");
-        asserterror RunHyperlinkTest(CustomerBankAccount.RecordId);
+        asserterror RunHyperlinkTest(CustomerBankAccount.RecordId, DATABASE::"Customer Bank Account");
     end;
 
     [Test]
@@ -1289,7 +1293,7 @@ codeunit 139162 "CRM Integration Mgt Test"
         // [FEATURE] [CRM Integration Management] [Customer]
         // [SCENARIO] IsRecordCoupledToCRM() returns TRUE if Customers are coupled
         LibrarySales.CreateCustomer(Customer);
-        RunHyperlinkTest(Customer.RecordId);
+        RunHyperlinkTest(Customer.RecordId, DATABASE::Customer);
     end;
 
     [Test]
@@ -1301,7 +1305,7 @@ codeunit 139162 "CRM Integration Mgt Test"
         // [FEATURE] [CRM Integration Management] [Salesperson]
         // [SCENARIO] IsRecordCoupledToCRM() returns TRUE if Salespersons are coupled
         LibrarySales.CreateSalesperson(SalespersonPurchaser);
-        RunHyperlinkTest(SalespersonPurchaser.RecordId);
+        RunHyperlinkTest(SalespersonPurchaser.RecordId, DATABASE::"Salesperson/Purchaser");
     end;
 
     [Test]
@@ -1314,7 +1318,7 @@ codeunit 139162 "CRM Integration Mgt Test"
         // [SCENARIO] IsRecordCoupledToCRM() returns TRUE if Contacts are coupled
         Contact.Init();
         Contact.Insert();
-        RunHyperlinkTest(Contact.RecordId);
+        RunHyperlinkTest(Contact.RecordId, DATABASE::Contact);
     end;
 
     [Test]
@@ -2100,6 +2104,7 @@ codeunit 139162 "CRM Integration Mgt Test"
         IntegrationTableMapping: Record "Integration Table Mapping";
         SalesInvHeader: Record "Sales Invoice Header";
         CRMAccount: Record "CRM Account";
+        FilteredSalesInvHeader: Record "Sales Invoice Header";
         JobQueueEntryID: Guid;
     begin
         // [SCENARIO 380575] Two Posted Sales Invoices coupled to CRM
@@ -2367,7 +2372,7 @@ codeunit 139162 "CRM Integration Mgt Test"
         end;
     end;
 
-    local procedure RunHyperlinkTest(RecordID: RecordID)
+    local procedure RunHyperlinkTest(RecordID: RecordID; TableNo: Integer)
     var
         CRMIntegrationRecord: Record "CRM Integration Record";
         CRMCouplingManagement: Codeunit "CRM Coupling Management";

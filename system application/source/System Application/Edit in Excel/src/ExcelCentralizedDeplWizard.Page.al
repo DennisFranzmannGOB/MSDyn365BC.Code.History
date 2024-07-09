@@ -3,11 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Integration.Excel;
-
-using System.Environment.Configuration;
-using System.Environment;
-
 /// <summary>
 /// This is a wizard which guides the user through setting up their tenant for using Edit in Excel with Excel add-in installed through centralized deployments.
 /// </summary>
@@ -26,7 +21,7 @@ page 1480 "Excel Centralized Depl. Wizard"
 
     layout
     {
-        area(Content)
+        area(content)
         {
             group(Done)
             {
@@ -50,7 +45,7 @@ page 1480 "Excel Centralized Depl. Wizard"
                 {
                     Caption = 'Business Central Excel add-in setup';
 
-                    group(IntroductionSubgroup)
+                    group("IntroductionSubgroup")
                     {
                         Caption = '';
 
@@ -170,7 +165,7 @@ page 1480 "Excel Centralized Depl. Wizard"
                     field(DeploymentType; Rec."Use Centralized deployments")
                     {
                         Caption = 'Use Centralized Deployment';
-                        ToolTip = 'Specifies the use of Centralized Deployment on this environment.';
+                        Tooltip = 'Enables Centralized Deployment on this environment.';
                         ApplicationArea = All;
                     }
                     field(LearnAboutConfiguringBcForCentralizedDeployment; LearnAboutConfiguringBcForCentralizedDeploymentLinkTxt)
@@ -190,7 +185,7 @@ page 1480 "Excel Centralized Depl. Wizard"
     }
     actions
     {
-        area(Processing)
+        area(processing)
         {
             action(ActionBack)
             {
@@ -238,8 +233,8 @@ page 1480 "Excel Centralized Depl. Wizard"
 
     trigger OnOpenPage()
     begin
-        if not Rec.Get() then
-            Rec.Insert();
+        if not Get() then
+            Insert();
 
         Step := Step::Start;
         EnableControls();
@@ -276,7 +271,7 @@ page 1480 "Excel Centralized Depl. Wizard"
     begin
         if Backwards then
             Step := Step - 1
-        else
+        ELSE
             Step := Step + 1;
 
         EnableControls();
@@ -336,4 +331,3 @@ page 1480 "Excel Centralized Depl. Wizard"
         GoToIntegratedAppsLinkTxt: Label '1. In the Microsoft 365 admin center, go to Integrated Apps.';
         LearnAboutConfiguringBcForCentralizedDeploymentLinkTxt: Label 'Learn more about Configuring Business Central for Centralized Deployment​';
 }
-

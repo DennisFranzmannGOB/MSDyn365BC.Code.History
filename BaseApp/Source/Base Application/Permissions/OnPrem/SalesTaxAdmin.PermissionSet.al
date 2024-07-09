@@ -1,7 +1,3 @@
-namespace System.Security.AccessControl;
-
-using Microsoft.Finance.SalesTax;
-
 permissionset 1297 "Sales Tax - Admin"
 {
     Access = Public;

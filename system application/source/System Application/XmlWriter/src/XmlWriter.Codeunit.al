@@ -3,12 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Xml;
-
 /// <summary>
 /// Provides helper functions for System.Xml.XmlWriter
 /// </summary>
-codeunit 1483 XmlWriter
+codeunit 1483 "XmlWriter"
 {
     Access = Public;
     InherentEntitlements = X;
@@ -123,10 +121,10 @@ codeunit 1483 XmlWriter
     end;
 
     /// <summary>
-    /// Writes the text within Xml Writer to the BigText variable.
+    /// Writes the text within Xml Writer to the BigText variable. 
     /// </summary>
     /// <param name="XmlBigText">The BigText the Xml Writer has to be write to.</param>
-    procedure ToBigText(var XmlBigText: BigText)
+    procedure ToBigText(Var XmlBigText: BigText)
     begin
         XmlWriterImpl.ToBigText(XmlBigText);
     end;

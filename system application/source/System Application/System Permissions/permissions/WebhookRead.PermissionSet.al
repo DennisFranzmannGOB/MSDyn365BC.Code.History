@@ -3,14 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Security.AccessControl;
-
-using System.Integration;
-
 permissionset 98 "Webhook - Read"
 {
     Access = Internal;
-    Assignable = false;
+    Assignable = False;
 
     Permissions = tabledata "API Webhook Notification" = R,
                   tabledata "API Webhook Notification Aggr" = R,

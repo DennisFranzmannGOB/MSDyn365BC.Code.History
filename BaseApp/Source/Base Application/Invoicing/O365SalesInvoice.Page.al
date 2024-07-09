@@ -6,7 +6,7 @@ page 2110 "O365 Sales Invoice"
     PageType = Document;
     RefreshOnActivate = true;
     SourceTable = "Sales Header";
-    SourceTableView = where("Document Type" = const(Invoice));
+    SourceTableView = WHERE("Document Type" = CONST(Invoice));
     ObsoleteReason = 'Microsoft Invoicing has been discontinued.';
     ObsoleteState = Pending;
     ObsoleteTag = '21.0';
@@ -76,8 +76,8 @@ page 2110 "O365 Sales Invoice"
 
                     trigger OnValidate()
                     begin
-                        if Rec."Due Date" < Rec."Document Date" then
-                            Rec.Validate("Due Date", Rec."Document Date");
+                        if "Due Date" < "Document Date" then
+                            Validate("Due Date", "Document Date");
                     end;
                 }
                 field("Document Date"; Rec."Document Date")
@@ -93,13 +93,13 @@ page 2110 "O365 Sales Invoice"
                         NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
                         PastNotification: Notification;
                     begin
-                        Rec.Validate("Posting Date", Rec."Document Date");
+                        Validate("Posting Date", "Document Date");
 
-                        if Rec."Document Date" < WorkDate() then begin
+                        if "Document Date" < WorkDate() then begin
                             PastNotification.Id := CreateGuid();
                             PastNotification.Message(DocumentDatePastMsg);
                             PastNotification.Scope(NOTIFICATIONSCOPE::LocalScope);
-                            NotificationLifecycleMgt.SendNotification(PastNotification, Rec.RecordId);
+                            NotificationLifecycleMgt.SendNotification(PastNotification, RecordId);
                         end;
                     end;
                 }
@@ -132,7 +132,7 @@ page 2110 "O365 Sales Invoice"
                         TaxArea: Record "Tax Area";
                     begin
                         if PAGE.RunModal(PAGE::"O365 Tax Area List", TaxArea) = ACTION::LookupOK then begin
-                            Rec.Validate("Tax Area Code", TaxArea.Code);
+                            Validate("Tax Area Code", TaxArea.Code);
                             TaxAreaDescription := TaxArea.GetDescriptionInCurrentLanguageFullLength();
                             CurrPage.Update();
                         end;
@@ -167,7 +167,7 @@ page 2110 "O365 Sales Invoice"
                         Commit();
                         TempStandardAddress.CopyFromSalesHeaderSellTo(Rec);
                         if PAGE.RunModal(PAGE::"O365 Address", TempStandardAddress) = ACTION::LookupOK then begin
-                            Rec.Find();
+                            Find();
                             O365SalesInvoiceMgmt.UpdateAddress(Rec, FullAddress, DummyCountryCode);
                             CurrPage.Update(true);
                         end;
@@ -179,8 +179,8 @@ page 2110 "O365 Sales Invoice"
                 ApplicationArea = Invoicing, Basic, Suite;
                 Caption = 'Line Items';
                 Editable = CustomerName <> '';
-                SubPageLink = "Document Type" = field("Document Type"),
-                              "Document No." = field("No.");
+                SubPageLink = "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("No.");
                 UpdatePropagation = Both;
                 Visible = CustomerName = '';
             }
@@ -189,8 +189,8 @@ page 2110 "O365 Sales Invoice"
                 ApplicationArea = Invoicing, Basic, Suite;
                 Caption = 'Line Items';
                 Editable = false;
-                SubPageLink = "Document Type" = field("Document Type"),
-                              "Document No." = field("No.");
+                SubPageLink = "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("No.");
                 UpdatePropagation = Both;
                 Visible = CustomerName <> '';
             }
@@ -242,7 +242,7 @@ page 2110 "O365 Sales Invoice"
             {
                 ShowCaption = false;
                 Visible = NOT InvDiscAmountVisible;
-                field(Amount2; Rec.Amount)
+                field(Amount2; Amount)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     AutoFormatExpression = CurrencyFormat;
@@ -252,7 +252,7 @@ page 2110 "O365 Sales Invoice"
                     Lookup = false;
                     ToolTip = 'Specifies the total amount on the sales invoice excluding VAT.';
                 }
-                field(AmountIncludingVAT2; Rec."Amount Including VAT")
+                field(AmountIncludingVAT2; "Amount Including VAT")
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     AutoFormatExpression = CurrencyFormat;
@@ -308,7 +308,7 @@ page 2110 "O365 Sales Invoice"
 
                     trigger OnValidate()
                     begin
-                        Rec.SetWorkDescription(WorkDescription);
+                        SetWorkDescription(WorkDescription);
                     end;
                 }
             }
@@ -349,12 +349,12 @@ page 2110 "O365 Sales Invoice"
                     ReportSelections: Record "Report Selections";
                     DocumentPath: Text[250];
                 begin
-                    Rec.SetRecFilter();
-                    Rec.LockTable();
-                    Rec.Find();
-                    ReportSelections.GetPdfReportForCust(DocumentPath, ReportSelections.Usage::"S.Invoice Draft", Rec, Rec."Sell-to Customer No.");
+                    SetRecFilter();
+                    LockTable();
+                    Find();
+                    ReportSelections.GetPdfReportForCust(DocumentPath, ReportSelections.Usage::"S.Invoice Draft", Rec, "Sell-to Customer No.");
                     Download(DocumentPath, '', '', '', DocumentPath);
-                    Rec.Find();
+                    Find();
                 end;
             }
             action(SaveForLater)
@@ -388,9 +388,9 @@ page 2110 "O365 Sales Invoice"
 
                     ForceExit := true;
 
-                    if CustInvoiceDisc.Get(Rec."Invoice Disc. Code", Rec."Currency Code", 0) then
+                    if CustInvoiceDisc.Get("Invoice Disc. Code", "Currency Code", 0) then
                         CustInvoiceDisc.Delete();
-                    Rec.Delete(true);
+                    Delete(true);
                 end;
             }
         }
@@ -430,13 +430,13 @@ page 2110 "O365 Sales Invoice"
     begin
         ForceExit := true;
 
-        if CustInvoiceDisc.Get(Rec."Invoice Disc. Code", Rec."Currency Code", 0) then
+        if CustInvoiceDisc.Get("Invoice Disc. Code", "Currency Code", 0) then
             CustInvoiceDisc.Delete();
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Rec."Document Type" := Rec."Document Type"::Invoice;
+        "Document Type" := "Document Type"::Invoice;
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -444,7 +444,7 @@ page 2110 "O365 Sales Invoice"
         CustomerName := '';
         CustomerEmail := '';
         WorkDescription := '';
-        Rec.SetDefaultPaymentServices();
+        SetDefaultPaymentServices();
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean

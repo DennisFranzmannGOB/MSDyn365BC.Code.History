@@ -1,7 +1,3 @@
-namespace Microsoft.Manufacturing.ProductionBOM;
-
-using Microsoft.Inventory.Item;
-
 table 99000789 "Production Matrix  BOM Entry"
 {
     Caption = 'Production Matrix  BOM Entry';
@@ -16,7 +12,7 @@ table 99000789 "Production Matrix  BOM Entry"
         field(2; "Variant Code"; Code[10])
         {
             Caption = 'Variant Code';
-            TableRelation = "Item Variant".Code where("Item No." = field("Item No."));
+            TableRelation = "Item Variant".Code WHERE("Item No." = FIELD("Item No."));
         }
         field(3; ID; Code[20])
         {

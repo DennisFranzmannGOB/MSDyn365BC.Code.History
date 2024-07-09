@@ -1,13 +1,3 @@
-namespace System.Email;
-
-using Microsoft.CRM.Contact;
-using Microsoft.CRM.Outlook;
-using Microsoft.Utilities;
-using System;
-using System.Environment;
-using System.Security.AccessControl;
-using System.Security.User;
-
 codeunit 397 Mail
 {
 
@@ -224,7 +214,6 @@ codeunit 397 Mail
         AddAddressToCollection('UserSetup', GetEmailFromUserSetupTable(), TempNameValueBuffer);
         AddAddressToCollection('ContactEmail', GetContactEmailFromUserTable(), TempNameValueBuffer);
         AddAddressToCollection('AuthEmail', GetAuthenticationEmailFromUserTable(), TempNameValueBuffer);
-        OnCollectCurrentUserEmailAddressesOnBeforeCheckIsSaaS(TempNameValueBuffer);
         if not EnvironmentInfo.IsSaaS() then
             AddAddressToCollection('AD', GetActiveDirectoryMailFromUser(), TempNameValueBuffer);
 
@@ -367,11 +356,6 @@ codeunit 397 Mail
 
     [IntegrationEvent(false, false)]
     local procedure OnCreateMessageOnBeforeClearAttachmentFileNames(var IsHandled: Boolean);
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnCollectCurrentUserEmailAddressesOnBeforeCheckIsSaaS(var TempNameValueBuffer: Record "Name/Value Buffer" temporary)
     begin
     end;
 }

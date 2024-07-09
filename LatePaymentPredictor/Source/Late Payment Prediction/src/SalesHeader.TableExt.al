@@ -1,6 +1,3 @@
-namespace Microsoft.Finance.Latepayment;
-
-using Microsoft.Sales.Document;
 tableextension 1959 "LPP Sales Header" extends "Sales Header"
 {
     var

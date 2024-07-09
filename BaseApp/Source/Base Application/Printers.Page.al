@@ -1,5 +1,3 @@
-namespace System.Device;
-
 page 356 Printers
 {
     Caption = 'Printers';
@@ -14,7 +12,7 @@ page 356 Printers
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(ID; Rec.ID)
+                field(ID; ID)
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the ID that applies.';

@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Table Shpfy Tag (ID 30104).
 /// </summary>
@@ -59,7 +57,7 @@ table 30104 "Shpfy Tag"
         Tags: TextBuilder;
     begin
         Rec.SetRange("Parent Id", ParentId);
-        if Rec.FindSet(false) then begin
+        if Rec.FindSet(false, false) then begin
             repeat
                 Tags.Append(',');
                 Tags.Append(Rec.Tag);

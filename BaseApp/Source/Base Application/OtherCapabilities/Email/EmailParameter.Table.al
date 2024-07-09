@@ -1,10 +1,3 @@
-namespace System.Email;
-
-using Microsoft.Sales.Document;
-using System.Utilities;
-using System.Reflection;
-using Microsoft.Foundation.Reporting;
-
 table 9510 "Email Parameter"
 {
     Caption = 'Email Parameter';
@@ -63,7 +56,7 @@ table 9510 "Email Parameter"
     begin
         exit(
             GetParameterWithReportUsage(
-                DocumentNo, Enum::"Report Selection Usage".FromInteger(ReportUsage), "Email Parameter Type".FromInteger(ParameterType)));
+                DocumentNo, "Report Selection Usage".FromInteger(ReportUsage), "Email Parameter Type".FromInteger(ParameterType)));
     end;
 
     procedure GetParameterValue(): Text
@@ -105,7 +98,7 @@ table 9510 "Email Parameter"
         ReportSelections: Record "Report Selections";
         DocumentType: Enum "Sales Document Type";
     begin
-        if not ReportSelections.ConvertReportUsageToSalesDocumentType(DocumentType, Enum::"Report Selection Usage".FromInteger(ReportUsage)) then
+        if not ReportSelections.ConvertReportUsageToSalesDocumentType(DocumentType, "Report Selection Usage".FromInteger(ReportUsage)) then
             Error(ParameterNotSupportedErr);
         SaveParameterValue(DocumentNo, DocumentType.AsInteger(), ParameterType, ParameterValue);
     end;

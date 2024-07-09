@@ -1,7 +1,3 @@
-namespace Microsoft.API.V2;
-
-using Microsoft.Projects.Project.Job;
-
 page 30050 "APIV2 - Jobs"
 {
     APIVersion = 'v2.0';
@@ -21,31 +17,26 @@ page 30050 "APIV2 - Jobs"
         {
             repeater(Group)
             {
-                field(id; Rec.SystemId)
+                field(id; SystemId)
                 {
                     Caption = 'Id';
                     Editable = false;
                 }
-                field(number; Rec."No.")
+                field(number; "No.")
                 {
                     Caption = 'No.';
                 }
-                field(displayName; Rec.Description)
+                field(displayName; Description)
                 {
                     Caption = 'Display Name';
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
-                {
-                    Caption = 'Last Modified Date';
-                    Editable = false;
-                }
-                part(documentAttachments; "APIV2 - Document Attachments")
-                {
-                    Caption = 'Document Attachments';
-                    EntityName = 'documentAttachment';
-                    EntitySetName = 'documentAttachments';
-                    SubPageLink = "Document Id" = field(SystemId), "Document Type" = const(Job);
-                }
+            }
+            part(documentAttachments; "APIV2 - Document Attachments")
+            {
+                Caption = 'Document Attachments';
+                EntityName = 'documentAttachment';
+                EntitySetName = 'documentAttachments';
+                SubPageLink = "Document Id" = Field(SystemId), "Document Type" = const(Job);
             }
         }
     }

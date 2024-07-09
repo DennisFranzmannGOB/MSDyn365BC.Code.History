@@ -15,7 +15,7 @@ page 2149 "O365 Email CC/BCC Card"
             group(General)
             {
                 Caption = 'General';
-                field(Email; Rec.Email)
+                field(Email; Email)
                 {
                     ApplicationArea = Invoicing, Basic, Suite;
                     ExtendedDatatype = EMail;
@@ -30,7 +30,7 @@ page 2149 "O365 Email CC/BCC Card"
 
     trigger OnAfterGetCurrRecord()
     begin
-        if Rec.RecipientType = Rec.RecipientType::CC then
+        if RecipientType = RecipientType::CC then
             CurrPage.Caption := CCPageCaptionTxt
         else
             CurrPage.Caption := BCCPageCaptionTxt;

@@ -1,5 +1,3 @@
-namespace Microsoft.Integration.Shopify;
-
 /// <summary>
 /// Codeunit Shpfy GQL FindVariantByBarcode (ID 30132) implements Interface Shpfy IGarphQL.
 /// </summary>

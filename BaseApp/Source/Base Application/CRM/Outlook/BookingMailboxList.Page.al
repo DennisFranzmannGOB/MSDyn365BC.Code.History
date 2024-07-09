@@ -1,5 +1,3 @@
-namespace Microsoft.Booking;
-
 page 6704 "Booking Mailbox List"
 {
     Caption = 'Booking Mailbox List';
@@ -17,7 +15,7 @@ page 6704 "Booking Mailbox List"
         {
             repeater(Group)
             {
-                field("Service Address"; Rec.SmtpAddress)
+                field("Service Address"; SmtpAddress)
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the SMTP address of the Bookings mailbox.';
@@ -45,9 +43,9 @@ page 6704 "Booking Mailbox List"
         TempBookingMailbox.Reset();
         if TempBookingMailbox.FindSet() then
             repeat
-                Rec.Init();
-                Rec.TransferFields(TempBookingMailbox);
-                Rec.Insert();
+                Init();
+                TransferFields(TempBookingMailbox);
+                Insert();
             until TempBookingMailbox.Next() = 0;
     end;
 }

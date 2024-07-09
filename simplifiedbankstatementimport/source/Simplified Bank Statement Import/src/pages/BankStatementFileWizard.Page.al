@@ -1,15 +1,3 @@
-namespace Microsoft.Bank.StatementImport;
-
-using System.Utilities;
-using System.Environment;
-using System.IO;
-using System.Reflection;
-using Microsoft.Bank.BankAccount;
-using Microsoft.Foundation.Company;
-using System.Telemetry;
-using Microsoft.Bank.Setup;
-using Microsoft.Bank.Reconciliation;
-
 page 8850 "Bank Statement File Wizard"
 {
     Caption = 'Bank Statement File Setup';
@@ -163,6 +151,7 @@ page 8850 "Bank Statement File Wizard"
                                 Clear(DescriptionColumnNo);
                                 Clear(DateFormat);
                                 Clear(DecimalSeperator);
+                                Clear(SelectBankAccountCode);
                             end else
                                 NextActionEnabled := FileUploaded;
                             CurrPage.Update(false);
@@ -1450,10 +1439,5 @@ page 8850 "Bank Statement File Wizard"
             LineSeparator := LineSeparator::LF;
             exit;
         end;
-    end;
-
-    procedure SetBankAccount(BankAccountCode: Code[20])
-    begin
-        SelectBankAccountCode := BankAccountCode;
     end;
 }

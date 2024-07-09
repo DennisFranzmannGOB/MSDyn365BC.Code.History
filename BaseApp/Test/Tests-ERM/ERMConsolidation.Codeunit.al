@@ -691,15 +691,10 @@ codeunit 134092 "ERM Consolidation"
     local procedure ClearGLEntriesOnPostingDate(PostingDate: Date)
     var
         GLEntry: Record "G/L Entry";
-        GLBookEntry: Record "GL Book Entry";
     begin
         GLEntry.SetCurrentKey("Posting Date");
         GLEntry.SetRange("Posting Date", PostingDate);
         GLEntry.DeleteAll();
-
-        GLBookEntry.SetCurrentKey("Posting Date");
-        GLBookEntry.SetRange("Posting Date", PostingDate);
-        GLBookEntry.DeleteAll();
     end;
 
     local procedure CreateGLAccountWithConsolidationSetup(var GLAccount: Record "G/L Account")

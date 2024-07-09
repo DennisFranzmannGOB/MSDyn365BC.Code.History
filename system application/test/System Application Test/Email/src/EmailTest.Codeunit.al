@@ -3,16 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace System.Test.Email;
-
-using System.Email;
-using System.Text;
-using System.TestLibraries.Email;
-using System.Environment;
-using System.TestLibraries.Reflection;
-using System.TestLibraries.Utilities;
-using System.TestLibraries.Security.AccessControl;
-
 codeunit 134685 "Email Test"
 {
     Subtype = Test;
@@ -300,7 +290,11 @@ codeunit 134685 "Email Test"
         Assert.IsFalse(EmailEditor.BccField.Editable(), 'Bcc field was editable');
         Assert.IsFalse(EmailEditor.SubjectField.Editable(), 'Subject field was editable');
         Assert.IsFalse(EmailEditor.BodyField.Editable(), 'Body field was editable');
+#if not CLEAN19
+        Assert.IsFalse(EmailEditor.Upload.Enabled(), 'Upload Action was not disabled.');
+#else
         Assert.IsFalse(EmailEditor.Attachments.Upload.Visible(), 'Upload Action is visible.');
+#endif
         Assert.IsFalse(EmailEditor.Send.Enabled(), 'Send Action was not disabled.');
 
         EmailOutBox.Status := Enum::"Email Status"::Processing;
@@ -317,7 +311,11 @@ codeunit 134685 "Email Test"
         Assert.IsFalse(EmailEditor.BccField.Editable(), 'Bcc field was editable');
         Assert.IsFalse(EmailEditor.SubjectField.Editable(), 'Subject field was editable');
         Assert.IsFalse(EmailEditor.BodyField.Editable(), 'Body field was editable');
+#if not CLEAN19
+        Assert.IsFalse(EmailEditor.Upload.Enabled(), 'Upload Action was not disabled.');
+#else
         Assert.IsFalse(EmailEditor.Attachments.Upload.Visible(), 'Upload Action is visible.');
+#endif
         Assert.IsFalse(EmailEditor.Send.Enabled(), 'Send Action was not disabled.');
         EmailMessageAttachment.SetRange("Email Message Id", EmailMessage.GetId());
         EmailMessageAttachment.FindFirst();
@@ -625,7 +623,6 @@ codeunit 134685 "Email Test"
         ConnectorMock: Codeunit "Connector Mock";
         AccountId: Guid;
         DateTime: DateTime;
-        MaxDurationDifference: Duration;
     begin
         // [Scenario] When enqueuing an existing email, it appears in the outbox
         PermissionsMock.Set('Email Edit');
@@ -649,8 +646,7 @@ codeunit 134685 "Email Test"
         // [Then] Job is enqueued
         Assert.AreEqual(ScheduleTasks.Count, 1, 'Enqueue should only add one entry to scheduled tasks');
         Assert.IsTrue(ScheduleTasks.FindFirst(), 'The job should be in scheduled tasks');
-        MaxDurationDifference := 100; // 100 ms
-        Assert.AreEqualDateTime(ScheduleTasks."Not Before", DateTime, MaxDurationDifference, 'The jobs not before date should be equal to the datetime provided when enqueueing');
+        Assert.AreEqual(Format(ScheduleTasks."Not Before", 0, '<Day,2>-<Month,2>-<Year> <Hours24,2>.<Minutes,2>.<Seconds,2>'), Format(DateTime, 0, '<Day,2>-<Month,2>-<Year> <Hours24,2>.<Minutes,2>.<Seconds,2>'), 'The jobs not before date should be equal to the datetime provided when enqueueing');
 
         // [Then] The enqueued email should be the correct one 
         EmailOutbox.SetRange("Message Id", EmailMessage.GetId());
@@ -1454,7 +1450,11 @@ codeunit 134685 "Email Test"
         Assert.IsTrue(EmailEditor.BccField.Editable(), 'Bcc field was not editable');
         Assert.IsTrue(EmailEditor.SubjectField.Editable(), 'Subject field was not editable');
         Assert.IsTrue(EmailEditor.BodyField.Editable(), 'Body field was not editable');
+#if not CLEAN19
+        Assert.IsTrue(EmailEditor.Upload.Enabled(), 'Upload Action was not enabled.');
+#else
         Assert.IsTrue(EmailEditor.Attachments.Upload.Visible(), 'Upload Action is not visible.');
+#endif
         Assert.IsTrue(EmailEditor.Send.Enabled(), 'Send Action was not enabled.');
     end;
 
@@ -1486,7 +1486,7 @@ codeunit 134685 "Email Test"
     local procedure OnAfterEmailSentSubscriber(SentEmail: Record "Sent Email")
     begin
         VariableStorage.Enqueue(SentEmail."Message Id");
-        VariableStorage.Enqueue(true);
+        VariableStorage.Enqueue(True);
         if ThrowError then
             Error('');
     end;
@@ -1495,7 +1495,7 @@ codeunit 134685 "Email Test"
     local procedure OnAfterEmailSendFailedSubscriber(EmailOutbox: Record "Email Outbox")
     begin
         VariableStorage.Enqueue(EmailOutbox."Message Id");
-        VariableStorage.Enqueue(false);
+        VariableStorage.Enqueue(False);
         if ThrowError then
             Error('');
     end;
