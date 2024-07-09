@@ -522,7 +522,7 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - Control 170988037 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer uses the Computer Vision API from Microsoft Cognitive Services to detect attributes in the images you upload for items and contact persons, so it's easy for you to assign them. For items, Image Analyzer finds attributes like type and color. For contact persons, it detects age and gender.</source>
-          <target state="translated">L'analyseur d'image utilise l'API Vision par ordinateur à partir de Microsoft Cognitive Services pour détecter les attributs dans les images que vous télécharger pour les articles et les contactes, afin que vous puissiez les affecter facilement. Pour les articles, l'analyseur d'image recherche les attributs comme le type et la couleur. Pour les contacts, il détecte l'âge et le genre.</target>
+          <target state="translated">L’analyseur d’image utilise l’API Vision par ordinateur à partir de Microsoft Cognitive Services pour détecter les attributs dans les images que vous télécharger pour les articles et les contactes, afin que vous puissiez les affecter facilement. Pour les articles, l’analyseur d’image recherche les attributs comme le type et la couleur. Pour les contacts, il détecte l’âge et le genre.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - Control TourGroup - Property InstructionalText</note>
         </trans-unit>
@@ -591,7 +591,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1450496495 - Action 2802945156 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Analyze the picture attached to the contact to identify gender and age, and assign them to the contact.</source>
-          <target state="translated">Analysez l'image associée au contact afin d'identifier son genre et son âge et les lui affecter.</target>
+          <target state="translated">Analysez l’image associée au contact afin d’identifier son genre et son âge et les lui affecter.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3542408424</note>
