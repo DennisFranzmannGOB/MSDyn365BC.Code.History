@@ -69,6 +69,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType CouldNotGetAccessTokenErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3663318601 - NamedType 3856184457" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Third-party extensions are restricted from obtaining access tokens. Please contact your system administrator.</source>
+          <target state="translated">Viðbætur frá þriðja aðila geta ekki fengið aðgangslykla. Hafðu samband við kerfisstjóra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType ThirdPartyExtensionsNotAllowedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2389531293" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Could not establish the connection to the remote service for sending email. Try again later.</source>
           <target state="translated">Ekki var hægt að koma á tengingu við fjarþjónustuna til að senda tölvupóst. Reynið aftur síðar.</target>
