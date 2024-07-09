@@ -239,7 +239,7 @@
         </trans-unit>
         <trans-unit id="Table 3703212798 - Field 1303377601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Code</source>
-          <target state="translated">Code dimension principale 1</target>
+          <target state="translated">Code de dimension principale 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Account - Field Global Dimension 1 Code - Property Caption</note>
         </trans-unit>
@@ -251,7 +251,7 @@
         </trans-unit>
         <trans-unit id="Table 3703212798 - Field 1337243520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
-          <target state="translated">Code dimension principale 2</target>
+          <target state="translated">Code de dimension principale 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Account - Field Global Dimension 2 Code - Property Caption</note>
         </trans-unit>
@@ -317,13 +317,13 @@
         </trans-unit>
         <trans-unit id="Table 420906942 - Field 1303377601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Code</source>
-          <target state="translated">Code dimension principale 1</target>
+          <target state="translated">Code de dimension principale 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Ledger Entry - Field Global Dimension 1 Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 420906942 - Field 1337243520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
-          <target state="translated">Code dimension principale 2</target>
+          <target state="translated">Code de dimension principale 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Ledger Entry - Field Global Dimension 2 Code - Property Caption</note>
         </trans-unit>

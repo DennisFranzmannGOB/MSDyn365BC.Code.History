@@ -1061,7 +1061,7 @@
         </trans-unit>
         <trans-unit id="Page 230770102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Aut. Scheduled Jobs</source>
-          <target state="translated">APIV2 - aut. geplande projecten</target>
+          <target state="translated">APIV2 - aut. geplande taken</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Aut. Scheduled Jobs - Property Caption</note>
         </trans-unit>
