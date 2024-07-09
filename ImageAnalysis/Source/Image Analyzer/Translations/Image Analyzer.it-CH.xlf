@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Table 2062634445 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>MS - Image Analyzer Tags</source>
-          <target state="translated">MS - Tag Analizzatore immagine</target>
+          <target state="translated">MS - Tag Analizzatore di immagini</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - Property Caption</note>
         </trans-unit>
@@ -113,7 +113,7 @@
         </trans-unit>
         <trans-unit id="Table 934628271 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer Blocked Attributes</source>
-          <target state="translated">Attributi bloccati di Analizzatore immagine</target>
+          <target state="translated">Attributi bloccati di Analizzatore di immagini</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Img. Analyzer Blacklist - Property Caption</note>
         </trans-unit>
@@ -143,7 +143,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1854769596 - NamedType 73413020" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attributes detected by Image Analyzer.</source>
-          <target state="translated">Attributi rilevati da Analizzatore immagine.</target>
+          <target state="translated">Attributi rilevati da Analizzatore di immagini.</target>
           <note from="Developer" annotates="general" priority="2">Should be less than or equal to 50 characters.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Contact Picture Analyze - NamedType ImageAnalyzerContactQuestionnaireDescriptionTxt</note>
         </trans-unit>
@@ -167,19 +167,19 @@
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 861756657" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Looks like the Image Analyzer extension is disabled. Do you want to learn more and enable it?</source>
-          <target state="translated">Apparentemente l'estensione Analizzatore immagine è disabilitata. Si desidera acquisire altre informazioni ed abilitarla?</target>
+          <target state="translated">Apparentemente l'estensione Analizzatore di immagini è disabilitata. Si desidera acquisire altre informazioni ed abilitarla?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType AnalyzerDisabledMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 1593074454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer profile questionnaire completed</source>
-          <target state="translated">Questionario profilo Analizzatore immagine completato</target>
+          <target state="translated">Questionario profilo Analizzatore di immagini completato</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType ContactQuestionnairePopulatedNameTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 2867214218" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Notify me when Image Analyzer has been used in profile questionnaire to analyze a picture of a contact.</source>
-          <target state="translated">Invia una notifica quando Analizzatore immagine è stato utilizzato nel questionario profilo per analizzare l'immagine di un contatto.</target>
+          <target state="translated">Invia una notifica quando Analizzatore di immagini è stato utilizzato nel questionario profilo per analizzare l'immagine di un contatto.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType ContactQuestionnairePopulatedNotificationDescriptionTxt</note>
         </trans-unit>
@@ -227,13 +227,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 2403516424" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Notify me that the Image Analyzer extension can suggest attributes detected in imported images.</source>
-          <target state="translated">Invia una notifica per cui l'estensione Analizzatore immagine può suggerire gli attributi rilevati nelle immagini importate.</target>
+          <target state="translated">Invia una notifica per cui l'estensione Analizzatore di immagini può suggerire gli attributi rilevati nelle immagini importate.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType SetupNotificationDescriptionTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 3519161399" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer setup</source>
-          <target state="translated">Setup Analizzatore immagine</target>
+          <target state="translated">Setup Analizzatore di immagini</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType SetupNotificationNameTxt</note>
         </trans-unit>
@@ -275,7 +275,7 @@
         </trans-unit>
         <trans-unit id="Page 2516211404 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer Blocked Attributes</source>
-          <target state="translated">Attributi bloccati di Analizzatore immagine</target>
+          <target state="translated">Attributi bloccati di Analizzatore di immagini</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analysis Blacklist - Property Caption</note>
         </trans-unit>
@@ -293,7 +293,7 @@
         </trans-unit>
         <trans-unit id="Page 4132159392 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer Attributes</source>
-          <target state="translated">Attributi di Analizzatore immagine</target>
+          <target state="translated">Attributi di Analizzatore di immagini</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analysis Tags - Property Caption</note>
         </trans-unit>
@@ -377,13 +377,13 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer assisted setup guide</source>
-          <target state="translated">Guida setup assistito Analizzatore immagine</target>
+          <target state="translated">Guida setup assistito Analizzatore di immagini</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 1881189978" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose 'Finish' to enable Image Analyzer.</source>
-          <target state="translated">Scegliere 'Fine' per abilitare Analizzatore immagine.</target>
+          <target state="translated">Scegliere 'Fine' per abilitare Analizzatore di immagini.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType ChooseFinishTxt</note>
         </trans-unit>
@@ -395,13 +395,13 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 617850082" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>By enabling the Image Analyzer extension you consent to sharing your data with an external system. For more information, see the documentation.</source>
-          <target state="translated">Mediante l'attivazione dell'estensione Analizzatore immagine, l'utente accetta di condividere i dati con un sistema esterno. Per ulteriori informazioni, vedere la documentazione.</target>
+          <target state="translated">Mediante l'attivazione dell'estensione Analizzatore di immagini, l'utente accetta di condividere i dati con un sistema esterno. Per ulteriori informazioni, vedere la documentazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType ConsentTxt</note>
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 1836435487" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer automatically detects attributes when you add an image to an item or contact person.</source>
-          <target state="translated">Analizzatore immagine rileva automaticamente gli attributi quando si aggiunge un'immagine a un articolo o un contatto.</target>
+          <target state="translated">Analizzatore di immagini rileva automaticamente gli attributi quando si aggiunge un'immagine a un articolo o un contatto.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType HowToPart1Txt</note>
         </trans-unit>
@@ -419,7 +419,7 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 1557995245" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer technical documentation</source>
-          <target state="translated">Documentazione tecnica di Analizzatore immagine</target>
+          <target state="translated">Documentazione tecnica di Analizzatore di immagini</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType ImageAnalyzerDocumentationTxt</note>
         </trans-unit>
@@ -455,13 +455,13 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 1591904854" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Your use of the Image Analyzer may be subject to the additional licensing terms in the Microsoft Cognitive Services section of the Online Services Terms.</source>
-          <target state="translated">L'utilizzo di Analizzatore immagine potrebbe essere soggetto a condizioni di licenza aggiuntive nella sezione Servizi cognitivi Microsoft delle condizioni dei servizi online.</target>
+          <target state="translated">L'utilizzo di Analizzatore di immagini potrebbe essere soggetto a condizioni di licenza aggiuntive nella sezione Servizi cognitivi Microsoft delle condizioni dei servizi online.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType TermsPartTxt</note>
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 1724171003" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>An image has been added to the chosen item or contact. Want to analyze the image, right after you enable Image Analyzer?</source>
-          <target state="translated">Un'immagine è stata aggiunta all'articolo o al contatto scelto. Analizzare l'immagine subito dopo aver abilitato Analizzatore immagine?</target>
+          <target state="translated">Un'immagine è stata aggiunta all'articolo o al contatto scelto. Analizzare l'immagine subito dopo aver abilitato Analizzatore di immagini?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType WantToAnalyzeTheCurrentPictureQst</note>
         </trans-unit>
@@ -522,7 +522,7 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - Control 170988037 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer uses the Computer Vision API from Microsoft Cognitive Services to detect attributes in the images you upload for items and contact persons, so it's easy for you to assign them. For items, Image Analyzer finds attributes like type and color. For contact persons, it detects age and gender.</source>
-          <target state="translated">Analizzatore immagine utilizza l'API Visione artificiale di Servizi cognitivi Microsoft per rilevare attributi nelle immagini caricate per articoli e contatti per facilitarne l'assegnazione. Per gli articoli, Analizzatore immagine trova attributi quali tipo e colore. Per i contatti, rileva l'età e il sesso.</target>
+          <target state="translated">Analizzatore di immagini utilizza l'API Visione artificiale di Servizi cognitivi Microsoft per rilevare attributi nelle immagini caricate per articoli e contatti per facilitarne l'assegnazione. Per gli articoli, Analizzatore di immagini trova attributi quali tipo e colore. Per i contatti, rileva l'età e il sesso.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - Control TourGroup - Property InstructionalText</note>
         </trans-unit>
@@ -626,7 +626,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 3849677789 - Control 3183907675 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether to use the Image Analyzer extension to suggest attributes that it detects in images of items and contact persons.</source>
-          <target state="translated">Specifica se utilizzare l'estensione Analizzatore immagine per suggerire gli attributi che rileva nelle immagini di articoli e contatti.</target>
+          <target state="translated">Specifica se utilizzare l'estensione Analizzatore di immagini per suggerire gli attributi che rileva nelle immagini di articoli e contatti.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 133985070</note>
@@ -661,26 +661,26 @@
         </trans-unit>
         <trans-unit id="TableExtension 214061687 - Field 2508927063 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Enable Image Analyzer</source>
-          <target state="translated">Abilita Analizzatore immagine</target>
+          <target state="translated">Abilita Analizzatore di immagini</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 133985070</note>
         </trans-unit>
         <trans-unit id="PermissionSet 4132997248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Edit</source>
-          <target state="translated">Image Analyzer-modifica</target>
+          <target state="translated">Analizzatore di immagini - Modifica</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Edit - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 66993882 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Objects</source>
-          <target state="translated">Image Analyzer-oggetti</target>
+          <target state="translated">Analizzatore di immagini - Oggetti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Objects - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2161558262 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Read</source>
-          <target state="translated">Image Analyzer-leggi</target>
+          <target state="translated">Analizzatore di immagini - Leggi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Read - Property Caption</note>
         </trans-unit>
