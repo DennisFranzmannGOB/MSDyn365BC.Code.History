@@ -407,6 +407,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Voucher Entry Source Codes - Control Source Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1568258383 - Field 3563465532 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Is Digital Voucher</source>
+          <target state="translated">Ist ein digitaler Gutschein</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 375736668</note>
+        </trans-unit>
         <trans-unit id="Enum 3198883256 - EnumValue 1159403147 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachment</source>
           <target state="translated">Anhang</target>

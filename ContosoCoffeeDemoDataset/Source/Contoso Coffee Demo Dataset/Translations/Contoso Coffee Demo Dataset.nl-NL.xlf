@@ -1751,7 +1751,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1485704842 - NamedType 1105234384" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>RESALE</source>
-          <target state="translated">WEDERVERKOOP</target>
+          <target state="translated">WEDERVERK</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Posting Group - NamedType ResaleTok</note>
         </trans-unit>
