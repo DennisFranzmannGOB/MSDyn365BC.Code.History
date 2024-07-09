@@ -58,6 +58,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType CouldNotGetAccessTokenErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3663318601 - NamedType 3856184457" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Third-party extensions are restricted from obtaining access tokens. Please contact your system administrator.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType ThirdPartyExtensionsNotAllowedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2364649794" size-unit="char" translate="yes" xml:space="preserve">
           <source>Multi-Factor Authentication is enabled on this account but the user did not complete the setup. Please sign in to the account and try again.</source>
           <note from="Developer" annotates="general" priority="2"></note>
