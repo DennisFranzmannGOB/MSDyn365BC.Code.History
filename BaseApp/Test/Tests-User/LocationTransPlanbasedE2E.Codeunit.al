@@ -26,7 +26,7 @@ codeunit 135402 "Location Trans. Plan-based E2E"
         ApplicationAreaMgmtFacade: Codeunit "Application Area Mgmt. Facade";
         LibraryTemplates: Codeunit "Library - Templates";
         IsInitialized: Boolean;
-        TransferLineNotExistsErrorTxt: Label 'Transfer lines does not exists after change of Transfer-From location. ', Locked = true;
+        TransferLineNotExistsErrorTxt: Label 'Transfer lines does not exists after change of Transfer-From location.', Locked = true;
 
     [Test]
     [HandlerFunctions('SelectCustomerTemplListModalPageHandler,SelectVendorTemplListModalPageHandler,SelectItemTemplListModalPageHandler,ConfirmHandlerYes,PostedPurchaseInvoicePageHandler,ShipOrReceiveTransferOrderStrMenuHandler,MessageHandler,PostedSalesInvoicePageHandler,PostedTransferShipmentPageHandler,PostedTransferReceiptPageHandler')]
@@ -319,11 +319,25 @@ codeunit 135402 "Location Trans. Plan-based E2E"
         LibrarySales.SetCreditWarningsToNoWarnings;
         LibraryERMCountryData.CreateVATData();
         LibraryERMCountryData.UpdatePurchasesPayablesSetup();
+        InitializeAvailabilityCheckSettingsOnCompanyInformation;
 
         IsInitialized := true;
         Commit();
 
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"Location Trans. Plan-based E2E");
+    end;
+
+    local procedure InitializeAvailabilityCheckSettingsOnCompanyInformation()
+    var
+        CompanyInformation: Record "Company Information";
+        BlankDateFormula: DateFormula;
+    begin
+        with CompanyInformation do begin
+            Get();
+            Validate("Check-Avail. Period Calc.", BlankDateFormula);
+            Validate("Check-Avail. Time Bucket", "Check-Avail. Time Bucket"::Day);
+            Modify(true);
+        end;
     end;
 
     local procedure InitializePreExistingMasterDataForTeamMember(var Item: Record Item; var Vendor: Record Vendor; var Customer: Record Customer)
@@ -588,16 +602,27 @@ codeunit 135402 "Location Trans. Plan-based E2E"
     var
         PurchaseHeader: Record "Purchase Header";
         PurchaseInvoice: TestPage "Purchase Invoice";
+        DocumentNo: Code[20];
     begin
         PurchaseInvoice.OpenNew();
         PurchaseInvoice."Buy-from Vendor Name".SetValue(VendorName);
         PurchaseInvoice."Vendor Invoice No.".SetValue(
           LibraryUtility.GenerateRandomCode(PurchaseHeader.FieldNo("Vendor Invoice No."), DATABASE::"Purchase Header"));
+
         PurchaseInvoice.PurchLines.New;
         PurchaseInvoice.PurchLines."No.".SetValue(ItemNo);
         PurchaseInvoice.PurchLines."Location Code".SetValue(LocationCode);
         PurchaseInvoice.PurchLines.Quantity.SetValue(LibraryRandom.RandDecInRange(10, 100, 2));
         PurchaseInvoice.PurchLines."Direct Unit Cost".SetValue(LibraryRandom.RandDecInRange(10, 100, 2));
+
+        DocumentNo := PurchaseInvoice."No.".Value;
+        PurchaseInvoice.OK.Invoke;
+
+        PurchaseHeader.Get(PurchaseHeader."Document Type"::Invoice, DocumentNo);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, false, true, true);
+
+        PurchaseInvoice.OpenEdit;
+        PurchaseInvoice.GotoRecord(PurchaseHeader);
         PurchaseInvoice.Post.Invoke;
     end;
 

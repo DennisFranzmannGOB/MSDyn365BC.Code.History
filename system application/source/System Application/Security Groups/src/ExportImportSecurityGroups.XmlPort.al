@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.AccessControl;
+
 /// <summary>
 /// Imports or exports a security group.
 /// </summary>
@@ -47,7 +49,7 @@ xmlport 9001 "Export/Import Security Groups"
 
                     fieldelement(RoleId; "Access Control"."Role ID")
                     {
-                        FieldValidate = no;
+                        FieldValidate = No;
                     }
                     fieldelement(Scope; "Access Control".Scope)
                     {
@@ -57,7 +59,7 @@ xmlport 9001 "Export/Import Security Groups"
                     }
                     fieldelement(CompanyName; "Access Control"."Company Name")
                     {
-                        FieldValidate = no;
+                        FieldValidate = No;
                     }
 
                     trigger OnBeforeInsertRecord()

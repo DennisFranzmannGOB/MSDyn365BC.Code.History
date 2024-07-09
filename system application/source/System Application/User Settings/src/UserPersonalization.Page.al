@@ -3,6 +3,11 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Environment.Configuration;
+
+using System.Globalization;
+using System.DateTime;
+
 /// <summary>
 /// Page that shows the settings of a given user.
 /// </summary>
@@ -20,7 +25,7 @@ page 9214 "User Personalization"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(General)
             {
@@ -58,7 +63,7 @@ page 9214 "User Personalization"
                         UserSettingsImpl.EditProfileID(Rec);
                     end;
                 }
-                field("Language"; Language.GetWindowsLanguageName(Rec."Language ID"))
+                field(Language; Language.GetWindowsLanguageName(Rec."Language ID"))
                 {
                     ApplicationArea = All;
                     Caption = 'Language';
@@ -127,9 +132,13 @@ page 9214 "User Personalization"
 
     trigger OnOpenPage()
     begin
+        UserSettingsImpl.HideUsersDependingOnPermissions(Rec);
         UserSettingsImpl.HideExternalUsers(Rec);
         CurrPage.Caption := UserSettingsTok;
+    end;
 
+    trigger OnAfterGetCurrRecord()
+    begin
         TeachingTipsEnabled := UserSettingsImpl.TeachingTipsEnabled(Rec."User SID");
     end;
 

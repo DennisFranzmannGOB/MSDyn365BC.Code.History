@@ -1,3 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Integration.Dataverse;
+
+using Microsoft.Integration.D365Sales;
+using Microsoft.Integration.SyncEngine;
+
 codeunit 5360 "CDS Int. Table Couple"
 {
     TableNo = "Integration Table Mapping";
@@ -178,7 +187,7 @@ codeunit 5360 "CDS Int. Table Couple"
                                 until TempMatchingIntegrationFieldMapping.Next() = 0;
 
                                 // if there is exactly one match, and it is not coupled, couple it. otherwise - log a synch error
-                                if MatchingFieldCount > 0 then
+                                if (MatchingFieldCount > 0) or SetMatchingFieldFilterHandled then
                                     MatchCount := IntegrationRecordRef.Count();
                                 case MatchCount of
                                     0:

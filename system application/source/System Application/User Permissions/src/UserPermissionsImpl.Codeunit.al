@@ -3,6 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.User;
+
+using System;
+
+using System.Environment;
+using System.Security.AccessControl;
+
 /// <summary>
 /// </summary>
 codeunit 153 "User Permissions Impl."
@@ -10,8 +17,8 @@ codeunit 153 "User Permissions Impl."
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
-    Permissions = TableData "Access Control" = rimd,
-                  TableData User = r;
+    Permissions = tabledata "Access Control" = rimd,
+                  tabledata User = r;
 
     var
         SUPERTok: Label 'SUPER', Locked = true;
@@ -20,23 +27,21 @@ codeunit 153 "User Permissions Impl."
 
     procedure IsSuper(UserSecurityId: Guid): Boolean
     var
-        AccessControl: Record "Access Control";
+        DummyAccessControl: Record "Access Control";
         User: Record User;
+        NullGuid: Guid;
     begin
         if User.IsEmpty() then
             exit(true);
 
-        AccessControl.SetRange("User Security ID", UserSecurityId);
-        SetSuperFilters(AccessControl);
-
-        exit(not AccessControl.IsEmpty());
+        exit(HasUserPermissionSetAssigned(UserSecurityId, '', SUPERTok, DummyAccessControl.Scope::System, NullGuid));
     end;
 
     procedure RemoveSuperPermissions(UserSecurityId: Guid): Boolean
     var
         AccessControl: Record "Access Control";
     begin
-        if not IsAnyoneElseSuper(UserSecurityId) then
+        if not IsAnyoneElseDirectSuper(UserSecurityId) then
             exit(false);
 
         SetSuperFilters(AccessControl);
@@ -60,7 +65,7 @@ codeunit 153 "User Permissions Impl."
         if not IsSuper(xRec) then
             exit;
 
-        if IsAnyoneElseSuper(Rec."User Security ID") then
+        if IsAnyoneElseDirectSuper(Rec."User Security ID") then
             exit;
 
         Error(SUPERPermissionErr);
@@ -83,7 +88,7 @@ codeunit 153 "User Permissions Impl."
         if not IsSuper(Rec) then
             exit;
 
-        if IsAnyoneElseSuper(Rec."User Security ID") then
+        if IsAnyoneElseDirectSuper(Rec."User Security ID") then
             exit;
 
         Error(SUPERPermissionErr);
@@ -100,10 +105,10 @@ codeunit 153 "User Permissions Impl."
         if (Rec.State <> Rec.State::Disabled) then
             exit;
 
-        if not IsSuper(Rec."User Security ID") then
+        if not IsDirectSuper(Rec."User Security ID") then
             exit;
 
-        if IsAnyoneElseSuper(Rec."User Security ID") then
+        if IsAnyoneElseDirectSuper(Rec."User Security ID") then
             exit;
 
         // Workaround since the xRec parameter is equal to Rec, when called from code.
@@ -127,10 +132,10 @@ codeunit 153 "User Permissions Impl."
         if Rec.IsTemporary() then
             exit;
 
-        if not IsSuper(Rec."User Security ID") then
+        if not IsDirectSuper(Rec."User Security ID") then
             exit;
 
-        if IsAnyoneElseSuper(Rec."User Security ID") then
+        if IsAnyoneElseDirectSuper(Rec."User Security ID") then
             exit;
 
         Error(SUPERPermissionErr);
@@ -147,7 +152,21 @@ codeunit 153 "User Permissions Impl."
         exit((AccessControlRec."Role ID" = SUPERTok) and (AccessControlRec."Company Name" = ''));
     end;
 
-    local procedure IsAnyoneElseSuper(UserSecurityId: Guid): Boolean
+    local procedure IsDirectSuper(UserSecurityId: Guid): Boolean
+    var
+        AccessControl: Record "Access Control";
+        User: Record User;
+    begin
+        if User.IsEmpty() then
+            exit(true);
+
+        AccessControl.SetRange("User Security ID", UserSecurityId);
+        SetSuperFilters(AccessControl);
+
+        exit(not AccessControl.IsEmpty());
+    end;
+
+    local procedure IsAnyoneElseDirectSuper(UserSecurityId: Guid): Boolean
     var
         AccessControl: Record "Access Control";
         User: Record User;
@@ -167,7 +186,7 @@ codeunit 153 "User Permissions Impl."
             repeat
                 if User.Get(AccessControl."User Security ID") then begin
                     isUserEnabled := (User.State = User.State::Enabled);
-                    if isUserEnabled and (not IsSyncDeamon(User)) then
+                    if isUserEnabled and (not IsSyncDaemon(User)) then
                         exit(true);
                 end;
             until AccessControl.Next() = 0;
@@ -175,16 +194,17 @@ codeunit 153 "User Permissions Impl."
         exit(false);
     end;
 
-    local procedure IsSyncDeamon(User: Record User): Boolean
+    local procedure IsSyncDaemon(User: Record User): Boolean
     begin
-        // Sync Deamon is the only user with license "External User"
+        // Sync Daemon is the only user with license "External User"
         exit(User."License Type" = User."License Type"::"External User");
     end;
 
     procedure CanManageUsersOnTenant(UserSID: Guid) Result: Boolean
     var
-        AccessControl: Record "Access Control";
+        DummyAccessControl: Record "Access Control";
         User: Record User;
+        NullGuid: Guid;
     begin
         if User.IsEmpty() then
             exit(true);
@@ -196,10 +216,7 @@ codeunit 153 "User Permissions Impl."
         if IsSuper(UserSID) then
             exit(true);
 
-        AccessControl.SetRange("Role ID", SECURITYPermissionSetTxt);
-        AccessControl.SetFilter("Company Name", '%1|%2', '', CompanyName);
-        AccessControl.SetRange("User Security ID", UserSID);
-        exit(not AccessControl.IsEmpty());
+        exit(HasUserPermissionSetAssigned(UserSID, CompanyName(), SECURITYPermissionSetTxt, DummyAccessControl.Scope::System, NullGuid));
     end;
 
 #if not CLEAN22
@@ -219,10 +236,31 @@ codeunit 153 "User Permissions Impl."
 
     procedure HasUserPermissionSetAssigned(UserSecurityId: Guid; Company: Text; RoleId: Code[20]; ItemScope: Option; AppId: Guid): Boolean
     var
+        NavUserAccountHelper: DotNet NavUserAccountHelper;
+        Skip: Boolean;
+    begin
+        if HasUserPermissionSetDirectlyAssigned(UserSecurityId, Company, RoleId, ItemScope, AppId) then
+            exit(true);
+
+        OnHasUserPermissionSetAssigned(Skip);
+        if Skip then
+            exit(false);
+
+        if NavUserAccountHelper.IsPermissionSetAssigned(UserSecurityId, '', RoleId, AppId, ItemScope) then
+            exit(true);
+
+        if Company <> '' then
+            exit(NavUserAccountHelper.IsPermissionSetAssigned(UserSecurityId, Company, RoleId, AppId, ItemScope));
+
+        exit(false);
+    end;
+
+    procedure HasUserPermissionSetDirectlyAssigned(UserSecurityId: Guid; Company: Text; RoleId: Code[20]; ItemScope: Option; AppId: Guid): Boolean
+    var
         AccessControl: Record "Access Control";
     begin
         AccessControl.SetRange("User Security ID", UserSecurityId);
-        AccessControl.SetRange("Role ID", RoleID);
+        AccessControl.SetRange("Role ID", RoleId);
         AccessControl.SetFilter("Company Name", '%1|%2', '', Company);
         AccessControl.SetRange(Scope, ItemScope);
         AccessControl.SetRange("App ID", AppId);
@@ -230,14 +268,14 @@ codeunit 153 "User Permissions Impl."
         exit(not AccessControl.IsEmpty());
     end;
 
-    internal procedure GetEffectivePermission(UserSecurityIdToCheck: Guid; CompanyNameToCheck: Text; PermissionObjectType: Option "Table Data","Table",,"Report",,"Codeunit","XMLport","MenuSuite","Page","Query","System",,,,,,,,,; ObjectId: Integer): Text
+    internal procedure GetEffectivePermission(UserSecurityIdToCheck: Guid; CompanyNameToCheck: Text; PermissionObjectType: Option "Table Data","Table",,"Report",,"Codeunit","XMLport",MenuSuite,"Page","Query","System",,,,,,,,,; ObjectId: Integer): Text
     var
         NavUserAccountHelper: DotNet NavUserAccountHelper;
     begin
         exit(NavUserAccountHelper.GetEffectivePermissionForObject(UserSecurityIdToCheck, CompanyNameToCheck, PermissionObjectType, ObjectId));
     end;
 
-    procedure GetEffectivePermission(PermissionObjectType: Option "Table Data","Table",,"Report",,"Codeunit","XMLport","MenuSuite","Page","Query","System",,,,,,,,,; ObjectId: Integer) TempExpandedPermission: Record "Expanded Permission" temporary
+    procedure GetEffectivePermission(PermissionObjectType: Option "Table Data","Table",,"Report",,"Codeunit","XMLport",MenuSuite,"Page","Query","System",,,,,,,,,; ObjectId: Integer) TempExpandedPermission: Record "Expanded Permission" temporary
     var
         PermissionMask: Text;
     begin
@@ -263,5 +301,13 @@ codeunit 153 "User Permissions Impl."
     local procedure OnCanManageUsersOnTenant(UserSID: Guid; var Result: Boolean)
     begin
     end;
-}
 
+    /// <summary>
+    /// Allows the subscriber library to skip calls to NavUserAccountHelper in tests.
+    /// </summary>
+    /// <param name="Skip">Skip calls to NavUserAccountHelper.IsPermissionSetAssigned.</param>
+    [InternalEvent(false)]
+    local procedure OnHasUserPermissionSetAssigned(var Skip: Boolean)
+    begin
+    end;
+}

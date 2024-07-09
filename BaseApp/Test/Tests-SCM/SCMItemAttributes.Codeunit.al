@@ -34,6 +34,7 @@ codeunit 137413 "SCM Item Attributes"
         MissingAttributeNameErr: Label 'Name must have a value in Item Attribute: ID=0. It cannot be zero or empty.';
         NumericValueShouldNotBeZeroErr: Label 'Numeric Value should not be zero.';
 
+
     local procedure CreateItemAndSetOfItemsAttributes(var Item: Record Item)
     begin
         CreateTestOptionItemAttributes;

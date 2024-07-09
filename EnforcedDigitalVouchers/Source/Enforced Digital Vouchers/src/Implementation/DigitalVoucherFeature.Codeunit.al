@@ -1,4 +1,16 @@
-﻿codeunit 5585 "Digital Voucher Feature"
+﻿// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.EServices.EDocument;
+
+using Microsoft.Finance.GeneralLedger.Ledger;
+using Microsoft.Purchases.History;
+using Microsoft.Sales.History;
+using System.Environment;
+using System.Environment.Configuration;
+
+codeunit 5585 "Digital Voucher Feature"
 {
     var
         DKCountryCodeTxt: label 'DK', Locked = true;

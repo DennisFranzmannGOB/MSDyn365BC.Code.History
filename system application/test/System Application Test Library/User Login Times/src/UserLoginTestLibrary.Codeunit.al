@@ -3,10 +3,14 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-Codeunit 138049 "User Login Test Library"
+namespace System.TestLibraries.Security.AccessControl;
+
+using System.Security.User;
+
+codeunit 138049 "User Login Test Library"
 {
-    Permissions = tabledata "User Login" = rimd,
-                  tabledata "User Environment Login" = rid;
+    Permissions = tabledata "User Environment Login" = rid,
+                  tabledata "User Login" = rimd;
 
     /// <summary>
     /// Creates login information for a user.

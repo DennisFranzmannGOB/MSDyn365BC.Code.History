@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.DataAdministration;
+
+using System.Environment.Configuration;
+
 codeunit 3909 "Retention Policy Log Impl."
 {
     Access = Internal;
@@ -19,7 +23,7 @@ codeunit 3909 "Retention Policy Log Impl."
         if not Rec.IsTemporary then
             exit;
 
-        CreateLogEntry(Rec."Message Type", Rec.Category, rec.Message, rec."Session Id");
+        CreateLogEntry(Rec."Message Type", Rec.Category, Rec.Message, Rec."Session Id");
     end;
 
     procedure LogError(Category: Enum "Retention Policy Log Category"; Message: Text[2048]; DisplayError: Boolean);

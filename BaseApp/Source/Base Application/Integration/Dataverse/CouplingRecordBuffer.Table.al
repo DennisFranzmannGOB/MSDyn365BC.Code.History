@@ -1,3 +1,13 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Integration.Dataverse;
+
+using Microsoft.Integration.D365Sales;
+using Microsoft.Integration.SyncEngine;
+using System.Reflection;
+
 table 5332 "Coupling Record Buffer"
 {
     Caption = 'Coupling Record Buffer';
@@ -332,6 +342,10 @@ table 5332 "Coupling Record Buffer"
                 "CRM Name" := '';
             RecordRef.Close();
         end else begin
+            if "CRM Option Id" = 0 then begin
+                "CRM Name" := '';
+                exit;
+            end;
             IntegrationTableMapping.SetRange(Type, IntegrationTableMapping.Type::Dataverse);
             IntegrationTableMapping.SetRange("Table ID", "NAV Table ID");
             IntegrationTableMapping.SetRange("Delete After Synchronization", false);

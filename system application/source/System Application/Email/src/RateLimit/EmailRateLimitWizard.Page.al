@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Email;
+
 /// <summary>
 /// Page is used to display email rate limit usage by email accounts.
 /// </summary>
@@ -25,7 +27,7 @@ page 8898 "Email Rate Limit Wizard"
                 ApplicationArea = All;
                 Editable = false;
                 Caption = 'Email Account Name';
-                ToolTip = 'The email account name for the current account.';
+                ToolTip = 'Specifies the email account name for the current account.';
             }
 
             field(EmailAddress; Rec."Email Address")
@@ -33,7 +35,7 @@ page 8898 "Email Rate Limit Wizard"
                 ApplicationArea = All;
                 Editable = false;
                 Caption = 'Email Address';
-                ToolTip = 'The email address for the current email account.';
+                ToolTip = 'Specifies the email address for the current email account.';
             }
 
             field(EmailRateLimitDisplay; EmailRateLimitDisplay)
@@ -92,5 +94,5 @@ page 8898 "Email Rate Limit Wizard"
     var
         EmailRateLimitDisplay: Text[250];
         EmailName: Text[250];
-        NoLimitTxt: label 'No limit';
+        NoLimitTxt: Label 'No limit';
 }

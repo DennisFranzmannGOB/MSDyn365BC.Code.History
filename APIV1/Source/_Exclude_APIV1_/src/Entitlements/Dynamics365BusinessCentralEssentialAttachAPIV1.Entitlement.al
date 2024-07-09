@@ -1,3 +1,5 @@
+namespace Microsoft.API.V1;
+
 entitlement "Dynamics 365 Business Central Essential - Attach APIV1"
 {
     Type = PerUserServicePlan;

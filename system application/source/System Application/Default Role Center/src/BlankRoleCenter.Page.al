@@ -1,7 +1,9 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Environment.Configuration;
 
 /// <summary>
 /// Empty role center to use in case no other role center is present when system is initializing.
@@ -13,15 +15,6 @@ page 8999 "Blank Role Center"
     InherentEntitlements = X;
     InherentPermissions = X;
 
-    layout
-    {
-        area(rolecenter)
-        {
-        }
-    }
 
-    actions
-    {
-    }
 }
 

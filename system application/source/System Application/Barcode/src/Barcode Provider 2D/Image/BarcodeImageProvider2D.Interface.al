@@ -1,9 +1,13 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved. 
+// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-/// <summary> 
+namespace System.Text;
+
+using System.Utilities;
+
+/// <summary>
 /// Interface for 2D barcode image providers.
 /// </summary>
 interface "Barcode Image Provider 2D"
@@ -15,7 +19,7 @@ interface "Barcode Image Provider 2D"
     procedure GetSupportedBarcodeSymbologies(var Result: List of [Enum "Barcode Symbology 2D"])
 
     /// <summary>
-    /// Encodes an input text into a 2D barcode. 
+    /// Encodes an input text into a 2D barcode.
     /// </summary>
     /// <param name="InputText">The text to encode.</param>
     /// <param name="BarcodeSymbology2D">The 2D symbology to use for the encoding.</param>
@@ -23,7 +27,7 @@ interface "Barcode Image Provider 2D"
     procedure EncodeImage(InputText: Text; BarcodeSymbology2D: Enum "Barcode Symbology 2D"): Codeunit "Temp Blob";
 
     /// <summary>
-    /// Encodes an input text into a 2D barcode. 
+    /// Encodes an input text into a 2D barcode.
     /// </summary>
     /// <param name="InputText">The text to encode.</param>
     /// <param name="BarcodeSymbology2D">The 2D symbology to use for the encoding.</param>

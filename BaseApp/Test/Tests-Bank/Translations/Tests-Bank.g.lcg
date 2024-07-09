@@ -32,6 +32,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Autom. Payment Registration.UX - NamedType TransactionAmountMustNotBeZeroErr)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 505352215 - NamedType 1443072101" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[The field IBAN is mandatory.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Bank Pmt. Appl. Algorithm - NamedType IBANMandatoryTxt)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 505352215 - NamedType 2420752186" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[are applied]]></Val>

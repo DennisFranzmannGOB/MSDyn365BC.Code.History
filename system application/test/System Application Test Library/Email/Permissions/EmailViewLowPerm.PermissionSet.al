@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.TestLibraries.Email;
+
+using System.Email;
+
 permissionset 134684 "Email View Low Perm"
 {
     Assignable = true;
@@ -10,8 +14,8 @@ permissionset 134684 "Email View Low Perm"
 
     // Direct permissions needed for tests
     // Include Test Tables, but exclude Test Email Account Table
-    Permissions = tabledata "Test Email Connector Setup" = RIMD,
+    Permissions = tabledata "Email Outbox" = RIMD,
+                  tabledata "Email Recipient" = RIMD,
                   tabledata "Sent Email" = RIMD,
-                  tabledata "Email Outbox" = RIMD,
-                  tabledata "Email Recipient" = RIMD;
+                  tabledata "Test Email Connector Setup" = RIMD;
 }

@@ -133,6 +133,69 @@ codeunit 134769 "Test User Tasks"
     end;
 
     [Test]
+    [Scope('OnPrem')]
+    [TransactionModel(TransactionModel::AutoRollback)]
+    procedure TestRenameUser()
+    var
+        User: Record User;
+        FieldRec: Record "Field";
+        Company: Record Company;
+        TableInformation: Record "Table Information";
+        TempTablesAlreadyInserted: Record Integer temporary;
+        RecRef: RecordRef;
+        FldRef: FieldRef;
+        UserMgt: Codeunit "User Management";
+    begin
+        // [GIVEN] Create data for tables with fields having relation with User table
+        Company.FindFirst();
+        FieldRec.SetFilter(ObsoleteState, '<>%1', FieldRec.ObsoleteState::Removed);
+        FieldRec.SetRange(RelationTableNo, DATABASE::User);
+        FieldRec.SetRange(RelationFieldNo, User.FieldNo("User Name"));
+        FieldRec.SetFilter(Type, '%1|%2', FieldRec.Type::Code, FieldRec.Type::Text);
+        if FieldRec.FindSet() then
+            repeat
+                TableInformation.SetFilter("Company Name", '%1|%2', '', Company.Name);
+                TableInformation.SetRange("Table No.", FieldRec.TableNo);
+                if TableInformation.FindFirst() then begin
+                    RecRef.Open(FieldRec.TableNo, false, Company.Name);
+                    if TempTablesAlreadyInserted.Get(FieldRec.TableNo) then begin
+                        RecRef.FindFirst();
+                        FldRef := RecRef.Field(FieldRec."No.");
+                        FldRef.Value('OLD');
+                        RecRef.Modify();
+                    end else begin
+                        RecRef.DeleteAll();
+                        RecRef.Init();
+                        FldRef := RecRef.Field(FieldRec."No.");
+                        FldRef.Value('OLD');
+                        RecRef.Insert();
+                        TempTablesAlreadyInserted.Init();
+                        TempTablesAlreadyInserted.Number := FieldRec.TableNo;
+                        TempTablesAlreadyInserted.Insert();
+                    end;
+                    RecRef.Close();
+                end;
+            until FieldRec.Next() = 0;
+
+        // [WHEN] RenameUser is invoked
+        UserMgt.RenameUser('OLD', 'NEW');
+
+        // [THEN] The data in the table fields has been updated
+        if FieldRec.FindSet() then
+            repeat
+                TableInformation.SetFilter("Company Name", '%1|%2', '', Company.Name);
+                TableInformation.SetRange("Table No.", FieldRec.TableNo);
+                if TableInformation.FindFirst() then begin
+                    RecRef.Open(FieldRec.TableNo, false, Company.Name);
+                    FldRef := RecRef.Field(FieldRec."No.");
+                    FldRef.SetRange('NEW');
+                    Assert.AreEqual(1, RecRef.Count(), StrSubstNo('Records with new username should exist in %1.', TableInformation."Table Name"));
+                    RecRef.Close();
+                end;
+            until FieldRec.Next() = 0;
+    end;
+
+    [Test]
     [TransactionModel(TransactionModel::AutoRollback)]
     [Scope('OnPrem')]
     procedure TestWindowsSecurityIdNotEditableOnSaaS()
@@ -162,6 +225,13 @@ codeunit 134769 "Test User Tasks"
         // Create user task groups
         CreateUserTaskGroup(UserTaskGroup1);
         AddUserToUserTaskGroupByCode(User1."User Security ID", 'GroupA');
+    end;
+
+    local procedure CurrentUserExists(): Boolean
+    var
+        User: Record User;
+    begin
+        exit(User.Get(UserSecurityId()));
     end;
 
     [Test]

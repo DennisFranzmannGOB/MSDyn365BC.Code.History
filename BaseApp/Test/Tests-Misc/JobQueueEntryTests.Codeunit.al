@@ -660,7 +660,7 @@ codeunit 139018 "Job Queue Entry Tests"
 
         // [GIVEN] Is Delegated admin
         BindSubscription(AzureADUserTestLibrary);
-        AzureADUserTestLibrary.SetIsUserDelegatedtAdmin(true);
+        AzureADUserTestLibrary.SetIsUserDelegatedAdmin(true);
 
         // [GIVEN] An existing job queue entry
         JobQueueEntry.Init();
@@ -690,7 +690,7 @@ codeunit 139018 "Job Queue Entry Tests"
 
         // [GIVEN] Is Delegated admin
         BindSubscription(AzureADUserTestLibrary);
-        AzureADUserTestLibrary.SetIsUserDelegatedtAdmin(true);
+        AzureADUserTestLibrary.SetIsUserDelegatedAdmin(true);
 
         TestDelegatedJQ();
 
@@ -707,7 +707,7 @@ codeunit 139018 "Job Queue Entry Tests"
 
         // [GIVEN] Is Delegated admin
         BindSubscription(AzureADUserTestLibrary);
-        AzureADUserTestLibrary.SetIsUserDelegatedtHelpdesk(true);
+        AzureADUserTestLibrary.SetIsUserDelegatedHelpdesk(true);
 
         TestDelegatedJQ();
 
@@ -721,6 +721,7 @@ codeunit 139018 "Job Queue Entry Tests"
         ApprovalEntry: Record "Approval Entry";
         Workflow: Record Workflow;
         EmailAccount: Record "Email Account";
+        EmailScenario: Codeunit "Email Scenario";
         ConnectorMock: Codeunit "Connector Mock";
         ApprovalMgmt: Codeunit "Approvals Mgmt.";
         LibraryWorkflow: Codeunit "Library - Workflow";
@@ -745,6 +746,7 @@ codeunit 139018 "Job Queue Entry Tests"
         // [GIVEN] Approval users setup
         ConnectorMock.Initialize();
         ConnectorMock.AddAccount(EmailAccount);
+        EmailScenario.SetDefaultEmailAccount(EmailAccount);
 
         LibraryDocumentApprovals.SetupUserWithApprover(UserSetup);
         UserSetup."E-Mail" := EmailAccount."Email Address";

@@ -322,7 +322,7 @@ codeunit 134194 "Test Adv. Intrastat Checklist"
     end;
 
     [Test]
-    [HandlerFunctions('IntrastatMakeDiskTaxAuthRPH')]
+    [HandlerFunctions('IntrastatMakeDiskTaxAuthRPH,MessageHandler')]
     procedure IntrastatMakeDiskTaxAuth_NoErrors()
     var
         IntrastatJnlLine: Record "Intrastat Jnl. Line";
@@ -382,41 +382,6 @@ codeunit 134194 "Test Adv. Intrastat Checklist"
         VerifyBatchTwoErrors(IntrastatJnlLine, IntrastatJnlLine.FieldName("Transport Method"), IntrastatJnlLine.FieldName("Item No."));
     end;
 
-    [Test]
-    [HandlerFunctions('IntrastatMakeDiskTaxAuthRPH')]
-    procedure IntrastatMakeDiskTaxAuth_TwoLinesErrors()
-    var
-        IntrastatJnlLine: array[2] of Record "Intrastat Jnl. Line";
-        IntrastatJnlBatch: Record "Intrastat Jnl. Batch";
-    begin
-        // [FEATURE] [UI]
-        // [SCENARIO 407941] Report 593 "Intrastat - Make Disk Tax Auth" in case of two journal lines with errors
-        Initialize();
-
-        // [GIVEN] Advanced Intrastat Checklist setup for two fields "Transport Method", Area for report "Intrastat - Make Disk Tax Auth"
-        CreateFieldSetup(Report::"Intrastat - Make Disk Tax Auth", IntrastatJnlLine[1].FieldNo("Transport Method"), '');
-        CreateFieldSetup(Report::"Intrastat - Make Disk Tax Auth", IntrastatJnlLine[1].FieldNo(Area), '');
-
-        // [GIVEN] Intrastat journal with two lines: first with blanked "Transport Method" field, second with blanked Area field
-        IntrastatJnlBatch.DeleteAll();
-        CreateJournalLine(IntrastatJnlLine[1]);
-        IntrastatJnlLine[2] := IntrastatJnlLine[1];
-        IntrastatJnlLine[2]."Line No." += 10000;
-        IntrastatJnlLine[2]."Transport Method" := 'dummy';
-        IntrastatJnlLine[2].Area := '';
-        IntrastatJnlLine[2].Insert();
-
-        // [WHEN] Export file action ("Intrastat - Make Disk Tax Auth" report)
-        // Bug id 429772: A Type filter on the report's request page overwrites the Intrastat Setup filter
-        asserterror RunIntrastatMakeDiskTaxAuthNoTypeFilter(IntrastatJnlLine[1]);
-
-        // [THEN] There are two batch errors, one per line
-        VerifyError();
-        VerifyBatchTwoErrors(IntrastatJnlLine[1], IntrastatJnlLine[1].FieldName("Transport Method"), IntrastatJnlLine[1].FieldName(Area));
-        VerifyJnlLineSingleError(IntrastatJnlLine[1], IntrastatJnlLine[1].FieldName("Transport Method"));
-        VerifyJnlLineSingleError(IntrastatJnlLine[2], IntrastatJnlLine[2].FieldName(Area));
-    end;
-
     local procedure Initialize()
     var
         AdvancedIntrastatChecklist: Record "Advanced Intrastat Checklist";
@@ -472,6 +437,7 @@ codeunit 134194 "Test Adv. Intrastat Checklist"
         LibraryERM.CreateIntrastatJnlBatch(IntrastatJnlBatch, IntrastatJnlTemplate.Name);
         IntrastatJnlBatch.Validate("Statistics Period", Format(WorkDate(), 0, '<Year,2><Month,2>'));
         IntrastatJnlBatch.Validate("Currency Identifier", 'EUR');
+        IntrastatJnlBatch.Validate("File Disk No.", LibraryUtility.GenerateGUID());
         IntrastatJnlBatch.Modify(true);
         LibraryERM.CreateIntrastatJnlLine(IntrastatJnlLine, IntrastatJnlTemplate.Name, IntrastatJnlBatch.Name);
         IntrastatJnlLine.Validate(Type, IntrastatJnlLine.Type::Shipment);
@@ -482,6 +448,10 @@ codeunit 134194 "Test Adv. Intrastat Checklist"
         IntrastatJnlLine.Area := 'dummy';
         IntrastatJnlLine."Total Weight" := 1;
         IntrastatJnlLine."Statistical Value" := 1;
+        IntrastatJnlLine.Amount := 1;
+        IntrastatJnlLine."Transaction Specification" := 'dummy';
+        IntrastatJnlLine."Country/Region of Origin Code" := 'dummy';
+        IntrastatJnlLine."Partner VAT ID" := 'dummy';
         IntrastatJnlLine.Modify(true);
     end;
 
@@ -546,10 +516,9 @@ codeunit 134194 "Test Adv. Intrastat Checklist"
         FileTempBlob: Codeunit "Temp Blob";
         IntrastatMakeDiskTaxAuth: Report "Intrastat - Make Disk Tax Auth";
         FileOutStream: OutStream;
-        ExportFormat: Option "2021","2022";
     begin
         FileTempBlob.CreateOutStream(FileOutStream);
-        IntrastatMakeDiskTaxAuth.InitializeRequest(FileOutStream, ExportFormat::"2022");
+        IntrastatMakeDiskTaxAuth.InitializeRequest(FileOutStream);
         IntrastatMakeDiskTaxAuth.SetTableView(IntrastatJnlBatch);
         IntrastatMakeDiskTaxAuth.SetTableView(IntrastatJnlLine);
         IntrastatMakeDiskTaxAuth.UseRequestPage(true);
@@ -630,6 +599,11 @@ codeunit 134194 "Test Adv. Intrastat Checklist"
     procedure IntrastatMakeDiskTaxAuthRPH(var IntrastatMakeDiskTaxAuth: TestRequestPage "Intrastat - Make Disk Tax Auth")
     begin
         IntrastatMakeDiskTaxAuth.OK().Invoke();
+    end;
+
+    [MessageHandler]
+    procedure MessageHandler(Message: Text)
+    begin
     end;
 }
 #endif

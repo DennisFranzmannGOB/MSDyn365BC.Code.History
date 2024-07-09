@@ -1,3 +1,16 @@
+namespace System.Security.AccessControl;
+
+using Microsoft.Finance.Currency;
+using Microsoft.FixedAssets.Depreciation;
+using Microsoft.FixedAssets.Journal;
+using Microsoft.FixedAssets.Ledger;
+using Microsoft.FixedAssets.FixedAsset;
+using Microsoft.FixedAssets.Posting;
+using Microsoft.FixedAssets.Insurance;
+using Microsoft.FixedAssets.Maintenance;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.HumanResources.Employee;
+
 permissionset 8787 "D365 FA, EDIT"
 {
     Assignable = true;
@@ -8,6 +21,7 @@ permissionset 8787 "D365 FA, EDIT"
     Permissions = tabledata "Currency Exchange Rate" = RIM,
                   tabledata "Depreciation Book" = IMD,
                   tabledata "Depreciation Table Buffer" = IMD,
+                  tabledata Employee = r,
                   tabledata "FA Buffer Projection" = IMD,
                   tabledata "FA Depreciation Book" = im,
                   tabledata "FA G/L Posting Buffer" = IMD,

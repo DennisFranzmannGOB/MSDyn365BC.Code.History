@@ -2,6 +2,11 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Tooling;
+
+using System.Reflection;
+
 codeunit 149000 "BCPT Start Tests"
 {
     TableNo = "BCPT Header";
@@ -99,6 +104,7 @@ codeunit 149000 "BCPT Start Tests"
         BCPTHeader.LockTable();
         BCPTHeader.Find();
         if BCPTHeader.Status <> BCPTHeader.Status::Running then begin
+            BCPTHeader.RunID := CreateGuid();
             BCPTHeader.Validate("Started at", CurrentDateTime);
             BCPTHeaderCU.SetRunStatus(BCPTHeader, BCPTHeader.Status::Running);
 

@@ -1,3 +1,5 @@
+namespace Microsoft.API.V2;
+
 entitlement "Delegated BC Admin agent - Partner APIV2"
 {
     Type = Role;

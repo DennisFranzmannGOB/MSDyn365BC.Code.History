@@ -1,3 +1,32 @@
+﻿// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Integration.D365Sales;
+
+using Microsoft.CRM.Contact;
+using Microsoft.CRM.Opportunity;
+using Microsoft.CRM.Team;
+using Microsoft.Finance.Currency;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Foundation.Shipping;
+using Microsoft.Foundation.UOM;
+using Microsoft.Integration.Dataverse;
+using Microsoft.Integration.SyncEngine;
+using Microsoft.Inventory.Item;
+using Microsoft.Pricing.Calculation;
+using Microsoft.Pricing.PriceList;
+using Microsoft.Projects.Resources.Resource;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.Document;
+using Microsoft.Sales.History;
+using Microsoft.Sales.Pricing;
+using Microsoft.Sales.Setup;
+using Microsoft.Utilities;
+using System.Environment.Configuration;
+using System.Reflection;
+using System.Threading;
+
 codeunit 5334 "CRM Setup Defaults"
 {
 
@@ -23,6 +52,7 @@ codeunit 5334 "CRM Setup Defaults"
     procedure ResetConfiguration(CRMConnectionSetup: Record "CRM Connection Setup")
     var
         PriceCalculationMgt: Codeunit "Price Calculation Mgt.";
+        CDSSetupDefaults: Codeunit "CDS Setup Defaults";
         EnqueueJobQueEntries: Boolean;
         IsHandled: Boolean;
         IsTeamOwnershipModel: Boolean;
@@ -55,12 +85,13 @@ codeunit 5334 "CRM Setup Defaults"
         ResetSalesInvoiceHeaderInvoiceMapping('POSTEDSALESINV-INV', IsTeamOwnershipModel, EnqueueJobQueEntries);
         ResetSalesInvoiceLineInvoiceMapping('POSTEDSALESLINE-INV');
         ResetOpportunityMapping('OPPORTUNITY', IsTeamOwnershipModel);
-        if not CRMConnectionSetup."Bidirectional Sales Order Int." then begin
+        if CRMConnectionSetup."Is S.Order Integration Enabled" then begin
             ResetSalesOrderMapping('SALESORDER-ORDER', IsTeamOwnershipModel, EnqueueJobQueEntries);
             RecreateSalesOrderStatusJobQueueEntry(EnqueueJobQueEntries);
             RecreateSalesOrderNotesJobQueueEntry(EnqueueJobQueEntries);
             CODEUNIT.Run(CODEUNIT::"CRM Enable Posts");
-        end else begin
+        end;
+        if CRMConnectionSetup."Bidirectional Sales Order Int." then begin
             ResetBidirectionalSalesOrderMapping('SALESORDER-ORDER', IsTeamOwnershipModel, EnqueueJobQueEntries);
             ResetBidirectionalSalesOrderLineMapping('SOLINE-ORDERDETAIL');
             RecreateSalesOrderNotesJobQueueEntry(EnqueueJobQueEntries);
@@ -81,6 +112,8 @@ codeunit 5334 "CRM Setup Defaults"
         ResetDefaultCRMPricelevel(CRMConnectionSetup);
 
         SetCustomIntegrationsTableMappings(CRMConnectionSetup);
+
+        CDSSetupDefaults.AddExtraIntegrationFieldMappings();
     end;
 
     procedure ResetExtendedPriceListConfiguration()
@@ -1393,7 +1426,8 @@ codeunit 5334 "CRM Setup Defaults"
             JobQueueEntry.DeleteAll();
             RecreateSalesOrderNotesJobQueueEntry(EnqueueJobQueueEntries);
             RecreateArchivedSalesOrdersJobQueueEntry(EnqueueJobQueueEntries);
-        end else begin
+        end;
+        if CRMConnectionSetup."Is S.Order Integration Enabled" then begin
             ResetSalesOrderMapping('SALESORDER-ORDER', IsTeamOwnershipModel, EnqueueJobQueueEntries);
             if IntegrationTableMapping.Get('SOLINE-ORDERDETAIL') then begin
                 JobQueueEntry.SetRange("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
@@ -1421,7 +1455,6 @@ codeunit 5334 "CRM Setup Defaults"
         EmptyGuid: Guid;
         IsHandled: Boolean;
     begin
-        OnBeforeResetCustomerPriceGroupPricelevelMapping(IntegrationTableMappingName, EnqueueJobQueEntry, IsHandled);
         if IsHandled then
             exit;
 
@@ -1554,8 +1587,8 @@ codeunit 5334 "CRM Setup Defaults"
           '', '', true);
 
         PriceListHeader.Reset();
-        PriceListHeader.SetRange("Price Type", "Price Type"::Sale);
-        PriceListHeader.SetRange("Amount Type", "Price Amount Type"::Price);
+        PriceListHeader.SetRange("Price Type", PriceListHeader."Price Type"::Sale);
+        PriceListHeader.SetRange("Amount Type", PriceListHeader."Amount Type"::Price);
         if SalesReceivablesSetup.Get() then
             if SalesReceivablesSetup."Default Price List Code" <> '' then
                 PriceListHeader.SetRange("Allow Updating Defaults", true)
@@ -1636,9 +1669,9 @@ codeunit 5334 "CRM Setup Defaults"
           '', '', false);
 
         PriceListLine.Reset();
-        PriceListLine.SetRange("Price Type", "Price Type"::Sale);
-        PriceListLine.SetRange("Amount Type", "Price Amount Type"::Price);
-        PriceListLine.SetFilter("Asset Type", OrTok, "Price Asset Type"::Item, "Price Asset Type"::Resource);
+        PriceListLine.SetRange("Price Type", PriceListLine."Price Type"::Sale);
+        PriceListLine.SetRange("Amount Type", PriceListLine."Amount Type"::Price);
+        PriceListLine.SetFilter("Asset Type", OrTok, PriceListLine."Asset Type"::Item, PriceListLine."Asset Type"::Resource);
         PriceListLine.SetRange("Minimum Quantity", 0);
         IntegrationTableMapping.SetTableFilter(
           GetTableFilterFromView(DATABASE::"Price List Line", PriceListLine.TableCaption(), PriceListLine.GetView()));
@@ -1763,6 +1796,10 @@ codeunit 5334 "CRM Setup Defaults"
           CRMUomschedule.FieldNo(UoMScheduleId), CRMUomschedule.FieldNo(ModifiedOn),
           '', '', true);
 
+        IntegrationTableMapping."Synch. After Bulk Coupling" := true;
+        IntegrationTableMapping."Create New in Case of No Match" := true;
+        IntegrationTableMapping.Modify();
+
         // "Source No." > Name - we prefix this in CRMIntTableSubscriber OnTransferFieldData
         InsertIntegrationFieldMapping(
           IntegrationTableMappingName,
@@ -1770,6 +1807,11 @@ codeunit 5334 "CRM Setup Defaults"
           CRMUomschedule.FieldNo(Name),
           IntegrationFieldMapping.Direction::ToIntegrationTable,
           '', true, false);
+
+        IntegrationFieldMapping.SetRange("Integration Table Mapping Name", IntegrationTableMappingName);
+        IntegrationFieldMapping.FindFirst();
+        IntegrationFieldMapping."Use For Match-Based Coupling" := true;
+        IntegrationFieldMapping.Modify();
 
         // "Source No." > BaseUoM Name - we prefix this in CRMIntTableSubscriber OnTransferFieldData
         InsertIntegrationFieldMapping(
@@ -1801,6 +1843,9 @@ codeunit 5334 "CRM Setup Defaults"
           CRMUom.FieldNo(UoMId), CRMUom.FieldNo(ModifiedOn),
           '', '', true);
 
+        IntegrationTableMapping."Synch. After Bulk Coupling" := true;
+        IntegrationTableMapping."Create New in Case of No Match" := true;
+
         IntegrationTableMapping."Dependency Filter" := 'UNIT GROUP';
         IntegrationTableMapping.Modify();
 
@@ -1811,6 +1856,11 @@ codeunit 5334 "CRM Setup Defaults"
           CRMUom.FieldNo(Name),
           IntegrationFieldMapping.Direction::ToIntegrationTable,
           '', true, false);
+
+        IntegrationFieldMapping.SetRange("Integration Table Mapping Name", IntegrationTableMappingName);
+        IntegrationFieldMapping.FindFirst();
+        IntegrationFieldMapping."Use For Match-Based Coupling" := true;
+        IntegrationFieldMapping.Modify();
 
         // Quantity > UoM Quantity
         InsertIntegrationFieldMapping(
@@ -1842,6 +1892,9 @@ codeunit 5334 "CRM Setup Defaults"
           CRMUom.FieldNo(UoMId), CRMUom.FieldNo(ModifiedOn),
           '', '', true);
 
+        IntegrationTableMapping."Synch. After Bulk Coupling" := true;
+        IntegrationTableMapping."Create New in Case of No Match" := true;
+
         IntegrationTableMapping."Dependency Filter" := 'UNIT GROUP';
         IntegrationTableMapping.Modify();
 
@@ -1852,6 +1905,11 @@ codeunit 5334 "CRM Setup Defaults"
           CRMUom.FieldNo(Name),
           IntegrationFieldMapping.Direction::ToIntegrationTable,
           '', true, false);
+
+        IntegrationFieldMapping.SetRange("Integration Table Mapping Name", IntegrationTableMappingName);
+        IntegrationFieldMapping.FindFirst();
+        IntegrationFieldMapping."Use For Match-Based Coupling" := true;
+        IntegrationFieldMapping.Modify();
 
         // Quantity > UoM Quantity
         InsertIntegrationFieldMapping(
@@ -2571,14 +2629,6 @@ codeunit 5334 "CRM Setup Defaults"
     begin
     end;
 
-#if not CLEAN20
-    [Obsolete('Event is not raised anywhere', '20.0')]
-    [IntegrationEvent(false, false)]
-    local procedure OnAfterResetCustomerAccountMapping(IntegrationTableMappingName: Code[20])
-    begin
-    end;
-#endif
-
     [IntegrationEvent(false, false)]
     local procedure OnGetCDSTableNo(BCTableNo: Integer; var CDSTableNo: Integer; var handled: Boolean)
     begin
@@ -2621,12 +2671,6 @@ codeunit 5334 "CRM Setup Defaults"
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeResetBidirectionalSalesOrderLineMapping(var IntegrationTableMappingName: Code[20]; var IsHandled: Boolean)
-    begin
-    end;
-
-    [Obsolete('Subscribe to OnBeforeResetPriceListHeaderPricelevelMapping.', '18.0')]
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeResetCustomerPriceGroupPricelevelMapping(var IntegrationTableMappingName: Code[20]; var EnqueueJobQueEntry: Boolean; var IsHandled: Boolean)
     begin
     end;
 

@@ -1,6 +1,16 @@
+﻿// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Finance.Analysis;
+
+using System.Telemetry;
+using System.Utilities;
+
 page 687 "Payment Practice Card"
 {
     ApplicationArea = All;
+    Caption = 'Payment Practice';
     PageType = Card;
     SourceTable = "Payment Practice Header";
 
@@ -10,6 +20,7 @@ page 687 "Payment Practice Card"
         {
             group(General)
             {
+                Caption = 'General';
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the number of the payment practice header.';
@@ -54,6 +65,7 @@ page 687 "Payment Practice Card"
             }
             group("Statistics")
             {
+                Caption = 'Statistics';
                 field("Average Agreed Payment Period"; Rec."Average Agreed Payment Period")
                 {
                     ToolTip = 'Specifies the average agreed payment period.';
@@ -98,6 +110,7 @@ page 687 "Payment Practice Card"
         {
             action(Generate)
             {
+                Caption = 'Generate';
                 ToolTip = 'Generates the data and lines for the payment practice.';
                 Image = CashFlow;
 
@@ -119,6 +132,7 @@ page 687 "Payment Practice Card"
             }
             action(Print)
             {
+                Caption = 'Print';
                 ToolTip = 'Prints the payment practice report.';
                 Image = Print;
 

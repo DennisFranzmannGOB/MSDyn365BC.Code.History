@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Environment.Configuration;
+
+using System.Environment;
+
 /// <summary>
 /// List page that contains the allowed companies for the current user.
 /// </summary>
@@ -17,7 +21,7 @@ page 9210 "Accessible Companies"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(Group)
             {
@@ -40,11 +44,11 @@ page 9210 "Accessible Companies"
 
     actions
     {
-        area(processing)
+        area(Processing)
         {
             action("Create New Company")
             {
-                AccessByPermission = TableData Company = I;
+                AccessByPermission = tabledata Company = I;
                 ApplicationArea = Basic, Suite;
                 Caption = 'Create New Company';
                 Image = Company;

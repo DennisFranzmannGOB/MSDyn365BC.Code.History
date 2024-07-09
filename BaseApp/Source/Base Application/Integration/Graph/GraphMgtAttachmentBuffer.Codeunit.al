@@ -1,3 +1,29 @@
+﻿// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Integration.Graph;
+
+using Microsoft.EServices.EDocument;
+using Microsoft.Finance.GeneralLedger.Journal;
+using Microsoft.Finance.GeneralLedger.Ledger;
+using Microsoft.Foundation.Attachment;
+using Microsoft.HumanResources.Employee;
+using Microsoft.Integration.Entity;
+using Microsoft.Inventory.Item;
+using Microsoft.Projects.Project.Job;
+using Microsoft.Purchases.Document;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.Document;
+using Microsoft.Sales.History;
+using System;
+using System.Environment;
+using System.IO;
+using System.Reflection;
+using System.Utilities;
+
 codeunit 5503 "Graph Mgt - Attachment Buffer"
 {
     Permissions = TableData "Incoming Document Attachment" = rimd, tabledata "Tenant Media" = r;
@@ -37,8 +63,8 @@ codeunit 5503 "Graph Mgt - Attachment Buffer"
 
     local procedure TransferDocAttachmentToBuffer(var DocumentAttachment: Record "Document Attachment"; var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary; LoadContent: Boolean)
     var
-        TenantMedia: Record "Tenant Media";
         FileManagement: Codeunit "File Management";
+        TempBlob: Codeunit "Temp Blob";
         ContentOutStream: OutStream;
     begin
         Clear(TempAttachmentEntityBuffer."Byte Size");
@@ -56,14 +82,14 @@ codeunit 5503 "Graph Mgt - Attachment Buffer"
 
         if LoadContent then begin
             TempAttachmentEntityBuffer.Content.CreateOutStream(ContentOutStream);
-            DocumentAttachment."Document Reference ID".ExportStream(ContentOutStream);
+            DocumentAttachment.ExportToStream(ContentOutStream);
             TempAttachmentEntityBuffer.Modify();
         end;
 
-        if not LoadContent and (not IsNullGuid(DocumentAttachment."Document Reference ID".MediaId)) then begin
-            TenantMedia.SetAutoCalcFields(Content);
-            TenantMedia.Get(DocumentAttachment."Document Reference ID".MediaId);
-            TempAttachmentEntityBuffer."Byte Size" := TenantMedia.Content.Length();
+        if not LoadContent and DocumentAttachment.HasContent() then begin
+            DocumentAttachment.GetAsTempBlob(TempBlob);
+
+            TempAttachmentEntityBuffer."Byte Size" := TempBlob.Length();
             TempAttachmentEntityBuffer.Modify();
         end;
     end;

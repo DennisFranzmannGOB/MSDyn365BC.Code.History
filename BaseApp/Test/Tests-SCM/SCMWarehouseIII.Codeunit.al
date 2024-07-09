@@ -74,6 +74,11 @@ codeunit 137051 "SCM Warehouse - III"
         NoWarehouseActivityLineErr: Label 'There is no Warehouse Activity Line within the filter.';
         UnexpectedSourceNoErr: Label 'Unexpected value of Source No. field.';
         ExpiredItemsNotPickedMsg: Label 'Some items were not included in the pick due to their expiration date.';
+        ZoneCodeMustMatchErr: Label 'Zone Code must match.';
+        WhseActivityHeaderMustNotBeEmpty: Label 'Warehouse Activity Header must not be empty.';
+        ExpirationDateCalcFormula: Label '<CY-1Y>';
+        ExpirationDateMustNotBeEmptyErr: Label 'Expiration Date must not be empty.';
+        QtyToHandleErr: Label '%1 must be %2 in %3', Comment = '%1 = Qty. to Handle, %2 = QtyToHandle, %3 = Warehouse Activity Line';
 
     [Test]
     [HandlerFunctions('ItemTrackingPageHandler,QuantityToCreatePageHandler,ConfirmHandler,PickActivitiesMessageHandler')]
@@ -4596,6 +4601,8 @@ codeunit 137051 "SCM Warehouse - III"
 
         // [GIVEN] An Assembly Order for 2 pieces of the parent item
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
+        Location."Asm. Consump. Whse. Handling" := Location."Asm. Consump. Whse. Handling"::"Warehouse Pick (optional)";
+        Location.Modify();
         LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, false);
         LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, WorkDate(), LibraryInventory.CreateItemNo(), Location.Code, 2, '');
 
@@ -4691,6 +4698,8 @@ codeunit 137051 "SCM Warehouse - III"
 
         // [GIVEN] An Assembly Order for 5 pieces of the parent item
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
+        Location."Asm. Consump. Whse. Handling" := Location."Asm. Consump. Whse. Handling"::"Warehouse Pick (optional)";
+        Location.Modify(true);
         LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, false);
         LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, WorkDate(), LibraryInventory.CreateItemNo(), Location.Code, 5, '');
 
@@ -4760,6 +4769,8 @@ codeunit 137051 "SCM Warehouse - III"
 
         // [GIVEN] Inventory of Item on Location
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
+        Location.Validate("Prod. Consump. Whse. Handling", "Prod. Consump. Whse. Handling"::"Warehouse Pick (optional)");
+        Location.Modify(true);
         LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, false);
         LibraryInventory.CreateItem(Item);
         LibraryInventory.CreateItemJnlLine(ItemJournalLine, ItemJournalLine."Entry Type"::"Positive Adjmt.", WorkDate(), Item."No.", 10, Location.Code);
@@ -4850,6 +4861,8 @@ codeunit 137051 "SCM Warehouse - III"
 
         // [GIVEN] Inventory of Item on Location
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
+        Location.Validate("Prod. Consump. Whse. Handling", "Prod. Consump. Whse. Handling"::"Warehouse Pick (optional)");
+        Location.Modify(true);
         LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, false);
         LibraryInventory.CreateItem(Item);
         LibraryInventory.CreateItemJnlLine(ItemJournalLine, ItemJournalLine."Entry Type"::"Positive Adjmt.", WorkDate(), Item."No.", 10, Location.Code);
@@ -5098,6 +5111,650 @@ codeunit 137051 "SCM Warehouse - III"
         ProdOrderComponent.TestField("Completely Picked");
 
         LibraryVariableStorage.AssertEmpty();
+    end;
+
+    [Test]
+    [HandlerFunctions('PostProductionJournalPageHandler')]
+    [Scope('OnPrem')]
+    procedure ZoneCodeShouldFlowToWarehouseEntriesWhenPostProductionJournal()
+    var
+        Item: Record Item;
+        Item2: Record Item;
+        Location: Record Location;
+        Bin: Record Bin;
+        Zone: Record Zone;
+        ItemJnlTemplate: Record "Item Journal Template";
+        ItemJnlBatch: Record "Item Journal Batch";
+        ItemJnlLine: Record "Item Journal Line";
+        ProductionOrder: Record "Production Order";
+        ProdOrderLine: Record "Prod. Order Line";
+        WarehouseEntry: Record "Warehouse Entry";
+        ProductionJournalMgt: Codeunit "Production Journal Mgt";
+    begin
+        // [SCENARIO 481027] Zone is missing in warehouse entries created via for production posting
+        Initialize();
+
+        // [GIVEN] Create Item.
+        LibraryInventory.CreateItem(Item);
+
+        // [GIVEN] Create Item 2.
+        LibraryInventory.CreateItem(Item2);
+
+        // [GIVEN] Create Location.
+        CreateLocation(Location);
+
+        // [GIVEN] Create Zone.
+        LibraryWarehouse.CreateZone(Zone, Zone.Code, Location.Code, '', '', '', 0, false);
+
+        // [GIVEN] Create Bin.
+        LibraryWarehouse.CreateBin(Bin, Location.Code, Bin.Code, Zone.Code, '');
+
+        // [GIVEN] Create Item Journal line & Validate Location Code & Bin code.
+        CreateItemJournalLine(ItemJnlTemplate, ItemJnlBatch, ItemJnlLine, Item);
+        ItemJnlLine.Validate("Location Code", Location.Code);
+        ItemJnlLine.Validate("Bin Code", Bin.Code);
+        ItemJnlLine.Modify(true);
+
+        // [GIVEN] Post Item Journal Line.
+        LibraryInventory.PostItemJournalLine(ItemJnlTemplate.Name, ItemJnlBatch.Name);
+
+        // [GIVEN] Create Released Production Order & Refresh it.
+        CreateReleasedProdOrderAndRefresh(ProductionOrder, Item2, Location.Code, Bin.Code, LibraryRandom.RandInt(0));
+
+        // [GIVEN] Add Component Line to Released Production Order.
+        AddComponentToProdOrder(ProductionOrder, Item."No.", LibraryRandom.RandInt(0), Location.Code, Bin.Code, Item."Flushing Method");
+
+        // [GIVEN] Find Production Order Line.
+        ProdOrderLine.SetRange("Prod. Order No.", ProductionOrder."No.");
+        ProdOrderLine.FindFirst();
+
+        // [GIVEN] Post Production Journal.
+        ProductionJournalMgt.Handling(ProductionOrder, ProdOrderLine."Line No.");
+
+        // [WHEN] Find Warehouse Entry for Source Document Consumption Jnl.
+        WarehouseEntry.SetRange("Source Document", WarehouseEntry."Source Document"::"Consumption Jnl.");
+        WarehouseEntry.SetRange("Bin Code", Bin.Code);
+        WarehouseEntry.FindFirst();
+
+        // [VERIFY] Verify Warehouse Entry Zone Code & Zone Code are same.
+        Assert.AreEqual(Zone.Code, WarehouseEntry."Zone Code", ZoneCodeMustMatchErr);
+
+        // [WHEN] Find Warehouse Entry for Source Document Output Jnl.
+        WarehouseEntry.SetRange("Source Document", WarehouseEntry."Source Document"::"Output Jnl.");
+        WarehouseEntry.SetRange("Bin Code", Bin.Code);
+        WarehouseEntry.FindFirst();
+
+        // [VERIFY] Verify Warehouse Entry Zone Code & Zone Code are same.
+        Assert.AreEqual(Zone.Code, WarehouseEntry."Zone Code", ZoneCodeMustMatchErr);
+    end;
+
+    [Test]
+    [HandlerFunctions('MessageHandlerGetText')]
+    [Scope('OnPrem')]
+    procedure ZoneCodeShouldFlowToWarehouseEntriesWhenPostInventoryPick()
+    var
+        Item: Record Item;
+        Item2: Record Item;
+        Location: Record Location;
+        Bin: Record Bin;
+        Zone: Record Zone;
+        ItemJnlTemplate: Record "Item Journal Template";
+        ItemJnlBatch: Record "Item Journal Batch";
+        ItemJnlLine: Record "Item Journal Line";
+        ProductionOrder: Record "Production Order";
+        WarehouseActivityHeader: Record "Warehouse Activity Header";
+        WarehouseEntry: Record "Warehouse Entry";
+    begin
+        // [SCENARIO 481027] Zone is missing in warehouse entries created via for production posting
+        Initialize();
+
+        // [GIVEN] Create Item.
+        LibraryInventory.CreateItem(Item);
+
+        // [GIVEN] Create Item 2.
+        LibraryInventory.CreateItem(Item2);
+
+        // [GIVEN] Create Location & Validate Prod Consump Whse Handling.
+        CreateLocation(Location);
+        Location.Validate("Prod. Consump. Whse. Handling", Location."Prod. Consump. Whse. Handling"::"Inventory Pick/Movement");
+        Location.Modify(true);
+
+        // [GIVEN] Create Zone.
+        LibraryWarehouse.CreateZone(Zone, Zone.Code, Location.Code, '', '', '', 0, false);
+
+        // [GIVEN] Create Bin.
+        LibraryWarehouse.CreateBin(Bin, Location.Code, Bin.Code, Zone.Code, '');
+
+        // [GIVEN] Create Item Journal Line & Validate Location Code & Bin Code.
+        CreateItemJournalLine(ItemJnlTemplate, ItemJnlBatch, ItemJnlLine, Item);
+        ItemJnlLine.Validate("Location Code", Location.Code);
+        ItemJnlLine.Validate("Bin Code", Bin.Code);
+        ItemJnlLine.Modify(true);
+
+        // [GIVEN] Post Item Journal Line.
+        LibraryInventory.PostItemJournalLine(ItemJnlTemplate.Name, ItemJnlBatch.Name);
+
+        // [GIVEN] Create Released Production Order & Refresh it.
+        CreateReleasedProdOrderAndRefresh(ProductionOrder, Item2, Location.Code, Bin.Code, LibraryRandom.RandInt(0));
+
+        // [GIVEN] Add Component to Released Production Order.
+        AddComponentToProdOrder(ProductionOrder, Item."No.", LibraryRandom.RandInt(0), Location.Code, Bin.Code, Item."Flushing Method");
+
+        // [GIVEN] Run Create Inventory PutAway/Pick/Movement & Create Inventory Pick.
+        LibraryWarehouse.CreateInvtPutPickMovement("Warehouse Request Source Document"::"Prod. Consumption", ProductionOrder."No.", false, true, false);
+
+        // [GIVEN] Find Warehouse Activity Header.
+        WarehouseActivityHeader.SetRange("Location Code", Location.Code);
+        WarehouseActivityHeader.FindFirst();
+
+        // [GIVEN] Fill Qty to Handle in Inventory Pick.
+        LibraryWarehouse.AutoFillQtyInventoryActivity(WarehouseActivityHeader);
+
+        // [GIVEN] Post Inventory Pick.
+        LibraryWarehouse.PostInventoryActivity(WarehouseActivityHeader, true);
+
+        // [WHEN] Find Warehouse Entry of Bin Code.
+        WarehouseEntry.SetRange("Bin Code", Bin.Code);
+        WarehouseEntry.FindFirst();
+
+        // [VERIFY] Verify Warehouse Entry Zone Code & Zone Code are same.
+        Assert.AreEqual(Zone.Code, WarehouseEntry."Zone Code", ZoneCodeMustMatchErr);
+    end;
+
+    [Test]
+    [HandlerFunctions('MessageHandlerGetText')]
+    [Scope('OnPrem')]
+    procedure ZoneCodeShouldFlowToWarehouseEntriesWhenRegisterPick()
+    var
+        Item: Record Item;
+        Item2: Record Item;
+        Location: Record Location;
+        Bin: Record Bin;
+        Bin2: Record Bin;
+        Zone: Record Zone;
+        Zone2: Record Zone;
+        ItemJnlTemplate: Record "Item Journal Template";
+        ItemJnlBatch: Record "Item Journal Batch";
+        ItemJnlLine: Record "Item Journal Line";
+        Customer: Record Customer;
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        WarehouseShipmentHeader: Record "Warehouse Shipment Header";
+        WarehouseShipmentLine: Record "Warehouse Shipment Line";
+        WarehouseActivityHeader: Record "Warehouse Activity Header";
+        WarehouseEntry: Record "Warehouse Entry";
+    begin
+        // [SCENARIO 481027] Zone is missing in warehouse entries created via for production posting
+        Initialize();
+
+        // [GIVEN] Create Item.
+        LibraryInventory.CreateItem(Item);
+
+        // [GIVEN] Create Item 2.
+        LibraryInventory.CreateItem(Item2);
+
+        // [GIVEN] Create Location.
+        CreateLocation(Location);
+
+        // [GIVEN] Create Zone.
+        LibraryWarehouse.CreateZone(Zone, Zone.Code, Location.Code, '', '', '', 0, false);
+
+        // [GIVEN] Create Bin.
+        LibraryWarehouse.CreateBin(Bin, Location.Code, Bin.Code, Zone.Code, '');
+
+        // [GIVEN] Create Zone 2.
+        LibraryWarehouse.CreateZone(Zone2, Zone2.Code, Location.Code, '', '', '', 0, false);
+
+        // [GIVEN] Create Bin 2.
+        LibraryWarehouse.CreateBin(Bin2, Location.Code, Bin2.Code, Zone2.Code, '');
+
+        // [GIVEN] Validate Require Shipment, Require Pick & Shipment Bin Code in Location.
+        Location.Validate("Require Shipment", true);
+        Location.Validate("Require Pick", true);
+        Location.Validate("Shipment Bin Code", Bin2.Code);
+        Location.Modify(true);
+
+        // [GIVEN] Create Item Journal Line & Validate Location Code & Bin Code.
+        CreateItemJournalLine(ItemJnlTemplate, ItemJnlBatch, ItemJnlLine, Item);
+        ItemJnlLine.Validate("Location Code", Location.Code);
+        ItemJnlLine.Validate("Bin Code", Bin.Code);
+        ItemJnlLine.Modify(true);
+
+        // [GIVEN] Post Item Journal Line.
+        LibraryInventory.PostItemJournalLine(ItemJnlTemplate.Name, ItemJnlBatch.Name);
+
+        // [GIVEN] Create Customer.
+        LibrarySales.CreateCustomer(Customer);
+
+        // [GIVEN] Create Sales Header.
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, Customer."No.");
+
+        // [GIVEN] Create a Sales Line & Validate Location Code, Bin Code & Qty to Ship.
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", LibraryRandom.RandInt(0));
+        SalesLine.Validate("Location Code", Location.Code);
+        SalesLine.Validate("Bin Code", Bin.Code);
+        SalesLine.Validate("Qty. to Ship", LibraryRandom.RandInt(0));
+        SalesLine.Modify(true);
+
+        // [GIVEN] Release Sales Order.
+        LibrarySales.ReleaseSalesDocument(SalesHeader);
+
+        // [GIVEN] Create Warehouse Shipment from Sales Order.
+        LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
+
+        // [GIVEN] Find Warehouse Shipment Line.
+        WarehouseShipmentLine.SetRange("Source No.", SalesHeader."No.");
+        WarehouseShipmentLine.SetRange("Source Type", DATABASE::"Sales Line");
+        WarehouseShipmentLine.SetRange("Source Subtype", SalesHeader."Document Type");
+        WarehouseShipmentLine.FindLast();
+
+        // [GIVEN] Find Warehouse Shipment Header.
+        WarehouseShipmentHeader.Get(WarehouseShipmentLine."No.");
+
+        // [GIVEN] Release Warehosue Shipment.
+        LibraryWarehouse.ReleaseWarehouseShipment(WarehouseShipmentHeader);
+
+        // [GIVEN] Create Warehosue Pick.
+        LibraryWarehouse.CreatePick(WarehouseShipmentHeader);
+
+        // [GIVEN] Find Warehouse Activity Header.
+        WarehouseActivityHeader.SetRange("Location Code", Location.Code);
+        WarehouseActivityHeader.FindFirst();
+
+        // [GIVEN] Register Warehouse Pick.
+        LibraryWarehouse.RegisterWhseActivity(WarehouseActivityHeader);
+
+        // [WHEN] Find Warehouse Entry of Entry Type S Order & Bin Code.
+        WarehouseEntry.SetRange("Source Document", WarehouseEntry."Source Document"::"S. Order");
+        WarehouseEntry.SetRange("Bin Code", Bin.Code);
+        WarehouseEntry.FindFirst();
+
+        // [VERIFY] Verify Warehouse Entry Zone Code & Zone Code are same.
+        Assert.AreEqual(Zone.Code, WarehouseEntry."Zone Code", ZoneCodeMustMatchErr);
+
+        // [WHEN] Find Warehouse Entry of Entry Type S Order & Bin 2 Code.
+        WarehouseEntry.SetRange("Source Document", WarehouseEntry."Source Document"::"S. Order");
+        WarehouseEntry.SetRange("Bin Code", Bin2.Code);
+        WarehouseEntry.FindFirst();
+
+        // [VERIFY] Verify Warehouse Entry Zone Code & Zone 2 Code are same.
+        Assert.AreEqual(Zone2.Code, WarehouseEntry."Zone Code", ZoneCodeMustMatchErr);
+    end;
+
+    [Test]
+    [HandlerFunctions('MessageHandlerGetText')]
+    [Scope('OnPrem')]
+    procedure ChangeStatusOfFirmPlannedProdOrderToReleasedProdOrderAndCreateInvPick()
+    var
+        Item: Record Item;
+        Item2: Record Item;
+        Location: Record Location;
+        Bin: Record Bin;
+        Bin2: Record Bin;
+        WarehouseEmployee: Record "Warehouse Employee";
+        ManufacturingSetup: Record "Manufacturing Setup";
+        ProductionBOMHeader: Record "Production BOM Header";
+        ProductionBOMLine: Record "Production BOM Line";
+        ItemJnlTemplate: Record "Item Journal Template";
+        ItemJnlBatch: Record "Item Journal Batch";
+        ItemJnlLine: Record "Item Journal Line";
+        ProductionOrder: Record "Production Order";
+        WarehouseActivityHeader: Record "Warehouse Activity Header";
+        ReleasedProdOrderNo: Code[20];
+    begin
+        // [SCENARIO 496097] Inventory Pick is created when stan runs Create Inventory PutAway/Pick/Movement action from Released Production Order which is created from Change Status action of Firm Planned Production Order.
+        Initialize();
+
+        // [GIVEN] Create Item.
+        LibraryInventory.CreateItem(Item);
+
+        // [GIVEN] Create Item 2.
+        LibraryInventory.CreateItem(Item2);
+
+        // [GIVEN] Create Location & Validate Prod Consump Whse Handling.
+        CreateLocation(Location);
+        Location.Validate("Prod. Consump. Whse. Handling", Location."Prod. Consump. Whse. Handling"::"Inventory Pick/Movement");
+        Location.Modify(true);
+
+        // [GIVEN] Create Bin.
+        LibraryWarehouse.CreateBin(Bin, Location.Code, Bin.Code, '', '');
+
+        // [GIVEN] Create Bin 2.
+        LibraryWarehouse.CreateBin(Bin2, Location.Code, Bin2.Code, '', '');
+
+        // [GIVEN] Validate To-Production Bin Code in Location.
+        Location.Validate("To-Production Bin Code", Bin2.Code);
+        Location.Modify(true);
+
+        // [GIVEN] Create Warehouse Employee.
+        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, true);
+
+        // [GIVEN] Validate Components at Location in Manufacturing Setup.
+        ManufacturingSetup.Get();
+        ManufacturingSetup.Validate("Components at Location", Location.Code);
+        ManufacturingSetup.Modify(true);
+
+        // [GIVEN] Create Item Journal Line & Validate Location Code & Bin Code.
+        CreateItemJournalLine(ItemJnlTemplate, ItemJnlBatch, ItemJnlLine, Item);
+        ItemJnlLine.Validate("Location Code", Location.Code);
+        ItemJnlLine.Validate("Bin Code", Bin.Code);
+        ItemJnlLine.Modify(true);
+
+        // [GIVEN] Post Item Journal Line.
+        LibraryInventory.PostItemJournalLine(ItemJnlTemplate.Name, ItemJnlBatch.Name);
+
+        // [GIVEN] Create and Certify Production BOM.
+        CreateAndCertifyProductionBOM(ProductionBOMHeader, ProductionBOMLine, Item);
+
+        // [GIVEN] Validate Production BOM in Item 2.
+        Item2.Validate("Production BOM No.", ProductionBOMHeader."No.");
+        Item2.Modify(true);
+
+        // [GIVEN] Create and Refresh Firm Planned Production Order.
+        CreateAndRefreshFirmPlannedProdOrder(ProductionOrder, Item2);
+
+        // [GIVEN] Change Status of Firm Planned Production Order to Released Production Order.
+        ReleasedProdOrderNo := LibraryManufacturing.ChangeStatusFirmPlanToReleased(
+            ProductionOrder."No.",
+            ProductionOrder.Status::"Firm Planned",
+            ProductionOrder.Status::Released);
+
+        // [GIVEN] Run Create Inventory PutAway/Pick/Movement to Create Inventory Pick.
+        LibraryWarehouse.CreateInvtPutPickMovement(
+            "Warehouse Request Source Document"::"Prod. Consumption",
+            ReleasedProdOrderNo,
+            false,
+            true,
+            false);
+
+        // [WHEN] Find Warehouse Activity Header.
+        WarehouseActivityHeader.SetRange("Location Code", Location.Code);
+
+        // [VERIFY] Warehouse Activity Header is created.
+        Assert.IsFalse(WarehouseActivityHeader.IsEmpty(), WhseActivityHeaderMustNotBeEmpty);
+    end;
+
+    [Test]
+    [HandlerFunctions('ItemTrackingAssignLotNoPageHandler,MessageHandler,ConfirmHandler2')]
+    [Scope('OnPrem')]
+    procedure ExpirationDateIsPopulatedInInvPickLinesFromSalesOrderItemTracking()
+    var
+        Item: Record Item;
+        Item2: Record Item;
+        Location: Record Location;
+        ItemTrackingCode: Record "Item Tracking Code";
+        WarehouseEmployee: Record "Warehouse Employee";
+        PurchaseHeader: Record "Purchase Header";
+        SalesHeader: Record "Sales Header";
+        AssemblyHeader: Record "Assembly Header";
+        AssemblyLine: Record "Assembly Line";
+        WarehouseActivityLine: Record "Warehouse Activity Line";
+        ReservationEntry: Record "Reservation Entry";
+        ExpirationDate: Date;
+        LotNo: Code[50];
+        AssemblyOrder: TestPage "Assembly Order";
+    begin
+        // [SCENARIO 507008] Expiration Date is populated in Inventory Pick Lines when Stan manually enters Expiration Date in Assembly Header's Item Tracking Lines and then creates Inventory Pick From Sales Order.
+        Initialize();
+
+        // [GIVEN] Create Location & Validate Require Put-away, Require Pick and Asm. Consump. Whse. Handling.
+        LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
+        Location.Validate("Require Put-away", true);
+        Location.Validate("Require Pick", true);
+        Location.Validate("Asm. Consump. Whse. Handling", Location."Asm. Consump. Whse. Handling"::"Warehouse Pick (optional)");
+        Location.Modify(true);
+
+        // [GIVEN] Create Warehouse Employee.
+        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, false);
+
+        // [GIVEN] Item Tracking Code and Validate Use Expiration Dates and Man. Expir. Date Entry Reqd.
+        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, false, true);
+        ItemTrackingCode.Validate("Use Expiration Dates", true);
+        ItemTrackingCode.Validate("Man. Expir. Date Entry Reqd.", true);
+        ItemTrackingCode.Modify(true);
+
+        // [GIVEN] Create Item and Validate Replenishment System, Assembly Policy and Item Tracking Code.
+        LibraryInventory.CreateItem(Item);
+        Item.Validate("Replenishment System", Item."Replenishment System"::Assembly);
+        Item.Validate("Assembly Policy", Item."Assembly Policy"::"Assemble-to-Order");
+        Item.Validate("Item Tracking Code", ItemTrackingCode.Code);
+        Item.Modify(true);
+
+        // [GIVEN] Create Item 2 and Validate Replenishment System.
+        LibraryInventory.CreateItem(Item2);
+        Item2.Validate("Replenishment System", Item2."Replenishment System"::Purchase);
+        Item2.Modify(true);
+
+        // [GIVEN] Create and post Purchase Order.
+        CreateAndPostPurchaseOrder(PurchaseHeader, Item2."No.", Location.Code);
+
+        // [GIVEN] Create Sales Order.
+        CreateSalesOrder(SalesHeader, Item."No.", Location.Code);
+
+        // [GIVEN] Find Assembly Header.
+        AssemblyHeader.SetRange("Item No.", Item."No.");
+        AssemblyHeader.FindFirst();
+
+        // [GIVEN] Create Assembly Line and Validate Location Code.
+        LibraryAssembly.CreateAssemblyLine(AssemblyHeader, AssemblyLine, "BOM Component Type"::Item, Item2."No.", Item2."Base Unit of Measure", LibraryRandom.RandInt(0), LibraryRandom.RandInt(0), '');
+        AssemblyLine.Validate("Location Code", Location.Code);
+        AssemblyLine.Modify(true);
+
+        // [GIVEN] Generate and save Expiration Date and Lot No. in two different Variables.
+        ExpirationDate := CalcDate(ExpirationDateCalcFormula, WorkDate());
+        LotNo := Format(LibraryRandom.RandText(3));
+
+        // [GIVEN] Open Assembly Order page and run Item Tracking Lines action.
+        AssemblyOrder.OpenEdit();
+        AssemblyOrder.GoToRecord(AssemblyHeader);
+        LibraryVariableStorage.Enqueue(TrackingAction::LotNo);
+        LibraryVariableStorage.Enqueue(LotNo);
+        LibraryVariableStorage.Enqueue(ExpirationDate);
+        AssemblyOrder."Item Tracking Lines".Invoke();
+
+        // [GIVEN] Release Sales Order.
+        LibrarySales.ReleaseSalesDocument(SalesHeader);
+
+        // [GIVEN] Find Reservation Entry.
+        ReservationEntry.SetRange("Item No.", Item."No.");
+        ReservationEntry.FindFirst();
+
+        // [GIVEN] Validate Lot No. and Expiration Date in Reservation Entry.
+        ReservationEntry.Validate("Lot No.", LotNo);
+        ReservationEntry.Validate("Expiration Date", ExpirationDate);
+        ReservationEntry.Modify(true);
+
+        // [GIVEN] Create Inventory PutAway/Pick/Movement.
+        LibraryWarehouse.CreateInvtPutPickMovement("Warehouse Request Source Document"::"Sales Order", SalesHeader."No.", false, true, false);
+
+        // [WHEN] Find Warehouse Activity Header.
+        WarehouseActivityLine.SetRange("Item No.", Item."No.");
+        WarehouseActivityLine.FindFirst();
+
+        // [VERIFY] Expiration Date is not empty in Warehouse Activity Line.
+        Assert.AreNotEqual(0D, WarehouseActivityLine."Expiration Date", ExpirationDateMustNotBeEmptyErr);
+    end;
+
+    [Test]
+    [HandlerFunctions('WhseItemTrackingLinesModalPageHandler,ItemTrackingPageHandler')]
+    [Scope('OnPrem')]
+    procedure CreatePickFromPickWorkSheetPopulatesQtyToHandleInWarehousePick()
+    var
+        Item: Record Item;
+        Location: Record Location;
+        Bin: Record Bin;
+        Bin2: Record Bin;
+        Zone: Record Zone;
+        Zone2: Record Zone;
+        BinType, BinType2 : Record "Bin Type";
+        ItemTrackingCode: Record "Item Tracking Code";
+        WarehouseEmployee: Record "Warehouse Employee";
+        WhseJournalTemplate: Record "Warehouse Journal Template";
+        WhseJournalBatch: Record "Warehouse Journal Batch";
+        WhseJournalLine: Record "Warehouse Journal Line";
+        Customer: Record Customer;
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        WarehouseShipmentHeader: Record "Warehouse Shipment Header";
+        WarehouseShipmentLine: Record "Warehouse Shipment Line";
+        WarehouseActivityLine: Record "Warehouse Activity Line";
+        WhseWorksheetName: Record "Whse. Worksheet Name";
+        WhseWorksheetLine: Record "Whse. Worksheet Line";
+        QtyToHandle: Decimal;
+    begin
+        // [SCENARIO 521215] When Stan runs Get Warehouse Documents action from Pick Worksheet then Whse. Worksheet Line is created with Qty. to Handle filled 
+        // And when Stan creates Pick from Pick Worksheet then Qty. to Handle is populated in Warehouse Pick.
+        Initialize();
+
+        // [GIVEN] Create Item.
+        LibraryInventory.CreateItem(Item);
+
+        // [GIVEN] Create Location and Validate Always Create Put-away Line, Always Create Pick Line and Allow Breakbulk.
+        LibraryWarehouse.CreateFullWMSLocation(Location, 3);
+        Location.Validate("Always Create Put-away Line", true);
+        Location.Validate("Always Create Pick Line", true);
+        Location.Validate("Allow Breakbulk", true);
+        Location.Modify(true);
+
+        // [GIVEN] Create Item Tracking Code and Validate Man. Expir. Date Entry Reqd. and Use Expiration Dates.
+        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, false, true);
+        ItemTrackingCode.Validate("Man. Expir. Date Entry Reqd.", false);
+        ItemTrackingCode.Validate("Use Expiration Dates", true);
+        ItemTrackingCode.Modify(true);
+
+        // [GIVEN] Validate Item Tracking Code.
+        Item.Validate("Item Tracking Code", ItemTrackingCode.Code);
+        Item.Modify(true);
+
+        // [GIVEN] Create Warehouse Employee.
+        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, true);
+
+        // [GIVEN] Find Bin Type.
+        FindBinType(BinType, false, false, true, false);
+
+        // [GIVEN] Find Bin Type 2.
+        FindBinType(BinType2, false, false, false, false);
+
+        // [GIVEN] Create Zone.
+        LibraryWarehouse.CreateZone(
+            Zone,
+            Zone.Code,
+            Location.Code,
+            BinType.Code,
+            '',
+            '',
+            LibraryRandom.RandInt(0),
+            false);
+
+        // [GIVEN] Create Zone 2.
+        LibraryWarehouse.CreateZone(
+            Zone2,
+            Zone2.Code,
+            Location.Code,
+            BinType2.Code,
+            '',
+            '',
+            0,
+            false);
+
+        // [GIVEN] Create Bin.
+        LibraryWarehouse.CreateBin(Bin, Location.Code, Bin.Code, Zone.Code, BinType.Code);
+
+        // [GIVEN] Create Bin 2.
+        LibraryWarehouse.CreateBin(Bin2, Location.Code, Bin2.Code, Zone.Code, BinType.Code);
+
+        // [GIVEN] Create Warehouse Journal Setup.
+        LibraryWarehouse.WarehouseJournalSetup(Location.Code, WhseJournalTemplate, WhseJournalBatch);
+
+        // [GIVEN] Create Warehouse Item Journal Line for Item.
+        LibraryWarehouse.CreateWhseJournalLine(
+            WhseJournalLine,
+            WhseJournalBatch."Journal Template Name",
+            WhseJournalBatch.Name,
+            Bin."Location Code",
+            Bin."Zone Code",
+            Bin.Code,
+            WhseJournalLine."Entry Type"::"Positive Adjmt.",
+            Item."No.",
+            LibraryRandom.RandIntInRange(1500, 1500));
+
+        // [GIVEN] Open Item Tracking Lines.
+        WhseJournalLine.OpenItemTrackingLines();
+
+        // [GIVEN] Register Warehouse Journal Line.
+        LibraryWarehouse.RegisterWhseJournalLine(WhseJournalBatch."Journal Template Name", WhseJournalBatch.Name, Location.Code, true);
+
+        // [GIVEN] Calculate Warehouse Adjustment and Post Item Journal.
+        CalcWhseAdjustmentAndPostItemJournal(Item);
+
+        // [GIVEN] Create Customer.
+        LibrarySales.CreateCustomer(Customer);
+
+        // [GIVEN] Create Sales Header.
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, Customer."No.");
+
+        // [GIVEN] Create and Reserve Sales Line.
+        CreateAndReserveSalesLine(SalesHeader, SalesLine, Item, Location, LibraryRandom.RandIntInRange(400, 400));
+
+        // [GIVEN] Release Sales Order.
+        LibrarySales.ReleaseSalesDocument(SalesHeader);
+
+        // [GIVEN] Create Warehouse Shipment from Sales Order.
+        LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
+
+        // [GIVEN] Find Warehouse Shipment Line.
+        WarehouseShipmentLine.SetRange("Source No.", SalesHeader."No.");
+        WarehouseShipmentLine.SetRange("Source Type", DATABASE::"Sales Line");
+        WarehouseShipmentLine.SetRange("Source Subtype", SalesHeader."Document Type");
+        WarehouseShipmentLine.FindLast();
+
+        // [GIVEN] Find Warehouse Shipment Header.
+        WarehouseShipmentHeader.Get(WarehouseShipmentLine."No.");
+
+        // [GIVEN] Release Warehouse Shipment.
+        LibraryWarehouse.ReleaseWarehouseShipment(WarehouseShipmentHeader);
+
+        // [GIVEN] Get Warehouse Document on Whse. Worksheet Line.
+        GetWarehouseDocumentOnWarehouseWorksheetLine(WhseWorksheetName, Location, WarehouseShipmentHeader."No.", '');
+
+        // [GIVEN] Find Whse. Worksheet Line.
+        FindLastWhseWorksheetLine(WhseWorksheetLine, WhseWorksheetName, Location.Code);
+
+        // [GIVEN] Save and generate Qty. to Handle in a Variable.
+        QtyToHandle := WhseWorksheetLine."Qty. to Handle";
+
+        // [GIVEN] Create Pick from Pick Worksheet.
+        LibraryWarehouse.CreatePickFromPickWorksheet(
+            WhseWorksheetLine,
+            WhseWorksheetLine."Line No.",
+            WhseWorksheetName."Worksheet Template Name",
+            WhseWorksheetName.Name,
+            Location.Code,
+            '',
+            0,
+            0,
+            "Whse. Activity Sorting Method"::None,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false);
+
+        // [WHEN] Find Warehouse Activity Line.
+        WarehouseActivityLine.SetRange("Location Code", Location.Code);
+        WarehouseActivityLine.FindLast();
+
+        // [THEN] Qty. to Handle in Warehouse Activity Line must be equal to QtyToHandle.
+        Assert.AreEqual(
+            QtyToHandle,
+            WarehouseActivityLine."Qty. to Handle",
+            StrSubstNo(
+                QtyToHandleErr,
+                WarehouseActivityLine.FieldCaption("Qty. to Handle"),
+                QtyToHandle,
+                WarehouseActivityLine.TableCaption()));
     end;
 
     local procedure Initialize()
@@ -5427,6 +6084,8 @@ codeunit 137051 "SCM Warehouse - III"
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Require Receive", true);
         Location.Validate("Require Put-away", true);
+        Location.Validate("Always Create Put-away Line", true);
+        Location.Validate("Prod. Output Whse. Handling", "Prod. Output Whse. Handling"::"Inventory Put-away");
         Location.Modify(true);
         LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, false);
     end;
@@ -5857,6 +6516,7 @@ codeunit 137051 "SCM Warehouse - III"
     begin
         LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
         Location.Validate("Require Put-away", true);
+        Location.Validate("Always Create Put-away Line", true);
         Location.Validate("Require Pick", true);
         Location.Validate("Bin Mandatory", true);
         Location.Validate("Pick According to FEFO", true);
@@ -6945,6 +7605,182 @@ codeunit 137051 "SCM Warehouse - III"
         end;
     end;
 
+    local procedure CreateLocation(var Location: Record Location): Code[10]
+    var
+        WarehouseEmployee: Record "Warehouse Employee";
+    begin
+        LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location);
+        Location.Validate("Bin Mandatory", true);
+        Location.Modify(true);
+        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, true);
+        exit(Location.Code);
+    end;
+
+    local procedure CreateItemJournalLine(var ItemJnlTemplate: Record "Item Journal Template"; var ItemJnlBatch: Record "Item Journal Batch"; var ItemJnlLine: Record "Item Journal Line"; Item: Record Item)
+    begin
+        LibraryInventory.CreateItemJournalTemplate(ItemJnlTemplate);
+        LibraryInventory.CreateItemJournalBatch(ItemJnlBatch, ItemJnlTemplate.Name);
+        LibraryInventory.CreateItemJournalLine(ItemJnlLine, ItemJnlTemplate.Name, ItemJnlBatch.Name, ItemJnlLine."Entry Type"::"Positive Adjmt.", Item."No.", LibraryRandom.RandInt(100));
+    end;
+
+    local procedure CreateReleasedProdOrderAndRefresh(var ProductionOrder: Record "Production Order"; Item: Record Item; LocationCode: Code[10]; BinCode: Code[20]; Qty: Integer)
+    begin
+        LibraryManufacturing.CreateProductionOrder(
+          ProductionOrder, ProductionOrder.Status::Released, ProductionOrder."Source Type"::Item, Item."No.", Qty);
+        ProductionOrder.Validate("Location Code", LocationCode);
+        ProductionOrder.Validate("Bin Code", BinCode);
+        ProductionOrder.Modify(true);
+        LibraryManufacturing.RefreshProdOrder(ProductionOrder, false, true, true, true, false);
+    end;
+
+    local procedure AddComponentToProdOrder(ProductionOrder: Record "Production Order"; ItemNo: Code[20]; QuantityPer: Decimal; LocationCode: Code[10]; BinCode: Code[20]; FlushingMethod: Enum "Flushing Method")
+    var
+        ProdOrderComponent: Record "Prod. Order Component";
+        ProdOrderLine: Record "Prod. Order Line";
+    begin
+        ProdOrderLine.SetRange("Prod. Order No.", ProductionOrder."No.");
+        ProdOrderLine.FindFirst();
+
+        ProdOrderComponent.Init();
+        ProdOrderComponent.Status := ProductionOrder.Status;
+        ProdOrderComponent."Prod. Order No." := ProductionOrder."No.";
+        ProdOrderComponent."Prod. Order Line No." := ProdOrderLine."Line No.";
+        ProdOrderComponent."Line No." += 10000;
+        ProdOrderComponent.Validate("Item No.", ItemNo);
+        ProdOrderComponent.Validate("Location Code", LocationCode);
+        ProdOrderComponent.Validate("Flushing Method", FlushingMethod);
+        ProdOrderComponent.Validate("Bin Code", BinCode);
+        ProdOrderComponent.Validate("Quantity per", QuantityPer);
+        ProdOrderComponent.Insert(true);
+
+        LibraryVariableStorage.Enqueue(ProductionOrder."No.");
+    end;
+
+    local procedure CreateAndCertifyProductionBOM(
+        var ProductionBOMHeader: Record "Production BOM Header";
+        var ProductionBOMLine: Record "Production BOM Line";
+        Item: Record Item)
+    begin
+        LibraryManufacturing.CreateProductionBOMHeader(ProductionBOMHeader, Item."Base Unit of Measure");
+        LibraryManufacturing.CreateProductionBOMLine(
+            ProductionBOMHeader,
+            ProductionBOMLine,
+            '',
+            ProductionBOMLine.Type::Item,
+            Item."No.",
+            LibraryRandom.RandInt(0));
+
+        ProductionBOMHeader.Validate(Status, ProductionBOMHeader.Status::Certified);
+        ProductionBOMHeader.Modify(true);
+    end;
+
+    local procedure CreateAndRefreshFirmPlannedProdOrder(var ProductionOrder: Record "Production Order"; Item: Record Item)
+    begin
+        LibraryManufacturing.CreateProductionOrder(
+            ProductionOrder,
+            ProductionOrder.Status::"Firm Planned",
+            ProductionOrder."Source Type"::Item,
+            Item."No.",
+            LibraryRandom.RandInt(0));
+
+        LibraryManufacturing.RefreshProdOrder(ProductionOrder, false, true, true, true, false);
+    end;
+
+    local procedure CreateAndPostPurchaseOrder(var PurchaseHeader: Record "Purchase Header"; ItemNo: Code[20]; LocCode: Code[10])
+    var
+        Vendor: Record Vendor;
+        PurchaseLine: Record "Purchase Line";
+    begin
+        LibraryPurchase.CreateVendor(Vendor);
+
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, Vendor."No.");
+        LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, ItemNo, LibraryRandom.RandIntInRange(10, 10));
+        PurchaseLine.Validate("Location Code", LocCode);
+        PurchaseLine.Modify(true);
+
+        LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
+    end;
+
+    local procedure CreateSalesOrder(var SalesHeader: Record "Sales Header"; ItemNo: Code[20]; LocCode: Code[10])
+    var
+        Customer: Record Customer;
+        SalesLine: Record "Sales Line";
+    begin
+        LibrarySales.CreateCustomer(Customer);
+
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, Customer."No.");
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemNo, LibraryRandom.RandInt(0));
+        SalesLine.Validate("Location Code", LocCode);
+        SalesLine.Modify(true);
+    end;
+
+    local procedure FindBinType(
+        var BinType: Record "Bin Type";
+        Receive: Boolean;
+        Ship: Boolean;
+        Pick: Boolean;
+        PutAway: Boolean)
+    begin
+        BinType.SetRange("Put Away", PutAway);
+        BinType.SetRange(Pick, Pick);
+        BinType.SetRange(Receive, Receive);
+        BinType.SetRange(Ship, Ship);
+        BinType.FindFirst();
+    end;
+
+    local procedure CreateAndReserveSalesLine(
+        var Salesheader: Record "Sales Header";
+        var SalesLine: Record "Sales Line";
+        Item: Record Item;
+        Location: Record Location;
+        Qty: Decimal)
+    var
+        Index: Integer;
+    begin
+        for Index := 1 to 5 do begin
+            LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", Qty);
+            SalesLine.Validate("Location Code", Location.Code);
+            SalesLine.Modify(true);
+
+            LibrarySales.AutoReserveSalesLine(SalesLine);
+
+            LibraryVariableStorage.Enqueue(TrackingAction::AssignLotNo);
+            LibraryVariableStorage.Enqueue(Format(Qty));
+            LibraryVariableStorage.Enqueue(Qty);
+            SalesLine.OpenItemTrackingLines();
+
+            Qty -= LibraryRandom.RandIntInRange(50, 50);
+        end;
+    end;
+
+    local procedure GetWarehouseDocumentOnWarehouseWorksheetLine(
+        var WhseWorksheetName: Record "Whse. Worksheet Name";
+        Location: Record Location;
+        DocumentNo: Code[20];
+        DocumentNo2: Code[20])
+    var
+        WhseWorksheetTemplate: Record "Whse. Worksheet Template";
+        WhsePickRequest: Record "Whse. Pick Request";
+    begin
+        LibraryWarehouse.SelectWhseWorksheetTemplate(WhseWorksheetTemplate, WhseWorksheetTemplate.Type::Pick);
+        LibraryWarehouse.SelectWhseWorksheetName(WhseWorksheetName, WhseWorksheetTemplate.Name, Location.Code);
+        WhsePickRequest.SetRange(Status, WhsePickRequest.Status::Released);
+        WhsePickRequest.SetRange("Completely Picked", false);
+        WhsePickRequest.SetRange("Location Code", Location.Code);
+        WhsePickRequest.SetRange("Document Type", WhsePickRequest."Document Type"::Shipment);
+        if DocumentNo <> '' then
+            WhsePickRequest.SetFilter("Document No.", '%1|%2', DocumentNo, DocumentNo2);
+        LibraryWarehouse.GetOutboundSourceDocuments(WhsePickRequest, WhseWorksheetName, Location.Code);
+    end;
+
+    local procedure FindLastWhseWorksheetLine(var WhseWorksheetLine: Record "Whse. Worksheet Line"; WhseWorksheetName: Record "Whse. Worksheet Name"; LocationCode: Code[10])
+    begin
+        WhseWorksheetLine.SetRange("Worksheet Template Name", WhseWorksheetName."Worksheet Template Name");
+        WhseWorksheetLine.SetRange(Name, WhseWorksheetName.Name);
+        WhseWorksheetLine.SetRange("Location Code", LocationCode);
+        WhseWorksheetLine.FindLast();
+    end;
+
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure ProductionJournalPostOneHandler(var ProductionJournal: TestPage "Production Journal")
@@ -7259,6 +8095,52 @@ codeunit 137051 "SCM Warehouse - III"
         if not Evaluate(Integer, Reservation.TotalAvailableQuantity.Value) then
             Integer := 0;
         LibraryVariableStorage.Enqueue(Integer);
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure PostProductionJournalPageHandler(var ProductionJournal: TestPage "Production Journal")
+    var
+        ItemJournalLine: Record "Item Journal Line";
+    begin
+        ItemJournalLine.SetRange("Order Type", ItemJournalLine."Order Type"::Production);
+        ItemJournalLine.SetRange("Order No.", LibraryVariableStorage.DequeueText());
+        ItemJournalLine.FindSet();
+        repeat
+            CODEUNIT.Run(CODEUNIT::"Item Jnl.-Post Batch", ItemJournalLine);
+        until ItemJournalLine.Next() = 0;
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure ItemTrackingAssignLotNoPageHandler(var ItemTrackingLines: TestPage "Item Tracking Lines")
+    var
+        DequeueVariable: Variant;
+    begin
+        LibraryVariableStorage.Dequeue(DequeueVariable);
+        TrackingAction := DequeueVariable;
+        case TrackingAction of
+            TrackingAction::LotNo:
+                ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText());
+        end;
+        ItemTrackingLines.OK().Invoke();
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure WhseItemTrackingLinesModalPageHandler(var WhseItemTrackingLines: TestPage "Whse. Item Tracking Lines")
+    var
+        Index: Integer;
+        Qty: Integer;
+    begin
+        Qty := LibraryRandom.RandIntInRange(400, 400);
+        for Index := 1 to 5 do begin
+            WhseItemTrackingLines."Lot No.".SetValue(Format(Qty));
+            WhseItemTrackingLines.Quantity.SetValue(Format(Qty));
+            Qty -= LibraryRandom.RandIntInRange(50, 50);
+            WhseItemTrackingLines.Next();
+        end;
+        WhseItemTrackingLines.OK().Invoke();
     end;
 }
 

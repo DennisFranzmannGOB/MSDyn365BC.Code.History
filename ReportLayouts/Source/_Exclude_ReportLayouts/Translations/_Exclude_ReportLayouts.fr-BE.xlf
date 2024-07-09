@@ -320,6 +320,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Control Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2855939321 - Control 4043455765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether this is the default layout selected for the report.</source>
+          <target state="translated">Indique s’il s’agit de la disposition par défaut sélectionnée pour l’état.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Control IsDefaultLayout - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2855939321 - Control 4043455765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="translated">Par défaut</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Control IsDefaultLayout - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2855939321 - Control 4190768627 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the format of the report layout.</source>
           <target state="translated">Spécifie le format de la disposition de l’état.</target>
@@ -398,6 +410,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action DefaulLayoutSelection - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2855939321 - Action 315672565 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy the file to your Business Central folder in OneDrive and open it in a new window so you can edit the file.</source>
+          <target state="translated">Copiez le fichier dans votre dossier Business Central dans OneDrive et ouvrez-le dans une nouvelle fenêtre afin de pouvoir modifier le fichier.</target>
+          <note from="Developer" annotates="general" priority="2">OneDrive should not be translated</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action EditInOneDrive - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2855939321 - Action 315672565 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Edit in OneDrive</source>
+          <target state="translated">Modifier dans OneDrive</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action EditInOneDrive - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2855939321 - Action 2190626546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Edit layout information.</source>
           <target state="translated">Modifier les informations de disposition.</target>
@@ -429,10 +453,22 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action NewLayout - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2855939321 - Action 3046030738 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New Layout</source>
-          <target state="translated">Nouvelle disposition</target>
+          <source>New</source>
+          <target state="translated">Nouveau</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action NewLayout - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2855939321 - Action 3866737885 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy the file to your Business Central folder in OneDrive and open it in a new window so you can manage or share the file.</source>
+          <target state="translated">Copiez le fichier dans votre dossier Business Central dans OneDrive et ouvrez-le dans une nouvelle fenêtre afin de pouvoir le gérer ou le partager.</target>
+          <note from="Developer" annotates="general" priority="2">OneDrive should not be translated</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action OpenInOneDrive - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2855939321 - Action 3866737885 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open in OneDrive</source>
+          <target state="translated">Ouvrir dans OneDrive</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action OpenInOneDrive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2855939321 - Action 2650137722 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Replace the existing layout file.</source>
@@ -457,6 +493,18 @@
           <target state="translated">Exécuter état</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action RunReport - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2855939321 - Action 1255975865 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy the file to your Business Central folder in OneDrive and share the file. You can also see who it's already shared with.</source>
+          <target state="translated">Copiez le fichier dans votre dossier Business Central dans OneDrive et partagez-le. Vous pouvez également voir avec qui il est déjà partagé.</target>
+          <note from="Developer" annotates="general" priority="2">OneDrive should not be translated</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action ShareWithOneDrive - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2855939321 - Action 1255975865 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="translated">Partager</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action ShareWithOneDrive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2855939321 - View 1663039630 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Extensions</source>

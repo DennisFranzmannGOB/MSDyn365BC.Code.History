@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Environment.Configuration;
+
 /// <summary>
 /// Lists the users that a checklist item should be displayed to.
 /// </summary>
@@ -16,11 +18,11 @@ page 1995 "Checklist Item Users"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(Control1)
             {
-                field("User Name"; "User ID")
+                field("User Name"; Rec."User ID")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the user.';
@@ -35,7 +37,7 @@ page 1995 "Checklist Item Users"
     var
         ChecklistItemUser: Record "Checklist Item User";
     begin
-        if ChecklistItemUser.Get(Code, "User ID") then begin
+        if ChecklistItemUser.Get(Rec.Code, Rec."User ID") then begin
             ChecklistItemUser."Assigned to User" := true;
             ChecklistItemUser.Modify();
             exit(false);

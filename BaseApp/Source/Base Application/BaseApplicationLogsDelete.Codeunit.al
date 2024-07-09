@@ -1,16 +1,41 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft;
+
+using System.DataAdministration;
+using System.Diagnostics;
+using System.Threading;
+using System.Automation;
+using Microsoft.Integration.SyncEngine;
+using Microsoft.Sales.Archive;
+using Microsoft.Purchases.Archive;
+using Microsoft.Integration.Dataverse;
+using Microsoft.Warehouse.Activity.History;
+using Microsoft.Warehouse.History;
+using System.Environment.Configuration;
+using Microsoft.Utilities;
+using Microsoft.EServices.EDocument;
+
 codeunit 3995 "Base Application Logs Delete"
 {
     Access = Internal;
-    Permissions = tabledata "Change Log Entry" = rd,
-                tabledata "Job Queue Log Entry" = rd,
-                tabledata "Workflow Step Instance Archive" = rd,
+    Permissions =
+                tabledata "Activity Log" = rd,
+                tabledata "Change Log Entry" = rd,
+                tabledata "Dataverse Entity Change" = rd,
                 tabledata "Integration Synch. Job" = rd,
                 tabledata "Integration Synch. Job Errors" = rd,
+                tabledata "Job Queue Log Entry" = rd,
+                tabledata "Posted Whse. Receipt Header" = rd,
+                tabledata "Posted Whse. Shipment Header" = rd,
+                tabledata "Purchase Header Archive" = rd,
+                tabledata "Registered Whse. Activity Hdr." = rd,
                 tabledata "Report Inbox" = rd,
                 tabledata "Sales Header Archive" = rd,
-                tabledata "Purchase Header Archive" = rd,
-                tabledata "Dataverse Entity Change" = rd,
-                tabledata "Activity Log" = rd;
+                tabledata "Workflow Step Instance Archive" = rd,
+                tabledata "Sent Notification Entry" = rd;
 
     var
         NoFiltersErr: Label 'No filters were set on table %1, %2. Please contact your Microsoft Partner for assistance.', Comment = '%1 = a id of a table (integer), %2 = the caption of the table.';
@@ -34,6 +59,10 @@ codeunit 3995 "Base Application Logs Delete"
             Database::"Sales Header Archive",
             Database::"Purchase Header Archive",
             Database::"Dataverse Entity Change",
+            Database::"Sent Notification Entry",
+            Database::"Registered Whse. Activity Hdr.",
+            Database::"Posted Whse. Receipt Header",
+            Database::"Posted Whse. Shipment Header",
             Database::"Activity Log"])
         then
             exit;

@@ -1243,7 +1243,7 @@ codeunit 132500 "Error Message Handling"
         Assert.IsTrue(ForwardLinks.Description.Editable, 'Description should be editable');
         Assert.IsTrue(ForwardLinks.Link.Editable, 'Link should be editable');
         asserterror ForwardLinks.New;
-        Assert.ExpectedError('Insert is not allowed. Page = Edit - Forward Links, Id = 1431.');
+        Assert.ExpectedError('Insert is not allowed. Page = Forward Links, Id = 1431.');
     end;
 
     [Test]
@@ -1264,7 +1264,7 @@ codeunit 132500 "Error Message Handling"
         ForwardLinks.Load.Invoke;
 
         // [THEN] 9 records added
-        Assert.RecordCount(NamedForwardLink, 9);
+        Assert.RecordCount(NamedForwardLink, 10);
         // [THEN] 'Allowed Posting Date', 'Working with dims', 'Blocked Item', 'Blocked Customer' links exist
         NamedForwardLink.Get(ForwardLinkMgt.GetHelpCodeForAllowedPostingDate());
         NamedForwardLink.Get(ForwardLinkMgt.GetHelpCodeForWorkingWithDimensions());
@@ -1273,6 +1273,7 @@ codeunit 132500 "Error Message Handling"
         NamedForwardLink.Get(ForwardLinkMgt.GetHelpCodeForSalesLineDropShipmentErr());
         NamedForwardLink.Get(ForwardLinkMgt.GetHelpCodeForEmptyPostingSetupAccount());
         NamedForwardLink.Get(ForwardLinkMgt.GetHelpCodeForTroubleshootingDimensions());
+        NamedForwardLink.Get(ForwardLinkMgt.GetHelpCodeForAllowedVATDate());
         // [THEN] 'Blocked Gen./VAT Posting Setup' links exist
         NamedForwardLink.Get(ForwardLinkMgt.GetHelpCodeForFinancePostingGroups());
         NamedForwardLink.Get(ForwardLinkMgt.GetHelpCodeForFinanceSetupVAT());
@@ -1383,6 +1384,9 @@ codeunit 132500 "Error Message Handling"
     begin
         TempErrorMessage.LogSimpleMessage(MessageType, Descr);
         TempErrorMessage."Register ID" := RegID;
+        if TempErrorMessage."Message Type" = TempErrorMessage."Message Type"::Error then
+            if TempErrorMessage.GetErrorCallStack() = '' then
+                TempErrorMessage.SetErrorCallStack(LibraryUtility.GenerateGUID());
         TempErrorMessage.Modify();
     end;
 
@@ -1436,10 +1440,16 @@ codeunit 132500 "Error Message Handling"
         Counter: Integer;
     begin
         Counter := 0;
-        if ErrorMessagesPage.First then
+        if ErrorMessagesPage.First() then begin
             Counter := 1;
-        while ErrorMessagesPage.Next() do
+            if ErrorMessagesPage."Message Type".Value() = 'Error' then
+                Assert.IsTrue(ErrorMessagesPage.CallStack.Value() <> '', 'Error Call Stack is empty.');
+        end;
+        while ErrorMessagesPage.Next() do begin
             Counter += 1;
+            if ErrorMessagesPage."Message Type".Value() = 'Error' then
+                Assert.IsTrue(ErrorMessagesPage.CallStack.Value() <> '', 'Error Call Stack is empty.');
+        end;
         LibraryVariableStorage.Enqueue(Counter);
         LibraryVariableStorage.Enqueue(ErrorMessagesPage.Description.Value);
     end;

@@ -1,3 +1,30 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Inventory.Intrastat;
+
+using Microsoft.Bank.BankAccount;
+using Microsoft.Finance.Currency;
+using Microsoft.FixedAssets.FixedAsset;
+using Microsoft.FixedAssets.Ledger;
+using Microsoft.Foundation.Address;
+using Microsoft.Foundation.Company;
+using Microsoft.Foundation.Shipping;
+using Microsoft.Foundation.UOM;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Ledger;
+using Microsoft.Inventory.Location;
+using Microsoft.Inventory.Transfer;
+using Microsoft.Projects.Project.Job;
+using Microsoft.Projects.Project.Ledger;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.History;
+using Microsoft.Service.History;
+using System.Utilities;
+
 table 4812 "Intrastat Report Line"
 {
     DataClassification = CustomerContent;
@@ -360,7 +387,7 @@ table 4812 "Intrastat Report Line"
                     IntrastatReportHeader.CheckEUServAndCorrection("Intrastat No.", true, false);
             end;
         }
-#pragma warning disable AS0086
+
         field(44; "Corrected Intrastat Report No."; Code[20])
         {
             Caption = 'Corrected Intrastat Report No.';
@@ -390,7 +417,7 @@ table 4812 "Intrastat Report Line"
                 end;
             end;
         }
-#pragma warning restore AS0086
+
         field(45; "Country/Region of Payment Code"; Code[10])
         {
             Caption = 'Country/Region of Payment Code';

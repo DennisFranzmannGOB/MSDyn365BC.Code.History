@@ -3,8 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Utilities;
+
 /// <summary>
-/// Provides functionality to use regular expressions to match text, split text, replace text etc.  
+/// Provides functionality to use regular expressions to match text, split text, replace text etc.
 /// </summary>
 codeunit 3960 Regex
 {
@@ -143,7 +145,7 @@ codeunit 3960 Regex
     /// </summary>
     /// <param name="Input">The string to search for a match.</param>
     /// <returns>True if the regular expression finds a match; otherwise, false.</returns>
-    /// <error>Regex is not Instantiated. Consider calling Regex() first or use an overload supporting a pattern.</error> 
+    /// <error>Regex is not Instantiated. Consider calling Regex() first or use an overload supporting a pattern.</error>
     procedure IsMatch(Input: Text): Boolean
     begin
         exit(RegexImpl.IsMatch(Input));
@@ -179,7 +181,7 @@ codeunit 3960 Regex
     /// <param name="Input">The string to search for a match.</param>
     /// <param name="StartAt">The zero-based character position at which to start the search.</param>
     /// <param name="Matches">The Match object to write information about the match to.</param>
-    /// <error>Regex is not Instantiated. Consider calling Regex() first or use an overload supporting a pattern.</error> 
+    /// <error>Regex is not Instantiated. Consider calling Regex() first or use an overload supporting a pattern.</error>
     procedure Match(Input: Text; StartAt: Integer; var Matches: Record Matches)
     begin
         RegexImpl.Match(Input, StartAt, Matches);
@@ -514,7 +516,7 @@ codeunit 3960 Regex
     end;
 
     /// <summary>
-    /// Escapes a minimal set of characters (\, *, +, ?, |, {, [, (,), ^, $, ., #, and white space) by replacing them with their escape codes. 
+    /// Escapes a minimal set of characters (\, *, +, ?, |, {, [, (,), ^, $, ., #, and white space) by replacing them with their escape codes.
     /// </summary>
     /// <param name="String">The input string that contains the text to convert.</param>
     /// <returns>A string of characters with metacharacters converted to their escaped form.</returns>

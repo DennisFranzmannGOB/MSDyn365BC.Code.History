@@ -3,6 +3,11 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.TestLibraries.Environment.Configuration;
+
+using System.Environment.Configuration;
+using System.TestLibraries.Utilities;
+
 codeunit 130046 "Library - Signup Context"
 {
     Access = Public;
@@ -54,7 +59,7 @@ codeunit 130046 "Library - Signup Context"
     var
         SignupContext: Record "Signup Context";
     begin
-        SignupContext.KeyName := lowercase(SignupContextKey);
+        SignupContext.KeyName := LowerCase(SignupContextKey);
         SignupContext.Value := SignupContextValue;
         SignupContext.Insert();
     end;

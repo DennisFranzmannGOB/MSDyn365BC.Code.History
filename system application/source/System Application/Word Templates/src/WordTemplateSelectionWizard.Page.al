@@ -3,6 +3,11 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Integration.Word;
+
+using System.Integration;
+using System.Utilities;
+
 /// <summary>
 /// A wizard to select a Word template and apply it for a record.
 /// </summary>
@@ -330,7 +335,7 @@ page 9996 "Word Template Selection Wizard"
 
                         // If user do not know the known source, then always show overview.
                         // Otherwise, only show overview when there are multiple records.
-                        If (FromUnknownSource) or (not FromUnknownSource and not SkipOverview) then
+                        if (FromUnknownSource) or (not FromUnknownSource and not SkipOverview) then
                             Step := Step::Overview;
 
                         exit;
@@ -408,7 +413,7 @@ page 9996 "Word Template Selection Wizard"
         exit((SaveFormat::Doc = SaveFormat) or (SaveFormat::Docx = SaveFormat));
     end;
 
-    local procedure MergeTemplate(var WordTemplates: Codeunit "Word Template")
+    protected procedure MergeTemplate(var WordTemplates: Codeunit "Word Template")
     var
         TempBlob: Codeunit "Temp Blob";
         Data: Dictionary of [Text, Text];
@@ -558,11 +563,8 @@ page 9996 "Word Template Selection Wizard"
         Step: Option Template,Output,Overview;
         SplitDocuments: Boolean;
         AsDocumentStream: Boolean;
-        FinishedWizard: Boolean;
         WithBusinessContactRelation: Boolean;
-        [InDataSet]
         SkipOverview: Boolean;
-        [InDataSet]
         FromUnknownSource: Boolean;
         ShowEditDocument: Boolean;
         EditDocumentTxt: Text;
@@ -573,4 +575,7 @@ page 9996 "Word Template Selection Wizard"
         SetFiltersLbl: Label 'Set filters';
         EditLbl: Label 'You can edit the document created from the Word template to provide a custom message. After editing the document, you must save and close it before returning here to continue.';
         FilterHelpLbl: Label 'You can define a filter to choose which rows get a template associated.';
+
+    protected var
+        FinishedWizard: Boolean;
 }

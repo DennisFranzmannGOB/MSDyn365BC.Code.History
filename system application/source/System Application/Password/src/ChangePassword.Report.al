@@ -1,7 +1,9 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Security.AccessControl;
 
 /// <summary>
 /// Report to change the current user's login password for OnPrem scenarios.
@@ -16,18 +18,6 @@ report 9810 "Change Password"
 
     dataset
     {
-    }
-
-    requestpage
-    {
-
-        layout
-        {
-        }
-
-        actions
-        {
-        }
     }
 
     labels
@@ -47,7 +37,7 @@ report 9810 "Change Password"
 
         User.SetFilter("User Security ID", UserSecurityId());
         if User.IsEmpty() then
-            error(UserDoesNotExistErr, user.FieldCaption("User Security ID"), User."User Security ID");
+            error(UserDoesNotExistErr, User.FieldCaption("User Security ID"), User."User Security ID");
 
         if ChangeUserPassword(OldPassword, Password) then
             Message(PasswordUpdatedMsg);

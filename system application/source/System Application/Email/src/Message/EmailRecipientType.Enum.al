@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Email;
+
 /// <summary>
 /// Specifies the type of an email recipient.
 /// </summary>
@@ -20,7 +22,7 @@ enum 8901 "Email Recipient Type"
     /// <summary>
     /// Recipient type 'Cc'.
     /// </summary>
-    value(1; "Cc")
+    value(1; Cc)
     {
     }
 
@@ -28,7 +30,7 @@ enum 8901 "Email Recipient Type"
     /// <summary>
     /// Recipient type 'Bcc'.
     /// </summary>
-    value(3; "Bcc")
+    value(3; Bcc)
     {
     }
 }

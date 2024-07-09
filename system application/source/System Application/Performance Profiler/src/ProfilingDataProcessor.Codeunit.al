@@ -3,6 +3,11 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Tooling;
+
+using System;
+using System.Environment;
+
 /// <summary>
 /// The object providing functionality for processing perfrormance profiling data.
 /// </summary>
@@ -10,6 +15,8 @@ codeunit 1923 "Profiling Data Processor"
 {
     Access = Internal;
     SingleInstance = true;
+    InherentEntitlements = X;
+    InherentPermissions = X;
 
     var
         RawProfilingNodes: Record "Profiling Node";
@@ -70,7 +77,7 @@ codeunit 1923 "Profiling Data Processor"
     /// <param name="AggregatedProfilingNode">The resulting aggregation.</param>
     /// <param name="ProfilingAggregationType">The value of what to aggregate self time by.</param>
     /// <param name="FilterText">The table view to indicate which profiling nodes should be included in aggregation.</param>
-    procedure GetSelfTimeAggregate(var AggregatedProfilingNode: Record "Profiling Node"; ProfilingAggregationType: Enum "Profiling Aggregation Type"; FilterText: text)
+    procedure GetSelfTimeAggregate(var AggregatedProfilingNode: Record "Profiling Node"; ProfilingAggregationType: Enum "Profiling Aggregation Type"; FilterText: Text)
     begin
         RawProfilingNodes.SetView(FilterText);
         RawProfilingNodes.SetFilter("Self Time", '>%1', 0);

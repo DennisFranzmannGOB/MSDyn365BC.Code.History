@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.TestLibraries.Integration.Word;
+
 table 130445 "Word Templates Test Table 3"
 {
     DataClassification = SystemMetadata;
@@ -11,7 +13,7 @@ table 130445 "Word Templates Test Table 3"
 
     fields
     {
-        field(1; "Id"; Guid)
+        field(1; Id; Guid)
         {
         }
         field(2; "Value"; Text[100])
@@ -34,7 +36,7 @@ table 130445 "Word Templates Test Table 3"
 
     keys
     {
-        key(PK; "Id")
+        key(PK; Id)
         {
             Clustered = true;
         }

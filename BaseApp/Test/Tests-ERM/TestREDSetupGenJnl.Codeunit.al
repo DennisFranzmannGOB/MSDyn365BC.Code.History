@@ -1831,7 +1831,7 @@ codeunit 134803 "Test RED Setup Gen. Jnl."
         GeneralJournal.OpenEdit;
         GeneralJournal."Account Type".SetValue(GenJournalLine."Account Type"::"G/L Account");
         GeneralJournal."Account No.".SetValue(GLAccount."No.");
-        GeneralJournal.Amount.SetValue(Amount);
+        GeneralJournal."Debit Amount".SetValue(Amount);
         GeneralJournal."Document No.".SetValue(GenJournalBatch.Name);
 
         GenJournalLine.Validate("Deferral Code");

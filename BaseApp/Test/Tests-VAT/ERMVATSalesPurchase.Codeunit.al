@@ -19,7 +19,6 @@
         LibrarySetupStorage: Codeunit "Library - Setup Storage";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryUtility: Codeunit "Library - Utility";
-        LibraryService: Codeunit "Library - Service";
         Assert: Codeunit Assert;
         IsInitialized: Boolean;
         VATAmountErr: Label '%1 must not exceed %2 = 0', Comment = '.';
@@ -29,18 +28,13 @@
         VATDateErr: Label 'VAT date on document do not mach VAT Entry', Comment = '.';
         VATDateOnRecordErr: Label 'VAT date was not correctly updated on record', Comment = '.';
         VatDateComparisonErr: Label 'VAT Date is not correct based on GL setup', Comment = '.';
-        VatEntriesErr: Label 'VAT Entries should contain two records';
-        VATDateNoChangeErr: Label 'VAT date should not be editable.', Comment = '.';
         MustNotBeNegativeErr: Label '%1 must not be negative.', Comment = '.';
         PostingGroupErr: Label '%1 must be %2 in %3: %4.', Comment = '.';
         VATAmountMsg: Label '%1 must not be editable.', Comment = '.';
         RoundingEntryErr: Label 'Rounding Entry must exist for Sales Document No.: %1.', Comment = '.';
         TooManyValuableSalesEntriesErr: Label 'Too many valuable Sales Lines found.', Comment = '.';
         TooManyValuablePurchaseEntriesErr: Label 'Too many valuable Purchase Lines found.', Comment = '.';
-        VATReturnPeriodClosedErr: Label 'VAT Return Period is closed for the selected date. Please select another date.';
-        VATReturnPeriodFromClosedErr: Label 'VAT Entry is in a closed VAT Return Period and can not be changed.';
-        PostingDateOutOfPostingDatesErr: Label 'VAT Date is not within your range of allowed posting dates';
-        VATEntrySettlementChangeErr: Label 'You cannot change the contents of this field when %1 is %2.';
+        VATDateNotChangedErr: Label 'VAT Return Period is closed for the selected date. Please select another date.';
 
     [Test]
     procedure VerifyVATDateEqualsToPostingDate()
@@ -1268,7 +1262,7 @@
         PostedInvoiceNo: Code[20];
     begin
         // [FEATURE] [Sales] [Discount]
-        // [SCENARIO] Payment Customer Ledger Entry is closed and has full Invoice Amount Including VAT in case of discount and overdue apply
+        // [SCENARIO] Payment Customer Ledger Entry is closed and has discounted Invoice Amount Including VAT in case of discount and overdue apply
         Initialize();
         LibraryERM.FindVATPostingSetup(VATPostingSetup, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
         CustomerNo := LibrarySales.CreateCustomerWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Posting Group");
@@ -1277,7 +1271,7 @@
         // [WHEN] Post Sales Invoice
         PostedInvoiceNo := CreateAndPostSalesInvoiceWithPaymentTermCode(VATPostingSetup, CustomerNo);
 
-        // [THEN] Payment Customer Ledger Entry is Closed and has "Amount (LCY)" = "A"
+        // [THEN] Payment Customer Ledger Entry is Closed and has "Amount (LCY)" = "A" - "B"
         VerifyAmountOnCustomerLedgerEntry(PostedInvoiceNo);
     end;
 
@@ -1290,7 +1284,7 @@
         PostedInvoiceNo: Code[20];
     begin
         // [FEATURE] [Purchases] [Discount]
-        // [SCENARIO] Payment Vendor Ledger Entry is closed and has full Invoice Amount Including VAT in case of discount and overdue apply
+        // [SCENARIO] Payment Vendor Ledger Entry is closed and has discounted Invoice Amount Including VAT in case of discount and overdue apply
         Initialize();
         LibraryERM.FindVATPostingSetup(VATPostingSetup, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
         VendorNo := LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Posting Group");
@@ -1299,7 +1293,7 @@
         // [WHEN] Post Purchase Invoice
         PostedInvoiceNo := CreateAndPostPurchaseInvoiceWithPaymentTermCode(VATPostingSetup, VendorNo);
 
-        // [THEN] Payment Customer Ledger Entry is Closed and has "Amount (LCY)" = "A"
+        // [THEN] Payment Customer Ledger Entry is Closed and has "Amount (LCY)" = "A" - "B"
         VerifyAmountOnVendorLedgerEntry(PostedInvoiceNo);
     end;
 
@@ -1945,6 +1939,7 @@
         SalesHeader: Record "Sales Header";
         SalesLine: array[2] of Record "Sales Line";
         VATBusinessPostingGroup: Record "VAT Business Posting Group";
+        VATIdentifier: Record "VAT Identifier";
         VATProductPostingGroup: array[2] of Record "VAT Product Posting Group";
         VATPostingSetup: Record "VAT Posting Setup";
         VATPercent: Decimal;
@@ -1958,12 +1953,13 @@
         LibraryERM.CreateVATProductPostingGroup(VATProductPostingGroup[1]);
         LibraryERM.CreateVATProductPostingGroup(VATProductPostingGroup[2]);
         VATPercent := LibraryRandom.RandIntInRange(10, 20);
+        LibraryERM.CreateVATIdentifier(VATIdentifier);
         CreateVATPostingSetup(
           VATPostingSetup, VATBusinessPostingGroup.Code, VATProductPostingGroup[1].Code,
-          VATPercent, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
+          VATPercent, VATIdentifier.Code, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
         CreateVATPostingSetup(
           VATPostingSetup, VATBusinessPostingGroup.Code, VATProductPostingGroup[2].Code,
-          VATPercent, VATPostingSetup."VAT Calculation Type"::"Reverse Charge VAT");
+          VATPercent, VATIdentifier.Code, VATPostingSetup."VAT Calculation Type"::"Reverse Charge VAT");
 
         // [GIVEN] G/L Account.
         LibraryERM.CreateGLAccount(GLAccount);
@@ -1996,6 +1992,7 @@
         PurchaseHeader: Record "Purchase Header";
         PurchaseLine: array[2] of Record "Purchase Line";
         VATBusinessPostingGroup: Record "VAT Business Posting Group";
+        VATIdentifier: Record "VAT Identifier";
         VATProductPostingGroup: array[2] of Record "VAT Product Posting Group";
         VATPostingSetup: Record "VAT Posting Setup";
         VATPercent: Decimal;
@@ -2009,12 +2006,13 @@
         LibraryERM.CreateVATProductPostingGroup(VATProductPostingGroup[1]);
         LibraryERM.CreateVATProductPostingGroup(VATProductPostingGroup[2]);
         VATPercent := LibraryRandom.RandIntInRange(10, 20);
+        LibraryERM.CreateVATIdentifier(VATIdentifier);
         CreateVATPostingSetup(
           VATPostingSetup, VATBusinessPostingGroup.Code, VATProductPostingGroup[1].Code,
-          VATPercent, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
+          VATPercent, VATIdentifier.Code, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
         CreateVATPostingSetup(
           VATPostingSetup, VATBusinessPostingGroup.Code, VATProductPostingGroup[2].Code,
-          VATPercent, VATPostingSetup."VAT Calculation Type"::"Reverse Charge VAT");
+          VATPercent, VATIdentifier.Code, VATPostingSetup."VAT Calculation Type"::"Reverse Charge VAT");
 
         // [GIVEN] G/L Account.
         LibraryERM.CreateGLAccount(GLAccount);
@@ -2249,2048 +2247,6 @@
         VATEntry.SetFilter(Amount, '5.94');
         Assert.RecordIsNotEmpty(VATEntry);
     end;
-
-    [Test]
-    procedure VATDateReturnsCorrectBasedOnGLSetup()
-    var
-        GLSetup: Record "General Ledger Setup";
-        PostingDate, DocumentDate, VATDate : Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 431931] GL Setup returns correct date based on GL Setup setting
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-        PostingDate := WorkDate();
-        DocumentDate := WorkDate() + 1;
-
-        // [Then] VAT Date equal to posting date 
-        VATDate := GLSetup.GetVATDate(PostingDate, DocumentDate);
-        Assert.AreEqual(PostingDate, VATDate, VatDateComparisonErr);
-        Assert.AreNotEqual(DocumentDate, VATDate, VatDateComparisonErr);
-    end;
-
-    [Test]
-    procedure VATDateReturnsCorrectBasedOnGLSetup2()
-    var
-        GLSetup: Record "General Ledger Setup";
-        PostingDate, DocumentDate, VATDate : Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 431931] GL Setup returns correct date based on GL Setup setting
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] VAT Date is updated to be equal to posting date 
-        PostingDate := WorkDate();
-        GLSetup.UpdateVATDate(PostingDate, Enum::"VAT Reporting Date"::"Posting Date", VATDate);
-        Assert.AreEqual(VATDate, PostingDate, VatDateComparisonErr);
-
-        // [Then] VAT Date is not updated to be equal to document date 
-        DocumentDate := 0D;
-        GLSetup.UpdateVATDate(DocumentDate, Enum::"VAT Reporting Date"::"Document Date", VATDate);
-        Assert.AreNotEqual(VATDate, DocumentDate, VatDateComparisonErr);
-        Assert.AreEqual(0D, DocumentDate, VatDateComparisonErr);
-    end;
-
-    [Test]
-    [HandlerFunctions('MessageHandler')]
-    procedure TestVATDateChangesOnSalesInvoice()
-    var
-        GLSetup: Record "General Ledger Setup";
-        SalesInvoice: TestPage "Sales Invoice";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        SalesInvoice.OpenEdit();
-        SalesInvoice."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        SalesInvoice."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, SalesInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        SalesInvoice."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        SalesInvoice."Posting Date".SetValue(WorkDate());
-        SalesInvoice."Document Date".SetValue(WorkDate() + 1);
-        SalesInvoice."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, SalesInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        SalesInvoice.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        SalesInvoice.OpenEdit();
-        SalesInvoice."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        SalesInvoice."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, SalesInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        SalesInvoice."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        SalesInvoice."Posting Date".SetValue(WorkDate());
-        SalesInvoice."Document Date".SetValue(WorkDate() + 1);
-        SalesInvoice."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, SalesInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        SalesInvoice.Close();
-    end;
-
-    [Test]
-    [HandlerFunctions('MessageHandler')]
-    procedure TestVATDateChangesOnPurchaseInvoice()
-    var
-        GLSetup: Record "General Ledger Setup";
-        PurchaseInvoice: TestPage "Purchase Invoice";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        PurchaseInvoice.OpenEdit();
-        PurchaseInvoice."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        PurchaseInvoice."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, PurchaseInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        PurchaseInvoice."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        PurchaseInvoice."Posting Date".SetValue(WorkDate());
-        PurchaseInvoice."Document Date".SetValue(WorkDate() + 1);
-        PurchaseInvoice."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, PurchaseInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        PurchaseInvoice.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        PurchaseInvoice.OpenEdit();
-        PurchaseInvoice."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        PurchaseInvoice."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, PurchaseInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        PurchaseInvoice."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        PurchaseInvoice."Posting Date".SetValue(WorkDate());
-        PurchaseInvoice."Document Date".SetValue(WorkDate() + 1);
-        PurchaseInvoice."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, PurchaseInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        PurchaseInvoice.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnServiceInvoice()
-    var
-        GLSetup: Record "General Ledger Setup";
-        ServiceInvoice: TestPage "Service Invoice";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        ServiceInvoice.OpenEdit();
-        ServiceInvoice."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        ServiceInvoice."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, ServiceInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        ServiceInvoice."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        ServiceInvoice."Posting Date".SetValue(WorkDate());
-        ServiceInvoice."Document Date".SetValue(WorkDate() + 1);
-        ServiceInvoice."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, ServiceInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        ServiceInvoice.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        ServiceInvoice.OpenEdit();
-        ServiceInvoice."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        ServiceInvoice."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, ServiceInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        ServiceInvoice."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        ServiceInvoice."Posting Date".SetValue(WorkDate());
-        ServiceInvoice."Document Date".SetValue(WorkDate() + 1);
-        ServiceInvoice."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, ServiceInvoice."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        ServiceInvoice.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnFinanceChargeMemo()
-    var
-        GLSetup: Record "General Ledger Setup";
-        FinanceChargeMemo: TestPage "Finance Charge Memo";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        FinanceChargeMemo.OpenNew();
-        FinanceChargeMemo."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, FinanceChargeMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        FinanceChargeMemo."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, FinanceChargeMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        FinanceChargeMemo."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, FinanceChargeMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        FinanceChargeMemo."Posting Date".SetValue(WorkDate());
-        FinanceChargeMemo."Document Date".SetValue(WorkDate() + 1);
-        FinanceChargeMemo."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, FinanceChargeMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        FinanceChargeMemo.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        FinanceChargeMemo.OpenNew();
-        FinanceChargeMemo."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, FinanceChargeMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, but VAT Date is not
-        FinanceChargeMemo."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, FinanceChargeMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        FinanceChargeMemo."Document Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, FinanceChargeMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        FinanceChargeMemo."Posting Date".SetValue(WorkDate());
-        FinanceChargeMemo."Document Date".SetValue(WorkDate() + 1);
-        FinanceChargeMemo."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, FinanceChargeMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        FinanceChargeMemo.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnPurchaseCreditMemo()
-    var
-        GLSetup: Record "General Ledger Setup";
-        PurchaseCreditMemo: TestPage "Purchase Credit Memo";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice    
-        PurchaseCreditMemo.OpenNew();
-        PurchaseCreditMemo."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        PurchaseCreditMemo."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, PurchaseCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        PurchaseCreditMemo."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        PurchaseCreditMemo."Posting Date".SetValue(WorkDate());
-        PurchaseCreditMemo."Document Date".SetValue(WorkDate() + 1);
-        PurchaseCreditMemo."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, PurchaseCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        PurchaseCreditMemo.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        PurchaseCreditMemo.OpenEdit();
-        PurchaseCreditMemo."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, then VAT date is also, due to Posting Date -> Document Date -> VAT date
-        PurchaseCreditMemo."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, PurchaseCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        PurchaseCreditMemo."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        PurchaseCreditMemo."Posting Date".SetValue(WorkDate());
-        PurchaseCreditMemo."Document Date".SetValue(WorkDate() + 1);
-        PurchaseCreditMemo."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, PurchaseCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        PurchaseCreditMemo.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnPurchaseOrder()
-    var
-        GLSetup: Record "General Ledger Setup";
-        PurchaseOrder: TestPage "Purchase Order";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        PurchaseOrder.OpenEdit();
-        PurchaseOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        PurchaseOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, PurchaseOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        PurchaseOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        PurchaseOrder."Posting Date".SetValue(WorkDate());
-        PurchaseOrder."Document Date".SetValue(WorkDate() + 1);
-        PurchaseOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, PurchaseOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        PurchaseOrder.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        PurchaseOrder.OpenEdit();
-        PurchaseOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, then VAT date is also, due to Posting Date -> Document Date -> VAT date
-        PurchaseOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, PurchaseOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        PurchaseOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        PurchaseOrder."Posting Date".SetValue(WorkDate());
-        PurchaseOrder."Document Date".SetValue(WorkDate() + 1);
-        PurchaseOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, PurchaseOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        PurchaseOrder.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnPurchaseReturnOrder()
-    var
-        GLSetup: Record "General Ledger Setup";
-        PurchaseReturnOrder: TestPage "Purchase Return Order";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        PurchaseReturnOrder.OpenNew();
-        PurchaseReturnOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        PurchaseReturnOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, PurchaseReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        PurchaseReturnOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        PurchaseReturnOrder."Posting Date".SetValue(WorkDate());
-        PurchaseReturnOrder."Document Date".SetValue(WorkDate() + 1);
-        PurchaseReturnOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, PurchaseReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        PurchaseReturnOrder.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        PurchaseReturnOrder.OpenNew();
-        PurchaseReturnOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        PurchaseReturnOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, PurchaseReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        PurchaseReturnOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, PurchaseReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        PurchaseReturnOrder."Posting Date".SetValue(WorkDate());
-        PurchaseReturnOrder."Document Date".SetValue(WorkDate() + 1);
-        PurchaseReturnOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, PurchaseReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        PurchaseReturnOrder.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnRecurringGeneralJournal()
-    var
-        GLSetup: Record "General Ledger Setup";
-        RecurringGeneralJournal: TestPage "Recurring General Journal";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        RecurringGeneralJournal.OpenEdit();
-        RecurringGeneralJournal."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, RecurringGeneralJournal."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        RecurringGeneralJournal."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, RecurringGeneralJournal."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        RecurringGeneralJournal."Posting Date".SetValue(WorkDate());
-        RecurringGeneralJournal."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is set to posting date
-        Evaluate(FieldDate, RecurringGeneralJournal."VAT Reporting Date".Value);
-        Assert.AreEqual(WorkDate(), FieldDate, VatDateComparisonErr);
-        RecurringGeneralJournal.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnReminder()
-    var
-        GLSetup: Record "General Ledger Setup";
-        Reminder: TestPage "Reminder";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        Reminder.OpenNew();
-        Reminder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, Reminder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        Reminder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, Reminder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        Reminder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, Reminder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        Reminder."Posting Date".SetValue(WorkDate());
-        Reminder."Document Date".SetValue(WorkDate() + 1);
-        Reminder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, Reminder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        Reminder.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        Reminder.OpenNew();
-        Reminder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, Reminder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, VAT Date is not
-        Reminder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, Reminder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        Reminder."Document Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, Reminder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        Reminder."Posting Date".SetValue(WorkDate());
-        Reminder."Document Date".SetValue(WorkDate() + 1);
-        Reminder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, Reminder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        Reminder.Close();
-    end;
-
-    [Test]
-    [HandlerFunctions('MessageHandler')]
-    procedure TestVATDateChangesOnSalesCreditMemo()
-    var
-        GLSetup: Record "General Ledger Setup";
-        SalesCreditMemo: TestPage "Sales Credit Memo";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        SalesCreditMemo.OpenEdit();
-        SalesCreditMemo."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        SalesCreditMemo."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, SalesCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        SalesCreditMemo."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        SalesCreditMemo."Posting Date".SetValue(WorkDate());
-        SalesCreditMemo."Document Date".SetValue(WorkDate() + 1);
-        SalesCreditMemo."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, SalesCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        SalesCreditMemo.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        SalesCreditMemo.OpenEdit();
-        SalesCreditMemo."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        SalesCreditMemo."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, SalesCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        SalesCreditMemo."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        SalesCreditMemo."Posting Date".SetValue(WorkDate());
-        SalesCreditMemo."Document Date".SetValue(WorkDate() + 1);
-        SalesCreditMemo."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, SalesCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        SalesCreditMemo.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnSalesOrder()
-    var
-        GLSetup: Record "General Ledger Setup";
-        SalesOrder: TestPage "Sales Order";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        SalesOrder.OpenEdit();
-        SalesOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        SalesOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, SalesOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        SalesOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        SalesOrder."Posting Date".SetValue(WorkDate());
-        SalesOrder."Document Date".SetValue(WorkDate() + 1);
-        SalesOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, SalesOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        SalesOrder.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        SalesOrder.OpenEdit();
-        SalesOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        SalesOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, SalesOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        SalesOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        SalesOrder."Posting Date".SetValue(WorkDate());
-        SalesOrder."Document Date".SetValue(WorkDate() + 1);
-        SalesOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, SalesOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        SalesOrder.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnSalesReturnOrder()
-    var
-        GLSetup: Record "General Ledger Setup";
-        SalesReturnOrder: TestPage "Sales Return Order";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        SalesReturnOrder.OpenNew();
-        SalesReturnOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        SalesReturnOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, SalesReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        SalesReturnOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        SalesReturnOrder."Posting Date".SetValue(WorkDate());
-        SalesReturnOrder."Document Date".SetValue(WorkDate() + 1);
-        SalesReturnOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, SalesReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        SalesReturnOrder.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        SalesReturnOrder.OpenNew();
-        SalesReturnOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        SalesReturnOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, SalesReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        SalesReturnOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, SalesReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        SalesReturnOrder."Posting Date".SetValue(WorkDate());
-        SalesReturnOrder."Document Date".SetValue(WorkDate() + 1);
-        SalesReturnOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, SalesReturnOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        SalesReturnOrder.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnServiceCreditMemo()
-    var
-        GLSetup: Record "General Ledger Setup";
-        ServiceCreditMemo: TestPage "Service Credit Memo";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        ServiceCreditMemo.OpenNew();
-        ServiceCreditMemo."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        ServiceCreditMemo."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, ServiceCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        ServiceCreditMemo."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        ServiceCreditMemo."Posting Date".SetValue(WorkDate());
-        ServiceCreditMemo."Document Date".SetValue(WorkDate() + 1);
-        ServiceCreditMemo."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, ServiceCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        ServiceCreditMemo.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        ServiceCreditMemo.OpenNew();
-        ServiceCreditMemo."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        ServiceCreditMemo."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, ServiceCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        ServiceCreditMemo."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        ServiceCreditMemo."Posting Date".SetValue(WorkDate());
-        ServiceCreditMemo."Document Date".SetValue(WorkDate() + 1);
-        ServiceCreditMemo."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, ServiceCreditMemo."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        ServiceCreditMemo.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateChangesOnServiceOrder()
-    var
-        GLSetup: Record "General Ledger Setup";
-        ServiceOrder: TestPage "Service Order";
-        FieldDate: Date;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445587] VAT Date should reflect Document date or Posting Date
-        Initialize();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Posting Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        ServiceOrder.OpenEdit();
-        ServiceOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date
-        ServiceOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, ServiceOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is not
-        ServiceOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        ServiceOrder."Posting Date".SetValue(WorkDate());
-        ServiceOrder."Document Date".SetValue(WorkDate() + 1);
-        ServiceOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to posting date
-        Evaluate(FieldDate, ServiceOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-        ServiceOrder.Close();
-
-        // [When] Setting GL Setup to use posting date
-        GLSetup."VAT Reporting Date" := GLSetup."VAT Reporting Date"::"Document Date";
-        GLSetup.Modify();
-
-        // [Then] Open Sales invoice
-        ServiceOrder.OpenEdit();
-        ServiceOrder."VAT Reporting Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [Then] Posting Date is changed, so should VAT Date, due to Posting Date -> Document Date -> VAT date
-        ServiceOrder."Posting Date".SetValue(WorkDate() + 1);
-        Evaluate(FieldDate, ServiceOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-
-        // [Then] Document Date is changed, VAT Date is changed
-        ServiceOrder."Document Date".SetValue(WorkDate());
-        Evaluate(FieldDate, ServiceOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate(), VatDateComparisonErr);
-
-        // [When] VAT date value is cleared in UI
-        ServiceOrder."Posting Date".SetValue(WorkDate());
-        ServiceOrder."Document Date".SetValue(WorkDate() + 1);
-        ServiceOrder."VAT Reporting Date".SetValue(0D);
-
-        // [Then] VAT Date is to document date
-        Evaluate(FieldDate, ServiceOrder."VAT Reporting Date".Value);
-        Assert.AreEqual(FieldDate, WorkDate() + 1, VatDateComparisonErr);
-        ServiceOrder.Close();
-    end;
-
-    [Test]
-    procedure TestVATDateAdjustedOnVATEntryOnSalesInvHeader()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445818] When adjusting VAT Date, it should reflect in related documents
-        Initialize();
-
-        // [WHEN] Posting sales invoice 
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(0D, DocType);
-        SalesInvHeader.Get(DocNo);
-
-        // [THEN] Verify that VAT is set on related docs
-        VATDate := SalesInvHeader."VAT Reporting Date";
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, VATDate);
-        VerifyGLEntry(DocNo, DocType, PostType, VATDate);
-
-        // [WHEN] Adjusting VAT Date
-        NewVATDate := VATDate + 1;
-        CorrectVATDateAndVerifyChange(VATEntryNo, NewVATDate);
-
-        // [THEN] Verify Update on related docs
-        VerifyVATEntry(DocNo, DocType, PostType, NewVATDate);
-        VerifyGLEntry(DocNo, DocType, PostType, NewVATDate);
-        SalesInvHeader.Get(DocNo);
-        Assert.AreEqual(NewVATDate, SalesInvHeader."VAT Reporting Date", VATDateOnRecordErr);
-    end;
-
-    [Test]
-    procedure TestVATDateAdjustedOnVATEntryOnPurchInvHeader()
-    var
-        PurchInvHeader: Record "Purch. Inv. Header";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445818] When adjusting VAT Date, it should reflect in related documents
-        Initialize();
-
-        // [WHEN] Posting purchase invoice 
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Purchase;
-        DocNo := CreateAndPostPurchDoc(0D, DocType);
-        PurchInvHeader.Get(DocNo);
-
-        // [THEN] Verify that VAT is set on related docs
-        VATDate := PurchInvHeader."VAT Reporting Date";
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, VATDate);
-        VerifyGLEntry(DocNo, DocType, PostType, VATDate);
-
-        // [WHEN] Adjusting VAT Date
-        NewVATDate := VATDate + 1;
-        CorrectVATDateAndVerifyChange(VATEntryNo, NewVATDate);
-
-        // [THEN] Verify Update on related docs
-        VerifyVATEntry(DocNo, DocType, PostType, NewVATDate);
-        VerifyGLEntry(DocNo, DocType, PostType, NewVATDate);
-        PurchInvHeader.Get(DocNo);
-        Assert.AreEqual(NewVATDate, PurchInvHeader."VAT Reporting Date", VATDateOnRecordErr);
-    end;
-
-    [Test]
-    procedure TestVATDateAdjustedOnVATEntryOnSalesCreditMemoInvHeader()
-    var
-        DocHeader: Record "Sales Cr.Memo Header";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445818] When adjusting VAT Date, it should reflect in related documents
-        Initialize();
-
-        // [WHEN] Posting Sales Credit Memo  
-        DocType := Enum::"Gen. Journal Document Type"::"Credit Memo";
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(0D, DocType);
-        DocHeader.Get(DocNo);
-
-        // [THEN] Verify that VAT is set on related docs
-        VATDate := DocHeader."VAT Reporting Date";
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, VATDate);
-        VerifyGLEntry(DocNo, DocType, PostType, VATDate);
-
-        // [WHEN] Adjusting VAT Date
-        NewVATDate := VATDate + 1;
-        CorrectVATDateAndVerifyChange(VATEntryNo, NewVATDate);
-
-        // [THEN] Verify Update on related docs
-        VerifyVATEntry(DocNo, DocType, PostType, NewVATDate);
-        VerifyGLEntry(DocNo, DocType, PostType, NewVATDate);
-        DocHeader.Get(DocNo);
-        Assert.AreEqual(NewVATDate, DocHeader."VAT Reporting Date", VATDateOnRecordErr);
-    end;
-
-    [Test]
-    procedure TestVATDateAdjustedOnVATEntryOnPurchCreditMemoInvHeader()
-    var
-        DocHeader: Record "Purch. Cr. Memo Hdr.";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 445818] When adjusting VAT Date, it should reflect in related documents
-        Initialize();
-
-        // [WHEN] Posting Purchase Credit memo  
-        DocType := Enum::"Gen. Journal Document Type"::"Credit Memo";
-        PostType := Enum::"General Posting Type"::Purchase;
-        DocNo := CreateAndPostPurchDoc(0D, DocType);
-        DocHeader.Get(DocNo);
-
-        // [THEN] Verify that VAT is set on related docs
-        VATDate := DocHeader."VAT Reporting Date";
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, VATDate);
-        VerifyGLEntry(DocNo, DocType, PostType, VATDate);
-
-        // [WHEN] Adjusting VAT Date
-        NewVATDate := VATDate + 1;
-        CorrectVATDateAndVerifyChange(VATEntryNo, NewVATDate);
-
-        // [THEN] Verify Update on related docs
-        VerifyVATEntry(DocNo, DocType, PostType, NewVATDate);
-        VerifyGLEntry(DocNo, DocType, PostType, NewVATDate);
-        DocHeader.Get(DocNo);
-        Assert.AreEqual(NewVATDate, DocHeader."VAT Reporting Date", VATDateOnRecordErr);
-    end;
-
-    [Test]
-    [HandlerFunctions('YesConfirmHandler,MessageHandler')]
-    procedure TestVATDateWhenArchiveSalesOrder()
-    var
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        SalesHeaderArchive: Record "Sales Header Archive";
-        ArchiveManagement: Codeunit ArchiveManagement;
-    begin
-        // [FEATURE] [Sales]
-        // [SCENARIO 126493] When adjusting VAT Date, it should reflect in related documents
-        Initialize();
-
-        // [GIVEN] Create sales order
-        CreateSalesDocument(SalesHeader, SalesLine, Enum::"Sales Document Type"::Order, false);
-        SalesHeader."VAT Reporting Date" := WorkDate() + 1;
-        SalesHeader.Modify();
-
-        // [WHEN] Document is archived
-        ArchiveManagement.ArchiveSalesDocument(SalesHeader);
-        SalesHeaderArchive.SetRange("Document Type", SalesHeader."Document Type"::Order);
-        SalesHeaderArchive.SetRange("No.", SalesHeader."No.");
-        SalesHeaderArchive.FindFirst();
-
-        // [THEN] Archived date is equal to sales header
-        Assert.AreEqual(SalesHeader."VAT Reporting Date", SalesHeaderArchive."VAT Reporting Date", VATDateErr);
-
-        // [GIVEN] VAT date is changed on Sales Header
-        SalesHeader."VAT Reporting Date" := WorkDate();
-        SalesHeader.Modify();
-
-        // [WHEN] Document is restored
-        ArchiveManagement.RestoreSalesDocument(SalesHeaderArchive);
-        SalesHeader.SetRange("Document Type", SalesHeaderArchive."Document Type"::Order);
-        SalesHeader.SetRange("No.", SalesHeaderArchive."No.");
-        SalesHeader.FindFirst();
-
-        // [THEN] VAT Date is set to VAT date on archived version
-        Assert.AreEqual(SalesHeaderArchive."VAT Reporting Date", SalesHeader."VAT Reporting Date", VATDateErr);
-    end;
-
-    [Test]
-    procedure TestVATEntryAdjustDateWithEmptyDocType()
-    var
-        DocHeader: Record "Sales Invoice Header";
-        VATEntry: Record "VAT Entry";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448377] Adjusting VAT Date with no doc type 
-        Initialize();
-
-        // [WHEN] Posting with Sales Invoice to generate VAT entry
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(0D, DocType);
-        DocHeader.Get(DocNo);
-
-        // [THEN] Get VAT entry and change VAT doc type
-        VATEntry.Reset();
-        VATEntry.SetRange("Document No.", DocNo);
-        VATEntry.SetRange("Document Type", DocType);
-        VATEntry.SetRange(Type, PostType);
-        VATEntry.FindFirst();
-        VATEntry.Validate("Document Type", Enum::"Gen. Journal Document Type"::" ");
-        VATEntry.Modify();
-
-        // [THEN] No errors happen when adjusting dates
-        CorrectVATDateAndVerifyChange(VATEntry."Entry No.", VATEntry."VAT Reporting Date" + 1);
-    end;
-
-    [Test]
-    procedure TestVATEntryAdjustDateWithEmptyPostType()
-    var
-        DocHeader: Record "Sales Invoice Header";
-        VATEntry: Record "VAT Entry";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448377] Adjusting VAT Date with no post type 
-        Initialize();
-
-        // [WHEN] Posting with Sales Invoice to generate VAT entry
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(0D, DocType);
-        DocHeader.Get(DocNo);
-
-        // [THEN] Get VAT entry and change VAT posting type
-        VATEntry.Reset();
-        VATEntry.SetRange("Document No.", DocNo);
-        VATEntry.SetRange("Document Type", DocType);
-        VATEntry.SetRange(Type, PostType);
-        VATEntry.FindFirst();
-        VATEntry.Validate("Type", Enum::"General Posting Type"::" ");
-        VATEntry.Modify();
-
-        // [THEN] No errors happen when adjusting dates
-        CorrectVATDateAndVerifyChange(VATEntry."Entry No.", VATEntry."VAT Reporting Date" + 1);
-    end;
-
-    [Test]
-    procedure VATPostingDateChangeSuccessful()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448198] Restricting VAT Date change
-        Initialize();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-        SalesInvHeader.Get(DocNo);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Open
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Open, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, SalesInvHeader."VAT Reporting Date");
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] Change VAT Date to date within VAT period there is no warnings
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-
-        Assert.AreEqual(NewVATDate, VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-    end;
-
-    [Test]
-    procedure VATDateChangeFromClosedPeriodFailure()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 466417] Restricting VAT Date change from closed period
-        Initialize();
-        CleanVATReturnPeriod();
-
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed and warn for released period";
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-        SalesInvHeader.Get(DocNo);
-
-        // [WHEN] Adding VAT Return period that is Closed with VAT Return Status Open
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Open, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, SalesInvHeader."VAT Reporting Date");
-        NewVATDate := WorkDate() + 2;
-
-        // [WHEN] Change VAT Date to date from VAT period that is closed is not allowed
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        asserterror VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-        Assert.ExpectedError(VATReturnPeriodFromClosedErr);
-
-        Assert.AreEqual(WorkDate(), VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerTrue')]
-    procedure VATDateUIChangeDateFromToPeriodSuccessAndFailure()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        SalesHeader: Record "Sales Header";
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATEntryPage: TestPage "VAT Entries";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-        DocNo: Code[20];
-        VATEntryNo: Integer;
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 466417] Blocking change From and To if there is VAT Return Period 
-        Initialize();
-
-        // [WHEN] We disable the control
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::Disabled;
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Create document that is in VAT Return period that is Closed
-        CleanVATReturnPeriod();
-        WorkDate(20230101D);
-
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-        SalesInvHeader.Get(DocNo);
-
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, SalesInvHeader."VAT Reporting Date");
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Open, WorkDate(), WorkDate() + 1);
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate() + 2, WorkDate() + 3);
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Open, WorkDate() + 4, WorkDate() + 5);
-        Commit();
-
-        // [WHEN] Check that we can do changes through the UI
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 1); // Closed to Closed OK
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Closed to Relased OK
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate());     // Released to Closed OK
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 4); // Closed to Open OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Open to Released OK
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 4); // Released to Open OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Open to Released OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 3); // Released to Released OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate());     // RESET
-
-        // [WHEN] We warn for changes for closed periods
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Warn when posting in closed period";
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Check that we can do changes through the UI and handle warning with accept
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 1); // Closed to Closed OK
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Closed to Relased OK
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate());     // Released to Closed OK
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 4); // Closed to Open OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Open to Released OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 4); // Released to Open OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Open to Released OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 3); // Released to Released OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate());     // RESET
-
-        // [WHEN] We block posting with no warnings
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed period";
-        GeneralLedgerSetup.Modify();
-        Commit();
-
-        // [WHEN] Check that we are blocked from moving out of closed period
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate() + 2, VATReturnPeriodFromClosedErr); // FROM Closed TO Released FAIL
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate() + 4, VATReturnPeriodFromClosedErr); // FROM Closed TO Open FAIL
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate() + 1, VATReturnPeriodClosedErr); // FROM Closed TO Closed FAIL
-
-        // [WHEN] Change Entry to released period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::Disabled;
-        GeneralLedgerSetup.Modify();
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Move entry to released
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed period";
-        GeneralLedgerSetup.Modify();
-        Commit();
-
-        // [THEN] Check that we can do changes through the UI for released and open and we are blocked for closed 
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate(), VATReturnPeriodClosedErr); // FROM Released TO Closed FAIL
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 4); // Released to Open OK 
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate(), VATReturnPeriodClosedErr); // FROM Open TO Closed FAIL
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Open to Released OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 3); // Released to Released OK  
-
-        // [WHEN] Reset VAT entry to closed period and change Control setting
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::Disabled;
-        GeneralLedgerSetup.Modify();
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate()); // Reset to closed
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed and warn for released period";
-        GeneralLedgerSetup.Modify();
-        Commit();
-
-        // [WHEN] Check that we are blocked from moving out of closed period
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate() + 2, VATReturnPeriodFromClosedErr); // FROM Closed TO Released FAIL
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate() + 4, VATReturnPeriodFromClosedErr); // FROM Closed TO Open FAIL
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate() + 1, VATReturnPeriodClosedErr); // FROM Closed TO Closed FAIL
-
-        // [WHEN] Change Entry to released period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::Disabled;
-        GeneralLedgerSetup.Modify();
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Move entry to released
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed and warn for released period";
-        GeneralLedgerSetup.Modify();
-        Commit();
-
-        // [THEN] Check that we can do changes through the UI for released and open and we are blocked for closed 
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate(), VATReturnPeriodClosedErr); // FROM Released TO Closed FAIL
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 4); // Released to Open OK 
-        CorrectVATDateAndVerifyError(VATEntryNo, WorkDate(), VATReturnPeriodClosedErr); // FROM Open TO Closed FAIL
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 2); // Open to Released OK  
-        CorrectVATDateAndVerifyChange(VATEntryNo, WorkDate() + 3); // Released to Released OK
-    end;
-
-    [Test]
-    procedure VATPostingDateChangeNotAllowedOnSettlementSuccessful()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        VATEntry, VATEntry2 : Record "VAT Entry";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo, VATEntryNo2 : Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 464310] Do not change related entries and entry itself if it is type Settlement
-        Initialize();
-        VATEntry.DeleteAll();
-
-        // [WHEN] Posting settlement
-        VATEntry.Init();
-        VATEntry."Entry No." := VATEntry.GetLastEntryNo();
-        VATEntryNo := VATEntry."Entry No.";
-        VATEntry."Document No." := 'TEST';
-        VATEntry."Posting Date" := WorkDate();
-        VATEntry."VAT Reporting Date" := WorkDate();
-        VATEntry.Type := PostType::Settlement;
-        VATEntry."Transaction No." := 12345;
-        VATEntry.Insert();
-
-        VATEntry2.Init();
-        VATEntry2."Entry No." := VATEntry."Entry No." + 1;
-        VATEntry2."Document No." := 'TEST';
-        VATEntry2."Posting Date" := WorkDate();
-        VATEntry2."VAT Reporting Date" := WorkDate();
-        VATEntry2.Type := PostType::Settlement;
-        VATEntry2."Transaction No." := 12345;
-        VATEntryNo2 := VATEntry2."Entry No.";
-        VATEntry2.Insert();
-        NewVATDate := WorkDate() + 1;
-        Commit();
-
-        // [WHEN] Fail to change entry on VAT Entries page
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        asserterror VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-        Assert.ExpectedError(StrSubstNo(VATEntrySettlementChangeErr, VATEntry.FieldCaption(Type), VATEntry.Type));
-
-        // [THEN] Then related entry is not changed
-        VATEntry2.Reset();
-        VATEntry2.Get(VATEntryNo2);
-        Assert.AreEqual(WorkDate(), VATEntry2."VAT Reporting Date", VATDateOnRecordErr);
-    end;
-
-    [Test]
-    procedure VATPostingDateChangeFailure()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448198] Restricting VAT Date change
-        Initialize();
-        CleanVATReturnPeriod();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-        SalesInvHeader.Get(DocNo);
-
-        // [WHEN] Adding VAT Return period that is Closed with VAT Return Status Open
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Open, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, SalesInvHeader."VAT Reporting Date");
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] Change VAT Date to date within VAT period there is no warnings
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        asserterror VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-        Assert.ExpectedError(VATReturnPeriodClosedErr);
-
-        Assert.AreEqual(WorkDate(), VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerTrue')]
-    procedure VATPostingDateChangeWarning()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448198] Restricting VAT Date change
-        Initialize();
-        CleanVATReturnPeriod();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-        SalesInvHeader.Get(DocNo);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Submitted
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Submitted, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, SalesInvHeader."VAT Reporting Date");
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] Change VAT Date to date within VAT period there is warnings
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-
-        Assert.AreEqual(WorkDate() + 1, VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-    end;
-
-
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerTrue')]
-    procedure VATPostingDateChangeWarning2()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448198] Restricting VAT Date change
-        Initialize();
-        CleanVATReturnPeriod();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-        SalesInvHeader.Get(DocNo);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, SalesInvHeader."VAT Reporting Date");
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] Change VAT Date to date within VAT period there is warnings
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-
-        Assert.AreEqual(WorkDate() + 1, VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerFalse')]
-    procedure VATPostingDateChangeWarning3()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448198] Restricting VAT Date change
-        Initialize();
-        CleanVATReturnPeriod();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-        SalesInvHeader.Get(DocNo);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, SalesInvHeader."VAT Reporting Date");
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] Change VAT Date to date within VAT period there is warnings
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-
-        Assert.AreEqual(WorkDate(), VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerFalse')]
-    procedure PostWithVATDateInReleasedVATReturnPeriodFailure()
-    var
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 455404] Using data range limitation for posting documents
-        Initialize();
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-        // [WHEN] Posting sales invoice a warning is promted to user
-        // [THEN] If we do not confirm, no sales invoice is posted
-        asserterror CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-        // [WHEN] Posting credit memo a warning is promted to user
-        // [THEN] If we do not confirm, no sales invoice is posted
-        asserterror CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::"Credit Memo");
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-        // [WHEN] Posting purchase invoice a warning is promted to user
-        // [THEN] If we do not confirm, no sales invoice is posted
-        asserterror CreateAndPostPurchDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-        // [WHEN] Posting purchase credit memo a warning is promted to user
-        // [THEN] If we do not confirm, no sales invoice is posted
-        asserterror CreateAndPostPurchDoc(WorkDate(), Enum::"Gen. Journal Document Type"::"Credit Memo");
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerTrue')]
-    procedure PostWithVATDateInReleasedVATReturnPeriodSuccess()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        PurchInvHeader: Record "Purch. Inv. Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        DocNo: Code[20];
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 455404] Using data range limitation for posting documents
-        Initialize();
-        CleanVATReturnPeriod();
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [WHEN] Posting sales invoice a warning is promted to user
-        // [THEN] If we do confirm, sales invoice is posted
-        DocNo := CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-        SalesInvHeader.Get(DocNo);
-        DocNo := CreateAndPostPurchDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-        PurchInvHeader.Get(DocNo);
-    end;
-
-    [Test]
-    procedure PostWithVATDateInClosedVATReturnPeriodSuccess()
-    var
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 455404] Using data range limitation for posting documents
-        Initialize();
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Closed, WorkDate(), WorkDate() + 1);
-        // [WHEN] Posting sales invoice a warning is promted to user
-        // [THEN] If we do confirm, sales invoice is posted
-        asserterror CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Closed, WorkDate(), WorkDate() + 1);
-        // [WHEN] Posting sales invoice a warning is promted to user
-        // [THEN] If we do confirm, sales invoice is posted
-        asserterror CreateAndPostPurchDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-    end;
-
-    [Test]
-    procedure VATPostingDateChangeMultiPeriodSuccessful()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448198] Restricting VAT Date change
-        Initialize();
-        CleanVATReturnPeriod();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-        SalesInvHeader.Get(DocNo);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Open
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Open, WorkDate(), WorkDate() + 1);
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Closed, WorkDate() + 2, WorkDate() + 3);
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VerifyVATEntry(DocNo, DocType, PostType, SalesInvHeader."VAT Reporting Date");
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] Change VAT Date to date within VAT period there is no warnings
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-
-        Assert.AreEqual(WorkDate() + 1, VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-    end;
-
-    [Test]
-    procedure VATDateChangeMultiEntriesSuccessful()
-    var
-        SalesInvHeader: Record "Sales Invoice Header";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        VATEntry: Record "VAT Entry";
-        VATEntryPage: TestPage "VAT Entries";
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        VATEntryNo: Integer;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 448198] Restricting VAT Date change
-        Initialize();
-        CleanVATReturnPeriod();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDocWithTwoLines(WorkDate(), DocType);
-
-        VATEntry.Reset();
-        VATEntry.SetRange("Document No.", DocNo);
-        VATEntry.SetRange("Document Type", DocType);
-        VATEntry.FindSet();
-
-        Assert.AreEqual(2, VATEntry.Count(), VatEntriesErr);
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VATEntry."Entry No.";
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] Change VAT Date to date within VAT period there is no warnings
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        VATEntryPage."VAT Reporting Date".SetValue(NewVATDate);
-
-        // [THEN] Check date for entry on page
-        Assert.AreEqual(WorkDate() + 1, VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-
-        // [THEN] Find other related entries and check date
-        VATEntry.Reset();
-        VATEntry.SetRange("Document No.", DocNo);
-        VATEntry.SetRange("Document Type", DocType);
-        VATEntry.SetFilter("Entry No.", '<>%1', VATEntryNo);
-        VATEntry.FindSet();
-        repeat
-            Assert.AreEqual(WorkDate() + 1, VATEntry."VAT Reporting Date", VATDateOnRecordErr);
-        until VATEntry.Next() = 0;
-    end;
-
-    [Test]
-    procedure VATDateChangeWhenNoChangeOptionSelectedError()
-    var
-        GLSetup: Record "General Ledger Setup";
-        VATEntry: Record "VAT Entry";
-        VATEntryPage: TestPage "VAT Entries";
-        VATEntryNo: Integer;
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 455405] Change VAT when No VAT Date changes" selected
-        Initialize();
-        CleanVATReturnPeriod();
-
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date Usage" := GLSetup."VAT Reporting Date Usage"::"Enabled (Prevent modification)";
-        GLSetup.Modify();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-
-        VATEntry.Reset();
-        VATEntry.SetRange("Document No.", DocNo);
-        VATEntry.SetRange("Document Type", DocType);
-        VATEntry.FindSet();
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VATEntry."Entry No.";
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] VAT date should not be editable on page
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        Assert.IsFalse(VATEntryPage."VAT Reporting Date".Editable(), VATDateNoChangeErr);
-
-        asserterror VATEntry.Validate("VAT Reporting Date", NewVATDate);
-    end;
-
-    [Test]
-    procedure VATDateChangeWhenDisabledSelectedError()
-    var
-        GLSetup: Record "General Ledger Setup";
-        VATEntry: Record "VAT Entry";
-        VATEntryPage: TestPage "VAT Entries";
-        VATEntryNo: Integer;
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 455405] Change VAT when No VAT Date changes" selected
-        Initialize();
-        CleanVATReturnPeriod();
-
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date Usage" := GLSetup."VAT Reporting Date Usage"::Disabled;
-        GLSetup.Modify();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-
-        VATEntry.Reset();
-        VATEntry.SetRange("Document No.", DocNo);
-        VATEntry.SetRange("Document Type", DocType);
-        VATEntry.FindSet();
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VATEntry."Entry No.";
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] VAT date should not be editable on page
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        Assert.IsFalse(VATEntryPage."VAT Reporting Date".Editable(), VATDateNoChangeErr);
-
-        asserterror VATEntry.Validate("VAT Reporting Date", NewVATDate);
-    end;
-
-    [Test]
-    procedure VATDatePostInClosedPeriod()
-    var
-        GLSetup: Record "General Ledger Setup";
-        VATEntry: Record "VAT Entry";
-        VATEntryPage: TestPage "VAT Entries";
-        VATEntryNo: Integer;
-        DocNo: Code[20];
-        VATDate, NewVATDate : Date;
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 455405] Change VAT when No VAT Date changes" selected
-        Initialize();
-        CleanVATReturnPeriod();
-
-        GLSetup.Get();
-        GLSetup."VAT Reporting Date Usage" := GLSetup."VAT Reporting Date Usage"::Disabled;
-        GLSetup.Modify();
-
-        // [WHEN] Posting sales invoice
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-        DocNo := CreateAndPostSalesDoc(WorkDate(), DocType);
-
-        VATEntry.Reset();
-        VATEntry.SetRange("Document No.", DocNo);
-        VATEntry.SetRange("Document Type", DocType);
-        VATEntry.FindSet();
-
-        // [THEN] Get VAT Entry for document
-        VATEntryNo := VATEntry."Entry No.";
-        NewVATDate := WorkDate() + 1;
-
-        // [WHEN] VAT date should not be editable on page
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        Assert.IsFalse(VATEntryPage."VAT Reporting Date".Editable(), VATDateNoChangeErr);
-
-        asserterror VATEntry.Validate("VAT Reporting Date", NewVATDate);
-    end;
-
 
     [Test]
     [HandlerFunctions('BatchPostSalesInvoicesRequestPageHandler,MessageHandler')]
@@ -4603,564 +2559,6 @@
     end;
 
     [Test]
-    procedure PostSalesDocWithBlankVATDate()
-    var
-        SalesHeader: Record "Sales Header";
-        VATEntry: Record "VAT Entry";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-        DocumentNo: Code[20];
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 463793] When posting sales document with blank VAT Date, then VAT Date is set based on GL Setup
-        Initialize();
-
-        // [WHEN] Sales invoice has VAT Date set to blank
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-
-        CreateSalesDoc(SalesHeader, 0D, DocType);
-        SalesHeader."VAT Reporting Date" := 0D;
-        SalesHeader.Modify();
-
-        // [WHEN] Sales Invoice is posted
-        DocumentNo := LibrarySales.PostSalesDocument(SalesHeader, true, true);
-
-        // [THEN] VAT Date is set to the value based on GL Setup
-        VATEntry.SetRange("Document No.", DocumentNo);
-        VATEntry.FindSet();
-        repeat
-            Assert.AreEqual(VATEntry."VAT Reporting Date", VATEntry."Posting Date", '');
-        until VATEntry.Next() = 0;
-    end;
-
-    [Test]
-    procedure PostPurchaseDocWithBlankVATDate()
-    var
-        PurchaseHeader: Record "Purchase Header";
-        VATEntry: Record "VAT Entry";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-        DocumentNo: Code[20];
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 463793] When posting purchase document with blank VAT Date, then VAT Date is set based on GL Setup
-        Initialize();
-
-        // [WHEN] Purchase invoice has VAT Date set to blank
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Purchase;
-
-        CreatePurchDoc(PurchaseHeader, 0D, DocType);
-        PurchaseHeader."VAT Reporting Date" := 0D;
-        PurchaseHeader.Modify();
-
-        // [WHEN] Sales Invoice is posted
-        DocumentNo := LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
-
-        // [THEN] VAT Date is set to the value based on GL Setup
-        VATEntry.SetRange("Document No.", DocumentNo);
-        VATEntry.FindFirst();
-        Assert.AreEqual(VATEntry."VAT Reporting Date", VATEntry."Posting Date", '');
-
-    end;
-
-    [Test]
-    procedure PostGenJournalLineWithBlankVATDate()
-    var
-        GenJournalLine: Record "Gen. Journal Line";
-        VATEntry: Record "VAT Entry";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 463793] When general journal line with blank VAT Date, then VAT Date is set based on GL Setup
-        Initialize();
-
-        // [WHEN] Gen. Journal Line has VAT Date set to blank
-        CreateSalesJournalLine(GenJournalLine);
-        GenJournalLine."VAT Reporting Date" := 0D;
-        GenJournalLine.Modify();
-
-        // [WHEN] Gen. Journal Line  is posted
-        LibraryERM.PostGeneralJnlLine(GenJournalLine);
-
-        // [THEN] VAT Date is set to the value based on GL Setup
-        VATEntry.SetRange("Document No.", GenJournalLine."Document No.");
-        VATEntry.FindFirst();
-        Assert.AreEqual(VATEntry."VAT Reporting Date", VATEntry."Posting Date", '');
-    end;
-
-    [Test]
-    procedure PostGenJournalLineWithBlankVATDateAllowedPostingPeriodDefined()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        GenJournalLine: Record "Gen. Journal Line";
-        VATEntry: Record "VAT Entry";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 466476] When general journal line with blank VAT Date, Allowed Posting period defined, then VAT Date is set based on GL Setup
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Allow Posting From" := WorkDate();
-        GeneralLedgerSetup."Allow Posting To" := WorkDate();
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Gen. Journal Line has VAT Date set to blank
-        CreateSalesJournalLine(GenJournalLine);
-        GenJournalLine."VAT Reporting Date" := 0D;
-        GenJournalLine.Modify();
-
-        // [WHEN] Gen. Journal Line  is posted
-        LibraryERM.PostGeneralJnlLine(GenJournalLine);
-
-        // [THEN] VAT Date is set to the value based on GL Setup
-        VATEntry.SetRange("Document No.", GenJournalLine."Document No.");
-        VATEntry.FindFirst();
-        Assert.AreEqual(VATEntry."VAT Reporting Date", VATEntry."Posting Date", '');
-    end;
-
-    [Test]
-    procedure UpdateVATDateMultipleVATEntriesSameDocNo()
-    var
-        GLEntryVATEntryLink: Record "G/L Entry - VAT Entry Link";
-        GLEntry: Record "G/L Entry";
-        GenJournalLine: Record "Gen. Journal Line";
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        SalesVATEntry: Record "VAT Entry";
-        PurchaseVATEntry: Record "VAT Entry";
-        VATReportingDateMgt: Codeunit "VAT Reporting Date Mgt";
-        DocumentNo: Code[20];
-        UpdatedVATDate: Date;
-        InitalVATDate: Date;
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 463793] VAT Entries and GL Entries are not filtered on Document No when updating related entries
-        Initialize();
-        GLEntryVATEntryLink.DeleteAll();
-        GLEntry.DeleteAll();
-
-        InitalVATDate := WorkDate();
-        UpdatedVATDate := CalcDate('<+1M>', WorkDate());
-
-        // [WHEN] Sales Gen. Journal Line posted   
-        CreateSalesJournalLine(GenJournalLine);
-        GenJournalLine."VAT Reporting Date" := InitalVATDate;
-        GenJournalLine.Modify();
-        DocumentNo := GenJournalLine."Document No.";
-
-        LibraryERM.PostGeneralJnlLine(GenJournalLine);
-
-        // [WHEN] Purchase Gen. Journal Line posted 
-        CreatePurchaseJournalLine(GenJournalLine);
-        GenJournalLine."VAT Reporting Date" := InitalVATDate;
-        GenJournalLine."Document No." := DocumentNo;
-        GenJournalLine.Validate(Amount, LibraryRandom.RandDec(100, 2));
-        GenJournalLine.Modify();
-
-        LibraryERM.PostGeneralJnlLine(GenJournalLine);
-
-        SalesVATEntry.SetRange("Document No.", DocumentNo);
-        SalesVATEntry.SetRange(Type, SalesVATEntry.Type::Sale);
-        SalesVATEntry.FindFirst();
-
-        PurchaseVATEntry.SetRange("Document No.", DocumentNo);
-        PurchaseVATEntry.SetRange(Type, PurchaseVATEntry.Type::Purchase);
-        PurchaseVATEntry.FindFirst();
-
-        // [WHEN] VAT Reporting Date is updated
-        SalesVATEntry.Validate("VAT Reporting Date", UpdatedVATDate);
-        SalesVATEntry.Modify();
-        VATReportingDateMgt.UpdateLinkedEntries(SalesVATEntry);
-
-        // [THEN] Only VAT Entries related to sales transactions are updated
-        Assert.AreEqual(SalesVATEntry."VAT Reporting Date", UpdatedVATDate, 'VAT Reporting date has not been updated.');
-        Assert.AreEqual(PurchaseVATEntry."VAT Reporting Date", InitalVATDate, 'VAT Reporting date has been updated in wrong VAT Entry.');
-
-        // [THEN] Only GL Entries related to sales transactions are updated
-        VerifyVATDateInGLEntries(SalesVATEntry, UpdatedVATDate);
-        VerifyVATDateInGLEntries(PurchaseVATEntry, InitalVATDate);
-    end;
-
-    [Test]
-    procedure UpdateVATDateOutofAllowedPeriod()
-    var
-        GenJournalLine: Record "Gen. Journal Line";
-        VATEntry: Record "VAT Entry";
-        GLSetup: Record "General Ledger Setup";
-        DocumentNo: Code[20];
-        VATDate: Date;
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 463793] VAT Entries are not updated when VAT Date is out of Allowed period defined by GL Setup
-        Initialize();
-        VATDate := CalcDate('<+1M>', WorkDate());
-
-        // [WHEN] Sales Gen. Journal Line posted   
-        CreateSalesJournalLine(GenJournalLine);
-        DocumentNo := GenJournalLine."Document No.";
-
-        LibraryERM.PostGeneralJnlLine(GenJournalLine);
-
-        // [WHEN] General Ledger Setup Allowed posting period is updated
-        GLSetup.Get();
-        GLSetup."Allow Posting From" := WorkDate();
-        GLSetup."Allow Posting To" := WorkDate();
-        GLSetup.Modify();
-
-        VATEntry.SetRange("Document No.", DocumentNo);
-        VATEntry.SetRange(Type, VATEntry.Type::Sale);
-        VATEntry.FindFirst();
-
-        // [WHEN] VAT Reporting Date is updated to date out of Allowed period
-        asserterror VATEntry.Validate("VAT Reporting Date", VATDate);
-        Assert.ExpectedError(PostingDateOutOfPostingDatesErr);
-    end;
-
-    [Test]
-    procedure PostGenJournalLineOutOfAllowedPostingPeriod()
-    var
-        GenJournalLine: Record "Gen. Journal Line";
-        GeneralLedgerSetup: Record "General Ledger Setup";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 463793] Posting procedure must be aborted if document is out of allowed posting period
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Allow Posting From" := WorkDate();
-        GeneralLedgerSetup."Allow Posting To" := WorkDate();
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] General Journal Line defined with VAT Date out of Allowed Period 
-        CreateSalesJournalLine(GenJournalLine);
-        GenJournalLine."VAT Reporting Date" := CalcDate('<+1M>', WorkDate());
-        GenJournalLine.Modify();
-
-        // [THEN] Error is thorn and posting is aborted
-        asserterror LibraryERM.PostGeneralJnlLine(GenJournalLine);
-        assert.ExpectedError(PostingDateOutOfPostingDatesErr);
-    end;
-
-    [Test]
-    procedure PostSalesDocOutOfAllowedPostingPeriod()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 463793] Posting procedure must be aborted if document is out of allowed posting period
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Allow Posting From" := WorkDate();
-        GeneralLedgerSetup."Allow Posting To" := WorkDate();
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] General Journal Line defined with VAT Date out of Allowed Period 
-        DocType := Enum::"Gen. Journal Document Type"::Invoice;
-        PostType := Enum::"General Posting Type"::Sale;
-
-        CreateSalesDoc(SalesHeader, CalcDate('<+1M>', WorkDate()), DocType);
-        //SalesHeader."VAT Reporting Date" := Cal;
-        SalesHeader.Modify();
-
-        // [WHEN] Sales Invoice is posted
-        asserterror LibrarySales.PostSalesDocument(SalesHeader, true, true);
-        assert.ExpectedError(PostingDateOutOfPostingDatesErr);
-    end;
-
-    [Test]
-    procedure PostShipSalesDocOutOfAllowedPostingPeriod()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Sales Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 466841] Posting procedure must not be aborted if document is out of allowed posting period on Shipment as it has no VAT
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Allow Posting From" := WorkDate();
-        GeneralLedgerSetup."Allow Posting To" := WorkDate();
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] General Journal Line defined with VAT Date out of Allowed Period 
-        DocType := Enum::"Sales Document Type"::Order;
-        PostType := Enum::"General Posting Type"::Sale;
-        CreateSalesDoc(SalesHeader, CalcDate('<+1M>', WorkDate()), DocType);
-
-        // [WHEN] Sales Order allow ship and receipt
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
-    end;
-
-    [Test]
-    procedure PostReceiptPurchDocOutOfAllowedPostingPeriod()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        PurchaseHeader: Record "Purchase Header";
-        DocType: Enum "Sales Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 466841] Posting procedure must not be aborted if document is out of allowed posting period on receipt as it has no VAT
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Allow Posting From" := WorkDate();
-        GeneralLedgerSetup."Allow Posting To" := WorkDate();
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] General Journal Line defined with VAT Date out of Allowed Period 
-        DocType := Enum::"Purchase Document Type"::Order;
-        PostType := Enum::"General Posting Type"::Purchase;
-        CreatePurchDoc(PurchaseHeader, CalcDate('<+1M>', WorkDate()), DocType);
-
-        // [WHEN] Purchase Order allow ship and receipt
-        LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, false);
-    end;
-
-    [Test]
-    procedure PostServiceDocOutOfAllowedPostingPeriod()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        ServiceHeader: Record "Service Header";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 463793] Posting procedure must be aborted if document is out of allowed posting period
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Allow Posting From" := WorkDate();
-        GeneralLedgerSetup."Allow Posting To" := WorkDate();
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Service Invoice with VAT Date out of Allowed Period is posted
-        CreateServiceInvoice(ServiceHeader, CalcDate('<+1M>', WorkDate()));
-
-        // [THEN] Error is thrown
-        asserterror LibraryService.PostServiceOrder(ServiceHeader, true, false, true);
-        Assert.ExpectedError(PostingDateOutOfPostingDatesErr);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerTrue')]
-    procedure PostSalesDocInReleasedPeriodWarning()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 464668] In Posting procedure, warning must be shown to user if posting in relased period with
-        // "Block posting within closed and warn for released period" setting
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined "Block posting within closed and warn for released period"
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed and warn for released period";
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [WHEN] Posting sales invoice a warning is promted to user
-        // [THEN] If we do not confirm, no sales invoice is posted
-        CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-    end;
-
-    [Test]
-    procedure PostSalesDocInClosedPeriodError()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 464668] In Posting procedure, error must be shown to user if posting in closed period with
-        // "Block posting within closed and warn for released period" setting
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined "Block posting within closed and warn for released period";
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed and warn for released period";
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Adding VAT Return period that is Closed with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Posting sales invoice a error is promted to user
-        asserterror CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-        Assert.ExpectedError(VATReturnPeriodClosedErr);
-    end;
-
-    [Test]
-    procedure PostSalesDocInClosedPeriodError2()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 464668] In Posting procedure, error must be shown to user if posting in closed period with
-        // "Block posting within closed period" setting
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined "Block posting within closed period"
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed period";
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Adding VAT Return period that is Closed with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Posting sales invoice a error is promted to user
-        asserterror CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-        Assert.ExpectedError(VATReturnPeriodClosedErr);
-    end;
-
-    [Test]
-    procedure PostSalesDocInOpenPeriodNoWarning()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 464668] In Posting procedure, no warning must be shown to user if posting in relased period with
-        // "Block posting within closed period" setting
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Block posting within closed period";
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [WHEN] Posting sales invoice nothing is promted to user
-        CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Submitted
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Submitted, WorkDate(), WorkDate() + 1);
-
-        // [THEN] Posting sales invoice nothing is promted to user
-        CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-    end;
-
-    [Test]
-    procedure PostSalesDocInClosedPeriodNoError()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 464668] In Posting procedure, no error is shown for positng in closed period with
-        // "Disabled" setting
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::Disabled;
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [WHEN] Posting sales invoice nothing is promted to user
-        CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-    end;
-
-    [Test]
-    [HandlerFunctions('ConfirmHandlerTrue')]
-    procedure PostSalesDocInClosedPeriodWarning()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 464668] In Posting procedure, a warning is shown for positng in closed period with
-        // "Warn when posting in closed period" setting
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined Allowed Posting Period
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Warn when posting in closed period";
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Adding VAT Return period that is Closed with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Closed, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [WHEN] Posting sales invoice warning is shown to user
-        CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-    end;
-
-    [Test]
-    procedure PostSalesDocInRelasedPeriodNoWarning()
-    var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        SalesHeader: Record "Sales Header";
-        DocType: Enum "Gen. Journal Document Type";
-        PostType: Enum "General Posting Type";
-    begin
-        // [FEATURE] [VAT]
-        // [SCENARIO 464668] In Posting procedure, no warning is shown for positng in released period with
-        // "Warn when posting in closed period" setting
-        Initialize();
-
-        // [WHEN] General Ledger Setup with defined "Warn when posting in closed period"
-        GeneralLedgerSetup.Get();
-        GeneralLedgerSetup."Control VAT Period" := GeneralLedgerSetup."Control VAT Period"::"Warn when posting in closed period";
-        GeneralLedgerSetup.Modify();
-
-        // [WHEN] Adding VAT Return period that is Open with VAT Return Status Released
-        CleanVATReturnPeriod();
-        CreateVATReturnPeriod(VATReturnPeriod.Status::Open, VATReportHeader.Status::Released, WorkDate(), WorkDate() + 1);
-
-        // [WHEN] Posting sales invoice no warning is shown to user
-        CreateAndPostSalesDoc(WorkDate(), Enum::"Gen. Journal Document Type"::Invoice);
-    end;
-
-    [Test]
     procedure TestVATDatePostedRecurringJournal()
     var
         GenJournalLine: Record "Gen. Journal Line";
@@ -5188,6 +2586,8 @@
     var
         PurchaseHeader: Record "Purchase Header";
         GLSetup: Record "General Ledger Setup";
+        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"ERM VAT Sales/Purchase");
@@ -5196,11 +2596,15 @@
         PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyVendorAddressNotificationId);
         PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyPayToVendorAddressNotificationId);
 
+        PurchasesPayablesSetup.Get();
+        PurchasesPayablesSetup.Validate("Link Doc. Date To Posting Date", true);
+        PurchasesPayablesSetup.Modify();
+        SalesReceivablesSetup.Get();
+        SalesReceivablesSetup.Validate("Link Doc. Date To Posting Date", true);
+        SalesReceivablesSetup.Modify();
+
         GLSetup.Get();
         GLSetup."VAT Reporting Date Usage" := GLSetup."VAT Reporting Date Usage"::Enabled;
-        GLSetup."Control VAT Period" := GLSetup."Control VAT Period"::"Block posting within closed and warn for released period";
-        GLSetup."Allow Posting From" := 0D;
-        GLSetup."Allow Posting To" := 0D;
         GLSetup.Modify();
 
         // Lazy Setup.
@@ -5378,71 +2782,6 @@
         PurchCreditMemoHeader.TestField("VAT Reporting Date", VATDate);
     end;
 
-    local procedure CleanVATReturnPeriod()
-    var
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-    begin
-        VATReturnPeriod.DeleteAll();
-        VATReportHeader.DeleteAll();
-    end;
-
-    local procedure CreateVATReturnPeriod(VATReturnPeriodStatus: Option; VATReportHeaderStatus: Option; StartDate: Date; EndDate: Date)
-    var
-        VATReturnPeriod: Record "VAT Return Period";
-        VATReportHeader: Record "VAT Report Header";
-        Random: Codeunit "Library - Random";
-    begin
-
-        VATReportHeader."No." := Random.RandText(20);
-        VATReportHeader."VAT Report Config. Code" := VATReportHeader."VAT Report Config. Code"::"VAT Return";
-        VATReportHeader.Status := VATReportHeaderStatus;
-        VATReportHeader.Insert();
-
-        VATReturnPeriod.Init();
-        VATReturnPeriod."No." := VATReportHeader."No.";
-        VATReturnPeriod."VAT Return No." := VATReportHeader."No.";
-        VATReturnPeriod."Start Date" := StartDate;
-        VATReturnPeriod."End Date" := EndDate;
-        VATReturnPeriod.Status := VATReturnPeriodStatus;
-        VATReturnPeriod.Insert();
-    end;
-
-    local procedure CorrectVATDateAndVerifyChange(VATEntryNo: Integer; VATDate: Date)
-    var
-        VATEntryPage: TestPage "VAT Entries";
-    begin
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        VATEntryPage."VAT Reporting Date".SetValue(VATDate);
-        Assert.AreEqual(VATDate, VATEntryPage."VAT Reporting Date".AsDate(), VATDateOnRecordErr);
-    end;
-
-    local procedure CorrectVATDateAndVerifyError(VATEntryNo: Integer; VATDate: Date; Error: Text)
-    var
-        VATEntryPage: TestPage "VAT Entries";
-    begin
-        VATEntryPage.OpenEdit();
-        VATEntryPage.Filter.SetFilter("Entry No.", Format(VATEntryNo));
-        VATEntryPage.First();
-        asserterror VATEntryPage."VAT Reporting Date".SetValue(VATDate);
-        Assert.ExpectedError(Error);
-    end;
-
-    local procedure VerifyVATEntry(DocNo: Code[20]; DocType: Enum "Gen. Journal Document Type"; Type: Enum "General Posting Type"; VATDate: Date): Integer
-    var
-        VATEntry: Record "VAT Entry";
-    begin
-        VATEntry.Reset();
-        VATEntry.SetRange("Document No.", DocNo);
-        VATEntry.SetRange("Document Type", DocType);
-        VATEntry.SetRange(Type, Type);
-        VATEntry.FindFirst();
-        Assert.AreEqual(VATDate, VATEntry."VAT Reporting Date", VATDateOnRecordErr);
-        exit(VATEntry."Entry No.");
-    end;
-
     local procedure VerifyVATDateRecurringJournal(ExternalDocNo: Code[35]; Postingdate: Date; VATDate: Date)
     var
         VATEntry: Record "VAT Entry";
@@ -5457,20 +2796,6 @@
         // allocation
         VATEntry.SetRange("VAT Reporting Date", CalcDate('<+1D>', Postingdate));
         Assert.IsTrue(VATEntry.FindFirst(), VATDateOnRecordErr);
-    end;
-
-    local procedure VerifyGLEntry(DocNo: Code[20]; DocType: Enum "Gen. Journal Document Type"; Type: Enum "General Posting Type"; VATDate: Date)
-    var
-        GLEntry: Record "G/L Entry";
-    begin
-        GLEntry.Reset();
-        GLEntry.SetRange("Document No.", DocNo);
-        GLEntry.SetRange("Document Type", DocType);
-        GLEntry.SetRange("Gen. Posting Type", Type);
-        GLEntry.FindSet();
-        repeat
-            Assert.AreEqual(VATDate, GLEntry."VAT Reporting Date", VATDateOnRecordErr);
-        until GLEntry.Next() = 0;
     end;
 
     local procedure SetupForSalesOrderAndVAT(var VATAmountLine: Record "VAT Amount Line")
@@ -5557,8 +2882,8 @@
     begin
         LibraryERM.FindVATPostingSetup(VATPostingSetup, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
         LibrarySales.CreateSalesHeader(
-SalesHeader, DocumentType,
-LibrarySales.CreateCustomerWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Posting Group"));
+          SalesHeader, DocumentType,
+          LibrarySales.CreateCustomerWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Posting Group"));
         ModifySalesHeaderPricesInclVAT(SalesHeader, PricesInclVAT);
     end;
 
@@ -5587,9 +2912,7 @@ LibrarySales.CreateCustomerWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Post
         SalesLine.Modify();
     end;
 
-    local procedure CreateSalesLineWithUnitPriceAndVATProdPstGroup(var SalesLine: Record "Sales Line"; SalesHeader: Record "Sales Header"; VATProdPstGroupCode: Code[20]; Type: Enum "Sales Line Type"; No: Code[20];
-                                                                                                                                                                                    Quantity: Decimal;
-                                                                                                                                                                                    UnitPrice: Decimal)
+    local procedure CreateSalesLineWithUnitPriceAndVATProdPstGroup(var SalesLine: Record "Sales Line"; SalesHeader: Record "Sales Header"; VATProdPstGroupCode: Code[20]; Type: Enum "Sales Line Type"; No: Code[20]; Quantity: Decimal; UnitPrice: Decimal)
     begin
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, Type, No, Quantity);
         SalesLine.Validate("VAT Prod. Posting Group", VATProdPstGroupCode);
@@ -5662,8 +2985,8 @@ LibrarySales.CreateCustomerWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Post
     begin
         LibraryERM.FindVATPostingSetup(VATPostingSetup, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
         LibraryPurchase.CreatePurchHeader(
-PurchaseHeader, DocumentType,
-LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Posting Group"));
+          PurchaseHeader, DocumentType,
+          LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Posting Group"));
         ModifyPurchaseHeaderPricesInclVAT(PurchaseHeader, PricesInclVAT);
     end;
 
@@ -5692,9 +3015,7 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
         PurchaseLine.Modify(true);
     end;
 
-    local procedure CreatePurchaseLineWithUnitPriceAndVATProdPstGroup(var PurchaseLine: Record "Purchase Line"; PurchaseHeader: Record "Purchase Header"; VATProdPstGroupCode: Code[20]; Type: Enum "Purchase Line Type"; No: Code[20];
-                                                                                                                                                                                                   Quantity: Decimal;
-                                                                                                                                                                                                   DirectUnitCost: Decimal)
+    local procedure CreatePurchaseLineWithUnitPriceAndVATProdPstGroup(var PurchaseLine: Record "Purchase Line"; PurchaseHeader: Record "Purchase Header"; VATProdPstGroupCode: Code[20]; Type: Enum "Purchase Line Type"; No: Code[20]; Quantity: Decimal; DirectUnitCost: Decimal)
     begin
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, Type, No, Quantity);
         PurchaseLine.Validate("VAT Prod. Posting Group", VATProdPstGroupCode);
@@ -5736,15 +3057,10 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
 
     local procedure CreateAndPostSalesDoc(VATDate: Date; DocType: Enum "Gen. Journal Document Type"): Code[20]
     var
-        SalesHeader: Record "Sales Header";
-    begin
-        CreateSalesDoc(SalesHeader, VATDate, DocType);
-        exit(LibrarySales.PostSalesDocument(SalesHeader, true, true));
-    end;
-
-    local procedure CreateSalesDoc(var SalesHeader: Record "Sales Header"; VATDate: Date; DocType: Enum "Gen. Journal Document Type"): Code[20]
-    var
         SalesLine: Record "Sales Line";
+        PaymentMethod: Record "Payment Method";
+        PaymentTerms: Record "Payment Terms";
+        SalesHeader: Record "Sales Header";
         VATPostingSetup: Record "VAT Posting Setup";
     begin
         LibraryERM.FindVATPostingSetup(VATPostingSetup, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
@@ -5757,60 +3073,16 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
                 Validate("VAT Reporting Date");
             Modify(true);
             CreateSalesLine(SalesLine, SalesHeader, VATPostingSetup);
-        end;
-    end;
-
-    local procedure CreateServiceInvoice(var ServiceHeader: Record "Service Header"; VATDate: Date): Code[20]
-    var
-        ServiceLine: Record "Service Line";
-        Customer: Record Customer;
-    begin
-        LibrarySales.CreateCustomerWithVATRegNo(Customer);
-        LibraryService.CreateServiceHeader(ServiceHeader, ServiceHeader."Document Type"::Invoice, Customer."No.");
-        ServiceHeader.Validate("VAT Reporting Date", VATDate);
-        ServiceHeader.Modify(true);
-        LibraryService.CreateServiceLine(ServiceLine, ServiceHeader, ServiceLine.Type::Item, LibraryInventory.CreateItemNo());
-        ServiceLine.Validate(Quantity, LibraryRandom.RandInt(100));
-        ServiceLine.Validate("Unit Price", LibraryRandom.RandDec(10, 2));
-        ServiceLine.Modify(true);
-    end;
-
-    local procedure CreateAndPostSalesDocWithTwoLines(VATDate: Date; DocType: Enum "Gen. Journal Document Type"): Code[20]
-    var
-        SalesLine: Record "Sales Line";
-        SalesHeader: Record "Sales Header";
-        VATPostingSetupA, VATPostingSetupB : Record "VAT Posting Setup";
-        Codeno: Code[20];
-    begin
-        LibraryERM.CreateVATPostingSetupWithAccounts(VATPostingSetupA, VATPostingSetupA."VAT Calculation Type"::"Normal VAT", 10);
-        LibraryERM.CreateVATPostingSetupWithAccounts(VATPostingSetupB, VATPostingSetupB."VAT Calculation Type"::"Normal VAT", 20);
-        with SalesHeader do begin
-            VATPostingSetupB.Rename(VATPostingSetupA."VAT Bus. Posting Group", VATPostingSetupB."VAT Prod. Posting Group");
-            Codeno := LibrarySales.CreateCustomerWithVATBusPostingGroup(VATPostingSetupA."VAT Bus. Posting Group");
-            LibrarySales.CreateSalesHeader(SalesHeader, DocType, Codeno);
-            Validate("Document Date", CalcDate(Format(-LibraryRandom.RandIntInRange(50, 100)) + '<D>', WorkDate()));
-            if VATDate <> 0D then
-                Validate("VAT Reporting Date", VATDate)
-            else
-                Validate("VAT Reporting Date");
-            Modify(true);
-            CreateSalesLineWithUnitPriceAndVATProdPstGroup(SalesLine, SalesHeader, VATPostingSetupA."VAT Prod. Posting Group", Enum::"Sales Line Type"::Item, LibraryInventory.CreateItemWithVATProdPostingGroup(VATPostingSetupA."VAT Prod. Posting Group"), 1, 100);
-            CreateSalesLineWithUnitPriceAndVATProdPstGroup(SalesLine, SalesHeader, VATPostingSetupB."VAT Prod. Posting Group", Enum::"Sales Line Type"::Item, LibraryInventory.CreateItemWithVATProdPostingGroup(VATPostingSetupB."VAT Prod. Posting Group"), 1, 100);
             exit(LibrarySales.PostSalesDocument(SalesHeader, true, true));
         end;
     end;
 
     local procedure CreateAndPostPurchDoc(VATDate: Date; DocType: Enum "Gen. Journal Document Type"): Code[20]
     var
-        PurchaseHeader: Record "Purchase Header";
-    begin
-        CreatePurchDoc(PurchaseHeader, VATDate, DocType);
-        exit(LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true));
-    end;
-
-    local procedure CreatePurchDoc(var PurchaseHeader: Record "Purchase Header"; VATDate: Date; DocType: Enum "Gen. Journal Document Type"): Code[20]
-    var
         PurchaseLine: Record "Purchase Line";
+        PaymentMethod: Record "Payment Method";
+        PaymentTerms: Record "Payment Terms";
+        PurchaseHeader: Record "Purchase Header";
         VATPostingSetup: Record "VAT Posting Setup";
     begin
         LibraryERM.FindVATPostingSetup(VATPostingSetup, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
@@ -5823,6 +3095,7 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
                 Validate("VAT Reporting Date");
             Modify(true);
             CreatePurchaseLine(PurchaseLine, PurchaseHeader, VATPostingSetup);
+            exit(LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true));
         end;
     end;
 
@@ -5877,10 +3150,10 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
         Customer.Modify();
     end;
 
-    local procedure CreateVATPostingSetup(var VATPostingSetup: Record "VAT Posting Setup"; VATBusinessPostingGroupCode: Code[20]; VATProductPostingGroupCode: Code[20]; VATPercent: Decimal; VATCalculationType: Enum "Tax Calculation Type")
+    local procedure CreateVATPostingSetup(var VATPostingSetup: Record "VAT Posting Setup"; VATBusinessPostingGroupCode: Code[20]; VATProductPostingGroupCode: Code[20]; VATPercent: Decimal; VATIdentifierCode: Code[20]; VATCalculationType: Enum "Tax Calculation Type")
     begin
         LibraryERM.CreateVATPostingSetup(VATPostingSetup, VATBusinessPostingGroupCode, VATProductPostingGroupCode);
-        VATPostingSetup.Validate("VAT Identifier", VATBusinessPostingGroupCode);
+        VATPostingSetup.Validate("VAT Identifier", VATIdentifierCode);
         VATPostingSetup.Validate("VAT %", VATPercent);
         VATPostingSetup.Validate("VAT Calculation Type", VATCalculationType);
         VATPostingSetup.Modify(true);
@@ -5891,45 +3164,6 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
         LibraryPurchase.CreateVendorWithVATRegNo(Vendor);
         Vendor.Validate("VAT Bus. Posting Group", VATBusPostingGroup);
         Vendor.Modify();
-    end;
-
-    local procedure CreateSalesJournalLine(var GenJournalLine: Record "Gen. Journal Line")
-    var
-        Customer: Record Customer;
-        GenJournalBatch: Record "Gen. Journal Batch";
-    begin
-        LibrarySales.CreateCustomer(Customer);
-        CreateGeneralJournalBatch(GenJournalBatch);
-        LibraryERM.CreateGeneralJnlLine(GenJournalLine, GenJournalBatch."Journal Template Name", GenJournalBatch.Name,
-          GenJournalLine."Document Type"::Payment, GenJournalLine."Account Type"::Customer, Customer."No.",
-          -LibraryRandom.RandDec(100, 2));
-        GenJournalLine.Validate("Bal. Account Type", GenJournalLine."Bal. Account Type"::"G/L Account");
-        GenJournalLine.Validate("Bal. Account No.", LibraryERM.CreateGLAccountWithSalesSetup());
-        GenJournalLine.Modify(true);
-    end;
-
-    local procedure CreatePurchaseJournalLine(var GenJournalLine: Record "Gen. Journal Line")
-    var
-        Vendor: Record Vendor;
-        GenJournalBatch: Record "Gen. Journal Batch";
-        LibraryPurchase: Codeunit "Library - Purchase";
-    begin
-        LibraryPurchase.CreateVendor(Vendor);
-        CreateGeneralJournalBatch(GenJournalBatch);
-        LibraryERM.CreateGeneralJnlLine(GenJournalLine, GenJournalBatch."Journal Template Name", GenJournalBatch.Name,
-          GenJournalLine."Document Type"::Payment, GenJournalLine."Account Type"::Vendor, Vendor."No.",
-          -LibraryRandom.RandDec(100, 2));
-        GenJournalLine.Validate("Bal. Account Type", GenJournalLine."Bal. Account Type"::"G/L Account");
-        GenJournalLine.Validate("Bal. Account No.", LibraryERM.CreateGLAccountWithPurchSetup());
-        GenJournalLine.Modify(true);
-    end;
-
-    local procedure CreateGeneralJournalBatch(var GenJournalBatch: Record "Gen. Journal Batch")
-    var
-        GenJournalTemplate: Record "Gen. Journal Template";
-    begin
-        LibraryERM.CreateGenJournalTemplate(GenJournalTemplate);
-        LibraryERM.CreateGenJournalBatch(GenJournalBatch, GenJournalTemplate.Name);
     end;
 
     local procedure MockVATAmountLine(var VATAmountLine: Record "VAT Amount Line"; VATIdentifier: Code[20]; LineAmount: Decimal; InvDiscAmount: Decimal; VATBase: Decimal; VATPct: Decimal; VATAmount: Decimal)
@@ -6107,8 +3341,7 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
         PurchaseLine.FindFirst();
     end;
 
-    local procedure RunCopySalesDocument(SalesHeader: Record "Sales Header"; DocumentNo: Code[20]; DocumentType: Enum "Sales Document Type From"; IncludeHeader: Boolean;
-                                                                                                                     RecalculateLines: Boolean)
+    local procedure RunCopySalesDocument(SalesHeader: Record "Sales Header"; DocumentNo: Code[20]; DocumentType: Enum "Sales Document Type From"; IncludeHeader: Boolean; RecalculateLines: Boolean)
     var
         CopySalesDocument: Report "Copy Sales Document";
     begin
@@ -6263,7 +3496,6 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
     begin
         // Find G/L Account without VAT.
         GLAccount.SetFilter("VAT Prod. Posting Group", '<>%1', '');
-        GLAccount.SetRange("Gen. Posting Type", GLAccount."Gen. Posting Type"::Purchase);
         LibraryERM.FindDirectPostingGLAccount(GLAccount);
 
         // Create Recurring Journal Lines with Allocation and with random values.
@@ -6378,9 +3610,7 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
             Customer."VAT Bus. Posting Group", SalesHeader.TableCaption(), SalesHeader."No."));
     end;
 
-    local procedure VerifyVATDifference(DocumentType: Enum "Sales Document Type"; DocumentNo: Code[20];
-                                                          No: Code[20];
-                                                          VATDifference: Decimal)
+    local procedure VerifyVATDifference(DocumentType: Enum "Sales Document Type"; DocumentNo: Code[20]; No: Code[20]; VATDifference: Decimal)
     var
         SalesLine: Record "Sales Line";
     begin
@@ -6441,16 +3671,19 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
     local procedure VerifyAmountOnCustomerLedgerEntry(PostedInvoiceNo: Code[20])
     var
         CustLedgerEntry: Record "Cust. Ledger Entry";
-        SalesInvHeader: Record "Sales Invoice Header";
+        ExpectedPmtAmount: Decimal;
     begin
-        SalesInvHeader.Get(PostedInvoiceNo);
-        SalesInvHeader.CalcFields("Amount Including VAT");
         with CustLedgerEntry do begin
             SetRange("Document No.", PostedInvoiceNo);
+            SetRange("Document Type", "Document Type"::Invoice);
+            FindFirst();
+            CalcFields("Amount (LCY)");
+            ExpectedPmtAmount := -("Amount (LCY)" - "Original Pmt. Disc. Possible");
+
             SetRange("Document Type", "Document Type"::Payment);
             FindFirst();
             CalcFields("Amount (LCY)");
-            TestField("Amount (LCY)", -SalesInvHeader."Amount Including VAT");
+            TestField("Amount (LCY)", ExpectedPmtAmount);
             TestField(Open, false);
         end;
     end;
@@ -6458,16 +3691,19 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
     local procedure VerifyAmountOnVendorLedgerEntry(PostedInvoiceNo: Code[20])
     var
         VendorLedgerEntry: Record "Vendor Ledger Entry";
-        PurchInvHeader: Record "Purch. Inv. Header";
+        ExpectedPmtAmount: Decimal;
     begin
-        PurchInvHeader.Get(PostedInvoiceNo);
-        PurchInvHeader.CalcFields("Amount Including VAT");
         with VendorLedgerEntry do begin
             SetRange("Document No.", PostedInvoiceNo);
+            SetRange("Document Type", "Document Type"::Invoice);
+            FindFirst();
+            CalcFields("Amount (LCY)");
+            ExpectedPmtAmount := -("Amount (LCY)" - "Original Pmt. Disc. Possible");
+
             SetRange("Document Type", "Document Type"::Payment);
             FindFirst();
             CalcFields("Amount (LCY)");
-            TestField("Amount (LCY)", PurchInvHeader."Amount Including VAT");
+            TestField("Amount (LCY)", ExpectedPmtAmount);
             TestField(Open, false);
         end;
     end;
@@ -6515,19 +3751,6 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
         VATAmountLine.TestField("Line Amount", VATBase);
         VATAmountLine.TestField("VAT Base", VATBase);
         VATAmountLine.TestField("VAT Amount", VATAmount);
-    end;
-
-    local procedure VerifyVATDateInGLEntries(VATEntry: Record "VAT Entry"; VATDate: Date)
-    var
-        GLEntryVATEntryLink: Record "G/L Entry - VAT Entry Link";
-        GLEntry: Record "G/L Entry";
-    begin
-        GLEntryVATEntryLink.SetRange("VAT Entry No.", VATEntry."Entry No.");
-        if GLEntryVATEntryLink.FindSet() then
-            repeat
-                GLEntry.Get(GLEntryVATEntryLink."G/L Entry No.");
-                Assert.AreEqual(GLEntry."VAT Reporting Date", VATDate, 'Wrong VAT Reporting Date updated in G/L Entry.');
-            until GLEntryVATEntryLink.Next() = 0;
     end;
 
     [ConfirmHandler]
@@ -6644,10 +3867,10 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
     [RequestPageHandler]
     procedure BatchPostSalesInvoicesRequestPageHandler(var BatchPostSalesInvoices: TestRequestPage "Batch Post Sales Invoices")
     var
-        PostingDate, VATDate : Date;
+        PostingDate, VATDate : Variant;
     begin
-        PostingDate := LibraryVariableStorage.DequeueDate();
-        VATDate := LibraryVariableStorage.DequeueDate();
+        LibraryVariableStorage.Dequeue(PostingDate);
+        LibraryVariableStorage.Dequeue(VATDate);
         BatchPostSalesInvoices.ReplacePostingDate.SetValue(true);
         BatchPostSalesInvoices.ReplaceVATDate.SetValue(true);
         BatchPostSalesInvoices.PostingDate.SetValue(PostingDate);
@@ -6659,7 +3882,7 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
     procedure BatchPostSalesOrdersRequestPageHandler(var BatchPostSalesOrders: TestRequestPage "Batch Post Sales Orders")
     var
         PostingDate, VATDate : Date;
-        DocumentNoFilter: Code[20];
+        DocumentNoFilter: Text;
     begin
         PostingDate := LibraryVariableStorage.DequeueDate();
         VATDate := LibraryVariableStorage.DequeueDate();
@@ -6679,10 +3902,10 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
     [RequestPageHandler]
     procedure BatchPostSalesCreditMemosRequestPageHandler(var BatchPostSalesCreditMemos: TestRequestPage "Batch Post Sales Credit Memos")
     var
-        PostingDate, VATDate : Date;
+        PostingDate, VATDate : Variant;
     begin
-        PostingDate := LibraryVariableStorage.DequeueDate();
-        VATDate := LibraryVariableStorage.DequeueDate();
+        LibraryVariableStorage.Dequeue(PostingDate);
+        LibraryVariableStorage.Dequeue(VATDate);
         BatchPostSalesCreditMemos.ReplacePostingDate.SetValue(true);
         BatchPostSalesCreditMemos.ReplaceVATDate.SetValue(true);
         BatchPostSalesCreditMemos.PostingDate.SetValue(PostingDate);
@@ -6691,26 +3914,12 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
     end;
 
     [RequestPageHandler]
-    procedure BatchPostPurchInvoicesRequestPageHandler(var BatchPostPurchInvoices: TestRequestPage "Batch Post Purchase Invoices")
-    var
-        PostingDate, VATDate : Date;
-    begin
-        PostingDate := LibraryVariableStorage.DequeueDate();
-        VATDate := LibraryVariableStorage.DequeueDate();
-        BatchPostPurchInvoices.ReplacePostingDate.SetValue(true);
-        BatchPostPurchInvoices.ReplaceVATDate.SetValue(true);
-        BatchPostPurchInvoices.PostingDate.SetValue(PostingDate);
-        BatchPostPurchInvoices.VATDate.SetValue(VATDate);
-        BatchPostPurchInvoices.OK.Invoke;
-    end;
-
-    [RequestPageHandler]
     procedure BatchPostPurchOrdersRequestPageHandler(var BatchPostPurchOrders: TestRequestPage "Batch Post Purchase Orders")
     var
-        PostingDate, VATDate : Date;
+        PostingDate, VATDate : Variant;
     begin
-        PostingDate := LibraryVariableStorage.DequeueDate();
-        VATDate := LibraryVariableStorage.DequeueDate();
+        LibraryVariableStorage.Dequeue(PostingDate);
+        LibraryVariableStorage.Dequeue(VATDate);
         BatchPostPurchOrders.Receive.SetValue(true);
         BatchPostPurchOrders.Invoice.SetValue(true);
         BatchPostPurchOrders.ReplacePostingDate.SetValue(true);
@@ -6723,15 +3932,29 @@ LibraryPurchase.CreateVendorWithVATBusPostingGroup(VATPostingSetup."VAT Bus. Pos
     [RequestPageHandler]
     procedure BatchPostPurchCreditMemosRequestPageHandler(var BatchPostPurchCreditMemos: TestRequestPage "Batch Post Purch. Credit Memos")
     var
-        PostingDate, VATDate : Date;
+        PostingDate, VATDate : Variant;
     begin
-        PostingDate := LibraryVariableStorage.DequeueDate();
-        VATDate := LibraryVariableStorage.DequeueDate();
+        LibraryVariableStorage.Dequeue(PostingDate);
+        LibraryVariableStorage.Dequeue(VATDate);
         BatchPostPurchCreditMemos.ReplacePostingDate.SetValue(true);
         BatchPostPurchCreditMemos.ReplaceVATDate.SetValue(true);
         BatchPostPurchCreditMemos.PostingDate.SetValue(PostingDate);
         BatchPostPurchCreditMemos.VATDate.SetValue(VATDate);
         BatchPostPurchCreditMemos.OK.Invoke;
+    end;
+
+    [RequestPageHandler]
+    procedure BatchPostPurchInvoicesRequestPageHandler(var BatchPostPurchInvoices: TestRequestPage "Batch Post Purchase Invoices")
+    var
+        PostingDate, VATDate : Variant;
+    begin
+        LibraryVariableStorage.Dequeue(PostingDate);
+        LibraryVariableStorage.Dequeue(VATDate);
+        BatchPostPurchInvoices.ReplacePostingDate.SetValue(true);
+        BatchPostPurchInvoices.ReplaceVATDate.SetValue(true);
+        BatchPostPurchInvoices.PostingDate.SetValue(PostingDate);
+        BatchPostPurchInvoices.VATDate.SetValue(VATDate);
+        BatchPostPurchInvoices.OK.Invoke;
     end;
 
     [RequestPageHandler]

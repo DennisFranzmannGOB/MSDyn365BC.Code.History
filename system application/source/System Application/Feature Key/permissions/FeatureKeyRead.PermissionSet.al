@@ -3,7 +3,11 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-PermissionSet 2610 "Feature Key - Read"
+namespace System.Environment.Configuration;
+
+using System.Environment;
+
+permissionset 2610 "Feature Key - Read"
 {
     Access = Internal;
     Assignable = false;
@@ -15,6 +19,6 @@ PermissionSet 2610 "Feature Key - Read"
                   tabledata Company = r,
                   tabledata "Feature Data Update Status" = R,
                   tabledata "Feature Key" = r,
-                  tabledata "Session Event" = r,
-                  tabledata "Scheduled Task" = r;
+                  tabledata "Scheduled Task" = r,
+                  tabledata "Session Event" = r;
 }

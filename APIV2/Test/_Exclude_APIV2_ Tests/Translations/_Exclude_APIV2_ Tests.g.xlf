@@ -398,6 +398,36 @@
           <note from="Developer" annotates="general" priority="2">%1=Property name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - Employees E2E - NamedType WrongPropertyValueErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2431927582 - NamedType 1792205652" size-unit="char" translate="yes" xml:space="preserve">
+          <source>JSON should not be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - FA Locations E2E - NamedType EmptyJSONErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2431927582 - NamedType 866661614" size-unit="char" translate="yes" xml:space="preserve">
+          <source>fixedAssetLocations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - FA Locations E2E - NamedType ServiceNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3614381418 - NamedType 1792205652" size-unit="char" translate="yes" xml:space="preserve">
+          <source>JSON should not be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - Fixed Assets E2E - NamedType EmptyJSONErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3614381418 - NamedType 3231667009" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - Fixed Assets E2E - NamedType FixedAssetNoPrefixTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3614381418 - NamedType 866661614" size-unit="char" translate="yes" xml:space="preserve">
+          <source>fixedAssets</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - Fixed Assets E2E - NamedType ServiceNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3371121796 - NamedType 866661614" size-unit="char" translate="yes" xml:space="preserve">
+          <source>generalLedgerSetup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - G/L Setup E2E - NamedType ServiceNameTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2249702235 - NamedType 866661614" size-unit="char" translate="yes" xml:space="preserve">
           <source>generalProductPostingGroups</source>
           <note from="Developer" annotates="general" priority="2"></note>

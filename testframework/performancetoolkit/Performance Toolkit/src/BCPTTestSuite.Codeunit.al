@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Tooling;
+
 codeunit 149006 "BCPT Test Suite"
 {
     var
@@ -52,59 +54,184 @@ codeunit 149006 "BCPT Test Suite"
         BCPTHeader.Insert(true);
     end;
 
+    procedure CreateUpdateTestSuiteHeader(SuiteCode: Code[10]; SuiteDescription: Text[50]; DurationInMinutes: Integer;
+                              DefaultMinUserDelayInMs: Integer; DefaultMaxUserDelayInMs: Integer;
+                              OneDayCorrespondsToMinutes: Integer; Tag: Text[20])
+    var
+        BCPTHeader: Record "BCPT Header";
+        SuiteExists: Boolean;
+    begin
+        if BCPTHeader.Get(SuiteCode) then
+            SuiteExists := true;
+
+        if not SuiteExists then begin
+            Clear(BCPTHeader);
+            BCPTHeader.Code := SuiteCode;
+        end;
+
+        BCPTHeader.Description := SuiteDescription;
+
+        if DurationInMinutes <> 0 then
+            BCPTHeader."Duration (minutes)" := DurationInMinutes;
+
+        if DefaultMinUserDelayInMs <> 0 then
+            BCPTHeader."Default Min. User Delay (ms)" := DefaultMinUserDelayInMs;
+
+        if DefaultMaxUserDelayInMs <> 0 then
+            BCPTHeader."Default Max. User Delay (ms)" := DefaultMaxUserDelayInMs;
+
+        if OneDayCorrespondsToMinutes <> 0 then
+            BCPTHeader."1 Day Corresponds to (minutes)" := OneDayCorrespondsToMinutes;
+
+        BCPTHeader.Tag := Tag;
+
+        if SuiteExists then
+            BCPTHeader.Modify(true)
+        else
+            BCPTHeader.Insert(true);
+    end;
+
+    procedure TestSuiteExists(SuiteCode: Code[10]): Boolean
+    var
+        BCPTHeader: Record "BCPT Header";
+    begin
+        exit(BCPTHeader.Get(SuiteCode));
+    end;
+
+    procedure TestSuiteLineExists(SuiteCode: Code[10]; CodeunitID: Integer): Boolean
+    var
+        BCPTLine: Record "BCPT Line";
+    begin
+        SetBCPTLineCodeunitFilter(SuiteCode, CodeunitID, BCPTLine);
+        exit(not BCPTLine.IsEmpty());
+    end;
+
+    procedure TestSuiteLineExists(SuiteCode: Code[10]; CodeunitID: Integer; var LineNo: Integer): Boolean
+    var
+        BCPTLine: Record "BCPT Line";
+    begin
+        SetBCPTLineCodeunitFilter(SuiteCode, CodeunitID, BCPTLine);
+        if not BCPTLine.FindFirst() then
+            exit(false);
+        LineNo := BCPTLine."Line No.";
+        exit(true);
+    end;
+
+    procedure TestSuiteLineExists(SuiteCode: Code[10]; CodeunitID: Integer; ParameterFilterStr: Text; var LineNo: Integer): Boolean
+    var
+        BCPTLine: Record "BCPT Line";
+    begin
+        SetBCPTLineCodeunitFilter(SuiteCode, CodeunitID, BCPTLine);
+        BCPTLine.SetFilter(Parameters, ParameterFilterStr);
+        if not BCPTLine.FindFirst() then
+            exit(false);
+        LineNo := BCPTLine."Line No.";
+        exit(true);
+    end;
+
     procedure SetTestSuiteDuration(SuiteCode: Code[10]; DurationInMinutes: Integer)
     var
         BCPTHeader: Record "BCPT Header";
     begin
-        if BCPTHeader.Get(SuiteCode) then
+        if not BCPTHeader.Get(SuiteCode) then
             Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
 
         BCPTHeader."Duration (minutes)" := DurationInMinutes;
         BCPTHeader.Modify(true);
     end;
 
+    procedure GetTestSuiteDuration(SuiteCode: Code[10]): Integer
+    var
+        BCPTHeader: Record "BCPT Header";
+    begin
+        if not BCPTHeader.Get(SuiteCode) then
+            Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
+
+        exit(BCPTHeader."Duration (minutes)");
+    end;
+
     procedure SetTestSuiteDefaultMinUserDelay(SuiteCode: Code[10]; DelayInMs: Integer)
     var
         BCPTHeader: Record "BCPT Header";
     begin
-        if BCPTHeader.Get(SuiteCode) then
+        if not BCPTHeader.Get(SuiteCode) then
             Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
 
         BCPTHeader."Default Min. User Delay (ms)" := DelayInMs;
         BCPTHeader.Modify(true);
     end;
 
+    procedure GetTestSuiteDefaultMinUserDelay(SuiteCode: Code[10]): Integer
+    var
+        BCPTHeader: Record "BCPT Header";
+    begin
+        if not BCPTHeader.Get(SuiteCode) then
+            Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
+
+        exit(BCPTHeader."Default Min. User Delay (ms)");
+    end;
+
     procedure SetTestSuiteDefaultMaxUserDelay(SuiteCode: Code[10]; DelayInMs: Integer)
     var
         BCPTHeader: Record "BCPT Header";
     begin
-        if BCPTHeader.Get(SuiteCode) then
+        if not BCPTHeader.Get(SuiteCode) then
             Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
 
         BCPTHeader."Default Max. User Delay (ms)" := DelayInMs;
         BCPTHeader.Modify(true);
     end;
 
+    procedure GetTestSuiteDefaultMaxUserDelay(SuiteCode: Code[10]): Integer
+    var
+        BCPTHeader: Record "BCPT Header";
+    begin
+        if not BCPTHeader.Get(SuiteCode) then
+            Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
+
+        exit(BCPTHeader."Default Max. User Delay (ms)");
+    end;
+
     procedure SetTestSuite1DayCorresponds(SuiteCode: Code[10]; DurationInMinutes: Integer)
     var
         BCPTHeader: Record "BCPT Header";
     begin
-        if BCPTHeader.Get(SuiteCode) then
+        if not BCPTHeader.Get(SuiteCode) then
             Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
 
         BCPTHeader."1 Day Corresponds to (minutes)" := DurationInMinutes;
         BCPTHeader.Modify(true);
     end;
 
+    procedure GetTestSuite1DayCorresponds(SuiteCode: Code[10]): Integer
+    var
+        BCPTHeader: Record "BCPT Header";
+    begin
+        if not BCPTHeader.Get(SuiteCode) then
+            Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
+
+        exit(BCPTHeader."1 Day Corresponds to (minutes)");
+    end;
+
     procedure SetTestSuiteTag(SuiteCode: Code[10]; Tag: Text[20])
     var
         BCPTHeader: Record "BCPT Header";
     begin
-        if BCPTHeader.Get(SuiteCode) then
+        if not BCPTHeader.Get(SuiteCode) then
             Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
 
         BCPTHeader.Tag := Tag;
         BCPTHeader.Modify(true);
+    end;
+
+    procedure GetTestSuiteTag(SuiteCode: Code[10]): Text[20]
+    var
+        BCPTHeader: Record "BCPT Header";
+    begin
+        if not BCPTHeader.Get(SuiteCode) then
+            Error(TestSuiteNotFoundErr, BCPTHeader.FieldCaption(Code), SuiteCode);
+
+        exit(BCPTHeader.Tag);
     end;
 
     procedure AddLineToTestSuiteHeader(SuiteCode: Code[10]; CodeunitId: Integer; NoOfSessions: Integer; Description: Text[50];
@@ -131,7 +258,7 @@ codeunit 149006 "BCPT Test Suite"
         Clear(BCPTLine);
         BCPTLine."BCPT Code" := SuiteCode;
         BCPTLine."Line No." := LastBCPTLine."Line No." + 1000;
-        BCPTLine."Codeunit ID" := CodeunitId;
+        BCPTLine.validate("Codeunit ID", CodeunitId);
         BCPTLine.Insert(true);
 
         exit(BCPTLine."Line No.");
@@ -279,4 +406,9 @@ codeunit 149006 "BCPT Test Suite"
         exit(not BCPTHeader2.IsEmpty());
     end;
 
+    local procedure SetBCPTLineCodeunitFilter(SuiteCode: Code[10]; CodeunitID: Integer; var BCPTLine: Record "BCPT Line")
+    begin
+        BCPTLine.SetRange("BCPT Code", SuiteCode);
+        BCPTLine.SetRange("Codeunit ID", CodeunitID);
+    end;
 }

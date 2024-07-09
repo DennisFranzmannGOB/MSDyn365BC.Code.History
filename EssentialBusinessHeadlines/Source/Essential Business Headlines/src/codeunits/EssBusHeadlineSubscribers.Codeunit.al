@@ -2,6 +2,11 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Visualization;
+
+using System.Environment.Configuration;
+
 codeunit 1438 "Ess. Bus. Headline Subscribers"
 {
 
@@ -32,7 +37,8 @@ codeunit 1438 "Ess. Bus. Headline Subscribers"
             exit;
 
         EssentialBusinessHeadline.SetRange("User Id", UserSecurityId());
-        EssentialBusinessHeadline.DeleteAll();
+        if not EssentialBusinessHeadline.IsEmpty() then
+            EssentialBusinessHeadline.DeleteAll();
     end;
 
     local procedure TransferHeadlineToPage(HeadlineName: Option; var HeadlineText: Text[250]; var HeadlineVisible: Boolean)

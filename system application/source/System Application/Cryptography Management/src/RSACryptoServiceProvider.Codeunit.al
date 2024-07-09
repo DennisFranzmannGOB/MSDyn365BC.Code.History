@@ -3,10 +3,12 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.Encryption;
+
 /// <summary>
 /// Performs asymmetric encryption and decryption using the implementation of the RSA algorithm provided by the cryptographic service provider (CSP).
 /// </summary>
-codeunit 1445 "RSACryptoServiceProvider"
+codeunit 1445 RSACryptoServiceProvider
 {
     Access = Public;
     InherentEntitlements = X;
@@ -15,6 +17,15 @@ codeunit 1445 "RSACryptoServiceProvider"
     var
         [NonDebuggable]
         RSACryptoServiceProviderImpl: Codeunit "RSACryptoServiceProvider Impl.";
+
+    /// <summary>
+    /// Initializes a new instance of RSACryptoServiceProvider with the specified key size and returns the key as an XML string.
+    /// </summary>
+    /// <param name="KeySize">The size of the key in bits.</param>
+    procedure InitializeRSA(KeySize: Integer)
+    begin
+        RSACryptoServiceProviderImpl.InitializeRSA(KeySize);
+    end;
 
     /// <summary>
     /// Creates and returns an XML string containing the key of the current RSA object.
@@ -78,5 +89,18 @@ codeunit 1445 "RSACryptoServiceProvider"
     procedure Decrypt(XmlString: Text; EncryptedTextInStream: InStream; OaepPadding: Boolean; DecryptedTextOutStream: OutStream)
     begin
         RSACryptoServiceProviderImpl.Decrypt(XmlString, EncryptedTextInStream, OaepPadding, DecryptedTextOutStream);
+    end;
+
+    /// <summary>  
+    /// The CreateRSAKeyPair procedure is a function that generates a public and private RSA key pair.  
+    /// </summary>  
+    /// <param name="PublicKeyInXml">This is an output parameter that returns the public key in XML format.</param>  
+    /// <param name="PrivateKeyInXml">This is an output parameter that returns the private key in XML format.</param>  
+    /// <returns>  
+    /// This function does not return a value. The output is via the two parameters PublicKeyInXml and PrivateKeyInXml.  
+    /// </returns>  
+    procedure CreateRSAKeyPair(var PublicKeyInXml: Text; var PrivateKeyInXml: Text)
+    begin
+        RSACryptoServiceProviderImpl.CreateRSAKeyPair(PublicKeyInXml, PrivateKeyInXml);
     end;
 }

@@ -1,3 +1,9 @@
+namespace Microsoft.Finance.Analysis.StatisticalAccount;
+
+using Microsoft.Finance.Dimension;
+using Microsoft.Finance.AllocationAccount;
+using System.Text;
+
 page 2632 "Statistical Account List"
 {
     ApplicationArea = All;
@@ -118,6 +124,14 @@ page 2632 "Statistical Account List"
                     RunObject = Page "Statistical Accounts Journal";
                     ToolTip = 'Open the statistical accounts journal, for example, to record or post an update to non-transactional data.';
                 }
+                action(AllocationAccounts)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Allocation Accounts';
+                    Image = Accounts;
+                    RunObject = Page "Allocation Account List";
+                    Tooltip = 'Opens the allocation accounts page, where you can create allocation accounts that will distribute costs based on statistical account balance.';
+                }
             }
 
             group(DemoData)
@@ -164,6 +178,9 @@ page 2632 "Statistical Account List"
                 {
                 }
                 actionref("StatisticalAccountBalance_Promoted"; StatisticalAccountBalance)
+                {
+                }
+                actionref("AllocationAccounts_Promoted"; AllocationAccounts)
                 {
                 }
             }

@@ -16,11 +16,9 @@ codeunit 139194 "CDS Connection Wizard Tests"
         VisibleTxt: Label 'Visible';
         ShouldBeErr: Label '%1 should be %2', Comment = '%1=filed name, %2=visibility';
         ShouldNotBeErr: Label '%1 should not be %2', Comment = '%1=filed name, %2=visibility';
-        ButtonTxt: Label 'Button';
-        WrongCredentialsErr: Label 'A URL, user name and password are required.';
         WrongConnectionStringErr: Label 'Wrong connection string generated';
         MustUseHttpsErr: Label 'The application is set up to support secure connections (HTTPS) to the Dataverse environment only. You cannot use HTTP.';
-        MissingClientIdOrSecretOnPremErr: Label 'You must register an Azure Active Directory application that will be used to connect to the Dataverse environment and specify the application id, secret and redirect URL in the Dataverse Connection Setup page.', Comment = 'Dataverse and Azure Active Directory are names of a Microsoft service and a Microsoft Azure resource and should not be translated.';
+        MissingClientIdOrSecretOnPremErr: Label 'You must register an Microsoft Entra application that will be used to connect to the Dataverse environment and specify the application id, secret and redirect URL in the Dataverse Connection Setup page.', Comment = 'Dataverse and Microsoft Entra are names of a Microsoft service and a Microsoft Azure resource and should not be translated.';
         IsInitialized: Boolean;
         IsSaaS: Boolean;
 
@@ -145,7 +143,7 @@ codeunit 139194 "CDS Connection Wizard Tests"
     end;
 
     [Test]
-    //[HandlerFunctions('ConfirmYesHandler')]
+    [HandlerFunctions('ConfirmYesHandler')]
     [Scope('OnPrem')]
     procedure VerifyWizardEmptyClientIDAndSecretError()
     var
@@ -226,7 +224,6 @@ codeunit 139194 "CDS Connection Wizard Tests"
     var
         CDSConnectionSetupWizard: TestPage "CDS Connection Setup Wizard";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
-        Email: Text;
         Username: Text;
     begin
         // [SCENARIO 211412] CDS Connection Wizard allow entering email for CDS server address not containing 'dynamics.com'

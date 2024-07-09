@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.DataAdministration;
+
+using System.Environment;
+
 codeunit 8700 "Table Information Cache Impl."
 {
     Access = Internal;
@@ -53,7 +57,7 @@ codeunit 8700 "Table Information Cache Impl."
         CompanySizeCache: Record "Company Size Cache";
     begin
         CompanySizeCache.CalcSums("Size (KB)");
-        Exit(CompanySizeCache."Size (KB)");
+        exit(CompanySizeCache."Size (KB)");
     end;
 
     local procedure RefreshCompanySizeCache()
@@ -109,8 +113,6 @@ codeunit 8700 "Table Information Cache Impl."
         TableInformationCache.SetCurrentKey("Data Size (KB)");
         TableInformationCache.SetAscending("Data Size (KB)", false);
         TableInformationCache.FilterGroup := 2;
-        // exclude tenant media tables
-        TableInformationCache.SetFilter("Table No.", '<>%1&<>%2&<>%3', Database::"Tenant Media", Database::"Tenant Media Set", Database::"Tenant Media Thumbnails");
         // get top 25 biggest tables
         if TableInformationCache.FindSet() then begin
             TableInformationCache.Next(24);

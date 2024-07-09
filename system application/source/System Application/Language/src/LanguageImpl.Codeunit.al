@@ -3,6 +3,12 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Globalization;
+
+using System;
+using System.Environment.Configuration;
+using System.Environment;
+
 codeunit 54 "Language Impl."
 {
     Access = Internal;
@@ -10,11 +16,18 @@ codeunit 54 "Language Impl."
     InherentEntitlements = X;
     InherentPermissions = X;
     Permissions = tabledata Language = rimd,
+                  tabledata "Language Selection" = r,
                   tabledata "User Personalization" = rm,
                   tabledata "Windows Language" = r;
 
     var
+        ResetLanguageIdOverrideAfterUse, ResetFormatRegionOverrideAfterUse : Boolean;
+        LanguageIdOverride: Integer;
+        FormatRegionOverride: Text[80];
         LanguageNotFoundErr: Label 'The language %1 could not be found.', Comment = '%1 = Language ID';
+        LanguageIdOverrideMsg: Label 'LanguageIdOverride has been applied in GetLanguageIdOrDefault. The new Language Id is %1.', Comment = '%1 - Language ID';
+        FormatRegionOverrideMsg: Label 'FormatRegionOverride has been applied in GetFormatRegionOrDefault. The new FormatRegion is %1.', Comment = '%1 - Format Region';
+        LanguageCategoryTxt: Label 'Language';
 
     procedure GetUserLanguageCode() UserLanguageCode: Code[10]
     var
@@ -31,12 +44,58 @@ codeunit 54 "Language Impl."
     var
         LanguageId: Integer;
     begin
-        LanguageId := GetLanguageId(LanguageCode);
+        if LanguageIdOverride <> 0 then begin
+            LanguageId := LanguageIdOverride;
+            Session.LogMessage('0000MJQ', StrSubstNo(LanguageIdOverrideMsg, LanguageId), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::All, 'Category', LanguageCategoryTxt);
+            if ResetLanguageIdOverrideAfterUse then
+                LanguageIdOverride := 0;
+            exit(LanguageId);
+        end;
 
+        LanguageId := GetLanguageId(LanguageCode);
         if LanguageId = 0 then
             LanguageId := GlobalLanguage();
 
         exit(LanguageId);
+    end;
+
+    procedure GetFormatRegionOrDefault(FormatRegion: Text[80]): Text[80]
+    var
+        LanguageSelection: Record "Language Selection";
+        UserSessionSettings: SessionSettings;
+        LocalId: Integer;
+    begin
+        if FormatRegionOverride <> '' then begin
+            FormatRegion := FormatRegionOverride;
+            Session.LogMessage('0000MJR', StrSubstNo(FormatRegionOverrideMsg, FormatRegion), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::All, 'Category', LanguageCategoryTxt);
+            if ResetFormatRegionOverrideAfterUse then
+                FormatRegionOverride := '';
+            exit(FormatRegion);
+        end;
+
+        if FormatRegion <> '' then
+            exit(FormatRegion);
+
+        // Lookup based on locale in user session
+        UserSessionSettings.Init();
+        LocalId := UserSessionSettings.LocaleId();
+        LanguageSelection.SetRange("Language ID", LocalId);
+        if LanguageSelection.FindFirst() then
+            exit(LanguageSelection."Language Tag");
+
+        exit('en-US');
+    end;
+
+    procedure SetOverrideLanguageId(LanguageId: Integer; ResetOverride: Boolean)
+    begin
+        LanguageIdOverride := LanguageId;
+        ResetLanguageIdOverrideAfterUse := ResetOverride;
+    end;
+
+    procedure SetOverrideFormatRegion(FormatRegion: Text[80]; ResetOverride: Boolean)
+    begin
+        FormatRegionOverride := FormatRegion;
+        ResetFormatRegionOverrideAfterUse := ResetOverride;
     end;
 
     procedure GetLanguageId(LanguageCode: Code[10]): Integer
@@ -193,7 +252,9 @@ codeunit 54 "Language Impl."
     begin
         WindowsLanguage.SetCurrentKey(Name);
 
-        if PAGE.RunModal(PAGE::"Windows Languages", WindowsLanguage) = ACTION::LookupOK then
+        if WindowsLanguage.Get(LanguageId) then;
+
+        if Page.RunModal(Page::"Windows Languages", WindowsLanguage) = Action::LookupOK then
             LanguageId := WindowsLanguage."Language ID";
     end;
 
@@ -217,17 +278,20 @@ codeunit 54 "Language Impl."
     var
         UserPersonalization: Record "User Personalization";
     begin
+        if not UserPersonalization.ReadPermission() then
+            exit;
+
         if not UserPersonalization.Get(UserSecID) then
             exit;
 
         // Only lock the table if there is a change
-        if UserPersonalization."Language ID" = NewLanguageId then
+        if UserPersonalization."Language ID" = NewLanguageID then
             exit; // No changes required
 
         UserPersonalization.LockTable();
         UserPersonalization.Get(UserSecID);
-        UserPersonalization.Validate("Language ID", NewLanguageId);
-        UserPersonalization.Validate("Locale ID", NewLanguageId);
+        UserPersonalization.Validate("Language ID", NewLanguageID);
+        UserPersonalization.Validate("Locale ID", NewLanguageID);
         UserPersonalization.Modify(true);
     end;
 
@@ -237,4 +301,3 @@ codeunit 54 "Language Impl."
         language := GetDefaultApplicationLanguageId();
     end;
 }
-

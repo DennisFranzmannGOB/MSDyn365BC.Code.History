@@ -3,15 +3,19 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.TestLibraries.Azure.ActiveDirectory;
+
+using System.Azure.Identity;
+
 /// <summary>
 /// Provides functionality to test plan configurations.
 /// </summary>
 codeunit 132924 "Plan Configuration Library"
 {
     Access = Public;
-    Permissions = tabledata "Plan Configuration" = rid,
+    Permissions = tabledata "Custom Permission Set In Plan" = rimd,
                   tabledata "Default Permission Set In Plan" = rimd,
-                  tabledata "Custom Permission Set In Plan" = rimd;
+                  tabledata "Plan Configuration" = rid;
 
     /// <summary>
     /// Clears all plan configurations.

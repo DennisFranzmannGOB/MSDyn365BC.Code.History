@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information. 
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Visualization;
+
 pageextension 1446 "Headlines RC Team Member Ext." extends "Headline RC Team Member"
 {
 
@@ -36,8 +38,6 @@ pageextension 1446 "Headlines RC Team Member Ext." extends "Headline RC Team Mem
     end;
 
     var
-        [InDataSet]
         Headline1Visible: Boolean;
-        [InDataSet]
         Headline1Text: Text[250];
 }

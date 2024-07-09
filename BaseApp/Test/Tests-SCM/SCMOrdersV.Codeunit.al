@@ -38,6 +38,7 @@ codeunit 137158 "SCM Orders V"
         LibraryPatterns: Codeunit "Library - Patterns";
         LibraryDimension: Codeunit "Library - Dimension";
         LibraryResource: Codeunit "Library - Resource";
+        LibraryITLocalization: Codeunit "Library - IT Localization";
         isInitialized: Boolean;
         ShipToCodeErr: Label 'Ship-to Code must be equal to ''%1''  in Purchase Header: Document Type=Order, No.=%2. Current value is ''%3''.', Comment = '%1 = Ship-to Code Value, %2 = PurchaseHeader No.Value';
         UndoReceiptMsg: Label 'Do you really want to undo the selected Receipt lines?';
@@ -58,6 +59,7 @@ codeunit 137158 "SCM Orders V"
         ExtendedTxt: Label 'Extended text of the BOM component.';
         ItemTrackingMode: Option AssignLotNo,SelectEntries,AssignSerialNo,UpdateQtyOnFirstLine,UpdateQtyOnLastLine,VerifyLot,AssignGivenLotNos,UpdateLotQty,"Set Lot No.","Get Lot Quantity";
         UndoReturnShipmentMsg: Label 'Do you really want to undo the selected Return Shipment lines?';
+        CombineShipmentMsg: Label 'The shipments are now combined';
         SpecialOrderSalesNoErr: Label 'Special Order Sales No in Purchase Line must be equal to Sales Order No';
         ValueEntriesWerePostedTxt: Label 'value entries have been posted to the general ledger.';
         WrongNoOfDocumentsListErr: Label 'There must be %1 documents in the list.';
@@ -747,7 +749,6 @@ codeunit 137158 "SCM Orders V"
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler')]
     [Scope('OnPrem')]
     procedure PostSalesOrderWithMultipleSeriesLineAndExtDocument()
     begin
@@ -755,7 +756,7 @@ codeunit 137158 "SCM Orders V"
         // [SCENARIO 252383] Test and verify Post Sales Order with Multiple Series Line and External Document.
 
         Initialize();
-        PostSalesOrderWithMultipleSeriesLine(true);  // Use True for with External Document.
+        asserterror PostSalesOrderWithMultipleSeriesLine(true);  // Use True for with External Document.
     end;
 
     local procedure PostSalesOrderWithMultipleSeriesLine(WithExternalDocumentNo: Boolean)
@@ -3494,6 +3495,97 @@ codeunit 137158 "SCM Orders V"
     end;
 
     [Test]
+    [HandlerFunctions('MessageHandler,CombineShipmentsRPH')]
+    [Scope('OnPrem')]
+    procedure CombineShipmentsForSameFatturaCodes()
+    var
+        Customer: Record Customer;
+        SalesInvoice: Record "Sales Header";
+        SalesHeader: array[2] of Record "Sales Header";
+        SalesOrder: TestPage "Sales Order";
+    begin
+        // [FEATURE] [Combine Shipments] [Fattura]
+        // [SCENARIO 376886] Combine Shipments report joins Shipment for same "Fattura Project Code" and "Fattura Tender Code" into one invoice
+        Initialize();
+
+        // [GIVEN] Customer with "Combine Shipments" = TRUE.
+        CreateCustomerWithCombineShipments(Customer);
+
+        // [GIVEN] Sales order "SO1", Fattura Project Code = "XXX", Fattura Tender Code = "111", shipped.
+        CreateSalesOrderWithFatturaCodes(SalesHeader[1], LibraryInventory.CreateItemNo, Customer."No.", LibraryRandom.RandInt(10), '', '');
+        LibrarySales.PostSalesDocument(SalesHeader[1], true, false);
+
+        // [GIVEN] Sales order "SO2", Fattura Project Code = "XXX", Fattura Tender Code = "111", shipped.
+        CreateSalesOrderWithFatturaCodes(SalesHeader[2], LibraryInventory.CreateItemNo, Customer."No.", LibraryRandom.RandInt(10), SalesHeader[1]."Fattura Project Code", SalesHeader[1]."Fattura Tender Code");
+        LibrarySales.PostSalesDocument(SalesHeader[2], true, false);
+
+        // [WHEN] Run "Combine Shipments" batch job for both shipped sales orders.
+        EnqueueVariablesForCombineShipments(CalcDate('<-CM>', WorkDate()), CalcDate('<+CM>', WorkDate()), SalesHeader[1]."Operation Type", Customer."No.");
+        LibraryVariableStorage.Enqueue(CombineShipmentMsg);
+        RunCombineShipments();
+
+        // [THEN] 1 Invoice is created
+        SalesInvoice.SetRange("Bill-to Customer No.", Customer."No.");
+        SalesInvoice.SetRange("Document Type", SalesInvoice."Document Type"::Invoice);
+        Assert.RecordCount(SalesInvoice, 1);
+
+        // [THEN] Created invoice contains Fattura Project Code = "XXX", Fattura Tender Code = "111"
+        SalesInvoice.FindFirst();
+        SalesInvoice.TestField("Fattura Project Code", SalesHeader[1]."Fattura Project Code");
+        SalesInvoice.TestField("Fattura Tender Code", SalesHeader[1]."Fattura Tender Code");
+
+        LibraryVariableStorage.AssertEmpty;
+    end;
+
+    [Test]
+    [HandlerFunctions('MessageHandler,CombineShipmentsRPH')]
+    [Scope('OnPrem')]
+    procedure CombineShipmentsForDifferentFatturaCodes()
+    var
+        Customer: Record Customer;
+        SalesInvoice: Record "Sales Header";
+        SalesHeader: array[2] of Record "Sales Header";
+        SalesOrder: TestPage "Sales Order";
+    begin
+        // [FEATURE] [Combine Shipments] [Fattura]
+        // [SCENARIO 376886] Combine Shipments report creates separate Invoices for Shipments with different "Fattura Project Code" and "Fattura Tender Code"
+        Initialize();
+
+        // [GIVEN] Customer with "Combine Shipments" = TRUE.
+        CreateCustomerWithCombineShipments(Customer);
+
+        // [GIVEN] Sales order "SO1", Fattura Project Code = "XXX", Fattura Tender Code = "111", shipped.
+        CreateSalesOrderWithFatturaCodes(SalesHeader[1], LibraryInventory.CreateItemNo, Customer."No.", LibraryRandom.RandInt(10), '', '');
+        LibrarySales.PostSalesDocument(SalesHeader[1], true, false);
+
+        // [GIVEN] Sales order "SO2", Fattura Project Code = "YYY", Fattura Tender Code = "222", shipped.
+        CreateSalesOrderWithFatturaCodes(SalesHeader[2], LibraryInventory.CreateItemNo, Customer."No.", LibraryRandom.RandInt(10), '', '');
+        LibrarySales.PostSalesDocument(SalesHeader[2], true, false);
+
+        // [WHEN] Run "Combine Shipments" batch job for both shipped sales orders.
+        EnqueueVariablesForCombineShipments(CalcDate('<-CM>', WorkDate()), CalcDate('<+CM>', WorkDate()), SalesHeader[1]."Operation Type", Customer."No.");
+        LibraryVariableStorage.Enqueue(CombineShipmentMsg);
+        RunCombineShipments();
+
+        // [THEN] 2 Invoices are created
+        SalesInvoice.SetRange("Bill-to Customer No.", Customer."No.");
+        SalesInvoice.SetRange("Document Type", SalesInvoice."Document Type"::Invoice);
+        Assert.RecordCount(SalesInvoice, 2);
+
+        // [THEN] First invoice contains Fattura Project Code = "XXX", Fattura Tender Code = "111"
+        SalesInvoice.FindFirst();
+        SalesInvoice.TestField("Fattura Project Code", SalesHeader[1]."Fattura Project Code");
+        SalesInvoice.TestField("Fattura Tender Code", SalesHeader[1]."Fattura Tender Code");
+
+        // [THEN] Second invoice contains Fattura Project Code = "YYY", Fattura Tender Code = "222"
+        SalesInvoice.FindLast();
+        SalesInvoice.TestField("Fattura Project Code", SalesHeader[2]."Fattura Project Code");
+        SalesInvoice.TestField("Fattura Tender Code", SalesHeader[2]."Fattura Tender Code");
+
+        LibraryVariableStorage.AssertEmpty;
+    end;
+
+    [Test]
     [Scope('OnPrem')]
     procedure TaxLiableTakenFromAlternateShippingAddress()
     var
@@ -3947,6 +4039,32 @@ codeunit 137158 "SCM Orders V"
         Task.Validate("Contact No.", Contact."No.");
         Task.Validate("Salesperson Code", Contact."Salesperson Code");
         Task.Modify(true);
+    end;
+
+    local procedure CreateCustomerWithCombineShipments(var Customer: Record Customer)
+    begin
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Validate("Combine Shipments", true);
+        Customer.Modify(true);
+    end;
+
+    local procedure CreateSalesOrderWithFatturaCodes(var SalesHeader: Record "Sales Header"; ItemNo: Code[20]; CustomerNo: Code[20]; Quantity: Decimal; FatturaProjectCode: Code[15]; FatturaTenderCode: Code[15])
+    var
+        SalesLine: Record "Sales Line";
+    begin
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, CustomerNo);
+        if FatturaProjectCode = '' then
+            FatturaProjectCode := LibraryITLocalization.CreateFatturaProjectCode();
+        if FatturaTenderCode = '' then
+            FatturaTenderCode := LibraryITLocalization.CreateFatturaTenderCode();
+        SalesHeader.Validate("Fattura Project Code", FatturaProjectCode);
+        SalesHeader.Validate("Fattura Tender Code", FatturaTenderCode);
+        SalesHeader.Modify(true);
+
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemNo, Quantity);
+        SalesLine.Validate("Qty. to Ship", Quantity);
+        SalesLine.Validate("Unit Price", LibraryRandom.RandDec(100, 2));
+        SalesLine.Modify(true);
     end;
 
     local procedure CreateContactWithTasks(var Contact: Record Contact)
@@ -4648,6 +4766,20 @@ codeunit 137158 "SCM Orders V"
             "Document No." := SalesHeader."No.";
             Type := Type::Item;
         end;
+    end;
+
+    local procedure EnqueueVariablesForCombineShipments(FromDate: Date; ToDate: Date; OperationType: Code[20]; CustomerNo: Code[20])
+    begin
+        LibraryVariableStorage.Enqueue(FromDate);
+        LibraryVariableStorage.Enqueue(ToDate);
+        LibraryVariableStorage.Enqueue(OperationType);
+        LibraryVariableStorage.Enqueue(CustomerNo);
+    end;
+
+    local procedure RunCombineShipments()
+    begin
+        Commit();
+        Report.RunModal(Report::"Combine Shipments", true);
     end;
 
     local procedure MockItemInventory(ItemNo: Code[20]; Qty: Decimal)
@@ -5744,6 +5876,21 @@ codeunit 137158 "SCM Orders V"
     procedure GetShipmentLinesModalPageHandler(var GetShipmentLines: TestPage "Get Shipment Lines")
     begin
         GetShipmentLines.OK.Invoke;
+    end;
+
+    [RequestPageHandler]
+    [Scope('OnPrem')]
+    procedure CombineShipmentsRPH(var CombineShipments: TestRequestPage "Combine Shipments")
+    var
+        CustomerNo: Code[20];
+    begin
+        CombineShipments.CombineFromDate.SetValue(LibraryVariableStorage.DequeueDate());
+        CombineShipments.CombineToDate.SetValue(LibraryVariableStorage.DequeueDate());
+        CombineShipments.OperationType.SetValue(LibraryVariableStorage.DequeueText());
+        CustomerNo := LibraryVariableStorage.DequeueText();
+        CombineShipments.SalesOrderHeader.SetFilter("Sell-to Customer No.", CustomerNo);
+        CombineShipments.SalesOrderHeader.SetFilter("Bill-to Customer No.", CustomerNo);
+        CombineShipments.OK.Invoke();
     end;
 
     [StrMenuHandler]

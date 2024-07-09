@@ -55,6 +55,7 @@ codeunit 137101 "SCM Kitting"
         PostingDateLaterErr: Label 'Posting Date on Assembly Order %1 must not be later than the Posting Date on Sales Order %2';
         UndoShipmentConfirmationMsg: Label 'Do you really want to undo the selected Shipment lines?';
         AppliesToEntryErr: Label 'Applies-to Entry on ILE should be equal to Appl. -to Item Entry on Assembly Line';
+        ModifiedAccordingToQst: Label 'will be modified according to';
         CostAmountErr: Label 'Cost Amount (Actual) was adjusted incorrectly';
         ValueEntriesWerePostedTxt: Label 'value entries have been posted to the general ledger.';
         UndoShpmtNotCompleteErr: Label 'The Shipment has not been cancelled completely.';
@@ -1826,7 +1827,7 @@ codeunit 137101 "SCM Kitting"
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler')]
+    [HandlerFunctions('MessageHandler,ConfirmHandler')]
     [Scope('OnPrem')]
     procedure PostSalesOrderForAssemblyItemWithUpdatedPostingDate()
     var
@@ -1841,6 +1842,8 @@ codeunit 137101 "SCM Kitting"
         CreateSalesOrderWithAssemblyItem(SalesLine);
 
         // Exercise: Update Posting Date on Sales Header
+        LibraryVariableStorage.Enqueue(ModifiedAccordingToQst);
+        LibraryVariableStorage.Enqueue(ModifiedAccordingToQst);
         UpdatePostingDateOnSalesHeader(
           SalesHeader, SalesLine."Document Type", SalesLine."Document No.",
           CalcDate('<-' + Format(LibraryRandom.RandInt(5)) + 'D>', WorkDate()));
@@ -1886,7 +1889,7 @@ codeunit 137101 "SCM Kitting"
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler')]
+    [HandlerFunctions('MessageHandler,ConfirmHandler')]
     [Scope('OnPrem')]
     procedure UpdatePostingDateOnSalesHeaderAndCreateSalesLineForAssemblyItem()
     var
@@ -1902,6 +1905,8 @@ codeunit 137101 "SCM Kitting"
         Initialize();
         CreateAssemblyItem(Item);
         PostingDate := CalcDate('<-' + Format(LibraryRandom.RandInt(5)) + 'D>', WorkDate());
+        LibraryVariableStorage.Enqueue(ModifiedAccordingToQst);
+        LibraryVariableStorage.Enqueue(ModifiedAccordingToQst);
         CreateSalesOrderWithPostingDate(SalesLine, Item."No.", PostingDate);
 
         // Exercise: Generate an Assembly Order on Sales Line
@@ -2529,9 +2534,95 @@ codeunit 137101 "SCM Kitting"
         VerifyJobTaskDimensionOnRequisitionLine(AssemblyLine, DefaultDimension);
     end;
 
+    [Test]
+    procedure PostingDateModifiesDocumentDate()
+    var
+        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
+        PurchaseOrder: Record "Purchase Header";
+        PurchaseReturnOrder: Record "Purchase Header";
+        PurchaseInvoice: Record "Purchase Header";
+        PurchaseCreditMemo: Record "Purchase Header";
+        DocDate, PostingDate : Date;
+    begin
+        // [SCENARIO] Check that the PurchasesPayablesSetup."Link Doc. Date To Posting Date" setting has the correct effect on purchase documents when set to true
+
+        // [GIVEN] Change the setting to true
+        PurchasesPayablesSetup.Get();
+        PurchasesPayablesSetup.Validate("Link Doc. Date To Posting Date", true);
+        PurchasesPayablesSetup.Modify(true);
+
+        // [GIVEN] Create purchase documents and set the document date
+        DocDate := 20000101D;
+        LibraryPurchase.CreatePurchHeader(PurchaseOrder, "Purchase Document Type"::"Order", '');
+        PurchaseOrder.Validate("Document Date", DocDate);
+        LibraryPurchase.CreatePurchHeader(PurchaseReturnOrder, "Purchase Document Type"::"Return Order", '');
+        PurchaseReturnOrder.Validate("Document Date", DocDate);
+        LibraryPurchase.CreatePurchHeader(PurchaseInvoice, "Purchase Document Type"::"Invoice", '');
+        PurchaseInvoice.Validate("Document Date", DocDate);
+        LibraryPurchase.CreatePurchHeader(PurchaseCreditMemo, "Purchase Document Type"::"Credit Memo", '');
+        PurchaseCreditMemo.Validate("Document Date", DocDate);
+
+        // [WHEN] The posting date is modified
+        PostingDate := 30000101D;
+        PurchaseOrder.Validate("Posting Date", PostingDate);
+        PurchaseReturnOrder.Validate("Posting Date", PostingDate);
+        PurchaseInvoice.Validate("Posting Date", PostingDate);
+        PurchaseCreditMemo.Validate("Posting Date", PostingDate);
+
+        // [THEN] The document date should be modified
+        PurchaseOrder.TestField("Document Date", PostingDate);
+        PurchaseReturnOrder.TestField("Document Date", PostingDate);
+        PurchaseInvoice.TestField("Document Date", PostingDate);
+        PurchaseCreditMemo.TestField("Document Date", PostingDate);
+    end;
+
+    [Test]
+    procedure PostingDateDoesNotModifiesDocumentDate()
+    var
+        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
+        PurchaseOrder: Record "Purchase Header";
+        PurchaseReturnOrder: Record "Purchase Header";
+        PurchaseInvoice: Record "Purchase Header";
+        PurchaseCreditMemo: Record "Purchase Header";
+        DocDate, PostingDate : Date;
+    begin
+        // [SCENARIO] Check that the PurchasesPayablesSetup."Link Doc. Date To Posting Date" setting has the correct effect on Purchase documents when set to false
+
+        // [GIVEN] Change the setting to false
+        PurchasesPayablesSetup.Get();
+        PurchasesPayablesSetup.Validate("Link Doc. Date To Posting Date", false);
+        PurchasesPayablesSetup.Modify();
+
+        // [GIVEN] Create Purchase documents and set the document date
+        DocDate := 20000101D;
+        LibraryPurchase.CreatePurchHeader(PurchaseOrder, "Purchase Document Type"::"Order", '');
+        PurchaseOrder.Validate("Document Date", DocDate);
+        LibraryPurchase.CreatePurchHeader(PurchaseReturnOrder, "Purchase Document Type"::"Return Order", '');
+        PurchaseReturnOrder.Validate("Document Date", DocDate);
+        LibraryPurchase.CreatePurchHeader(PurchaseInvoice, "Purchase Document Type"::"Invoice", '');
+        PurchaseInvoice.Validate("Document Date", DocDate);
+        LibraryPurchase.CreatePurchHeader(PurchaseCreditMemo, "Purchase Document Type"::"Credit Memo", '');
+        PurchaseCreditMemo.Validate("Document Date", DocDate);
+
+        // [WHEN] The posting date is modified
+        PostingDate := 30000101D;
+        PurchaseOrder.Validate("Posting Date", PostingDate);
+        PurchaseReturnOrder.Validate("Posting Date", PostingDate);
+        PurchaseInvoice.Validate("Posting Date", PostingDate);
+        PurchaseCreditMemo.Validate("Posting Date", PostingDate);
+
+        // [THEN] The document date should not be modified
+        PurchaseOrder.TestField("Document Date", DocDate);
+        PurchaseReturnOrder.TestField("Document Date", DocDate);
+        PurchaseInvoice.TestField("Document Date", DocDate);
+        PurchaseCreditMemo.TestField("Document Date", DocDate);
+    end;
+
     local procedure Initialize()
     var
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
+        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"SCM Kitting");
         LibrarySetupStorage.Restore();
@@ -2550,6 +2641,12 @@ codeunit 137101 "SCM Kitting"
         LocationSetup();
         LibraryAssembly.SetupItemJournal(ItemJournalTemplate, ItemJournalBatch);
         LibraryERMCountryData.UpdateJournalTemplMandatory(false);
+        PurchasesPayablesSetup.Get();
+        PurchasesPayablesSetup.Validate("Link Doc. Date To Posting Date", true);
+        PurchasesPayablesSetup.Modify();
+        SalesReceivablesSetup.Get();
+        SalesReceivablesSetup.Validate("Link Doc. Date To Posting Date", true);
+        SalesReceivablesSetup.Modify();
 
         LibrarySetupStorage.Save(DATABASE::"General Ledger Setup");
         LibrarySetupStorage.Save(DATABASE::"Inventory Setup");

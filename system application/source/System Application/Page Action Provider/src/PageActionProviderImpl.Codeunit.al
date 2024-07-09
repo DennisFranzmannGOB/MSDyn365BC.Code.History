@@ -3,6 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Integration;
+
+using System.Azure.Identity;
+using System.Environment;
+using System.Reflection;
+using System.Environment.Configuration;
+
 /// <summary>
 /// Implements functionality to get action data for a given page.
 /// </summary>
@@ -11,16 +18,16 @@ codeunit 2916 "Page Action Provider Impl."
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
-    Permissions = tabledata "Page Action" = r,
-                  tabledata "User Personalization" = r,
-                  tabledata "All Profile" = r;
+    Permissions = tabledata "All Profile" = r,
+                  tabledata "Page Action" = r,
+                  tabledata "User Personalization" = r;
 
     procedure GetCurrentRoleCenterHomeItems(IncludeViews: Boolean): Text
     var
         CurrentRoleCenterId: Integer;
         ResultJsonObject: JsonObject;
     begin
-        // Add version 
+        // Add version
         ResultJsonObject.Add('version', GetVersion());
 
         // Add current role center Id

@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Text;
+
+using System;
+
 codeunit 4111 "Base64 Convert Impl."
 {
     Access = Internal;
@@ -54,7 +58,7 @@ codeunit 4111 "Base64 Convert Impl."
                 Base64String := Convert.ToBase64String(Encoding.Unicode().GetBytes(String), Base64FormattingOptions);
             TextEncoding::MSDos,
             TextEncoding::Windows:
-                Base64String := Convert.ToBase64String(Encoding.GetEncoding(CodePage).GetBytes(String), Base64FormattingOptions);
+                Base64String := Convert.ToBase64String(Encoding.GetEncoding(Codepage).GetBytes(String), Base64FormattingOptions);
             else
                 Base64String := Convert.ToBase64String(Encoding.UTF8().GetBytes(String), Base64FormattingOptions);
         end;

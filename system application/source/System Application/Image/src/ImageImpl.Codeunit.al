@@ -3,6 +3,11 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Utilities;
+
+using System;
+using System.Text;
+
 codeunit 3970 "Image Impl."
 {
     Access = Internal;
@@ -146,8 +151,8 @@ codeunit 3970 "Image Impl."
         Base64Converter: Codeunit "Base64 Convert";
         Outstream: OutStream;
     begin
-        TempBlob.CreateOutStream(OutStream, TextEncoding::UTF8);
-        Base64Converter.FromBase64(Base64Text, OutStream);
+        TempBlob.CreateOutStream(Outstream, TextEncoding::UTF8);
+        Base64Converter.FromBase64(Base64Text, Outstream);
 
         CreateAndVerifyImage();
     end;

@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.DataAdministration;
+
+using System.Reflection;
+
 codeunit 3916 "Reten. Pol. Delete. Impl." implements "Reten. Pol. Deleting"
 {
     Access = Internal;
@@ -19,7 +23,7 @@ codeunit 3916 "Reten. Pol. Delete. Impl." implements "Reten. Pol. Deleting"
         RecordReference: Codeunit "Record Reference";
         RecordReferenceIndirectPermission: Interface "Record Reference";
     begin
-        if RetenPolDeletingParam."Max. Number of Rec. To Delete" < 0 then begin
+        if RetenPolDeletingParam."Max. Number of Rec. to Delete" < 0 then begin
             RetentionPolicyLog.LogWarning(LogCategory(), MaxNumberofRecToDeleteNegLbl);
             exit;
         end;
@@ -28,6 +32,7 @@ codeunit 3916 "Reten. Pol. Delete. Impl." implements "Reten. Pol. Deleting"
 
         if not RecordReferenceIndirectPermission.ReadPermission(RecordRef) then
             RetentionPolicyLog.LogWarning(LogCategory(), StrSubstNo(MissingReadPermissionLbl, RecordRef.Number, RecordRef.Caption));
+
         if not RetenPolDeletingParam."Indirect Permission Required" then
             RecordReferenceIndirectPermission.DeleteAll(RecordRef, true);
         RetenPolDeletingParam."Skip Event Indirect Perm. Req." := not RetenPolDeletingParam."Indirect Permission Required";

@@ -1,7 +1,11 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Apps;
+
+using System.Globalization;
 
 /// <summary>
 /// Provides an interface for installing extensions from AppSource.
@@ -15,7 +19,7 @@ page 2510 "Marketplace Extn Deployment"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(General)
             {
@@ -29,7 +33,7 @@ page 2510 "Marketplace Extn Deployment"
             {
                 ApplicationArea = All;
                 Caption = 'Language';
-                ToolTip = 'Choose the language of the extension.';
+                ToolTip = 'Specifies the language of the extension.';
                 Editable = false;
 
                 trigger OnAssistEdit()
@@ -95,6 +99,16 @@ page 2510 "Marketplace Extn Deployment"
                     Editable = false;
                     ToolTip = 'After installation, your session will refresh, and you can set up your extension.';
                 }
+                field(PreviewInfo; PreviewInfoLbl)
+                {
+                    ApplicationArea = All;
+                    ShowCaption = false;
+                    Editable = false;
+                    MultiLine = true;
+                    Style = Strong;
+                    ToolTip = 'You are about to install a preview version of the extension.';
+                    Visible = InstallPreview;
+                }
 
             }
         }
@@ -102,7 +116,7 @@ page 2510 "Marketplace Extn Deployment"
 
     actions
     {
-        area(processing)
+        area(Processing)
         {
             action(Install)
             {
@@ -138,13 +152,19 @@ page 2510 "Marketplace Extn Deployment"
         AppID := ID;
     end;
 
+    internal procedure SetPreviewKey(PreviewKey: Text[2048])
+    begin
+        if (PreviewKey <> '') then
+            InstallPreview := true;
+    end;
+
     trigger OnInit()
     var
         LanguageManagement: Codeunit Language;
     begin
         LanguageID := GlobalLanguage();
         LanguageName := LanguageManagement.GetWindowsLanguageName(LanguageID);
-        clear(InstallSelected);
+        Clear(InstallSelected);
     end;
 
     trigger OnOpenPage()
@@ -158,8 +178,10 @@ page 2510 "Marketplace Extn Deployment"
         LanguageName: Text;
         LanguageID: Integer;
         InstallSelected: Boolean;
+        InstallPreview: Boolean;
         AppID: Guid;
         ActiveUsersLbl: Label 'Note: There might be other users working in the system.';
         WarningLbl: Label 'Installing extensions during business hours will disrupt other users.';
         RefreshInfoLbl: Label 'After installation, your session will refresh, and you can set up your extension.';
+        PreviewInfoLbl: Label 'Note: A preview key was provided for the installation. A preview version of the extension is about to be installed. If a higher public version exists for your environment, it will be installed instead of the preview version.';
 }

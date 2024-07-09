@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Privacy;
+
 codeunit 1568 "Power Automate Privacy Notice"
 {
     Access = Internal;
@@ -21,7 +23,7 @@ codeunit 1568 "Power Automate Privacy Notice"
     begin
         SignInAgainNotification.Id := SignInAgainNotificationGuidTok;
         SignInAgainNotification.Message := SignInAgainMsg;
-        SignInAgainNotification.Scope := NOTIFICATIONSCOPE::LocalScope;
+        SignInAgainNotification.Scope := NotificationScope::LocalScope;
         SignInAgainNotification.Send();
     end;
 

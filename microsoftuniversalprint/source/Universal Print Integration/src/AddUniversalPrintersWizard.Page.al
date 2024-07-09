@@ -11,7 +11,7 @@ page 2752 "Add Universal Printers Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible AND (CurrentStep <> CurrentStep::Done);
+                Visible = TopBannerVisible and (CurrentStep <> CurrentStep::Done);
 
                 field("<MediaRepositoryStandard>"; MediaResourcesStandard."Media Reference")
                 {
@@ -25,7 +25,7 @@ page 2752 "Add Universal Printers Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible AND (CurrentStep = CurrentStep::Done);
+                Visible = TopBannerVisible and (CurrentStep = CurrentStep::Done);
 
                 field("<MediaRepositoryDone>"; MediaResourcesDone."Media Reference")
                 {
@@ -64,34 +64,6 @@ page 2752 "Add Universal Printers Wizard"
                             Hyperlink(UniversalPrintUrlTxt);
                         end;
                     }
-#if not CLEAN20
-                    field(Privacy; PrivacyLbl)
-                    {
-                        ObsoleteReason = 'Field is no longer used due to privacy notice above.';
-                        ObsoleteState = Pending;
-                        ObsoleteTag = '20.0';
-                        Visible = false;
-                        ApplicationArea = All;
-                        Editable = false;
-                        ShowCaption = false;
-                        Caption = 'Click here to understand how the data is handled.';
-                        ToolTip = 'Opens a privacy help article.';
-                        trigger OnDrillDown()
-                        begin
-                            Hyperlink(PrivacyUrlTxt);
-                        end;
-                    }
-                    label(EmptySpace1)
-                    {
-                        ObsoleteReason = 'Empty space no longer needed.';
-                        ObsoleteState = Pending;
-                        ObsoleteTag = '20.0';
-                        Visible = false;
-                        ApplicationArea = All;
-                        ShowCaption = false;
-                        Caption = '';
-                    }
-#endif
                 }
                 group("Para0.2")
                 {
@@ -106,7 +78,7 @@ page 2752 "Add Universal Printers Wizard"
                 group(PrivacyNoticeInner)
                 {
                     Caption = 'Your privacy is important to us';
-                    
+
                     label(PrivacyNoticeLabel)
                     {
                         ApplicationArea = All;
@@ -127,17 +99,17 @@ page 2752 "Add Universal Printers Wizard"
             }
             group(OnPremAadSetup)
             {
-                Caption = 'Connect your Azure AD application';
+                Caption = 'Connect your Microsoft Entra application';
                 Visible = CurrentStep = CurrentStep::OnPremAadSetup;
 
                 group("Para1.1")
                 {
-                    Caption = 'Connect with Azure';
+                    Caption = 'Connect with Microsoft Entra';
 
                     label("Para1.1.1")
                     {
                         ApplicationArea = All;
-                        Caption = 'To add Universal Print printers to Business Central on-premises, you''ll first need a registered application for Business Central in Azure Active Directory (Azure AD).';
+                        Caption = 'To add Universal Print printers to Business Central on-premises, you''ll first need a registered application for Business Central in Microsoft Entra ID.';
                     }
                     field("Para1.1.3"; LearnMoreAzureAppTxt)
                     {
@@ -153,7 +125,7 @@ page 2752 "Add Universal Printers Wizard"
                     label("Para1.1.2")
                     {
                         ApplicationArea = All;
-                        Caption = 'Once an Azure AD application has been registered, you''re ready to continue with this setup. During setup, you''ll provide information about Azure AD application. Choose Next to continue.';
+                        Caption = 'Once a Microsoft Entra application has been registered, you''re ready to continue with this setup. During setup, you''ll provide information about your Microsoft Entra application. Choose Next to continue.';
                     }
                 }
             }
@@ -165,7 +137,7 @@ page 2752 "Add Universal Printers Wizard"
                 group("Para2.1")
                 {
                     Caption = '';
-                    Visible = Not HasLicense;
+                    Visible = not HasLicense;
                     label("Para2.1.1")
                     {
                         ApplicationArea = All;
@@ -482,17 +454,13 @@ page 2752 "Add Universal Printers Wizard"
         NumberOfPrintersAddedTemplateTxt: Label 'Number of printers added: %1.', Comment = '%1: a number.';
         StepOutOfRangeErr: Label 'Wizard step out of range.';
         StepOutOfRangeTelemetryTxt: Label 'Step out of range from %1, Forward=%2', Locked = true;
-        NoTokenForOnPremErr: Label 'We couldn''t connect to Universal Print using your Azure AD application registration. Run the Set Up Azure Active Directory assisted setup again, and make sure all the values are set correctly.';
+        NoTokenForOnPremErr: Label 'We couldn''t connect to Universal Print using your Microsoft Entra application registration. Run the "Set up Microsoft Entra ID" assisted setup again, and make sure all the values are set correctly.';
         NoTablePermissionsErr: Label 'You do not have the necessary table permissions to access Universal Print printers. Ask your system administrator for permissions, then run this page again.';
         UniversalPrintUrlTxt: Label 'https://go.microsoft.com/fwlink/?linkid=2153518', Locked = true;
         LearnMoreTxt: Label 'Learn more about Universal Print.';
         LearnMoreSignupTxt: Label 'Learn more and sign up!';
-        LearnMoreAzureAppTxt: Label 'Learn more about registering an Azure AD application';
+        LearnMoreAzureAppTxt: Label 'Learn more about registering a Microsoft Entra application';
         AzureAppLinkTxt: Label 'https://go.microsoft.com/fwlink/?linkid=2150045', Locked = true;
-#if not CLEAN20
-        PrivacyLbl: Label 'Learn more about how the data is handled.';
-        PrivacyUrlTxt: Label 'https://go.microsoft.com/fwlink/?linkid=724009', Locked = true;
-#endif
         LearnMoreUniversalPrintPortalTxt: Label 'Universal Print portal';
         PrivacyStatementTxt: Label 'Learn more about our Privacy Statement.';
 }

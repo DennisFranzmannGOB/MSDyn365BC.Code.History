@@ -4316,6 +4316,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Document Attachment Tests - NamedType PrintedToAttachmentTxt)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 2785749549 - Method 4031811529 - NamedType 836342478" ItemType=";Codeunit - LocalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[image/png]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Document Attachment Tests - Method GetContentType - NamedType ImageFormatLabel)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 3063528946 - NamedType 4204627623" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[Customers on the selected documents might use different document sending profiles. Choose one of the following options: ]]></Val>
@@ -5279,15 +5288,6 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Normal DemoData - NamedType EmptyBlobErr)]]></Cmt>
     </Cmts>
   </Item>
-  <Item ItemId=";Codeunit 591093988 - NamedType 566374801" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[There is no Purchase Header within the filter.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Normal DemoData - NamedType NoPurchHeaderErr)]]></Cmt>
-    </Cmts>
-  </Item>
   <Item ItemId=";Codeunit 591093988 - NamedType 1925180759" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[Act/Bud]]></Val>
@@ -6064,20 +6064,29 @@
   </Item>
   <Item ItemId=";Codeunit 1253956902 - NamedType 534968786" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[You cannot purchase item %1 because the Purchasing Blocked check box is selected on the item card.]]></Val>
+      <Val><![CDATA[You cannot purchase %1 %2 because the %3 check box is selected on the %1 card.]]></Val>
     </Str>
     <Disp Icon="Str" Expand="true" />
     <Cmts>
-      <Cmt Name="Dev"><![CDATA[%1 - Item No.]D;]A;(LookupHint=Codeunit Skipped Document Lines - NamedType IsPurchBlockedItemErr)]]></Cmt>
+      <Cmt Name="Dev"><![CDATA[%1 - Table Caption (item/variant), %2 - Entity Code, %3 - Field Caption]D;]A;(LookupHint=Codeunit Skipped Document Lines - NamedType IsPurchBlockedItemErr)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 1253956902 - NamedType 3869603910" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[You cannot sell item %1 because the Sales Blocked check box is selected on the item card.]]></Val>
+      <Val><![CDATA[You cannot sell %1 %2 because the %3 check box is selected on the %1 card.]]></Val>
     </Str>
     <Disp Icon="Str" Expand="true" />
     <Cmts>
-      <Cmt Name="Dev"><![CDATA[%1 - Item No.]D;]A;(LookupHint=Codeunit Skipped Document Lines - NamedType IsSalesBlockedItemErr)]]></Cmt>
+      <Cmt Name="Dev"><![CDATA[%1 - Table Caption (item/variant), %2 - Entity Code, %3 - Field Caption]D;]A;(LookupHint=Codeunit Skipped Document Lines - NamedType IsSalesBlockedItemErr)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 1253956902 - NamedType 797974543" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[%1 %2]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[%1 - Item No., %2 - Variant Code]D;]A;(LookupHint=Codeunit Skipped Document Lines - NamedType ItemItemVariantLbl)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 1253956902 - NamedType 1304771032" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
@@ -6467,42 +6476,6 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Test OCR Service Setup - NamedType InvalidUriErr)]]></Cmt>
     </Cmts>
   </Item>
-  <Item ItemId=";Codeunit 2483382469 - NamedType 4112877437" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[TESTITEMXXX]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Test Planning/Req.Wksh - NamedType ItemDescription)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 2483382469 - NamedType 3179137357" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[NTF_TEST_NTF_TEST]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Test Planning/Req.Wksh - NamedType TESTTEXT)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 2483382469 - NamedType 3114637384" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[No service item has a non-blocked customer and non-blocked item. Execution stops.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Test Planning/Req.Wksh - NamedType Text001)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 2483382469 - NamedType 95063322" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[Service Order %1 does not exist.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Test Planning/Req.Wksh - NamedType Text003)]]></Cmt>
-    </Cmts>
-  </Item>
   <Item ItemId=";Codeunit 4122365620 - NamedType 1476454700" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[Unexpected XML Element VAT Clause. Expected result:XML Element VAT Clause doesn't exist.]]></Val>
@@ -6654,6 +6627,15 @@
     <Disp Icon="Str" Expand="true" />
     <Cmts>
       <Cmt Name="Dev"><![CDATA[TransformationRule.Code for replacing all a characters to b]D;]A;(LookupHint=Codeunit Transformation Rules Tests - NamedType REPLACEATxt)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 4248684771 - NamedType 1788274998" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[ROUND]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[TransformationRule.Code for rounding]D;]A;(LookupHint=Codeunit Transformation Rules Tests - NamedType ROUNDTxt)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 4248684771 - NamedType 250807548" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
@@ -6915,96 +6897,6 @@
     <Disp Icon="Str" Expand="true" />
     <Cmts>
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit UT REST - NamedType XmlDocLoadErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 465773095 - NamedType 3656088082" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The address %1 was possible to connect to without a certificate validation error.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[The address https://www.example.com/ was possible to connect to without a certificate validation error.]D;]A;(LookupHint=Codeunit Validate Service Certificates - NamedType AddressIsReachableErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 465773095 - NamedType 2410102011" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The address %1 was not possible to connect to.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[The address https://www.example.com/ was not possible to connect to.]D;]A;(LookupHint=Codeunit Validate Service Certificates - NamedType AddressNotReachableErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 465773095 - NamedType 266485133" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The remote certificate is invalid according to the validation procedure.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Validate Service Certificates - NamedType CertificateValidationErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 4119262855 - NamedType 2421578029" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[VAT Return %1 has been created. Do you want to open the VAT return card?]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[1 - VAT Return No.]D;]A;(LookupHint=Codeunit VAT Return Period UT - NamedType CreateVATReturnQst)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 4119262855 - NamedType 3559874033" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[You cannot delete a VAT return period that has a linked VAT return.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit VAT Return Period UT - NamedType DeleteExistingVATRetErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 4119262855 - NamedType 1319818500" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[Auto receive job has failed (executed on %1).]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[1 - datetime]D;]A;(LookupHint=Codeunit VAT Return Period UT - NamedType FailedJobNotificationMsg)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 4119262855 - NamedType 2123020243" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[Insert is only allowed with the Get VAT Return Periods action.]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit VAT Return Period UT - NamedType ManualInsertNotificationMsg)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 4119262855 - NamedType 638828930" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[There is no VAT return for this period. Do you want to create a new one?]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit VAT Return Period UT - NamedType NoVATReturnQst)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 4119262855 - NamedType 3458227332" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[The Period Reminder Calculation should be a positive formula. For example, "1M" should be used instead of "-1M".]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit VAT Return Period UT - NamedType PositivePeriodReminderCalcErr)]]></Cmt>
-    </Cmts>
-  </Item>
-  <Item ItemId=";Codeunit 4119262855 - NamedType 2924229463" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
-    <Str Cat="Text" CP="DOS">
-      <Val><![CDATA[TestCodeunitRunMessage]]></Val>
-    </Str>
-    <Disp Icon="Str" Expand="true" />
-    <Cmts>
-      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit VAT Return Period UT - NamedType TestCodeunitRunMsg)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 3911894280 - NamedType 3186712645" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">

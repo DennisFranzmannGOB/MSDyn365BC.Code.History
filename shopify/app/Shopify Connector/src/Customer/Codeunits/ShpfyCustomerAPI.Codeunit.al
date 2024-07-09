@@ -1,3 +1,7 @@
+namespace Microsoft.Integration.Shopify;
+
+using Microsoft.Sales.Customer;
+
 /// <summary>
 /// Codeunit Shpfy Customer API (ID 30114).
 /// </summary>
@@ -31,7 +35,7 @@ codeunit 30114 "Shpfy Customer API"
             GraphQuery.Append(': \"')
         else
             GraphQuery.Append(': ');
-        GraphQuery.Append(Format(ValueAsVariant));
+        GraphQuery.Append(CommunicationMgt.EscapeGrapQLData(Format(ValueAsVariant)));
         if ValueAsString then
             GraphQuery.Append('\", ')
         else
@@ -192,17 +196,14 @@ codeunit 30114 "Shpfy Customer API"
         JResponse: JsonToken;
         Cursor: Text;
         GraphQLType: Enum "Shpfy GraphQL Type";
-        Paramaters: Dictionary of [Text, Text];
+        Parameters: Dictionary of [Text, Text];
         LastSync: DateTime;
     begin
         GraphQLType := GraphQLType::GetCustomerIds;
         LastSync := Shop.GetLastSyncTime("Shpfy Synchronization Type"::Customers);
-        if LastSync > 0DT then
-            Paramaters.Add('LastSync', Format(LastSync, 0, 9))
-        else
-            Paramaters.Add('LastSync', '');
+        Parameters.Add('LastSync', Format(LastSync, 0, 9));
         repeat
-            JResponse := CommunicationMgt.ExecuteGraphQL(GraphQLType, Paramaters);
+            JResponse := CommunicationMgt.ExecuteGraphQL(GraphQLType, Parameters);
             if JsonHelper.GetJsonArray(JResponse, JCustomers, 'data.customers.edges') then begin
                 foreach JItem in JCustomers do begin
                     Cursor := JsonHelper.GetValueAsText(JItem.AsObject(), 'cursor');
@@ -212,10 +213,10 @@ codeunit 30114 "Shpfy Customer API"
                         CustomerIds.Add(Id, UpdatedAt);
                     end;
                 end;
-                if Paramaters.ContainsKey('After') then
-                    Paramaters.Set('After', Cursor)
+                if Parameters.ContainsKey('After') then
+                    Parameters.Set('After', Cursor)
                 else
-                    Paramaters.Add('After', Cursor);
+                    Parameters.Add('After', Cursor);
                 GraphQLType := GraphQLType::GetNextCustomerIds;
             end;
         until not JsonHelper.GetValueAsBoolean(JResponse, 'data.customers.pageInfo.hasNextPage');

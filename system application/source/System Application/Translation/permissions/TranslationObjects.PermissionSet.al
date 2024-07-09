@@ -3,11 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Globalization;
+
 permissionset 3713 "Translation - Objects"
 {
     Access = Internal;
     Assignable = false;
 
-    Permissions = Codeunit Translation = X,
-                  Page Translation = X;
+    Permissions = codeunit Translation = X,
+                  page Translation = X;
 }

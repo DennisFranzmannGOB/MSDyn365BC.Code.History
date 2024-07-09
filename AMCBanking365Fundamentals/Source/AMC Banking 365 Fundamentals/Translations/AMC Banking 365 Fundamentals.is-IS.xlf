@@ -219,12 +219,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Assisted Mgt. - NamedType YouHave2OptionsLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2319047537 - NamedType 2415257204" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Please wait while the operation is being completed.</source>
-          <target state="translated">Bíðið þar til aðgerðinni hefur verið lokið.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Bank Acc. Rec Lin - NamedType ProgressWindowMsg</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3646414981 - NamedType 2474376791" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>For more information, go to %1.</source>
           <target state="translated">Nánari upplýsingar má fá á %1.</target>
@@ -272,12 +266,6 @@
           <target state="translated">AMC Banking hefur ekki skilað neinum greiðslugögnum.\\Frekari upplýsingar er að finna í %1.</target>
           <note from="Developer" annotates="general" priority="2">%1=Support URL</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Exp. CT Hndl - NamedType PaymentDataNotCollectedErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2413088747 - NamedType 2779639592" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Processing line no. #1######.</source>
-          <target state="translated">Vinnur línu nr. #1######.</target>
-          <note from="Developer" annotates="general" priority="2">#1=Line number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Exp. CT Mapping - NamedType ProgressMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1051898237 - NamedType 2779639592" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pre-processing line no. #1######.</source>
@@ -338,60 +326,6 @@
           <target state="translated">Meginmál beiðni hefur ekki verið fært inn.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Imp.STMT. Hndl - NamedType NoRequestBodyErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3857426880 - NamedType 2779639592" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Preparing line number #1#######</source>
-          <target state="translated">Línunúmer #1####### undirbúið</target>
-          <note from="Developer" annotates="general" priority="2">#1 = Linenumber</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Import Bank STMT - NamedType ProgressMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1873957797 - NamedType 1428720056" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The bank statement that you are importing contains transactions in currencies other than the %1 %2 of bank account %3.</source>
-          <target state="translated">Bankayfirlitið sem verið er að flytja inn inniheldur færslur í öðrum gjaldmiðlum en %1 %2 fyrir bankareikninginn %3.</target>
-          <note from="Developer" annotates="general" priority="2">%1 %2 = Currency Code EUR; %3 = Bank Account No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Pre&amp;Post Process - NamedType BankAccCurrErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1873957797 - NamedType 1975081983" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bank account %1 does not have the bank account number %2, as specified in the bank statement file.\\Do you want to continue?</source>
-          <target state="translated">Bankareikningur %1 er ekki með bankareikningsnúmer %2, eins tilgreint er í bankayfirlitsskránni.\\Á að halda áfram?</target>
-          <note from="Developer" annotates="general" priority="2">%1=Value; %2 = Bank account no.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Pre&amp;Post Process - NamedType BankAccMismatchQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1873957797 - NamedType 3179812607" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The bank statement that you are importing contains transactions in %1 %2. This conflicts with the %3 %4.\\Do you want to continue?</source>
-          <target state="translated">Bankayfirlitið sem verið að flytja inn inniheldur færslur í %1 %2. Þetta rekst á við %3 %4.\\Á að halda áfram?</target>
-          <note from="Developer" annotates="general" priority="2">%1 %2 = Currency Code EUR; %3 %4 = LCY Code DKK.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Pre&amp;Post Process - NamedType DiffCurrQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1873957797 - NamedType 2242781076" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The bank account number was not found in the data to be imported.</source>
-          <target state="translated">Bankareikningsnúmerið fannst ekki í gögnunum sem flytja á inn.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Pre&amp;Post Process - NamedType MissingBankAccNoInDataErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1873957797 - NamedType 4082076936" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bank account %1 does not have a bank account number.\\Do you want to continue?</source>
-          <target state="translated">Bankareikningur %1 er ekki með bankareikningsnúmer.\\Á að halda áfram?</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Bank Account Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Pre&amp;Post Process - NamedType MissingBankAccNoQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1873957797 - NamedType 742056434" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The closing balance was not found in the data to be imported.</source>
-          <target state="translated">Lokastaðan fannst ekki í gögnunum sem flytja á inn.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Pre&amp;Post Process - NamedType MissingClosingBalInDataMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1873957797 - NamedType 1106260476" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The statement date was not found in the data to be imported.</source>
-          <target state="translated">Dagsetning yfirlits fannst ekki í gögnunum sem flytja á inn.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Pre&amp;Post Process - NamedType MissingStmtDateInDataMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1873957797 - NamedType 2692357613" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The file that you are trying to import contains more than one bank statement.</source>
-          <target state="translated">Skráin sem verið er að reyna að flytja inn inniheldur fleiri en eitt bankayfirlit.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank Pre&amp;Post Process - NamedType MultipleStmtErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1633887332 - NamedType 1428720056" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The bank statement that you are importing contains transactions in currencies other than the %1 %2 of bank account %3.</source>
@@ -1794,12 +1728,6 @@
           <target state="translated">Uppsetning með hjálp</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Banking Setup - Action AMCAssistedSetup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="XmlPort 417263901 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>AMC Banking Export CreditTransfer</source>
-          <target state="translated">Kreditfærsla fyrir útflutning AMC Banking Service</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">XmlPort AMC Bank Export CreditTransfer - Property Caption</note>
         </trans-unit>
         <trans-unit id="XmlPort 1184337646 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Export CreditTransfer</source>

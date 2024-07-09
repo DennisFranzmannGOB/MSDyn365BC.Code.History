@@ -3,6 +3,741 @@
   <file datatype="xml" source-language="en-US" target-language="de-CH" original="Service Declaration">
     <body>
       <group id="body">
+        <trans-unit id="EnumExtension 3472035958 - EnumValue 4184400519 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Declaration</source>
+          <target state="translated">Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 49772215</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1634945047 - Control 2326494239 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item must be excluded from the service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel aus der Servicemeldung ausgeschlossen werden muss</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1434786627</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1634945047 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1434786627</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3254681996 - Control 2326494239 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item must be excluded from the service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel aus der Servicemeldung ausgeschlossen werden muss</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 200707616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3254681996 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 200707616</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2300690243 - Field 2326494239 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exclude From Service Declaration</source>
+          <target state="translated">Von Servicemeldung ausschliessen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3276313895</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2300690243 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3276313895</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2383839733 - Field 2326494239 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exclude From Service Declaration</source>
+          <target state="translated">Von Servicemeldung ausschliessen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 151375497</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2383839733 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 151375497</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2469505563 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 346005766</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2469505563 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 346005766</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2794865911 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2513602899</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2794865911 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2513602899</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3407356131 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4089294192</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3407356131 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4089294192</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2017102725 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 467645625</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2017102725 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 467645625</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 118093026 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1308990239</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 118093026 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1308990239</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2661934884 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 997740791</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2661934884 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 997740791</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3429814826 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2850645989</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3429814826 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2850645989</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3816452574 - Control 2326494239 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a resource must be excluded from the service declaration.</source>
+          <target state="translated">Gibt an, ob eine Ressource aus der Servicemeldung ausgeschlossen werden muss</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1580859378</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3816452574 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1580859378</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1002602554 - Field 2326494239 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exclude From Service Declaration</source>
+          <target state="translated">Von Servicemeldung ausschliessen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 348912950</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1002602554 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 348912950</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3380279556 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4042331808</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3677539342 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1521900543</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3677539342 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1521900543</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2322722628 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 896930563</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2322722628 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 896930563</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3332549560 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2437096118</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1451200520 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2937746743</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1451200520 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2937746743</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3767921051 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1555938241</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2275410046 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2866146724 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 526152577</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2866146724 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 526152577</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 996254771 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2072992664</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2466597996 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1519909599</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2466597996 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1519909599</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2188806707 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2854365759</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2981308627 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2410131092</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2981308627 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2410131092</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 240460831 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4048657685</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3285418303 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2618934728</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3285418303 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2618934728</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1966892306 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 518488723</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1966892306 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 518488723</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 775247809 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2271228953</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4160833160 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2575310733</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4160833160 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2575310733</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2952429850 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1592379974</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2505046382 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1708100201</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3758425972 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1056066689</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3758425972 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1056066689</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1106202642 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4034894651</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 50639288 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3689007477</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 50639288 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3689007477</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3243936459 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3809969765 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2026081320</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3809969765 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2026081320</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1327163986 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3053760138</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1327163986 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3053760138</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 521500869 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1598289728</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 447288453 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1192395785</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1003531902 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2574427010</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1003531902 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2574427010</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4086538901 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2716593954</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3611422933 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1379883806</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3611422933 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1379883806</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1422835057 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2420212404</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3219675743 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1257057922</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3219675743 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1257057922</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1490841496 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3059602325</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1490841496 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3059602325</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 229275287 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 552782286</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1771799608 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 809936682</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3156234879 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2079186865</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3156234879 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2079186865</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1403789762 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2832910486</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 841638472 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1751478268</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 841638472 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1751478268</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1866117966 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1224914752</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1063442196 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 754151050</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1063442196 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 754151050</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4210987759 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2145436509</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1492592113 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 997019036</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1492592113 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 997019036</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3706489081 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3610197182</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 668202130 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2682833765</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 668202130 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2682833765</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3496570137 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4222048109</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1888742921 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1187328241</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1888742921 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1187328241</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2261445661 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a document is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1778940791</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3931440427 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
+          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2649920062</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3931440427 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for a service transaction type.</source>
+          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2649920062</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2724191044 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3250149650</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2724191044 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3250149650</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3039032707 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3471029625</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3823450500 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3117283677</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3594866411 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicable For Service Declaration</source>
+          <target state="translated">Anwendbar für Servicemeldung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2228141878</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3594866411 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Transaction Type Code</source>
+          <target state="translated">Code für Servicebuchungsart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2228141878</note>
+        </trans-unit>
         <trans-unit id="Table 2507548127 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Declaration Buffer</source>
           <target state="translated">Servicemeldungspuffer</target>
@@ -924,734 +1659,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Transaction Types - Control Description - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2188806707 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2854365759</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2981308627 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2410131092</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2981308627 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2410131092</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 240460831 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4048657685</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4086538901 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2716593954</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3611422933 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1379883806</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3611422933 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1379883806</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1422835057 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2420212404</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3496570137 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4222048109</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1888742921 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1187328241</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1888742921 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1187328241</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2261445661 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1778940791</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3285418303 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2618934728</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3285418303 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2618934728</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3219675743 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1257057922</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3219675743 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1257057922</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3931440427 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2649920062</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3931440427 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2649920062</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3380279556 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4042331808</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3677539342 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1521900543</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3677539342 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1521900543</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2322722628 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 896930563</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2322722628 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 896930563</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3332549560 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2437096118</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1451200520 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2937746743</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1451200520 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2937746743</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3767921051 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1555938241</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2275410046 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2866146724 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 526152577</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2866146724 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 526152577</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2505046382 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1708100201</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3758425972 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1056066689</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3758425972 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1056066689</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1106202642 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4034894651</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 50639288 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3689007477</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 50639288 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3689007477</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3243936459 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3809969765 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2026081320</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3809969765 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2026081320</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1327163986 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3053760138</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1327163986 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3053760138</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 521500869 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1598289728</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1403789762 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2832910486</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 841638472 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1751478268</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 841638472 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1751478268</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1866117966 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1224914752</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1063442196 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 754151050</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1063442196 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 754151050</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4210987759 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2145436509</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1492592113 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item or resource is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel oder eine Ressource für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 997019036</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1492592113 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 997019036</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1634945047 - Control 2326494239 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item must be excluded from the service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel aus der Servicemeldung ausgeschlossen werden muss</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1434786627</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1634945047 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1434786627</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3254681996 - Control 2326494239 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether an item must be excluded from the service declaration.</source>
-          <target state="translated">Gibt an, ob ein Artikel aus der Servicemeldung ausgeschlossen werden muss</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 200707616</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3254681996 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 200707616</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2661934884 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 997740791</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2661934884 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 997740791</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3816452574 - Control 2326494239 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a resource must be excluded from the service declaration.</source>
-          <target state="translated">Gibt an, ob eine Ressource aus der Servicemeldung ausgeschlossen werden muss</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1580859378</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3816452574 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1580859378</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2794865911 - Control 1771796126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether a document is applicable for a service declaration.</source>
-          <target state="translated">Gibt an, ob ein Beleg für eine Servicemeldung anwendbar ist</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2513602899</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2794865911 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Gibt den Code für eine Servicebuchungsart an</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2513602899</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1966892306 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 518488723</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1966892306 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 518488723</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 775247809 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2271228953</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4160833160 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2575310733</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4160833160 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2575310733</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1490841496 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3059602325</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1490841496 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3059602325</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 229275287 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 552782286</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2724191044 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3250149650</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2724191044 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3250149650</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3039032707 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3471029625</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2300690243 - Field 2326494239 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Exclude From Service Declaration</source>
-          <target state="translated">Von Servicemeldung ausschliessen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3276313895</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2300690243 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3276313895</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2383839733 - Field 2326494239 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Exclude From Service Declaration</source>
-          <target state="translated">Von Servicemeldung ausschliessen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 151375497</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2383839733 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 151375497</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2469505563 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 346005766</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2469505563 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 346005766</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3407356131 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 4089294192</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3407356131 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 4089294192</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 996254771 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2072992664</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2952429850 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1592379974</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2466597996 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1519909599</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2466597996 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1519909599</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 118093026 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1308990239</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 118093026 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1308990239</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3429814826 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2850645989</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3429814826 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2850645989</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1002602554 - Field 2326494239 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Exclude From Service Declaration</source>
-          <target state="translated">Von Servicemeldung ausschliessen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 348912950</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1002602554 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 348912950</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 447288453 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1192395785</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1771799608 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 809936682</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3156234879 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2079186865</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3156234879 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2079186865</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1003531902 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2574427010</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1003531902 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2574427010</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3706489081 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3610197182</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3823450500 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3117283677</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3594866411 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2228141878</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3594866411 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2228141878</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 668202130 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2682833765</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 668202130 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2682833765</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2017102725 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applicable For Service Declaration</source>
-          <target state="translated">Anwendbar für Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 467645625</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2017102725 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Transaction Type Code</source>
-          <target state="translated">Code für Servicebuchungsart</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 467645625</note>
-        </trans-unit>
         <trans-unit id="Enum 608762036 - EnumValue 4259830144 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open</source>
           <target state="translated">Offen</target>
@@ -1681,13 +1688,6 @@
           <target state="translated">USt-IdNr. ohne Ländercode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Serv. Decl. VAT Reg. No. Type - EnumValue VAT Reg. No. w/o Country Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="EnumExtension 3472035958 - EnumValue 4184400519 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Declaration</source>
-          <target state="translated">Servicemeldung</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Enum 49772215</note>
         </trans-unit>
       </group>
     </body>

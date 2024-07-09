@@ -157,6 +157,7 @@ codeunit 130512 "Library - Purchase"
         else
             PurchaseHeader.Validate("Vendor Invoice No.", LibraryUtility.GenerateGUID());
         SetCorrDocNoPurchase(PurchaseHeader);
+        PurchaseHeader.Validate("Operation Type", LibraryERM.GetDefaultOperationType(BuyfromVendorNo, DATABASE::Vendor));
         PurchaseHeader.Modify(true);
         OnAfterCreatePurchHeader(PurchaseHeader, DocumentType, BuyfromVendorNo);
     end;
@@ -409,6 +410,8 @@ codeunit 130512 "Library - Purchase"
     procedure CreateSubcontractor(var Vendor: Record Vendor)
     begin
         CreateVendor(Vendor);
+        Vendor.Validate(Subcontractor, true);
+        Vendor.Modify(true);
     end;
 
     procedure CreateVendor(var Vendor: Record Vendor): Code[20]
@@ -421,9 +424,7 @@ codeunit 130512 "Library - Purchase"
         LibraryERM.FindPaymentMethod(PaymentMethod);
         LibraryERM.SetSearchGenPostingTypePurch;
         LibraryERM.FindGeneralPostingSetupInvtFull(GeneralPostingSetup);
-        LibraryERM.FindVATPostingSetupInvt(VATPostingSetup);
-        LibraryUtility.UpdateSetupNoSeriesCode(
-          DATABASE::"Purchases & Payables Setup", PurchasesPayablesSetup.FieldNo("Vendor Nos."));
+        LibraryERM.FindVATPostingSetupSales(VATPostingSetup);
 
         Clear(Vendor);
         Vendor.Insert(true);
@@ -431,7 +432,7 @@ codeunit 130512 "Library - Purchase"
         Vendor.Validate("Gen. Bus. Posting Group", GeneralPostingSetup."Gen. Bus. Posting Group");
         Vendor.Validate("VAT Bus. Posting Group", VATPostingSetup."VAT Bus. Posting Group");
         Vendor.Validate("Vendor Posting Group", FindVendorPostingGroup);
-        Vendor.Validate("Payment Terms Code", LibraryERM.FindPaymentTermsCode);
+        Vendor.Validate("Payment Terms Code", LibraryERM.FindPaymentTermsIT);
         Vendor.Validate("Payment Method Code", PaymentMethod.Code);
         Vendor.Modify(true);
         VendContUpdate.OnModify(Vendor);
@@ -671,6 +672,13 @@ codeunit 130512 "Library - Purchase"
         exit(VendorPostingGroup."Invoice Rounding Account");
     end;
 
+    procedure GetPurchaseReturnShipmentLine(var PurchaseLine: Record "Purchase Line")
+    var
+        PurchGetReturnShipments: Codeunit "Purch.-Get Return Shipments";
+    begin
+        PurchGetReturnShipments.Run(PurchaseLine);
+    end;
+
     procedure GetPurchaseReceiptLine(var PurchaseLine: Record "Purchase Line")
     var
         PurchGetReceipt: Codeunit "Purch.-Get Receipt";
@@ -719,6 +727,15 @@ codeunit 130512 "Library - Purchase"
         PurchPostPrepayments.CreditMemo(PurchaseHeader);
     end;
 
+    procedure PostPrepaymentInvoice(var PurchaseHeader: Record "Purchase Header")
+    var
+        PurchasePostPrepayments: Codeunit "Purchase-Post Prepayments";
+    begin
+        // Check Total on Purchase Header is always overwritten with the proper value taken from Statistics.
+        SetCheckTotalOnPurchaseDocument(PurchaseHeader, true, false, false);
+        PurchasePostPrepayments.Invoice(PurchaseHeader);
+    end;
+
     procedure PostPurchasePrepaymentInvoice(var PurchaseHeader: Record "Purchase Header") DocumentNo: Code[20]
     var
         PurchasePostPrepayments: Codeunit "Purchase-Post Prepayments";
@@ -744,12 +761,21 @@ codeunit 130512 "Library - Purchase"
         // - posted purchase invoice,
         // - purchase return shipment, or
         // - posted credit memo
+        // Check Total on Purchase Header is always overwritten with the proper value taken from Statistics.
         SetCorrDocNoPurchase(PurchaseHeader);
         with PurchaseHeader do begin
             Validate(Receive, ToShipReceive);
             Validate(Ship, ToShipReceive);
             Validate(Invoice, ToInvoice);
 
+            if "Operation Type" = '' then
+                Validate("Operation Type", LibraryERM.GetDefaultOperationType("Buy-from Vendor No.", DATABASE::Vendor));
+            if ("Applies-to Doc. No." <> '') and ("Applies-to Occurrence No." = 0) then
+                Validate("Applies-to Occurrence No.", 1);
+            if "Operation Occurred Date" = 0D then
+                Validate("Operation Occurred Date", "Posting Date");
+            Modify(true);
+            SetCheckTotalOnPurchaseDocument(PurchaseHeader, false, ToShipReceive, ToInvoice);
             case "Document Type" of
                 "Document Type"::Invoice:
                     NoSeriesCode := "Posting No. Series"; // posted purchase invoice
@@ -789,10 +815,91 @@ codeunit 130512 "Library - Purchase"
         exit(PurchaseOrderHeader."No.");
     end;
 
+    procedure SetCheckTotalOnPurchaseDocument(var PurchaseHeader: Record "Purchase Header"; Prepayment: Boolean; ShipReceive: Boolean; Invoice: Boolean)
+    var
+        PurchaseOrderStatistics: TestPage "Purchase Order Statistics";
+        PurchaseStatistics: TestPage "Purchase Statistics";
+        TotalToInvoice: Decimal;
+    begin
+        with PurchaseHeader do begin
+            if "Document Type" in ["Document Type"::Order, "Document Type"::"Return Order"] then
+                // Update "Qty to Invoice" to calculate correct total using Statistics Page
+                if Invoice and not ShipReceive and not Prepayment then // Invoice only
+                    UpdateQtyToInvoiceIfPartialInvoice(PurchaseHeader);
+
+            // Code for invoking statistics copied from Statistics action on Purchase Order page,
+            // but with change from RUNMODAL to RUN.
+            CalcInvDiscForHeader;
+
+            case "Document Type" of
+                "Document Type"::Order, "Document Type"::"Return Order":
+                    begin
+                        PurchaseOrderStatistics.Trap;
+                        PAGE.Run(PAGE::"Purchase Order Statistics", PurchaseHeader);
+                        if Prepayment then
+                            if "Prices Including VAT" then
+                                TotalToInvoice := PurchaseOrderStatistics.PrepmtTotalAmount.AsDEcimal
+                            else
+                                TotalToInvoice := PurchaseOrderStatistics.PrepmtTotalAmount2.AsDEcimal
+                        else
+                            if ShipReceive and Invoice then begin
+                                if "Prices Including VAT" then
+                                    TotalToInvoice := PurchaseOrderStatistics.Total_Invoicing.AsDEcimal
+                                else
+                                    TotalToInvoice := PurchaseOrderStatistics.TotalInclVAT_Invoicing.AsDEcimal;
+                            end else begin
+                                if Invoice then
+                                    TotalToInvoice := PurchaseOrderStatistics.TotalInclVAT_Invoicing.AsDEcimal
+                                else
+                                    TotalToInvoice := PurchaseOrderStatistics.TotalInclVAT_Shipping.AsDEcimal;
+                            end;
+                    end;
+
+                "Document Type"::Invoice, "Document Type"::"Credit Memo":
+                    begin
+                        PurchaseStatistics.Trap;
+                        PAGE.Run(PAGE::"Purchase Statistics", PurchaseHeader);
+                        if "Prices Including VAT" then
+                            TotalToInvoice := PurchaseStatistics.TotalAmount1.AsDEcimal
+                        else
+                            TotalToInvoice := PurchaseStatistics.TotalAmount2.AsDEcimal;
+                    end;
+            end;
+
+            Validate("Check Total", Abs(TotalToInvoice));
+            Modify(true);
+
+        end;
+    end;
+
+    local procedure UpdateQtyToInvoiceIfPartialInvoice(PurchaseHeader: Record "Purchase Header")
+    var
+        PurchaseLine: Record "Purchase Line";
+        QtyHandled: Decimal;
+    begin
+        PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
+        PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
+        if PurchaseLine.FindSet() then
+            repeat
+                if PurchaseHeader.IsCreditDocType() then
+                    QtyHandled := PurchaseLine."Return Qty. Shipped"
+                else
+                    QtyHandled := PurchaseLine."Quantity Received";
+                if (PurchaseLine."Qty. to Invoice" > QtyHandled) and
+                   (PurchaseLine.Type = PurchaseLine.Type::Item)
+                then begin
+                    // Adjust "Qty. to Invoice" to the received not invoiced qty.
+                    PurchaseLine.Validate("Qty. to Invoice", QtyHandled - PurchaseLine."Quantity Invoiced");
+                    PurchaseLine.Modify();
+                end;
+            until PurchaseLine.Next() = 0;
+    end;
+
     procedure ReleasePurchaseDocument(var PurchaseHeader: Record "Purchase Header")
     var
         ReleasePurchDoc: Codeunit "Release Purchase Document";
     begin
+        SetCheckTotalOnPurchaseDocument(PurchaseHeader, false, false, false);
         ReleasePurchDoc.PerformManualRelease(PurchaseHeader);
     end;
 
@@ -1098,6 +1205,17 @@ codeunit 130512 "Library - Purchase"
         PurchPostYesNo: Codeunit "Purch.-Post (Yes/No)";
     begin
         PurchPostYesNo.Preview(PurchaseHeader);
+    end;
+
+    procedure CreatePostVendorLedgerEntry(var VendorLedgerEntry: Record "Vendor Ledger Entry")
+    var
+        GenJournalLine: Record "Gen. Journal Line";
+    begin
+        LibraryJournals.CreateGenJournalLineWithBatch(
+            GenJournalLine, GenJournalLine."Document Type"::Invoice,
+            GenJournalLine."Account Type"::Vendor, CreateVendorNo(), -LibraryRandom.RandDec(100, 2));
+        LibraryERM.PostGeneralJnlLine(GenJournalLine);
+        LibraryERM.FindVendorLedgerEntry(VendorLedgerEntry, VendorLedgerEntry."Document Type"::Invoice, GenJournalLine."Document No.");
     end;
 
     [IntegrationEvent(false, false)]

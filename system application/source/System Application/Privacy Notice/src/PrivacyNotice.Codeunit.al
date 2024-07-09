@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Privacy;
+
 /// <summary>
 /// This codeunit provides an interface for creating, showing and approving Privacy Notices
 /// </summary>
@@ -60,7 +62,7 @@ codeunit 1563 "Privacy Notice"
     ///     If user has agreed, that will be returned
     ///     Privacy Notice will be shown and any agreement will be stored.
     ///     If the Privacy Notice was simply closed, we return false and nothing is stored.
-    /// 
+    ///
     /// <remark>This function will open a modal dialog to confirm approval and must hence be run outside a write transaction.</remark>
     /// <remark>The privacy notice referenced must exist.</remark>
     /// </summary>
@@ -84,7 +86,7 @@ codeunit 1563 "Privacy Notice"
     ///     If user has agreed, that will be returned
     ///     Privacy Notice will be shown and any agreement will be stored.
     ///     If the Privacy Notice was simply closed, we return false and nothing is stored.
-    /// 
+    ///
     /// <remark>This function will open a modal dialog to confirm approval and must hence be run outside a write transaction.</remark>
     /// <remark>The privacy notice referenced must exist.</remark>
     /// </summary>
@@ -100,7 +102,7 @@ codeunit 1563 "Privacy Notice"
 
     /// <summary>
     /// Returns the state of the privacy notice for the current user without showing any privacy notice to the user.
-    /// 
+    ///
     /// An error is thrown if the privacy notice does not exist.
     /// </summary>
     /// <param name="Id">Identification of an existing privacy notice.</param>
@@ -114,7 +116,7 @@ codeunit 1563 "Privacy Notice"
 
     /// <summary>
     /// Returns the state of the privacy notice for the current user without showing any privacy notice to the user.
-    /// 
+    ///
     /// An error is thrown if the privacy notice does not exist.
     /// </summary>
     /// <param name="Id">Identification of an existing privacy notice.</param>

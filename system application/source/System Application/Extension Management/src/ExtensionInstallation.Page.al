@@ -1,7 +1,11 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Apps;
+
+using System;
 
 /// <summary>
 /// Installs the selected extension.
@@ -10,23 +14,9 @@ page 2503 "Extension Installation"
 {
     Extensible = false;
     PageType = Card;
-    SourceTable = "Published Application";
+    SourceTable = "Extension Installation";
     SourceTableTemporary = true;
     ContextSensitiveHelpPage = 'ui-extensions';
-
-    layout
-    {
-        area(content)
-        {
-        }
-    }
-
-    actions
-    {
-        area(processing)
-        {
-        }
-    }
 
     trigger OnFindRecord(Which: Text): Boolean
     begin
@@ -41,10 +31,15 @@ page 2503 "Extension Installation"
         GetDetailsFromFilters();
 
         MarketplaceExtnDeployment.SetAppID(Rec.ID);
+        MarketplaceExtnDeployment.SetPreviewKey(Rec.PreviewKey);
         MarketplaceExtnDeployment.RunModal();
         if MarketplaceExtnDeployment.GetInstalledSelected() then
-            if NOT IsNullGuid(ID) then
-                ExtensionMarketplace.InstallMarketplaceExtension(ID, ResponseURL, MarketplaceExtnDeployment.GetLanguageId());
+            if not IsNullGuid(Rec.ID) then
+                ExtensionMarketplace.InstallMarketplaceExtension(
+                    Rec.ID,
+                    Rec.ResponseUrl,
+                    MarketplaceExtnDeployment.GetLanguageId(),
+                    Rec.PreviewKey);
         CurrPage.Close();
     end;
 
@@ -66,10 +61,14 @@ page 2503 "Extension Installation"
         EscapedEqualityDotNet_Regex: DotNet Regex;
         "Filter": Text;
     begin
+        Filter := FieldRef.GetFilter();
+        if (Filter = '') then
+            exit;
+
         FilterPrefixDotNet_Regex := FilterPrefixDotNet_Regex.Regex('^@\*([^\\]+)\*$');
         SingleQuoteDotNet_Regex := SingleQuoteDotNet_Regex.Regex('^''([^\\]+)''$');
         EscapedEqualityDotNet_Regex := EscapedEqualityDotNet_Regex.Regex('~');
-        Filter := FieldRef.GetFilter();
+
         Filter := FilterPrefixDotNet_Regex.Replace(Filter, '$1');
         Filter := SingleQuoteDotNet_Regex.Replace(Filter, '$1');
         Filter := EscapedEqualityDotNet_Regex.Replace(Filter, '=');
@@ -78,4 +77,3 @@ page 2503 "Extension Installation"
             FieldRef.Value(Filter);
     end;
 }
-

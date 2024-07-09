@@ -1,3 +1,9 @@
+namespace Microsoft.Finance.Latepayment;
+
+using System.Security.Encryption;
+using System.Threading;
+using System.AI;
+using System.Privacy;
 page 1950 "LP Machine Learning Setup"
 {
     PageType = Card;
@@ -26,7 +32,7 @@ page 1950 "LP Machine Learning Setup"
                         CustomerConsentMgt: Codeunit "Customer Consent Mgt.";
                     begin
                         if not xRec."Make Predictions" and Rec."Make Predictions" then
-                            Rec."Make Predictions" := CustomerConsentMgt.ConfirmUserConsentToMicrosoftService();
+                            Rec."Make Predictions" := CustomerConsentMgt.ConsentToMicrosoftServiceWithAI();
                     end;
                 }
 

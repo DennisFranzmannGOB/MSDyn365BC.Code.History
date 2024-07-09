@@ -310,7 +310,7 @@ codeunit 131000 "Library - Utility"
 
         if not LineNumberFound then begin
             FieldRef := RecRef2.Field(FieldNo);
-            Error(StrSubstNo(KeyNotFoundError, FieldRef.Name, RecRef2.Name));
+            Error(KeyNotFoundError, FieldRef.Name, RecRef2.Name);
         end;
 
         if RecRef2.FindLast() then begin
@@ -342,19 +342,48 @@ codeunit 131000 "Library - Utility"
     procedure GetNextNoSeriesSalesDate(NoSeriesCode: Code[20]): Date
     var
         NoSeries: Record "No. Series";
+        NoSeriesLineSales: Record "No. Series Line Sales";
+        NoSeriesLineSales2: Record "No. Series Line";
+        LastDateUsed: Date;
     begin
         NoSeries.Get(NoSeriesCode);
-        NoSeries.TestField("Date Order", false); // Use of Date Order is only tested on IT
-        exit(WorkDate());
+        if not NoSeries."Date Order" then
+            exit(WorkDate());
+
+        NoSeriesLineSales.SetRange("Series Code", NoSeries.Code);
+        NoSeriesLineSales.SetRange("Starting Date", 0D, WorkDate());
+        NoSeriesLineSales.SetRange(Open, true);
+        if NoSeriesLineSales.FindLast() then
+            LastDateUsed := NoSeriesLineSales."Last Date Used"
+        else begin
+            NoSeriesLineSales2.SetRange("Series Code", NoSeries.Code);
+            NoSeriesLineSales2.SetRange("Starting Date", 0D, WorkDate());
+            NoSeriesLineSales2.SetRange(Open, true);
+            NoSeriesLineSales2.FindLast();
+            LastDateUsed := NoSeriesLineSales2."Last Date Used"
+        end;
+
+        if LastDateUsed = 0D then
+            exit(WorkDate());
+        exit(CalcDate('<1D>', LastDateUsed));
     end;
 
     procedure GetNextNoSeriesPurchaseDate(NoSeriesCode: Code[20]): Date
     var
         NoSeries: Record "No. Series";
+        NoSeriesLinePurchase: Record "No. Series Line Purchase";
     begin
         NoSeries.Get(NoSeriesCode);
-        NoSeries.TestField("Date Order", false); // Use of Date Order is only tested on IT
-        exit(WorkDate());
+        if not NoSeries."Date Order" then
+            exit(WorkDate());
+
+        NoSeriesLinePurchase.SetRange("Series Code", NoSeries.Code);
+        NoSeriesLinePurchase.SetRange("Starting Date", 0D, WorkDate());
+        NoSeriesLinePurchase.SetRange(Open, true);
+        NoSeriesLinePurchase.FindLast();
+        if NoSeriesLinePurchase."Last Date Used" = 0D then
+            exit(WorkDate());
+        exit(CalcDate('<1D>', NoSeriesLinePurchase."Last Date Used"));
     end;
 
     local procedure GetPropertyValue(ObjectType: Option; ObjectNo: Integer; FieldNo: Integer; PropertyName: Text[30]; SuppressError: Boolean): Text[30]
@@ -385,8 +414,8 @@ codeunit 131000 "Library - Utility"
         end;
         if not ControlFound then begin
             if ObjectType = AppObjectMetadata."Object Type"::Page then
-                Error(StrSubstNo(ControlForFieldNotFoundError, FieldNo, ObjectNo));
-            Error(StrSubstNo(FieldNotFoundError, FieldNo, ObjectNo));
+                Error(ControlForFieldNotFoundError, FieldNo, ObjectNo);
+            Error(FieldNotFoundError, FieldNo, ObjectNo);
         end;
         exit('');
     end;
@@ -760,7 +789,7 @@ codeunit 131000 "Library - Utility"
 
         Field.Get(TableNo, FieldNo);
         if Field.Type <> Field.Type::Option then
-            Error(StrSubstNo(FieldOptionTypeErr, FieldRef.Name, RecRef.Name));
+            Error(FieldOptionTypeErr, FieldRef.Name, RecRef.Name);
         exit(GetMaxOptionIndex(FieldRef.OptionCaption));
     end;
 

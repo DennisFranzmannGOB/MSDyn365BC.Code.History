@@ -1,3 +1,7 @@
+namespace Microsoft.Integration.Shopify;
+
+using Microsoft.Sales.Document;
+
 codeunit 30246 "Shpfy Create Sales Doc. Refund"
 {
 
@@ -32,17 +36,14 @@ codeunit 30246 "Shpfy Create Sales Doc. Refund"
     var
         RefundHeader: Record "Shpfy Refund Header";
         ReleaseSalesDocument: Codeunit "Release Sales Document";
-        IsHandled: Boolean;
     begin
         if RefundHeader.Get(RefundId) then begin
             Shop.Get(RefundHeader."Shop Code");
             if DoCreateSalesHeader(RefundHeader, SalesDocumentType, SalesHeader) then begin
                 CreateSalesLines(RefundHeader, SalesHeader);
-                RefundProcessEvents.OnBeforeReleaseSalesHeader(SalesHeader, RefundHeader, IsHandled);
                 RefundHeader.Get(RefundHeader."Refund Id");
-                if not IsHandled then
-                    ReleaseSalesDocument.Run(SalesHeader);
-                RefundProcessEvents.OnAfterReleaseSalesHeader(SalesHeader, RefundHeader);
+                ReleaseSalesDocument.Run(SalesHeader);
+                RefundProcessEvents.OnAfterProcessSalesDocument(RefundHeader, SalesHeader);
             end;
         end;
     end;
@@ -149,7 +150,7 @@ codeunit 30246 "Shpfy Create Sales Doc. Refund"
         RefundLine.SetRange("Refund Id", RefundHeader."Refund Id");
         RefundLine.SetAutoCalcFields("Item No.", "Variant Code", Description, "Gift Card");
         LineNo := GetLastLineNo(SalesHeader."Document Type", SalesHeader."No.");
-        if RefundLine.FindSet(false, false) then
+        if RefundLine.FindSet(false) then
             repeat
                 case RefundLine."Restock Type" of
                     "Shpfy Restock Type"::"Legacy Restock",
@@ -193,7 +194,7 @@ codeunit 30246 "Shpfy Create Sales Doc. Refund"
                                 GiftCard.SetRange("Order Line Id", RefundLine."Order Line Id");
                                 GiftCard.SetAutoCalcFields("Known Used Amount");
                                 OpenAmount := SalesLine.GetLineAmountInclVAT();
-                                if GiftCard.FindSet(true, false) then
+                                if GiftCard.FindSet(true) then
                                     repeat
                                         if GiftCard.Amount - GiftCard."Known Used Amount" > 0 then
                                             if OpenAmount <= GiftCard.Amount - GiftCard."Known Used Amount" then begin
@@ -215,7 +216,7 @@ codeunit 30246 "Shpfy Create Sales Doc. Refund"
                 ReturnLine.SetRange("Return Id", RefundHeader."Return Id");
                 ReturnLine.SetAutoCalcFields("Item No.", "Variant Code", Description);
 
-                if ReturnLine.FindSet(false, false) then
+                if ReturnLine.FindSet(false) then
                     repeat
                         LineNo += 10000;
 
@@ -253,6 +254,7 @@ codeunit 30246 "Shpfy Create Sales Doc. Refund"
             SalesLine.Validate("Line No.", LineNo);
             SalesLine.Insert(true);
             SalesLine.Validate(Type, "Sales Line Type"::"G/L Account");
+            Shop.TestField("Refund Account");
             SalesLine.Validate("No.", Shop."Refund Account");
             SalesLine.Validate(Quantity, 1);
             if SalesHeader."Prices Including VAT" then

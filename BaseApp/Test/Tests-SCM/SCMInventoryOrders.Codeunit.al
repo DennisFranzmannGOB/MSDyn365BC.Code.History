@@ -1381,7 +1381,7 @@ codeunit 137400 "SCM Inventory - Orders"
     end;
 
     [Test]
-    [HandlerFunctions('OrderPromisingModelHandler')]
+    [HandlerFunctions('OrderPromisingHandler')]
     [Scope('OnPrem')]
     procedure CalculateAvailabilityAndCapability()
     var
@@ -1406,7 +1406,7 @@ codeunit 137400 "SCM Inventory - Orders"
     end;
 
     [Test]
-    [HandlerFunctions('OrderPromisingModelHandler')]
+    [HandlerFunctions('OrderPromisingHandler')]
     [Scope('OnPrem')]
     procedure CalculateAvailabilityAndCapabilityAfterPostingItemJournalLine()
     var
@@ -1434,7 +1434,7 @@ codeunit 137400 "SCM Inventory - Orders"
     end;
 
     [Test]
-    [HandlerFunctions('OrderPromisingModelHandler')]
+    [HandlerFunctions('OrderPromisingHandler')]
     [Scope('OnPrem')]
     procedure CalculateAvailabilityAndCapabilityAfterPostingItemJournalLineWithReserveQuantity()
     var
@@ -2154,6 +2154,7 @@ codeunit 137400 "SCM Inventory - Orders"
         // [FEATURE] [Drop Shipment] [Receipt] [Posting Date]
         // [SCENARIO 390141] Posting Date on Sales Order is updated after posting receive on Purchase Line linked via Drop Shipment.
         Initialize(false);
+        LinkDocDateToPostingDateSalesSetup(false);
 
         // [GIVEN] Sales order with Posting Date "28-01-2023" with Drop Shipment sales line
         // [GIVEN] Document Date = "27-01-2023".
@@ -2190,6 +2191,7 @@ codeunit 137400 "SCM Inventory - Orders"
         // [FEATURE] [Drop Shipment] [Shipment] [Posting Date]
         // [SCENARIO 390141] Posting Date on Sales Order is updated after posting receive on Purchase Line linked via Drop Shipment.
         Initialize(false);
+        LinkDocDateToPostingDatePurchSetup(false);
 
         // [GIVEN] Sales order with Posting Date "15-02-2023" with Drop Shipment sales line.
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, '');
@@ -2559,6 +2561,7 @@ codeunit 137400 "SCM Inventory - Orders"
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", LibraryRandom.RandIntInRange(4, 10));
 
         // [WHEN] Update the new sales price of the item.
+        LibraryVariableStorage.Enqueue(NewSalesPrice."Minimum Quantity");
         UpdatedUnitPrice := SortUnitPriceInSalesOrderLineAndGetUpdatedUnitPrice(SalesHeader);
 
         // [VERIFY] Verify Selected Unit Price from Get Price is Updated in Sales Order Line.
@@ -2572,6 +2575,117 @@ codeunit 137400 "SCM Inventory - Orders"
                 SalesLine.TableCaption()));
     end;
 #endif
+
+    [Test]
+    [HandlerFunctions('GetShipmentLinesPageHandler')]
+    procedure OrderNoIsSetOnSalesInvoiceHeaderIfAllLinesBelongToTheSameSalesOrder()
+    var
+        ItemJournalLine: Record "Item Journal Line";
+        SalesHeader, SalesHeaderInvoice : Record "Sales Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesLine: Record "Sales Line";
+        ItemNo: Code[20];
+        CustomerNo: Code[20];
+    begin
+        // [SCENARIO] Order No. is set on the Sales Invoice Header when all the lines belong to the same Sales Order.
+        Initialize(false);
+
+        // [GIVEN] Create Customer and Item.
+        CustomerNo := LibrarySales.CreateCustomerNo();
+        ItemNo := LibraryInventory.CreateItemNo();
+
+        // [GIVEN] Add item to the inventory.
+        CreateAndPostItemJournalLine(ItemJournalLine."Entry Type"::Purchase, 10, ItemNo, 1, '');
+
+        // [GIVEN] Create Sales Order.
+        CreateSalesOrder(SalesHeader, SalesLine, CustomerNo, ItemNo, 10);
+
+        // [GIVEN] Posting Sales Shipment multiple times creates multiple Sales Shipment Lines.
+        SalesLine.Validate("Qty. to Ship", 2);
+        SalesLine.Validate("Qty. to Invoice", 0);
+        SalesLine.Modify();
+        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+
+        SalesLine.Find();
+        SalesLine.Validate("Qty. to Ship", 2);
+        SalesLine.Validate("Qty. to Invoice", 0);
+        SalesLine.Modify();
+        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+
+        SalesLine.Find();
+        SalesLine.Validate("Qty. to Ship", 2);
+        SalesLine.Validate("Qty. to Invoice", 0);
+        SalesLine.Modify();
+        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+
+        // [GIVEN] Create Sales Invoice via Get Shipment Lines.
+        GetShipmentLineInSalesInvoice(SalesHeaderInvoice, CustomerNo);
+
+        // [WHEN] Post the Sales Invoice.
+        SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeaderInvoice, true, true));
+
+        // [THEN] Sales Invoice Header has Order No. set.
+        SalesInvoiceHeader.TestField("Order No.", SalesHeader."No.");
+    end;
+
+    [Test]
+    [HandlerFunctions('PostedSalesShipmentLinesPageHandler,PostedSalesInvoiceLinesPageHandler')]
+    procedure DrillDownOnQtyShippedShowsPostedShipmentLines()
+    var
+        ItemJournalLine: Record "Item Journal Line";
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        SalesOrder: TestPage "Sales Order";
+        ItemNo: Code[20];
+        CustomerNo: Code[20];
+    begin
+        // [SCENARIO] DrillDown on the 'Qty. Shipped' shows the posted shipment lines associated with.
+        Initialize(false);
+
+        // [GIVEN] Create Customer and Item.
+        CustomerNo := LibrarySales.CreateCustomerNo();
+        ItemNo := LibraryInventory.CreateItemNo();
+
+        // [GIVEN] Add item to the inventory.
+        CreateAndPostItemJournalLine(ItemJournalLine."Entry Type"::Purchase, 10, ItemNo, 1, '');
+
+        // [GIVEN] Create Sales Order.
+        CreateSalesOrder(SalesHeader, SalesLine, CustomerNo, ItemNo, 10);
+
+        // [GIVEN] Posting Sales Shipment multiple times creates multiple Sales Shipment Lines.
+        SalesLine.Validate("Qty. to Ship", 2);
+        SalesLine.Validate("Qty. to Invoice", 2);
+        SalesLine.Modify();
+        LibrarySales.PostSalesDocument(SalesHeader, true, true);
+
+        SalesLine.Find();
+        SalesLine.Validate("Qty. to Ship", 2);
+        SalesLine.Validate("Qty. to Invoice", 2);
+        SalesLine.Modify();
+        LibrarySales.PostSalesDocument(SalesHeader, true, true);
+
+        SalesLine.Find();
+        SalesLine.Validate("Qty. to Ship", 2);
+        SalesLine.Validate("Qty. to Invoice", 2);
+        SalesLine.Modify();
+        LibrarySales.PostSalesDocument(SalesHeader, true, true);
+
+        // [GIVEN] Open Sales Order
+        SalesOrder.OpenEdit();
+        SalesOrder.GoToRecord(SalesHeader);
+
+        // [WHEN] DrillDown on the 'Qty. Shipped' field.
+        SalesOrder.SalesLines."Quantity Shipped".Drilldown();
+
+        // [THEN] Posted Sales Shipment Lines page is opened and related lines are shown.
+        Assert.AreEqual(3, LibraryVariableStorage.DequeueInteger(), 'Expected number of lines not found in Posted Sales Shipment Lines page.');
+
+        // [WHEN] DrillDown on the 'Qty. Invoiced' field.
+        SalesOrder.SalesLines."Quantity Invoiced".Drilldown();
+
+        // [THEN] Posted Sales Invoice Lines page is opened and related lines are shown.
+        Assert.AreEqual(3, LibraryVariableStorage.DequeueInteger(), 'Expected number of lines not found in Posted Sales Invoice Lines page.');
+    end;
 
     [Test]
     [HandlerFunctions('ItemChargeAssignmentSalesHandlerNew')]
@@ -2699,6 +2813,74 @@ codeunit 137400 "SCM Inventory - Orders"
         Assert.RecordCount(PurchaseLine[1], LibraryRandom.RandIntInRange(2, 2));
     end;
 
+    [Test]
+    [HandlerFunctions('SalesListHandler')]
+    procedure SalesOrderDocDateAfterDropShipmentPurchaseReceiveWhenLinkDocDateToPostingDateEnabled()
+    var
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+    begin
+        // [SCENARIO 494663] Receipt Issues when Posting - Doc Date not automatically updated when Post. Date changes due to Drop Shipment
+        Initialize(false);
+        LinkDocDateToPostingDateSalesSetup(true);
+
+        // [GIVEN] Sales order with Posting Date including Drop Shipment sales line
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, '');
+        SalesHeader.Validate("Document Date", WorkDate() - 1);
+        SalesHeader.Modify(true);
+        CreateSalesLineWithPurchasingCode(SalesLine, SalesHeader);
+
+        // [GIVEN] Create a purchase order associated with the sales order via drop shipment with Posting Date "15-02-2023".
+        CreatePurchaseOrder(PurchaseHeader, SalesHeader."Sell-to Customer No.");
+        PurchaseHeader.Validate("Posting Date", LibraryRandom.RandDate(30));
+        PurchaseHeader.Modify(true);
+        GetDropShipmentLine(PurchaseLine, PurchaseHeader);
+
+        // [WHEN] Post purchase receipt
+        LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, false);
+
+        // [VERIFY] Verify: Sales Order has Posting Date updated to Purchase Order Posting Date and Document Date as Posting Date
+        SalesHeader.Find();
+        SalesHeader.TestField("Posting Date", PurchaseHeader."Posting Date");
+        SalesHeader.TestField("Document Date", SalesHeader."Posting Date");
+    end;
+
+    [Test]
+    [HandlerFunctions('SalesListHandler')]
+    procedure PurchaseOrderDocDateAfterDropShipmentSalesShipWhenLinkDocDateToPostingDateEnabled()
+    var
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+    begin
+        // [SCENARIO 494663] Shipment Issues when Posting - Doc Date not automatically updated when Post. Date changes due to Drop Shipment
+        Initialize(false);
+        LinkDocDateToPostingDatePurchSetup(true);
+
+        // [GIVEN] Sales order with Posting Date including Drop Shipment sales line.
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, '');
+        SalesHeader.Validate("Posting Date", LibraryRandom.RandDate(30));
+        SalesHeader.Modify(true);
+        CreateSalesLineWithPurchasingCode(SalesLine, SalesHeader);
+
+        // [GIVEN] Create a purchase order associated with the sales order via drop shipment with Posting Date "28-01-2023".
+        CreatePurchaseOrder(PurchaseHeader, SalesHeader."Sell-to Customer No.");
+        PurchaseHeader.Validate("Document Date", WorkDate() - 1);
+        PurchaseHeader.Modify(true);
+        GetDropShipmentLine(PurchaseLine, PurchaseHeader);
+
+        // [WHEN] Post sales shipment.
+        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+
+        // [VERIFY] Verify: Purchase Order has Posting Date updated to Sales Order Posting Date and Document Date as Posting Date
+        PurchaseHeader.Find();
+        PurchaseHeader.TestField("Posting Date", SalesHeader."Posting Date");
+        PurchaseHeader.TestField("Document Date", PurchaseHeader."Posting Date");
+    end;
+
     local procedure Initialize(Enable: Boolean)
     var
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
@@ -2713,6 +2895,7 @@ codeunit 137400 "SCM Inventory - Orders"
         LibraryItemReference.EnableFeature(Enable);
         LibraryPriceCalculation.DisableExtendedPriceCalculation();
         LibrarySetupStorage.Restore();
+        LibraryVariableStorage.Clear();
         if IsInitialized then
             exit;
 
@@ -3898,6 +4081,24 @@ codeunit 137400 "SCM Inventory - Orders"
     end;
 #endif
 
+    local procedure LinkDocDateToPostingDateSalesSetup(EnableLinkDocDate: Boolean)
+    var
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
+    begin
+        SalesReceivablesSetup.Get();
+        SalesReceivablesSetup.Validate("Link Doc. Date To Posting Date", EnableLinkDocDate);
+        SalesReceivablesSetup.Modify(true);
+    end;
+
+    local procedure LinkDocDateToPostingDatePurchSetup(EnableLinkDocDate: Boolean)
+    var
+        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
+    begin
+        PurchasesPayablesSetup.Get();
+        PurchasesPayablesSetup.Validate("Link Doc. Date To Posting Date", EnableLinkDocDate);
+        PurchasesPayablesSetup.Modify(true);
+    end;
+
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure BatchPostSalesReturnOrderHandler(var BatchPostSalesReturnOrders: TestRequestPage "Batch Post Sales Return Orders")
@@ -4005,27 +4206,6 @@ codeunit 137400 "SCM Inventory - Orders"
         OrderPromisingLines.AcceptButton.Invoke;
     end;
 
-    [ModalPageHandler]
-    [Scope('OnPrem')]
-    procedure OrderPromisingModelHandler(var OrderPromisingLines: TestPage "Order Promising Lines")
-    begin
-        if CapableToPromise then
-            OrderPromisingLines.CapableToPromise.Invoke
-        else
-            OrderPromisingLines.AvailableToPromise.Invoke;
-
-        if RequestedShipmentDate then begin
-            OrderPromisingLines."Requested Shipment Date".AssertEquals(RequestedDeliveryDate);
-            OrderPromisingLines."Requested Delivery Date".AssertEquals(RequestedDeliveryDate);
-        end else begin
-            OrderPromisingLines."Unavailable Quantity".AssertEquals(UnavailableQuantity);
-            OrderPromisingLines."Requested Delivery Date".AssertEquals(RequestedDeliveryDate);
-            OrderPromisingLines."Planned Delivery Date".AssertEquals(RequestedDeliveryDate);
-        end;
-
-        OrderPromisingLines.AcceptButton.Invoke;
-    end;
-
     [PageHandler]
     [Scope('OnPrem')]
     procedure SalesOrderHandler(var SalesOrder: TestPage "Sales Order")
@@ -4060,6 +4240,40 @@ codeunit 137400 "SCM Inventory - Orders"
     procedure GetShipmentLinesPageHandler(var GetShipmentLines: TestPage "Get Shipment Lines")
     begin
         GetShipmentLines.OK.Invoke;
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure PostedSalesShipmentLinesPageHandler(var PostedSalesShipmentLines: TestPage "Posted Sales Shipment Lines")
+    var
+        NoOfLines: Integer;
+    begin
+        if PostedSalesShipmentLines.First() then
+            NoOfLines := 1;
+
+        while PostedSalesShipmentLines.Next() do
+            NoOfLines += 1;
+
+        LibraryVariableStorage.Enqueue(NoOfLines);
+
+        PostedSalesShipmentLines.OK.Invoke();
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure PostedSalesInvoiceLinesPageHandler(var PostedSalesInvoiceLines: TestPage "Posted Sales Invoice Lines")
+    var
+        NoOfLines: Integer;
+    begin
+        if PostedSalesInvoiceLines.First() then
+            NoOfLines := 1;
+
+        while PostedSalesInvoiceLines.Next() do
+            NoOfLines += 1;
+
+        LibraryVariableStorage.Enqueue(NoOfLines);
+
+        PostedSalesInvoiceLines.OK.Invoke();
     end;
 
     [ConfirmHandler]

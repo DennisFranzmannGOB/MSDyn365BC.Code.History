@@ -1,3 +1,5 @@
+namespace System.Security.AccessControl;
+
 entitlement "Internal BC Administrator BaseApp"
 {
     Type = Role;

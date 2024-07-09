@@ -1,9 +1,11 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved. 
+// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-/// <summary> 
+namespace System.Text;
+
+/// <summary>
 /// The available 2D barcode font providers.
 /// </summary>
 enum 9206 "Barcode Font Provider 2D" implements "Barcode Font Provider 2D"

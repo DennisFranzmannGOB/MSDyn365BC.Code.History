@@ -3,6 +3,15 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Feedback;
+
+using System;
+using System.Environment;
+using System.Azure.Identity;
+using System.Azure.KeyVault;
+using System.Environment.Configuration;
+using System.Security.AccessControl;
+
 codeunit 1432 "Satisfaction Survey Impl."
 {
     Access = Internal;
@@ -10,12 +19,13 @@ codeunit 1432 "Satisfaction Survey Impl."
     InherentPermissions = X;
     Permissions = tabledata "Net Promoter Score" = rimd,
                   tabledata "Net Promoter Score Setup" = rimd,
+                  tabledata "User Personalization" = r,
                   tabledata "User Property" = r;
 
     var
         FinancialsUriSegmentTxt: Label 'financials', Locked = true;
         DisplayDataTxt: Label 'display/%1/?puid=%2', Locked = true;
-        RenderDataTxt: Label 'render/%1/?culture=%2&puid=%3', Locked = true;
+        RenderDataTxt: Label 'render/%1/?culture=%2&puid=%3&custom=%4', Locked = true;
         NpsCategoryTxt: Label 'AL NPS Prompt', Locked = true;
         RequestFailedTxt: Label 'Request failed without status code.', Locked = true;
         NPSApiUrlEmptyTelemetryTxt: Label 'API URL is empty.', Locked = true;
@@ -56,9 +66,13 @@ codeunit 1432 "Satisfaction Survey Impl."
         CannotGetEarliestActivateTimeTxt: Label 'Cannot get earliest activate time. Last request time: %1, min delay time: %2.', Locked = true;
         CannotGetNextExpireTimeTxt: Label 'Cannot get next cache expiration time. Previous cache expiration time: %1, cache life time: %2.', Locked = true;
         TooEarlyTxt: Label 'Too short time since last activation try.', Locked = true;
+        ExternalUserTxt: Label 'External user is not considered to be shown the survey.', Locked = true;
 
     procedure TryShowSurvey(): Boolean
     begin
+        if CheckExternalUser() then
+            exit(false);
+
         if not IsActivated() then begin
             Session.LogMessage('0000838', NoPromptTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', NpsCategoryTxt);
             exit(false);
@@ -74,13 +88,16 @@ codeunit 1432 "Satisfaction Survey Impl."
         Commit();
 
         Session.LogMessage('00008MW', NPSPageTelemetryTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', NpsCategoryTxt);
-        PAGE.RunModal(PAGE::"Satisfaction Survey");
+        Page.RunModal(Page::"Satisfaction Survey");
         Session.LogMessage('00006ZF', NPSPageTelemetryTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', NpsCategoryTxt);
         exit(true);
     end;
 
     procedure TryShowSurvey(Status: Integer; Response: Text): Boolean
     begin
+        if CheckExternalUser() then
+            exit(false);
+
         DeactivateSurvey();
 
         if not IsEnabled(Status, Response) then begin
@@ -91,7 +108,7 @@ codeunit 1432 "Satisfaction Survey Impl."
         Commit();
 
         Session.LogMessage('000098O', NPSPageTelemetryTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', NpsCategoryTxt);
-        PAGE.RunModal(PAGE::"Satisfaction Survey");
+        Page.RunModal(Page::"Satisfaction Survey");
         Session.LogMessage('000098P', NPSPageTelemetryTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', NpsCategoryTxt);
         exit(true);
     end;
@@ -342,7 +359,7 @@ codeunit 1432 "Satisfaction Survey Impl."
     var
         ClientTypeManagement: Codeunit "Client Type Management";
     begin
-        exit(ClientTypeManagement.GetCurrentClientType() in [CLIENTTYPE::Phone, CLIENTTYPE::Tablet]);
+        exit(ClientTypeManagement.GetCurrentClientType() in [ClientType::Phone, ClientType::Tablet]);
     end;
 
     local procedure HasWritePermission(): Boolean
@@ -599,6 +616,7 @@ codeunit 1432 "Satisfaction Survey Impl."
         CultureName: Text;
         Data: Text;
         AppUriSegment: Text;
+        CustomDimensions: Text;
     begin
         Puid := GetPuid();
         if Puid = '' then
@@ -610,7 +628,8 @@ codeunit 1432 "Satisfaction Survey Impl."
 
         CultureInfo := CultureInfo.CultureInfo(GlobalLanguage());
         CultureName := LowerCase(CultureInfo.Name());
-        Data := StrSubstNo(RenderDataTxt, AppUriSegment, CultureName, Puid);
+        CustomDimensions := GetCustomDimensions();
+        Data := StrSubstNo(RenderDataTxt, AppUriSegment, CultureName, Puid, CustomDimensions);
         exit(Data);
     end;
 
@@ -708,6 +727,22 @@ codeunit 1432 "Satisfaction Survey Impl."
         exit(true);
     end;
 
+    local procedure GetCustomDimensions() Result: Text
+    var
+        CustomDimensions: JsonObject;
+    begin
+        CustomDimensions.Add('profileName', GetProfileId().Replace(' ', '%20'));
+        CustomDimensions.WriteTo(Result);
+    end;
+
+    local procedure GetProfileId(): Text
+    var
+        UserPersonalization: Record "User Personalization";
+    begin
+        if UserPersonalization.Get(UserSecurityId()) then
+            exit(UserPersonalization."Profile ID");
+    end;
+
     procedure GetRequestTimeoutAsync(): Integer
     begin
         exit(30000); // 30 seconds
@@ -754,6 +789,16 @@ codeunit 1432 "Satisfaction Survey Impl."
     local procedure MillisecondsInMinute(): Integer
     begin
         exit(60000);
+    end;
+
+    local procedure CheckExternalUser(): Boolean
+    var
+        AzureADUserManagement: Codeunit "Azure AD User Management";
+    begin
+        if AzureADUserManagement.IsUserDelegated(UserSecurityId()) then begin
+            Session.LogMessage('0000KSR', ExternalUserTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', NpsCategoryTxt);
+            exit(true);
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"System Initialization", OnAfterLogin, '', false, false)]

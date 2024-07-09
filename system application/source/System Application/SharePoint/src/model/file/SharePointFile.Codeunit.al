@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Integration.Sharepoint;
+
 codeunit 9106 "SharePoint File"
 {
     Access = Internal;
@@ -56,6 +58,7 @@ codeunit 9106 "SharePoint File"
     [NonDebuggable]
     local procedure ParseSingle(Payload: JsonObject) SharePointFile: Record "SharePoint File" temporary
     var
+        SharePointClient: Codeunit "SharePoint Client";
         JToken: JsonToken;
     begin
         SharePointFile.Init();
@@ -76,7 +79,7 @@ codeunit 9106 "SharePoint File"
             SharePointFile.Exists := JToken.AsValue().AsBoolean();
 
         if Payload.Get('Length', JToken) then
-            SharePointFile."Length" := JToken.AsValue().AsInteger();
+            SharePointFile.Length := JToken.AsValue().AsInteger();
 
         if Payload.Get('ServerRelativeUrl', JToken) then
             SharePointFile."Server Relative Url" := CopyStr(JToken.AsValue().AsText(), 1, MaxStrLen(SharePointFile."Server Relative Url"));
@@ -101,6 +104,15 @@ codeunit 9106 "SharePoint File"
 
             if Payload.Get('type', JToken) then
                 SharePointFile.OdataType := CopyStr(JToken.AsValue().AsText(), 1, MaxStrLen(SharePointFile.OdataType));
+        end;
+
+        if Payload.Get('ListItemAllFields', JToken) then begin
+            Payload := JToken.AsObject();
+
+            if Payload.Get('Id', JToken) then
+                SharePointFile.Id := JToken.AsValue().AsInteger();
+
+            SharePointClient.ProcessSharePointFileMetadata(JToken, SharePointFile);
         end;
     end;
 }

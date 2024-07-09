@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Email;
+
 /// <summary>
 /// Gets the email message IDs based on the filters on the email related records.
 /// </summary>
@@ -44,7 +46,7 @@ query 8890 "Email Related Record"
 
     procedure GetEmailMessageIdFilters(MaxIdsPerFilter: Integer): List of [Text]
     var
-        // using a dictionary here as there is no "Set" AL type 
+        // using a dictionary here as there is no "Set" AL type
         EmailMessageIds: Dictionary of [Guid, Boolean];
         EmailMessageIdsFilters: List of [Text];
         FilterTextBuilder: TextBuilder;

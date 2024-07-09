@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Utilities;
+
 /// <summary>
 /// Specifies the behaviour when adding a new query parameter or flag to a URI.
 /// </summary>
@@ -14,7 +16,7 @@ enum 3062 "Uri Query Duplicate Behaviour"
     /// Skips adding the value if the same flag or parameter already exists.
     /// </summary>
     /// <example>Adding "foo=bar" to "https://microsoft.com?foo=goofy" and using this option results in "https://microsoft.com?foo=goofy".</example>
-    value(1; "Skip")
+    value(1; Skip)
     {
         Caption = 'Skip';
     }

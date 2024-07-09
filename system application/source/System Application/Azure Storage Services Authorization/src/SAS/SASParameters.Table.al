@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Azure.Storage;
+
 /// <summary>
 /// Optional parameters for Shared Access Signature authorization for Azure Storage Services.
 /// see: https://go.microsoft.com/fwlink/?linkid=2210398
@@ -49,7 +51,7 @@ table 9064 "SAS Parameters"
         field(4; SignedProtocol; Option)
         {
             DataClassification = SystemMetadata;
-            OptionMembers = "https&http","https";
+            OptionMembers = "https&http",https;
             OptionCaption = '"https and http",https', Locked = true;
         }
 

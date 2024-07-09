@@ -69,6 +69,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Data Search Result - Field Table Subtype - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3305910297 - Field 3501343248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table/Type ID</source>
+          <target state="translated">Taulukon/tyypin tunnus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Data Search Result - Field Table/Type ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4025139878 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Search Setup (Field)</source>
           <target state="translated">Haun asetukset (kenttä)</target>
@@ -195,35 +201,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType NoTablesDefinedErr</note>
         </trans-unit>
-        <trans-unit id="Page 3130159978 - NamedType 3193096050" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Searching ...</source>
-          <target state="translated">Haetaan...</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType StatusLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 3130159978 - Control 3906556071 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Results</source>
-          <target state="translated">Tulokset</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control lines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3130159978 - Control 2210060298 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Text to search for (enter at least 3 characters)</source>
-          <target state="translated">Haettava teksti (kirjoita vähintään kolme merkkiä)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchStringgrp - Property Caption</note>
+        <trans-unit id="Page 3130159978 - NamedType 1979840324" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Searching for "%1"...</source>
+          <target state="translated">Haetaan kohdetta %1...</target>
+          <note from="Developer" annotates="general" priority="2">%1 can be any text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType StatusSearchLbl</note>
         </trans-unit>
         <trans-unit id="Page 3130159978 - Control 2400258197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enter at least three characters to search for.</source>
-          <target state="translated">Kirjoita hakuun vähintään kolme merkkiä.</target>
+          <source>Specify at least three characters to search for. You can enter multiple search words, and we will only find data that contains all words.</source>
+          <target state="translated">Määritä vähintään kolme haettavaa merkkiä. Voit syöttää useita hakusanoja, ja etsimme vain tietoja, jotka sisältävät kaikki sanat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchString - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3130159978 - Control 2400258197 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Text to search for</source>
-          <target state="translated">Haettava teksti</target>
+          <source>Search for (min. 3 characters)</source>
+          <target state="translated">Haku (min. 3 merkkiä)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchString - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3130159978 - Action 782762290 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starts the search.</source>
+          <target state="translated">Aloittaa haun.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Search - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3130159978 - Action 782762290 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start search</source>
+          <target state="translated">Aloita haku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Search - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3130159978 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">Haku</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Results</source>
@@ -236,6 +248,12 @@
           <target state="translated">%1: Näytä kaikki tulokset</target>
           <note from="Developer" annotates="general" priority="2">%1 is a table name, e.g. Customer</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - NamedType MoreRecLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 3789408733 - Method 1852034151 - NamedType 3118294464" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You have made changes to the setup. Please select the Start search action for the new settings to take effect.</source>
+          <target state="translated">Olet tehnyt muutoksia määritykseen. Valitse Käynnistä haku -toiminto, jotta uudet asetukset tulevat voimaan.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Method RunSetupPage - NamedType SetupChangedMsg</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the found entry.</source>
@@ -250,16 +268,28 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Control Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Action 1514883969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens a page that lists which tables are searched for your role center. If you have permissions, you can change which tables and fields are searched.</source>
-          <target state="translated">Avaa sivun, jossa luetellaan roolikeskukselle haettavat taulukot. Jos sinulla on riittävät käyttöoikeudet, voit muuttaa haettavia taulukoita ja kenttiä.</target>
+          <source>Opens a page that lists which tables are enabled for search for your role center. If you have permissions, you can change which tables and fields are searched.</source>
+          <target state="translated">Avaa ne taulukot sisältävän sivun, jotka on otettu käyttöön hakua varten roolikeskuksessa. Jos sinulla on riittävät käyttöoikeudet, voit muuttaa haettavia taulukoita ja kenttiä.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action Setup - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Action 1514883969 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show tables to search</source>
-          <target state="translated">Näytä haettavat taulukot</target>
+          <source>Set up which tables to search</source>
+          <target state="translated">Määritä haettavat taulukot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3789408733 - Action 1509359154 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens a page that shows which lists are enabled for search for your role center. If you have permissions, you can change which lists, tables and fields are searched.</source>
+          <target state="translated">Avaa ne luettelot sisältävän sivun, jotka on otettu käyttöön hakua varten roolikeskuksessa. Jos sinulla on riittävät käyttöoikeudet, voit muuttaa haettavia luetteloita, taulukoita ja kenttiä.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action SetupLists - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3789408733 - Action 1509359154 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up where to search</source>
+          <target state="translated">Määritä hakupaikka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action SetupLists - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 218848851 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Column,Record</source>
@@ -394,8 +424,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Result Records - Action ShowRecord - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Search Setup (Field) List</source>
-          <target state="translated">Haun asetusten (kenttä) luettelo</target>
+          <source>Enable fields for searching</source>
+          <target state="translated">Ota kentät käyttöön hakua varten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -424,8 +454,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Control 823559016 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Field Caption</source>
-          <target state="translated">Kentän seloste</target>
+          <source>Field Name</source>
+          <target state="translated">Kentän nimi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -448,8 +478,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Control 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <target state="translated">Nro</target>
+          <source>Field No.</source>
+          <target state="translated">Kentän nro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
+        </trans-unit>
+        <trans-unit id="Page 3477219812 - Control 1595823452 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the caption of the field, that is, the name that will be shown in the user interface.</source>
+          <target state="translated">Määrittää kentän otsikon eli käyttöliittymässä näytettävän kentän nimen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
+        </trans-unit>
+        <trans-unit id="Page 3477219812 - Control 1595823452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table Name</source>
+          <target state="translated">Taulukon nimi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -495,9 +537,129 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
+        <trans-unit id="Page 344073747 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enable lists for searching</source>
+          <target state="translated">Ota luettelot käyttöön hakua varten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - NamedType 1516037821" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to remove the current setup and insert the default?</source>
+          <target state="translated">Haluatko poistaa nykyiset asetukset ja lisätä oletusarvot?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 3224703576 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether this list is included in search.</source>
+          <target state="translated">Määrittää, sisältyykö tämä luettelo hakuun.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 3224703576 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enable Search</source>
+          <target state="translated">Ota haku käyttöön</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 1599953061 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the list.</source>
+          <target state="translated">Määrittää luettelon nimen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 1599953061 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>List Name</source>
+          <target state="translated">Luettelon nimi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 568116884 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ID of the page. </source>
+          <target state="translated">Määrittää sivun tunnuksen. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 568116884 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>List No.</source>
+          <target state="translated">Luettelon nro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 1595823452 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the base table name of the list.</source>
+          <target state="translated">Määrittää luettelon perustaulukon nimen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 1595823452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Main Source Table</source>
+          <target state="translated">Päälähdetaulukko</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 3669144757 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which role the search setup is valid for.</source>
+          <target state="translated">Määrittää, missä roolissa haun asetukset ovat voimassa.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 3669144757 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Choose among lists for role</source>
+          <target state="translated">Valitse roolille luetteloista</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 580853590 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether only the enabled lists are shown or all lists are shown.</source>
+          <target state="translated">Määrittää, näytetäänkö vain käytössä olevat luettelot vai kaikki luettelot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 580853590 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show only search enabled lists</source>
+          <target state="translated">Näytä vain hakua käyttävät luettelot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 2402477966 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Removes the current selection for this rolecenter and inserts the default list selection.</source>
+          <target state="translated">Poistaa tämän roolikeskuksen nykyisen valinnan ja lisää oletusluettelovalinnan.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 2402477966 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reset to default</source>
+          <target state="translated">Palauta oletusarvot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 2574700765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select this action if you want to see all lists and/or select more lists to be included in the search.</source>
+          <target state="translated">Valitse tämä toiminto, jos haluat tarkastella kaikkia taulukoita ja/tai sisällyttää hakuun lisää luetteloita.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 2574700765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All lists</source>
+          <target state="translated">Kaikki luettelot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 478093921 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Compacts the view, so you only see the lists that have been enabled for search.</source>
+          <target state="translated">Tiivistää näkymän, jotta näet vain haussa käytössä olevat luettelot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 478093921 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only enabled lists</source>
+          <target state="translated">Vain käytössä olevat luettelot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
         <trans-unit id="Page 1032144280 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Search Setup (Table) List</source>
-          <target state="translated">Haun asetusten (taulukko) luettelo</target>
+          <source>Enable tables for searching</source>
+          <target state="translated">Ota taulukot käyttöön hakua varten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -538,8 +700,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Control 3986492796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Search Enabled</source>
-          <target state="translated">Haku käytössä</target>
+          <source>Enable Search</source>
+          <target state="translated">Ota haku käyttöön</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -550,8 +712,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Control 3669144757 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Role</source>
-          <target state="translated">Rooli</target>
+          <source>Choose among tables for role</source>
+          <target state="translated">Valitse roolille taulukoista</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
+        </trans-unit>
+        <trans-unit id="Page 1032144280 - Control 580853590 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether only the enabled tables are shown or all tables are shown.</source>
+          <target state="translated">Määrittää, näytetäänkö vain käytössä olevat taulukot vai kaikki taulukot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
+        </trans-unit>
+        <trans-unit id="Page 1032144280 - Control 580853590 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show only search enabled tables</source>
+          <target state="translated">Näytä vain hakua käyttävät taulukot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -574,8 +748,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Action 4207440265 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show all tables</source>
-          <target state="translated">Näytä kaikki taulukot</target>
+          <source>All tables</source>
+          <target state="translated">Kaikki taulukot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -586,8 +760,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Action 2618468921 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Filter to selected tables</source>
-          <target state="translated">Suodata valittuihin taulukoihin</target>
+          <source>Only enabled tables</source>
+          <target state="translated">Vain käytössä olevat taulukot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>

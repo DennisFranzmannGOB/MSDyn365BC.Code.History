@@ -1,3 +1,15 @@
+namespace Microsoft.Finance.Latepayment;
+
+using System.TestLibraries.Environment;
+using Microsoft.Sales.Document;
+using System.Environment.Configuration;
+using Microsoft.Sales.History;
+using Microsoft.Inventory.Item;
+using System.Threading;
+using System.AI;
+using System.Reflection;
+using System.Environment;
+using Microsoft.Finance.GeneralLedger.Journal;
 codeunit 139575 "LP Prediction Test"
 {
     Subtype = Test;
@@ -129,6 +141,7 @@ codeunit 139575 "LP Prediction Test"
         Initialize();
         if BindSubscription(LPPredictionTest) then;
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(true);
         EnsureThatMockDataIsFetchedFromKeyVault();
 
         // [GIVEN] Enable predictions in the setup
@@ -140,6 +153,7 @@ codeunit 139575 "LP Prediction Test"
 
         // [THEN] The result is checked in the handler
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(false);
         UnbindSubscription(LPPredictionTest);
     end;
 
@@ -162,6 +176,7 @@ codeunit 139575 "LP Prediction Test"
         LPMLInputData.DeleteAll();
         EnsureThatMockDataIsFetchedFromKeyVault();
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(true);
         CustomerNo := CreateSalesInvoiceHeader(false, SalesInvoiceHeader);
 
         // [GIVEN] Enable predictions in the setup
@@ -181,6 +196,7 @@ codeunit 139575 "LP Prediction Test"
         Assert.AreEqual(1, LPMLInputData.Count(), 'Expected the LPMLInputData table to have one record.');
 
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(false);
         UnbindSubscription(LPPredictionTest);
     end;
 
@@ -272,6 +288,7 @@ codeunit 139575 "LP Prediction Test"
         Initialize();
 
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(true);
         EnsureThatMockDataIsFetchedFromKeyVault();
 
         if BindSubscription(LPPredictionTest) then;
@@ -307,6 +324,7 @@ codeunit 139575 "LP Prediction Test"
         Assert.ExpectedError(StrSubstNo(CurrentModelLowerQualityThanDesiredErr, SomeModelQuality));
 
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(false);
     end;
 
     [Test]
@@ -378,6 +396,7 @@ codeunit 139575 "LP Prediction Test"
         if BindSubscription(LPPredictionTest) then;
         SomeModelQuality := 0.66;
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(true);
         LPMachineLearningSetup.DeleteAll();
         DummyModel := 'some new but worse model';
 
@@ -400,6 +419,7 @@ codeunit 139575 "LP Prediction Test"
         Assert.AreEqual(DummyModel, LPMachineLearningSetup.GetModelAsText(LPMachineLearningSetup."Selected Model"::My), 'Fetched incorrect model');
         UnbindSubscription(LPPredictionTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(false);
     end;
 
     [Test]
@@ -413,6 +433,7 @@ codeunit 139575 "LP Prediction Test"
         Initialize();
 
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(true);
         EnsureThatMockDataIsFetchedFromKeyVault();
         DeleteStandardModel();
 
@@ -527,6 +548,7 @@ codeunit 139575 "LP Prediction Test"
 
         UnbindSubscription(LPPredictionTest);
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(false);
     end;
 
     [Test]
@@ -540,6 +562,7 @@ codeunit 139575 "LP Prediction Test"
         Initialize();
 
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(true);
 
         if BindSubscription(LPPredictionTest) then;
         SomeModelQuality := 0.66;
@@ -566,6 +589,7 @@ codeunit 139575 "LP Prediction Test"
         UnbindSubscription(LPPredictionTest);
 
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
+        EnvironmentInfoTestLibrary.SetTestabilitySandbox(false);
     end;
 
     [Test]

@@ -1,3 +1,9 @@
+namespace Microsoft.Integration.Shopify;
+
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Item.Catalog;
+using Microsoft.Purchases.Vendor;
+
 /// <summary>
 /// Codeunit Shpfy Product Mapping (ID 30181).
 /// </summary>
@@ -24,7 +30,7 @@ codeunit 30181 "Shpfy Product Mapping"
     var
         ShopifyProduct: Record "Shpfy Product";
     begin
-        if ShopifyProduct.FindSet(true, false) then
+        if ShopifyProduct.FindSet(true) then
             repeat
                 FindMapping(ShopifyProduct);
             until ShopifyProduct.Next() = 0;
@@ -39,7 +45,7 @@ codeunit 30181 "Shpfy Product Mapping"
         ShopifyVariant: Record "Shpfy Variant";
     begin
         ShopifyVariant.SetRange("Product Id", ShopifyProduct.Id);
-        if ShopifyVariant.FindSet(true, false) then
+        if ShopifyVariant.FindSet(true) then
             repeat
                 FindMapping(ShopifyProduct, ShopifyVariant);
             until ShopifyVariant.Next() = 0;
@@ -62,7 +68,10 @@ codeunit 30181 "Shpfy Product Mapping"
         SetShop(ShopifyProduct."Shop Code");
         Direction := Direction::ShopifyToBC;
         if IsNullGuid(ShopifyProduct."Item SystemId") or (ShopifyProduct."Has Variants" and IsNullGuid(ShopifyVariant."Item Variant SystemId") and not ShopifyVariant."Mapped By Item") then begin
+#if not CLEAN24
             ProductEvents.OnBeforeFindMapping(Direction, ShopifyProduct, ShopifyVariant, Item, ItemVariant, Handled);
+#endif
+            ProductEvents.OnBeforeFindProductMapping(Direction, ShopifyProduct, ShopifyVariant, Item, ItemVariant, Handled);
             if Handled then
                 MappingResult := true
             else

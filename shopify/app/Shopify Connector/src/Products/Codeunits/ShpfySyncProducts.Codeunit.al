@@ -1,3 +1,7 @@
+namespace Microsoft.Integration.Shopify;
+
+using Microsoft.Inventory.Item;
+
 /// <summary>
 /// Codeunit Shpfy Sync Products (ID 30185).
 /// </summary>
@@ -88,7 +92,7 @@ codeunit 30185 "Shpfy Sync Products"
             Dialog.Update(2, Skipped);
         end;
         Clear(TempProduct);
-        if TempProduct.FindSet(false, false) then begin
+        if TempProduct.FindSet(false) then begin
             ProductImport.SetShop(Shop);
             repeat
                 ProductImport.SetProduct(TempProduct);
@@ -236,5 +240,25 @@ codeunit 30185 "Shpfy Sync Products"
         ShopLocation.SetFilter("Stock Calculation", '<>%1', ShopLocation."Stock Calculation"::Disabled);
         if not ShopLocation.IsEmpty() then
             BackgroundSyncs.InventorySync(ShopifyShop.Code);
+    end;
+
+    internal procedure AddItemsToShopify(ShopCode: Code[20])
+    var
+        AddItems: Report "Shpfy Add Item to Shopify";
+    begin
+        AddItems.SetShop(ShopCode);
+        AddItems.Run();
+    end;
+
+    procedure AddItemsToShopifyNotification(Notification: Notification)
+    begin
+        AddItemsToShopify(CopyStr(Notification.GetData('ShopCode'), 1, MaxStrLen(Shop.Code)));
+    end;
+
+    procedure SyncProductsNotification(Notification: Notification)
+    var
+        BackgroundSyncs: Codeunit "Shpfy Background Syncs";
+    begin
+        BackgroundSyncs.ProductsSync(CopyStr(Notification.GetData('ShopCode'), 1, MaxStrLen(Shop.Code)));
     end;
 }

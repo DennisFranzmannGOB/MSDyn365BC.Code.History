@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.AccessControl;
+
 /// <summary>
 /// Buffer table for permission options
 /// </summary>
@@ -16,7 +18,7 @@ page 9865 "Permission Lookup List"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(Group)
             {
@@ -30,9 +32,6 @@ page 9865 "Permission Lookup List"
         }
     }
 
-    actions
-    {
-    }
 
     trigger OnOpenPage()
     var

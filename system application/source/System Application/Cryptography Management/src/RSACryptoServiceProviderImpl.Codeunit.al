@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.Encryption;
+
+using System;
+
 codeunit 1446 "RSACryptoServiceProvider Impl." implements SignatureAlgorithm
 {
     Access = Internal;
@@ -12,9 +16,25 @@ codeunit 1446 "RSACryptoServiceProvider Impl." implements SignatureAlgorithm
     var
         DotNetRSACryptoServiceProvider: DotNet RSACryptoServiceProvider;
 
+    procedure InitializeRSA(KeySize: Integer)
+    begin
+        DotNetRSACryptoServiceProvider := DotNetRSACryptoServiceProvider.RSACryptoServiceProvider(KeySize);
+    end;
+
     procedure GetInstance(var DotNetAsymmetricAlgorithm: DotNet AsymmetricAlgorithm)
     begin
         DotNetAsymmetricAlgorithm := DotNetRSACryptoServiceProvider;
+    end;
+
+    [NonDebuggable]
+    procedure CreateRSAKeyPair(var PublicKeyInXml: Text; var PrivateKeyInXml: Text)
+    var
+        DotnetRSA: DotNet RSA;
+    begin
+        RSACryptoServiceProvider();
+        DotnetRSA := DotNetRSACryptoServiceProvider.Create();
+        PublicKeyInXml := DotnetRSA.ToXmlString(false);
+        PrivateKeyInXml := DotnetRSA.ToXmlString(true);
     end;
 
     #region SignData

@@ -3,7 +3,14 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-PermissionSet 3900 "Retention Policy - Read"
+namespace System.DataAdministration;
+
+using System.Reflection;
+using System.Environment.Configuration;
+using System.Apps;
+using System.Environment;
+
+permissionset 3900 "Retention Policy - Read"
 {
     Access = Internal;
     Assignable = false;
@@ -12,18 +19,16 @@ PermissionSet 3900 "Retention Policy - Read"
                              "Field Selection - Read",
                              "Guided Experience - Read",
                              "Object Selection - Read",
-                             "Upgrade Tags - Read",
-                             "System Initialization - Exec",
-                             "Telemetry - Exec";
+                             "System Initialization - Exec";
 
     Permissions = tabledata AllObj = r,
                   tabledata AllObjWithCaption = r,
+                  tabledata Company = r,
+                  tabledata Field = r,
                   tabledata "Published Application" = r,
                   tabledata "Retention Period" = R,
                   tabledata "Retention Policy Allowed Table" = r,
                   tabledata "Retention Policy Log Entry" = r,
                   tabledata "Retention Policy Setup" = R,
-                  tabledata "Retention Policy Setup Line" = R,
-                  tabledata Company = r,
-                  tabledata Field = r;
+                  tabledata "Retention Policy Setup Line" = R;
 }

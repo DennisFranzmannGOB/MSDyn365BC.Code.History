@@ -1,3 +1,5 @@
+namespace Microsoft.CRM.EmailLoggin;
+
 entitlement "Internal BC Administrator Email Logging"
 {
     Type = Role;

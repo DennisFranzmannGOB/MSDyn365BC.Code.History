@@ -434,6 +434,7 @@
         CreatePurchaseOrderWithPrepaymentAndServiceCharge(PurchaseHeader, 100, LibraryRandom.RandDecInRange(10, 20, 2));
         LibraryPurchase.CalcPurchaseDiscount(PurchaseHeader);
         PurchaseHeader.CalcFields(Amount);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, true, true, true);
 
         // [WHEN] Post Prepayment Invoice
         PurchInvHeader.Get(LibraryPurchase.PostPurchasePrepaymentInvoice(PurchaseHeader));
@@ -460,6 +461,7 @@
           PurchaseHeader, LibraryRandom.RandDecInRange(50, 100, 2), LibraryRandom.RandDecInRange(10, 20, 2));
         LibraryPurchase.CalcPurchaseDiscount(PurchaseHeader);
         PurchaseHeader.CalcFields(Amount);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, true, true, true);
 
         // [WHEN] Post Prepayment Invoice
         PurchInvHeader.Get(LibraryPurchase.PostPurchasePrepaymentInvoice(PurchaseHeader));
@@ -487,6 +489,7 @@
         ServiceCharge := LibraryRandom.RandDecInRange(10, 20, 2);
         CreatePurchaseOrderWithPrepaymentAndServiceCharge(PurchaseHeader, 100, ServiceCharge);
         LibraryPurchase.CalcPurchaseDiscount(PurchaseHeader);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, true, true, true);
 
         // [GIVEN] Post Prepayment Invoice
         LibraryPurchase.PostPurchasePrepaymentInvoice(PurchaseHeader);
@@ -524,6 +527,7 @@
         CreatePurchaseOrderWithPrepaymentAndServiceCharge(PurchaseHeader, 100, ServiceCharge);
         LibraryPurchase.CalcPurchaseDiscount(PurchaseHeader);
         PurchaseHeader.CalcFields(Amount);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, true, true, true);
 
         // [GIVEN] Service Charge = 50 with Min Amount = 1001
         CreateVendInvoiceDiscount(PurchaseHeader."Pay-to Vendor No.", ServiceCharge / 2, PurchaseHeader.Amount + 1);

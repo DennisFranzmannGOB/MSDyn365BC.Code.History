@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Telemetry;
+
 /// <summary>
 /// Specifies the uptake status of an application feature.
 /// </summary>
@@ -14,7 +16,7 @@ enum 8703 "Feature Uptake Status"
     /// <summary>
     /// The feature has not been discovered.
     /// </summary>
-    value(0; "Undiscovered")
+    value(0; Undiscovered)
     {
         Caption = 'Undiscovered', Locked = true;
     }
@@ -22,7 +24,7 @@ enum 8703 "Feature Uptake Status"
     /// <summary>
     /// The feature has been discovered.
     /// </summary>
-    value(1; "Discovered")
+    value(1; Discovered)
     {
         Caption = 'Discovered', Locked = true;
     }
@@ -38,7 +40,7 @@ enum 8703 "Feature Uptake Status"
     /// <summary>
     /// The feature has been used.
     /// </summary>
-    value(3; "Used")
+    value(3; Used)
     {
         Caption = 'Used', Locked = true;
     }

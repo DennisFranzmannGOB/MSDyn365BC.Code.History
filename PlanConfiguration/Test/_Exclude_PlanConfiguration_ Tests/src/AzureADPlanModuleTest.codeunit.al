@@ -452,9 +452,12 @@ codeunit 139509 "Azure AD Plan Module Test"
         EssentialUser: Record User;
         AzureADPlan: Codeunit "Azure AD Plan";
         PlanIds: Codeunit "Plan Ids";
+        TestUserPermissionsSubs: Codeunit "Test User Permissions Subs.";
     begin
         // [SCENARIO] CheckMixedPlans show a message when user has access to the user management tables
         Initialize();
+        BindSubscription(TestUserPermissionsSubs);
+        TestUserPermissionsSubs.SetCanManageUser(UserSecurityId());
         LibraryLowerPermissions.SetOutsideO365Scope();
         LibraryLowerPermissions.AddSecurity();
 
@@ -490,9 +493,12 @@ codeunit 139509 "Azure AD Plan Module Test"
         PremiumUser: Record User;
         AzureADPlan: Codeunit "Azure AD Plan";
         PlanIds: Codeunit "Plan Ids";
+        TestUserPermissionsSubs: Codeunit "Test User Permissions Subs.";
     begin
         // [SCENARIO] CheckMixedPlans show a message when user has access to the user management tables
         Initialize();
+        BindSubscription(TestUserPermissionsSubs);
+        TestUserPermissionsSubs.SetCanManageUser(UserSecurityId());
         LibraryLowerPermissions.SetOutsideO365Scope();
         LibraryLowerPermissions.AddSecurity();
 
@@ -529,9 +535,12 @@ codeunit 139509 "Azure AD Plan Module Test"
         EssentialUser: Record User;
         AzureADPlan: Codeunit "Azure AD Plan";
         PlanIds: Codeunit "Plan Ids";
+        TestUserPermissionsSubs: Codeunit "Test User Permissions Subs.";
     begin
         // [SCENARIO] CheckMixedPlans show a message when user has access to the user management tables
         Initialize();
+        BindSubscription(TestUserPermissionsSubs);
+        TestUserPermissionsSubs.SetCanManageUser(UserSecurityId());
         LibraryLowerPermissions.SetOutsideO365Scope();
         LibraryLowerPermissions.AddSecurity();
 
@@ -1110,7 +1119,39 @@ codeunit 139509 "Azure AD Plan Module Test"
         CODEUNIT.Run(CODEUNIT::"Users - Create Super User");
 
         // [WHEN] A user with an internal admin plan is created
-        CreateUserWithPlan(User, PlanIds.GetInternalAdminPlanId());
+        CreateUserWithPlan(User, PlanIds.GetGlobalAdminPlanId());
+
+        // [WHEN] RefreshUserPlanAssignments is invoked
+        LibraryLowerPermissions.SetO365BusFull();
+        LibraryLowerPermissions.AddSecurity();
+        AzureADPlan.RefreshUserPlanAssignments(User."User Security ID");
+
+        Assert.IsTrue(IsUserInPermissionSet(User."User Security ID", 'SUPER'), '');
+
+        // Rollback SaaS test
+        TearDown();
+    end;
+
+    [Test]
+    [TransactionModel(TransactionModel::AutoRollback)]
+    [CommitBehavior(CommitBehavior::Ignore)]
+    [Scope('OnPrem')]
+    procedure TestD365AdminIsSuperIfSuperExists()
+    var
+        User: Record User;
+        AzureADPlan: Codeunit "Azure AD Plan";
+        PlanIds: Codeunit "Plan Ids";
+    begin
+        // [SCENARIO] User should get the User Groups of the plan
+        Initialize();
+        LibraryLowerPermissions.SetOutsideO365Scope();
+        LibraryLowerPermissions.AddSecurity();
+
+        // [GIVEN] A super user
+        CODEUNIT.Run(CODEUNIT::"Users - Create Super User");
+
+        // [WHEN] A user with an internal admin plan is created
+        CreateUserWithPlan(User, PlanIds.GetD365AdminPlanId());
 
         // [WHEN] RefreshUserPlanAssignments is invoked
         LibraryLowerPermissions.SetO365BusFull();

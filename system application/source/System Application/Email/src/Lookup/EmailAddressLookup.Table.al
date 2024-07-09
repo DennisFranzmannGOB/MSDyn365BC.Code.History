@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Email;
+
 /// <summary>
 /// Temporary table that holds email address suggestions.
 /// Table is used when user lookup addresses in the email editor.
@@ -62,7 +64,7 @@ table 8944 "Email Address Lookup"
 
     keys
     {
-        key(PK; "E-Mail Address", "Name", "Entity type")
+        key(PK; "E-Mail Address", Name, "Entity type")
         {
             Clustered = true;
         }

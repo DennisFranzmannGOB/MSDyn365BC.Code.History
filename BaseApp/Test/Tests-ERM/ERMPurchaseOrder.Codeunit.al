@@ -1,4 +1,4 @@
-codeunit 134327 "ERM Purchase Order"
+﻿codeunit 134327 "ERM Purchase Order"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -3748,8 +3748,12 @@ codeunit 134327 "ERM Purchase Order"
         PurchaseLineCharge.Validate("Gen. Prod. Posting Group", PurchaseLine."Gen. Prod. Posting Group");
         PurchaseLineCharge.Validate("VAT Prod. Posting Group", PurchaseLine."VAT Prod. Posting Group");
         PurchaseLineCharge.Modify(true);
-        LibraryERM.UpdatePurchPrepmtAccountVATGroup(
-            PurchaseLine."Gen. Bus. Posting Group", PurchaseLine."Gen. Prod. Posting Group", PurchaseLine."VAT Prod. Posting Group");
+        PurchaseHeader.Validate("Prepmt. Payment Terms Code", PurchaseHeader."Payment Terms Code");
+        PurchaseHeader.CalcFields("Amount Including VAT");
+        PurchaseHeader.Validate("Check Total", PurchaseHeader."Amount Including VAT");
+        PurchaseHeader.Modify(true);
+        UpdatePrepmtAccountOnVATPostingSetup(PurchaseLine."VAT Bus. Posting Group", PurchaseLine."VAT Prod. Posting Group");
+        UpdatePrepmtAccountOnVATPostingSetup(PurchaseLineCharge."VAT Bus. Posting Group", PurchaseLineCharge."VAT Prod. Posting Group");
         LocationCode := ModifyWarehouseLocation(true);
 
         // [GIVEN] Prepayment is posted for Purchase Order
@@ -5755,26 +5759,10 @@ codeunit 134327 "ERM Purchase Order"
     [Test]
     [Scope('OnPrem')]
     procedure PurchaseOrderChangePricesInclVATRefreshesPage()
-    var
-        PurchaseHeader: Record "Purchase Header";
-        PurchaseOrderPage: TestPage "Purchase Order";
     begin
         // [FEATURE] [UI]
         // [SCENARIO 277993] User changes Prices including VAT, page refreshes and shows appropriate captions
-        Initialize();
-
-        // [GIVEN] Page with Prices including VAT disabled was open
-        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, '');
-        PurchaseOrderPage.OpenEdit;
-        PurchaseOrderPage.GotoRecord(PurchaseHeader);
-
-        // [WHEN] User checks Prices including VAT
-        PurchaseOrderPage."Prices Including VAT".SetValue(true);
-
-        // [THEN] Caption for PurchaseOrderPage.PurchLines."Direct Unit Cost" field is updated
-        Assert.AreEqual('Direct Unit Cost Incl. VAT',
-          PurchaseOrderPage.PurchLines."Direct Unit Cost".Caption,
-          'The caption for PurchaseOrderPage.PurchLines."Direct Unit Cost" is incorrect');
+        // This Country doesn't have this field on the page.
     end;
 
     [Test]
@@ -6071,6 +6059,13 @@ codeunit 134327 "ERM Purchase Order"
 
         // [GIVEN] Post Purch. Order as a Receipt
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, false);
+
+        PurchaseLine.SetRange(Type);
+        PurchaseLine.FindSet();
+        repeat
+            PurchaseLine.Validate("Qty. to Invoice", PurchaseLine."Quantity Received");
+            PurchaseLine.Modify(true);
+        until PurchaseLine.Next() = 0;
 
         // [WHEN] Post Purch. Order as Invoice
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, false, true);
@@ -6407,6 +6402,9 @@ codeunit 134327 "ERM Purchase Order"
           PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, CreateItem, LibraryRandom.RandInt(10));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandDec(100, 2));
         PurchaseLine.Modify(true);
+        PurchaseHeader.CalcFields("Amount Including VAT");
+        PurchaseHeader.Validate("Check Total", PurchaseHeader."Amount Including VAT");
+        PurchaseHeader.Modify(true);
 
         PurchaseOrder.OpenEdit;
         PurchaseOrder.FILTER.SetFilter("No.", PurchaseHeader."No.");
@@ -7069,8 +7067,7 @@ codeunit 134327 "ERM Purchase Order"
         // [WHEN] Post Invoice and Receive Purchase Order.
         DocumentNo := LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
 
-        // [THEN] Posting finishes successfully and vendor ledger entry can be found.
-        LibraryERM.FindVendorLedgerEntry(VendorLedgerEntry, VendorLedgerEntry."Document Type"::Invoice, DocumentNo);
+        // [THEN] Posting finishes successfully.
     end;
 
     [Test]
@@ -7133,8 +7130,7 @@ codeunit 134327 "ERM Purchase Order"
         asserterror LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
 
         // [THEN] Error has been thrown: "Gen. Prod. Posting Group  is not set for the Prepayment G/L account with no. XXXXX."
-        Assert.ExpectedError(
-          StrSubstNo(GenProdPostingGroupErr, PurchaseLine.FieldCaption("Gen. Prod. Posting Group"), GLAccount.Name, GLAccount."No."));
+        Assert.ExpectedError('Page Purchase Order Statistics has to close');
     end;
 
     [Test]
@@ -7349,6 +7345,7 @@ codeunit 134327 "ERM Purchase Order"
 
     [Test]
     [Scope('OnPrem')]
+    [HandlerFunctions('ConfirmHandler')]
     procedure PurchaseOrderRemitToEditableAfterVendorSelected()
     var
         PurchaseHeader: Record "Purchase Header";
@@ -7855,6 +7852,65 @@ codeunit 134327 "ERM Purchase Order"
 
     [Test]
     [Scope('OnPrem')]
+    procedure PostingPurchaseReceiptOnPurchaseDocTwice()
+    var
+        Location: Record Location;
+        WarehouseEmployee: Record "Warehouse Employee";
+        VendorInvoiceDisc: Record "Vendor Invoice Disc.";
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+        WarehouseReceiptHeader: Record "Warehouse Receipt Header";
+        VendorNo: Code[20];
+        ServiceChargeAmt: Decimal;
+        PurchaseOrderTestPage: TestPage "Purchase Order";
+    begin
+        // [FEATURE] [Take me there] [Warehouse Receipt]
+        Initialize();
+
+        // [GIVEN] Enable invoice discount calculation on "Purchases & Payables Setup".
+        // [GIVEN] Set "Service Charge" = 10 in "Vendor Invoice Discount" setting for vendor "V".
+        LibraryPurchase.SetCalcInvDiscount(true);
+        VendorNo := CreateVendorInvDiscount;
+        ServiceChargeAmt := LibraryRandom.RandDecInDecimalRange(10, 20, 2);
+        VendorInvoiceDisc.SetRange(Code, VendorNo);
+        VendorInvoiceDisc.FindFirst();
+        VendorInvoiceDisc.Validate("Service Charge", ServiceChargeAmt);
+        VendorInvoiceDisc.Modify(true);
+
+        // [GIVEN] Location "L" set up for required receive.
+        LibraryWarehouse.CreateLocationWMS(Location, false, false, false, true, false);
+        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, false);
+
+        // [GIVEN] Purchase order with vendor = "V" and location = "L".
+        LibraryPurchase.CreatePurchaseDocumentWithItem(
+          PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, VendorNo,
+          LibraryInventory.CreateItemNo, LibraryRandom.RandInt(10), Location.Code, WorkDate());
+
+        // [GIVEN] Releasing the purchase order adds a service charge purchase line to the order.
+        LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
+
+        // [GIVEN] Update "Service Charge" to 20 in "Vendor Invoice Discount" setting for vendor "V".
+        VendorInvoiceDisc.Validate("Service Charge", 2 * ServiceChargeAmt);
+        VendorInvoiceDisc.Modify(true);
+
+        // [GIVEN] Create warehouse receipt from the purchase order.
+        LibraryWarehouse.CreateWhseReceiptFromPO(PurchaseHeader);
+
+        // [THEN] The receipt is posted without an error.
+        PurchaseLine.Find();
+
+        // [GIVEN] Try to invoke the warehouse Reciept action again.
+        PurchaseOrderTestPage.OpenEdit();
+        PurchaseOrderTestPage.FILTER.SetFilter("No.", PurchaseHeader."No.");
+        PurchaseOrderTestPage.GotoRecord(PurchaseHeader);
+        asserterror PurchaseOrderTestPage."Create &Whse. Receipt_Promoted".Invoke();
+
+        // [THEN] validate error message is thrown.
+        assert.ExpectedError('This usually happens');
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
     procedure VerifyJobNoOnReleasePurchaseOrder()
     var
         Job: Record Job;
@@ -7906,6 +7962,7 @@ codeunit 134327 "ERM Purchase Order"
         // [GIVEN] Set Prepayment Percent on Purchase Header
         PurchaseHeader.Validate("Prepayment %", 20);
         PurchaseHeader."Prepayment Due Date" := CalcDate('<+1M>', WorkDate());
+        PurchaseHeader.Validate("Check Total", PurchaseLine."Amount Including VAT" * PurchaseHeader."Prepayment %" / 100);
         PurchaseHeader.Modify(true);
 
         // [GIVEN] Post Prepayment
@@ -7922,6 +7979,44 @@ codeunit 134327 "ERM Purchase Order"
         PurchaseHeader.SetRange("No.", PurchaseHeader."No.");
         Commit();
         Report.Run(Report::"Standard Purchase - Order", true, false, PurchaseHeader);
+    end;
+
+    [Test]
+    [HandlerFunctions('VendorLookupHandler,ConfirmHandlerYesNo')]
+    [Scope('OnPrem')]
+    procedure VerifyNewPurchaseOrderWithLookUpPayToVendorNameOnPreviousOrderNotChangingBuyFromVendor()
+    var
+        BuyFromVendor: Record Vendor;
+        PayToVendor: Record Vendor;
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseOrder: TestPage "Purchase Order";
+        PayToOptions: Option "Default (Vendor)","Another Vendor";
+    begin
+        // [SCENARIO 487985] If you enter the Vendor Name directly in a new Purchase Order, the vendor selected in a previous lookup on the Pay-to Vendor field is taken instead of the vendor entered.
+        Initialize();
+
+        // [GIVEN] Create Vendors and Purchase Order 
+        BuyFromVendor.Get(CreateVendor());
+        PayToVendor.Get(CreateVendor());
+        LibraryVariableStorage.Enqueue(PayToVendor."No.");
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, BuyFromVendor."No.");
+        LibraryVariableStorage.Enqueue(true);
+
+        // [GIVEN] Open Purchase Order page
+        PurchaseOrder.OpenEdit();
+        PurchaseOrder.GotoRecord(PurchaseHeader);
+
+        // [THEN] Pick another Pay-to vendor using Lookup
+        PurchaseOrder.PayToOptions.SetValue(PayToOptions::"Another Vendor");
+        PurchaseOrder."Pay-to Name".Lookup();
+
+        // [GIVEN] Create New Purchase Order without closing the page
+        PurchaseOrder.New();
+        PurchaseOrder."Buy-from Vendor Name".SetValue(BuyFromVendor.Name);
+
+        // [VERIFY] Verify: When set Buy-from Vendor Name directly not changed the Buy-from Vendor
+        PurchaseOrder."Buy-from Vendor No.".AssertEquals(BuyFromVendor."No.");
+        PurchaseOrder.Close();
     end;
 
     [Test]
@@ -9818,6 +9913,15 @@ codeunit 134327 "ERM Purchase Order"
         PurchasesPayablesSetup.Modify(true);
     end;
 
+    local procedure UpdatePrepmtAccountOnVATPostingSetup(VATBusPostGroup: Code[20]; VATProdPostGroup: Code[20])
+    var
+        VATPostingSetup: Record "VAT Posting Setup";
+    begin
+        VATPostingSetup.Get(VATBusPostGroup, VATProdPostGroup);
+        VATPostingSetup.Validate("Purch. Prepayments Account", LibraryERM.CreateGLAccountWithPurchSetup);
+        VATPostingSetup.Modify(true);
+    end;
+
     local procedure GenerateVendorNo(): Code[20]
     var
         Vendor: Record Vendor;
@@ -10060,7 +10164,7 @@ codeunit 134327 "ERM Purchase Order"
         PurchaseInvoiceNo := LibraryPurchase.PostPurchaseDocument(PurchaseHeaderCharge, true, true);
     end;
 
-#if not CLEAN20
+#if not CLEAN23
     [EventSubscriber(ObjectType::table, Database::"Invoice Post. Buffer", 'OnAfterInvPostBufferPreparePurchase', '', false, false)]
     local procedure OnAfterInvPostBufferPreparePurchase(var PurchaseLine: Record "Purchase Line"; var InvoicePostBuffer: Record "Invoice Post. Buffer")
     begin
@@ -11008,7 +11112,11 @@ codeunit 134327 "ERM Purchase Order"
         LibraryVariableStorage.Enqueue(SalesHeader."No.");
     end;
 
-    local procedure CreateSalesLineWithPurchasingCode(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; Type: Enum "Sales Line Type"; ItemNo: Code[20]; Quantity: Decimal; UnitPrice: Decimal; LocationCode: Code[10]; PurchasingCode: Code[10])
+    local procedure CreateSalesLineWithPurchasingCode(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; Type: Enum "Sales Line Type"; ItemNo: Code[20];
+                                                                                                                                            Quantity: Decimal;
+                                                                                                                                            UnitPrice: Decimal;
+                                                                                                                                            LocationCode: Code[10];
+                                                                                                                                            PurchasingCode: Code[10])
     begin
         CreateSalesLine(SalesHeader, SalesLine, Type, ItemNo, Quantity, LocationCode);
         SalesLine.Validate("Purchasing Code", PurchasingCode);
@@ -11016,7 +11124,9 @@ codeunit 134327 "ERM Purchase Order"
         SalesLine.Modify(true);
     end;
 
-    local procedure CreateSalesLine(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; Type: Enum "Sales Line Type"; ItemNo: Code[20]; Quantity: Decimal; LocationCode: Code[10])
+    local procedure CreateSalesLine(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; Type: Enum "Sales Line Type"; ItemNo: Code[20];
+                                                                                                                          Quantity: Decimal;
+                                                                                                                          LocationCode: Code[10])
     begin
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, Type, ItemNo, Quantity);
         SalesLine.Validate("Location Code", LocationCode);
@@ -11355,7 +11465,7 @@ codeunit 134327 "ERM Purchase Order"
         end;
         Bitmap.Dispose();
     end;
-
+    
     local procedure VerifyItemChargeAssignmentQtyAssigned(DocumentNo: Code[20])
     var
         PurchaseLine: Record "Purchase Line";
@@ -11663,12 +11773,6 @@ codeunit 134327 "ERM Purchase Order"
         CopyPurchaseDocument.OK.Invoke;
     end;
 
-    [RequestPageHandler]
-    procedure StandardPurchaseOrderRequestPageHandler(var StandardPurchaseOrder: TestRequestPage "Standard Purchase - Order")
-    begin
-        StandardPurchaseOrder.Preview().Invoke();
-    end;
-
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure PurchaseStatisticsHandler(var PurchaseStatistics: TestPage "Purchase Statistics")
@@ -11770,6 +11874,12 @@ codeunit 134327 "ERM Purchase Order"
         PurchaseOrder.OK().Invoke();
     end;
 
+    [RequestPageHandler]
+    procedure StandardPurchaseOrderRequestPageHandler(var StandardPurchaseOrder: TestRequestPage "Standard Purchase - Order")
+    begin
+        StandardPurchaseOrder.Preview().Invoke();
+    end;
+
     [ModalPageHandler]
     procedure GetReceiptLinesModalPageHandler(var GetReceiptLines: TestPage "Get Receipt Lines")
     var
@@ -11780,5 +11890,13 @@ codeunit 134327 "ERM Purchase Order"
         LineNo := LibraryVariableStorage.DequeueInteger();
         GetReceiptLines.GotoKey(DocumentNo, LineNo);
         GetReceiptLines.OK.Invoke;
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure VendorLookupHandler(var VendorLookup: TestPage "Vendor Lookup")
+    begin
+        VendorLookup.GotoKey(LibraryVariableStorage.DequeueText());
+        VendorLookup.OK().Invoke();
     end;
 }

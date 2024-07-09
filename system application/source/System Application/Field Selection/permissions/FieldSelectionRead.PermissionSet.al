@@ -3,12 +3,14 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Reflection;
+
+using System.Environment.Configuration;
+
 permissionset 9806 "Field Selection - Read"
 {
     Assignable = false;
 
-    IncludedPermissionSets = "Field Selection - Objects";
-
-    Permissions = tabledata "Page Data Personalization" = R, // Page.Run requires this
-                  tabledata Field = r;
+    Permissions = tabledata Field = r,
+                  tabledata "Page Data Personalization" = R;
 }

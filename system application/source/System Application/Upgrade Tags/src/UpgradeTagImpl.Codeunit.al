@@ -3,14 +3,20 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Upgrade;
+
+using System.Integration;
+using System.Reflection;
+using System.Environment;
+
 codeunit 9996 "Upgrade Tag Impl."
 {
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
-    Permissions = TableData "Upgrade Tags" = rimd,
-                  TableData "Upgrade Tag Backup" = rimd,
-                  TableData "Intelligent Cloud" = r;
+    Permissions = tabledata "Upgrade Tags" = rimd,
+                  tabledata "Upgrade Tag Backup" = rimd,
+                  tabledata "Intelligent Cloud" = r;
 
     procedure HasUpgradeTag(Tag: Code[250]): Boolean
     var

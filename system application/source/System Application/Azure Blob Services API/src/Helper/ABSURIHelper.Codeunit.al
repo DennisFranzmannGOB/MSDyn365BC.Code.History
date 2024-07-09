@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Azure.Storage;
+
 codeunit 9046 "ABS URI Helper"
 {
     Access = Internal;
@@ -46,7 +48,7 @@ codeunit 9046 "ABS URI Helper"
         if Operation = Operation::AbortCopyBlob then
             ABSFormatHelper.AppendToUri(ConstructedUrl, 'copyid', RetrieveFromOptionalUriParameters('copyid'));
 
-        if Operation in [Operation::Putblock, Operation::PutBlockFromURL] then
+        if Operation in [Operation::PutBlock, Operation::PutBlockFromURL] then
             ABSFormatHelper.AppendToUri(ConstructedUrl, 'blockid', RetrieveFromOptionalUriParameters('blockid'));
 
         AddOptionalUriParameters(ConstructedUrl);

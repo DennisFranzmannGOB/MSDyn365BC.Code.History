@@ -75,6 +75,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType ThirdPartyExtensionsNotAllowedErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 571534387 - NamedType 2389531293" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not establish the connection to the remote service for sending email. Try again later.</source>
+          <target state="translated">Impossibile stabilire la connessione al servizio remoto per l'invio di posta elettronica. Riprovare più tardi.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType ConnectionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 571534387 - NamedType 3949230830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request to send email has been blocked. To resolve the problem, enable outgoing HTTP requests for the Email - Outlook REST API app on the Extension Management page.</source>
+          <target state="translated">La richiesta di invio di e-mail è stata bloccata. Per risolvere il problema, abilitare le richieste HTTP in uscita per l'app Email - Outlook REST API nella pagina Gestione estensioni.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType EnvironmentBlocksErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2364649794" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Multi-Factor Authentication is enabled on this account but the user did not complete the setup. Please sign in to the account and try again.</source>
           <target state="translated">L'autenticazione a più fattori è abilitata su questo account ma l'utente non ha completato il setup. Accedere all'account e riprovare.</target>
@@ -88,8 +100,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2917787611" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Could not send the email because the user is external.</source>
-          <target state="translated">Impossibile inviare il messaggio e-mail perché l'utente è esterno.</target>
+          <source>Could not send the email, because the user is delegated or external.</source>
+          <target state="translated">Impossibile inviare il messaggio e-mail perché l'utente è delegato o esterno.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailExternalUserErr</note>
         </trans-unit>
@@ -112,8 +124,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType AccountNotFoundErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 1683059839" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Client ID or Client secret is not set up on the Email Application AAD Registration page.</source>
-          <target state="translated">L'ID client o il segreto del client non sono impostati nella pagina di registrazione AAD dell'applicazione e-mail.</target>
+          <source>Client ID or Client secret is not set up on the Email Microsoft Entra application registration page.</source>
+          <target state="translated">L'ID client o il segreto del client non sono impostati nella pagina di registrazione di applicazioni per la funzionalità e-mail Microsoft Entra.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType CannotConnectToMailServerErr</note>
         </trans-unit>
@@ -124,14 +136,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType OnPremOnlyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 3435643268" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To connect to your email account you must create an App registration in Azure Active Directory and then enter information about the registration on the Email Application AAD Registration Page in Business Central. Do you want to do that now?</source>
-          <target state="translated">Per connettersi all'account e-mail è necessario creare una registrazione dell'app in Azure Active Directory e immettere le informazioni relative alla registrazione nella pagina di registrazione AAD dell'applicazione e-mail in Business Central. Vuoi farlo ora?</target>
+          <source>To connect to your email account you must create an App registration in Microsoft Entra and then enter information about the registration on the Email Microsoft Entra application registration page in Business Central. Do you want to do that now?</source>
+          <target state="translated">Per connettersi all'account e-mail è necessario creare una registrazione dell'app in Microsoft Entra e immettere le informazioni relative alla registrazione nella pagina di registrazione di applicazioni per la funzionalità e-mail Microsoft Entra in Business Central. Eseguire subito questa operazione?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType SetupOutlookAPIQst</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Email Application AAD Registration</source>
-          <target state="translated">Registrazione AAD dell'applicazione e-mail</target>
+          <source>Email Microsoft Entra application registration</source>
+          <target state="translated">Registrazione di applicazioni per la funzionalità e-mail Microsoft Entra</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Property Caption</note>
         </trans-unit>
@@ -172,8 +184,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - NamedType UriIsNotValidErr</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Control 3123527090 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must already have registered your application in Azure Active Directory and granted certain permissions. Use the client ID and secret from that registration to authenticate the email account.</source>
-          <target state="translated">È necessario aver già registrato l'applicazione in Azure Active Directory e concesso le autorizzazioni. Utilizzare l'ID client e il segreto del client presente nella registrazione per autenticare l'account e-mail.</target>
+          <source>You must already have registered your application in Microsoft Entra and granted certain permissions. Use the client ID and secret from that registration to authenticate the email account.</source>
+          <target state="translated">È necessario aver già registrato l'applicazione in Microsoft Entra e concesso le autorizzazioni. Utilizzare l'ID client e il segreto del client presente nella registrazione per autenticare l'account e-mail.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Control Info - Property InstructionalText</note>
         </trans-unit>
@@ -244,8 +256,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Control NotDoneIcon - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Action 2457075619 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete the Azure Active Directory app registration information in Business Central.</source>
-          <target state="translated">Eliminare le informazioni di registrazione dell'app di Azure Active Directory in Business Central.</target>
+          <source>Delete the Microsoft Entra app registration information in Business Central.</source>
+          <target state="translated">Eliminare le informazioni di registrazione dell'app di Microsoft Entra in Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Action Clear - Property ToolTip</note>
         </trans-unit>

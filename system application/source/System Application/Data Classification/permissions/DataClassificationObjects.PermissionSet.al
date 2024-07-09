@@ -3,15 +3,15 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Privacy;
+
 permissionset 1752 "Data Classification - Objects"
 {
     Access = Internal;
     Assignable = false;
 
-    Permissions = Codeunit "Data Classification Mgt." = X,
-                  Page "Data Classification Wizard" = X,
-                  Page "Data Classification Worksheet" = X,
-                  Page "Field Content Buffer" = X,
-                  Page "Field Data Classification" = X,
-                  Table "Data Privacy Entities" = X;
+    Permissions = codeunit "Data Classification Mgt." = X,
+                  page "Data Classification Wizard" = X,
+                  page "Data Classification Worksheet" = X,
+                  page "Field Data Classification" = X;
 }

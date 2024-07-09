@@ -22,6 +22,7 @@ codeunit 136209 "Marketing Opportunity Mgmt"
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryInventory: Codeunit "Library - Inventory";
         LibraryApplicationArea: Codeunit "Library - Application Area";
+        LibraryDimension: Codeunit "Library - Dimension";
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryTemplates: Codeunit "Library - Templates";
@@ -57,6 +58,8 @@ codeunit 136209 "Marketing Opportunity Mgmt"
         OppCampaignNoErr: Label 'Campaign No. must not be %1 in Opportunity No.=''%2''';
         OppCardSalesDocTypeErr: Label 'Validation error for Field: Sales Document Type,  Message = ''Your entry of ''%1'' is not an acceptable value for ''Sales Document Type''. (Select Refresh to discard errors)''';
         OppNoNotUpdatedOnSalesQuoteErr: Label 'Opportunity No. not updated on Sales Quote.';
+        ToDoCountShouldBeOneErr: Label 'To-do count should be one.';
+        ItemDimensionAllowedFilter: Label 'Allowed Dimension filter must match in both Item template and Item.';
 
     [Test]
     [HandlerFunctions('ModalFormHandlerOpportunity,FormHandlerUpdateOpportunity')]
@@ -865,7 +868,7 @@ codeunit 136209 "Marketing Opportunity Mgmt"
         // [THEN] Sales Quote with a new Customer and "Sell-to Customer Template Code" = "CT" is created
         SalesQuote."Sell-to Contact No.".AssertEquals(Contact."No.");
         SalesQuote."Sell-to Customer Templ. Code".AssertEquals(CustomerTemplateCode);
-        Customer.Get(SalesQuote."Sell-to Customer No.");
+        Customer.Get(SalesQuote."Sell-to Customer No.".Value());
         Customer.TestField(Name, Contact."Company Name");
         SalesQuote.Close();
     end;
@@ -1702,7 +1705,7 @@ codeunit 136209 "Marketing Opportunity Mgmt"
         LibraryVariableStorage.Enqueue(ActionOption::LookupOK);
         LibraryVariableStorage.Enqueue(CustomerTemplateCode);
         OpportunityCard.CreateSalesQuote.Invoke;
-        Customer.Get(SalesQuote."Sell-to Customer No.");
+        Customer.Get(SalesQuote."Sell-to Customer No.".Value());
         Assert.AreEqual(Opportunity."No.", SalesQuote."Opportunity No.".Value, OppNoNotUpdatedOnSalesQuoteErr);
         SalesQuote.Close();
 
@@ -1718,6 +1721,123 @@ codeunit 136209 "Marketing Opportunity Mgmt"
 
         // [VERIFY] Verify: Opportunity No. on New Sales Quote
         Assert.AreEqual(Opportunity."No.", SalesHeader."Opportunity No.", OppNoNotUpdatedOnSalesQuoteErr);
+    end;
+
+    [Test]
+    [HandlerFunctions('ConfirmMessageHandler,FormHandlerUpdateOpportunity')]
+    [Scope('OnPrem')]
+    procedure SalesCycleStageWithOnlyOneActivityStepOfTypePhoneCallCreatesOnlyOneTask()
+    var
+        Contact: Record Contact;
+        Activity: Record Activity;
+        ActivityStep: Record "Activity Step";
+        Opportunity: Record Opportunity;
+        SalesCycle: Record "Sales Cycle";
+        SalesCycleStage: Record "Sales Cycle Stage";
+        SalesHeader: Record "Sales Header";
+        ToDo: Record "To-do";
+        OpportunityCard: TestPage "Opportunity Card";
+    begin
+        // [SCENARIO 495997] When stan runs Update action from an Opportunity of Sales Cycle Stage having only one Activity Step of Type Phone Call then only one Task Line is created in Task List.
+        Initialize();
+
+        // [GIVEN] Create Contact of Type Person.
+        LibraryMarketing.CreatePersonContact(Contact);
+
+        // [GIVEN] Create Activity with Activity Step Type Phone Call.
+        CreateActivityWithActivityStepTypePhoneCall(Activity, ActivityStep);
+
+        // [GIVEN] Create Sales Cycle.
+        LibraryMarketing.CreateSalesCycle(SalesCycle);
+
+        // [GIVEN] Create Sales Cycle Stage with blank Activity Code.
+        CreateSalesCycleStageWithActivityCode(SalesCycle, SalesCycleStage, '');
+
+        // [GIVEN] Create Sales Cycle Stage 2 with Activity Code.
+        CreateSalesCycleStageWithActivityCode(SalesCycle, SalesCycleStage2, Activity.Code);
+
+        // [GIVEN] Create Sales Quote with Contact.
+        CreateSalesQuoteWithContact(SalesHeader, Contact);
+
+        // [GIVEN] Create Opportunity and Validate Sales Cycle Code.
+        LibraryMarketing.CreateOpportunity(Opportunity, Contact."No.");
+        Opportunity.Validate("Sales Cycle Code", SalesCycle.Code);
+        Opportunity.Modify(true);
+
+        // [GIVEN] Open Opportunity Card page and run Activate the First Stage action.
+        OpportunityCard.OpenEdit();
+        OpportunityCard.GoToRecord(Opportunity);
+        OpportunityCard."Activate the First Stage".Invoke();
+        OpportunityCard.Close();
+
+        // [GIVEN] Enter Sales Document Type and Sales Document No in Opportunity.
+        Opportunity."Sales Document Type" := Opportunity."Sales Document Type"::Quote;
+        Opportunity."Sales Document No." := SalesHeader."No.";
+        Opportunity.Modify(true);
+
+        // [GIVEN] Find and Update Opportunity.
+        AssignGlobalVariables(ActionType::Next, SalesCycleStage2."Sales Cycle Code", SalesCycleStage2.Stage);
+        Opportunity.SetRange("Contact No.", Contact."No.");
+        Opportunity.FindFirst();
+        Opportunity.UpdateOpportunity();
+
+        // [WHEN] Find Task.
+        ToDo.SetRange("Opportunity No.", Opportunity."No.");
+
+        // [VERIFY] Only one Task is created.
+        Assert.IsTrue(ToDo.Count() = 1, ToDoCountShouldBeOneErr);
+    end;
+
+    [Test]
+    procedure CreateItemFromItemTemplateWithDefaultDimensions()
+    var
+        ItemTempl: Record "Item Templ.";
+        Item: Record Item;
+        Dimension: Record Dimension;
+        DimensionValue: Record "Dimension Value";
+        DefaultDimension: Record "Default Dimension";
+        ItemTemplMgt: Codeunit "Item Templ. Mgt.";
+    begin
+        // [SCENARIO 525355] Value filters of dimensions in a Item Template are being transferred to new Item created using the template.
+        Initialize();
+
+        // [GIVEN] Create Item Template to set Dimension.
+        LibraryTemplates.CreateItemTemplate(ItemTempl);
+
+        // [GIVEN] Create a Dimension.
+        LibraryDimension.CreateDimension(Dimension);
+
+        // [GIVEN] Create Dimension Value with the Dimension.
+        LibraryDimension.CreateDimensionValue(DimensionValue, Dimension.Code);
+
+        // [GIVEN] Create Default Dimension for Item Template.
+        LibraryDimension.CreateDefaultDimension(
+            DefaultDimension,
+            DATABASE::"Item Templ.",
+            ItemTempl.Code,
+            DimensionValue."Dimension Code",
+            DimensionValue.Code);
+
+        // [GIVEN] Validate Value Posting and Allowed Values Filter in Default Dimension.
+        DefaultDimension.Validate("Value Posting", DefaultDimension."Value Posting"::"Code Mandatory");
+        DefaultDimension.Validate("Allowed Values Filter", DimensionValue.Code);
+        DefaultDimension.Modify();
+
+        // [WHEN] Create a new Item from the Item Template.
+        Item.Init();
+        Item.Insert(true);
+        ItemTemplMgt.ApplyItemTemplate(Item, ItemTempl);
+
+        // [THEN] Find and check Default Dimensions are copied to the new Item with Allowed Value Filter.
+        DefaultDimension.Reset();
+        DefaultDimension.SetRange("Table ID", DATABASE::Item);
+        DefaultDimension.SetRange("No.", Item."No.");
+        DefaultDimension.SetRange("Dimension Code", DimensionValue."Dimension Code");
+        DefaultDimension.FindFirst();
+        Assert.AreEqual(
+            DefaultDimension."Allowed Values Filter",
+            DefaultDimension."Dimension Value Code",
+            ItemDimensionAllowedFilter);
     end;
 
     local procedure Initialize()
@@ -2202,6 +2322,51 @@ codeunit 136209 "Marketing Opportunity Mgmt"
         SalesHeader.Insert(true);
     end;
 
+    local procedure CreateActivityWithActivityStepTypePhoneCall(var Activity: Record Activity; var ActivityStep: Record "Activity Step")
+    begin
+        LibraryMarketing.CreateActivity(Activity);
+        LibraryMarketing.CreateActivityStep(ActivityStep, Activity.Code);
+        ActivityStep.Validate(Type, ActivityStep.Type::"Phone Call");
+        ActivityStep.Validate(Priority, ActivityStep.Priority::Normal);
+        ActivityStep.Modify(true);
+    end;
+
+    local procedure CreateSalesCycleStageWithActivityCode(
+        var SalesCycle: Record "Sales Cycle";
+        var SalesCycleStage: Record "Sales Cycle Stage";
+        ActivityCode: Code[10])
+    begin
+        LibraryMarketing.CreateSalesCycleStage(SalesCycleStage, SalesCycle.Code);
+        SalesCycleStage.Validate("Completed %", LibraryRandom.RandInt(50));
+        SalesCycleStage.Validate("Chances of Success %", LibraryRandom.RandInt(25));
+        SalesCycleStage.Validate("Activity Code", ActivityCode);
+        SalesCycleStage.Modify(true);
+    end;
+
+    local procedure CreateSalesQuoteWithContact(var SalesHeader: Record "Sales Header"; Contact: Record Contact)
+    var
+        Customer: Record Customer;
+        Item: Record Item;
+        SalesLine: Record "Sales Line";
+    begin
+        LibrarySales.CreateCustomer(Customer);
+        Customer.Validate(Contact, Contact."No.");
+        Customer.Modify(true);
+
+        LibraryInventory.CreateItem(Item);
+
+        CreateSalesQuoteWithCustomer(SalesHeader, Customer."No.");
+        LibrarySales.CreateSalesLine(
+            SalesLine,
+            SalesHeader,
+            SalesLine.Type::Item,
+            Item."No.",
+            LibraryRandom.RandInt(0));
+
+        SalesLine.Validate("Unit Price", LibraryRandom.RandDec(20, 2));
+        SalesLine.Modify(true);
+    end;
+
     [ConfirmHandler]
     [Scope('OnPrem')]
     procedure ConfirmMessageHandler(Question: Text[1024]; var Reply: Boolean)
@@ -2428,7 +2593,7 @@ codeunit 136209 "Marketing Opportunity Mgmt"
     var
         Opportunity: Record Opportunity;
     begin
-        Opportunity.Get(OpportunityCard."No.");
+        Opportunity.Get(OpportunityCard."No.".Value());
         Opportunity.CalcFields(
           "Current Sales Cycle Stage", "Estimated Value (LCY)", "Chances of Success %", "Probability %");
 
@@ -2454,7 +2619,7 @@ codeunit 136209 "Marketing Opportunity Mgmt"
     var
         SalesCycle: Record "Sales Cycle";
     begin
-        SalesCycle.Get(SalesCycles.Code);
+        SalesCycle.Get(SalesCycles.Code.Value());
         SalesCycle.CalcFields(
           "No. of Opportunities", "Estimated Value (LCY)", "Calcd. Current Value (LCY)");
 

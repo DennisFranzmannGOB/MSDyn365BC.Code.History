@@ -338,6 +338,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Contacts - NamedType ExtensionTxt)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 688363657 - NamedType 2972031655" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Allowed Dimension filter must match in both Item template and Item.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Contacts - NamedType ItemDimensionAllowedFilter)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 688363657 - NamedType 1087169636" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[Contact %1 already has a %2 with Customer %3.]]></Val>
@@ -545,6 +554,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Interaction - NamedType AttachmentExportQst)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 1825309050 - NamedType 2147387581" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Attachment File should not be blank.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Interaction - NamedType AttachmentFileShouldNotBeBlankErr)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 1825309050 - NamedType 3113807491" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[%1 = %2 can not be specified for %3 %4.]]></Val>
@@ -698,6 +716,15 @@
       <Cmt Name="Dev"><![CDATA[%1 - document description, %2 - name]D;]A;(LookupHint=Codeunit Marketing Interaction - NamedType TitleFromLbl)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 1825309050 - NamedType 1911264649" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[txt]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Interaction - NamedType TxtFileExt)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 1825309050 - NamedType 1668614503" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[Unknown error.]]></Val>
@@ -824,6 +851,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Opportunity Mgmt - NamedType ExistErr)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 1409019018 - NamedType 2972031655" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Allowed Dimension filter must match in both Item template and Item.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Opportunity Mgmt - NamedType ItemDimensionAllowedFilter)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 1409019018 - NamedType 1459972951" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[Campaign No. must not be %1 in Opportunity No.='%2']]></Val>
@@ -905,6 +941,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Opportunity Mgmt - NamedType ShowSalesQuoteErr)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 1409019018 - NamedType 2305546152" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[To-do count should be one.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Opportunity Mgmt - NamedType ToDoCountShouldBeOneErr)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 1409019018 - NamedType 1668614503" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[Unexpected Error.]]></Val>
@@ -950,6 +995,15 @@
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Profiling - NamedType IncorrectQuestionnaireLineCountErr)]]></Cmt>
     </Cmts>
   </Item>
+  <Item ItemId=";Codeunit 3654092850 - NamedType 128322143" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Sales Document Type must be Quote on Opportunity %1.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[%1- Opportunity No]D;]A;(LookupHint=Codeunit Marketing Quotations Contacts - NamedType SalesDocumentTypeMissMatchErr)]]></Cmt>
+    </Cmts>
+  </Item>
   <Item ItemId=";Codeunit 3654092850 - NamedType 2554004096" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
     <Str Cat="Text" CP="DOS">
       <Val><![CDATA[A sales quote has already been assigned to this opportunity.]]></Val>
@@ -975,6 +1029,15 @@
     <Disp Icon="Str" Expand="true" />
     <Cmts>
       <Cmt Name="Dev"><![CDATA[(LookupHint=Codeunit Marketing Quotations Contacts - NamedType SalesQuoteMustNotExistError)]]></Cmt>
+    </Cmts>
+  </Item>
+  <Item ItemId=";Codeunit 3654092850 - NamedType 2937745" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">
+    <Str Cat="Text" CP="DOS">
+      <Val><![CDATA[Sell-To Contact No. on created Quote must be %1.]]></Val>
+    </Str>
+    <Disp Icon="Str" Expand="true" />
+    <Cmts>
+      <Cmt Name="Dev"><![CDATA[%1- Contact No.]D;]A;(LookupHint=Codeunit Marketing Quotations Contacts - NamedType SellToContactMissMatchErr)]]></Cmt>
     </Cmts>
   </Item>
   <Item ItemId=";Codeunit 3654092850 - NamedType 3098962420" ItemType=";Codeunit - GlobalVariable" PsrId="63" InstFlg="true" Leaf="true">

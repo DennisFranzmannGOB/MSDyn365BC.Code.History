@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Text;
+
 /// <summary>
 /// Enum containing supported ways to emphasize text for generation.
 /// </summary>
@@ -15,7 +17,7 @@ enum 2012 "Entity Text Emphasis"
     /// </summary>
     value(0; None)
     {
-        Caption = ' ';
+        Caption = 'No Emphasis';
     }
 
     /// <summary>

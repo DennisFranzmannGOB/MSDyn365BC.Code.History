@@ -253,6 +253,7 @@ codeunit 134893 "Background Document Posting"
 
         // [GIVEN] Purchase Invoice.
         LibraryPurchase.CreatePurchaseInvoice(PurchaseHeader);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, false, true, true);
 
         // [WHEN] Post Purchase Invoice via Job Queue.
         PostPurchaseDocumentViaJobQueue(PurchaseHeader);
@@ -294,6 +295,7 @@ codeunit 134893 "Background Document Posting"
 
         // [GIVEN] Purchase Credit Memo.
         LibraryPurchase.CreatePurchaseCreditMemo(PurchaseHeader);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, false, true, true);
 
         // [WHEN] Post Purchase Credit Memo via Job Queue.
         PostPurchaseDocumentViaJobQueue(PurchaseHeader);
@@ -505,6 +507,7 @@ codeunit 134893 "Background Document Posting"
     local procedure CreatePurchaseOrder(var PurchaseHeader: Record "Purchase Header")
     begin
         LibraryPurchase.CreatePurchaseOrder(PurchaseHeader);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, false, true, true);
         PurchaseHeader.Invoice := true;
         PurchaseHeader.Receive := true;
         PurchaseHeader.Modify();
@@ -513,6 +516,7 @@ codeunit 134893 "Background Document Posting"
     local procedure CreatePurchaseReturnOrder(var PurchaseHeader: Record "Purchase Header")
     begin
         LibraryPurchase.CreatePurchaseReturnOrder(PurchaseHeader);
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, false, true, true);
         PurchaseHeader.Invoice := true;
         PurchaseHeader.Ship := true;
         PurchaseHeader.Modify();

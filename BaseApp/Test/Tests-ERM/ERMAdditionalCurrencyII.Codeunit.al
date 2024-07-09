@@ -1,4 +1,4 @@
-codeunit 134091 "ERM Additional Currency II"
+﻿codeunit 134091 "ERM Additional Currency II"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -13,7 +13,6 @@ codeunit 134091 "ERM Additional Currency II"
         LibraryPurchase: Codeunit "Library - Purchase";
         LibrarySales: Codeunit "Library - Sales";
         LibraryService: Codeunit "Library - Service";
-        LibraryUtility: Codeunit "Library - Utility";
         LibraryERMUnapply: Codeunit "Library - ERM Unapply";
         LibraryRandom: Codeunit "Library - Random";
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
@@ -194,7 +193,7 @@ codeunit 134091 "ERM Additional Currency II"
     end;
 
     [Test]
-    [HandlerFunctions('AdjustExchReqPageHandler,AdjustExchConfirmHandler,StatisticsMessageHandler')]
+    [HandlerFunctions('StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure SalesInvoiceWithPaymentGeneralAndUnrealizedLoss()
     begin
@@ -205,7 +204,7 @@ codeunit 134091 "ERM Additional Currency II"
     end;
 
     [Test]
-    [HandlerFunctions('AdjustExchReqPageHandler,AdjustExchConfirmHandler,StatisticsMessageHandler')]
+    [HandlerFunctions('StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure SalesInvoiceWithPaymentGeneralAndUnrealizedGain()
     begin
@@ -234,8 +233,8 @@ codeunit 134091 "ERM Additional Currency II"
         ModifyExchangeRateAmount(CurrencyCode, IsLossEntry);
 
         if IsAdjustExchRate then
-#if not CLEAN20
-            RunAdjustExchangeRates(CurrencyCode);
+#if not CLEAN23
+            LibraryERM.RunAdjustExchangeRatesSimple(CurrencyCode, WorkDate(), WorkDate());
 #else
             LibraryERM.RunExchRateAdjustmentSimple(CurrencyCode, WorkDate(), WorkDate());
 #endif
@@ -415,7 +414,7 @@ codeunit 134091 "ERM Additional Currency II"
     end;
 
     [Test]
-    [HandlerFunctions('AdjustExchReqPageHandler,AdjustExchConfirmHandler,StatisticsMessageHandler')]
+    [HandlerFunctions('StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure PurchInvoiceWithPaymentGeneralAndUnrealizedLoss()
     begin
@@ -426,7 +425,7 @@ codeunit 134091 "ERM Additional Currency II"
     end;
 
     [Test]
-    [HandlerFunctions('AdjustExchReqPageHandler,AdjustExchConfirmHandler,StatisticsMessageHandler')]
+    [HandlerFunctions('StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure PurchInvoiceWithPaymentGeneralAndUnrealizedGain()
     begin
@@ -455,8 +454,8 @@ codeunit 134091 "ERM Additional Currency II"
         ModifyExchangeRateAmount(CurrencyCode, not IsLossEntry);
 
         if IsAdjustExchRate then
-#if not CLEAN20
-            RunAdjustExchangeRates(CurrencyCode);
+#if not CLEAN23
+            LibraryERM.RunAdjustExchangeRatesSimple(CurrencyCode, WorkDate(), WorkDate());
 #else
             LibraryERM.RunExchRateAdjustmentSimple(CurrencyCode, WorkDate(), WorkDate());
 #endif
@@ -1003,20 +1002,6 @@ codeunit 134091 "ERM Additional Currency II"
         GeneralLedgerSetup.Modify(true);
     end;
 
-    local procedure RunAdjustExchangeRates(CurrencyCode: Code[20])
-    var
-        Currency: Record Currency;
-        AdjustExchangeRates: Report "Adjust Exchange Rates";
-    begin
-        Currency.SetRange(Code, CurrencyCode);
-        AdjustExchangeRates.SetTableView(Currency);
-        AdjustExchangeRates.InitializeRequest2(
-          WorkDate, WorkDate(), 'Test', WorkDate(),
-          LibraryUtility.GenerateGUID, true, false);
-        Commit();
-        AdjustExchangeRates.Run();
-    end;
-
     local procedure ApplyPostVendPayment2Invoices(PayDocNo: Code[20]; InvDocNo1: Code[20]; InvDocNo2: Code[20])
     var
         VendLedgerEntryFrom: Record "Vendor Ledger Entry";
@@ -1073,23 +1058,6 @@ codeunit 134091 "ERM Additional Currency II"
         CustLedgerEntry.SetRange(Open, false);
         CustLedgerEntry.FindLast();
         LibraryERMUnapply.UnapplyCustomerLedgerEntryBase(CustLedgerEntry, PostingDate);
-    end;
-
-    [RequestPageHandler]
-    [Scope('OnPrem')]
-    procedure AdjustExchReqPageHandler(var AdjustExchReqPage: TestRequestPage "Adjust Exchange Rates")
-    begin
-        AdjustExchReqPage.AdjustCustomer.SetValue(true);
-        AdjustExchReqPage.AdjVendors.SetValue(true);
-        AdjustExchReqPage.Post.SetValue(true);
-        AdjustExchReqPage.SaveAsXml(TemporaryPath + 'tmp', TemporaryPath + 'tmp2');
-    end;
-
-    [ConfirmHandler]
-    [Scope('OnPrem')]
-    procedure AdjustExchConfirmHandler(Question: Text[1024]; var Reply: Boolean)
-    begin
-        Reply := true;
     end;
 
     local procedure VerifyCustomerLedgerEntry(DocumentNo: Code[20]; Amount: Decimal)

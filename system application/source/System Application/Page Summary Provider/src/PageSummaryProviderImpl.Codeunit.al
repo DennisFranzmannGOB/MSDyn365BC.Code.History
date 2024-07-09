@@ -3,6 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Integration;
+
+using System;
+using System.Text;
+using System.Reflection;
+using System.Environment;
+
 /// <summary>
 /// Implements functionality to get summary data for a given object.
 /// </summary>
@@ -11,13 +18,14 @@ codeunit 2717 "Page Summary Provider Impl."
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
-    Permissions = tabledata "Page Metadata" = r,
+    Permissions = tabledata Company = r,
+                  tabledata "Page Metadata" = r,
                   tabledata "Tenant Media Set" = r,
                   tabledata "Tenant Media Thumbnails" = r;
 
     procedure GetPageSummary(PageId: Integer; Bookmark: Text): Text
     var
-        RecId: RecordID;
+        RecId: RecordId;
         ResultJsonObject: JsonObject;
     begin
         // Add header
@@ -41,7 +49,7 @@ codeunit 2717 "Page Summary Provider Impl."
     procedure GetPageSummary(PageId: Integer; SystemId: Guid): Text
     var
         PageMetadata: Record "Page Metadata";
-        RecId: RecordID;
+        RecId: RecordId;
         SourceRecordRef: RecordRef;
         ResultJsonObject: JsonObject;
         Bookmark: Text;

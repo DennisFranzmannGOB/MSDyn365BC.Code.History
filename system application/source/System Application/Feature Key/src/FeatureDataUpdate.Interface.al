@@ -3,13 +3,15 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Environment.Configuration;
+
 /// <summary>
 /// Interface defines methods for feature data update task management.
 /// </summary>
 interface "Feature Data Update"
 {
     /// <summary>
-    /// Searches the database for data that must be updated before the feature can be enabled. 
+    /// Searches the database for data that must be updated before the feature can be enabled.
     /// </summary>
     /// <returns>true if there is data to update</returns>
     procedure IsDataUpdateRequired(): Boolean;

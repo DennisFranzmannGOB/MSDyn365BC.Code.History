@@ -560,6 +560,7 @@ codeunit 131334 "ERM VAT Tool - Helper"
     local procedure CreateVATPostingSetupBasedOnExisting(ExistingVATPostingSetup: Record "VAT Posting Setup"; VATProdPostingGroup: Record "VAT Product Posting Group")
     var
         VATPostingSetup: Record "VAT Posting Setup";
+        VATIdentifier: Record "VAT Identifier";
         VATPercent: Integer;
         IsHandled: Boolean;
     begin
@@ -571,11 +572,16 @@ codeunit 131334 "ERM VAT Tool - Helper"
         VATPostingSetup.Init();
         VATPostingSetup.Validate("VAT Prod. Posting Group", VATProdPostingGroup.Code);
         VATPostingSetup.Validate("VAT Bus. Posting Group", ExistingVATPostingSetup."VAT Bus. Posting Group");
+        LibraryERM.CreateVATIdentifier(VATIdentifier);
+        VATPostingSetup.Validate("VAT Identifier", VATIdentifier.Code);
         VATPercent := LibraryRandom.RandInt(30);
-        VATPostingSetup.Validate("VAT Identifier", 'VAT' + Format(VATPercent));
         VATPostingSetup.Validate("VAT %", VATPercent);
         VATPostingSetup.Validate("Sales VAT Account", ExistingVATPostingSetup."Sales VAT Account");
         VATPostingSetup.Validate("Purchase VAT Account", ExistingVATPostingSetup."Purchase VAT Account");
+        // IT specific accounts
+        VATPostingSetup.Validate("Sales Prepayments Account", ExistingVATPostingSetup."Sales VAT Account");
+        VATPostingSetup.Validate("Purch. Prepayments Account", ExistingVATPostingSetup."Purchase VAT Account");
+        // IT
         VATPostingSetup.Insert(true);
     end;
 
@@ -1175,10 +1181,8 @@ codeunit 131334 "ERM VAT Tool - Helper"
 
     [Scope('OnPrem')]
     procedure PostPurchasePrepaymentInvoice(var PurchaseHeader: Record "Purchase Header")
-    var
-        PurchasePostPrepayments: Codeunit "Purchase-Post Prepayments";
     begin
-        PurchasePostPrepayments.Invoice(PurchaseHeader);
+        LibraryPurchase.PostPrepaymentInvoice(PurchaseHeader);
     end;
 
     [Scope('OnPrem')]

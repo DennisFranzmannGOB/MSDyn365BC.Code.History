@@ -1,3 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Inventory.Intrastat;
+
+using System.Environment;
+using System.Utilities;
+
 page 4813 "Intrastat Report Subform"
 {
     AutoSplitKey = true;
@@ -245,7 +254,15 @@ page 4813 "Intrastat Report Subform"
 
     procedure UpdateMarkedOnly()
     begin
-        Rec.MarkedOnly(not Rec.MarkedOnly);
+        if Rec.FindSet() then
+            repeat
+                Rec.Mark(ErrorsExistOnCurrentLine(Rec));
+            until Rec.Next() = 0;
+
+        Rec.MarkedOnly(not Rec.MarkedOnly());
+
+        if Rec.FindFirst() then
+            CurrPage.Update(false);
     end;
 
     local procedure UpdateStatisticalValue()
@@ -258,14 +275,14 @@ page 4813 "Intrastat Report Subform"
         StatisticalValueVisible := ShowTotalStatisticalValue;
     end;
 
-    local procedure ErrorsExistOnCurrentLine(): Boolean
+    local procedure ErrorsExistOnCurrentLine(IntrastatReportLine: Record "Intrastat Report Line"): Boolean
     var
         ErrorMessage: Record "Error Message";
         IntrastatReportHeader: Record "Intrastat Report Header";
     begin
-        if IntrastatReportHeader.Get(Rec."Intrastat No.") then begin
+        if IntrastatReportHeader.Get(IntrastatReportLine."Intrastat No.") then begin
             ErrorMessage.SetContext(IntrastatReportHeader);
-            exit(ErrorMessage.HasErrorMessagesRelatedTo(Rec));
+            exit(ErrorMessage.HasErrorMessagesRelatedTo(IntrastatReportLine));
         end else
             exit(false);
     end;
@@ -279,7 +296,7 @@ page 4813 "Intrastat Report Subform"
         if IsHandled then
             exit;
 
-        ErrorExists := ErrorsExistOnCurrentLine();
+        ErrorExists := ErrorsExistOnCurrentLine(Rec);
 
         if ErrorExists then
             LineStyleExpression := 'Attention'

@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Tooling;
+
+using System.Visualization;
+
 /// <summary>
 /// The chart showing the breakdown of self time spent by app name / app publisher on the performance profiler page.
 /// </summary>
@@ -10,10 +14,12 @@ page 1922 "Profiling Self Time Chart"
 {
     Caption = 'Time Spent';
     PageType = CardPart;
+    InherentEntitlements = X;
+    InherentPermissions = X;
 
     layout
     {
-        area(content)
+        area(Content)
         {
             usercontrol(BusinessChart; BusinessChartUserControl)
             {

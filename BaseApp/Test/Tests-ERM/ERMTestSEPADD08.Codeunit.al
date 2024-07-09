@@ -34,6 +34,7 @@ codeunit 134429 "ERM Test SEPA DD 08"
         DrctDbtPmtTpInfErr: Label 'There should not be ''PmtTpInf'''' within ''''DrctDbtTxInf''''';
         PmtTpInfInstrPrtyErr: Label 'There should not be ''InstrPrty'' within ''PmtTpInf''''';
         CdtrAgtTagErr: Label 'There should not be CdtrAgt tag';
+        DirectDebitMsgNosErr: Label 'The bank account %1 is not set up for direct debit collections. It needs a number series for direct debit files. You specify the number series on the card for the bank account.', Comment = '%1 = Field, No. of Bank Account';
         MandateChangeErr: Label 'SequenceType cannot be set to OneOff, since the Mandate has already been used.';
         HasErrorsErr: Label 'The file export has one or more errors.\\For each line to be exported, resolve the errors displayed to the right and then try to export again.';
         FieldKeyBlankErr: Label '%1 must have a value in %2 %3.', Comment = '%1=field name, %2= table name, %3=key field value. Example: Name must have a value in Customer 10000.';
@@ -75,6 +76,7 @@ codeunit 134429 "ERM Test SEPA DD 08"
         SalesHeader.TestField("Payment Terms Code", DontPayTxt);
     end;
 
+    [Test]
     [Scope('OnPrem')]
     procedure DebitCounterValidationIgnoresExpectedNoOfDebits()
     var
@@ -576,6 +578,7 @@ codeunit 134429 "ERM Test SEPA DD 08"
         DirectDebitCollection.TestField(Status, DirectDebitCollection.Status::New);
     end;
 
+    [Test]
     [Scope('OnPrem')]
     procedure OneOffMandate()
     var
@@ -753,6 +756,8 @@ codeunit 134429 "ERM Test SEPA DD 08"
         Assert.IsTrue(DirectDebitCollection1.HasPaymentFileErrors(), 'Second collection should have errors.');
     end;
 
+    [Test]
+    [HandlerFunctions('TooManyDebitsMsgHandler')]
     [Scope('OnPrem')]
     procedure CounterExceedsExpNoOfDebits()
     var
@@ -776,6 +781,7 @@ codeunit 134429 "ERM Test SEPA DD 08"
             2, SEPADirectDebitMandate.TableCaption(), SEPADirectDebitMandate.ID));
     end;
 
+    [Test]
     [Scope('OnPrem')]
     procedure SEPADDExportWithBlankSwiftCode()
     var
@@ -792,6 +798,8 @@ codeunit 134429 "ERM Test SEPA DD 08"
         // [GIVEN] Bank Account with blank "SWIFT Code"
         BankAccount.Find();
         BankAccount."SWIFT Code" := '';
+        BankAccount.CUC :=
+          CopyStr(LibraryUtility.GenerateRandomCode(BankAccount.FieldNo(CUC), DATABASE::"Bank Account"), 1, MaxStrLen(BankAccount.CUC));
         BankAccount.Modify();
         CreateDirectDebitCollectionEntry(DirectDebitCollection, DirectDebitCollectionEntry, CustLedgEntry, SEPADirectDebitMandate);
         CreateAdditionalCollectionEntry(DirectDebitCollectionEntry, DirectDebitCollection, SEPADirectDebitMandate);
@@ -1397,6 +1405,26 @@ codeunit 134429 "ERM Test SEPA DD 08"
         SalesHeader.TestField("Direct Debit Mandate ID", SEPADirectDebitMandate[1].ID);
     end;
 
+    [Test]
+    [HandlerFunctions('CreateDirectDebitCollectionWithIncorrectBankAccount')]
+    [Scope('OnPrem')]
+    procedure TestCreateDirectDebitCollectionWithIncorrectBankAccount()
+    begin
+        // [SCENARIO] Direct Debit Collection cannot be created with a Bank Account which does not have set up number series for direct debit files.
+        Init();
+
+        // [GIVEN] Bank Account with blank "Direct Debit Msg. Nos."
+        BankAccount."Direct Debit Msg. Nos." := '';
+        BankAccount.Modify();
+        Commit();
+
+        LibraryVariableStorage.Enqueue(BankAccount."No.");
+
+        // [THEN] Retrieve an error
+        REPORT.Run(REPORT::"Create Direct Debit Collection");
+    end;
+
+    [Test]
     [Scope('OnPrem')]
     procedure ExportSEPADirectDebitTransferWhenAllowDDExportWitoutIBANAnsSWIFTIsTrue()
     var
@@ -1466,6 +1494,7 @@ codeunit 134429 "ERM Test SEPA DD 08"
         VerifyExportError(DirectDebitCollectionEntry, ErrorText);
     end;
 
+    [Test]
     [Scope('OnPrem')]
     procedure NoErrorInSEPADDCheckLineWhenAllowNonEuroExportIsTrue()
     var
@@ -1524,6 +1553,7 @@ codeunit 134429 "ERM Test SEPA DD 08"
         VerifyExportError(DirectDebitCollectionEntry, EuroCurrErr);
     end;
 
+    [Test]
     procedure RmtInfUstrd_DirectDebitEntryWithMessageToReceipt()
     var
         DirectDebitCollection: Record "Direct Debit Collection";
@@ -1588,6 +1618,8 @@ codeunit 134429 "ERM Test SEPA DD 08"
         if BankAccount."SWIFT Code" = '' then
             BankAccount."SWIFT Code" := 'MUDABAABC';
         BankAccount."Creditor No." := LibraryUtility.GenerateGUID();
+        BankAccount.CUC :=
+          CopyStr(LibraryUtility.GenerateRandomCode(BankAccount.FieldNo(CUC), DATABASE::"Bank Account"), 1, MaxStrLen(BankAccount.CUC));
         BankAccount.Modify();
         Initialized := true;
     end;
@@ -2146,6 +2178,23 @@ codeunit 134429 "ERM Test SEPA DD 08"
         LibraryVariableStorage.Dequeue(BankAccCode);
         CustomerBankAccountList.FILTER.SetFilter(Code, BankAccCode);
         CustomerBankAccountList."Direct Debit Mandates".Invoke();
+    end;
+
+    [MessageHandler]
+    [Scope('OnPrem')]
+    procedure TooManyDebitsMsgHandler(Message: Text[1024])
+    begin
+    end;
+
+    [RequestPageHandler]
+    [Scope('OnPrem')]
+    procedure CreateDirectDebitCollectionWithIncorrectBankAccount(var CreateDirectDebitCollection: TestRequestPage "Create Direct Debit Collection")
+    var
+        BankAccNo: Variant;
+    begin
+        LibraryVariableStorage.Dequeue(BankAccNo);
+        asserterror CreateDirectDebitCollection.BankAccNo.SetValue(BankAccNo);
+        Assert.ExpectedError(StrSubstNo(DirectDebitMsgNosErr, BankAccount."No."));
     end;
 }
 

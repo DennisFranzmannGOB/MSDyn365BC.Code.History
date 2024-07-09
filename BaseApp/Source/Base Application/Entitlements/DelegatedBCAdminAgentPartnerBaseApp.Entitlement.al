@@ -1,3 +1,5 @@
+namespace System.Security.AccessControl;
+
 entitlement "Delegated BC Admin agent - Partner BaseApp"
 {
     Type = Role;

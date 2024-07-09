@@ -3,11 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Visualization;
+
 permissionset 9704 "Cues and KPIs - Objects"
 {
     Access = Internal;
     Assignable = false;
 
-    Permissions = Page "Cue Setup Administrator" = X,
-                  Page "Cue Setup End User" = X;
+    Permissions = page "Cue Setup Administrator" = X,
+                  page "Cue Setup End User" = X;
 }

@@ -1,7 +1,9 @@
 // ------------------------------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved. 
+// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Text;
 
 /// <summary>
 /// Common setting used when encoding 2D barcodes.
@@ -22,7 +24,7 @@ table 9204 "Barcode Encode Settings 2D"
         /// </summary>
         field(1; "Error Correction Level"; Option)
         {
-            OptionMembers = "High","Medium","Low","Quartile";
+            OptionMembers = High,Medium,Low,Quartile;
             InitValue = "Medium";
             DataClassification = SystemMetadata;
         }

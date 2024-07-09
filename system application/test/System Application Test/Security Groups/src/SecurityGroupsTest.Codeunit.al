@@ -3,6 +3,17 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Test.Security.AccessControl;
+
+using System.TestLibraries.Environment;
+using System.TestLibraries.Azure.ActiveDirectory;
+using System.TestLibraries.Security.AccessControl;
+using System.TestLibraries.Mocking;
+using System.Security.AccessControl;
+using System;
+using System.Utilities;
+using System.TestLibraries.Utilities;
+
 codeunit 135016 "Security Groups Test"
 {
     Subtype = Test;
@@ -19,7 +30,7 @@ codeunit 135016 "Security Groups Test"
         TestCompanyNameTxt: Label 'TestCompany';
         TestSecurityGroupIdTxt: Label 'security group test ID';
         TestSecurityGroupNameTxt: Label 'Test AAD group';
-        InvalidAadGroupErr: Label 'The group ID %1 does not correspond to a valid AAD group.', Comment = '%1 = AAD security group ID';
+        InvalidAadGroupErr: Label 'The group ID %1 does not correspond to a valid Microsoft Entra group.', Comment = '%1 = Microsoft Entra security group ID';
         InsertedMsg: Label '%1 security groups with a total of %2 permission sets were inserted.', Comment = '%1 and %2 are numbers/quantities.';
         ExpectedTheSameValueErr: Label 'Expected the values to be the same';
         Scope: Option System,Tenant;
@@ -501,6 +512,39 @@ codeunit 135016 "Security Groups Test"
         TearDown();
     end;
 
+    [Test]
+    [TransactionModel(TransactionModel::AutoRollback)]
+    procedure TestCreateWithOrphanedSecurityGroups()
+    var
+        SecurityGroupBuffer: Record "Security Group Buffer";
+        SecurityGroupUser: Record User;
+        SecurityGroup: Codeunit "Security Group";
+        NavUserAccountHelper: DotNet NavUserAccountHelper;
+    begin
+        Initialize();
+
+        // [GIVEN] An AAD security group exists
+        MockGraphQueryTestLibrary.AddGroup(TestSecurityGroupNameTxt, TestSecurityGroupIdTxt);
+
+        // [GIVEN] There is an orphaned record in the User table (this can happen, because changes to the user table are not correctly rolled back on errors)
+        SecurityGroupUser."User Security ID" := CreateGuid();
+        SecurityGroupUser."User Name" := CopyStr('AAD Group: ' + TestSecurityGroupNameTxt, 1, MaxStrLen(SecurityGroupUser."User Name"));
+        SecurityGroupUser."License Type" := SecurityGroupUser."License Type"::"AAD Group";
+        SecurityGroupUser.Insert();
+
+        NavUserAccountHelper.SetAuthenticationObjectId(SecurityGroupUser."User Security ID", TestSecurityGroupIdTxt);
+
+        // [WHEN] A BC security group that corresponds to the orphaned user is created
+        // [THEN] No error happens
+        SecurityGroup.Create(TestSecurityGroupCodeTxt, TestSecurityGroupIdTxt);
+
+        // [THEN] There is one properly defined security group in the system
+        SecurityGroup.GetGroups(SecurityGroupBuffer);
+        Assert.RecordCount(SecurityGroupBuffer, 1);
+
+        TearDown();
+    end;
+
     [ModalPageHandler]
     procedure CopySecurityGroupHandler(var CopySecurityGroup: TestPage "Copy Security Group")
     begin
@@ -567,6 +611,7 @@ codeunit 135016 "Security Groups Test"
     [HandlerFunctions('MessageHandler')]
     procedure TestImport()
     var
+        TenantPermissionSet: Record "Tenant Permission Set";
         AccessControl: Record "Access Control";
         SecurityGroupBuffer: Record "Security Group Buffer";
         SecurityGroup: Codeunit "Security Group";
@@ -592,6 +637,16 @@ codeunit 135016 "Security Groups Test"
         MockGraphQueryTestLibrary.AddGroup(Sg1NameTxt, Sg1IdTxt);
         MockGraphQueryTestLibrary.AddGroup(Sg2NameTxt, Sg2IdTxt);
         MockGraphQueryTestLibrary.AddGroup(Sg3NameTxt, Sg3IdTxt);
+
+        TenantPermissionSet."App ID" := NullAppId;
+        TenantPermissionSet."Role ID" := RoleId1Txt;
+        TenantPermissionSet.Insert();
+        TenantPermissionSet."App ID" := NullAppId;
+        TenantPermissionSet."Role ID" := RoleId2Txt;
+        TenantPermissionSet.Insert();
+        TenantPermissionSet."App ID" := NullAppId;
+        TenantPermissionSet."Role ID" := RoleId3Txt;
+        TenantPermissionSet.Insert();
 
         // [WHEN] The security groups are imported
         TempBlob.CreateOutStream(OutStr, TextEncoding::UTF16);

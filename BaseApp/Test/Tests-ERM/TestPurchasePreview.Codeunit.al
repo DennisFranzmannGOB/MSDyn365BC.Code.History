@@ -1,4 +1,4 @@
-codeunit 134762 "Test Purchase Preview"
+﻿codeunit 134762 "Test Purchase Preview"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -203,6 +203,7 @@ codeunit 134762 "Test Purchase Preview"
 
         CreatePurchaseOrderWithPrepayment(PurchaseHeader);
         LibraryPurchase.PostPurchasePrepaymentInvoice(PurchaseHeader);
+        UpdateTotalCheckAmount(PurchaseHeader);
         Commit();
 
         PurchaseOrder.Trap;
@@ -939,8 +940,10 @@ codeunit 134762 "Test Purchase Preview"
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(500));
         PurchaseLine.Modify(true);
 
+        PurchaseHeader.Validate("Prepayment Due Date", PurchaseHeader."Posting Date");
         PurchaseHeader.Validate("Vendor Invoice No.", PurchaseHeader."No.");
         PurchaseHeader.Validate("Vendor Cr. Memo No.", PurchaseHeader."No.");
+        LibraryPurchase.SetCheckTotalOnPurchaseDocument(PurchaseHeader, true, false, false);
         PurchaseHeader.Modify(true);
         Commit();
     end;
@@ -1091,6 +1094,20 @@ codeunit 134762 "Test Purchase Preview"
         LibraryERM.SetApplyVendorEntry(ApplyingVendLedgerEntry, ApplyingVendLedgerEntry."Remaining Amount");
         LibraryERM.FindVendorLedgerEntry(VendLedgerEntry, VendLedgerEntry."Document Type"::Invoice, InvNo);
         LibraryERM.SetAppliestoIdVendor(VendLedgerEntry);
+    end;
+
+    local procedure UpdateTotalCheckAmount(var PurchaseHeader: Record "Purchase Header")
+    var
+        VendorLedgerEntry: Record "Vendor Ledger Entry";
+    begin
+        VendorLedgerEntry.SetRange("Vendor No.", PurchaseHeader."Buy-from Vendor No.");
+        VendorLedgerEntry.SetRange("Posting Date", PurchaseHeader."Posting Date");
+        VendorLedgerEntry.SetRange("Document Type", VendorLedgerEntry."Document Type"::Invoice);
+        if VendorLedgerEntry.FindFirst() then begin
+            VendorLedgerEntry.CalcFields("Amount (LCY)");
+            PurchaseHeader."Check Total" := Abs(VendorLedgerEntry."Amount (LCY)");
+            PurchaseHeader.Modify();
+        end;
     end;
 
     local procedure UpdateGLSetupPostingPreviewType(PostingPreviewType: Enum "Posting Preview Type")

@@ -3,8 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Email;
+
 /// <summary>
-/// Email policy that show emails to a given user, 
+/// Email policy that show emails to a given user,
 /// if that user is author of the email.
 /// </summary>
 codeunit 8931 "View Only Own Emails Policy" implements "Email View Policy"

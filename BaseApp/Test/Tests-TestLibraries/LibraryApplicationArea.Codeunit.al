@@ -55,7 +55,7 @@ codeunit 131102 "Library - Application Area"
         ApplicationAreaSetup.Validate("Company Name", CompanyName);
         ApplicationAreaSetup.Validate(Basic, true);
         ApplicationAreaSetup.Validate("Basic EU", true);
-        ApplicationAreaSetup.Validate("Basic AT", true);
+        ApplicationAreaSetup.Validate("Basic IT", true);
         ApplicationAreaSetup.Validate(VAT, true);
         ApplicationAreaSetup.Validate(Suite, true);
         ApplicationAreaSetup.Insert(true);
@@ -70,7 +70,7 @@ codeunit 131102 "Library - Application Area"
         ApplicationAreaSetup.Validate("Profile ID", AllProfile."Profile ID");
         ApplicationAreaSetup.Validate(Basic, true);
         ApplicationAreaSetup.Validate("Basic EU", true);
-        ApplicationAreaSetup.Validate("Basic AT", true);
+        ApplicationAreaSetup.Validate("Basic IT", true);
         ApplicationAreaSetup.Validate(VAT, true);
         ApplicationAreaSetup.Validate(Suite, true);
         ApplicationAreaSetup.Insert(true);
@@ -81,7 +81,7 @@ codeunit 131102 "Library - Application Area"
         ApplicationAreaSetup."User ID" := UserId;
         ApplicationAreaSetup.Validate(Basic, true);
         ApplicationAreaSetup.Validate("Basic EU", true);
-        ApplicationAreaSetup.Validate("Basic AT", true);
+        ApplicationAreaSetup.Validate("Basic IT", true);
         ApplicationAreaSetup.Validate(VAT, true);
         ApplicationAreaSetup.Validate(Suite, true);
         ApplicationAreaSetup.Insert(true);
@@ -884,9 +884,6 @@ codeunit 131102 "Library - Application Area"
         ApplicationAreaSetup.TestField(Dimensions, Value);
         ApplicationAreaSetup.TestField("Order Promising", Value);
         ApplicationAreaSetup.TestField(Reservation, Value);
-#if not CLEAN20
-        ApplicationAreaSetup.TestField(XBRL, Value);
-#endif
         ApplicationAreaSetup.TestField(ADCS, Value);
         ApplicationAreaSetup.TestField(Planning, Value);
         ApplicationAreaSetup.TestField(Comments, Value);

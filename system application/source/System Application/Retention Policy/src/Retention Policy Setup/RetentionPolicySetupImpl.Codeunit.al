@@ -3,6 +3,11 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.DataAdministration;
+
+using System.Reflection;
+using System.Environment.Configuration;
+
 codeunit 3903 "Retention Policy Setup Impl."
 {
     Access = Internal;
@@ -58,7 +63,7 @@ codeunit 3903 "Retention Policy Setup Impl."
             RetentionPolicySetupLine."Table Filter".CreateOutStream(OutStream, TextEncoding::UTF8);
             OutStream.Write(FilterView);
         end else
-            clear(RetentionPolicySetupLine."Table Filter");
+            Clear(RetentionPolicySetupLine."Table Filter");
 
         exit(FilterText);
     end;
@@ -110,7 +115,7 @@ codeunit 3903 "Retention Policy Setup Impl."
         AllowedTablesFilter := RetenPolAllowedTables.GetAllowedTables();
         AllObjWithCaption.FilterGroup := 2;
         AllObjWithCaption.SetRange("Object Type", AllObjWithCaption."Object Type"::Table);
-        If AllowedTablesFilter <> '' then
+        if AllowedTablesFilter <> '' then
             AllObjWithCaption.SetFilter("Object ID", AllowedTablesFilter)
         else
             AllObjWithCaption.SetRange("Object ID", 0); // show empty list
@@ -149,8 +154,8 @@ codeunit 3903 "Retention Policy Setup Impl."
 
     procedure TableExists(TableId: Integer): Boolean
     var
-        AllObj: record allObj;
-        RetentionPolicyLog: codeunit "Retention Policy Log";
+        AllObj: Record allObj;
+        RetentionPolicyLog: Codeunit "Retention Policy Log";
     begin
         if AllObj.Get(AllObj."Object Type"::Table, TableId) then
             exit(true);
@@ -179,7 +184,7 @@ codeunit 3903 "Retention Policy Setup Impl."
     var
         RetentionPolicySetup: Record "Retention Policy Setup";
     begin
-        RetentionPolicySetup.Setrange(Enabled, true);
+        RetentionPolicySetup.SetRange(Enabled, true);
         exit(not RetentionPolicySetup.IsEmpty())
     end;
 
@@ -196,7 +201,7 @@ codeunit 3903 "Retention Policy Setup Impl."
         RetentionPeriod: Record "Retention Period";
     begin
         if RetentionPeriod.Get(RetentionPolicySetup."Retention Period") then
-            ValidateRetentionPeriod(RetentionPeriod, RetentionPolicySetup."Table ID");
+            ValidateRetentionPeriod(RetentionPeriod, RetentionPolicySetup."Table Id");
     end;
 
     procedure ValidateRetentionPeriod(RetentionPolicySetupLine: Record "Retention Policy Setup Line")
@@ -221,7 +226,7 @@ codeunit 3903 "Retention Policy Setup Impl."
             exit;
         MinExpirationDate := RetenPolAllowedTables.CalcMinimumExpirationDate(TableId);
         if ExpirationDate > MinExpirationDate then
-            RetentionPolicyLog.LogError(LogCategory(), StrsubstNo(MinExpirationDateErr, RetenPolAllowedTables.GetMandatoryMinimumRetentionDays(TableId), MinExpirationDate));
+            RetentionPolicyLog.LogError(LogCategory(), StrSubstNo(MinExpirationDateErr, RetenPolAllowedTables.GetMandatoryMinimumRetentionDays(TableId), MinExpirationDate));
     end;
 
     procedure LogCategory(): Enum "Retention Policy Log Category"
@@ -253,11 +258,11 @@ codeunit 3903 "Retention Policy Setup Impl."
         if GetCurrentModuleExecutionContext() <> ExecutionContext::Normal then
             exit;
 
-        RetentionPolicySetup.Setrange("Retention Period", RetentionPeriod.Code);
+        RetentionPolicySetup.SetRange("Retention Period", RetentionPeriod.Code);
         if not RetentionPolicySetup.IsEmpty() then
             RetentionPolicyLog.LogError(LogCategory(), StrSubstNo(RetentionPeriodUsedErr, RetentionPeriod.Code));
 
-        RetentionPolicySetupLine.Setrange("Retention Period", RetentionPeriod.Code);
+        RetentionPolicySetupLine.SetRange("Retention Period", RetentionPeriod.Code);
         if not RetentionPolicySetupLine.IsEmpty() then
             RetentionPolicyLog.LogError(LogCategory(), StrSubstNo(RetentionPeriodUsedErr, RetentionPeriod.Code));
     end;
@@ -273,7 +278,7 @@ codeunit 3903 "Retention Policy Setup Impl."
         if GetCurrentModuleExecutionContext() <> ExecutionContext::Normal then
             exit;
 
-        RetentionPolicySetupLine.Setrange("Retention Period", RetentionPeriod.Code);
+        RetentionPolicySetupLine.SetRange("Retention Period", RetentionPeriod.Code);
         RetentionPolicySetupLine.SetRange(Locked, true);
         if not RetentionPolicySetupLine.IsEmpty() then
             RetentionPolicyLog.LogError(LogCategory(), StrSubstNo(RetentionPeriodLockedErr, RetentionPeriod.Code));
@@ -290,8 +295,8 @@ codeunit 3903 "Retention Policy Setup Impl."
             exit;
 
         RetentionPolicySetup.CalcFields("Table Caption");
-        if not RetenPolAllowedTables.IsAllowedTable(RetentionPolicySetup."Table ID") then
-            RetentionPolicyLog.LogError(LogCategory(), StrSubstNo(TableNotAllowedErrorLbl, RetentionPolicySetup."Table ID", RetentionPolicySetup."Table Caption"));
+        if not RetenPolAllowedTables.IsAllowedTable(RetentionPolicySetup."Table Id") then
+            RetentionPolicyLog.LogError(LogCategory(), StrSubstNo(TableNotAllowedErrorLbl, RetentionPolicySetup."Table Id", RetentionPolicySetup."Table Caption"));
         TableFilters := RetenPolAllowedTblImpl.GetTableFilters(RetentionPolicySetup."Table Id");
         if TableFilters.Count <> 0 then
             RetentionPolicySetup."Apply to all records" := false;
@@ -309,7 +314,7 @@ codeunit 3903 "Retention Policy Setup Impl."
         OutStream: OutStream;
         i: Integer;
         TableId: Integer;
-        RetentionPeriodEnum: enum "Retention Period Enum";
+        RetentionPeriodEnum: Enum "Retention Period Enum";
         DateFieldNo: Integer;
         Enabled: Boolean;
         Locked: Boolean;
@@ -322,8 +327,8 @@ codeunit 3903 "Retention Policy Setup Impl."
         if TableFilters.Count = 0 then
             exit;
 
-        RetentionPolicySetupLine.SetRange("Table Id", RetentionPolicySetup."Table Id");
-        RetentionPolicySetupLine.validate("Table ID", RetentionPolicySetup."Table Id");
+        RetentionPolicySetupLine.SetRange("Table ID", RetentionPolicySetup."Table Id");
+        RetentionPolicySetupLine.Validate("Table ID", RetentionPolicySetup."Table Id");
         if RetentionPolicySetupLine.FindLast() then;
         for i := 1 to TableFilters.Count() do begin
             RetentionPolicySetupLine.Init();
@@ -350,11 +355,11 @@ codeunit 3903 "Retention Policy Setup Impl."
         end;
     end;
 
-    procedure FindOrCreateRetentionPeriod(RetentionPeriodEnum: enum "Retention Period Enum"; RetPeriodCalc: DateFormula): Code[20]
+    procedure FindOrCreateRetentionPeriod(RetentionPeriodEnum: Enum "Retention Period Enum"; RetPeriodCalc: DateFormula): Code[20]
     var
         RetentionPeriod: Record "Retention Period";
     begin
-        // find 
+        // find
         RetentionPeriod.SetRange("Retention Period", RetentionPeriodEnum);
         if RetentionPeriodEnum = RetentionPeriodEnum::Custom then
             RetentionPeriod.SetRange("Ret. Period Calculation", RetPeriodCalc);
@@ -363,15 +368,15 @@ codeunit 3903 "Retention Policy Setup Impl."
 
         // create
         RetentionPeriod.Code := CreateUniqueRetentionPeriodCode(RetentionPeriodEnum);
-        RetentionPeriod.Description := CopyStr(format(RetentionPeriodEnum), 1, MaxStrLen(RetentionPeriod.Description));
-        RetentionPeriod.validate("Retention Period", RetentionPeriodEnum);
+        RetentionPeriod.Description := CopyStr(Format(RetentionPeriodEnum), 1, MaxStrLen(RetentionPeriod.Description));
+        RetentionPeriod.Validate("Retention Period", RetentionPeriodEnum);
         if RetentionPeriod."Retention Period" = RetentionPeriod."Retention Period"::Custom then
-            RetentionPeriod.validate("Ret. Period Calculation", RetPeriodCalc);
+            RetentionPeriod.Validate("Ret. Period Calculation", RetPeriodCalc);
         RetentionPeriod.Insert(true);
         exit(RetentionPeriod.Code);
     end;
 
-    procedure FindOrCreateRetentionPeriod(RetentionPeriodEnum: enum "Retention Period Enum"): Code[20]
+    procedure FindOrCreateRetentionPeriod(RetentionPeriodEnum: Enum "Retention Period Enum"): Code[20]
     var
         RetPeriodCalc: DateFormula;
     begin
@@ -379,15 +384,15 @@ codeunit 3903 "Retention Policy Setup Impl."
         exit(FindOrCreateRetentionPeriod(RetentionPeriodEnum, RetPeriodCalc))
     end;
 
-    local procedure CreateUniqueRetentionPeriodCode(RetentionPeriodEnum: enum "Retention Period Enum") RetentionPeriodCode: Code[20]
+    local procedure CreateUniqueRetentionPeriodCode(RetentionPeriodEnum: Enum "Retention Period Enum") RetentionPeriodCode: Code[20]
     var
         RetentionPeriod: Record "Retention Period";
     begin
-        RetentionPeriodCode := CopyStr(format(RetentionPeriodEnum), 1, MaxStrLen(RetentionPeriodCode));
+        RetentionPeriodCode := CopyStr(Format(RetentionPeriodEnum), 1, MaxStrLen(RetentionPeriodCode));
         if RetentionPeriod.Get(RetentionPeriodCode) then begin
             // ensure a unique code
-            RetentionPeriodCode := CopyStr(format(RetentionPeriodEnum), 1, MaxStrLen(RetentionPeriodCode) - 2) + '01';
-            While RetentionPeriod.Get(RetentionPeriodCode) do
+            RetentionPeriodCode := CopyStr(Format(RetentionPeriodEnum), 1, MaxStrLen(RetentionPeriodCode) - 2) + '01';
+            while RetentionPeriod.Get(RetentionPeriodCode) do
                 RetentionPeriodCode := IncStr(RetentionPeriodCode);
         end;
     end;
@@ -398,7 +403,7 @@ codeunit 3903 "Retention Policy Setup Impl."
         RetentionPolicySetupImpl: Codeunit "Retention Policy Setup Impl.";
     begin
         if not RetentionPolicySetup.IsTemporary() then begin
-            RetentionPolicySetupLine.Setrange("Table ID", RetentionPolicySetup."Table ID");
+            RetentionPolicySetupLine.SetRange("Table ID", RetentionPolicySetup."Table Id");
             if not RetentionPolicySetupLine.IsEmpty() then begin
                 BindSubscription(RetentionPolicySetupImpl);
                 RetentionPolicySetupImpl.AddTableIdToDeleteAllowedList(RetentionPolicySetup."Table Id");

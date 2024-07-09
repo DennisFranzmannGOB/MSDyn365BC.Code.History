@@ -3,12 +3,20 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Azure.Identity;
+
+#if not CLEAN22
+using System.Security.AccessControl;
+#endif
+
 /// <summary>
 /// Provides functionality to operation with plan configurations and customized permission sets related to a plan.
 /// </summary>
 codeunit 9825 "Plan Configuration"
 {
     Access = Public;
+    InherentEntitlements = X;
+    InherentPermissions = X;
 
     /// <summary>
     /// Checks if a plan configuration was customized.

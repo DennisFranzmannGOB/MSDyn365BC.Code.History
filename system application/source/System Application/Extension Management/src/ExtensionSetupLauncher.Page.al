@@ -1,7 +1,9 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Apps;
 
 /// <summary>
 /// This page is a launch pad for running setup after installation of an extension.
@@ -14,12 +16,6 @@ page 2512 "Extension Setup Launcher"
     ApplicationArea = All;
     Caption = 'Almost there...';
 
-    layout
-    {
-        area(content)
-        {
-        }
-    }
 
     trigger OnOpenPage()
     var

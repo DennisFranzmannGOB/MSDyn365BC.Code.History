@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Integration.Sharepoint;
+
 /// <summary>
 /// Holds information about folder entity.
 /// </summary>
@@ -38,7 +40,7 @@ table 9106 "SharePoint Folder"
             Caption = 'Item Count';
         }
 
-        field(5; "Exists"; Boolean)
+        field(5; Exists; Boolean)
         {
             Caption = 'Exists';
         }

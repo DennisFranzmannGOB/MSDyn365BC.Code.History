@@ -31,7 +31,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         ErrorValidationErr: Label 'Error must be same.';
         StatusErr: Label 'Status must be equal to ''Open''  in %1: %2=%3, %4=%5. Current value is ''Released''.';
         StringLengthExceededErr: Label 'StringLengthExceeded';
-        DateFilterTok: Label '%1..%2';
+        DateFilterTok: Label '%1..%2', Locked = true;
         JournalLineErr: Label 'You are not allowed to apply and post an entry to an entry with an earlier posting date.';
         FieldValueErr: Label 'Wrong %1 in %2';
         SalesDocumentTestReportDimErr: Label 'Sales Document Test Report has dimension errors';
@@ -1519,6 +1519,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         PurchasesPayablesSetup: Record "Purchases & Payables Setup";
         PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.";
         ReturnShipmentHeader: Record "Return Shipment Header";
+        PostingNo: Code[20];
     begin
         // [FEATURE] [No. Series] [Purchase] [Return Order]
         // [SCENARIO 363508] Stan can post Purchase Return Order with blank posting no. series fields when he updated no. series in purchase setup
@@ -1536,20 +1537,14 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         PurchasesPayablesSetup.Modify();
         Commit();
 
-        asserterror LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
-        Assert.ExpectedError(PurchaseHeader.FieldCaption("Posting No. Series"));
-
-        PurchasesPayablesSetup.Get();
-        PurchasesPayablesSetup.Validate("Posted Credit Memo Nos.", CreateNoSeriesCode());
-        PurchasesPayablesSetup.Modify();
-        Commit();
+        PostingNo := GetNextNoFromNoSeries(PurchaseHeader."Operation Type");
 
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
 
         ReturnShipmentHeader.SetRange("No.", GetLastNoUsedFromNoSeries(PurchasesPayablesSetup."Posted Return Shpt. Nos."));
         Assert.RecordCount(ReturnShipmentHeader, 1);
 
-        PurchCrMemoHdr.SetRange("No.", GetLastNoUsedFromNoSeries(PurchasesPayablesSetup."Posted Credit Memo Nos."));
+        PurchCrMemoHdr.SetRange("No.", PostingNo);
         Assert.RecordCount(PurchCrMemoHdr, 1);
     end;
 
@@ -1561,6 +1556,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         PurchasesPayablesSetup: Record "Purchases & Payables Setup";
         PurchInvHeader: Record "Purch. Inv. Header";
         PurchRcptHeader: Record "Purch. Rcpt. Header";
+        PostingNo: Code[20];
     begin
         // [FEATURE] [No. Series] [Purchase] [Order]
         // [SCENARIO 363508] Stan can post Purchase Order with blank posting no. series fields when he updated no. series in purchase setup
@@ -1578,20 +1574,14 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         PurchasesPayablesSetup.Modify();
         Commit();
 
-        asserterror LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
-        Assert.ExpectedError(PurchaseHeader.FieldCaption("Posting No. Series"));
-
-        PurchasesPayablesSetup.Get();
-        PurchasesPayablesSetup.Validate("Posted Invoice Nos.", CreateNoSeriesCode());
-        PurchasesPayablesSetup.Modify();
-        Commit();
+        PostingNo := GetNextNoFromNoSeries(PurchaseHeader."Operation Type");
 
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
 
         PurchRcptHeader.SetRange("No.", GetLastNoUsedFromNoSeries(PurchasesPayablesSetup."Posted Receipt Nos."));
         Assert.RecordCount(PurchRcptHeader, 1);
 
-        PurchInvHeader.SetRange("No.", GetLastNoUsedFromNoSeries(PurchasesPayablesSetup."Posted Invoice Nos."));
+        PurchInvHeader.SetRange("No.", PostingNo);
         Assert.RecordCount(PurchInvHeader, 1);
     end;
 
@@ -1602,6 +1592,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         PurchaseHeader: Record "Purchase Header";
         PurchasesPayablesSetup: Record "Purchases & Payables Setup";
         PurchInvHeader: Record "Purch. Inv. Header";
+        PostingNo: Code[20];
     begin
         // [FEATURE] [No. Series] [Purchase] [Invoice]
         // [SCENARIO 363508] Stan can post Purchase Invoice with blank posting no. series fields when he updated no. series in purchase setup
@@ -1618,6 +1609,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
 
         LibraryPurchase.CreatePurchaseInvoice(PurchaseHeader);
         Commit();
+
         asserterror LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
         Assert.ExpectedError(PurchaseHeader.FieldCaption("Receiving No. Series"));
 
@@ -1626,9 +1618,11 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         PurchasesPayablesSetup.Modify();
         Commit();
 
+        PostingNo := GetNextNoFromNoSeries(PurchaseHeader."Operation Type");
+
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
 
-        PurchInvHeader.SetRange("No.", GetLastNoUsedFromNoSeries(PurchasesPayablesSetup."Posted Invoice Nos."));
+        PurchInvHeader.SetRange("No.", PostingNo);
         Assert.RecordCount(PurchInvHeader, 1);
     end;
 
@@ -1639,6 +1633,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         PurchaseHeader: Record "Purchase Header";
         PurchasesPayablesSetup: Record "Purchases & Payables Setup";
         PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.";
+        PostingNo: Code[20];
     begin
         // [FEATURE] [No. Series] [Purchase] [Credit Memo]
         // [SCENARIO 363508] Stan can post Purchase Credit Memo with blank posting no. series fields when he updated no. series in purchase setup
@@ -1664,9 +1659,11 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         PurchasesPayablesSetup.Modify();
         Commit();
 
+        PostingNo := GetNextNoFromNoSeries(PurchaseHeader."Operation Type");
+
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
 
-        PurchCrMemoHdr.SetRange("No.", GetLastNoUsedFromNoSeries(PurchasesPayablesSetup."Posted Credit Memo Nos."));
+        PurchCrMemoHdr.SetRange("No.", PostingNo);
         Assert.RecordCount(PurchCrMemoHdr, 1);
     end;
 
@@ -1679,6 +1676,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
         ReturnReceiptHeader: Record "Return Receipt Header";
+        PostingNo: Code[20];
     begin
         // [FEATURE] [No. Series] [Sales] [Return Order]
         // [SCENARIO 363508] Stan can post Sales Return Order with blank posting no. series fields when he updated no. series in sales setup
@@ -1698,20 +1696,14 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesReceivablesSetup.Modify();
         Commit();
 
-        asserterror PostSalesDocument(SalesHeader, true, true);
-        Assert.ExpectedError(SalesHeader.FieldCaption("Posting No. Series"));
-
-        SalesReceivablesSetup.Get();
-        SalesReceivablesSetup.Validate("Posted Credit Memo Nos.", CreateNoSeriesCode());
-        SalesReceivablesSetup.Modify();
-        Commit();
+        PostingNo := GetNextNoFromNoSeries(SalesHeader."Operation Type");
 
         PostSalesDocument(SalesHeader, true, true);
 
         ReturnReceiptHeader.SetRange("No.", GetLastNoUsedFromNoSeries(SalesReceivablesSetup."Posted Return Receipt Nos."));
         Assert.RecordCount(ReturnReceiptHeader, 1);
 
-        SalesCrMemoHeader.SetRange("No.", GetLastNoUsedFromNoSeries(SalesReceivablesSetup."Posted Credit Memo Nos."));
+        SalesCrMemoHeader.SetRange("No.", PostingNo);
         Assert.RecordCount(SalesCrMemoHeader, 1);
     end;
 
@@ -1723,6 +1715,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
         SalesInvoiceHeader: Record "Sales Invoice Header";
         SalesShipmentHeader: Record "Sales Shipment Header";
+        PostingNo: Code[20];
     begin
         // [FEATURE] [No. Series] [Sales] [Order]
         // [SCENARIO 363508] Stan can post Sales Order with blank posting no. series fields when he updated no. series in sales setup
@@ -1740,20 +1733,14 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesReceivablesSetup.Modify();
         Commit();
 
-        asserterror PostSalesDocument(SalesHeader, true, true);
-        Assert.ExpectedError(SalesHeader.FieldCaption("Posting No. Series"));
-
-        SalesReceivablesSetup.Get();
-        SalesReceivablesSetup.Validate("Posted Invoice Nos.", CreateNoSeriesCode());
-        SalesReceivablesSetup.Modify();
-        Commit();
+        PostingNo := GetNextNoFromNoSeries(SalesHeader."Operation Type");
 
         PostSalesDocument(SalesHeader, true, true);
 
         SalesShipmentHeader.SetRange("No.", GetLastNoUsedFromNoSeries(SalesReceivablesSetup."Posted Shipment Nos."));
         Assert.RecordCount(SalesShipmentHeader, 1);
 
-        SalesInvoiceHeader.SetRange("No.", GetLastNoUsedFromNoSeries(SalesReceivablesSetup."Posted Invoice Nos."));
+        SalesInvoiceHeader.SetRange("No.", PostingNo);
         Assert.RecordCount(SalesInvoiceHeader, 1);
     end;
 
@@ -1764,6 +1751,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesHeader: Record "Sales Header";
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
         SalesInvoiceHeader: Record "Sales Invoice Header";
+        PostingNo: Code[20];
     begin
         // [FEATURE] [No. Series] [Sales] [Invoice]
         // [SCENARIO 363508] Stan can post Sales Invoice with blank posting no. series fields when he updated no. series in sales setup
@@ -1789,9 +1777,11 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesReceivablesSetup.Modify();
         Commit();
 
+        PostingNo := GetNextNoFromNoSeries(SalesHeader."Operation Type");
+
         PostSalesDocument(SalesHeader, true, true);
 
-        SalesInvoiceHeader.SetRange("No.", GetLastNoUsedFromNoSeries(SalesReceivablesSetup."Posted Invoice Nos."));
+        SalesInvoiceHeader.SetRange("No.", PostingNo);
         Assert.RecordCount(SalesInvoiceHeader, 1);
     end;
 
@@ -1802,6 +1792,7 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesHeader: Record "Sales Header";
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        PostingNo: Code[20];
     begin
         // [FEATURE] [No. Series] [Sales] [Credit Memo]
         // [SCENARIO 363508] Stan can post Sales Credit Memo with blank posting no. series fields when he updated no. series in sales setup
@@ -1827,9 +1818,11 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesReceivablesSetup.Modify();
         Commit();
 
+        PostingNo := GetNextNoFromNoSeries(SalesHeader."Operation Type");
+
         PostSalesDocument(SalesHeader, true, true);
 
-        SalesCrMemoHeader.SetRange("No.", GetLastNoUsedFromNoSeries(SalesReceivablesSetup."Posted Credit Memo Nos."));
+        SalesCrMemoHeader.SetRange("No.", PostingNo);
         Assert.RecordCount(SalesCrMemoHeader, 1);
     end;
 
@@ -1853,7 +1846,6 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         Assert.RecordCount(PurchCrMemoHdr, 0);
 
         NoSeriesCode := CreateNoSeriesCode();
-        UpdateNoSeries(NoSeriesCode, false, true);
 
         PurchasesPayablesSetup.Get();
         PurchasesPayablesSetup.Validate("Credit Memo Nos.", NoSeriesCode);
@@ -1872,8 +1864,11 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         LibraryPurchase.CreatePurchaseLine(
             PurchaseLine, PurchaseHeader, PurchaseLine.Type::"G/L Account", LibraryERM.CreateGLAccountWithPurchSetup(), 1);
 
+        UpdateNoSeries(
+            LibraryERM.GetDefaultOperationType(PurchaseHeader."Buy-from Vendor No.", DATABASE::Vendor), false, true);
+
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
-        Assert.RecordCount(PurchCrMemoHdr, 1);
+        Assert.RecordCount(PurchCrMemoHdr, 0); // IT uses another no. series
     end;
 
     [Test]
@@ -1897,7 +1892,6 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         Assert.RecordCount(SalesCrMemoHeader, 0);
 
         NoSeriesCode := CreateNoSeriesCode();
-        UpdateNoSeries(NoSeriesCode, false, true);
 
         SalesReceivablesSetup.Get();
         SalesReceivablesSetup.Validate("Credit Memo Nos.", NoSeriesCode);
@@ -1915,12 +1909,12 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         LibrarySales.CreateSalesLine(
             SalesLine, SalesHeader, SalesLine.Type::"G/L Account", LibraryERM.CreateGLAccountWithSalesSetup(), 1);
 
-        SalesHeader.Validate(Ship, true);
-        SalesHeader.Validate(Receive, true);
-        SalesHeader.Validate(Invoice, true);
-        Codeunit.Run(Codeunit::"Sales-Post", SalesHeader);
+        UpdateNoSeries(
+            LibraryERM.GetDefaultOperationType(SalesHeader."Sell-to Customer No.", DATABASE::Customer), false, true);
 
-        Assert.RecordCount(SalesCrMemoHeader, 1);
+        LibrarySales.PostSalesDocument(SalesHeader, true, true);
+
+        Assert.RecordCount(SalesCrMemoHeader, 0);// IT uses another no. series
     end;
 
     [Test]
@@ -2129,7 +2123,6 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         SalesRecvSetup: Record "Sales & Receivables Setup";
         GLSetup: Record "General Ledger Setup";
         PostedSalesInvoice: TestPage "Posted Sales Invoice";
-        ErrorMessages: TestPage "Error Messages";
     begin
         // [SCENARIO 448855] Hole in the Numbering of Sales Credit Memos
         Initialize();
@@ -2150,20 +2143,13 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         GLSetup.Modify();
 
         // [THEN] Create Corrective Credit memo 
-        ErrorMessages.Trap();
         PostedSalesInvoice.OpenView;
         PostedSalesInvoice.GotoRecord(SalesInvHeader);
         PostedSalesInvoice.CreateCreditMemo.Invoke();
 
-        // [VERIFY] Verify Posting No series Error
-        ErrorMessages.First();
-        SalesHeader.SetRange("Sell-to Customer No.", Cust."No.");
-        SalesHeader.FindFirst();
-        Assert.IsSubstring(ErrorMessages.Description.Value, NoSeries.Code);
-
         // [VERIFY] Verify No Sales Credit memo has been posted.
         SalesCrMemoHeader.SetRange("Sell-to Customer No.", Cust."No.");
-        Assert.RecordIsEmpty(SalesCrMemoHeader);
+        Assert.RecordIsNotEmpty(SalesCrMemoHeader); // No Series error not in IT
     end;
 
     [Test]
@@ -2174,13 +2160,15 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         Item: Record Item;
         Vendor: Record Vendor;
         PurchInvHeader: Record "Purch. Inv. Header";
+        PurchInvLine: Record "Purch. Inv. Line";
         PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.";
+        PurchaseHeader: Record "Purchase Header";
         NoSeries: Record "No. Series";
         NoSeriesLine: Record "No. Series Line";
         PurchasesPayablesSetup: Record "Purchases & Payables Setup";
         GeneralLedgerSetup: Record "General Ledger Setup";
         PostedPurchaseInvoice: TestPage "Posted Purchase Invoice";
-        ErrorMessages: TestPage "Error Messages";
+        PurchaseCreditMemo: TestPage "Purchase Credit Memo";
     begin
         // [SCENARIO 480238] Hole in the Numbering of Purchase Credit Memos
         Initialize();
@@ -2202,19 +2190,29 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         GeneralLedgerSetup."Journal Templ. Name Mandatory" := false;
         GeneralLedgerSetup.Modify();
 
-        // [THEN] Find Posted Purchase Invoice & Create Corrective Credit Memo.
-        ErrorMessages.Trap();
+        // [GIVEN] Find Posted Purchase Invoice & Create Corrective Credit Memo.
         PostedPurchaseInvoice.OpenEdit();
         PostedPurchaseInvoice.GotoRecord(PurchInvHeader);
         PostedPurchaseInvoice.CreateCreditMemo.Invoke();
 
-        // [VERIFY] Verify Posting No series Error.
-        ErrorMessages.First();
-        Assert.IsSubstring(ErrorMessages.Description.Value, NoSeries.Code);
+        // [GIVEN] Find Purchase Invoice Line.
+        PurchInvLine.SetRange("Document No.", PurchInvHeader."No.");
+        PurchInvLine.FindFirst();
+
+        // [GIVEN] Find Purchase Credit Memo & Validate Check Total.
+        PurchaseHeader.SetRange("Buy-from Vendor No.", Vendor."No.");
+        PurchaseHeader.FindFirst();
+        PurchaseHeader.Validate("Check Total", PurchInvLine."Amount Including VAT");
+        PurchaseHeader.Modify();
+
+        // [THEN] Find & Post Purchase Credit Memo.
+        PurchaseCreditMemo.OpenEdit();
+        PurchaseCreditMemo.GoToRecord(PurchaseHeader);
+        PurchaseCreditMemo.Post.Invoke();
 
         // [VERIFY] Verify Purchase Credit Memo is not posted.
         PurchCrMemoHdr.SetRange("Buy-from Vendor No.", Vendor."No.");
-        Assert.RecordIsEmpty(PurchCrMemoHdr);
+        Assert.RecordIsNotEmpty(PurchCrMemoHdr); // No Series error not in IT
     end;
 
     local procedure Initialize()
@@ -2571,6 +2569,13 @@ codeunit 134383 "ERM Sales/Purch Status Error"
         exit(NoSeriesLine."Last No. Used");
     end;
 
+    local procedure GetNextNoFromNoSeries(NoSeriesCode: Code[20]): Code[20]
+    var
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+    begin
+        exit(NoSeriesManagement.GetNextNo3(NoSeriesCode, WorkDate(), false, false));
+    end;
+
     local procedure PostSalesDocument(var SalesHeader: Record "Sales Header"; NewShipReceive: Boolean; NewInvoice: Boolean)
     var
         SalesPost: Codeunit "Sales-Post";
@@ -2907,7 +2912,6 @@ codeunit 134383 "ERM Sales/Purch Status Error"
     procedure PurchaseCreditMemoPageHandler(var PurchaseCreditMemo: TestPage "Purchase Credit Memo")
     begin
         PurchaseCreditMemo."Vendor Cr. Memo No.".SetValue(LibraryRandom.RandInt(100));
-        PurchaseCreditMemo.Post.Invoke();
     end;
 }
 

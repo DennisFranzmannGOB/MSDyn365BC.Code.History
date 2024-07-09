@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Integration;
+
 /// <summary>
 /// Contains tenant web service OData clause entities.
 /// </summary>
@@ -16,21 +18,24 @@ table 6710 "Tenant Web Service OData"
 
     fields
     {
-        field(1; TenantWebServiceID; RecordID)
+        field(1; TenantWebServiceID; RecordId)
         {
             Caption = 'Tenant Web Service ID';
             DataClassification = CustomerContent;
         }
-        field(2; ODataSelectClause; BLOB)
+        field(2; ODataSelectClause; Blob)
         {
+            DataClassification = CustomerContent;
             Caption = 'OData Select Clause';
         }
-        field(3; ODataFilterClause; BLOB)
+        field(3; ODataFilterClause; Blob)
         {
+            DataClassification = CustomerContent;
             Caption = 'OData Filter Clause';
         }
-        field(4; ODataV4FilterClause; BLOB)
+        field(4; ODataV4FilterClause; Blob)
         {
+            DataClassification = CustomerContent;
             Caption = 'OData V4 Filter Clause';
         }
     }
@@ -43,8 +48,5 @@ table 6710 "Tenant Web Service OData"
         }
     }
 
-    fieldgroups
-    {
-    }
 }
 

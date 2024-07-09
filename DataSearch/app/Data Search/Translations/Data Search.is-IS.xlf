@@ -69,6 +69,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Data Search Result - Field Table Subtype - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3305910297 - Field 3501343248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table/Type ID</source>
+          <target state="translated">Auðkenni töflu/tegundar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Data Search Result - Field Table/Type ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4025139878 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Search Setup (Field)</source>
           <target state="translated">Uppsetning leitar (reitur)</target>
@@ -195,35 +201,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType NoTablesDefinedErr</note>
         </trans-unit>
-        <trans-unit id="Page 3130159978 - NamedType 3193096050" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Searching ...</source>
-          <target state="translated">Leitar ...</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType StatusLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 3130159978 - Control 3906556071 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Results</source>
-          <target state="translated">Niðurstöður</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control lines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3130159978 - Control 2210060298 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Text to search for (enter at least 3 characters)</source>
-          <target state="translated">Leitartexti (sláðu inn að minnsta kosti 3 stafi)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchStringgrp - Property Caption</note>
+        <trans-unit id="Page 3130159978 - NamedType 1979840324" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Searching for "%1"...</source>
+          <target state="translated">Leitar að „%1“ ...</target>
+          <note from="Developer" annotates="general" priority="2">%1 can be any text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - NamedType StatusSearchLbl</note>
         </trans-unit>
         <trans-unit id="Page 3130159978 - Control 2400258197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enter at least three characters to search for.</source>
-          <target state="translated">Sláðu inn minnst þrjá stafi til að leita að.</target>
+          <source>Specify at least three characters to search for. You can enter multiple search words, and we will only find data that contains all words.</source>
+          <target state="translated">Tilgreina þarf minnst þrjá stafi til að leita að. Hægt er að slá inn mörg leitarorð og aðeins verður leitað að gögnum sem innihalda öll orð.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchString - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3130159978 - Control 2400258197 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Text to search for</source>
-          <target state="translated">Texti til að leita að</target>
+          <source>Search for (min. 3 characters)</source>
+          <target state="translated">Leita að (lágmark 3 stafir)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Control SearchString - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3130159978 - Action 782762290 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starts the search.</source>
+          <target state="translated">Hefur leitina.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Search - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3130159978 - Action 782762290 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start search</source>
+          <target state="translated">Hefja leit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Search - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3130159978 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">Leita</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Results</source>
@@ -236,6 +248,12 @@
           <target state="translated">%1: Birta allar niðurstöður</target>
           <note from="Developer" annotates="general" priority="2">%1 is a table name, e.g. Customer</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - NamedType MoreRecLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 3789408733 - Method 1852034151 - NamedType 3118294464" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You have made changes to the setup. Please select the Start search action for the new settings to take effect.</source>
+          <target state="translated">Gerðar voru breytingar á uppsetningunni. Veljið aðgerðina „Hefja leit“ til að nýju stillingarnar taki gildi.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Method RunSetupPage - NamedType SetupChangedMsg</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the found entry.</source>
@@ -250,16 +268,28 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Control Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Action 1514883969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens a page that lists which tables are searched for your role center. If you have permissions, you can change which tables and fields are searched.</source>
-          <target state="translated">Opnar síðu þar sem fram kemur í hvaða töflum er leitað í hlutverkamiðstöðinni þinni. Ef þú hefur heimildir geturðu breytt því í hvaða töflum og reitum er leitað.</target>
+          <source>Opens a page that lists which tables are enabled for search for your role center. If you have permissions, you can change which tables and fields are searched.</source>
+          <target state="translated">Opnar síðu þar sem fram kemur hvaða töflur eru virkar fyrir leit í „Mitt hlutverk“ fyrir viðkomandi notanda. Ef heimildir eru til staðar er hægt að breyta því í hvaða töflum og reitum er leitað.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action Setup - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3789408733 - Action 1514883969 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show tables to search</source>
-          <target state="translated">Sýna töflur til að leita</target>
+          <source>Set up which tables to search</source>
+          <target state="translated">Setja upp töflur fyrir leit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3789408733 - Action 1509359154 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens a page that shows which lists are enabled for search for your role center. If you have permissions, you can change which lists, tables and fields are searched.</source>
+          <target state="translated">Opnar síðu sem sýnir hvaða listar eru virkir í „Mitt hlutverk“ fyrir viðkomandi notanda. Ef heimildir eru til staðar er hægt að breyta því í hvaða listum, töflum og reitum er leitað.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action SetupLists - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3789408733 - Action 1509359154 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up where to search</source>
+          <target state="translated">Stilla hvar á að leita</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search lines - Action SetupLists - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 218848851 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Column,Record</source>
@@ -394,8 +424,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Result Records - Action ShowRecord - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Search Setup (Field) List</source>
-          <target state="translated">Listi leitaruppsetningar (reitur)</target>
+          <source>Enable fields for searching</source>
+          <target state="translated">Virkja reiti fyrir leit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -424,8 +454,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Control 823559016 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Field Caption</source>
-          <target state="translated">Reitstexti</target>
+          <source>Field Name</source>
+          <target state="translated">Heiti reits</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -448,8 +478,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
         <trans-unit id="Page 3477219812 - Control 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <target state="translated">Nr.</target>
+          <source>Field No.</source>
+          <target state="translated">Reitsnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
+        </trans-unit>
+        <trans-unit id="Page 3477219812 - Control 1595823452 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the caption of the field, that is, the name that will be shown in the user interface.</source>
+          <target state="translated">Tilgreinir texta reitsins, þ.e. nafnið sem verður sýnt í notandaviðmótinu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
+        </trans-unit>
+        <trans-unit id="Page 3477219812 - Control 1595823452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table Name</source>
+          <target state="translated">Heiti töflu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
@@ -495,9 +537,129 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Field</note>
         </trans-unit>
+        <trans-unit id="Page 344073747 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enable lists for searching</source>
+          <target state="translated">Virkja lista fyrir leit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - NamedType 1516037821" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to remove the current setup and insert the default?</source>
+          <target state="translated">Á að fjarlægja núverandi uppsetningu og setja inn sjálfgefna uppsetningu?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 3224703576 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether this list is included in search.</source>
+          <target state="translated">Tilgreinir hvort þessi listi er tekinn með í leit.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 3224703576 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enable Search</source>
+          <target state="translated">Virkja leit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 1599953061 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the list.</source>
+          <target state="translated">Tilgreinir heiti listans.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 1599953061 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>List Name</source>
+          <target state="translated">Heiti lista</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 568116884 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ID of the page. </source>
+          <target state="translated">Tilgreinir kenni síðunnar. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 568116884 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>List No.</source>
+          <target state="translated">Listanr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 1595823452 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the base table name of the list.</source>
+          <target state="translated">Tilgreinir grunntöfluheiti listans.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 1595823452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Main Source Table</source>
+          <target state="translated">Helsta upprunatafla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 3669144757 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which role the search setup is valid for.</source>
+          <target state="translated">Tilgreinir hvaða hlutverk leitaruppsetningin gildir fyrir.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 3669144757 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Choose among lists for role</source>
+          <target state="translated">Velja úr listum fyrir hlutverk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 580853590 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether only the enabled lists are shown or all lists are shown.</source>
+          <target state="translated">Tilgreinir hvort aðeins virkir listar eru sýndir eða allir listar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Control 580853590 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show only search enabled lists</source>
+          <target state="translated">Sýna aðeins virka lista í leit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 2402477966 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Removes the current selection for this rolecenter and inserts the default list selection.</source>
+          <target state="translated">Fjarlægir núverandi val fyrir þessa hlutverkamiðstöð og setur inn sjálfgefna listavalið.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 2402477966 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reset to default</source>
+          <target state="translated">Endurstilla á sjálfgefið</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 2574700765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select this action if you want to see all lists and/or select more lists to be included in the search.</source>
+          <target state="translated">Veljið þessa aðgerð til að sjá alla lista og/eða velja fleiri lista fyrir leitina.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 2574700765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All lists</source>
+          <target state="translated">Allir listar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 478093921 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Compacts the view, so you only see the lists that have been enabled for search.</source>
+          <target state="translated">Dregur sama upplýsingar þannig að aðeins eru sýndir listarnir sem hafa verið gerðir virkir fyrir leit.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
+        <trans-unit id="Page 344073747 - Action 478093921 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only enabled lists</source>
+          <target state="translated">Aðeins virkir listar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
+        </trans-unit>
         <trans-unit id="Page 1032144280 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Search Setup (Table) List</source>
-          <target state="translated">Listi leitaruppsetningar (tafla)</target>
+          <source>Enable tables for searching</source>
+          <target state="translated">Virkja töflur fyrir leit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -538,8 +700,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Control 3986492796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Search Enabled</source>
-          <target state="translated">Leit virk</target>
+          <source>Enable Search</source>
+          <target state="translated">Virkja leit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -550,8 +712,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Control 3669144757 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Role</source>
-          <target state="translated">Hlutverk</target>
+          <source>Choose among tables for role</source>
+          <target state="translated">Velja á milli taflna fyrir hlutverk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
+        </trans-unit>
+        <trans-unit id="Page 1032144280 - Control 580853590 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether only the enabled tables are shown or all tables are shown.</source>
+          <target state="translated">Tilgreinir hvort aðeins virkar töflur eru sýndar eða allar töflur.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
+        </trans-unit>
+        <trans-unit id="Page 1032144280 - Control 580853590 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show only search enabled tables</source>
+          <target state="translated">Sýna aðeins virkar leitartöflur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -574,8 +748,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Action 4207440265 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show all tables</source>
-          <target state="translated">Sýna allar töflur</target>
+          <source>All tables</source>
+          <target state="translated">Allar töflur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
@@ -586,8 +760,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>
         <trans-unit id="Page 1032144280 - Action 2618468921 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Filter to selected tables</source>
-          <target state="translated">Sía í valdar töflur</target>
+          <source>Only enabled tables</source>
+          <target state="translated">Aðeins virkar töflur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>

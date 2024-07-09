@@ -1,7 +1,9 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Environment;
 
 /// <summary>
 /// Exposes functionality to fetch attributes concerning the environment of the service on which the tenant is hosted.
@@ -71,7 +73,7 @@ codeunit 457 "Environment Information"
     end;
 
     /// <summary>
-    /// Checks if the deployment infrastucture is SaaS (Software as a Service). 
+    /// Checks if the deployment infrastucture is SaaS (Software as a Service).
     /// Note: This function will return false in a Docker container.
     /// </summary>
     /// <returns>True if the deployment infrastructure type is a SaaS, false otherwise.</returns>

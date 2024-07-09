@@ -3,6 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Email;
+
+using System.Telemetry;
+using System.Globalization;
+using System.Security.AccessControl;
+using System.Reflection;
+
 codeunit 8900 "Email Impl"
 {
     Access = Internal;
@@ -206,7 +213,7 @@ codeunit 8900 "Email Impl"
     var
         EmailAccountRec: Record "Email Account";
         CurrentUser: Record User;
-        Email: Codeunit "Email";
+        Email: Codeunit Email;
         EmailMessageImpl: Codeunit "Email Message Impl.";
         EmailDispatcher: Codeunit "Email Dispatcher";
         TaskId: Guid;
@@ -248,7 +255,7 @@ codeunit 8900 "Email Impl"
         end;
     end;
 
-    local procedure BeforeSendEmail(var EmailMessage: codeunit "Email Message")
+    local procedure BeforeSendEmail(var EmailMessage: Codeunit "Email Message")
     var
         Email: Codeunit Email;
         Telemetry: Codeunit Telemetry;
@@ -601,7 +608,7 @@ codeunit 8900 "Email Impl"
 
     internal procedure GetRecordRef(RecRelatedVariant: Variant; var ResultRecordRef: RecordRef): Boolean
     var
-        RecID: RecordID;
+        RecID: RecordId;
     begin
         case true of
             RecRelatedVariant.IsRecord:

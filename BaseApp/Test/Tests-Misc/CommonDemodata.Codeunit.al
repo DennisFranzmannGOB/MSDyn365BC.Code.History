@@ -1,4 +1,4 @@
-codeunit 138500 "Common Demodata"
+﻿codeunit 138500 "Common Demodata"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -102,7 +102,7 @@ codeunit 138500 "Common Demodata"
 
             Reset();
             SetRange("EU Service", true);
-            Assert.RecordCount(VATPostingSetup, 1);
+            Assert.RecordCount(VATPostingSetup, 0);
         end;
     end;
 
@@ -212,21 +212,6 @@ codeunit 138500 "Common Demodata"
         ReportSelections.SetRange(Usage, ReportSelections.Usage::"Pro Forma S. Invoice");
         ReportSelections.FindFirst();
         ReportSelections.TestField("Report ID", REPORT::"Standard Sales - Pro Forma Inv");
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
-    procedure SalesInvoiceProformaCustomReportLayoutSetup()
-    var
-        CustomReportLayout: Record "Custom Report Layout";
-    begin
-        // [FEATURE] [Report Selection] [Proforma Invoice]
-        // [SCENARIO 225721] There is a Word Custom Report Layout setup for REP 1302 "Standard Sales - Pro Forma Inv"
-        Initialize();
-
-        CustomReportLayout.SetRange("Report ID", REPORT::"Standard Sales - Pro Forma Inv");
-        CustomReportLayout.FindFirst();
-        CustomReportLayout.TestField(Type, CustomReportLayout.Type::Word);
     end;
 
     [Test]

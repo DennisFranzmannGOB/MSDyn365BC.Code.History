@@ -1,3 +1,8 @@
+namespace Microsoft.API.V2;
+
+using System.Environment;
+using System.Security.AccessControl;
+
 page 30081 "APIV2 - Aut. Sec. Gr. Members"
 {
     APIGroup = 'automation';
@@ -13,6 +18,9 @@ page 30081 "APIV2 - Aut. Sec. Gr. Members"
     SourceTable = "Security Group Member Buffer";
     SourceTableTemporary = true;
     ODataKeyFields = "Security Group Code", "User Security ID";
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    DeleteAllowed = false;
 
     layout
     {
@@ -44,7 +52,11 @@ page 30081 "APIV2 - Aut. Sec. Gr. Members"
         if not AreRecordsLoaded then begin
             LoadRecords();
             AreRecordsLoaded := true;
+            if Rec.IsEmpty then
+                exit(false);
         end;
+
+        exit(true);
     end;
 
     trigger OnOpenPage()

@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.Encryption;
+
 /// <summary>
 /// Provides a functionality to singing an xml document.
 /// </summary>
@@ -32,19 +34,6 @@ codeunit 1460 SignedXml
     begin
         SignedXmlImpl.InitializeSignedXml(SigningXmlElement);
     end;
-#if not CLEAN19
-#pragma warning disable AL0432
-    /// <summary>
-    /// Sets the key used for signing a SignedXml object.
-    /// </summary>
-    /// <param name="SignatureKey">The key used for signing the SignedXml object.</param>
-    [Obsolete('Replaced by SetSigningKey function with XmlString parameter.', '19.1')]
-    procedure SetSigningKey(var SignatureKey: Record "Signature Key")
-    begin
-        SignedXmlImpl.SetSigningKey(SignatureKey);
-    end;
-#pragma warning restore
-#endif
 
     /// <summary>
     /// Sets the key used for signing a SignedXml object.
@@ -343,7 +332,7 @@ codeunit 1460 SignedXml
     end;
 
     /// <summary>
-    /// Represents the Uniform Resource Identifier (URI) for the standard SHA512 digest method for XML digital signatures. 
+    /// Represents the Uniform Resource Identifier (URI) for the standard SHA512 digest method for XML digital signatures.
     /// </summary>
     /// <returns>The value http://www.w3.org/2001/04/xmlenc#sha512.</returns>
     /// <see cref="https://www.w3.org/2001/04/xmlenc#sha512"/>

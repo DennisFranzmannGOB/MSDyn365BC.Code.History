@@ -1,7 +1,11 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Security.Encryption;
+
+using System.Environment;
 
 /// <summary>
 /// Exposes functionality that allows super users for on-premises versions to enable or disable encryption, import, export or change the encryption key.
@@ -11,7 +15,7 @@ page 9905 "Data Encryption Management"
 {
     Caption = 'Data Encryption Management';
     Extensible = false;
-    AccessByPermission = System "Tools, Restore" = X;
+    AccessByPermission = system "Tools, Restore" = X;
     AdditionalSearchTerms = 'data security management';
     ApplicationArea = All;
     Editable = false;
@@ -21,7 +25,7 @@ page 9905 "Data Encryption Management"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             field(EncryptionEnabledState; IsEncryptionEnabled)
             {
@@ -41,7 +45,7 @@ page 9905 "Data Encryption Management"
 
     actions
     {
-        area(creation)
+        area(Creation)
         {
             action("Enable Encryption")
             {
@@ -53,7 +57,7 @@ page 9905 "Data Encryption Management"
                 Promoted = true;
                 PromotedCategory = Process;
                 ToolTip = 'Generate an encryption key on the server to enable encryption.';
-                Visible = NOT IsSaaS;
+                Visible = not IsSaaS;
 
                 trigger OnAction()
                 begin
@@ -63,7 +67,7 @@ page 9905 "Data Encryption Management"
             }
             action("Import Encryption Key")
             {
-                AccessByPermission = System "Tools, Restore" = X;
+                AccessByPermission = system "Tools, Restore" = X;
                 ApplicationArea = All;
                 Caption = 'Import Encryption Key';
                 Image = Import;
@@ -71,7 +75,7 @@ page 9905 "Data Encryption Management"
                 Promoted = true;
                 PromotedCategory = Process;
                 ToolTip = 'Import the encryption key to a server instance from an encryption key file that was exported from another server instance or saved as a copy when the encryption was enabled.';
-                Visible = NOT IsSaaS;
+                Visible = not IsSaaS;
 
                 trigger OnAction()
                 begin
@@ -81,7 +85,7 @@ page 9905 "Data Encryption Management"
             }
             action("Change Encryption Key")
             {
-                AccessByPermission = System "Tools, Restore" = X;
+                AccessByPermission = system "Tools, Restore" = X;
                 ApplicationArea = All;
                 Caption = 'Change Encryption Key';
                 Enabled = ChangeKeyActionEnabled;
@@ -90,7 +94,7 @@ page 9905 "Data Encryption Management"
                 Promoted = true;
                 PromotedCategory = Process;
                 ToolTip = 'Change to a different encryption key file.';
-                Visible = NOT IsSaaS;
+                Visible = not IsSaaS;
 
                 trigger OnAction()
                 begin
@@ -100,7 +104,7 @@ page 9905 "Data Encryption Management"
             }
             action("Export Encryption Key")
             {
-                AccessByPermission = System "Tools, Backup" = X;
+                AccessByPermission = system "Tools, Backup" = X;
                 ApplicationArea = All;
                 Caption = 'Export Encryption Key';
                 Enabled = ExportKeyActionEnabled;
@@ -109,7 +113,7 @@ page 9905 "Data Encryption Management"
                 Promoted = true;
                 PromotedCategory = Process;
                 ToolTip = 'Export the encryption key to make a copy of the key or so that it can be imported on another server instance.';
-                Visible = NOT IsSaaS;
+                Visible = not IsSaaS;
 
                 trigger OnAction()
                 begin
@@ -118,7 +122,7 @@ page 9905 "Data Encryption Management"
             }
             action("Disable Encryption")
             {
-                AccessByPermission = System "Tools, Restore" = X;
+                AccessByPermission = system "Tools, Restore" = X;
                 ApplicationArea = All;
                 Caption = 'Disable Encryption';
                 Enabled = DisableEncryptionActionEnabled;
@@ -127,7 +131,7 @@ page 9905 "Data Encryption Management"
                 Promoted = true;
                 PromotedCategory = Process;
                 ToolTip = 'Decrypt encrypted data.';
-                Visible = NOT IsSaaS;
+                Visible = not IsSaaS;
 
                 trigger OnAction()
                 begin

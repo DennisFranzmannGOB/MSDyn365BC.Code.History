@@ -1,3 +1,22 @@
+namespace Microsoft.Integration.MDM;
+
+using System.Threading;
+using System.Telemetry;
+using System.Environment;
+using System.Reflection;
+using System.IO;
+using System.Environment.Configuration;
+using Microsoft.Integration.Dataverse;
+using Microsoft.CRM.Contact;
+using Microsoft.Sales.Customer;
+using Microsoft.CRM.BusinessRelation;
+using Microsoft.Purchases.Vendor;
+using Microsoft.CRM.Setup;
+using Microsoft.Bank.BankAccount;
+using Microsoft.Inventory.Item;
+using Microsoft.Integration.SyncEngine;
+using Microsoft.Utilities;
+
 codeunit 7237 "Master Data Mgt. Subscribers"
 {
     Access = Internal;
@@ -80,6 +99,21 @@ codeunit 7237 "Master Data Mgt. Subscribers"
     local procedure OnFindingIfJobNeedsToBeRun(var Sender: Record "Job Queue Entry"; var Result: Boolean)
     begin
         HandleOnFindingIfJobNeedsToBeRun(Sender, Result);
+    end;
+
+    [EventSubscriber(ObjectType::Report, Report::"Copy Company", 'OnAfterCreatedNewCompanyByCopyCompany', '', false, false)]
+    local procedure CleanupSetupAfterCreatedNewCompanyByCopyCompany(NewCompanyName: Text[30])
+    var
+        MasterDataMgtSubscriber: Record "Master Data Mgt. Subscriber";
+        MasterDataMgtCoupling: Record "Master Data Mgt. Coupling";
+        MasterDataManagementSetup: Record "Master Data Management Setup";
+    begin
+        MasterDataMgtCoupling.ChangeCompany(NewCompanyName);
+        MasterDataMgtCoupling.DeleteAll();
+        MasterDataManagementSetup.ChangeCompany(NewCompanyName);
+        MasterDataManagementSetup.DeleteAll();
+        MasterDataMgtSubscriber.ChangeCompany(NewCompanyName);
+        MasterDataMgtSubscriber.DeleteAll();
     end;
 
     internal procedure HandleOnFindingIfJobNeedsToBeRun(var Sender: Record "Job Queue Entry"; var Result: Boolean)

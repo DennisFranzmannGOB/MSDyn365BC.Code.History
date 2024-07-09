@@ -249,18 +249,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet G/L-SETUP - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PermissionSet 3955113415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Read XBRL Taxonomies</source>
-          <target state="translated">Lire taxonomies XBRL</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet G/L-XBRL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 1242981639 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create, edit XBRL Taxonomies</source>
-          <target state="translated">Créer, modifier taxonom. XBRL</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet G/L-XBRL, EDIT - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PermissionSet 3313111871 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Change Global Dimension</source>
           <target state="translated">Modifier dimension principale</target>

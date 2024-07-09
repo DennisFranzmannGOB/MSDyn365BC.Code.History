@@ -13,7 +13,6 @@ codeunit 134269 "Matching on Payment Discounts"
     var
         ZeroVATPostingSetup: Record "VAT Posting Setup";
         PaymentTermsDiscount: Record "Payment Terms";
-        PaymentTermsNoDiscount: Record "Payment Terms";
         LibraryRandom: Codeunit "Library - Random";
         LibraryERM: Codeunit "Library - ERM";
         LibrarySales: Codeunit "Library - Sales";
@@ -51,7 +50,6 @@ codeunit 134269 "Matching on Payment Discounts"
         LibraryERMCountryData.UpdatePurchasesPayablesSetup();
         LibraryInventory.NoSeriesSetup(InventorySetup);
         LibraryERM.FindZeroVATPostingSetup(ZeroVATPostingSetup, ZeroVATPostingSetup."VAT Calculation Type"::"Normal VAT");
-        LibraryERM.CreatePaymentTerms(PaymentTermsNoDiscount);
         LibraryERM.CreatePaymentTermsDiscount(PaymentTermsDiscount, false);
         Commit();
         IsInitialized := true;
@@ -2061,6 +2059,8 @@ codeunit 134269 "Matching on Payment Discounts"
         if CustomerNo = '' then begin
             LibrarySales.CreateCustomer(Customer);
             CustomerNo := Customer."No.";
+            Customer.Validate(Name, CopyStr(Customer.Name + ' Customer', 1, 20));
+            Customer.Modify();
         end;
 
         CreateItem(Item, Amount);
@@ -2069,7 +2069,7 @@ codeunit 134269 "Matching on Payment Discounts"
         if AddDiscount then
             SalesHeader.Validate("Payment Terms Code", PaymentTermsDiscount.Code)
         else
-            SalesHeader.Validate("Payment Terms Code", PaymentTermsNoDiscount.Code);
+            SalesHeader.Validate("Payment Terms Code", '');
 
         SalesHeader.Modify(true);
 
@@ -2095,6 +2095,8 @@ codeunit 134269 "Matching on Payment Discounts"
         if VendorNo = '' then begin
             LibraryPurchase.CreateVendor(Vendor);
             VendorNo := Vendor."No.";
+            Vendor.Validate(Name, CopyStr(Vendor.Name + ' Vendor', 1, 20));
+            Vendor.Modify();
         end;
 
         CreateItem(Item, Amount);
@@ -2103,7 +2105,7 @@ codeunit 134269 "Matching on Payment Discounts"
         if AddDiscount then
             PurchaseHeader.Validate("Payment Terms Code", PaymentTermsDiscount.Code)
         else
-            PurchaseHeader.Validate("Payment Terms Code", PaymentTermsNoDiscount.Code);
+            PurchaseHeader.Validate("Payment Terms Code", '');
 
         PurchaseHeader.Modify(true);
 

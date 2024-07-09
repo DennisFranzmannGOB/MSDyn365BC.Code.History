@@ -1,7 +1,10 @@
+namespace Microsoft.Bank.StatementImport;
+
+using System.Reflection;
+
 page 8851 "Bank Statement Import Preview"
 {
     PageType = List;
-    UsageCategory = Administration;
     SourceTable = "Bank Statement Import Preview";
     SourceTableTemporary = true;
     Editable = false;

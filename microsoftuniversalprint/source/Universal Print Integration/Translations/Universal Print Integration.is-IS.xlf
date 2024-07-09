@@ -136,8 +136,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Universal Print Graph Helper - NamedType NoAccessTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1382942930 - NamedType 2137350903" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User cannot be authenticated with Azure AD.</source>
-          <target state="translated">Ekki er hægt að sannvotta notanda með Azure AD.</target>
+          <source>User cannot be authenticated with Microsoft Entra.</source>
+          <target state="translated">Ekki er hægt að sannvotta notanda með Microsoft Entra.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Universal Print Graph Helper - NamedType UserNotAuthenticatedTxt</note>
         </trans-unit>
@@ -190,8 +190,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 807771867" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more about registering an Azure AD application</source>
-          <target state="translated">Frekari upplýsingar um skráningu Azure AD-forrits</target>
+          <source>Learn more about registering a Microsoft Entra application</source>
+          <target state="translated">Frekari upplýsingar um skráningu Microsoft Entra-forrits</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType LearnMoreAzureAppTxt</note>
         </trans-unit>
@@ -220,8 +220,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NoTablePermissionsErr</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 2724577049" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>We couldn't connect to Universal Print using your Azure AD application registration. Run the Set Up Azure Active Directory assisted setup again, and make sure all the values are set correctly.</source>
-          <target state="translated">Ekki var hægt að tengjast Skýjaprentun með Azure AD-forritsskráningu notanda. Keyra skal Azure Active Directory uppsetningu með hjálp aftur og ganga úr skugga um að öll gildi séu rétt stillt.</target>
+          <source>We couldn't connect to Universal Print using your Microsoft Entra application registration. Run the "Set up Microsoft Entra ID" assisted setup again, and make sure all the values are set correctly.</source>
+          <target state="translated">Ekki var hægt að tengjast skýjaprentun með skráningu Microsoft Entra-forrits. Keyra skal „Setja upp Microsoft Entra ID“ uppsetningu með hjálp aftur og ganga úr skugga um að öll gildi séu rétt stillt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NoTokenForOnPremErr</note>
         </trans-unit>
@@ -230,12 +230,6 @@
           <target state="translated">Fjöldi prentara sem bætt var við: %1.</target>
           <note from="Developer" annotates="general" priority="2">%1: a number.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NumberOfPrintersAddedTemplateTxt</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - NamedType 757360088" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more about how the data is handled.</source>
-          <target state="translated">Frekari upplýsingar um hvernig gögn eru meðhöndluð.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType PrivacyLbl</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 2182510485" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Learn more about our Privacy Statement.</source>
@@ -374,11 +368,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.1 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 669761542 - Control 1012396828 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control EmptySpace1 - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 669761542 - Control 128523262 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Universal Print is a Microsoft 365 subscription-based cloud printing solution. This setup helps you to add your registered cloud printers from Universal Print into Business Central.</source>
           <target state="translated">Skýjaprentun er skýjaprentunarlausn sem fylgir áskrift að Microsoft 365. Þessi uppsetning gerir notendum kleift að bæta skráðum skýjaprenturum úr Skýjaprentun við Business Central.</target>
@@ -390,18 +379,6 @@
           <target state="translated">Athugið að áskrift að Skýjaprentun er nauðsynleg og Skýjaprentun þarf að vera í boði á þínu svæði.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.1.2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - Control 3142569618 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens a privacy help article.</source>
-          <target state="translated">Opnar hjálpargrein um persónuvernd.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Privacy - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - Control 3142569618 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Click here to understand how the data is handled.</source>
-          <target state="translated">Smellið hér til að fá upplýsingar um það hvernig gögnin eru meðhöndluð.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Privacy - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 4068484546 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose Next to get started.</source>
@@ -416,26 +393,26 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 142461748 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Connect your Azure AD application</source>
-          <target state="translated">Tengja Azure AD-forritið</target>
+          <source>Connect your Microsoft Entra application</source>
+          <target state="translated">Tengið Microsoft Entra-forritið</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control OnPremAadSetup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 3724241072 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Connect with Azure</source>
-          <target state="translated">Tengjast Azure</target>
+          <source>Connect with Microsoft Entra</source>
+          <target state="translated">Tengjast við Microsoft Entra</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 21734773 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To add Universal Print printers to Business Central on-premises, you'll first need a registered application for Business Central in Azure Active Directory (Azure AD).</source>
-          <target state="translated">Til að bæta prenturum í Skýjaprentunvið Business Central þarf fyrst að vera með skráða jöfnun fyrir Business Central í Azure Active Directory (Azure AD).</target>
+          <source>To add Universal Print printers to Business Central on-premises, you'll first need a registered application for Business Central in Microsoft Entra ID.</source>
+          <target state="translated">Til að bæta prenturum í skýjaprentun við Business Central þarf fyrst að vera með skráð forrit fyrir Business Central í Microsoft Entra ID.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1.1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 3679005452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Once an Azure AD application has been registered, you're ready to continue with this setup. During setup, you'll provide information about Azure AD application. Choose Next to continue.</source>
-          <target state="translated">Þegar búið er að skrá Azure AD-forritið er hægt að halda þessari uppsetningu áfram. Við uppsetningu þarf að veita upplýsingar um Azure AD-forritið. Velja skal „Áfram“ til að halda áfram.</target>
+          <source>Once a Microsoft Entra application has been registered, you're ready to continue with this setup. During setup, you'll provide information about your Microsoft Entra application. Choose Next to continue.</source>
+          <target state="translated">Þegar búið er að skrá Microsoft Entra-forrit er hægt að halda þessari uppsetningu áfram. Við uppsetningu þarf að veita upplýsingar um Microsoft Entra-forrit notanda. Velja skal „Áfram“ til að halda áfram.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1.2 - Property Caption</note>
         </trans-unit>

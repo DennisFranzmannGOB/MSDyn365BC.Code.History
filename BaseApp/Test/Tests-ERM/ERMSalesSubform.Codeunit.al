@@ -38,6 +38,7 @@ codeunit 134393 "ERM Sales Subform"
         NotEditableErr: Label '%1 should NOT be editable';
         ChangeCurrencyConfirmQst: Label 'If you change %1, the existing sales lines will be deleted and new sales lines based on the new information on the header will be created.';
         ItemChargeAssignmentErr: Label 'You can only assign Item Charges for Line Types of Charge (Item).';
+        SalesLCYAmountErr: Label 'Sales LCY are not correct';
         MustMatchErr: Label '%1 and %2 must match.';
         InvoiceDiscPct: Label 'Invoice Disc. Pct.';
 
@@ -4386,6 +4387,61 @@ codeunit 134393 "ERM Sales Subform"
     end;
 
     [Test]
+    [Scope('OnPrem')]
+    procedure VerifySalesLCYOnSalesInvoiceStats()
+    var
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        Item: Record Item;
+        Customer: Record Customer;
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        PaymentTermsCode: Code[10];
+        PostedSalesInvoice: TestPage "Posted Sales Invoice";
+        SalesInvoiceStatistics: TestPage "Sales Invoice Statistics";
+        ItemUnitPrice: Decimal;
+    begin
+        // [SCENARIO 467204]  The Sales(LCY) amount in posted sales invoice Statistics is not correct if the Payment term used considers different installments in the Italian version.
+        Initialize();
+
+        // [GIVEN] Save Item Unit Price.
+        ItemUnitPrice := LibraryRandom.RandDecInDecimalRange(100, 10000, 2);
+
+        // [GIVEN] Create Item with Item unit Price.
+        CreateItem(Item, ItemUnitPrice);
+
+        // [GIVEN] Create Payment Terms with multiple Payment Lines.
+        PaymentTermsCode := CreatePaymentTermsWithMultiplePaymentLines();
+
+        // [GIVEN] Create Customer and update "Payment Term Code";
+        CreateCustomer(Customer);
+        Customer.Validate("Payment Terms Code", PaymentTermsCode);
+        Customer.Modify();
+
+        // [GIVEN] Create Sales order with 1 Sales Line.
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, Customer."No.");
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", 1);
+
+        // [GIVEN] Post Sales Order with Ship and Invoice.
+        SalesHeader.Validate(Invoice, true);
+        SalesHeader.Validate(Ship, true);
+        CODEUNIT.Run(CODEUNIT::"Sales-Post", SalesHeader);
+
+        // [WHEN] Get the Posted Sales Invoice and open the page
+        SalesInvoiceHeader.FindLast();
+        PostedSalesInvoice.OpenEdit;
+        PostedSalesInvoice.GotoRecord(SalesInvoiceHeader);
+
+        // [WHEN] Open the Sales Invoice Statistics page.
+        SalesInvoiceStatistics.Trap;
+        PostedSalesInvoice.Statistics.Invoke;
+
+        // [VERIFY] Verify the Sales LCY  
+        Assert.AreEqual(PostedSalesInvoice.SalesInvLines."Line Amount".AsDecimal(),
+                        SalesInvoiceStatistics.AmountLCY.AsDecimal(),
+                        SalesLCYAmountErr);
+    end;
+
+    [Test]
     [HandlerFunctions('ConfirmHandlerYes')]
     [Scope('OnPrem')]
     procedure UpdateInvoiceDiscountPercentOnSalesOrderPage()
@@ -4937,6 +4993,20 @@ codeunit 134393 "ERM Sales Subform"
         SalesCreditMemo.SalesLines.Type.SetValue('Item');
         SalesCreditMemo.SalesLines."No.".SetValue(Item."No.");
         SalesCreditMemo.SalesLines.Quantity.SetValue(ItemQuantity);
+        SalesCreditMemo."Operation Type".SetValue(
+          LibraryERM.GetDefaultOperationType(Customer."No.", DATABASE::Customer));
+
+        if DoesCustomerHaveInvDiscounts(Customer) then begin
+            LibraryVariableStorage.Enqueue('Do you');
+            LibraryVariableStorage.Enqueue(true);
+            SalesCreditMemo.CalculateInvoiceDiscount.Invoke;
+        end;
+
+        if DoesCustomerHaveInvDiscounts(Customer) then begin
+            LibraryVariableStorage.Enqueue('Do you');
+            LibraryVariableStorage.Enqueue(true);
+            SalesCreditMemo.CalculateInvoiceDiscount.Invoke;
+        end;
 
         if DoesCustomerHaveInvDiscounts(Customer) then begin
             LibraryVariableStorage.Enqueue('Do you');
@@ -5298,8 +5368,10 @@ codeunit 134393 "ERM Sales Subform"
     end;
 
     local procedure EnqueueChangeCurrencyCodeConfirmation()
+    var
+        SalesHeader: Record "Sales Header";
     begin
-        LibraryVariableStorage.Enqueue(ChangeCurrencyConfirmQst);
+        LibraryVariableStorage.Enqueue(StrSubstNo(ChangeCurrencyConfirmQst, SalesHeader.FieldCaption("Currency Code")));
         LibraryVariableStorage.Enqueue(true);
     end;
 
@@ -5339,6 +5411,28 @@ codeunit 134393 "ERM Sales Subform"
         SalesReceivablesSetup.Get();
         SalesReceivablesSetup."Document Default Line Type" := SalesLineType;
         SalesReceivablesSetup.Modify();
+    end;
+
+    local procedure CreatePaymentTermsWithMultiplePaymentLines(): Code[10]
+    var
+        PaymentTerms: Record "Payment Terms";
+        PaymentLines: Record "Payment Lines";
+        PaymentPct: Integer;
+    begin
+        LibraryERM.CreatePaymentTermsIT(PaymentTerms);
+        CreatePaymentLines(PaymentTerms.Code, 30);
+        CreatePaymentLines(PaymentTerms.Code, 30);
+        CreatePaymentLines(PaymentTerms.Code, 40);
+        exit(PaymentTerms.Code);
+    end;
+
+    local procedure CreatePaymentLines(PaymentTermsCode: Code[10]; PaymentPct: Integer)
+    var
+        PaymentLines: Record "Payment Lines";
+    begin
+        LibraryERM.CreatePaymentLinesDiscount(PaymentLines, PaymentTermsCode);
+        PaymentLines.Validate("Payment %", PaymentPct);
+        PaymentLines.Modify(true);
     end;
 
     local procedure CreateInvoiceDiscForCustWithDiscPctAndMinValue(var Customer: Record Customer; DiscountPct: Decimal; MinValue: Decimal)

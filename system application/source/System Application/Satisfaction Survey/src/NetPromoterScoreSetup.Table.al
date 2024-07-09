@@ -1,7 +1,9 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Feedback;
 
 table 1432 "Net Promoter Score Setup"
 {
@@ -17,7 +19,7 @@ table 1432 "Net Promoter Score Setup"
         {
             DataClassification = SystemMetadata;
         }
-        field(2; "API URL"; BLOB)
+        field(2; "API URL"; Blob)
         {
             DataClassification = SystemMetadata;
         }
@@ -27,6 +29,7 @@ table 1432 "Net Promoter Score Setup"
         }
         field(4; "Time Between Requests"; Integer)
         {
+            DataClassification = SystemMetadata;
             ObsoleteReason = 'This field is not needed and it is not used anymore.';
             ObsoleteState = Removed;
             ObsoleteTag = '18.0';
@@ -45,8 +48,5 @@ table 1432 "Net Promoter Score Setup"
         }
     }
 
-    fieldgroups
-    {
-    }
 }
 

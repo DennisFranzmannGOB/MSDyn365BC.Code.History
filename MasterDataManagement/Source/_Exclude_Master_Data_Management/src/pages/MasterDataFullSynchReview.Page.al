@@ -1,3 +1,8 @@
+namespace Microsoft.Integration.MDM;
+
+using Microsoft.Integration.SyncEngine;
+
+
 page 7234 "Master Data Full Synch. Review"
 {
     Caption = 'Master Data Initial Synchronization';
@@ -35,17 +40,17 @@ page 7234 "Master Data Full Synch. Review"
 
                     trigger OnDrillDown()
                     begin
-                        ShowJobQueueLogEntry();
+                        Rec.ShowJobQueueLogEntry();
                     end;
                 }
-                field(ActiveSession; IsActiveSession())
+                field(ActiveSession; Rec.IsActiveSession())
                 {
                     ApplicationArea = Suite;
                     Caption = 'Active Session';
                     ToolTip = 'Specifies whether the session is active.';
                     Visible = false;
                 }
-                field(Direction; Direction)
+                field(Direction; Rec.Direction)
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the synchronization direction.';
@@ -55,24 +60,24 @@ page 7234 "Master Data Full Synch. Review"
                 {
                     ApplicationArea = Suite;
                     StyleExpr = ToIntTableJobStatusStyle;
-                    ToolTip = 'Specifies the status of jobs for data going to the integration table. ';
+                    ToolTip = 'Specifies the status of jobs for data going to the source table. ';
                     Visible = false;
 
                     trigger OnDrillDown()
                     begin
-                        ShowSynchJobLog("To Int. Table Job ID");
+                        Rec.ShowSynchJobLog(Rec."To Int. Table Job ID");
                     end;
                 }
                 field("From Int. Table Job Status"; Rec."From Int. Table Job Status")
                 {
                     ApplicationArea = Suite;
                     StyleExpr = FromIntTableJobStatusStyle;
-                    ToolTip = 'Specifies the status of jobs for data coming from the integration table. ';
+                    ToolTip = 'Specifies the status of jobs for data coming from the source table. ';
                     Caption = 'Job Status';
 
                     trigger OnDrillDown()
                     begin
-                        ShowSynchJobLog("From Int. Table Job ID");
+                        Rec.ShowSynchJobLog(Rec."From Int. Table Job ID");
                     end;
                 }
                 field("Initial Synchronization Recommendation"; InitialSynchRecommendation)
@@ -189,7 +194,7 @@ page 7234 "Master Data Full Synch. Review"
                 begin
                     if InitialSynchRecommendations.ContainsKey(Rec.Name) then
                         InitialSynchRecommendations.Remove(Rec.Name);
-                    InitialSynchRecommendations.Add(Rec.Name, "Initial Synch Recommendation"::"Couple Records");
+                    InitialSynchRecommendations.Add(Rec.Name, Rec."Initial Synch Recommendation"::"Couple Records");
                     Rec.Generate(InitialSynchRecommendations, true, DeletedLines);
                 end;
             }
@@ -220,21 +225,21 @@ page 7234 "Master Data Full Synch. Review"
     var
         IntegrationFieldMapping: Record "Integration Field Mapping";
     begin
-        ActionStartEnabled := (not IsThereActiveSessionInProgress()) and IsThereBlankStatusLine();
-        ActionResetEnabled := (not IsThereActiveSessionInProgress());
-        ActionRestartEnabled := (not IsThereActiveSessionInProgress()) and (("Job Queue Entry Status" = "Job Queue Entry Status"::Error) or ("Job Queue Entry Status" = "Job Queue Entry Status"::Finished));
-        ActionRecommendFullSynchEnabled := ActionResetEnabled and ("Initial Synch Recommendation" = "Initial Synch Recommendation"::"Couple Records");
-        ActionRecommendMatchBasedCouplingEnabled := ActionResetEnabled and ("Initial Synch Recommendation" = "Initial Synch Recommendation"::"Full Synchronization");
-        JobQueueEntryStatusStyle := GetStatusStyleExpression(Format("Job Queue Entry Status"));
-        ToIntTableJobStatusStyle := GetStatusStyleExpression(Format("To Int. Table Job Status"));
-        FromIntTableJobStatusStyle := GetStatusStyleExpression(Format("From Int. Table Job Status"));
-        if not InitialSynchRecommendations.ContainsKey(Name) then
-            InitialSynchRecommendations.Add(Name, "Initial Synch Recommendation");
+        ActionStartEnabled := (not Rec.IsThereActiveSessionInProgress()) and Rec.IsThereBlankStatusLine();
+        ActionResetEnabled := (not Rec.IsThereActiveSessionInProgress());
+        ActionRestartEnabled := (not Rec.IsThereActiveSessionInProgress()) and ((Rec."Job Queue Entry Status" = Rec."Job Queue Entry Status"::Error) or (Rec."Job Queue Entry Status" = Rec."Job Queue Entry Status"::Finished));
+        ActionRecommendFullSynchEnabled := ActionResetEnabled and (Rec."Initial Synch Recommendation" = Rec."Initial Synch Recommendation"::"Couple Records");
+        ActionRecommendMatchBasedCouplingEnabled := ActionResetEnabled and (Rec."Initial Synch Recommendation" = Rec."Initial Synch Recommendation"::"Full Synchronization");
+        JobQueueEntryStatusStyle := Rec.GetStatusStyleExpression(Format(Rec."Job Queue Entry Status"));
+        ToIntTableJobStatusStyle := Rec.GetStatusStyleExpression(Format(Rec."To Int. Table Job Status"));
+        FromIntTableJobStatusStyle := Rec.GetStatusStyleExpression(Format(Rec."From Int. Table Job Status"));
+        if not InitialSynchRecommendations.ContainsKey(Rec.Name) then
+            InitialSynchRecommendations.Add(Rec.Name, Rec."Initial Synch Recommendation");
 
-        if "Initial Synch Recommendation" <> "Initial Synch Recommendation"::"Couple Records" then
-            InitialSynchRecommendation := Format("Initial Synch Recommendation")
+        if Rec."Initial Synch Recommendation" <> Rec."Initial Synch Recommendation"::"Couple Records" then
+            InitialSynchRecommendation := Format(Rec."Initial Synch Recommendation")
         else begin
-            IntegrationFieldMapping.SetRange("Integration Table Mapping Name", Name);
+            IntegrationFieldMapping.SetRange("Integration Table Mapping Name", Rec.Name);
             IntegrationFieldMapping.SetRange("Use For Match-Based Coupling", true);
             if IntegrationFieldMapping.IsEmpty() then
                 InitialSynchRecommendation := MatchBasedCouplingTxt
@@ -244,7 +249,7 @@ page 7234 "Master Data Full Synch. Review"
         if InitialSynchRecommendation = CouplingCriteriaSelectedTxt then
             InitialSynchRecommendationStyle := 'Subordinate'
         else
-            InitialSynchRecommendationStyle := GetInitialSynchRecommendationStyleExpression(Format("Initial Synch Recommendation"));
+            InitialSynchRecommendationStyle := Rec.GetInitialSynchRecommendationStyleExpression(Format(Rec."Initial Synch Recommendation"));
         SynchRecommendationDrillDownEnabled := (InitialSynchRecommendation in [MatchBasedCouplingTxt, CouplingCriteriaSelectedTxt]);
     end;
 
@@ -277,4 +282,6 @@ page 7234 "Master Data Full Synch. Review"
         MatchBasedCouplingTxt: Label 'Select Coupling Criteria';
         CouplingCriteriaSelectedTxt: Label 'Match-Based Coupling';
 }
+
+
 

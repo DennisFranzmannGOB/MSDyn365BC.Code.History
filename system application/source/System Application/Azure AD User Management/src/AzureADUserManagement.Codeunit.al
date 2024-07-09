@@ -3,12 +3,18 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Azure.Identity;
+
+using System;
+
 /// <summary>
-/// Exposes functionality to manage Azure AD users.
+/// Exposes functionality to manage Microsoft Entra users.
 /// </summary>
 codeunit 9010 "Azure AD User Management"
 {
     Access = Public;
+    InherentEntitlements = X;
+    InherentPermissions = X;
 
     var
         [NonDebuggable]
@@ -20,8 +26,8 @@ codeunit 9010 "Azure AD User Management"
     end;
 
     /// <summary>
-    /// Retrieves all the users from Azure AD. If the users already exist in the database,
-    /// they are updated to match the ones from Azure AD; otherwise new users are inserted in the database.
+    /// Retrieves all the users from Microsoft Entra. If the users already exist in the database,
+    /// they are updated to match the ones from Microsoft Entra; otherwise new users are inserted in the database.
     /// </summary>
     [Scope('OnPrem')]
     [NonDebuggable]
@@ -30,10 +36,10 @@ codeunit 9010 "Azure AD User Management"
         AzureADUserMgmtImpl.CreateNewUsersFromAzureAD();
     end;
 
-    /// <summary>    
-    /// Creates a new user from an Azure AD user.
+    /// <summary>
+    /// Creates a new user from a Microsoft Entra user.
     /// </summary>
-    /// <param name="GraphUserInfo">The Azure AD user.</param>
+    /// <param name="GraphUserInfo">The Microsoft Entra user.</param>
     [Scope('OnPrem')]
     [NonDebuggable]
     procedure CreateNewUserFromGraphUser(GraphUserInfo: DotNet UserInfo)
@@ -41,21 +47,21 @@ codeunit 9010 "Azure AD User Management"
         AzureADUserMgmtImpl.CreateNewUserFromGraphUser(GraphUserInfo);
     end;
 
-    /// <summary>    
-    /// Synchronizes a user with the Azure AD user corresponding to the authentication 
+    /// <summary>
+    /// Synchronizes a user with the Microsoft Entra user corresponding to the authentication
     /// email that is passed as a parameter. If the user record does not exist, it gets created.
     /// </summary>
     /// <param name="AuthenticationEmail">The user's authentication email.</param>
-    /// <returns>True if there is a user in Azure AD corresponding to the authentication email; otherwise false.</returns>
+    /// <returns>True if there is a user in Microsoft Entra corresponding to the authentication email; otherwise false.</returns>
     [NonDebuggable]
     procedure SynchronizeLicensedUserFromDirectory(AuthenticationEmail: Text): Boolean
     begin
         AzureADUserMgmtImpl.SynchronizeLicensedUserFromDirectory(AuthenticationEmail);
     end;
 
-    /// <summary>    
-    /// Synchronizes all the users from the database with the ones from Azure AD.
-    /// Azure AD users that do not exist in the database are created.
+    /// <summary>
+    /// Synchronizes all the users from the database with the ones from Microsoft Entra.
+    /// Microsoft Entra users that do not exist in the database are created.
     /// </summary>
     [NonDebuggable]
     procedure SynchronizeAllLicensedUsersFromDirectory()
@@ -63,7 +69,7 @@ codeunit 9010 "Azure AD User Management"
         AzureADUserMgmtImpl.SynchronizeAllLicensedUsersFromDirectory();
     end;
 
-    /// <summary>    
+    /// <summary>
     /// Checks if the user is a tenant admin.
     /// </summary>
     /// <returns>True if the user is a tenant admin; otherwise false.</returns>
@@ -84,7 +90,7 @@ codeunit 9010 "Azure AD User Management"
         exit(AzureADUserMgmtImpl.ArePermissionsCustomized(UserSecurityId));
     end;
 
-    /// <summary>    
+    /// <summary>
     /// Checks if the user is a delegated user.
     /// </summary>
     /// <returns>True if the user is a delegated user; otherwise false.</returns>
@@ -97,7 +103,7 @@ codeunit 9010 "Azure AD User Management"
     /// <summary>
     /// Integration event, raised from "Azure AD User Update Wizard" page when the changes are applied.
     /// </summary>
-    /// <param name="UserSecurityID">The ID of the user whos permission sets will be restored.</param>
+    /// <param name="UserSecurityID">The ID of the user whose permission sets will be restored.</param>
     [IntegrationEvent(false, false)]
     [NonDebuggable]
     internal procedure OnRestoreDefaultPermissions(UserSecurityID: Guid)

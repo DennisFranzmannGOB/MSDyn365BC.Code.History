@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Azure.Functions;
+
 /// <summary>
 /// Holder object for holding for Azure Function request result.
 /// </summary>
@@ -14,7 +16,7 @@ codeunit 7805 "Azure Functions Response"
 
     /// <summary>
     /// Checks whether the request was successful.
-    /// </summary>    
+    /// </summary>
     /// <returns>True if the request was successful; otherwise - false.</returns>
     [NonDebuggable]
     procedure IsSuccessful(): Boolean

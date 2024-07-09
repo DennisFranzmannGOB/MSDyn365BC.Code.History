@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.AccessControl;
+
 permissionset 9862 "Permission Sets - Objects"
 {
     Access = Internal;
@@ -16,6 +18,7 @@ permissionset 9862 "Permission Sets - Objects"
         page "Metadata Permission Subform" = X,
         page "Permission Lookup List" = X,
         page "Permission Set" = X,
+        page "Permission Set Lookup List" = X,
         page "Permission Set Subform" = X,
         page "Permission Set Tree" = X,
         page "Tenant Permission Subform" = X,

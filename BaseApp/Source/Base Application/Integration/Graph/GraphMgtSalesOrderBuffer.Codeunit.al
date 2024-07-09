@@ -1,3 +1,17 @@
+﻿// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Integration.Graph;
+
+using Microsoft.Integration.Entity;
+using Microsoft.Sales.Document;
+using Microsoft.Upgrade;
+using Microsoft.Utilities;
+using System.Reflection;
+using System.Upgrade;
+using Microsoft.API.Upgrade;
+
 codeunit 5496 "Graph Mgt - Sales Order Buffer"
 {
 
@@ -318,8 +332,15 @@ codeunit 5496 "Graph Mgt - Sales Order Buffer"
         SalesOrderEntityBuffer.Modify();
     end;
 
-    local procedure CheckValidRecord(var SalesHeader: Record "Sales Header"): Boolean
+    local procedure CheckValidRecord(var SalesHeader: Record "Sales Header") Result: Boolean
+    var
+        IsHandled: Boolean;
     begin
+        IsHandled := false;
+        OnBeforeCheckValidRecord(SalesHeader, Result, IsHandled);
+        if IsHandled then
+            exit(Result);
+
         if SalesHeader.IsTemporary then
             exit(false);
 
@@ -623,6 +644,11 @@ codeunit 5496 "Graph Mgt - Sales Order Buffer"
         TempFieldBuffer.SetRange("Field ID", SalesOrderEntityBuffer.FieldNo("Shortcut Dimension 2 Code"));
         if not TempFieldBuffer.IsEmpty() then
             SalesHeader.Validate("Shortcut Dimension 2 Code", SalesOrderEntityBuffer."Shortcut Dimension 2 Code");
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeCheckValidRecord(var SalesHeader: Record "Sales Header"; var Result: Boolean; var IsHandled: Boolean)
+    begin
     end;
 }
 

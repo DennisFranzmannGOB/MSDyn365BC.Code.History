@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.Encryption;
+
 /// <summary>
 /// Provides helper functions for the Advanced Encryption Standard.
 /// </summary>
@@ -160,7 +162,7 @@ codeunit 1258 "Rijndael Cryptography"
     /// Returns encrypted text as plain text.
     /// </summary>
     /// <param name="CryptedText">The value to decrypt.</param>
-    /// <returns>Plain text.</returns>    
+    /// <returns>Plain text.</returns>
     procedure Decrypt(CryptedText: Text) PlainText: Text
     begin
         PlainText := CryptographyManagementImpl.DecryptRijndael(CryptedText);

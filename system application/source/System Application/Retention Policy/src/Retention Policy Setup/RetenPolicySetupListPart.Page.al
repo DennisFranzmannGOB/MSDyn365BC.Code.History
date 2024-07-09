@@ -3,6 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.DataAdministration;
+
+using System.Telemetry;
+
 /// <summary>
 /// This page lists all of the retention policies that have been defined.
 /// </summary>
@@ -22,7 +26,7 @@ page 3905 "Reten. Policy Setup ListPart"
             repeater(GroupName)
             {
 
-                field("Table ID"; Rec."Table ID")
+                field("Table ID"; Rec."Table Id")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the ID of the table to which the retention policy applies.';

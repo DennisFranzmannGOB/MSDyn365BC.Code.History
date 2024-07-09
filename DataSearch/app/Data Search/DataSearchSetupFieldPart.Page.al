@@ -1,3 +1,5 @@
+namespace Microsoft.Foundation.DataSearch;
+
 page 2685 "Data Search Setup (Field) Part"
 {
     Caption = 'Search Enabled Fields';
@@ -5,6 +7,8 @@ page 2685 "Data Search Setup (Field) Part"
     InsertAllowed = false;
     PageType = ListPart;
     SourceTable = "Data Search Setup (Field)";
+    InherentEntitlements = X;
+    InherentPermissions = X;
 
     layout
     {

@@ -114,7 +114,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Universal Print Graph Helper - NamedType NoAccessTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1382942930 - NamedType 2137350903" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User cannot be authenticated with Azure AD.</source>
+          <source>User cannot be authenticated with Microsoft Entra.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Universal Print Graph Helper - NamedType UserNotAuthenticatedTxt</note>
         </trans-unit>
@@ -159,7 +159,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 807771867" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more about registering an Azure AD application</source>
+          <source>Learn more about registering a Microsoft Entra application</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType LearnMoreAzureAppTxt</note>
         </trans-unit>
@@ -184,7 +184,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NoTablePermissionsErr</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 2724577049" size-unit="char" translate="yes" xml:space="preserve">
-          <source>We couldn't connect to Universal Print using your Azure AD application registration. Run the Set Up Azure Active Directory assisted setup again, and make sure all the values are set correctly.</source>
+          <source>We couldn't connect to Universal Print using your Microsoft Entra application registration. Run the "Set up Microsoft Entra ID" assisted setup again, and make sure all the values are set correctly.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NoTokenForOnPremErr</note>
         </trans-unit>
@@ -192,11 +192,6 @@
           <source>Number of printers added: %1.</source>
           <note from="Developer" annotates="general" priority="2">%1: a number.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NumberOfPrintersAddedTemplateTxt</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - NamedType 757360088" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more about how the data is handled.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType PrivacyLbl</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 2182510485" size-unit="char" translate="yes" xml:space="preserve">
           <source>Learn more about our Privacy Statement.</source>
@@ -318,11 +313,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.1 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 669761542 - Control 1012396828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control EmptySpace1 - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 669761542 - Control 128523262 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Universal Print is a Microsoft 365 subscription-based cloud printing solution. This setup helps you to add your registered cloud printers from Universal Print into Business Central.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -332,16 +322,6 @@
           <source>Note that a Universal Print subscription is required and Universal Print needs to be available in your region.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.1.2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - Control 3142569618 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens a privacy help article.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Privacy - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - Control 3142569618 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Click here to understand how the data is handled.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Privacy - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 4068484546 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose Next to get started.</source>
@@ -354,22 +334,22 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 142461748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Connect your Azure AD application</source>
+          <source>Connect your Microsoft Entra application</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control OnPremAadSetup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 3724241072 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Connect with Azure</source>
+          <source>Connect with Microsoft Entra</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 21734773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To add Universal Print printers to Business Central on-premises, you'll first need a registered application for Business Central in Azure Active Directory (Azure AD).</source>
+          <source>To add Universal Print printers to Business Central on-premises, you'll first need a registered application for Business Central in Microsoft Entra ID.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1.1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 3679005452 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Once an Azure AD application has been registered, you're ready to continue with this setup. During setup, you'll provide information about Azure AD application. Choose Next to continue.</source>
+          <source>Once a Microsoft Entra application has been registered, you're ready to continue with this setup. During setup, you'll provide information about your Microsoft Entra application. Choose Next to continue.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1.2 - Property Caption</note>
         </trans-unit>

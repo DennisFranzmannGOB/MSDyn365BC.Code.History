@@ -3,6 +3,14 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Email;
+
+using System.Telemetry;
+using System.IO;
+using System.Utilities;
+using System.Integration.Word;
+using System.Environment;
+
 codeunit 8906 "Email Editor"
 {
     Access = Internal;
@@ -153,7 +161,7 @@ codeunit 8906 "Email Editor"
     procedure UploadAttachment(EmailMessageImpl: Codeunit "Email Message Impl.")
     var
         FileName: Text;
-        Instream: Instream;
+        Instream: InStream;
         AttachmentName, ContentType : Text[250];
         AttachamentSize: Integer;
     begin
@@ -162,7 +170,7 @@ codeunit 8906 "Email Editor"
             exit;
 
         AttachmentName := CopyStr(FileName, 1, 250);
-        ContentType := EmailMessageImpl.GetContentTypeFromFilename(Filename);
+        ContentType := EmailMessageImpl.GetContentTypeFromFilename(FileName);
         AttachamentSize := EmailMessageImpl.AddAttachmentInternal(AttachmentName, ContentType, Instream);
 
         Session.LogMessage('0000CTX', StrSubstNo(UploadingAttachmentMsg, AttachamentSize, ContentType), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', EmailCategoryLbl);
@@ -253,7 +261,7 @@ codeunit 8906 "Email Editor"
     procedure AttachFromRelatedRecords(EmailMessageID: Guid);
     var
         EmailRelatedAttachment: Record "Email Related Attachment";
-        Email: Codeunit "Email";
+        Email: Codeunit Email;
         EmailRelatedAttachmentsPage: Page "Email Related Attachments";
     begin
         EmailRelatedAttachmentsPage.LookupMode(true);
@@ -274,7 +282,7 @@ codeunit 8906 "Email Editor"
         RelatedId: Integer;
     begin
         // If there is only one key in the dict, then there is no need to use DB resources.
-        If RelatedIds.Count = 1 then begin
+        if RelatedIds.Count = 1 then begin
             PrimarySource := RelatedIds.Get(1);
             exit(true);
         end;
@@ -370,7 +378,7 @@ codeunit 8906 "Email Editor"
 
             Filename := WordTemplateRecord.Name + '.' + WordTemplateSelectionWizard.GetDocumentFormat();
             ContentType := EmailMessageImpl.GetContentTypeFromFilename(Filename);
-            FileSize := EmailMessageImpl.AddAttachmentInternal(CopyStr(Filename, 1, 250), ContentType, Instream);
+            FileSize := EmailMessageImpl.AddAttachmentInternal(CopyStr(Filename, 1, 250), ContentType, InStream);
 
             Session.LogMessage('0000FL4', StrSubstNo(UploadingTemplateAttachmentMsg, FileSize, ContentType), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', EmailCategoryLbl);
         end else
@@ -438,7 +446,7 @@ codeunit 8906 "Email Editor"
             TempCache.Add(RelatedRecordsCache.Keys.Get(Count), TempGuid);
         end;
 
-        // Remove related records that is To, Cc, Bcc 
+        // Remove related records that is To, Cc, Bcc
         EmailMessage.Get(MessageID);
         RemoveFromCacheIfExists(TempCache, EmailMessage, Enum::"Email Recipient Type"::"To");
         RemoveFromCacheIfExists(TempCache, EmailMessage, Enum::"Email Recipient Type"::Cc);

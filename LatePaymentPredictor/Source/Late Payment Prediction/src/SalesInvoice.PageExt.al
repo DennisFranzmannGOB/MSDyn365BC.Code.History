@@ -1,3 +1,6 @@
+namespace Microsoft.Finance.Latepayment;
+
+using Microsoft.Sales.Document;
 pageextension 1957 "LPP Sales Invoice" extends "Sales Invoice"
 {
     layout
@@ -16,6 +19,7 @@ pageextension 1957 "LPP Sales Invoice" extends "Sales Invoice"
                 Image = PaymentForecast;
                 Promoted = true;
                 PromotedOnly = true;
+                Visible = false;
                 PromotedCategory = Category6;
 
                 trigger OnAction();

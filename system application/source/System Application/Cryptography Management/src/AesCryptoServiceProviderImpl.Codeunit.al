@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Security.Encryption;
+
 codeunit 1467 "AesCryptoServiceProvider Impl." implements SymmetricAlgorithm
 {
     Access = Internal;
@@ -10,7 +12,7 @@ codeunit 1467 "AesCryptoServiceProvider Impl." implements SymmetricAlgorithm
     InherentPermissions = X;
 
     var
-        DotNetAesCryptoServiceProvider: Dotnet "Cryptography.AesCryptoServiceProvider";
+        DotNetAesCryptoServiceProvider: DotNet "Cryptography.AesCryptoServiceProvider";
         XmlEncrypmentMethodUrlTok: Label 'http://www.w3.org/2001/04/xmlenc#aes256-cbc', Locked = true;
 
     [NonDebuggable]

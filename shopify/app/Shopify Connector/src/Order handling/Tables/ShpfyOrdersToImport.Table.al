@@ -1,3 +1,7 @@
+namespace Microsoft.Integration.Shopify;
+
+using System.Reflection;
+
 table 30121 "Shpfy Orders to Import"
 {
     Access = Internal;
@@ -43,14 +47,14 @@ table 30121 "Shpfy Orders to Import"
 
         field(6; "Created At"; DateTime)
         {
-            Caption = 'Created At';
+            Caption = 'Created At (Shopify)';
             DataClassification = CustomerContent;
             Editable = false;
         }
 
         field(7; "Updated At"; DateTime)
         {
-            Caption = 'UpdatedAt';
+            Caption = 'Updated At (Shopify)';
             DataClassification = CustomerContent;
             Editable = false;
         }

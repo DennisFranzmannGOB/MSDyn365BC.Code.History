@@ -1,7 +1,9 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Privacy;
 
 /// <summary>
 /// Exposes functionality that allows users to classify their data.
@@ -22,7 +24,7 @@ page 1752 "Data Classification Wizard"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(WelcomePage)
             {
@@ -73,11 +75,11 @@ page 1752 "Data Classification Wizard"
                     Editable = false;
                     ShowCaption = false;
                     Style = StandardAccent;
-                    StyleExpr = TRUE;
+                    StyleExpr = true;
 
                     trigger OnDrillDown()
                     begin
-                        HyperLink(HelpUrlTxt);
+                        Hyperlink(HelpUrlTxt);
                     end;
                 }
             }
@@ -106,7 +108,7 @@ page 1752 "Data Classification Wizard"
                         ApplicationArea = All;
                         Caption = '- Importing the classifications from another company.';
                     }
-                    field("ExportModeSelected"; IsExportModeSelectedValue)
+                    field(ExportModeSelected; IsExportModeSelectedValue)
                     {
                         ApplicationArea = All;
                         Caption = 'Export Classification Data to Excel';
@@ -200,7 +202,7 @@ page 1752 "Data Classification Wizard"
                         {
                             ApplicationArea = All;
                             Caption = 'Data on templates is:';
-                            TooltIp = 'Specifies the default sensitivity classifications to apply to templates that are used to create new records, such as customers or items. You can view the fields to classify them individually.';
+                            ToolTip = 'Specifies the default sensitivity classifications to apply to templates that are used to create new records, such as customers or items. You can view the fields to classify them individually.';
                             OptionCaption = 'Unclassified,Sensitive,Personal,Company Confidential,Normal';
                         }
                         field(Control38; ViewFieldsTok)
@@ -224,7 +226,7 @@ page 1752 "Data Classification Wizard"
                         {
                             ApplicationArea = All;
                             Caption = 'Data on setup tables is:';
-                            Tooltip = 'Specifies the default sensitivity classifications to apply to data on setup tables that control how you will use features, such as the tables used by the general ledger. You can view the fields to classify them individually.';
+                            ToolTip = 'Specifies the default sensitivity classifications to apply to data on setup tables that control how you will use features, such as the tables used by the general ledger. You can view the fields to classify them individually.';
                             OptionCaption = 'Unclassified,Sensitive,Personal,Company Confidential,Normal';
                         }
                         field(Control56; ViewFieldsTok)
@@ -264,12 +266,12 @@ page 1752 "Data Classification Wizard"
                     repeater(Control20)
                     {
                         ShowCaption = false;
-                        field(Include; Include)
+                        field(Include; Rec.Include)
                         {
                             ApplicationArea = All;
                             ToolTip = 'Specifies whether to apply the classification to the type of data subjects.';
                         }
-                        field(Entity; "Table Caption")
+                        field(Entity; Rec."Table Caption")
                         {
                             ApplicationArea = All;
                             Caption = 'Data Subject';
@@ -277,7 +279,7 @@ page 1752 "Data Classification Wizard"
                             Editable = false;
                             ToolTip = 'Specifies the type of data subjects to apply the data classification to.';
                         }
-                        field("Default Data Sensitivity"; "Default Data Sensitivity")
+                        field("Default Data Sensitivity"; Rec."Default Data Sensitivity")
                         {
                             ApplicationArea = All;
                             ToolTip = 'Specifies the sensitivity classification to apply to the type of data subjects.';
@@ -301,7 +303,7 @@ page 1752 "Data Classification Wizard"
                 repeater(Control25)
                 {
                     ShowCaption = false;
-                    field("Entity 2"; "Table Caption")
+                    field("Entity 2"; Rec."Table Caption")
                     {
                         ApplicationArea = All;
                         Caption = 'Data Subject';
@@ -309,7 +311,7 @@ page 1752 "Data Classification Wizard"
                         Editable = false;
                         ToolTip = 'Specifies the type of data subjects to apply the data classification to.';
                     }
-                    field("Fields"; Fields)
+                    field("Fields"; Rec.Fields)
                     {
                         ApplicationArea = All;
                         Editable = false;
@@ -322,7 +324,7 @@ page 1752 "Data Classification Wizard"
                             RunDataClassificationWorksheetForTable();
                         end;
                     }
-                    field(Status; Status)
+                    field(Status; Rec.Status)
                     {
                         ApplicationArea = All;
                         Editable = false;
@@ -348,7 +350,7 @@ page 1752 "Data Classification Wizard"
                 repeater(Control52)
                 {
                     ShowCaption = false;
-                    field("Similar Fields Label"; "Similar Fields Label")
+                    field("Similar Fields Label"; Rec."Similar Fields Label")
                     {
                         ApplicationArea = All;
                         Caption = 'Fields';
@@ -360,7 +362,7 @@ page 1752 "Data Classification Wizard"
                             RunDataClassificationWorksheetForPersonalAndSensitiveDataInTable();
                         end;
                     }
-                    field("Status 2"; "Status 2")
+                    field("Status 2"; Rec."Status 2")
                     {
                         ApplicationArea = All;
                         Caption = 'Status';
@@ -378,7 +380,7 @@ page 1752 "Data Classification Wizard"
             group(FinishPage)
             {
                 ShowCaption = false;
-                Visible = (Step = Step::Finish) AND NOT IsExportModeSelectedValue;
+                Visible = (Step = Step::Finish) and not IsExportModeSelectedValue;
                 group("That's it")
                 {
                     Caption = 'That''s it';
@@ -394,7 +396,7 @@ page 1752 "Data Classification Wizard"
             group(FinishPageForExportMode)
             {
                 ShowCaption = false;
-                Visible = (Step = Step::Finish) AND IsExportModeSelectedValue;
+                Visible = (Step = Step::Finish) and IsExportModeSelectedValue;
                 group(Control46)
                 {
                     Caption = 'That''s it';
@@ -420,7 +422,7 @@ page 1752 "Data Classification Wizard"
                 trigger OnAction()
                 begin
                     if Step = Step::Verify then
-                        Reset();
+                        Rec.Reset();
                     NextStep(true);
                 end;
             }
@@ -436,7 +438,7 @@ page 1752 "Data Classification Wizard"
                 trigger OnAction()
                 begin
                     if ShowWorksheet then
-                        PAGE.Run(PAGE::"Data Classification Worksheet");
+                        Page.Run(Page::"Data Classification Worksheet");
                     CurrPage.Close();
                 end;
             }
@@ -445,12 +447,12 @@ page 1752 "Data Classification Wizard"
 
     trigger OnAfterGetRecord()
     begin
-        if Status = Status::"Review Needed" then
+        if Rec.Status = Rec.Status::"Review Needed" then
             StatusStyle := 'UnFavorable'
         else
             StatusStyle := 'Favorable';
 
-        if "Status 2" = "Status 2"::"Review Needed" then
+        if Rec."Status 2" = Rec."Status 2"::"Review Needed" then
             SimilarFieldsStatusStyle := 'UnFavorable'
         else
             SimilarFieldsStatusStyle := 'Favorable';
@@ -489,7 +491,7 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Resets the buttons on the page, enabling and disabling them according to the current step.
-    /// </summary>	
+    /// </summary>
     procedure ResetControls()
     var
         DataClassificationMgt: Codeunit "Data Classification Mgt.";
@@ -497,9 +499,9 @@ page 1752 "Data Classification Wizard"
         BackEnabled := true;
         NextEnabled := true;
         FinishEnabled := false;
-        Reset();
+        Rec.Reset();
 
-        if IsEmpty() then
+        if Rec.IsEmpty() then
             DataClassificationMgt.RaiseOnGetDataPrivacyEntities(Rec);
 
         case Step of
@@ -509,7 +511,7 @@ page 1752 "Data Classification Wizard"
                 NextEnabled := ShouldEnableNext();
             Step::Verify,
           Step::"Verify Related Fields":
-                SetRange(Include, true);
+                Rec.SetRange(Include, true);
             Step::Finish:
                 begin
                     FinishEnabled := true;
@@ -522,10 +524,10 @@ page 1752 "Data Classification Wizard"
     var
         DataClassificationMgtImpl: Codeunit "Data Classification Mgt. Impl.";
     begin
-        DataClassificationMgtImpl.RunDataClassificationWorksheetForTable("Table No.");
+        DataClassificationMgtImpl.RunDataClassificationWorksheetForTable(Rec."Table No.");
 
-        Reviewed := true;
-        Status := Status::Reviewed;
+        Rec.Reviewed := true;
+        Rec.Status := Rec.Status::Reviewed;
         CurrPage.Update();
     end;
 
@@ -533,16 +535,16 @@ page 1752 "Data Classification Wizard"
     var
         DataClassificationMgtImpl: Codeunit "Data Classification Mgt. Impl.";
     begin
-        DataClassificationMgtImpl.RunDataClassificationWorksheetForPersonalAndSensitiveDataInTable("Table No.");
+        DataClassificationMgtImpl.RunDataClassificationWorksheetForPersonalAndSensitiveDataInTable(Rec."Table No.");
 
-        "Similar Fields Reviewed" := true;
-        "Status 2" := "Status 2"::Reviewed;
+        Rec."Similar Fields Reviewed" := true;
+        Rec."Status 2" := Rec."Status 2"::Reviewed;
         CurrPage.Update();
     end;
 
     /// <summary>
     /// Queries on whether or not the Next button should be enabled.
-    /// </summary>	
+    /// </summary>
     /// <returns>True if the Next button should be enabled and false otherwise.</returns>
     procedure ShouldEnableNext(): Boolean
     begin
@@ -578,8 +580,8 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Selects the next step.
-    /// </summary>	
-    /// <param name="Backward">A boolean value that specifies if the next step should be to go back.</param>	
+    /// </summary>
+    /// <param name="Backward">A boolean value that specifies if the next step should be to go back.</param>
     procedure NextStep(Backward: Boolean)
     begin
         if Backward then begin
@@ -597,24 +599,24 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Displays errors if the preconditions for an action are not met.
-    /// </summary>		
+    /// </summary>
     procedure CheckMandatoryActions()
     begin
         if Step = Step::"Verify Related Fields" then begin
-            SetRange("Similar Fields Reviewed", false);
-            if FindFirst() then
+            Rec.SetRange("Similar Fields Reviewed", false);
+            if Rec.FindFirst() then
                 Error(ReviewSimilarFieldsErr);
         end;
         if Step = Step::Verify then begin
-            SetRange(Reviewed, false);
-            if FindFirst() then
+            Rec.SetRange(Reviewed, false);
+            if Rec.FindFirst() then
                 Error(ReviewFieldsErr);
         end;
     end;
 
     /// <summary>
     /// Queries on whether the Next button is enabled.
-    /// </summary>			
+    /// </summary>
     /// <returns>True if the Next button is enabled and false otherwise.</returns>
     procedure IsNextEnabled(): Boolean
     begin
@@ -623,8 +625,8 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Gets the current step.
-    /// </summary>			
-    /// <returns>The current step.</returns>	
+    /// </summary>
+    /// <returns>The current step.</returns>
     procedure GetStep(): Option
     begin
         exit(Step);
@@ -632,8 +634,8 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Sets the current step.
-    /// </summary>	
-    /// <param name="StepValue">The new value of the current step.</param>	
+    /// </summary>
+    /// <param name="StepValue">The new value of the current step.</param>
     procedure SetStep(StepValue: Option)
     begin
         Step := StepValue;
@@ -641,8 +643,8 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Queries on whether import mode is selected.
-    /// </summary>			
-    /// <returns>True if import mode is selected and false otherwise.</returns>		
+    /// </summary>
+    /// <returns>True if import mode is selected and false otherwise.</returns>
     procedure IsImportModeSelected(): Boolean
     begin
         exit(IsImportModeSelectedValue);
@@ -650,8 +652,8 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Queries on whether export mode is selected.
-    /// </summary>			
-    /// <returns>True if export mode is selected and false otherwise.</returns>		
+    /// </summary>
+    /// <returns>True if export mode is selected and false otherwise.</returns>
     procedure IsExportModeSelected(): Boolean
     begin
         exit(IsExportModeSelectedValue);
@@ -659,8 +661,8 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Queries on whether expert mode is selected.
-    /// </summary>			
-    /// <returns>True if expert mode is selected and false otherwise.</returns>		
+    /// </summary>
+    /// <returns>True if expert mode is selected and false otherwise.</returns>
     procedure IsExpertModeSelected(): Boolean
     begin
         exit(IsExpertModeSelectedValue);
@@ -668,8 +670,8 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Gets the default classification for ledger entries.
-    /// </summary>			
-    /// <returns>The default classification for ledger entries.</returns>		
+    /// </summary>
+    /// <returns>The default classification for ledger entries.</returns>
     procedure GetLedgerEntriesDefaultClassification(): Option
     begin
         exit(LedgerEntriesDefaultClassifications);
@@ -677,8 +679,8 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Gets the default classification for templates.
-    /// </summary>			
-    /// <returns>The default classification for templates.</returns>	
+    /// </summary>
+    /// <returns>The default classification for templates.</returns>
     procedure GetTemplatesDefaultClassification(): Option
     begin
         exit(TemplatesDefaultClassifications);
@@ -686,11 +688,12 @@ page 1752 "Data Classification Wizard"
 
     /// <summary>
     /// Gets the default classification for setup tables.
-    /// </summary>			
-    /// <returns>The default classification for setup tables.</returns>	
+    /// </summary>
+    /// <returns>The default classification for setup tables.</returns>
     procedure GetSetupTablesDefaultClassification(): Option
     begin
         exit(SetupTablesDefaultClassifications);
     end;
 }
+
 

@@ -1,7 +1,9 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Security.AccessControl;
 
 codeunit 9811 "Password Dialog Impl."
 {
@@ -30,7 +32,7 @@ codeunit 9811 "Password Dialog Impl."
             PasswordDialog.DisablePasswordValidation();
         if DisablePasswordConfirmation then
             PasswordDialog.DisablePasswordConfirmation();
-        if PasswordDialog.RunModal() = ACTION::OK then
+        if PasswordDialog.RunModal() = Action::OK then
             exit(PasswordDialog.GetPasswordValue());
         exit('');
     end;
@@ -40,7 +42,7 @@ codeunit 9811 "Password Dialog Impl."
         PasswordDialog: Page "Password Dialog";
     begin
         PasswordDialog.EnableChangePassword();
-        if PasswordDialog.RunModal() = ACTION::OK then begin
+        if PasswordDialog.RunModal() = Action::OK then begin
             Password := PasswordDialog.GetPasswordValue();
             OldPassword := PasswordDialog.GetOldPasswordValue();
         end;

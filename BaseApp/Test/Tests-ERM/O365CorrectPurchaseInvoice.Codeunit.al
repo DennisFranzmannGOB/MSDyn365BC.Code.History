@@ -774,6 +774,41 @@ codeunit 138025 "O365 Correct Purchase Invoice"
     end;
 
     [Test]
+    procedure TestItemVariantBlocked()
+    var
+        Vendor: Record Vendor;
+        ItemVariant: Record "Item Variant";
+        PurchInvHeader: Record "Purch. Inv. Header";
+        GLEntry: Record "G/L Entry";
+        PurchaseHeaderCorrection: Record "Purchase Header";
+        CorrectPostedPurchInvoice: Codeunit "Correct Posted Purch. Invoice";
+    begin
+        Initialize();
+
+        // [GIVEN] Posted purchase invoice with line with item variant exists
+        CreateAndPostPurchaseInvForNewItemVariantAndVendor(ItemVariant, Vendor, LibraryRandom.RandDecInRange(1, 10, 2), LibraryRandom.RandDecInRange(1, 10, 2), PurchInvHeader);
+
+        // [GIVEN] Item Variant is blocked
+        ItemVariant.Validate(Blocked, true);
+        ItemVariant.Modify(true);
+        Commit();
+
+        if GLEntry.FindLast() then;
+
+        // [WHEN] Cancel and Create New Invoice is used
+        asserterror CorrectPostedPurchInvoice.CancelPostedInvoiceStartNewInvoice(PurchInvHeader, PurchaseHeaderCorrection);
+
+        // [THEN] Nothing is created
+        CheckNothingIsCreated(Vendor."No.", GLEntry);
+
+        // [WHEN] Cancel Invoice is used
+        asserterror CorrectPostedPurchInvoice.CancelPostedInvoice(PurchInvHeader);
+
+        // [THEN] Nothing is created
+        CheckNothingIsCreated(Vendor."No.", GLEntry);
+    end;
+
+    [Test]
     [Scope('OnPrem')]
     procedure TestItemGLAccBlocked()
     var
@@ -1117,7 +1152,7 @@ codeunit 138025 "O365 Correct Purchase Invoice"
         Initialize();
 
         CreateItemWithCost(Item, Item.Type::Inventory, 0);
-        LibrarySmallBusiness.CreateVendor(Vendor);
+        CreateVendor(Vendor);
 
         if GLEntry.FindLast() then;
 
@@ -1222,7 +1257,7 @@ codeunit 138025 "O365 Correct Purchase Invoice"
 
         CreateItemWithCost(Item, Item.Type::Inventory, 1);
 
-        LibrarySmallBusiness.CreateVendor(Vendor);
+        CreateVendor(Vendor);
         SetupVendorToPayInCash(Vendor);
 
         BuyItem(Vendor, Item, 1, PurchInvHeader);
@@ -1395,7 +1430,7 @@ codeunit 138025 "O365 Correct Purchase Invoice"
 
     [Test]
     [Scope('OnPrem')]
-    procedure TestCorrectPostedSalesInvoice2LinesOneZeroUnitCost()
+    procedure TestCorrectPostedPurchaseInvoice2LinesOneZeroUnitCost()
     var
         Vendor: Record Vendor;
         Item1: Record Item;
@@ -1807,8 +1842,8 @@ codeunit 138025 "O365 Correct Purchase Invoice"
 
     local procedure CreateBuyFromWithDifferentPayToVendor(var BuyFromVendor: Record Vendor; var PayToVendor: Record Vendor)
     begin
-        LibrarySmallBusiness.CreateVendor(BuyFromVendor);
-        LibrarySmallBusiness.CreateVendor(PayToVendor);
+        CreateVendor(PayToVendor);
+        CreateVendor(BuyFromVendor);
         BuyFromVendor.Validate("Pay-to Vendor No.", PayToVendor."No.");
         BuyFromVendor.Modify(true);
     end;
@@ -1816,14 +1851,28 @@ codeunit 138025 "O365 Correct Purchase Invoice"
     local procedure CreateAndPostPurchaseInvForNewItemAndVendor(var Item: Record Item; Type: Enum "Item Type"; var Vendor: Record Vendor; UnitCost: Decimal; Qty: Decimal; var PurchInvHeader: Record "Purch. Inv. Header")
     begin
         CreateItemWithCost(Item, Type, UnitCost);
-        LibrarySmallBusiness.CreateVendor(Vendor);
+        CreateVendor(Vendor);
         BuyItem(Vendor, Item, Qty, PurchInvHeader);
+    end;
+
+    local procedure CreateAndPostPurchaseInvForNewItemVariantAndVendor(var ItemVariant: Record "Item Variant"; var Vendor: Record Vendor; UnitCost: Decimal; Qty: Decimal; var PurchInvHeader: Record "Purch. Inv. Header")
+    var
+        Item: Record Item;
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+    begin
+        CreateItemWithCost(Item, Item.Type::Inventory, UnitCost);
+        LibraryInventory.CreateItemVariant(ItemVariant, Item."No.");
+        LibrarySmallBusiness.CreateVendor(Vendor);
+
+        CreatePurchaseInvoiceForItemVariant(Vendor, ItemVariant, Qty, PurchaseHeader, PurchaseLine);
+        PurchInvHeader.Get(LibrarySmallBusiness.PostPurchaseInvoice(PurchaseHeader));
     end;
 
     local procedure CreatePurchaseInvForNewItemAndVendor(var Item: Record Item; var Vendor: Record Vendor; UnitPrice: Decimal; Qty: Decimal; var PurchaseHeader: Record "Purchase Header"; var PurchaseLine: Record "Purchase Line")
     begin
         CreateItemWithCost(Item, Item.Type::Inventory, UnitPrice);
-        LibrarySmallBusiness.CreateVendor(Vendor);
+        CreateVendor(Vendor);
         CreatePurchaseInvoiceForItem(Vendor, Item, Qty, PurchaseHeader, PurchaseLine);
     end;
 
@@ -1832,6 +1881,17 @@ codeunit 138025 "O365 Correct Purchase Invoice"
         LibrarySmallBusiness.CreatePurchaseInvoiceHeader(PurchaseHeader, Vendor);
         LibrarySmallBusiness.CreatePurchaseLine(PurchaseLine, PurchaseHeader, Item, Qty);
     end;
+
+    local procedure CreatePurchaseInvoiceForItemVariant(Vendor: Record Vendor; ItemVariant: Record "Item Variant"; Qty: Decimal; var PurchaseHeader: Record "Purchase Header"; var PurchaseLine: Record "Purchase Line")
+    var
+        Item: Record Item;
+    begin
+        Item.Get(ItemVariant."Item No.");
+        CreatePurchaseInvoiceForItem(Vendor, Item, Qty, PurchaseHeader, PurchaseLine);
+        PurchaseLine."Variant Code" := ItemVariant.Code;
+        PurchaseLine.Modify();
+    end;
+
 
     local procedure CreatePurchaseInvoiceWithDiscountForItem(Vendor: Record Vendor; Item: Record Item; Qty: Decimal; var PurchaseHeader: Record "Purchase Header"; var PurchaseLine: Record "Purchase Line"; LineDiscountPct: Integer)
     begin
@@ -1893,6 +1953,13 @@ codeunit 138025 "O365 Correct Purchase Invoice"
         CheckNothingIsCreated(PurchInvHeader."Pay-to Vendor No.", GLEntry);
         asserterror CorrectPostedPurchInvoice.CancelPostedInvoice(PurchInvHeader);
         CheckNothingIsCreated(PurchInvHeader."Pay-to Vendor No.", GLEntry);
+    end;
+
+    local procedure CreateVendor(var Vendor: Record Vendor)
+    begin
+        LibrarySmallBusiness.CreateVendor(Vendor);
+        Vendor."Payment Terms Code" := '';
+        Vendor.Modify();
     end;
 
     local procedure SetupVendorToPayInCash(var Vendor: Record Vendor)
@@ -2068,13 +2135,20 @@ codeunit 138025 "O365 Correct Purchase Invoice"
 
     local procedure ClearTable(TableID: Integer)
     var
-        RecRef: RecordRef;
+        CostType: Record "Cost Type";
+        ProductionBOMLine: Record "Production BOM Line";
+        Resource: Record Resource;
     begin
         LibraryLowerPermissions.SetOutsideO365Scope();
-        RecRef.Open(TableID);
-        RecRef.DeleteAll();
-        RecRef.Close();
-        LibraryLowerPermissions.SetO365Full();
+        case TableID of
+            DATABASE::"Cost Type":
+                CostType.DeleteAll();
+            DATABASE::"Production BOM Line":
+                ProductionBOMLine.DeleteAll();
+            DATABASE::Resource:
+                Resource.DeleteAll();
+        end;
+        LibraryLowerPermissions.SetO365Full;
     end;
 }
 

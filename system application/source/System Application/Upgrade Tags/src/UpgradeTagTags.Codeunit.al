@@ -3,13 +3,17 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Upgrade;
+
+using System.Environment;
+
 codeunit 9992 "Upgrade Tag - Tags"
 {
     Access = Internal;
     InherentEntitlements = X;
     InherentPermissions = X;
-    Permissions = TableData Company = r,
-                  TableData "Upgrade Tags" = rimd;
+    Permissions = tabledata Company = r,
+                  tabledata "Upgrade Tags" = rimd;
 
     procedure SetInitializedTagIfNotRegistered(): Text
     var

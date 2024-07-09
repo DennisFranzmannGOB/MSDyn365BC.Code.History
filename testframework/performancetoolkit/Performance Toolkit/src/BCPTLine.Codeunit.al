@@ -2,6 +2,11 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Tooling;
+
+using System.Reflection;
+
 codeunit 149005 "BCPT Line"
 {
     Access = Internal;
@@ -209,7 +214,10 @@ codeunit 149005 "BCPT Line"
         Dimensions.Add('Operation', BCPTLogEntry.Operation);
         Dimensions.Add('Tag', BCPTLogEntry.Tag);
         Dimensions.Add('Status', Format(BCPTLogEntry.Status));
+        if BCPTLogEntry.Status = BCPTLogEntry.Status::Error then
+            Dimensions.Add('StackTrace', BCPTLogEntry."Error Call Stack");
         Dimensions.Add('NoOfSqlStatements', Format(BCPTLogEntry."No. of SQL Statements"));
+        Dimensions.Add('Message', BCPTLogEntry.Message);
         Dimensions.Add('StartTime', Format(BCPTLogEntry."Start Time"));
         Dimensions.Add('EndTime', Format(BCPTLogEntry."End Time"));
         Dimensions.Add('DurationInMs', Format(BCPTLogEntry."Duration (ms)"));
@@ -248,7 +256,7 @@ codeunit 149005 "BCPT Line"
         exit(BCPTLine."No. of SQL Statements" div BCPTLine."No. of Iterations");
     end;
 
-    Procedure GetParam(var BCPTLine: Record "BCPT Line"; ParamName: Text): Text
+    procedure GetParam(var BCPTLine: Record "BCPT Line"; ParamName: Text): Text
     var
         dict: Dictionary of [Text, Text];
     begin

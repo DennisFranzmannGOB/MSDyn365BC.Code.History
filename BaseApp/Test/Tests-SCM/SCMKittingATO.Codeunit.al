@@ -72,6 +72,8 @@ codeunit 137096 "SCM Kitting - ATO"
         AssertOption: Option Orders,Reservation,"Hard link";
         ChangeOption: Option Quantity,"Quantity to Assemble","Location Code","Variant Code",UOM,"Due Date";
         DeleteOption: Option "Zero Quantity on SOL","Delete SOL","Delete SO";
+        FieldMustBeEmptyErr: Label '%1 must be empty', Comment = '%1 - Field Caption';
+        ATOLinkShouldNotBeFoundErr: Label 'Assemble-to-Order Link should not be found.';
 
     local procedure Initialize()
     var
@@ -4816,6 +4818,10 @@ codeunit 137096 "SCM Kitting - ATO"
             Validate("Require Shipment", true);
             Validate("Require Put-away", true);
             Validate("Require Pick", true);
+            Validate("Prod. Consump. Whse. Handling", "Prod. Consump. Whse. Handling"::"Warehouse Pick (mandatory)");
+            Validate("Prod. Output Whse. Handling", "Prod. Output Whse. Handling"::"Inventory Put-away");
+            Validate("Job Consump. Whse. Handling", "Job Consump. Whse. Handling"::"Warehouse Pick (mandatory)");
+            Validate("Asm. Consump. Whse. Handling", "Asm. Consump. Whse. Handling"::"Warehouse Pick (mandatory)");
             Modify();
         end;
     end;
@@ -5368,6 +5374,41 @@ codeunit 137096 "SCM Kitting - ATO"
     end;
 
     [Test]
+    [HandlerFunctions('ConfirmHandler,MsgHandler,AssemblyAvailabilityFormHandler')]
+    [Scope('OnPrem')]
+    procedure VerifyVariantCodeClearedWhenSelectingNewItemOnAssemblyOrder()
+    var
+        Item: Record Item;
+        Item2: Record Item;
+        ItemVariant: Record "Item Variant";
+        AssemblyHeader: Record "Assembly Header";
+        AssemblyOrder: TestPage "Assembly Order";
+        AssemblyOrderNo: Code[20];
+    begin
+        // [SCENARIO 479957] When user select item, previously selected variant code is no cleared: assembly header, prod order header
+        Initialize();
+
+        // [GIVEN] Create Items I1 with Item Variant and I2
+        CreateAssembledItem(Item, "Assembly Policy"::"Assemble-to-Stock", 1, 0, 0, 1, Item."Costing Method"::Standard);
+        LibraryInventory.CreateItem(Item2);
+        LibraryInventory.CreateItemVariant(ItemVariant, Item."No.");
+
+        // [THEN] Create assembly order for item "I1"
+        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, WorkDate(), Item."No.", '', LibraryRandom.RandDec(100, 2), ItemVariant.Code);
+
+        // [WHEN] Open Assembly Order Page and change Item to I2
+        AssemblyOrder.OpenEdit();
+        AssemblyOrder.GotoRecord(AssemblyHeader);
+        AssemblyOrder."Item No.".SetValue(Item2."No.");
+        AssemblyOrderNo := Format(AssemblyOrder."No.");
+        AssemblyOrder.Close();
+
+        // [VERIFY] Verify: Changing Item No. on Assembly Order Page cleared the existing Variant Code
+        AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, AssemblyOrderNo);
+        Assert.AreEqual('', AssemblyHeader."Variant Code", StrSubstNo(FieldMustBeEmptyErr, AssemblyHeader.FieldCaption("Variant Code")));
+    end;
+
+    [Test]
     [HandlerFunctions('ATOLinesPageHandler')]
     [Scope('OnPrem')]
     procedure AssembleToOrderLinesPageShouldOpenForNewlyCopiedSalesQuoteFromArchiveQuote()
@@ -5414,7 +5455,6 @@ codeunit 137096 "SCM Kitting - ATO"
         // [GIVEN] Prepare New Sales Quote
         ToSalesHeader.Init();
         ToSalesHeader.Validate("Document Type", ToSalesHeader."Document Type"::Quote);
-        TOSalesHeader.Validate("Sell-to Customer No.", SalesHeader."Sell-to Customer No.");
         ToSalesHeader.Insert(true);
 
         // [WHEN] Copy Sales Archive Quote to Sales Quote
@@ -5424,6 +5464,68 @@ codeunit 137096 "SCM Kitting - ATO"
 
         // [VERIFY] Verify: Assemble to Order Lines page should open for new Sales Quote
         VerifyAssembleToOrderLinesPageOpened(ToSalesHeader, OrderQty);
+    end;
+
+    [Test]
+    [HandlerFunctions('MsgHandlerPostedAOs')]
+    [Scope('OnPrem')]
+    procedure AssembleToOrderLinkIsDeletedWhenQtyToAssembleToOrderIsSetToZeroInSOAfterPartialShipment()
+    var
+        Item, Item2, Item3 : Record Item;
+        Customer: Record Customer;
+        ItemJournalLine: Record "Item Journal Line";
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        BOMComponent, BOMComponent2 : Record "BOM Component";
+        AssembleToOrderLink: Record "Assemble-to-Order Link";
+    begin
+        // [SCENARIO 537255] Assemble-to-Order Link is deleted when Qty. to Assemble to Order is set to 0 in Sales Order after partial shipment.
+        Initialize();
+
+        // [GIVEN] Create Item and Validate Replenishment System and Assembly Policy.
+        LibraryInventory.CreateItem(Item);
+        Item.Validate("Replenishment System", Item."Replenishment System"::Assembly);
+        Item.Validate("Assembly Policy", Item."Assembly Policy"::"Assemble-to-Order");
+        Item.Modify(true);
+
+        // [GIVEN] Create Item 2.
+        LibraryInventory.CreateItem(Item2);
+
+        // [GIVEN] Create Item 3.
+        LibraryInventory.CreateItem(Item3);
+
+        // [GIVEN] Create BOM Component.
+        LibraryManufacturing.CreateBOMComponent(BOMComponent, Item."No.", BOMComponent.Type::Item, Item2."No.", LibraryRandom.RandInt(0), Item."Base Unit of Measure");
+
+        // [GIVEN] Create BOM Component 2.
+        LibraryManufacturing.CreateBOMComponent(BOMComponent2, Item."No.", BOMComponent2.Type::Item, Item3."No.", LibraryRandom.RandIntInRange(2, 2), Item."Base Unit of Measure");
+
+        // [GIVEN] Create and Post Item Journal Line.
+        CreateAndPostItemJournalLine(ItemJournalLine, Item2, Item3);
+
+        // [GIVEN] Create Customer.
+        LibrarySales.CreateCustomer(Customer);
+
+        // [GIVEN] Create Sales Header.
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, Customer."No.");
+
+        // [GIVEN] Create Sales Line and Validate Qty. to Assemble to Order and Qty. to Ship.
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", LibraryRandom.RandIntInRange(2, 2));
+        SalesLine.Validate("Qty. to Assemble to Order", LibraryRandom.RandIntInRange(2, 2));
+        SalesLine.Validate("Qty. to Ship", LibraryRandom.RandInt(0));
+        SalesLine.Modify(true);
+
+        // [GIVEN] Post Sales Shipment.
+        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+
+        // [GIVEN] Validate Qty. to Assemble to Order in Sales Line.
+        SalesLine.Validate("Qty. to Assemble to Order", 0);
+
+        // [WHEN] Find Assemble-to-Order Link.
+        AssembleToOrderLink.SetRange("Document No.", SalesHeader."No.");
+
+        // [THEN] Assemble-to-Order Link is deleted.
+        Assert.IsTrue(AssembleToOrderLink.IsEmpty(), ATOLinkShouldNotBeFoundErr);
     end;
 
     local procedure VerifyAssembleToOrderLinesPageOpened(SalesHeader: Record "Sales Header"; QtyAssembleToOrder: Decimal)
@@ -5457,11 +5559,34 @@ codeunit 137096 "SCM Kitting - ATO"
         DocumentNo: Code[20]; NewSalesHeader: Record "Sales Header"; DocType: Enum "Sales Document Type From";
         FromDocNoOccurrence: Integer; FromDocVersionNo: Integer; IncludeHeader: Boolean; RecalculateLines: Boolean; UseRequestPage: Boolean)
     var
-        CopyDocumentMgt: Codeunit "Copy Document Mgt.";
+        CopySalesDoc: Report "Copy Sales Document";
     begin
-        CopyDocumentMgt.SetProperties(IncludeHeader, RecalculateLines, false, false, false, false, false);
-        CopyDocumentMgt.SetArchDocVal(FromDocNoOccurrence, FromDocVersionNo);
-        CopyDocumentMgt.CopySalesDoc("Sales Document Type From"::"Arch. Quote", DocumentNo, NewSalesHeader);
+        Clear(CopySalesDoc);
+        CopySalesDoc.SetParameters(DocType, DocumentNo, FromDocNoOccurrence, FromDocVersionNo, IncludeHeader, RecalculateLines);
+        CopySalesDoc.SetSalesHeader(NewSalesHeader);
+        CopySalesDoc.UseRequestPage(UseRequestPage);
+        CopySalesDoc.RunModal();
+    end;
+
+    local procedure CreateAndPostItemJournalLine(var ItemJournalLine: Record "Item Journal Line"; var Item: Record Item; var Item2: Record Item)
+    begin
+        LibraryInventory.CreateItemJournalLine(
+            ItemJournalLine,
+            ItemJournalBatch."Journal Template Name",
+            ItemJournalBatch.Name,
+            ItemJournalLine."Entry Type"::Purchase,
+            Item."No.",
+            LibraryRandom.RandIntInRange(100, 100));
+
+        LibraryInventory.CreateItemJournalLine(
+            ItemJournalLine,
+            ItemJournalBatch."Journal Template Name",
+            ItemJournalBatch.Name,
+            ItemJournalLine."Entry Type"::Purchase,
+            Item2."No.",
+            LibraryRandom.RandIntInRange(100, 100));
+
+        LibraryInventory.PostItemJournalLine(ItemJournalTemplate.Name, ItemJournalBatch.Name);
     end;
 
     [ModalPageHandler]

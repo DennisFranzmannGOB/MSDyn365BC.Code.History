@@ -1,3 +1,9 @@
+namespace Microsoft.Integration.MDM;
+
+using System.Threading;
+using Microsoft.Integration.SyncEngine;
+using System.Utilities;
+
 codeunit 7231 "Integration Master Data Synch."
 {
     TableNo = "Integration Table Mapping";
@@ -14,16 +20,16 @@ codeunit 7231 "Integration Master Data Synch."
         MappingName: Code[20];
     begin
         OnBeforeRun(Rec, IsHandled);
-        If IsHandled then
+        if IsHandled then
             exit;
 
         Rec.SetOriginalJobQueueEntryOnHold(OriginalJobQueueEntry, PrevStatus);
-        if Direction in [Direction::ToIntegrationTable, Direction::Bidirectional] then
+        if Rec.Direction in [Rec.Direction::ToIntegrationTable, Rec.Direction::Bidirectional] then
             LatestModifiedOn[DateType::Local] := PerformScheduledSynchToIntegrationTable(Rec);
-        if Direction in [Direction::FromIntegrationTable, Direction::Bidirectional] then
+        if Rec.Direction in [Rec.Direction::FromIntegrationTable, Rec.Direction::Bidirectional] then
             LatestModifiedOn[DateType::Integration] := PerformScheduledSynchFromIntegrationTable(Rec);
-        MappingName := Name;
-        if not Find() then
+        MappingName := Rec.Name;
+        if not Rec.Find() then
             Session.LogMessage('0000J8M', StrSubstNo(UnableToFindMappingErr, MappingName), Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', MasterDataManagement.GetTelemetryCategory())
         else begin
             Rec.UpdateTableMappingModifiedOn(LatestModifiedOn);
@@ -522,21 +528,6 @@ codeunit 7231 "Integration Master Data Synch."
     begin
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Integration Master Data Synch.", 'OnQueryPostFilterIgnoreRecord', '', false, false)]
-    local procedure IgnoreCompanyContactOnQueryPostFilterIgnoreRecord(SourceRecordRef: RecordRef; var IgnoreRecord: Boolean)
-    var
-        Contact: Record Contact;
-    begin
-        if IgnoreRecord then
-            exit;
-
-        if SourceRecordRef.Number = DATABASE::Contact then begin
-            SourceRecordRef.SetTable(Contact);
-            if Contact.Type = Contact.Type::Company then
-                IgnoreRecord := true;
-        end;
-    end;
-
     [EventSubscriber(ObjectType::Table, Database::"Job Queue Entry", 'OnBeforeModifyEvent', '', false, false)]
     local procedure OnBeforeModifyJobQueueEntry(var Rec: Record "Job Queue Entry"; var xRec: Record "Job Queue Entry"; RunTrigger: Boolean)
     var
@@ -583,4 +574,6 @@ codeunit 7231 "Integration Master Data Synch."
     begin
     end;
 }
+
+
 

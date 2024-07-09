@@ -3,13 +3,15 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.DataAdministration;
+
 permissionset 8702 "Table Information - Objects"
 {
     Access = Internal;
     Assignable = false;
 
-    Permissions = Codeunit "Table Information Cache" = X,
-                  Page "Company Size Cache Part" = X,
-                  Page "Table Information Cache Part" = X,
-                  Page "Table Information" = X;
+    Permissions = codeunit "Table Information Cache" = X,
+                  page "Company Size Cache Part" = X,
+                  page "Table Information Cache Part" = X,
+                  page "Table Information" = X;
 }

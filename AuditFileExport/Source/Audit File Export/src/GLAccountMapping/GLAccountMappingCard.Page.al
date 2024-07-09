@@ -1,4 +1,10 @@
 #if not CLEAN24
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See License.txt in the project root for license information.
+// ------------------------------------------------------------------------------------------------
+namespace Microsoft.Finance.AuditFileExport;
+
 page 5261 "G/L Account Mapping Card"
 {
     PageType = Document;

@@ -3,6 +3,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Azure.Identity;
+
 /// <summary>
 /// A list part page to view and remove synchronized user updates.
 /// </summary>
@@ -20,7 +22,7 @@ page 9516 "Azure AD User Updates Part"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(Updates)
             {
@@ -31,7 +33,7 @@ page 9516 "Azure AD User Updates Part"
                 }
                 field("Authentication Object ID"; Rec."Authentication Object ID")
                 {
-                    ToolTip = 'Specifies the AAD user ID of the user who the update relates to.';
+                    ToolTip = 'Specifies the Microsoft Entra user ID of the user who the update relates to.';
                     ApplicationArea = All;
                     Visible = false;
                 }
@@ -40,7 +42,7 @@ page 9516 "Azure AD User Updates Part"
                     ToolTip = 'Specifies the type of update.';
                     ApplicationArea = All;
                 }
-                field("Information"; Rec."Update Entity")
+                field(Information; Rec."Update Entity")
                 {
                     ToolTip = 'Specifies the user information that will be updated. Updates related to Contact Email, Full Name and Language ID are optional and may be removed.';
                     ApplicationArea = All;
@@ -63,7 +65,7 @@ page 9516 "Azure AD User Updates Part"
     {
         area(Processing)
         {
-            action("Remove")
+            action(Remove)
             {
                 ApplicationArea = All;
                 Caption = 'Remove';

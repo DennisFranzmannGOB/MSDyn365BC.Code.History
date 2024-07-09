@@ -3,6 +3,13 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Environment.Configuration;
+
+using System.Security.User;
+using System.Telemetry;
+using System.Azure.Identity;
+using System.Environment;
+
 codeunit 151 "System Initialization Impl."
 {
     Access = Internal;
@@ -19,13 +26,9 @@ codeunit 151 "System Initialization Impl."
         NoNameKeySignupContextTxt: Label 'The signup context did not contain a ''name'' key.', Locked = true;
         DisableSystemUserCheck: Boolean;
 
-#if not CLEAN20
 #pragma warning disable AL0432
-#endif
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Company Triggers", OnCompanyOpen, '', false, false)]
-#if not CLEAN20
 #pragma warning restore AL0432
-#endif
     local procedure Init()
     var
         SystemInitialization: Codeunit "System Initialization";
@@ -35,7 +38,7 @@ codeunit 151 "System Initialization Impl."
         // Initialization logic goes here
 
         // This needs to be the very first thing to run before company open
-        CODEUNIT.Run(CODEUNIT::"Azure AD User Management");
+        Codeunit.Run(Codeunit::"Azure AD User Management");
 
         if Session.CurrentClientType() in [ClientType::Web, ClientType::Windows, ClientType::Desktop, ClientType::Tablet, ClientType::Phone] then begin
             // Check to set signup context and commits if it updates
@@ -44,13 +47,8 @@ codeunit 151 "System Initialization Impl."
             UserLoginTimeTracker.CreateEnvironmentLoginInfo();
         end;
 
-#if not CLEAN20
-#pragma warning disable AL0432
-#endif
         SystemInitialization.OnAfterInitialization();
-#if not CLEAN20
-#pragma warning restore AL0432
-#endif
+
         InitializationInProgress := false;
     end;
 
@@ -58,7 +56,7 @@ codeunit 151 "System Initialization Impl."
     var
         SignupContext: Record "Signup Context"; // system table
         SignupContextValues: Record "Signup Context Values";
-        Telemetry: Codeunit "Telemetry";
+        Telemetry: Codeunit Telemetry;
     begin
         if IsSystemUser() then
             exit;
@@ -88,7 +86,7 @@ codeunit 151 "System Initialization Impl."
     internal procedure SetSignupContext(SignupContext: Record "Signup Context"; var SignupContextValues: Record "Signup Context Values")
     var
         SystemInitialization: Codeunit "System Initialization";
-        Telemetry: Codeunit "Telemetry";
+        Telemetry: Codeunit Telemetry;
         CustomDimensions: Dictionary of [Text, Text];
     begin
         case LowerCase(SignupContext.Value) of

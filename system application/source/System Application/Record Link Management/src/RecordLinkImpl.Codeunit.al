@@ -1,7 +1,12 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
+
+namespace System.Utilities;
+
+using System;
+using System.Environment.Configuration;
 
 codeunit 4470 "Record Link Impl."
 {
@@ -18,30 +23,20 @@ codeunit 4470 "Record Link Impl."
         RemovingStatusMsg: Label '@1@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@';
         ResultMsg: Label '%1 orphaned links were removed.', Comment = '%1 = number of orphaned record links found.';
 
-    local procedure ResetNotifyOnLinks(RecVariant: Variant)
-    var
-        RecordLink: Record "Record Link";
-        RecordRef: RecordRef;
-    begin
-        RecordRef.GetTable(RecVariant);
-        RecordLink.SetFilter(Company, '%1|%2', '', RecordRef.CurrentCompany()); // CurrentCompany is also set for records that are cross-company
-        RecordLink.SetRange("Record ID", RecordRef.RecordId());
-        RecordLink.SetRange(Notify, true);
-        if not RecordLink.IsEmpty() then
-            RecordLink.ModifyAll(Notify, false);
-    end;
-
     procedure CopyLinks(FromRecordVariant: Variant; ToRecordVariant: Variant)
     var
         RecordRefTo: RecordRef;
+#if not CLEAN23
         SkipReset: Boolean;
+#endif
     begin
-        SkipReset := false;
+#if not CLEAN23
+#pragma warning disable AL0432
         RecordLinkManagement.OnBeforeCopyLinks(FromRecordVariant, ToRecordVariant, SkipReset);
+#pragma warning restore AL0432
+#endif
         RecordRefTo.GetTable(ToRecordVariant);
         RecordRefTo.CopyLinks(FromRecordVariant);
-        if not SkipReset then
-            ResetNotifyOnLinks(RecordRefTo);
         RecordLinkManagement.OnAfterCopyLinks(FromRecordVariant, ToRecordVariant);
     end;
 
@@ -50,7 +45,7 @@ codeunit 4470 "Record Link Impl."
         BinWriter: DotNet BinaryWriter;
         Output: OutStream;
     begin
-        RecordLink.Note.CreateOutStream(Output, TEXTENCODING::UTF8);
+        RecordLink.Note.CreateOutStream(Output, TextEncoding::UTF8);
         BinWriter := BinWriter.BinaryWriter(Output);
         BinWriter.Write(Note);
     end;
@@ -60,7 +55,7 @@ codeunit 4470 "Record Link Impl."
         BinReader: DotNet BinaryReader;
         Data: InStream;
     begin
-        RecordLink.Note.CreateInStream(Data, TEXTENCODING::UTF8);
+        RecordLink.Note.CreateInStream(Data, TextEncoding::UTF8);
         BinReader := BinReader.BinaryReader(Data);
         // Peek if stream is empty
         if BinReader.BaseStream().Position() = BinReader.BaseStream().Length() then
@@ -100,7 +95,7 @@ codeunit 4470 "Record Link Impl."
     var
         RecordLink: Record "Record Link";
         RecordRef: RecordRef;
-        PrevRecID: RecordID;
+        PrevRecID: RecordId;
         WindowDialog: Dialog;
         i: Integer;
         Total: Integer;

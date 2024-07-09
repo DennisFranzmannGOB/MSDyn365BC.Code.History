@@ -3,8 +3,10 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.DateTime;
+
 /// <summary>
-/// Provides basic functionality to lookup page for Time zones. 
+/// Provides basic functionality to lookup page for Time zones.
 /// </summary>
 codeunit 9198 "Time Zone Selection"
 {

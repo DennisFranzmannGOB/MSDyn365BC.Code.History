@@ -41,10 +41,14 @@ codeunit 131902 "Library - Service"
 
     procedure CreateContractLineCreditMemo(var ServiceContractLine: Record "Service Contract Line"; Deleting: Boolean): Code[20]
     var
+        ServiceHeader: Record "Service Header";
         ServContractManagement: Codeunit ServContractManagement;
         CreditMemoNo: Code[20];
     begin
         CreditMemoNo := ServContractManagement.CreateContractLineCreditMemo(ServiceContractLine, Deleting);
+        ServiceHeader.Get(ServiceHeader."Document Type"::"Credit Memo", CreditMemoNo);
+        ServiceHeader.Validate("Operation Type", LibraryERM.GetDefaultOperationType(ServiceHeader."Customer No.", DATABASE::Customer));
+        ServiceHeader.Modify(true);
         exit(CreditMemoNo);
     end;
 
@@ -290,10 +294,12 @@ codeunit 131902 "Library - Service"
 
     procedure CreateServiceCreditMemoHeaderUsingPage() ServiceCreditMemoNo: Code[20]
     var
+        NoSeries: Record "No. Series";
         ServiceCreditMemo: TestPage "Service Credit Memo";
     begin
         ServiceCreditMemo.OpenNew();
         ServiceCreditMemo."Customer No.".Activate;
+        ServiceCreditMemo."Operation Type".SetValue(LibraryERM.FindOperationType(NoSeries."No. Series Type"::Sales));
         ServiceCreditMemoNo := ServiceCreditMemo."No.".Value;
         ServiceCreditMemo.OK.Invoke;
     end;
@@ -310,6 +316,9 @@ codeunit 131902 "Library - Service"
             CustomerNo := LibrarySales.CreateCustomerNo();
         ServiceHeader.Validate("Customer No.", CustomerNo);
         ServiceHeader.Validate("Your Reference", ServiceHeader."Customer No.");
+        // Input mandatory field for IT
+        if ServiceHeader."Document Type" = ServiceHeader."Document Type"::"Credit Memo" then
+            ServiceHeader.Validate("Operation Type", LibraryERM.GetDefaultOperationType(CustomerNo, DATABASE::Customer));
         // Input mandatory fields for local builds.
         if ServiceHeader."Payment Terms Code" = '' then begin
             LibraryERM.FindPaymentTerms(PaymentTerms);
@@ -493,12 +502,18 @@ codeunit 131902 "Library - Service"
 
     procedure CreateServiceOrderFromReport(ServiceContractHeader: Record "Service Contract Header"; StartDate: Date; EndDate: Date; UseRequestPage: Boolean)
     var
+        ServiceHeader: Record "Service Header";
         CreateContractServiceOrders: Report "Create Contract Service Orders";
     begin
         CreateContractServiceOrders.SetTableView(ServiceContractHeader);
         CreateContractServiceOrders.InitializeRequest(StartDate, EndDate, 0);
         CreateContractServiceOrders.UseRequestPage(UseRequestPage);
         CreateContractServiceOrders.RunModal();
+
+        ServiceHeader.SetRange("Document Type", ServiceHeader."Document Type"::Order);
+        ServiceHeader.SetRange("Contract No.", ServiceContractHeader."Contract No.");
+        ServiceHeader.FindFirst();
+        ServiceHeader.Modify(true);
     end;
 
     procedure CreateServiceOrderType(var ServiceOrderType: Record "Service Order Type")
@@ -693,6 +708,17 @@ codeunit 131902 "Library - Service"
     begin
         ServiceHeader.Find();
         SetCorrDocNoService(ServiceHeader);
+
+        // Fill Activity Code.
+        // Fill Operation Occured Date.
+        // Fill Operation Type for Credit Memos.
+        with ServiceHeader do begin
+            Validate("Operation Occurred Date", "Posting Date");
+            if ("Document Type" = "Document Type"::"Credit Memo") and ("Operation Type" = '') then
+                Validate("Operation Type", LibraryERM.GetDefaultOperationType("Customer No.", DATABASE::Customer));
+            Modify(true);
+        end;
+
         OnBeforePostServiceOrder(ServiceHeader);
         ServicePost.PostWithLines(ServiceHeader, TempServiceLine, Ship, Consume, Invoice);
     end;
@@ -732,6 +758,15 @@ codeunit 131902 "Library - Service"
         ServiceMgtSetup.Get();
         ServiceMgtSetup.Validate("Shipment on Invoice", ShipmentOnInvoice);
         ServiceMgtSetup.Modify(true);
+    end;
+
+    procedure SetValidateDocumentOnPosting(NewValue: Boolean)
+    var
+        ServiceMgtSetup: Record "Service Mgt. Setup";
+    begin
+        ServiceMgtSetup.Get();
+        ServiceMgtSetup.Validate("Validate Document On Posting", NewValue);
+        ServiceMgtSetup.Modify();
     end;
 
     procedure SetupServiceMgtNoSeries()
@@ -828,7 +863,7 @@ codeunit 131902 "Library - Service"
         repeat
             LoopCounter += 1;
             if LoopCounter > MaxLoops then
-                Error(StrSubstNo(NonWorkDayWorkDaySequenceNotFound, MaxLoops));
+                Error(NonWorkDayWorkDaySequenceNotFound, MaxLoops);
             WorkingDate := CalcDate('<1D>', WorkingDate);
         until
               not (IsWorking(WorkingDate) or IsValidOnHolidays(WorkingDate)) and
@@ -854,6 +889,13 @@ codeunit 131902 "Library - Service"
     begin
         CustInvDisc.Get(ServiceLine."Customer No.", ServiceLine."Currency Code", 0);
         exit(ServiceLine."Amount Including VAT" - (ServiceLine."Amount Including VAT" * CustInvDisc."Discount %" / 100));
+    end;
+
+    procedure GetShipmentLines(var ServiceLine: Record "Service Line")
+    var
+        ServiceGetShipment: Codeunit "Service-Get Shipment";
+    begin
+        ServiceGetShipment.Run(ServiceLine);
     end;
 
     procedure IsWorking(DateToCheck: Date): Boolean
@@ -903,7 +945,7 @@ codeunit 131902 "Library - Service"
 
     procedure AutoReserveServiceLine(ServiceLine: Record "Service Line")
     begin
-        ServiceLine.AutoReserve;
+        ServiceLine.AutoReserve();
     end;
 
     procedure UndoShipmentLinesByServiceOrderNo(ServiceOrderNo: Code[20])

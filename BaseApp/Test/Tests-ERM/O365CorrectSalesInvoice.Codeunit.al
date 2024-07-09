@@ -1,4 +1,4 @@
-codeunit 138015 "O365 Correct Sales Invoice"
+﻿codeunit 138015 "O365 Correct Sales Invoice"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -700,6 +700,41 @@ codeunit 138015 "O365 Correct Sales Invoice"
     end;
 
     [Test]
+    procedure TestItemVariantBlocked()
+    var
+        Customer: Record Customer;
+        ItemVariant: Record "Item Variant";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        GLEntry: Record "G/L Entry";
+        SalesHeaderCorrection: Record "Sales Header";
+        CorrectPostedSalesInvoice: Codeunit "Correct Posted Sales Invoice";
+    begin
+        Initialize();
+
+        // [GIVEN] Posted sales invoice with line with item variant exists
+        CreateAndPostSalesInvForNewItemVariantAndCust(ItemVariant, Customer, LibraryRandom.RandDecInRange(1, 10, 2), LibraryRandom.RandDecInRange(1, 10, 2), SalesInvoiceHeader);
+
+        // [GIVEN] Item Variant is blocked
+        ItemVariant.Validate(Blocked, true);
+        ItemVariant.Modify(true);
+        Commit();
+
+        if GLEntry.FindLast() then;
+
+        // [WHEN] Cancel and Create New Invoice is used
+        asserterror CorrectPostedSalesInvoice.CancelPostedInvoiceCreateNewInvoice(SalesInvoiceHeader, SalesHeaderCorrection);
+
+        // [THEN] Nothing is created
+        CheckNothingIsCreated(Customer."No.", GLEntry);
+
+        // [WHEN] Cancel Invoice is used
+        asserterror CorrectPostedSalesInvoice.CancelPostedInvoice(SalesInvoiceHeader);
+
+        // [THEN] Nothing is created
+        CheckNothingIsCreated(Customer."No.", GLEntry);
+    end;
+
+    [Test]
     [Scope('OnPrem')]
     procedure TestItemGLAccBlocked()
     var
@@ -981,7 +1016,7 @@ codeunit 138015 "O365 Correct Sales Invoice"
 
         CreateAndPostPurchInvForItem(Item, 1, 1);
 
-        LibrarySmallBusiness.CreateCustomer(Cust);
+        CreateCustomer(Cust);
         SellItem(Cust, Item, 1, SalesInvoiceHeader);
 
         LibraryCosting.AdjustCostItemEntries('', '');
@@ -1041,7 +1076,7 @@ codeunit 138015 "O365 Correct Sales Invoice"
         Initialize();
 
         CreateItemsWithPrice(Item, 0);
-        LibrarySmallBusiness.CreateCustomer(Cust);
+        CreateCustomer(Cust);
 
         if GLEntry.FindLast() then;
 
@@ -1149,7 +1184,7 @@ codeunit 138015 "O365 Correct Sales Invoice"
 
         CreateItemsWithPrice(Item, 1);
 
-        LibrarySmallBusiness.CreateCustomer(Cust);
+        CreateCustomer(Cust);
         SetupCustToPayInCash(Cust);
 
         SellItem(Cust, Item, 1, SalesInvoiceHeader);
@@ -1215,55 +1250,6 @@ codeunit 138015 "O365 Correct Sales Invoice"
         Cust.CalcFields(Balance);
         SalesInvoiceHeader.CalcFields("Amount Including VAT");
         Cust.TestField(Balance, -SalesInvoiceHeader."Amount Including VAT");
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
-    procedure TestCancelInvoiceBasedOnOrder()
-    var
-        Cust: Record Customer;
-        Item: Record Item;
-        SalesInvoiceHeader: Record "Sales Invoice Header";
-        GLEntry: Record "G/L Entry";
-        CorrectPostedSalesInvoice: Codeunit "Correct Posted Sales Invoice";
-    begin
-        Initialize();
-
-        if GLEntry.FindLast() then;
-
-        CreateAndPostSalesOrderForNewItemAndCust(Item, Cust, 1, 1, SalesInvoiceHeader);
-        CheckSomethingIsPosted(Item, Cust);
-
-        // EXERCISE
-        CorrectPostedSalesInvoice.CancelPostedInvoice(SalesInvoiceHeader);
-
-        // VERIFY: Sales Header must match before and after Correct Invoice
-        CheckEverythingIsReverted(Item, Cust, GLEntry);
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
-    procedure TestCorrectInvoiceBasedOnOrder()
-    var
-        Cust: Record Customer;
-        Item: Record Item;
-        SalesInvoiceHeader: Record "Sales Invoice Header";
-        GLEntry: Record "G/L Entry";
-        SalesHeaderCorrection: Record "Sales Header";
-        CorrectPostedSalesInvoice: Codeunit "Correct Posted Sales Invoice";
-    begin
-        Initialize();
-
-        if GLEntry.FindLast() then;
-
-        CreateAndPostSalesOrderForNewItemAndCust(Item, Cust, 1, 1, SalesInvoiceHeader);
-        CheckSomethingIsPosted(Item, Cust);
-
-        // EXERCISE
-        CorrectPostedSalesInvoice.CancelPostedInvoiceCreateNewInvoice(SalesInvoiceHeader, SalesHeaderCorrection);
-
-        // VERIFY: Sales Header must match before and after Correct Invoice
-        CheckEverythingIsReverted(Item, Cust, GLEntry);
     end;
 
     [Test]
@@ -1771,6 +1757,20 @@ codeunit 138015 "O365 Correct Sales Invoice"
         Commit();
     end;
 
+    local procedure CreateCustomer(var Customer: Record Customer)
+    begin
+        LibrarySmallBusiness.CreateCustomer(Customer);
+        Customer."Payment Terms Code" := '';
+        Customer.Modify();
+    end;
+
+    local procedure CreateVendor(var Vendor: Record Vendor)
+    begin
+        LibrarySmallBusiness.CreateVendor(Vendor);
+        Vendor."Payment Terms Code" := '';
+        Vendor.Modify();
+    end;
+
     local procedure CreateItemsWithPrice(var Item: Record Item; UnitPrice: Decimal)
     begin
         CreateServiceItemWithPrice(Item, UnitPrice);
@@ -1854,8 +1854,8 @@ codeunit 138015 "O365 Correct Sales Invoice"
 
     local procedure CreateSellToWithDifferentBillToCust(var SellToCust: Record Customer; var BillToCust: Record Customer)
     begin
-        LibrarySmallBusiness.CreateCustomer(SellToCust);
-        LibrarySmallBusiness.CreateCustomer(BillToCust);
+        CreateCustomer(SellToCust);
+        CreateCustomer(BillToCust);
         SellToCust.Validate("Bill-to Customer No.", BillToCust."No.");
         SellToCust.Modify(true);
     end;
@@ -1865,8 +1865,22 @@ codeunit 138015 "O365 Correct Sales Invoice"
         CreateItemsWithPrice(Item, UnitPrice);
         Item.Description := 'Test Item';
         Item.Modify();
-        LibrarySmallBusiness.CreateCustomer(Cust);
+        CreateCustomer(Cust);
         SellItem(Cust, Item, Qty, SalesInvoiceHeader);
+    end;
+
+    local procedure CreateAndPostSalesInvForNewItemVariantAndCust(var ItemVariant: Record "Item Variant"; var Customer: Record Customer; UnitPrice: Decimal; Qty: Decimal; var SalesInvoiceHeader: Record "Sales Invoice Header")
+    var
+        Item: Record Item;
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+    begin
+        CreateItemsWithPrice(Item, UnitPrice);
+        LibraryInventory.CreateItemVariant(ItemVariant, Item."No.");
+        LibrarySmallBusiness.CreateCustomer(Customer);
+
+        CreateSalesInvoiceForItemVariant(Customer, ItemVariant, Qty, SalesHeader, SalesLine);
+        SalesInvoiceHeader.Get(LibrarySmallBusiness.PostSalesInvoice(SalesHeader));
     end;
 
     local procedure CreateAndPostSalesInvForNewJobResAndCust(var Resource: Record Resource; var Cust: Record Customer; UnitPrice: Decimal; Qty: Decimal; var SalesInvoiceHeader: Record "Sales Invoice Header")
@@ -1876,7 +1890,7 @@ codeunit 138015 "O365 Correct Sales Invoice"
         Job: Record Job;
     begin
         CreateResourceWithPrice(Resource, UnitPrice);
-        LibrarySales.CreateCustomer(Cust);
+        CreateCustomer(Cust);
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, Cust."No.");
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Resource, Resource."No.", Qty);
         LibraryJob.CreateJob(Job);
@@ -1888,7 +1902,7 @@ codeunit 138015 "O365 Correct Sales Invoice"
     local procedure CreateSalesInvForNewItemAndCust(var Item: Record Item; var Cust: Record Customer; UnitPrice: Decimal; Qty: Decimal; var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
     begin
         CreateItemsWithPrice(Item, UnitPrice);
-        LibrarySmallBusiness.CreateCustomer(Cust);
+        CreateCustomer(Cust);
         CreateSalesInvoiceForItem(Cust, Item, Qty, SalesHeader, SalesLine);
     end;
 
@@ -1896,6 +1910,16 @@ codeunit 138015 "O365 Correct Sales Invoice"
     begin
         LibrarySmallBusiness.CreateSalesInvoiceHeader(SalesHeader, Cust);
         LibrarySmallBusiness.CreateSalesLine(SalesLine, SalesHeader, Item, Qty);
+    end;
+
+    local procedure CreateSalesInvoiceForItemVariant(Customer: Record Customer; ItemVariant: Record "Item Variant"; Qty: Decimal; var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
+    var
+        Item: Record Item;
+    begin
+        Item.Get(ItemVariant."Item No.");
+        CreateSalesInvoiceForItem(Customer, Item, Qty, SalesHeader, SalesLine);
+        SalesLine."Variant Code" := ItemVariant.Code;
+        SalesLine.Modify();
     end;
 
     local procedure CreateSalesInvoiceWithDiscountForItem(Cust: Record Customer; Item: Record Item; Qty: Decimal; var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; LineDiscountPct: Integer)
@@ -1916,7 +1940,7 @@ codeunit 138015 "O365 Correct Sales Invoice"
         PurchSetup.Validate("Ext. Doc. No. Mandatory", false);
         PurchSetup.Modify(true);
 
-        LibrarySmallBusiness.CreateVendor(Vend);
+        CreateVendor(Vend);
 
         LibrarySmallBusiness.CreatePurchaseInvoiceHeader(PurchHeader, Vend);
         LibrarySmallBusiness.CreatePurchaseLine(PurchLine, PurchHeader, Item, Qty);
@@ -1924,20 +1948,6 @@ codeunit 138015 "O365 Correct Sales Invoice"
         PurchLine.Validate("Unit Cost", UnitCost);
         PurchLine.Modify(true);
         LibrarySmallBusiness.PostPurchaseInvoice(PurchHeader);
-    end;
-
-    local procedure CreateAndPostSalesOrderForNewItemAndCust(var Item: Record Item; var Cust: Record Customer; UnitPrice: Decimal; Qty: Decimal; var SalesInvoiceHeader: Record "Sales Invoice Header")
-    var
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-    begin
-        CreateItemsWithPrice(Item, UnitPrice);
-        Item.Description := 'Test Item';
-        Item.Modify();
-        LibrarySmallBusiness.CreateCustomer(Cust);
-        LibrarySmallBusiness.CreateSalesOrderHeader(SalesHeader, Cust);
-        LibrarySmallBusiness.CreateSalesLine(SalesLine, SalesHeader, Item, Qty);
-        SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeader, true, true));
     end;
 
     local procedure CreateSalesInvoiceFromShipment(var SalesHeaderInvoice: Record "Sales Header"; var SalesLineInvoice: Record "Sales Line"; CustomerNo: code[20]; SalesLineOrder: array[2] of Record "Sales Line")

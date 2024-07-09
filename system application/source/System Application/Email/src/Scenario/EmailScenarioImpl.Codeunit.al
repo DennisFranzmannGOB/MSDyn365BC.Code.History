@@ -3,12 +3,16 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Email;
+
+using System;
+
 codeunit 8892 "Email Scenario Impl."
 {
     Access = Internal;
     InherentPermissions = X;
     InherentEntitlements = X;
-    Permissions = TableData "Email Scenario" = rimd;
+    Permissions = tabledata "Email Scenario" = rimd;
 
     procedure GetEmailAccount(Scenario: Enum "Email Scenario"; var EmailAccount: Record "Email Account"): Boolean
     var
@@ -171,7 +175,7 @@ codeunit 8892 "Email Scenario Impl."
     var
         EmailScenario: Record "Email Scenario";
         SelectedScenarios: Record "Email Account Scenario";
-        ScenariosForAccount: Page "Email Scenarios For Account";
+        ScenariosForAccount: Page "Email Scenarios for Account";
     begin
         EmailAccountImpl.CheckPermissions();
 

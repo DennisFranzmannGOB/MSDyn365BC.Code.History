@@ -3,9 +3,14 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.Azure.Storage;
+
+using System;
+using System.Utilities;
+
 /// <summary>
 /// Exposes functionality to handle the creation of a signature to sign requests to the Storage Services REST API
-/// More Information: 
+/// More Information:
 /// </summary>
 codeunit 9064 "Stor. Serv. Auth. Shared Key" implements "Storage Service Authorization"
 {
@@ -29,7 +34,7 @@ codeunit 9064 "Stor. Serv. Auth. Shared Key" implements "Storage Service Authori
         Secret := SharedKey;
     end;
 
-    procedure SetApiVersion(NewApiVersion: Enum "Storage service API Version")
+    procedure SetApiVersion(NewApiVersion: Enum "Storage Service API Version")
     begin
         ApiVersion := NewApiVersion;
     end;
@@ -203,7 +208,7 @@ codeunit 9064 "Stor. Serv. Auth. Shared Key" implements "Storage Service Authori
 
     var
         AuthFormatHelper: Codeunit "Auth. Format Helper";
-        ApiVersion: Enum "Storage service API Version";
+        ApiVersion: Enum "Storage Service API Version";
         [NonDebuggable]
         Secret: Text;
 }

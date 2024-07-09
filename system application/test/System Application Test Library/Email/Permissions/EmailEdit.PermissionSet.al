@@ -3,6 +3,11 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
+namespace System.TestLibraries.Email;
+
+using System.Email;
+using System.Environment;
+
 permissionset 134686 "Email Edit"
 {
     Assignable = true;
@@ -10,7 +15,7 @@ permissionset 134686 "Email Edit"
 
     // Include Test Tables
     Permissions =
-        tabledata "Test Email Connector Setup" = RIMD,
+        tabledata "Scheduled Task" = rd,       // Needed for enqueue tests
         tabledata "Test Email Account" = RIMD, // Needed for the Record to get passed in Library Assert
-        tabledata "Scheduled Task" = rd;        // Needed for enqueue tests
+        tabledata "Test Email Connector Setup" = RIMD;
 }

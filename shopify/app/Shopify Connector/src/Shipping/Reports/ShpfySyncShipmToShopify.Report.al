@@ -1,3 +1,7 @@
+namespace Microsoft.Integration.Shopify;
+
+using Microsoft.Sales.History;
+
 /// <summary>
 /// Report Shpfy Sync Shipm. to Shopify (ID 30109).
 /// </summary>
@@ -7,6 +11,8 @@ report 30109 "Shpfy Sync Shipm. to Shopify"
     Caption = 'Sync Shipments To Shopify';
     ProcessingOnly = true;
     UsageCategory = Tasks;
+    Permissions = tabledata "Sales Shipment Line" = r,
+                  tabledata "Sales Shipment Header" = m;
 
     dataset
     {
@@ -23,13 +29,21 @@ report 30109 "Shpfy Sync Shipm. to Shopify"
             trigger OnAfterGetRecord();
             var
                 ShopifyOrderHeader: Record "Shpfy Order Header";
+                ShipmentLine: Record "Sales Shipment Line";
                 Shop: Record "Shpfy Shop";
             begin
-                if ShopifyOrderHeader.Get("Sales Shipment Header"."Shpfy Order Id") then begin
-                    Shop.Get(ShopifyOrderHeader."Shop Code");
-                    FulfillmentOrdersAPI.GetShopifyFulfillmentOrdersFromShopifyOrder(Shop, "Sales Shipment Header"."Shpfy Order Id");
-                    ExportShipments.CreateShopifyFulfillment("Sales Shipment Header");
-                end;
+                ShipmentLine.SetRange("Document No.", "No.");
+                ShipmentLine.SetRange(Type, ShipmentLine.Type::"Item");
+                ShipmentLine.SetFilter(Quantity, '>0');
+                if ShipmentLine.IsEmpty() then begin
+                    "Shpfy Fulfillment Id" := -2;
+                    Modify();
+                end else
+                    if ShopifyOrderHeader.Get("Sales Shipment Header"."Shpfy Order Id") then begin
+                        Shop.Get(ShopifyOrderHeader."Shop Code");
+                        FulfillmentOrdersAPI.GetShopifyFulfillmentOrdersFromShopifyOrder(Shop, "Sales Shipment Header"."Shpfy Order Id");
+                        ExportShipments.CreateShopifyFulfillment("Sales Shipment Header");
+                    end;
             end;
         }
     }
