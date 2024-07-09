@@ -191,7 +191,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 4031560332" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Image Analyzer extension uses powerful image analytics to detect attributes in the images that you add to items and contact persons, so you can easily review and assign them. Set it up now.</source>
-          <target state="translated">Image Analyzer-laajennus käyttää tehokkaita kuva analytiikkaa nimikkeisiin ja kontakti henkilöihin lisäämien kuvien määritteiden havaitsemiseen, joten voit helposti tarkistaa ja määrittää ne. Määritä se nyt.</target>
+          <target state="translated">Kuva-analysaattori-laajennus käyttää tehokkaita kuva analytiikkaa nimikkeisiin ja kontakti henkilöihin lisäämien kuvien määritteiden havaitsemiseen, joten voit helposti tarkistaa ja määrittää ne. Määritä se nyt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType ImageAnalysisWizardDescriptionTxt</note>
         </trans-unit>
