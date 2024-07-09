@@ -69,6 +69,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType CouldNotGetAccessTokenErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3663318601 - NamedType 3856184457" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Third-party extensions are restricted from obtaining access tokens. Please contact your system administrator.</source>
+          <target state="translated">Tredjepartsutvidelser er begrenset fra å hente tilgangstokener. Kontakt systemadministratoren.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType ThirdPartyExtensionsNotAllowedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2389531293" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Could not establish the connection to the remote service for sending email. Try again later.</source>
           <target state="translated">Kan ikke opprette tilkoblingen til den eksterne tjenesten for sending av e-post. Prøv på nytt senere.</target>
@@ -299,19 +305,19 @@
         </trans-unit>
         <trans-unit id="PermissionSet 143312419 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email - Outlook REST API - Edit</source>
-          <target state="translated">E-post – Outlook REST-API – rediger</target>
+          <target state="translated">Email - Outlook REST API – rediger</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Email ORA - Edit - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 65726293 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email - Outlook REST API - Objects</source>
-          <target state="translated">E-post – Outlook REST-API – objekter</target>
+          <target state="translated">Email - Outlook REST API – objekter</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Email ORA - Objects - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 1262931937 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email - Outlook REST API - Read</source>
-          <target state="translated">E-post – Outlook REST-API – les</target>
+          <target state="translated">Email - Outlook REST API – les</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Email ORA - Read - Property Caption</note>
         </trans-unit>
