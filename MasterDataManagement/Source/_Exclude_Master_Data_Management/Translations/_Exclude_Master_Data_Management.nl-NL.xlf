@@ -803,7 +803,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 880956207" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This will import the synchronization table setup from a chosen file. \\Existing synchronization tables and fields will be overwritten with the version from the file.\\Existing synchronization job queue entries will not be overwritten. Do you want to continue?</source>
-          <target state="translated">Hiermee wordt de instelling van de synchronisatietabel uit een gekozen bestand geïmporteerd. \\Bestaande synchronisatietabellen en -velden worden overschreven door de versie uit het bestand.\\Bestaande synchronisatietaakitems in de wachtrij worden niet overschreven. Wilt u doorgaan?</target>
+          <target state="translated">Hiermee wordt de instelling van de synchronisatietabel uit een gekozen bestand geïmporteerd. \\Bestaande synchronisatietabellen en -velden worden overschreven door de versie uit het bestand.\\Bestaande synchronisatie-items in de taakwachtrij worden niet overschreven. Wilt u doorgaan?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType ImportIntegrationTableMappingConfirmQst</note>
         </trans-unit>
