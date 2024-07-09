@@ -1475,7 +1475,7 @@
         </trans-unit>
         <trans-unit id="Page 3546478469 - Control 1203412368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the audit file export format to which the standard general ledger accounts are linked.</source>
-          <target state="translated">Spécifie le format d’exportation du fichier d’audit auquel les comptes du grand livre standard sont liés.</target>
+          <target state="translated">Spécifie le format d’exportation du fichier d’audit auquel les comptes GL standard sont liés.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control AuditFileExportFormat - Property ToolTip</note>
         </trans-unit>
@@ -1517,7 +1517,7 @@
         </trans-unit>
         <trans-unit id="Page 3546478469 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of the standard general ledger accounts.</source>
-          <target state="translated">Spécifie le type des comptes du grand livre standard.</target>
+          <target state="translated">Spécifie le type des comptes GL standard.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control StandardAccountType - Property ToolTip</note>
         </trans-unit>
@@ -1589,7 +1589,7 @@
         </trans-unit>
         <trans-unit id="Page 729295803 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of the standard general ledger accounts.</source>
-          <target state="translated">Spécifie le type des comptes du grand livre standard.</target>
+          <target state="translated">Spécifie le type des comptes GL standard.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping - Control StandardAccountType - Property ToolTip</note>
         </trans-unit>
@@ -1625,7 +1625,7 @@
         </trans-unit>
         <trans-unit id="Page 3668181135 - Control 1203412368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the audit file export format to which the standard general ledger accounts are linked.</source>
-          <target state="translated">Spécifie le format d’exportation du fichier d’audit auquel les comptes du grand livre standard sont liés.</target>
+          <target state="translated">Spécifie le format d’exportation du fichier d’audit auquel les comptes GL standard sont liés.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Control AuditFileExportFormat - Property ToolTip</note>
         </trans-unit>
@@ -1667,7 +1667,7 @@
         </trans-unit>
         <trans-unit id="Page 3668181135 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of the standard general ledger accounts.</source>
-          <target state="translated">Spécifie le type des comptes du grand livre standard.</target>
+          <target state="translated">Spécifie le type des comptes GL standard.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Control StandardAccountType - Property ToolTip</note>
         </trans-unit>
@@ -1757,13 +1757,13 @@
         </trans-unit>
         <trans-unit id="Page 4034594984 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the category of standard general ledger accounts that is used for mapping.</source>
-          <target state="translated">Spécifie la catégorie des comptes du grand livre standard qui est utilisée pour la mise en correspondance.</target>
+          <target state="translated">Spécifie la catégorie des comptes GL standard qui est utilisée pour la mise en correspondance.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Standard Account Categories - Control Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4034594984 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of standard general ledger accounts.</source>
-          <target state="translated">Spécifie le type des comptes du grand livre standard.</target>
+          <target state="translated">Spécifie le type des comptes GL standard.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Standard Account Categories - Control StandardAccountType - Property ToolTip</note>
         </trans-unit>
@@ -1787,7 +1787,7 @@
         </trans-unit>
         <trans-unit id="Page 1032828427 - Control 2005121193 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the category of standard general ledger accounts that is used for mapping.</source>
-          <target state="translated">Spécifie la catégorie des comptes du grand livre standard qui est utilisée pour la mise en correspondance.</target>
+          <target state="translated">Spécifie la catégorie des comptes GL standard qui est utilisée pour la mise en correspondance.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Standard Accounts - Control Category No. - Property ToolTip</note>
         </trans-unit>
@@ -1811,7 +1811,7 @@
         </trans-unit>
         <trans-unit id="Report 3152158736 - Control 54877203 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the general ledger account mapping code to copy mapping from.</source>
-          <target state="translated">Spécifie le code de correspondance de compte du grand livre à partir duquel copier la correspondance.</target>
+          <target state="translated">Spécifie le code de correspondance de compte GL à partir duquel copier la correspondance.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Copy G/L Account Mapping - Control MappingCode - Property ToolTip</note>
         </trans-unit>
