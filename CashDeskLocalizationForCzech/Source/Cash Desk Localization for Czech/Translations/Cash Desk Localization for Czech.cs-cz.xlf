@@ -8732,7 +8732,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 965596945 - Field 924531099 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Responsibility Center Filter</source>
-          <target state="translated">Filtr centra odpovědnosti</target>
+          <target state="translated">Filtr pokl. centra odpovědnosti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 337631938</note>
