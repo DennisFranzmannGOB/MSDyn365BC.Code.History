@@ -745,6 +745,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1476121647 - NamedType 2032146537" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order %1</source>
+          <target state="translated">Ostotilaus %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Purchase order number</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - NamedType GlobalDataCaptionExpressionTxt</note>
+        </trans-unit>
         <trans-unit id="Page 1476121647 - NamedType 1993344797" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Matched e-document lines (%1) has Direct Unit Cost different from matched purchase order line. Please verify matches are correct.</source>
           <target state="translated">Kohdistettujen sähköisen asiakirjan rivien (%1) välitön yksikkökustannus eroaa kohdistetun ostotilauksen rivistä. Tarkista, että kohdistukset ovat oikein.</target>

@@ -563,7 +563,7 @@
         </trans-unit>
         <trans-unit id="Table 1613625135 - Field 4258090820 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location Bin</source>
-          <target state="translated">Sijainti Lokero</target>
+          <target state="translated">Sijainti Varastopaikka</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Whse Demo Data Setup - Field Location Bin - Property Caption</note>
         </trans-unit>
@@ -5759,7 +5759,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3196539198 - NamedType 762629525" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fixed Bins only</source>
-          <target state="translated">Vain kiinteät lokerot</target>
+          <target state="translated">Vain kiinteät varastopaikat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Whse Put Away Template - NamedType SAMEDescTok</note>
         </trans-unit>
