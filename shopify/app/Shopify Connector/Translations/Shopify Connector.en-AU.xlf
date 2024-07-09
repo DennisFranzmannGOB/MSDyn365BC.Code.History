@@ -395,19 +395,19 @@
         </trans-unit>
         <trans-unit id="Table 4260374700 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Line</source>
-          <target state="translated">Fulfillment Line</target>
+          <target state="translated">Fulfilment Line</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Fulfillment Line - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4260374700 - Field 678668393 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Id</source>
-          <target state="translated">Fulfillment Id</target>
+          <target state="translated">Fulfilment Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Fulfillment Line - Field Fulfillment Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4260374700 - Field 4003987339 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Line Id</source>
-          <target state="translated">Fulfillment Line Id</target>
+          <target state="translated">Fulfilment Line Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Fulfillment Line - Field Fulfillment Line Id - Property Caption</note>
         </trans-unit>
@@ -437,7 +437,7 @@
         </trans-unit>
         <trans-unit id="Table 4104547265 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Order Header</source>
-          <target state="translated">Fulfillment Order Header</target>
+          <target state="translated">Fulfilment Order Header</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Property Caption</note>
         </trans-unit>
@@ -455,7 +455,7 @@
         </trans-unit>
         <trans-unit id="Table 4104547265 - Field 192144605 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Order Id</source>
-          <target state="translated">Shopify Fulfillment Order Id</target>
+          <target state="translated">Shopify Fulfilment Order Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Field Shopify Fulfillment Order Id - Property Caption</note>
         </trans-unit>
@@ -479,7 +479,7 @@
         </trans-unit>
         <trans-unit id="Table 695100538 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>FulFillment Order Line</source>
-          <target state="translated">FulFillment Order Line</target>
+          <target state="translated">Fulfilment Order Line</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Line - Property Caption</note>
         </trans-unit>
@@ -503,7 +503,7 @@
         </trans-unit>
         <trans-unit id="Table 695100538 - Field 192144605 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Id</source>
-          <target state="translated">Shopify Fulfillment Id</target>
+          <target state="translated">Shopify Fulfilment Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Line - Field Shopify Fulfillment Order Id - Property Caption</note>
         </trans-unit>
@@ -935,7 +935,7 @@
         </trans-unit>
         <trans-unit id="Table 2325977404 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Order Fulfillment</source>
-          <target state="translated">Shopify Order Fulfillment</target>
+          <target state="translated">Shopify Order Fulfilment</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Fulfillment - Property Caption</note>
         </trans-unit>
@@ -983,7 +983,7 @@
         </trans-unit>
         <trans-unit id="Table 2325977404 - Field 4159319591 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Id</source>
-          <target state="translated">Shopify Fulfillment Id</target>
+          <target state="translated">Shopify Fulfilment Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Fulfillment - Field Shopify Fulfillment Id - Property Caption</note>
         </trans-unit>
@@ -1295,7 +1295,7 @@
         </trans-unit>
         <trans-unit id="Table 75584159 - Field 672695674 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Status</source>
-          <target state="translated">Fulfillment Status</target>
+          <target state="translated">Fulfilment Status</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Header - Field Fulfillment Status - Property Caption</note>
         </trans-unit>
@@ -1757,7 +1757,7 @@
         </trans-unit>
         <trans-unit id="Table 4054626232 - Field 1307489817 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Service</source>
-          <target state="translated">Fulfillment Service</target>
+          <target state="translated">Fulfilment Service</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Line - Field Fulfillment Service - Property Caption</note>
         </trans-unit>
@@ -2255,7 +2255,7 @@
         </trans-unit>
         <trans-unit id="Table 2016272457 - Field 672695674 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Status</source>
-          <target state="translated">Fulfillment Status</target>
+          <target state="translated">Fulfilment Status</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Orders to Import - Field Fulfillment Status - Property Caption</note>
         </trans-unit>
@@ -3155,7 +3155,7 @@
         </trans-unit>
         <trans-unit id="Table 798078572 - Field 4003987339 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Line Id</source>
-          <target state="translated">Fulfillment Line Id</target>
+          <target state="translated">Fulfilment Line Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Return Line - Field Fulfillment Line Id - Property Caption</note>
         </trans-unit>
@@ -3443,7 +3443,7 @@
         </trans-unit>
         <trans-unit id="Table 2860632388 - Field 212651790 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Service Activated</source>
-          <target state="translated">Fulfillment Service Activated</target>
+          <target state="translated">Fulfilment Service Activated</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Fulfillment Service Activated - Property Caption</note>
         </trans-unit>
@@ -3887,7 +3887,7 @@
         </trans-unit>
         <trans-unit id="Table 298531255 - Field 2019373255 - Method 2126772001 - NamedType 2015683432" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You can not use standard Shopify Locations with FulFillment Service Locations.</source>
-          <target state="translated">You can not use standard Shopify Locations with FulFillment Service Locations.</target>
+          <target state="translated">You can not use standard Shopify Locations with Fulfilment Service Locations.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop Location - Field Default Product Location - Method OnValidate - NamedType MixLocationTypeErr</note>
         </trans-unit>
@@ -3905,7 +3905,7 @@
         </trans-unit>
         <trans-unit id="Table 298531255 - Field 1846745759 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Is Fulfillment Service</source>
-          <target state="translated">Is Fulfillment Service</target>
+          <target state="translated">Is Fulfilment Service</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop Location - Field Is Fulfillment Service - Property Caption</note>
         </trans-unit>
@@ -5756,7 +5756,7 @@
         </trans-unit>
         <trans-unit id="Page 1167635784 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Specifies the value of the Shopify Fulfillment Order Id field.</target>
+          <target state="translated">Specifies the value of the Shopify Fulfilment Order Id field.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Card - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -5804,7 +5804,7 @@
         </trans-unit>
         <trans-unit id="Page 4292255143 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Specifies the value of the Shopify Fulfillment Order Id field.</target>
+          <target state="translated">Specifies the value of the Shopify Fulfilment Order Id field.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -5840,7 +5840,7 @@
         </trans-unit>
         <trans-unit id="Page 864923901 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Orders</source>
-          <target state="translated">Fulfillment Orders</target>
+          <target state="translated">Fulfilment Orders</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Orders - Property Caption</note>
         </trans-unit>
@@ -5858,7 +5858,7 @@
         </trans-unit>
         <trans-unit id="Page 864923901 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Specifies the value of the Shopify Fulfillment Order Id field.</target>
+          <target state="translated">Specifies the value of the Shopify Fulfilment Order Id field.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Orders - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -7004,7 +7004,7 @@
         </trans-unit>
         <trans-unit id="Page 2596605181 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Fulfillment,Inspect</source>
-          <target state="translated">New,Process,Report,Fulfillment,Inspect</target>
+          <target state="translated">New,Process,Report,Fulfilment,Inspect</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Property PromotedActionCategories</note>
         </trans-unit>
@@ -7016,13 +7016,13 @@
         </trans-unit>
         <trans-unit id="Page 2596605181 - Control 986080663 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time when the fulfillment was created.</source>
-          <target state="translated">Specifies the date and time when the fulfillment was created.</target>
+          <target state="translated">Specifies the date and time when the fulfilment was created.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Control CreatedAt - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2596605181 - Control 3045250535 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the id for the fulfillment in Shopify.</source>
-          <target state="translated">Specifies the id for the fulfillment in Shopify.</target>
+          <target state="translated">Specifies the id for the fulfilment in Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Control ShopifyFulfillmentId - Property ToolTip</note>
         </trans-unit>
@@ -7034,25 +7034,25 @@
         </trans-unit>
         <trans-unit id="Page 2596605181 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of the fulfillment in Shopify. Valid values are: pending, open, success, cancelled, error, failure.</source>
-          <target state="translated">Specifies the status of the fulfillment in Shopify. Valid values are: pending, open, success, cancelled, error, failure.</target>
+          <target state="translated">Specifies the status of the fulfilment in Shopify. Valid values are: pending, open, success, cancelled, error, failure.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Control Status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2596605181 - Control 3956013896 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tracking number of the fulfillment provided by the shipping company.</source>
-          <target state="translated">Specifies the tracking number of the fulfillment provided by the shipping company.</target>
+          <target state="translated">Specifies the tracking number of the fulfilment provided by the shipping company.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Control TrackingNumber - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2596605181 - Control 2024988880 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the url of the tracking page for the fulfillment.</source>
-          <target state="translated">Specifies the url of the tracking page for the fulfillment.</target>
+          <target state="translated">Specifies the url of the tracking page for the fulfilment.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Control TrackingUrl - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2596605181 - Control 2466615012 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time when the fulfillment was last modified.</source>
-          <target state="translated">Specifies the date and time when the fulfillment was last modified.</target>
+          <target state="translated">Specifies the date and time when the fulfilment was last modified.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Control UpdatedAt - Property ToolTip</note>
         </trans-unit>
@@ -9602,13 +9602,13 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Action 1446691637 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Shopify Fulfillment Service</source>
-          <target state="translated">Create Shopify Fulfillment Service</target>
+          <target state="translated">Create Shopify Fulfilment Service</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action CreateFulfillmentService - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Action 1446691637 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Shopify Fulfillment Service</source>
-          <target state="translated">Create Shopify Fulfillment Service</target>
+          <target state="translated">Create Shopify Fulfilment Service</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action CreateFulfillmentService - Property Caption</note>
         </trans-unit>
@@ -9812,7 +9812,7 @@
         </trans-unit>
         <trans-unit id="Page 3081489686 - Control 1846745759 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if this is a fulfillment service location.</source>
-          <target state="translated">Specifies if this is a fulfillment service location.</target>
+          <target state="translated">Specifies if this is a fulfilment service location.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Locations Mapping - Control Is Fulfillment Service - Property ToolTip</note>
         </trans-unit>
@@ -11309,7 +11309,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1570893165 - Field 842844957 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Id</source>
-          <target state="translated">Shopify Fulfillment Id</target>
+          <target state="translated">Shopify Fulfilment Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3118382297</note>
@@ -11658,7 +11658,7 @@
         </trans-unit>
         <trans-unit id="Enum 1311606030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Status</source>
-          <target state="translated">Shopify Fulfillment Status</target>
+          <target state="translated">Shopify Fulfilment Status</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Fulfillment Status - Property Caption</note>
         </trans-unit>
@@ -11784,7 +11784,7 @@
         </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 4206997083 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Fulfillment Orders From Order</source>
-          <target state="translated">Get Fulfillment Orders From Order</target>
+          <target state="translated">Get Fulfilment Orders From Order</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetFulfillmentOrdersFromOrder - Property Caption</note>
         </trans-unit>
@@ -11820,7 +11820,7 @@
         </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 2354680434 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Next Fulfillment Orders From Order</source>
-          <target state="translated">Get Next Fulfillment Orders From Order</target>
+          <target state="translated">Get Next Fulfilment Orders From Order</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetNextFulfillmentOrdersFromOrder - Property Caption</note>
         </trans-unit>
@@ -11856,7 +11856,7 @@
         </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 3264432796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Next Order Fulfillment Lines</source>
-          <target state="translated">Get Next Order Fulfillment Lines</target>
+          <target state="translated">Get Next Order Fulfilment Lines</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetNextOrderFulfillmentLines - Property Caption</note>
         </trans-unit>
@@ -11934,7 +11934,7 @@
         </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 2379002150 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Order Fulfillment</source>
-          <target state="translated">Get Order Fulfillment</target>
+          <target state="translated">Get Order Fulfilment</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetOrderFulfillment - Property Caption</note>
         </trans-unit>
@@ -12078,7 +12078,7 @@
         </trans-unit>
         <trans-unit id="Enum 2636847231 - EnumValue 519585812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Service</source>
-          <target state="translated">Fulfillment Service</target>
+          <target state="translated">Fulfilment Service</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Inventory Management - EnumValue FULFILLMENT_SERVICE - Property Caption</note>
         </trans-unit>
@@ -13266,7 +13266,7 @@
         </trans-unit>
         <trans-unit id="Enum 3086077854 - EnumValue 1706464680 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>SFC Fulfillment</source>
-          <target state="translated">SFC Fulfillment</target>
+          <target state="translated">SFC Fulfilment</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Tracking Companies - EnumValue SFC Fulfillment - Property Caption</note>
         </trans-unit>
