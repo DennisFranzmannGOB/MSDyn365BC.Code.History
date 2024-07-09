@@ -549,12 +549,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post + Print - NamedType PostPrintBankDepositQst</note>
         </trans-unit>
-        <trans-unit id="Codeunit 4266060842 - NamedType 1524688520" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Before you can navigate on a deposit, you must create and activate a key group called "NavDep". If you cannot do this yourself, ask your system administrator.</source>
-          <target state="translated">Bevor Sie zu einer Einzahlung wechseln können, müssen Sie eine Schlüsselgruppe namens „NavDep“ erstellen und aktivieren. Falls dies nicht möglich ist, wenden Sie sich an den Systemadministrator.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Navigate Bank Deposit Ext. - NamedType RecordWithoutKeysMsg</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2005374712 - NamedType 2681845503" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Deposit Journal</source>
           <target state="translated">Bankeinzahlungs-Erf.-Journal</target>
@@ -2183,7 +2177,7 @@
         </trans-unit>
         <trans-unit id="Report 2614277098 - NamedType 2532215699" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 is not a direct posting account.</source>
-          <target state="translated">%1 %2 ist kein direktes Buchungskonto.</target>
+          <target state="translated">%1 %2 ist kein Direktbuchungskonto.</target>
           <note from="Developer" annotates="general" priority="2">%1 - account field caption, %2 - account code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Bank Deposit Test Report - NamedType DirectPostingAccountErr</note>
         </trans-unit>

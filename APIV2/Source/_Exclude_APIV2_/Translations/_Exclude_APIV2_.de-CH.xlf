@@ -363,17 +363,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Aged AR - Control period1Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 490418399 - Control 3048673958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period 1 Label</source>
+          <target state="translated">Beschriftung für Periode 1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Aged AR - Control period1Label - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 490418399 - Control 446687197 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Period 2</source>
           <target state="translated">Periode 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Aged AR - Control period2Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 490418399 - Control 3818940691 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period 2 Label</source>
+          <target state="translated">Beschriftung für Periode 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Aged AR - Control period2Label - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 490418399 - Control 939300790 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Period 3</source>
           <target state="translated">Periode 3</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Aged AR - Control period3Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 490418399 - Control 3358733860 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period 3 Label</source>
+          <target state="translated">Beschriftung für Periode 3</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Aged AR - Control period3Label - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 490418399 - Control 3257738371 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Period Length</source>
@@ -2402,6 +2420,42 @@
           <target state="translated">Datum der letzten Änderung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Cust. Return Reasons - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 996369061 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>APIV2 - CustContacts</source>
+          <target state="translated">APIV2 – Debitorenkontakte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - CustContacts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 996369061 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Contact</source>
+          <target state="translated">Debitorenkontakt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - CustContacts - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 996369061 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Contacts</source>
+          <target state="translated">Debitorenkontakte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - CustContacts - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 996369061 - Method 3530100688 - NamedType 1068237774" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer with provided id - does not exist</source>
+          <target state="translated">Debitor mit angegebener ID – existiert nicht</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - CustContacts - Method OnModifyRecord - NamedType CustomerWithProvidedIdDoesNotExistErr</note>
+        </trans-unit>
+        <trans-unit id="Page 996369061 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - CustContacts - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 996369061 - Control 3310713783 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Document</source>
+          <target state="translated">PDF-Dokument</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - CustContacts - Control pdfDocument - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2757592336 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Customer Payments</source>
