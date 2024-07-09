@@ -305,7 +305,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 808841163 - NamedType 3295597712" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The VAT Due Box No. is missing in VAT Report Setup.</source>
-          <target state="translated">Het nummer van het vak Te betalen btw ontbreekt in de btw-rapportinstelling.</target>
+          <target state="translated">Het vaknummer Te betalen btw ontbreekt in de btw-rapportinstelling.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Group Settlement - NamedType NoDueBoxNoErr</note>
         </trans-unit>
