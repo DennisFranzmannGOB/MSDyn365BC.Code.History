@@ -19,25 +19,28 @@
       "path": "./Email - Outlook REST API/Test"
     },
     {
+      "path": "./PaymentPractices/Test/Payment Practices Tests"
+    },
+    {
       "path": "./DataArchive/test/Data Archive Tests"
     },
     {
       "path": "./INGST/Test/India GST Tests"
     },
     {
-      "path": "./salesandinventoryforecast/test/Sales and Inventory Forecast Tests"
+      "path": "./Onprem Permissions/Test/OnPrem Permissions Tests"
     },
     {
       "path": "./ErrorMessagesWithRecommendations/test/Error Messages with Recommendations Tests"
     },
     {
-      "path": "./shopify/test/Shopify Connector Test"
+      "path": "./ReviewGLEntries/Test/_Exclude_Review_General_Ledger_Entries_Tests"
     },
     {
       "path": "./DataSearch/test/Data Search Tests"
     },
     {
-      "path": "./reviewglentries/Test/_Exclude_Review_General_Ledger_Entries_Tests"
+      "path": "./PayPalPaymentsStandard/Test/PayPal Payments Standard Tests"
     },
     {
       "path": "./Email - SMTP Connector/Test/Email - SMTP Connector Tests"
@@ -49,31 +52,31 @@
       "path": "./MasterDataManagement/Test/_Exclude_Master_Data_Management_Tests"
     },
     {
-      "path": "./Email - Microsoft 365 Connector/Test/Email - Microsoft 365 Connector Tests"
+      "path": "./SalesAndInventoryForecast/Test/Sales and Inventory Forecast Tests"
     },
     {
-      "path": "./recommendedapps/test/Recommended Apps Tests"
+      "path": "./Email - Microsoft 365 Connector/Test/Email - Microsoft 365 Connector Tests"
     },
     {
       "path": "./INTaxBase/Test/India Tax Base Tests"
     },
     {
-      "path": "./sustainability/test/Sustainability Tests"
+      "path": "./SalesLinesSuggestions/Test/Sales Lines Suggestions Tests"
     },
     {
       "path": "./ExternalEvents/test/_Exclude_Business_Events_Test"
     },
     {
-      "path": "./ReportLayouts/test/Report Layouts Tests"
-    },
-    {
-      "path": "./paymentpractices/test/Payment Practices Tests"
+      "path": "./ReportLayouts/Test/Report Layouts Tests"
     },
     {
       "path": "./INChargeGroup/Test/India Charge Group Tests"
     },
     {
-      "path": "./testframework/TestLibraries"
+      "path": "./StatisticalAccounts/Test/Statistical Accounts Tests"
+    },
+    {
+      "path": "./testframework/testlibraries"
     },
     {
       "path": "./testframework/teststabilitytools"
@@ -88,6 +91,9 @@
       "path": "./testframework/performancetoolkit/Performance Toolkit Tests/src/Mock Tests"
     },
     {
+      "path": "./Sustainability/Test/Sustainability Tests"
+    },
+    {
       "path": "./EssentialBusinessHeadlines/Test/Essential Business Headlines Test"
     },
     {
@@ -97,34 +103,25 @@
       "path": "./BusinessFoundation/Test/Business Foundation Tests"
     },
     {
+      "path": "./FieldServiceIntegration/Test Library/Field Service Integration Test Library"
+    },
+    {
+      "path": "./FieldServiceIntegration/Test/Field Service Integration Test"
+    },
+    {
       "path": "./INReports/Test/India Reports Tests"
     },
     {
       "path": "./INVoucherInterface/Test/India Voucher Interface Tests"
     },
     {
-      "path": "./system application/source/System Application/Email/src/Test Email"
-    },
-    {
-      "path": "./system application/test/System Application Test Library"
-    },
-    {
-      "path": "./system application/test/System Application Test/DisabledTests"
-    },
-    {
-      "path": "./system application/test/System Application Test/Extension Management/testArtifacts"
-    },
-    {
       "path": "./BankDeposits/Test/_Exclude_Bank Deposits Tests"
     },
     {
-      "path": "./saleslinessuggestions/test/Sales Lines Suggestions Tests"
+      "path": "./Shopify/test/Shopify Connector Test"
     },
     {
       "path": "./INTaxEngine/Test/Tax Engine Test"
-    },
-    {
-      "path": "./paypalpaymentsstandard/test/PayPal Payments Standard Tests"
     },
     {
       "path": "./Email - SMTP API/Test Library/Email - SMTP API Test Library"
@@ -133,19 +130,19 @@
       "path": "./Email - SMTP API/Test/Email - SMTP API Tests"
     },
     {
-      "path": "./onprem permissions/test/OnPrem Permissions Tests"
-    },
-    {
-      "path": "./statisticalaccounts/test/Statistical Accounts Tests"
-    },
-    {
       "path": "./AuditFileExport/Test/Audit File Export Tests"
+    },
+    {
+      "path": "./SimplifiedBankStatementImport/Test/Simplified Bank Statement Import Test"
     },
     {
       "path": "./BankAccRecWithAI/Test/Bank Account Reconciliation With AI Tests"
     },
     {
       "path": "./INFADepreciation/Test/Fixed Asset Depreciation Tests"
+    },
+    {
+      "path": "./RecommendedApps/Test/Recommended Apps Tests"
     },
     {
       "path": "./PlanConfiguration/Test/_Exclude_PlanConfiguration_ Tests"
@@ -160,13 +157,22 @@
       "path": "./ContosoCoffeeDemoDataset/Test/Contoso Coffee Demo Dataset Tests/src/TestImplementations"
     },
     {
+      "path": "./System Application/Source/System Application/Email/src/Test Email"
+    },
+    {
+      "path": "./System Application/Test/System Application Test Library"
+    },
+    {
+      "path": "./System Application/Test/System Application Test/DisabledTests"
+    },
+    {
+      "path": "./System Application/Test/System Application Test/Extension Management/testArtifacts"
+    },
+    {
       "path": "./INTCS/Test/India TCS Tests"
     },
     {
       "path": "./Email - Current User Connector/Test/Email - Current User Connector Tests"
-    },
-    {
-      "path": "./simplifiedbankstatementimport/test/Simplified Bank Statement Import Test"
     },
     {
       "path": "./BaseApp/Source/Base Application/System/DevTools/CALTest"
@@ -272,11 +278,11 @@
     }
   ],
   "settings": {
-    "al.enableCodeAnalysis": false,
-    "allint.enabled": false,
-    "al.enableCodeActions": false,
     "search.exclude": {
       "**.xlf": true
-    }
+    },
+    "allint.enabled": false,
+    "al.enableCodeAnalysis": false,
+    "al.enableCodeActions": false
   }
 }
