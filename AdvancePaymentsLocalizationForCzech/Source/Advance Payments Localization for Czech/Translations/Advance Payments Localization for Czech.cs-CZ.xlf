@@ -555,6 +555,12 @@
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Bill-to Contact No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType DocumentResetErr</note>
         </trans-unit>
+        <trans-unit id="Table 3911307783 - NamedType 2809735751" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document because there are posted entries.</source>
+          <target state="translated">Tento doklad nelze odstranit, protože obsahuje zaúčtované položky.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType PostedEntriesExistErr</note>
+        </trans-unit>
         <trans-unit id="Table 3911307783 - Method 309369460 - NamedType 950164456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency exchange rate not found.</source>
           <target state="translated">Směnný kurz měny nebyl nalezen.</target>
@@ -1298,6 +1304,12 @@
           <target state="translated">%1 nemůžete vymazat, protože doklad stále obsahuje aspoň jeden řádek.</target>
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Bill-to Contact No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType DocumentResetErr</note>
+        </trans-unit>
+        <trans-unit id="Table 2442512937 - NamedType 2809735751" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document because there are posted entries.</source>
+          <target state="translated">Tento doklad nelze odstranit, protože obsahuje zaúčtované položky.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType PostedEntriesExistErr</note>
         </trans-unit>
         <trans-unit id="Table 2442512937 - Method 1260276643 - NamedType 158098482" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact %1 %2 is related to a different company than customer %3.</source>
@@ -8033,7 +8045,7 @@
         </trans-unit>
         <trans-unit id="Report 234735014 - ReportLayout 564450890 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Sales Advance Letter Email (Word) provides an email body layout.</source>
-          <target state="translated">Prodejní zálohová faktura email (Word) poskytuje rozvržení textu emailu.</target>
+          <target state="translated">Prodej - zálohová faktura email (Word) poskytuje rozvržení těla emailu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance Letter CZZ - ReportLayout SalesAdvanceLetterEmail.docx - Property Summary</note>
         </trans-unit>
