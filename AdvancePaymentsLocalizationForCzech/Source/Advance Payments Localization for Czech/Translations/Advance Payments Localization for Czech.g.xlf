@@ -358,6 +358,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Bill-to Contact No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType DocumentResetErr</note>
         </trans-unit>
+        <trans-unit id="Table 3911307783 - NamedType 2809735751" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document because there are posted entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType PostedEntriesExistErr</note>
+        </trans-unit>
         <trans-unit id="Table 3911307783 - Method 309369460 - NamedType 950164456" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency exchange rate not found.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -977,6 +982,11 @@
           <source>You cannot reset %1 because the document still has one or more lines.</source>
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Bill-to Contact No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType DocumentResetErr</note>
+        </trans-unit>
+        <trans-unit id="Table 2442512937 - NamedType 2809735751" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document because there are posted entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType PostedEntriesExistErr</note>
         </trans-unit>
         <trans-unit id="Table 2442512937 - Method 1260276643 - NamedType 158098482" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact %1 %2 is related to a different company than customer %3.</source>
