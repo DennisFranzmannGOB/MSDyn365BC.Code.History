@@ -1715,7 +1715,7 @@
         </trans-unit>
         <trans-unit id="Page 2291221921 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Flow Statement</source>
-          <target state="translated">Extracto flujos efectivo</target>
+          <target state="translated">Extracto de flujo de efectivo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Cash Flow Statement - Property EntityCaption</note>
         </trans-unit>
