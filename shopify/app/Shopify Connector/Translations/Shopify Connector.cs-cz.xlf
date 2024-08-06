@@ -5625,6 +5625,7 @@
         </trans-unit>
         <trans-unit id="Page 3918578631 - Control 3125899008 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Orders that you synch from Shopify can automatically become sales orders in Business Central (recommended). The item quantities on these orders are then part of inventory planning and availability in Business Central. You can also import orders to the Shopify Orders page and then turn them into sales orders manually. </source>
+          <target state="translated">Objednávky, které synchronizujete z Shopify, se mohou automaticky stát prodejními objednávkami v Business Central (doporučeno). Množství zboží na těchto objednávkách je pak součástí plánování zásob a dostupnosti v Business Central. Můžete také importovat objednávky na stránku Objednávky Shopify a poté je ručně převést na prodejní objednávky.  </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Connector Guide - Control Control12 - Property InstructionalText</note>
         </trans-unit>
