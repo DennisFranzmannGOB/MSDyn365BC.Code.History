@@ -365,8 +365,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Matched Total Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 942123106 - Control 2007041360 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched Total Amount Incl. VAT</source>
-          <target state="translated">Spárovaná Částka celkem včetně DPH</target>
+          <source>Matched Total Amount Excl. VAT</source>
+          <target state="translated">Spárovaná celková částka bez DPH</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Matched Total Amount - Property Caption</note>
         </trans-unit>
