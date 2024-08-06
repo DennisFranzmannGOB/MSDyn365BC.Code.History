@@ -2919,6 +2919,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4205038922 - NamedType 2237935850" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to retrieve the Microsoft Entra tenant country letter code.</source>
+          <target state="translated">Nepodařilo se načíst písmenný kód země Microsoft Entra tenanta.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType CountryLetterCodeErr</note>
         </trans-unit>
