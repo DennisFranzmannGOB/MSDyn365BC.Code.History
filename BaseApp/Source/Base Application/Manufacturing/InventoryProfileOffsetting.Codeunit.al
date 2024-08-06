@@ -2288,8 +2288,8 @@ codeunit 99000854 "Inventory Profile Offsetting"
                               TempSKU."Reorder Quantity";
                 end;
 
-            if not ((TempSKU."Reordering Policy" = TempSKU."Reordering Policy"::"Lot-for-Lot")
-                and (TempSKU."Manufacturing Policy" = TempSKU."Manufacturing Policy"::"Make-to-Order")) then
+            if ((TempSKU."Replenishment System" = TempSKU."Replenishment System"::"Prod. Order") and (TempSKU."Manufacturing Policy" = TempSKU."Manufacturing Policy"::"Make-to-Stock"))
+                or (TempSKU."Replenishment System" = TempSKU."Replenishment System"::Purchase) then
                 ReorderQty += AdjustReorderQty(ReorderQty, TempSKU, SupplyInvtProfile."Line No.", SupplyInvtProfile."Min. Quantity");
             SupplyInvtProfile."Max. Quantity" := TempSKU."Maximum Order Quantity";
         end;
@@ -4317,10 +4317,12 @@ codeunit 99000854 "Inventory Profile Offsetting"
         DemandInvtProfile.SetFilter("Due Date", '%1..', PlanningStartDate);
         if DemandInvtProfile.FindSet() then
             repeat
-                if TempSafetyStockInvtProfile."Due Date" <> DemandInvtProfile."Due Date" then
+                if TempSafetyStockInvtProfile."Due Date" <> DemandInvtProfile."Due Date" then begin
                     CreateDemand(
-                      TempSafetyStockInvtProfile, TempSKU, TempSKU."Safety Stock Quantity",
-                      DemandInvtProfile."Due Date", OrderRelation::"Safety Stock");
+                        TempSafetyStockInvtProfile, TempSKU, TempSKU."Safety Stock Quantity", DemandInvtProfile."Due Date", OrderRelation::"Safety Stock");
+                    TempSafetyStockInvtProfile."MPS Order" := DemandInvtProfile."MPS Order";
+                    TempSafetyStockInvtProfile.Modify();
+                end;
             until DemandInvtProfile.Next() = 0;
 
         DemandInvtProfile.SetRange("Due Date", PlanningStartDate);
