@@ -375,6 +375,12 @@
           <note from="Developer" annotates="general" priority="2">%1=No. Series Code,%2=Date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit No. Series - Impl. - NamedType CannotAssignNewOnDateErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2854004809 - NamedType 1333705271" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Argument NoSeriesCode in GetNoSeriesLine cannot be blank.</source>
+          <target state="translated">El argumento NoSeriesCode de GetNoSeriesLine no puede estar en blanco.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit No. Series - Impl. - NamedType CannotGetNoSeriesLineNoWithEmtpyCodeErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2854004809 - NamedType 1752763935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You have one or more documents that must be posted before you post document no. %1 according to your company's No. Series setup.</source>
           <target state="translated">Tiene uno o más documentos que deben publicarse antes de publicar el documento n.º %1 según la configuración de n.º de serie de su empresa.</target>
