@@ -587,7 +587,7 @@
         </trans-unit>
         <trans-unit id="Table 3132071445 - Field 694900210 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Def. VAT Reg. No. for Unknown State</source>
-          <target state="translated">Vých. DPH pro neznámý stát</target>
+          <target state="translated">Vých. DIČ pro neznámý stát</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Def. VAT for Unknown State - Property Caption</note>
         </trans-unit>
