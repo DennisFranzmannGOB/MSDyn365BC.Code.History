@@ -1783,25 +1783,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Rel. Sales Adv.Letter Doc. CZZ - NamedType NegativeAmountErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1496175903 - Method 3807355560 - NamedType 2129717482" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 1496175903 - Method 1436490949 - NamedType 2129717482" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Advance</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnAfterGetFullDocumentTypeText - NamedType SalesAdvanceLetterLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnGetFullDocumentTypeTextElseCase - NamedType SalesAdvanceLetterLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1496175903 - Method 3807355560 - NamedType 4286175424" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 1496175903 - Method 1436490949 - NamedType 4286175424" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Advance VAT Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnAfterGetFullDocumentTypeText - NamedType SalesAdvanceVATDocumentLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnGetFullDocumentTypeTextElseCase - NamedType SalesAdvanceVATDocumentLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1496175903 - Method 3807355560 - NamedType 2803376271" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 1496175903 - Method 1436490949 - NamedType 2803376271" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Advance</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnAfterGetFullDocumentTypeText - NamedType PurchaseAdvanceLetterLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnGetFullDocumentTypeTextElseCase - NamedType PurchaseAdvanceLetterLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1496175903 - Method 3807355560 - NamedType 1932186993" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 1496175903 - Method 1436490949 - NamedType 1932186993" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Advance VAT Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnAfterGetFullDocumentTypeText - NamedType PurchaseAdvanceVATDocumentLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnGetFullDocumentTypeTextElseCase - NamedType PurchaseAdvanceVATDocumentLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 902366887 - NamedType 696753126" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount has been exceeded.</source>
