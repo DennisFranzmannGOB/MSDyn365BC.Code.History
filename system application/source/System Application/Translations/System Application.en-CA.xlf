@@ -15502,6 +15502,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Page Summary Settings - Control TryItOutGroup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3710634574 - Control 978979479 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>💡 If you have not yet installed the Business Central app for Teams, a banner will appear when you share the link to a Business Central page. Follow the link in the banner to install the app.</source>
+          <target state="translated">💡 If you have not yet installed the Business Central app for Teams, a banner will appear when you share the link to a Business Central page. Follow the link in the banner to install the app.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Page Summary Settings - Control TryItOutPara3 - Property InstructionalText</note>
+        </trans-unit>
         <trans-unit id="Page 3710634574 - Control 2155089278 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go to any list or card page and use the Share to Teams action.</source>
           <target state="translated">Go to any list or card page and use the Share to Teams action.</target>
