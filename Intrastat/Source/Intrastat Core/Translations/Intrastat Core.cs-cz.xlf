@@ -587,6 +587,7 @@
         </trans-unit>
         <trans-unit id="Table 3132071445 - Field 694900210 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Def. VAT Reg. No. for Unknown State</source>
+          <target state="translated">Vých. DIČ pro neznámý stát</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Def. VAT for Unknown State - Property Caption</note>
         </trans-unit>
@@ -1126,6 +1127,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 4168804269 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shows the default receiving country code.</source>
+          <target state="translated">Zobrazuje výchozí kód přijímající země.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. Country/Region Code - Property ToolTip</note>
         </trans-unit>
@@ -1137,6 +1139,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 694900210 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default VAT number for unknown state.</source>
+          <target state="translated">Určuje výchozí DIČ pro neznámý stát.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. VAT for Unknown State - Property ToolTip</note>
         </trans-unit>
@@ -1208,6 +1211,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 3496517085 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies based on which country code Intrastat report lines are taken.</source>
+          <target state="translated">Určuje, na základě kterého kódu země se přebírají řádky výkazu Intrastat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Shipments Based On - Property ToolTip</note>
         </trans-unit>
@@ -1379,11 +1383,13 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 2681653000 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how the company's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
+          <target state="translated">Určuje, jak se DIČ společnosti exportuje do souboru Intrastat. 0 je hodnota pole DIČ, 1 přidá kód země EU jako předčíslí a 2 odstraní kód země EU.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Company VAT No. on File - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 1818799312 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a customer's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
+          <target state="translated">Určuje, jak se DIČ zákazníka exportuje do souboru Intrastat. 0 je hodnota pole DIČ, 1 přidá kód země EU jako předčíslí a 2 odstraní kód země EU.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Cust. VAT No. on File - Property ToolTip</note>
         </trans-unit>
@@ -1437,6 +1443,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 3496517085 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies based on which country code Intrastat report lines are taken.</source>
+          <target state="translated">Určuje, na základě kterého kódu země se přebírají řádky výkazu Intrastat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Shipments Based On - Property ToolTip</note>
         </trans-unit>
@@ -1448,6 +1455,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 2680197960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a vendor's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
+          <target state="translated">Určuje, jak se DIČ dodavatele exportuje do souboru Intrastat. 0 je hodnota pole DIČ, 1 přidá kód země EU jako předčíslí a 2 odstraní kód země EU.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Vend. VAT No. on File - Property ToolTip</note>
         </trans-unit>
@@ -1465,6 +1473,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 4168804269 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shows the default receiving country code.</source>
+          <target state="translated">Zobrazuje výchozí kód přijímající země.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Def. Country/Region Code - Property ToolTip</note>
         </trans-unit>
@@ -1476,6 +1485,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 694900210 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default VAT number for unknown state.</source>
+          <target state="translated">Určuje výchozí DIČ pro neznámý stát.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Def. VAT for Unknown State - Property ToolTip</note>
         </trans-unit>
