@@ -12576,6 +12576,7 @@
         </trans-unit>
         <trans-unit id="Enum 2486473030 - EnumValue 1727073202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Not as Described</source>
+          <target state="translated">Ne tak, jak je popsáno</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Return Reason - EnumValue Not as Described - Property Caption</note>
         </trans-unit>
