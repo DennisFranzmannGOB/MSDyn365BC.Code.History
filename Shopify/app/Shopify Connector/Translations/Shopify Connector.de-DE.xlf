@@ -351,6 +351,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Company Location - Field Province Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 225231194 - Field 2554532371 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Registration Id</source>
+          <target state="translated">Steuer-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Company Location - Field Tax Registration Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 225231194 - Field 1653072429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Zip</source>
           <target state="translated">Zip</target>
@@ -854,6 +860,12 @@
           <target state="translated">Art der Übermittlungsmethode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Line - Field Delivery Method Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 695100538 - Field 672695674 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fulfillment Status</source>
+          <target state="translated">Erfüllungsstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Line - Field Fulfillment Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 695100538 - Field 119167244 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Qty. to Fulfill</source>
@@ -6068,6 +6080,18 @@
           <target state="translated">Hinweis</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Company Card - Control Note - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1026698561 - Control 3852170108 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the company's tax ID.</source>
+          <target state="translated">Gibt die Steuer-ID des Mandanten an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Company Card - Control TaxId - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1026698561 - Control 3852170108 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Id</source>
+          <target state="translated">Steuernummer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Company Card - Control TaxId - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1026698561 - Control 668720920 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mapping</source>
