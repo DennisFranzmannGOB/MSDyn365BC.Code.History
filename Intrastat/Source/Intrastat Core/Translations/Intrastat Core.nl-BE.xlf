@@ -653,7 +653,7 @@
         </trans-unit>
         <trans-unit id="Table 3132071445 - Field 3033389719 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report Shipments</source>
-          <target state="translated">Rapportverzendingen</target>
+          <target state="translated">Verzendingen rapporteren</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Report Shipments - Property Caption</note>
         </trans-unit>
