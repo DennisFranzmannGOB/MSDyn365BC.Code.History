@@ -22962,12 +22962,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType CapabilityDisabledErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2424830836 - NamedType 2202762837" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sorry, we could not generate a good suggestion for this. Review the information provided, consider your choice of words, and try again.</source>
-          <target state="translated">Je nám líto, ale nepodařilo se nám vytvořit dobrý návrh. Zkontrolujte poskytnuté informace, zvažte výběr slov a zkuste to znovu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType CompletionDeniedPhraseErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2424830836 - NamedType 1622659800" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There's not enough information available to draft a text. Please provide more.</source>
           <target state="translated">Pro vytvoření konceptu textu není k dispozici dostatek informací. Uveďte prosím více.</target>
@@ -22992,23 +22986,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType NotEnoughFactsForFormatErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2424830836 - NamedType 2259528229" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The prompt definition is in an invalid format.</source>
-          <target state="translated">Definice výzvy je v neplatném formátu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType PromptFormatInvalidErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2424830836 - NamedType 3425926764" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Required properties are missing from the prompt definition.</source>
-          <target state="translated">V definici výzvy chybí požadované vlastnosti.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType PromptFormatMissingPropsErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2424830836 - NamedType 237047910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The prompt definition could not be found.</source>
-          <target state="translated">Definice výzvy nebyla nalezena.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType PromptNotFoundErr</note>
+        <trans-unit id="Codeunit 400490011 - NamedType 2568840905" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There was an error with sending the call to Copilot. Log a Business Central support request about this.</source>
+          <target state="translated">Při odesílání hovoru nástroji Copilot došlo k chybě. Odešlete k tomu požadavek na podporu Business Central.</target>
+          <note from="Developer" annotates="general" priority="2">Copilot is a Microsoft service name and must not be translated</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Prompts - NamedType ConstructingPromptFailedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 162089418 - NamedType 758613225" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ</source>
